@@ -23,7 +23,7 @@
 An official Texas inspection station, right on Mockingbird Lane.
 
 ## Services
-- Annual state vehicle inspection: The annual state vehicle inspection, offered for every car.
+- Annual state vehicle inspection: The annual state vehicle inspection, as required by the state of Texas.
 - Repairs related to safety of vehicle: Repairs related to the safety of your vehicle.
 - Advice if your vehicle fails the inspection: We provide advice to customers if their vehicle fails the inspection.
 
