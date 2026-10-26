@@ -1,0 +1,48 @@
+# Allstate Auto Repair
+
+> Full service car repair and maintenance on Foothill Blvd in La Crescenta. Rated 4.7 on Google from 46 reviews. Oil changes, brakes, tires and more.
+
+- Type: Car repair and maintenance service
+- Address: 3424 Foothill Blvd, La Crescenta-Montrose, CA 91214, USA
+- Phone: (818) 248-1419
+- Email: allstateautorepair@yahoo.com
+- Website: https://ronaks-code.github.io/sitelift-demos/allstate-auto-repair/
+- Google Maps: https://maps.google.com/?cid=13461441371461212588&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 46 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Allstate Auto Repair is a full service automotive repair and maintenance shop serving the La Crescenta area. We keep things friendly, clean and efficient, because we know car trouble can be stressful.
+Juan, the owner, supervises the work in the shop, and many of our customers have been bringing their cars to us for years. Reviewers often say the same things about us: honest, efficient and professional.
+We hold a 4.7 rating on Google from 46 reviews, and we're grateful to every neighbor who has trusted us with their car.
+
+## Services
+- Oil changes: Oil changes to keep your car maintained and running well.
+- Brakes and shocks: Brake and shock work for your car.
+- Tires and batteries: Tire and battery replacement.
+- Engine repair: Engine work along with general repairs for your vehicle.
+
+## FAQ
+Q: What kind of work do you do?
+A: We're a full service shop, so we handle both maintenance and repairs for your car.
+
+Q: My car has been sitting for a long time. Can you check it over?
+A: Yes. We can look the car over for any maintenance it needs and make sure it's safe to drive again.
+
+Q: Who will be working on my car?
+A: Juan, the owner, and his team. Juan supervises the work done in the shop.
+
+## What customers say
+- "Due to an illness, my car was sitting for over 2 years in the driveway. I wanted to have it thoroughly checked out for any necessary maintenance and safety's sake. I knew I would be replacing the tires and the battery, so some cost would be involved. There were some additional fixes needed, which were relatively nominal and some extra actions that were performed for good will. I have been taking my car to Allstate for years and Juan has never disappointed me with his efficient and friendly manner. I so appreciate having an auto repair shop of this caliber in my neighborhood." (Sheila Ortega, 5/5)
+- "This is a down to earth small business that mixes quality care with business. Hard to find these days! I am very picky with who takes care of my car! I have been extremely happy with service and care for my vehicle here! Communication is great, questions get answered! Thanks to Allstate employees and Juan at the front lines! I highly recommend!" (Robin Madrid, 5/5)
+- "I have been a customer of Allstate Auto Repair for many years.  They have maintained and repaired my vehicles: oil changes, brakes, tires, engine, shocks, repairs, and just about everything I need. Everything is done at a fair price, in a reasonable amount of time, and with great customer service.  Juan and his staff are the best around!." (DODGERDAN1977, 5/5)
+- "Allstate: reliable, honest and always excels in everything they do for your car. Amazing and timely work supervised by Juan, the owner. We have been taking our vehicles there for 23 years!" (Eileen Mcnulty, 5/5)
+- "Juan and his team have always taken great care of our cars, over the past 19 years,  and this time was no different. They are honest, efficient, and professional." (Mernie Meier, 5/5)

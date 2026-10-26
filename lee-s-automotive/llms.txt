@@ -1,0 +1,56 @@
+# Lee's Automotive
+
+> Family-owned auto repair on Main St in Woodstock, GA. Brakes, engine, transmission, A/C and maintenance. Rated 4.4 on Google from 126 reviews.
+
+- Type: Car repair and maintenance service
+- Address: 10138 Main St, Woodstock, GA 30188, USA
+- Phone: (770) 926-0657
+- Email: ryan@leesautomotive.net
+- Website: https://ronaks-code.github.io/sitelift-demos/lee-s-automotive/
+- Google Maps: https://maps.google.com/?cid=15213792743892317556&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.4 from 126 reviews
+
+## Hours
+- Monday: 7:30 AM – 4:30 PM
+- Tuesday: 7:30 AM – 4:30 PM
+- Wednesday: 7:30 AM – 4:30 PM
+- Thursday: 7:30 AM – 4:30 PM
+- Friday: 7:30 AM – 4:30 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Lee started out fixing cars in Marietta, then bought the property on Main St in Woodstock and moved the shop here. Back then the lot was full of junk cars and the front was bare dirt, and when it rained Lee shoveled mud out of the bays before he could start work. He built it into a family shop, working alongside his sons, while his wife ran a flower shop and greenhouse out back called Indigo Growers. That little building is still on the property.
+Ryan joined the shop as an ASE Certified Master Technician and later bought the business from Lee. Today he runs it with technicians Ben and Lily and service advisor Taylor, and the same values still guide the work: honesty, quality repairs, and treating customers like family.
+Neighbors rate us 4.4 on Google from 126 reviews. If something on your car doesn't feel right, call or stop by and we'll talk it through with you.
+
+## Services
+- Oil and filter changes: Routine oil and filter changes to keep your engine running right.
+- Manufacturer scheduled maintenance: Maintenance at the mileage intervals your vehicle's maker recommends.
+- Brake services: Brake inspections, maintenance and repair.
+- Engine and transmission work: From tune-ups to full engine and transmission replacement.
+- Check engine light diagnosis: We track down what's behind the light and explain it plainly before any work is done.
+- Steering and suspension: Inspections and repairs for steering and suspension problems.
+- Heating and A/C repair: Diagnosis and repair when your heat or air conditioning quits.
+- Battery testing and replacement: We'll test your battery and replace it if it's on its way out.
+- Diesel oil and filter changes: Oil, oil filter and fuel filter changes for diesel vehicles.
+- Pre-purchase inspection: Have us look over a used car before you buy it.
+
+## FAQ
+Q: What days are you open?
+A: We're open Monday through Friday and closed on weekends.
+
+Q: Do you work on my kind of car?
+A: Our technicians service most makes and models, whether it's a daily commuter, a family vehicle, a work truck or a performance car.
+
+Q: I'm not sure what maintenance my car needs. Can you help?
+A: Yes. We can look over your vehicle's service history and the manufacturer's recommendations and put together a maintenance plan for your car.
+
+Q: How do I schedule an appointment?
+A: Give us a call, send an email, use the contact form, or use the Book Appointment button on our site.
+
+## What customers say
+- "They were great! I brought my 2013 Hyundai Santa Fe Sport in the first time for a tune up and suspension issue. They fixed everything in a timely manner. I went back when my check engine light came on. My turbo was going bad. The part on my turbo wasn't an easy fix, but they worked hard to get it fixed exactly as it should be. It required a lot of recalibration and it had to be exact. All the mechanics were great and Anthony, the manager was awesome too. He kept communication open with me and I felt heard with my perspective of the problem with my car. I will definitely continue to take my car to Lee's Automotive." (Natasha Friesz, 5/5)
+- "I just found my new favorite mechanics for my 2021 Mazda CX-30. The A/C didn’t work and they tried all the less expensive items before jumping to the compressor. I live in Decatur and drove back out the next morning for them to change the compressor. I will always make the drive for my big ticket items. Great service and staff." (sinead Keenan, 5/5)
+- "I take my Corvette and Accord here. These guys are the absolute best! I trust them with my vehicles 100%, and this is the only place I will take them. They always find and fix any issue, the pricing is always amazing, and the staff is exceptional and confident. I highly recommend!" (David Long, 5/5)
+- "Lee's Automotive are without doubt some of the most honest mechanics I've ever dealt with in my life! Do yourself a favor and find out for yourself! I guarantee you won't be disappointed!" (James Cordell, 5/5)

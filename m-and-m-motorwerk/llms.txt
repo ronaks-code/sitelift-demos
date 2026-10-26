@@ -1,0 +1,47 @@
+# M&M Motorwerk
+
+> BMW, Porsche and European car service, maintenance and repair in Schiller Park, IL. Rated 4.6 from 43 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 4424 Soo Line Ln, Schiller Park, IL 60176, USA
+- Phone: (847) 671-3300
+- Email: marin@mmmotorwerke.com
+- Website: https://ronaks-code.github.io/sitelift-demos/m-and-m-motorwerk/
+- Google Maps: https://maps.google.com/?cid=3884444815844486951&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 43 reviews
+
+## Hours
+- Monday: 9:00 AM – 6:00 PM
+- Tuesday: 9:00 AM – 6:00 PM
+- Wednesday: 9:00 AM – 6:00 PM
+- Thursday: 9:00 AM – 6:00 PM
+- Friday: 9:00 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+M&M Motorwerk is a small European car shop on Soo Line Lane in Schiller Park. We handle preventive maintenance, diagnosis and repairs for European cars, sports and exotic vehicles, and BMW and Porsche are the cars we care about most.
+Unlike big shops and dealers, we like to deal with you one on one and build a relationship that lasts. Stop by, give us a call, or send an email with any question about your car. We speak English, Polish, Russian and Bulgarian.
+Owners who have come to us talk about Marin's honesty, his knowledge of German cars, and fair pricing. We hold a 4.6 rating from 43 Google reviews.
+
+## Services
+- European car diagnosis and repair: Diagnosis and repairs for all European cars, including sports and exotic cars.
+- Preventative maintenance: Regular maintenance to keep your European car running the way it should.
+- Engine, transmission and differential work: Overhauls, upgrades and performance work on engines, transmissions and differentials.
+
+## FAQ
+Q: What cars do you work on?
+A: We specialize in BMW and Porsche, and we work on European cars and trucks in general.
+
+Q: When are you open?
+A: Monday through Friday, 9 AM to 6 PM. We are closed Saturday and Sunday.
+
+Q: Where is the shop?
+A: We are on Soo Line Lane in Schiller Park, 3 blocks off Irving Park Road and River Road.
+
+## What customers say
+- "Marin is the most honest person in this industry. He doesn’t charm you like the guys in big dealerships to rip you off but he does the  absolute best job for the best price on your german car. Is is way more knowledgeable than any other mechanic in this field. I have always been impressed with his skills and knowledge and honesty." (sepehr evoghli, 5/5)
+- "Had to do some maintenance on my 2008 M5 due to some check engine light. Marin diagnosed the car and did all the work in a timely manner. Will definitely go back for any work on my German cars, and I will gladly recommend him to all my friends." (Anthony P., 5/5)
+- "Highly recommend this shop, best guys for any European Cars, My BMW got second life after service. Fair pricing and awesome, honest service, everything done on time. Thank you Marin!" (Kubzon ek, 5/5)
+- "If you have any European vehicles you must go see Marin he knows everything and he will fix it and he charges very reasonable and does great job." (Ivan Ianev, 5/5)
+- "The right place to maintain your German car! Very professional and knowledgeable staff! Quick turnaround time and reasonable rates!A+" (Chris Dokliev, 5/5)
