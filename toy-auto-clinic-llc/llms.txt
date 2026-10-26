@@ -1,0 +1,60 @@
+# Toy Auto Clinic, LLC.
+
+> Toyota and Scion maintenance and repair in Redwood City by Toyota certified technicians using OEM quality parts. Rated 5 from 143 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 816 Hurlingame Ave, Redwood City, CA 94063, USA
+- Phone: (650) 257-3021
+- Email: repair-it@toyautoclinic.com
+- Website: https://ronaks-code.github.io/sitelift-demos/toy-auto-clinic-llc/
+- Google Maps: https://maps.google.com/?cid=2546945651216512732&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 5 from 143 reviews
+
+## Hours
+- Monday: 8:30 AM – 5:00 PM
+- Tuesday: 8:30 AM – 5:00 PM
+- Wednesday: 8:30 AM – 5:00 PM
+- Thursday: 8:30 AM – 5:00 PM
+- Friday: 8:30 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Toy Auto Clinic is an independent repair shop on Hurlingame Avenue in Redwood City, dedicated to servicing and repairing Toyotas and Scions. We are Toyota certified technicians, and our goal is to give you an honest, dependable shop at a fraction of the dealer cost.
+We do mechanical repair and routine factory approved services, using OEM quality parts. Customers rate us 5 from 143 Google reviews, and many mention Chris by name for being knowledgeable, honest and fair.
+Besides Redwood City, we also see drivers from Menlo Park, San Carlos, Palo Alto, Belmont and San Mateo.
+
+## Services
+- Minor service: Oil and filter change, tire rotation, brake inspection, tire pressure check, multi-point inspection, fluid top off and maintenance light reset.
+- Intermediate service: Everything in the minor service plus a coolant protection check, drive shaft or axle bolt tightening and spark plugs if applicable.
+- Major service: A full inspection with brake clean, lube and adjust, battery and charging system test, engine and cabin air filters, timing belt if applicable and a quality control test drive.
+- Annual brake maintenance: We clean and lube the brake hardware, caliper sliding pins and backing plate contact points.
+- Automatic transmission fluid exchange: Fresh transmission fluid to keep your Toyota shifting smoothly.
+- Mechanical repair: Diagnosis and repair for your Toyota or Scion, from suspension and starters to ignition coils and transmission leaks.
+
+## FAQ
+Q: Will servicing my car here affect my warranty?
+A: No. Toyota will not deny a warranty claim solely because you used a service provider other than a Toyota dealership.
+
+Q: How do I make an appointment?
+A: Email us at repair-it@toyautoclinic.com or call us at (650) 257-3021.
+
+Q: Why aren't prices listed?
+A: Prices vary with your vehicle's year and model, so contact us and we will give you a quote.
+
+Q: Do you work on Lexus?
+A: We can make an exception for the Lexus 300 series. Call or email us to ask.
+
+Q: Can you do factory recalls?
+A: No. Recall work has to be done at a dealership.
+
+Q: Do you sell tires?
+A: No, we don't sell or install tires.
+
+## What customers say
+- "These guys are the real deal. Deep experience with older Toyota models - they immediately knew how to tackle my aging suspension and starter issues, respected my intelligence a/b the car and were prompt and friendly throughout the repair process. Repairs were exactly what I needed at a fair price - all done quickly. For those of us who like to work on our own trucks, but may need to go to the experts for those heavy duty jobs - this is the place for you. Thanks to Chris and the team, appreciate you guys" (Mike Dugan, 5/5)
+- "Great service, attention to detail, and troubleshooting. I just had my 2001 Tundra (260k mi) serviced here and had the entire front suspension replaced. Chris also helped me source parts, fixed a transmission leak, and found things that other shops had missed. Super happy with the service and work!" (Ted Ray, 5/5)
+- "Very friendly and experienced mechanics. I am very satisfied with their work to keep my 20 year's Lexus running.
+Took my aging Lexus in for regular service on 5/3/2021. Fast professional service and doing very good job as usual." (Fred Shieh (龍哥), 5/5)
+- "My 2001 Toyota Land Cruiser had a bad ignition coil and Chris and his team fixed it along with realizing that all the spark plug gaps were too big. One new coil and 8 new plugs and She runs like a top! Thank you Chris." (Kent Yunk, 5/5)
+- "Wonderful place - Chris is knowledgeable, honest, charges very reasonable prices, and is also just a nice guy. I've been taking my Toyotas to him for years. Highly recommended!" (Cheryl H, 5/5)

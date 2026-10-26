@@ -1,0 +1,49 @@
+# Hanna's Auto Care Center
+
+> Family owned auto repair, body shop and towing on Easy St in Garland, TX. Import and domestic cars. Rated 4.2 from 74 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 715 Easy St, Garland, TX 75042, USA
+- Phone: (972) 272-9992
+- Email: hannasautocare@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/hanna-s-auto-care-center/
+- Google Maps: https://maps.google.com/?cid=4901344531446424585&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.2 from 74 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 10:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Hanna's Auto Care Center is a family business at 715 Easy St in Garland. We handle complete auto repair, from a simple oil change to rebuilding engines and transmissions, plus body damage and major collision repair.
+Our mechanics are highly skilled with years of experience, and most of all they love cars and care about yours. We know car repair is not fun or convenient, so we try to make the process as easy as we can. You may not be related to us, but we want you to feel like family.
+We also like helping people in our community learn something new through our Success Learning Vehicle, a hands-on training project. Bring your car in for an inspection and see how we work.
+
+## Services
+- Tune-ups and timing belts: Tune-ups and timing belts on the factory recommended schedule to keep your car healthy and in top condition.
+- Engine and transmission repair: Engine and transmission work on import and domestic cars, including full rebuilds.
+- Collision and body repair: Our body shop handles everything from body damage to major collision repair.
+- Brakes, A/C, shocks and struts: Brake work, A/C repair, shocks, struts and mufflers.
+- Electrical and computer diagnostics: We track down electrical problems and check engine issues with computer diagnostics.
+- Towing: We can arrange towing to get your vehicle to the shop. Call us for details.
+
+## FAQ
+Q: Do you work on imports as well as domestic cars?
+A: Yes. We work on import and domestic cars, from basic maintenance to major repairs.
+
+Q: Can I drop my car off after hours?
+A: Yes. We have a key drop box for after hours service.
+
+Q: Do you work on diesel trucks?
+A: We have. One customer had their diesel truck towed to us after it broke down, and we found and fixed the root of the problem.
+
+## What customers say
+- "Absolutely the most amazing experience ever! If we didn’t have to move, I would never go to another shop. When my husband was out of town, our diesel truck broke down. We were able to get it towed to them, and had it back within a few days. The amount of issues our truck had was crazy, not only did they identify the problem and fix all the parts. But they genuinely cared about finding the root of the issues. Our AC basically blew up and broke a bunch of parts, they took their time and care into making sure there was no chunks of the broken parts anywhere, and fixed all broke parts. Then they checked EVERYTHING, and after hours of searching they found what was causing the issue and took them time to identify why it wasn’t working properly. Super honest and kind people, thank you so much. We honestly didn’t expect the truck to be done so quick, knowing how much work it needed, and we were planning to move a few days after it went in the shop. They were quick, efficient and communicated with us every step of the way. Thank you for making us feel safe, especially because we tow our RV across the country multiple times a year , it’s hard to find a shop we can trust to genuinely care about timeline, quality and safety. If we’re ever in the area, we will not go anywhere else with any of our vehicles!!! Also amazing prices for amazing quality of work and care !!!!!" (Wiktoria Piktel, 5/5)
+- "This Family owned business was a suggestion from a trusted friend. I was super impressed by their professionalism and the fact they knew their Hondas. Had my breaks and rotors replaced and they managed to get it done in an extremely timely fashion. He had also brought my attention to needing an oil change which I had added to getting done last minute. Maurice who took care of me was super friendly and genuine. I’ll definitely be coming here again if anything else needs to be done." (Guyton’s Drum Casa, 5/5)
+- "Our company takes all of our vehicles exclusively to Hanna’s. We found them to be trustworthy, knowledgeable, and above all no nonsense tell you what needs to be done, what could be done, and what will more than likely need to be done in the future as components wear / breakdown. They’ve gone above and beyond for us a number of times I can’t recommend this company enough." (Austin, 5/5)
+- "Great experience with this body shop. Fair pricing, friendly staff, and excellent work. Our car is as good as new." (Kevin Doyle, 5/5)

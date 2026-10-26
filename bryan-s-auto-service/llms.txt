@@ -1,0 +1,55 @@
+# Bryan's Auto Service
+
+> Family-run auto repair on Gilbert Rd in Mesa. Itemized estimates, no upselling, cars and trucks. Rated 4.8 from 60 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 460 S Gilbert Rd, Mesa, AZ 85204, USA
+- Phone: (480) 834-4994
+- Email: greg@bryansautoservice.com
+- Website: https://ronaks-code.github.io/sitelift-demos/bryan-s-auto-service/
+- Google Maps: https://maps.google.com/?cid=3585705207722033939&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.8 from 60 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Bryan's Auto Service is a family shop on Gilbert Road in Mesa. We work on cars and trucks, domestic and imports, from major repairs that keep you on the road to a quick check of your tire pressures and fluid levels between services.
+We don't advertise or use coupons. Word of mouth is how people find us, so we try to treat everyone like family. When you call or stop by, you're talking to one of the owners, and we address the concern you came in with, not a list of add-ons.
+Our customers rate us 4.8 from 60 Google reviews. Thanks for letting us serve you.
+
+## Services
+- Brake repairs: Brake work, with brake fluid replaced as part of normal brake repairs rather than sold as a separate flush.
+- Auto air conditioning: Air conditioning service and repair for your car or truck.
+- Transmission and cooling system service: Serviced at the interval your manufacturer recommends, not on a sales schedule.
+- Check engine light: Tell us the code and we'll talk through what could be going on, then call you back with a quote.
+- Checks between services: Stop in to have your tire pressures and fluid levels looked at between regular services.
+
+## FAQ
+Q: Will you try to sell me maintenance flushes?
+A: No. We believe most maintenance flushes aren't needed, and you won't be pressured to buy any.
+
+Q: Can you finish my repair the same day?
+A: We try to. When a job needs more time, we'll let you know and talk it through with you.
+
+Q: Do you work on trucks and imports?
+A: Yes. We work on cars and trucks, both domestic and imports.
+
+Q: Where are you and when are you open?
+A: We're on Gilbert Road just south of Broadway, on the west side. We're open Monday through Friday, 8 AM to 5 PM, and closed weekends.
+
+## What customers say
+- "If you are looking for a mechanic that is honest and a good value for your money, Bryan's Auto Service is the place to bring your car!  I had a check engine light going and reach out to multiple places without any luck.  I called into Bryan's and let them know what the code was with my car.  Instantly I was told two options of what could be going on.  I was called back the next day with a quote.  They made sure to keep my car as long as needed to prevent any additional issues.  They were willing to do it in a day if that was all I could leave it.  They are super flexible and willing to do what is best for the client.  It isn't about making money for them.  It really is about doing what is best for the client with this place!" (Claudia Fairbanks, 5/5)
+- "I would always recommend Bryan's if I can. They're a no hassle shop for sure and I've never had them suggest anything that I didn't need. They're very prompt and friendly to talk to, both Younger and Older Greg run the shop directly, so you are always talking to one of the owners involved which added to the satisfaction I had from their service. They were able to fix several issues for me and did not go crazy on charging me for time. I will definitely go back here in the future if needed." (Jeff Reese, 5/5)
+- "Recently went to Bryan's Auto Service for motor mounts on my car. They walked me thru what was needed and what wasnt needed for car. I have nothing but great things to say about this place. HONESTY and INTEGRITY at its best! Will definitely be coming back if I need something.First class all the way." (Dana Rohr, 5/5)
+- "Reliable, honest & very trustworthy...I've been to several shops & they outrank others thus far. You can leave your vehicle with them without having to be fearful of what they'll do or what they'll charge. Cheaper than others too & they do a good job! Never had issues with them. Thanks Greg!" (Eboi Hernandez, 5/5)
+- "I have been taking my vehicles to Bryan's for nearly twenty years.
+They are honest and do great work.
+They have never tried to sell me parts or services that I didn't need.
+It is very hard to find a good, honest mechanic and to find one that is locally family owned is nearly impossible." (Larry LaMay, 5/5)

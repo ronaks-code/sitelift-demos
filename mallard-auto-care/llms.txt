@@ -1,0 +1,60 @@
+# Mallard Auto Care
+
+> Brakes, tires, oil changes, air conditioning and diagnostics in Castro Valley. Family-run, honest estimates, rated 4.8 from 1001 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 20697 Park Way, Castro Valley, CA 94546, USA
+- Phone: (510) 954-6891
+- Email: ${email.val()}
+- Website: https://ronaks-code.github.io/sitelift-demos/mallard-auto-care/
+- Google Maps: https://maps.google.com/?cid=5449850704247532986&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.8 from 1001 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Mallard Auto Care started as a family-run shop with one simple goal: to be a local auto shop people can truly trust. We're not a big chain. We're your neighborhood auto care team, and we want you to always know who's working on your car and why.
+We take the time to explain every repair, offer fair estimates and treat your vehicle as if it were our own. Our certified technicians handle everything from a simple oil change to complex engine diagnostics, and we're the East Bay's Michelin Tire Center.
+Like our namesake, the mallard, we're built for the long haul. We recycle parts and materials and support local conservation efforts. Our neighbors have given us a 4.8 rating across 1001 Google reviews.
+
+## Services
+- Brake and ABS repair: Brake and anti-lock brake diagnostics, repair and replacement. It's one of our specialties.
+- Tire sales, mounting and balancing: Sport, winter and all-season tires, fitted and balanced for your vehicle.
+- Wheel alignment and suspension: Alignment and suspension work to keep your car tracking straight and riding smooth.
+- Oil changes and preventive maintenance: Routine oil changes and maintenance to keep things running smoothly.
+- Heating and air conditioning: Repair for your car's heating and air conditioning.
+- Complete automotive diagnostics: Finding the cause of warning lights, odd noises and other problems before we fix anything.
+- Battery, electrical and engine repair: Battery replacement, electrical work and engine repair.
+- Transmission and cooling system service: Transmission service and repair, plus radiator and cooling system work.
+
+## FAQ
+Q: What are your hours?
+A: We're open Monday through Friday, 8:00 AM to 5:00 PM.
+
+Q: Can I book an appointment online?
+A: Yes. Use our online system to pick a time that works for you, or give us a call.
+
+Q: Will you explain what my car needs before you fix it?
+A: Yes. We walk you through every repair and give you a fair estimate, with no hidden fees or unnecessary upsells.
+
+## What customers say
+- "This shop is becoming my "go to" shop for servicing my car, and any repairs I need.
+My most recent visit was to replace both front and back brakes on my 2020 Toyota Highlander. I requested top of the line brakes, and they provided them.
+During the after service inspection, they discovered a minor crack on my undercarriage, which would have serious mechanized implications if not repaired. (I had run over something, but didn't realize it did any damage). If they hadn't caught it, it could have cost me BIG in the long run.
+They care about their customers, making sure to provide the best mechanical repairs, recommend upcoming service(s) to keep the car running smoothly, and charge a fair price for their services.
+As my car hits each milestone for future service requirements, I will absolutely bring my car here, and recommend my family and friends to do the same." (Carol Northrup, 5/5)
+- "My van started overheating on the freeway and I brought it to Mallard Auto Care right away. The staff is very friendly and helpful. Claire and Hayden helped me get my van in right away to get repaired. Because it was late in the afternoon, I knew I would need to leave it overnight. I was notified that that water pump failed.
+While I was there, I had them do an oil change while the van was in the shop.
+
+They fixed the van and got me back on the road.
+
+Thank you guys for the great service!
+I highly recommend them for you vehicle needs." (Gordon Hull, 5/5)
+- "Great service!  Fixed my air conditioning and did a diagnostic check that pointed out other things that needed repair. Yet, there was no pressure to do any more!  I will DEFINITELY  be back again. The entire staff is personable and helpful. They even provided an Ub we r to take me home!" (Linda, 5/5)

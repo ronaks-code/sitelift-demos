@@ -1,0 +1,58 @@
+# Bill's Auto Repair
+
+> Family-owned auto repair in Mountain View, formerly Mountain View Radiator. Rated 4.6 from 165 Google reviews. Diagnosis, cooling, diesel and smog.
+
+- Type: Car repair and maintenance service
+- Address: 1905 Old Middlefield Way, Mountain View, CA 94043, USA
+- Phone: (650) 968-9146
+- Email: shop@billsautorepairinc.com
+- Website: https://ronaks-code.github.io/sitelift-demos/bill-s-auto-repair/
+- Google Maps: https://maps.google.com/?cid=13052470560593500093&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 165 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Bill's Auto Repair started out as Mountain View Radiator. The name changed, but the ownership and the team stayed the same, and the list of services grew. Bill and Karen Herrera run it as a family business and want every customer to leave feeling like part of the family.
+Bill Herrera is the owner and an A.S.E. master mechanic who lives in Santa Clara County. He has built a reputation as one of the valley's best diagnostic technicians, and every tech in the shop is trained in their specialty. If you've driven past, you've probably met Oso, our German Shepherd mascot.
+Reviewers often mention Manny and the crew by name for explaining the work, keeping them informed and getting the problem fixed. We hold a 4.6 rating from 165 Google reviews.
+
+## Services
+- Factory recommended service: Keeping your car on the maker's schedule so it gets the right care at the right time.
+- Computer diagnosis: Finding out what's behind a warning light or a car that just isn't running right.
+- Cooling system repair: Repair work on water cooling systems for cars and trucks.
+- Diesel motor repair: Maintenance and repair work on diesel motors.
+- Brake and suspension repair: Brakes and suspension inspected and repaired so the car stops and handles the way it should.
+- State certified smog inspection: Smog inspections done right here at the shop.
+- Oil and filter changes: Regular oil and filter service to keep the engine healthy.
+
+## FAQ
+Q: Is this the same shop as Mountain View Radiator?
+A: Yes. Bill's Auto Repair was formerly Mountain View Radiator, with the same ownership and the same team, plus expanded services.
+
+Q: Do you honor extended warranties?
+A: Yes, we honor extended auto warranties.
+
+Q: What are your hours?
+A: We're open Monday through Friday, 8:00 AM to 5:00 PM, and closed on weekends.
+
+Q: Do you work on diesel engines?
+A: Yes. We offer diesel motor maintenance and repair.
+
+## What customers say
+- "I had an outstanding experience with Manny and his team. From the moment I arrived, Suzzie was friendly, professional, and genuinely committed to providing excellent customer service. The entire process was smooth and efficient, making it an stress-free experience.
+
+A special thank you to Manny, who made sure all of my needs were taken care of. He and his mechanics were knowledgeable, efficient, and kept me informed throughout the entire service.
+
+I highly recommend this auto shop to anyone looking for exceptional service and a team that genuinely values its customers. Thank you, Manny and the entire staff, for such a wonderful experience!" (Vince Chetcuti, 5/5)
+- "Initially reached out to Manny because of a fellow diesel Jeep owner highly recommended the shop. Not many techs are as familiar or competent with the Ecodiesel engine on my 2014 Jeep Grand Cherokee but Manny and the team did great work replacing the oil cooler and the notoriously laborious coolant line “in the valley” of the motor which requires extensive disassembly. Not only were they able to take care of this but they also caught some other coolant hoses that had wear and replaced them as well. Thanks for giving me peace of mind on my 100k mile plus diesel Jeep!" (Eric Shin, 5/5)
+- "I’ve known Manny for almost 20 years since he had his shop on El Camino Real with his famous sign that read “A great place to take a leak”. I keep going back to him not only because of his fair prices, and the fact he always gets the problem fixed, but also because he always gets it done right, and backs it up with a generous guaranty. Thanks for the leaks you’ve fixed on my cars Manny. I really do appreciate it." (Victor Galvez, 5/5)
+- "Super fast turnaround on a small welding/fab job - custom parts modification job for my classic pickup truck. I needed the flanges from a Super Cooler '72 F100 radiator support swapped onto the restored standard radiator support that I had recovered from a parts truck. They finished it same day! Great service. Cool car guys." (Electrucking, 5/5)
+- "Same good experience as usual, great job for fixing my T-100 truck cooling system issues.   Chien Liu" (Alan Liu, 5/5)

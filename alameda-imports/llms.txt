@@ -1,0 +1,39 @@
+# Alameda Imports
+
+> Alameda Imports sells quality used auto parts on S Alameda St in Los Angeles. Rated 4 stars from 41 Google reviews.
+
+- Type: Auto Parts Store
+- Address: 7673 S Alameda St, Los Angeles, CA 90001, USA
+- Phone: (323) 588-6100
+- Email: alamedaimportsinc@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/alameda-imports/
+- Google Maps: https://maps.google.com/?cid=10594058497258697582&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4 from 41 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: 8:00 AM – 2:00 PM
+- Sunday: Closed
+
+## About
+Alameda Imports is a used auto parts store on S Alameda St in Los Angeles. Customers come to us for everything from tail lights to engines.
+Neighbors who have visited describe the people here as friendly and helpful, with fair prices. We hold a 4 star rating from 41 Google reviews.
+
+## Services
+- Quality used parts: Used auto parts for drivers across the Los Angeles area.
+- Tail lights: Replacement tail lights, like the set one customer found for a Scion tC.
+
+## FAQ
+Q: Can I check your inventory online?
+A: Yes. Our website lets you search our inventory, search by image, or run a multi-part search.
+
+## What customers say
+- "Got my tail lights here for my scion tc and the gentleman was so wonderful he even waived the installation fee" (Jessenia Enriquez, 5/5)
+- "Had exactly what I needed. Fair pricing and friendly service. Would highly recommend for your auto parts!" (B P, 5/5)
+- "Really friendly people , very  professional,Clean please and affordable prices.." (LALO RB, 5/5)
+- "Nice place. Very helpful. Would totally recommend." (Scott, 5/5)
+- "I came to pick up an engine for a Prius and they were very friendly, they even gave me some tips on how to go about installing it. They also gave me a 90 day guarantee on it. Hope it works well and don't have any issues with it, ill cross my fingers on it." (Robert Marron, 4/5)
