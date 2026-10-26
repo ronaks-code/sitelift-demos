@@ -1,0 +1,48 @@
+# David's Auto Collision
+
+> Family owned collision repair, paint and frame work on Ella Blvd in Houston. Insurance claim help, free estimates and a lifetime warranty.
+
+- Type: Car repair and maintenance service
+- Address: 3308 Ella Blvd Ste m, Houston, TX 77018, USA
+- Phone: (281) 704-9779
+- Email: davidsautocollision@yahoo.com
+- Website: https://ronaks-code.github.io/sitelift-demos/david-s-auto-collision/
+- Google Maps: https://maps.google.com/?cid=3738709615968538789&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 5 from 403 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 9:30 AM – 1:00 PM
+- Sunday: Closed
+
+## About
+David's Auto Collision is a small, family owned and operated body shop at 3308 Ella Blvd in Houston. We handle minor and major collision repair, from small dents to major panel replacements, plus frame straightening and alignment work.
+We're independently owned, and we choose not to be a direct repair shop for any insurance company. That means no insurer pushes us to use aftermarket or recycled parts. We focus on quality replacement parts, paint and customer service.
+Our I-Car certified technicians keep up with ongoing training. Neighbors have given us a 5 star rating across 403 Google reviews, and we'd be glad to take a look at your car.
+
+## Services
+- Body repair and paint: A full range of body repairs, from small dents to major panel replacements, with paint matched to your factory finish.
+- Frame straightening: If your frame has been damaged, we use a digital measurement system and frame machine to protect its integrity and correct the damage.
+- Alignment and suspension: Suspension repairs and alignment checks so your car drives smooth and safe again.
+- Free estimates: Free, quick estimates on your collision damage. Appointments are highly encouraged.
+
+## FAQ
+Q: Can you help with my insurance claim?
+A: Yes. We're insurance claim specialists, and reviewers say we were great to work with on the insurance side.
+
+Q: Do I need an appointment for an estimate?
+A: Appointments for estimates are highly encouraged. Give us a call to set one up.
+
+Q: Do you have a special for first responders and veterans?
+A: Yes. Law enforcement, fire department and veterans of Houston get $100 off any job.
+
+## What customers say
+- "Extremely helpful every step of the way and very efficient. Very good communication over the phone and was able to provide a clear and detailed rundown of what happened with my car. They did not try to add unnecessary service and kept me updated on what they were doing every step of the way. I was able to pick up my car the same day I dropped it off for tire well repair. Overall a very positive experience with both the employees and service, highly recommend." (Audrey Allison, 5/5)
+- "Nice people. They do quick work and get a good turn around for your vehicle. They were able to replace an engine shield and fender shield for me. They messed up on the quote and had to charge me more due to needing to order an extra part but they tried their best to make it up to me by offering a discount. We’d have our body work done here again" (Shannon Russell, 5/5)
+- "I was looking around for a independent body shop that offered lifetime warranty and I came across David’s Auto Collision. From the start they were welcoming, handled my repairs, kept me posted and dealt with the whole process. My car looks better than ever! Can’t recommend them enough!!!" (Dimas Ponce, 5/5)
+- "I finally got my car today and it looks absolutely fabulous! Allen really keep me in the loop on every step. The insurance company was not communicating with us and Allen stayed diligent  and got things accomplished! Thanks so much!" (Andrea Wright, 5/5)
+- "Thank you so much for helping with my rear-end collision repair. They were helpful, efficient, and did great work! They were also great with working with insurance. Definitely recommend." (McKenzie Sigle, 5/5)

@@ -1,0 +1,58 @@
+# Capital City Automotive
+
+> Auto repair and maintenance on S. Congress Ave in Austin. Brakes, A/C, diagnostics, state inspections and engine work. Rated 4.8 from 226 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 1802 S Congress Ave, Austin, TX 78704, USA
+- Phone: (512) 447-2886
+- Email: capitalcity1802@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/capital-city-automotive/
+- Google Maps: https://maps.google.com/?cid=11310649065954032721&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.8 from 226 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Capital City Automotive sits on S. Congress Ave between Mary St. and Annie St. We handle everything from basic dealer scheduled maintenance to major engine overhauls, at honest and reasonable rates.
+Ansar runs the front office as service advisor, and Abudi is our master technician. Customers tell us they like that we explain the problem in plain terms, show them what we're doing, and don't push repairs they don't need.
+We're rated 4.8 from 226 Google reviews, and a lot of those come from people who have been bringing their cars here for years. We also offer pre-owned vehicles.
+
+## Services
+- Scheduled dealer maintenance: Keep up with the basic maintenance your manufacturer recommends.
+- Engine overhaul and rebuild: Major engine work, start to finish.
+- Transmission rebuild and replacement: Rebuilds or replacements when your transmission needs it.
+- Brakes and suspension: Squeaky brakes or a rough ride, we'll track it down and fix it.
+- Computer-aided engine diagnostics: Check engine light on? We find the real cause instead of guessing.
+- A/C repair: Get your air conditioning working again.
+- Wheel repair: Repairs for your wheels.
+- Laser alignments: Alignments done with laser technology.
+- Vehicle state inspections: State inspections for cars and trucks.
+
+## FAQ
+Q: What are your hours?
+A: We're open Monday through Friday, 8:00 AM to 5:00 PM. We're closed Saturday and Sunday.
+
+Q: Can I drop my car off outside business hours?
+A: Yes. We offer 24-hour vehicle drop-off.
+
+Q: Do you have loaner cars?
+A: Yes, free loaner cars are available by appointment only.
+
+Q: Where exactly are you?
+A: We're on S. Congress Ave between Mary St. and Annie St. in Austin.
+
+## What customers say
+- "This business has definitely earned another repeat customer. I needed an oil change and emissions inspection for my truck. Other places were booked full or would not have done it right. I have bad anxiety with finding a trustworthy mechanic because I'm a deaf woman - a double whammy for some shady mechanics. And the last place that did my oil change used 0w20 instead of the 5w20 I needed plus they overfilled it slightly. The truck was ok, but I still wanted to get it right this time. I was seen fast the next day after I made an appointment here. The guy who worked the front desk even brought out the oil they would use to show me, without me having to ask to see it. He was extra accommodating of my communication. They are also honest; when he showed me a very minor leak I was already aware of, he actually agreed with the assessment of a few mechanics who had already told me it was not worth investing the $ to fix and to just monitor it. He did not attempt to push any extra expense on me at all. I felt so well taken care of. The right oil was put in and the oil level was perfect after I checked it the next day. I will definitely recommend this place to others and keep it in mind should I need some other repairs later on." (Dee Mills, 5/5)
+- "I visited this auto repair shop when my car’s starter suddenly stopped working, and I was stuck in a difficult situation. The team responded quickly and started checking the vehicle right away. They carefully diagnosed the problem and explained it to me in simple terms so I could understand what went wrong. I appreciated that they didn’t waste time and focused on finding the real issue instead of guessing. The repair was done efficiently, and they made sure everything was working perfectly before handing the car back. The pricing was fair, and there were no surprises at the end. My car has been starting smoothly ever since. The staff was helpful, honest, and very professional throughout the entire experience." (Martha Green, 5/5)
+- "If I could give more than 5 stars I would. Ansar was so kind, honest, thorough, and helpful. My check engine light was on on my 2019 BMW X1 due to an evap issue that had been misdiagnosed and he went above and beyond to figure out the issue, even going as far as doing more labor and not charging for it. On top of it all, he offered to do my emissions inspection complimentary. Unfortunately it’s not common to experience this level of customer service nowadays so I’m so grateful I found them and I would recommend them to anyone who is looking for reliable service and honest people. I’ll definitely be back." (Leslie Nelson, 5/5)
+- "Bring your car here if you want it to get fixed correctly and run well.
+
+Ansar, the office manager / service advisor, is very friendly.  Abudi, the master technician, is exceptionally sharp — as capable of diagnosis and repair as anyone in the car business.  This shop is like a BBQ joint in a small town.  Not the biggest or most recognizable, but the top choice whenever possible." (Brandon Shultz, 5/5)
+- "I’ve been coming to this auto shop for a couple years and wouldn’t trust anyone else with my car. They’re always honest, reliable, and fair with pricing. The team is friendly, explains everything clearly, and consistently does great work. Highly recommend!" (Christine allender, 5/5)
