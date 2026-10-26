@@ -1,0 +1,58 @@
+# Michael Auto Clinic
+
+> Michael Auto Clinic on Harlem Ave in Morton Grove, IL. Honest car repair and maintenance, rated 5 stars from 620 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 9021 Harlem Ave, Morton Grove, IL 60053, USA
+- Phone: (312) 307-1428
+- Website: https://ronaks-code.github.io/sitelift-demos/michael-auto-clinic/
+- Google Maps: https://maps.google.com/?cid=13716785366696831021&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 5 from 620 reviews
+
+## Hours
+- Monday: 7:30 AM – 6:00 PM
+- Tuesday: 7:30 AM – 6:00 PM
+- Wednesday: 7:30 AM – 6:00 PM
+- Thursday: 7:30 AM – 6:00 PM
+- Friday: 7:30 AM – 6:00 PM
+- Saturday: 7:30 AM – 2:00 PM
+- Sunday: Closed
+
+## About
+Michael Auto Clinic is a car repair and maintenance shop on Harlem Ave in Morton Grove. We look at every car as if it were our own and give you an honest read on what it needs.
+From oil and full maintenance to suspension, electric and fuel system problems, we handle the work ourselves. Customers tell us they appreciate the personal attention and the tips on long-term maintenance, and several thank Mikhail and Nelya by name.
+We have a 5 star rating from 620 Google reviews, and many of those reviews come from people who keep coming back with every car in the family.
+
+## Services
+- Oil and full scale maintenance: Fresh oil and a full maintenance check to keep your car running well.
+- Suspension or electric repairs: Diagnosis and repair for suspension and electric problems.
+- Starter and water pump: Customers have had a starter, water pump, valve cover gasket and variable valve solenoid replaced here.
+- Catalytic converter: One customer's catalytic converter was cleaned, saving them hundreds of dollars.
+
+## FAQ
+Q: What kinds of cars do you work on?
+A: Customers bring us everything from Mercedes and BMW to a Passat and whole fleets of Fords.
+
+Q: Will you work on an older car?
+A: Yes. One customer started bringing us their 13 year old Honda and has been happy with the results.
+
+Q: Are you open on weekends?
+A: We are open Saturday mornings until early afternoon and closed on Sunday.
+
+## What customers say
+- "Huge thanks to the Michael Auto Clinic team for repairing my Passat, which suddenly stopped starting.
+These guys are true professionals – special thanks to Mikhail and Nelya.
+
+They quickly found the cause of the problem — the fuel system module — and fixed it fast.
+
+I arrived at the service center by tow truck.
+
+Highly recommend! I really appreciate professionals who do their work honestly and responsibly.
+
+Michael Auto Clinic is definitely an excellent car repair service." (Alex K, 5/5)
+- "I took my 2008 Ford Edge to them for repairs and they were great!  They explained all my options and got me back in my vehicle quicker than I thought and at a fair price.  They evaluate your vehicle as if it was their own and tell you what needs to be fixed because it is a safety issue and which things are going to need to be repaired soon but can wait for now.   I truly trust their recommendations and will be taking my vehicles to them from now on." (Ann Ivanov, 5/5)
+- "Using Michael Auto Clinic for over 25 years!
+Always great service, personal attention, honest advise. These guys treat you like family and ready to go an extra mile for you. The prices are not the cheapest, but the quality of service worth every penny! Best specialists in the area. My Mercedes and BMW and fleet of Fords run like new. Suspension or electric repairs - they can do it all.
+Best Mechanic in Morton Grove." (Standard build company, 5/5)
+- "We started taking our 13 year old Honda to Michael. Cleaned our catalytic converter, saving us hundreds of dollars. The guy knows his stuff, and takes time to give tips on long-term maintenance. Reasonable prices too." (C H, 5/5)
+- "Oil replaced. Full scale maintenance performed. Valve cover gasket and Variable Valve Solenoid replaced. Starter replaced. Water pump replaced." (Alex Fr, 5/5)
