@@ -1,0 +1,52 @@
+# Cypress Auto
+
+> Quality recycled auto parts in Oakland, CA. Search inventory online or call our sales department. Rated 4.2 from 146 Google reviews.
+
+- Type: Auto Parts Store
+- Address: 1649 28th St, Oakland, CA 94608, USA
+- Phone: (510) 451-3034
+- Email: info@cypressautorecyclers.com
+- Website: https://ronaks-code.github.io/sitelift-demos/cypress-auto/
+- Google Maps: https://maps.google.com/?cid=756501895175650351&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.2 from 146 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: 9:00 AM – 2:00 PM
+- Sunday: Closed
+
+## About
+Cypress Auto Salvage is a local source for quality recycled auto parts in Oakland. You can search what we have in stock now online, by image or with a multi-part search, or just call the sales department and tell us what you're after.
+Customers tell us the clearer you are about what you need, the better we can help. One reviewer wrote that Mike, the owner, cross-referenced model numbers and sent pictures before she came in, and her part was ready for pickup when she arrived.
+We hold a 4.2 rating from 146 Google reviews.
+
+## Services
+- Recycled auto parts: Quality used parts for your car, with in-stock inventory you can search online before you call or visit.
+- Warranty on mechanical and electrical: Mechanical and electrical items come with a 6 month warranty.
+- Help finding what you need: If you don't see it in our inventory, give us a call and we'll find it for you.
+
+## FAQ
+Q: How soon will you answer a message?
+A: If your message needs a response, we will call or email you within 2 business days.
+
+Q: Do you ship or deliver parts?
+A: Yes. We ship by FedEx or freight carrier. Local delivery is available to shops only.
+
+Q: Is there a toll-free number?
+A: Yes, you can reach us toll-free at 800-573-7278.
+
+## What customers say
+- "Outstanding Service! ⭐️x5
+
+Mike - the owner - was incredibly helpful and patient in helping me find the exact part I needed for my car. He cross-referenced model numbers, sent pictures, and went above and beyond to ensure I saved both time and money. When I arrived at the shop, my part was ready for pickup, and the entire staff was respectful, efficient, and friendly.
+
+Bonus: There was even a super cute shop dog who greeted me at the counter! Thanks to Mike and the team, I was in and out quickly and ready to pass CA emissions with no hassle.
+
+Highly recommend—these guys are awesome! 🚗
+
+P.S. I’ve seen mixed reviews here, but my personal experience was 5 stars from the moment I called. Good luck and safe journeys to everyone looking to care for their rides—this shop’s worth a try! 🚗💨 Just tell them exactly what you want/need, they'll likely work with you." (Lulu Matute, 5/5)
+- "Had a great experience here! I live in Southern California and was going to be in the bay area so my sister sent me with a core, that apparently was 9 months old. Most places wouldn't honor this.  They were cool about it considering I  drove an hour to get there and the reason it hadn't been returned before was because we live 7 hours away! Very cool staff cool shop cool fish thanks for the help gentlemen." (Tyler Adkins, 5/5)

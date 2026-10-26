@@ -1,0 +1,63 @@
+# Willow Automotive Service, Inc.
+
+> Luxury and exotic car service, tuning and sales in Chicago's South Loop. Mercedes-Benz, Porsche, BMW and Ferrari. Rated 4.8 from 32 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 2020 S Wabash Ave, Chicago, IL 60616, USA
+- Phone: (312) 881-0101
+- Email: info@willowauto.com
+- Website: https://ronaks-code.github.io/sitelift-demos/willow-automotive-service-inc/
+- Google Maps: https://maps.google.com/?cid=185533297796195379&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.8 from 32 reviews
+
+## Hours
+- Monday: 9:00 AM – 5:00 PM
+- Tuesday: 9:00 AM – 5:00 PM
+- Wednesday: 9:00 AM – 5:00 PM
+- Thursday: 9:00 AM – 5:00 PM
+- Friday: 9:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Willow Automotive Service works on Mercedes-Benz, Porsche, BMW and every other kind of luxury, exotic and special interest vehicle from our shop on Wabash in the South Loop. Routine maintenance, major overhauls and performance work all happen under one roof, and we only use OEM parts.
+Our sales and service sides work together. We keep a selection of pre-owned specialty cars for sale, and most of them come from our own customers, so we know their condition and service history.
+Customers often mention Brian by name, along with straight answers and work done the right way. We are rated 4.8 from 32 Google reviews.
+
+## Services
+- Maintenance and overhauls: From an oil change to a major overhaul, we look after Mercedes-Benz, Porsche, BMW and other specialty cars.
+- Computer tuning: ECU reprogramming that adds performance without invasive changes.
+- Forced induction: Turbo and supercharger systems, either installed aftermarket or designed for your specific car.
+- Custom exhaust: A tuned exhaust built for your car, for more performance or a more aggressive sound.
+- Performance brakes and suspension: High performance brake setups and suspension work for better stopping power and handling, on the street or at the track.
+- Collection management: One point of contact for an entire collection, including scheduled rotation for preventive maintenance and help tracking down rare parts.
+- Sales and consignment: Pre-owned specialty cars, from daily drivers to collection pieces, often from existing customers whose service history we know.
+- Indoor storage and battery maintenance: A place to keep your car indoors with its battery looked after.
+
+## FAQ
+Q: What cars do you work on?
+A: We specialize in Mercedes-Benz, Porsche and BMW, along with other luxury, exotic and special interest vehicles.
+
+Q: Can you work on older or classic cars?
+A: Yes. Owners of vintage Mercedes tell us we understand their cars, including older fuel injection systems.
+
+Q: How do I schedule an appointment?
+A: Give us a call at 312.881.0101 and we will set up a time.
+
+Q: What are your hours?
+A: We are open Monday through Friday from 9 AM to 5 PM, and closed Saturday and Sunday.
+
+Q: Can I buy a car from you without seeing it in person?
+A: One customer bought from us remotely, relying on photos and Brian's word, and said he patiently answered every question.
+
+## What customers say
+- "I’ve had numerous excellent experiences with Willow Automotive. I own a couple of vintage Mercedes vehicles, and finding a shop that truly understands these cars is not easy—but Brian and his team absolutely do.
+
+They have the technical knowledge to properly diagnose and work on older Bosch and other fuel injection systems that most dealerships have long since forgotten. Instead of guessing or throwing parts at a problem, they take a thoughtful, methodical approach and actually fix things the right way.
+
+If you have a classic or older European car and want it serviced by people who genuinely know what they’re doing, Willow Automotive is the place to go." (Stephan Kalka, 5/5)
+- "I am a little delayed on my review due to the fact that the vehicle was bought remotely and only had images and the owners word to rely on.
+I have purchased quite a few Porsches but all I have had the ability to sit in and drive. 5 STARS to Willow Automotive Services. Brian the owner was great and no matter how many times I asked the same questions he always was patient with my anxiety of buying a car sight unseen. I strongly recommend Willow Automotive." (T L, 5/5)
+- "Preferred over Mercedes Service Centers. Their customer service is exemplary.  They don't try to up-sell more expensive products that are unnecessary. While they work on exotics and high-end luxury cars, every car and every person is treated respectfully. These days, it's not often that the owner will thank you for your business - Brian does. I recommend Willow to anyone with any kind of car who wants things done correctly." (Theo Roll, 5/5)
+- "I am joining the rest of the customers who had glowing reviews and for the very same reasons. Professionalism, excellent service and courtesy. My E350 Mercedes had a manifold crack and was running rough.  Diagnostic indicated what leaks were present in the system and further inspection lead to the cause. Thanks Brian and Team Wllow." (Willie Cochran, 5/5)
+- "You can definitely trust them with your car or just any sport car. Extremely professional, they will definitely get you right." (Antonio Yeh, 5/5)

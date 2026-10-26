@@ -1,0 +1,47 @@
+# Tire Store
+
+> Tires, alignments, oil changes and repairs on Telephone Rd in Houston. Rated 4.5 by 82 Google reviewers. Call or stop in.
+
+- Type: Car repair and maintenance service
+- Address: 6401 Telephone Rd, Houston, TX 77061, USA
+- Phone: (281) 974-5772
+- Email: tirestoretelephonerd@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/tire-store/
+- Google Maps: https://maps.google.com/?cid=17500295826298870253&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 82 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:30 PM
+- Tuesday: 8:00 AM – 6:30 PM
+- Wednesday: 8:00 AM – 6:30 PM
+- Thursday: 8:00 AM – 6:30 PM
+- Friday: 8:00 AM – 6:30 PM
+- Saturday: 8:00 AM – 4:00 PM
+- Sunday: Closed
+
+## About
+At Tire Store Service Center our motto is simple: we don't sell, we service. Our Telephone Rd shop in Houston is part of a small group of locations serving drivers across Houston, Alvin and Manvel.
+We try to offer good service and fair prices, with qualified technicians and the fastest turnaround we can manage. Come in for tires from brands like Bridgestone, Firestone and Toyo, or for alignments, oil changes, steering and suspension work. We also help with ATV tires, farm tires and lift kits.
+Gerardo manages the Telephone Rd location. Neighbors have given us a 4.5 rating across 82 Google reviews, and many of them came to us on a friend's referral.
+
+## Services
+- Tires from great brands: Car, truck and SUV tires from brands including Bridgestone, Firestone and Toyo.
+- Tire services: Computer spin balancing, TPMS service and adjustments, flat tire repairs and tire rotations.
+- Auto repairs: Oil changes, steering and suspension repairs, wheel alignments and more.
+- ATV and farm tire help: We can help with your ATV or farm tire needs, not just your daily driver.
+
+## FAQ
+Q: When is the Telephone Rd shop open?
+A: Monday through Friday from 8:00 AM to 6:30 PM. Saturday hours are shorter, and we're closed Sunday.
+
+Q: Do you offer a discount for first responders or veterans?
+A: Yes. First responders and veterans save 5% off labor.
+
+Q: Is there Wi-Fi while I wait?
+A: Yes, there's free Wi-Fi, so you can catch up on work or browse the web while we take care of your vehicle.
+
+## What customers say
+- "Gerado and his TEAM are the best in service! Their business is clean, organized and the service is the best ever. We brought in our patrol units to confirm all was set up as needed. They were professional, courteous and knew what we needed and offered solutions that would make our cars better. Their suggestions were spot on, and they were quick to resolve other issues we had before it was given to them.  That's amazing!!  Their prices are very  fair and with the sincere service they offered, they should charge more.  YUP...  I'd pay more for excellent service and a job done right the first time...any day.   You can trust the TEAM at the Tire Store Service and 6401 Telephone Rd to do a great job!!!" (Gail Melancon (Gabby1103), 5/5)
+- "I was referred by a good friend of mine to take my vehicle for an issue I was having. Great communication  and service by the team. I will be going back in the near future. Would recommend them to anyone in the area." (Guillermo Rivas, 5/5)
+- "Been coming to this shop for a while now and their service is outstanding everytime! The whole crew is very knowledgeable but specifically Noe! Ask for him!! He'll make sure you understand what's wrong with your car" (Roan Medina, 5/5)
+- "I was referred here and Gerardo really helped me out! I will be coming back!" (Circulars, 5/5)
