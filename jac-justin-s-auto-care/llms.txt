@@ -1,0 +1,51 @@
+# JAC - Justin's Auto Care
+
+> Mom and pop auto repair on Oak Grove Rd in Walnut Creek. Maintenance, oil changes, diagnostics and more. Rated 4.4 from 51 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 2411 Oak Grove Rd, Walnut Creek, CA 94598, USA
+- Phone: (925) 939-4848
+- Website: https://ronaks-code.github.io/sitelift-demos/jac-justin-s-auto-care/
+- Google Maps: https://maps.google.com/?cid=8619197831201630179&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.4 from 51 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+JAC is a mom and pop shop run by Justin and his wife Laurie. To them, it is not just a business, it is a family, and they want to give you and your family honest automotive care you can depend on.
+Justin began his career sweeping the floors of the shop he runs today. He went on to become a Certified Technician, a Service Manager and a General Manager before he and Laurie decided to venture out on their own.
+Your car gets you to work, to the grocery store and to school pickup. When you bring it to JAC, the goal is simple: it leaves trouble-free, so you keep your freedom and your peace of mind.
+
+## Services
+- Oil change and filter service: Routine oil and filter changes to keep your engine running well.
+- General maintenance: Everyday maintenance for both foreign and domestic vehicles.
+- Factory scheduled maintenance: The maintenance your manufacturer recommends, done at a local shop.
+- Engine and transmission service: Service and repair for the parts that keep your car moving.
+- Heating and air conditioning: Keep the cabin comfortable year round.
+- Steering and suspension: Repairs for a smoother, steadier ride.
+- Computerized diagnostics and repairs: Tracking down and fixing problems in your car's computer systems.
+
+## FAQ
+Q: Where exactly is the shop?
+A: We are on Oak Grove Rd in Walnut Creek, located in the Snack Shop at the Valero Station.
+
+Q: Do you work on foreign cars?
+A: Yes. We handle general maintenance on both foreign and domestic vehicles.
+
+Q: If I send a message through the website, when will I hear back?
+A: If a reply is needed, you will hear back within 24 to 48 hours. For anything sooner, give us a call.
+
+## What customers say
+- "I stopped by Justin’s Auto Care because I couldn’t get a few car seat bolts loose, and my socket wrench just wasn’t cutting it. I didn’t have an appointment, but within five minutes, someone came out with the right tool, loosened the bolts for me, and wouldn’t even accept payment. Just genuinely kind, helpful people who care about the community.
+
+You can tell this is a locally owned shop that values service and treats people right. I’ll absolutely be coming back here the next time I need real auto work. Thanks again to the team — you saved me a ton of time and frustration!" (Christopher Szwiec, 5/5)
+- "Some of the most honest and efficient work I have witnessed in an auto shop. Justin and Laurie were fantastic. I highly recommend. If you are looking for your next go-to shop, look no further (just don’t overbook because I need them to do my next project 😉). Great job and thank you again Justin and Laurie!! I’ll be returning for my next fix/addition." (Chris Esposito, 5/5)
+- "The neighborhood is blessed to have this honest business within reach. They are efficient and easy going. Imagine after years of being taken advantage of at Honda, to find a gem where the standard is integrity, kindness and stellar workmanship. What a lovely couple." (rebrand walnutcreek, 5/5)
+- "Always a 10/10. Great advice, and only recommends work when needed. Have been taking all my family members cars here for years for a reason. A trusted mechanic!" (Daniel Murphy, 5/5)

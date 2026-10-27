@@ -1,0 +1,47 @@
+# Four Points Automotive
+
+> Locally owned transmission and general auto repair in North Austin. Foreign, domestic and diesel. Rated 4.7 from 109 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 6717 Ranch Rd 620 N, Austin, TX 78732, USA
+- Phone: (512) 249-9194
+- Email: alltranz@sbcglobal.net
+- Website: https://ronaks-code.github.io/sitelift-demos/four-points-automotive/
+- Google Maps: https://maps.google.com/?cid=6511114968674639161&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 109 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+We're a locally owned and operated mechanic shop in the North Austin area. Transmissions are our specialty, and we handle general auto repair, diesel work, and custom and classic cars too. No repair is too big or too small.
+We offer same day service on most repairs, and we'll beat anyone's estimate while using original equipment parts. If getting to home or work is a problem while your car is with us, we can give you a free shuttle.
+Customers tell us they appreciate Mike, Andrew and the team for clear communication and fair pricing. We're open Monday through Friday. Give us a call and we'll be happy to answer your questions.
+
+## Services
+- General auto repair: Everyday repairs and maintenance for your car or truck.
+- Diesel and transmission repair: Transmissions are our specialty, and we work on diesel vehicles too, foreign or domestic.
+- Custom and classic cars: We also work on custom and classic cars.
+
+## FAQ
+Q: Do your repairs come with a warranty?
+A: Yes. All repairs carry a warranty ranging from 1 year / 12,000 miles to 3 years / 36,000 miles.
+
+Q: How do I get to work while my car is in the shop?
+A: If you need it, we'll give you a free shuttle to your home or work.
+
+Q: Can you fix my car the same day?
+A: For most repairs, yes. We offer same day service on most repairs.
+
+## What customers say
+- "I can't say enough good things about Four Points Automotive! Throughout my 10 years in Austin, I've gone to a variety of auto shops, but I've now been going to Four Points Automotive for 5 years or so. From the moment I started using their services I felt confident that my car was in good hands. The staff is friendly, knowledgeable, and takes the time to explain what needs to be done and why. If there is ever a tricky issue, they are diligent in getting to the bottom of it no matter what it takes. There is no pressure, no upselling - just honest, professional advice. The quality of work is top-notch, and the prices are very fair" (Joseph Connolly, 5/5)
+- "Mike, Andrew, Edwin & team are absolutely fantastic! They did some excellent work on my 2001 GMC Sierra, including fixing some leaks, replacing my power steering rack, and rebuilding my rear end, which has kept it running great with 250k miles. I’m grateful for their quality work, communication, and fair pricing. I’m quite critical of shops and do as much work on my cars as I can to avoid bad experiences and sub-par work, but I won’t hesitate to recommend these guys and their services. Keep up the great work!" (Alex Wodopian, 5/5)
+- "Exceptional customer service and great pricing! Mike was extremely helpful and made the entire process smooth and stress-free. My car was towed directly to their shop, and they handled everything quickly and professionally from start to finish. The service was fast, communication was clear, and I felt well taken care of throughout the experience. Highly recommend this auto shop!" (Denise Martin, 5/5)
+- "Got a major service done for my x7  and must say that the car felt  much smoother.  Mike and Andrew are so polite and their team knows what they are doing. They  were very transparent on the costing while doing everything in my interest. Got themselves another long term customer." (Deepak Cano, 5/5)
+- "Mike and his team are honest and easy to work with. I’ve used them for a lot of different services and have always had a great experience." (Tom Hagin, 5/5)

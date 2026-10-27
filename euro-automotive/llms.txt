@@ -1,0 +1,31 @@
+# Euro Automotive
+
+> Car repair and maintenance on W Northwest Hwy in Dallas. Rated 4.6 on Google from 273 reviews. Call Euro Automotive.
+
+- Type: Car repair and maintenance service
+- Address: 3421 W Northwest Hwy, Dallas, TX 75220, USA
+- Phone: (214) 956-7744
+- Website: https://ronaks-code.github.io/sitelift-demos/euro-automotive/
+- Google Maps: https://maps.google.com/?cid=14511005620466063470&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 273 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Euro Automotive handles car repair and maintenance from our shop at 3421 W Northwest Hwy in Dallas.
+Drivers have given us a 4.6 rating on Google across 273 reviews. If your car needs work, call the shop and we'll talk it through.
+
+## Services
+- Car repair and maintenance: Repair and maintenance work for your car at our Dallas shop.
+
+## FAQ
+Q: Where is the shop?
+A: We're at 3421 W Northwest Hwy, Dallas, TX 75220.
+

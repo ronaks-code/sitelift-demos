@@ -1,0 +1,40 @@
+# Sam's ASE Auto Tech
+
+> Car repair and maintenance on E Apache Trail in Mesa, AZ. Rated 4.4 on Google from 159 reviews. Call Sam's ASE Auto Tech to set up a visit.
+
+- Type: Car repair and maintenance service
+- Address: 10001 E Apache Trail, Mesa, AZ 85208, USA
+- Phone: (480) 984-5259
+- Website: https://ronaks-code.github.io/sitelift-demos/sam-s-ase-auto-tech/
+- Google Maps: https://maps.google.com/?cid=13252845172572067904&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.4 from 159 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:30 PM
+- Tuesday: 8:00 AM – 5:30 PM
+- Wednesday: 8:00 AM – 5:30 PM
+- Thursday: 8:00 AM – 5:30 PM
+- Friday: 8:00 AM – 5:30 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Sam's ASE Auto Tech handles car repair and maintenance from our shop on E Apache Trail in Mesa.
+Drivers around Mesa have left us 159 reviews on Google, with a 4.4 rating. If something on your car doesn't feel right, call the shop and tell us what's going on.
+
+## Services
+- Car repair and maintenance: General repair and routine maintenance work for your vehicle.
+- Brake work: Brake pad replacement and rotor resurfacing.
+
+## FAQ
+Q: Where is the shop?
+A: We're at 10001 E Apache Trail, Mesa, AZ 85208.
+
+Q: What are your Monday hours?
+A: On Monday we're open from 8:00 AM to 5:30 PM.
+
+Q: What is your phone number?
+A: Our phone number is (480) 984-5259.
+
+## What customers say
+- "Great price for the service. The staff can explain everything so everyone is will trained." (Quantika Mccalpine, 5/5)

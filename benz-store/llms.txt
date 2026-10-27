@@ -1,0 +1,27 @@
+# Benz Store
+
+> Benz Store offers car repair and maintenance on Buford Hwy NE in Chamblee, Georgia. Call ahead before you visit.
+
+- Type: Car repair and maintenance service
+- Address: 4321 Buford Hwy NE C, Chamblee, GA 30341, USA
+- Phone: (704) 232-8909
+- Website: https://ronaks-code.github.io/sitelift-demos/benz-store/
+- Google Maps: https://maps.google.com/?cid=1770696023692217459&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4 from 101 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 5:30 PM
+- Saturday: 9:00 AM – 2:00 PM
+- Sunday: Closed
+
+## About
+Benz Store is a car repair and maintenance shop on Buford Hwy NE in Chamblee, Georgia.
+We're open weekdays and Saturday mornings. Please call ahead before you head over.
+
+## Services
+- Car repair and maintenance: General repair and maintenance work for your car.
+

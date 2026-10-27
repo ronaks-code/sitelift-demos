@@ -1,0 +1,50 @@
+# Magic Auto
+
+> Magic Auto in Des Plaines, IL offers auto repair, maintenance, body work and inspected used cars. Rated 4.6 on Google from 110 reviews.
+
+- Type: Car repair and maintenance service
+- Address: 1001 E Northwest Hwy, Des Plaines, IL 60016, USA
+- Phone: (847) 298-9331
+- Website: https://ronaks-code.github.io/sitelift-demos/magic-auto/
+- Google Maps: https://maps.google.com/?cid=16063397632889957061&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 110 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Magic Auto is a used car sales, maintenance and repair, and body work shop on Northwest Highway, just north of downtown Des Plaines. Our experienced staff works on cars, vans, SUVs and limos, from basic oil changes all the way to rebuilding your engine.
+Our body shop takes care of collision repairs, including insurance work, along with paint jobs, dent removal and modifications. And if you're shopping for a used vehicle, every car we sell is inspected by our own repairmen first, so you don't get any surprises.
+The shop is run by the owner, Dimo, and some of our customers have been bringing their cars to us for years. Give us a call or stop by and see for yourself.
+
+## Services
+- Maintenance: Engine and transmission oil changes, brakes, tires and coolant.
+- Computerized diagnostics: We track down what's wrong with computerized problem diagnostics.
+- Electrical and suspension repairs: Repairs on radiators, electrical systems, engines and suspension.
+- Body shop and collision repair: Collision repairs including insurance work, paint jobs and modifications.
+- Used car sales: A constantly updated inventory of reliable used vehicles.
+
+## FAQ
+Q: Do you handle insurance work on collision repairs?
+A: Yes. Our body shop performs collision repairs, including insurance work.
+
+Q: What kinds of vehicles do you work on?
+A: Cars, vans, SUVs and limos, for anything from a basic oil change to an engine rebuild.
+
+Q: Are your used cars checked before they're sold?
+A: Yes. Every car is inspected by our own repairmen before it's sold, so you don't have to worry about surprises.
+
+## What customers say
+- "I have being using Magic Auto's  services since 2007 till now. Great pace to repair your car, to change the oil and to go there whenever your car needs to be fixed.
+The mechanics  are professionals, they are doing great job.
+I highly recommend Magic Auto to my friends and to everyone who need his car to be fixed. Just call, make an appointment, go there , and since you go there once, you will keep doing it!" (Tonka Stavrakova, 5/5)
+- "Magic Auto has worked on several cars over maybe 20 years. The owner, Dimo, is amazing and so trustworthy. We’ve received nothing but the most reliable service at great prices. We’ve had it done from auto accidents, other body/rust repairs, brakes, tires, batteries and mechanical issues. Such peace of mind knowing we’re in great hands! We’ve referred friends and family too" (Sheila D, 5/5)
+- "Brought my Durango SRT here for a front lip paint and installation. Couldn’t be more satisfied with the service and work performed. Everyone was friendly and process was smooth. Pricing is also beyond fair. Will be bringing all my HVAC trucks here. A+++ Highly recommend." (HVAC_Kiing, 5/5)
+- "Dimo has helped me keep my truck on the road and repair so many things now. His work is great and prices are fair, he is always getting everything done in a day or two. Highly recommend" (Oleh Prodan, 5/5)
+- "Great diagnostic and fast repair . You need something to be done on your car that is my first choice mechanic shop. Honest and professional repair and service. Great price and quality." (Petia Bogan, 5/5)

@@ -1,0 +1,48 @@
+# Pasadena Automotive Repair
+
+> Full-service car repair on E Foothill Blvd in Pasadena. Diagnostics, A/C, alignment and maintenance. Rated 4.5 from 41 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 2364 E Foothill Blvd, Pasadena, CA 91107, USA
+- Phone: (626) 793-1800
+- Website: https://ronaks-code.github.io/sitelift-demos/pasadena-automotive-repair/
+- Google Maps: https://maps.google.com/?cid=6260308987800278560&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 41 reviews
+
+## Hours
+- Monday: 7:30 AM – 5:00 PM
+- Tuesday: 7:30 AM – 5:00 PM
+- Wednesday: 7:30 AM – 5:00 PM
+- Thursday: 7:30 AM – 5:00 PM
+- Friday: 7:30 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Pasadena Automotive Repair is a full-service automotive repair company serving the Greater Pasadena Area. We specialize in diagnostic technology, so we can find the cause of a problem before we start replacing parts.
+Bring us your oil changes, tune-ups, brakes, A/C, engine and transmission work, electrical problems, warning lights, battery replacement and scheduled maintenance. We also handle alignments and vehicle control module programming.
+Reviewers often mention Abraham by name. One customer said he always gives his honest recommendation, the charge and how long it will take. We're rated 4.5 from 41 Google reviews.
+
+## Services
+- A/C service for the new systems: We service vehicles equipped with the newer A/C systems.
+- Electrical diagnosis and repair: Tracking down electrical problems and warning lights, then repairing them.
+- Vehicle control module programming: Software updates and programming for your vehicle's control modules.
+- Ride height calibration: Calibrating your vehicle's ride height.
+- Active cruise control calibration: Calibration of active cruise control (ACC) systems.
+- Maintenance and repair: Routine maintenance, standard repairs and problems that need a proper diagnostic assessment.
+
+## FAQ
+Q: What are your hours?
+A: We're open Monday through Friday, 7:30 AM to 5:00 PM. We're closed Saturday and Sunday.
+
+Q: Do you work on A/C in hybrid and electric cars?
+A: Yes. We service the new A/C systems, including in hybrid and fully electric vehicles.
+
+Q: Where are you located?
+A: We're at 2364 E. Foothill Blvd. in Pasadena.
+
+## What customers say
+- "We have been bringing our cars to Abraham and Pasadena Automotive since moving to Pasadena and have been nothing but satisfied and assured of quality, reliable service and fair pricing. Whether it’s routine maintenance, a standard repair or undetermined problem that needs a proper diagnostic assessment, Abraham and his mechanics are always on point. He operates with integrity and will always let you know his honest recommendation, the charge and how long it will take. And it’s done right the first time! Highly recommend and trust this company!" (Karen Bankhead, 5/5)
+- "My husband was referred to Abraham by a coworker more than 10 years ago. Abraham has consistently provided excellent service, both in maintenance and repair,  and always inspects our vehicle for any other problems outside of any repairs he has done. We would absolutely recommend him to others." (dorothy case, 5/5)
+- "I love this place! I’d taken my vehicle someplace else three times and they couldn’t figure out was wrong with it. One stop at Pasadena Automotive and they got my car fixed (it was the torque converter) with the most cost effective solution. I highly recommend going to Pasadena Automotive." (Annmarie Thomas, 5/5)
+- "Abraham is very knowledgeable and up front with pricing including taxes. Diagnostic was timely and repairs were done ahead of scheduled. I have a 15 year old Ford Escape and it’s been running well since I took it to them. I’ll be using them again for my other car." (Kathleen Jarnagin, 5/5)

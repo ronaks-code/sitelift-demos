@@ -1,0 +1,45 @@
+# MVP German Auto Specialist
+
+> Independent German auto repair and maintenance in Tucker, GA. Inspections, oil changes and repairs. Rated 4.6 from 289 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 4633 Hugh Howell Rd, Tucker, GA 30084, USA
+- Phone: (770) 496-0890
+- Website: https://ronaks-code.github.io/sitelift-demos/mvp-german-auto-specialist/
+- Google Maps: https://maps.google.com/?cid=9969987084750773995&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 289 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+MVP German Auto Specialist is an independent repair and maintenance shop in Tucker, GA. People bring us newer daily drivers and older German cars that need someone who knows them well.
+Reviewers describe us as knowledgeable, transparent and fairly priced, and a few mention Justin and Corie by name. We'd like to be the shop you keep coming back to.
+
+## Services
+- Post purchase inspection: Just bought a car? We'll look it over and give you a general health check so you know where things stand.
+- Oil change: Routine oil service to keep your car running the way it should.
+- Maintenance: Scheduled maintenance and jobs like front wheel bearing replacement.
+
+## FAQ
+Q: When are you open?
+A: We're open Monday through Friday, 8:00 AM to 6:00 PM, and closed on Saturday and Sunday.
+
+Q: Do you only work on German cars?
+A: German cars are our focus, but one reviewer's family brings us a Volvo, a Lexus and a Chevrolet. Give us a call and ask about yours.
+
+Q: Will you tell me if an aftermarket part makes more sense?
+A: Yes. One reviewer said we explain when an OEM part or an aftermarket option is the better fit for the car.
+
+## What customers say
+- "Can’t say enough about this place! They are very welcoming, knowledgeable and make you feel like part of the family…we have 3 vehicles we service there, a Volvo, Lexus and a Chevrolet. Just recently had the Lexus in for some maintenance, front wheel bearing replacement and some other items from sitting for 5 months. Corie got it done in a day or so, and it rides just as smooth as I remember! Thanks SO much MVP!" (Justin and Jennifer, 5/5)
+- "I recently acquired a 986 Boxster and needed to find a local independent shop. MVP had great reviews so I went in for a post purchase inspection, an oil change and general health check. Great call. They are excellent to deal with, knowledgeable, super transparent and well priced. I have found my spot. Thanks!" (a shadow, 5/5)
+- "I’ve got a strange fascination for unreliable old German hard top convertibles.  These guys keep both of my questionable purchases running very well for excellent prices.  They know the cars and are can tell you when OEM or aftermarket solutions are better.  Highly recommended." (Jay Skuban, 5/5)
+- "Amazing place! I had issues with my 335 n54 for the last 3 months after 2 shops, MVP fixed my car!!! They did what no other shop did! Can't express how happy I am! Highly recommend it! Customer service is excellent! Great communication!" (Jesus Hernandez, 5/5)
+- "My experience at MVP has been nothing short of amazing. I've been coming to this shop for 2 years and they have always taken care of me. Reliable service at a great price.....Justin is awesome!!" (Brian Wright, 5/5)

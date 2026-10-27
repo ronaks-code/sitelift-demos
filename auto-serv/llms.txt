@@ -1,0 +1,47 @@
+# Auto-Serv
+
+> Auto-Serv is a neighborhood car repair and maintenance shop on Johnson Ferry Rd in Marietta, GA. Rated 4.6 from 50 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 3003 Johnson Ferry Rd, Marietta, GA 30062, USA
+- Phone: (770) 518-4921
+- Website: https://ronaks-code.github.io/sitelift-demos/auto-serv/
+- Google Maps: https://maps.google.com/?cid=16918131783971537897&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 50 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Auto-Serv is a car repair and maintenance shop at 3003 Johnson Ferry Rd in Marietta, right next door to the McDonalds. The owner, Robert Del Pozzo, is an ASE certified master technician, and regulars just call him Rob.
+We handle the everyday work that keeps a car running, from oil changes, filters and fluid flushes to brakes, steering and suspension, cooling systems, HVAC, electrical problems and emissions repair.
+Customers have given us a 4.6 rating across 50 Google reviews. If you can't make it in during the day, you can leave your keys in our drop box overnight.
+
+## Services
+- Brakes: We look at your brakes and track down problems like a grinding noise.
+- Steering and suspension: Repair work on steering and suspension systems.
+- Rotate and balance: Part of our regular maintenance work, along with oil changes, filters and fluid flushes.
+
+## FAQ
+Q: How do I make an appointment?
+A: Give us a call to schedule an appointment over the phone.
+
+Q: Can I drop my car off after hours?
+A: Yes. Overnight drop offs are available. Leave your keys and a description of the service you want in the drop box by the office door.
+
+Q: Where are you located?
+A: We're on Johnson Ferry Rd in Marietta, next door to the McDonalds.
+
+## What customers say
+- "I’ve been taking my vehicles to Autoserv for years. They are extremely friendly, knowledgeable, reliable, and honest. When another shop told me I needed a long list of repairs, Rob said only brakes were needed saving me tons of money. When my daughter had car trouble on a long drive home from college, she pulled into Autoserv 15 minutes before closing and he grabbed her keys and fixed the problem right away! I will never go anywhere else! Thank you for the years of great service Rob!" (Roni Ryan, 5/5)
+- "Rob at Auto-Serv has serviced every car we've owned for the last 25 years. The first car had a grinding noise in the brakes. Three different occasions he had the opportunity to sell us new brakes, all three times he told us we did not need new brakes they just needed cleaning. Now that I am a widow, I would not think of using anyone else. In the auto repair business trustworthiness is everything and you will find that at Auto-Serv" (ADV ADJ, 5/5)
+- "As a family we’ve always brought our vehicles to Auto Serv for years and cannot recommend them highly enough. Excellent service, fair and honest communication, and reasonable pricing every single time. Finding a trustworthy and dependable mechanic is hard to come by, but Auto Serv is a true gem in the industry. Outstanding work and total peace of mind!" 100%" (S•U HIGGINS, 5/5)
+- "One of the best, most honest auto repair shops around.  Robert, the mechanic is straight forward, honest, and will let you get every mile from every part without leaving you in a lurch.  I have been taking cars here for over a decade and I trust them to do whatever they think is required.
+
+If you need a trusted mechanic look no further." (Ryan Rowe, 5/5)
