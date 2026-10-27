@@ -1,0 +1,64 @@
+# Car Check
+
+> Locally owned auto repair on Clay Rd in Houston. Brakes, tires, alignments, oil changes and diagnostics for foreign and domestic vehicles.
+
+- Type: Car repair and maintenance service
+- Address: 9710 Clay Rd, Houston, TX 77080, USA
+- Phone: (713) 895-9532
+- Email: ray@carcheck.cc
+- Website: https://ronaks-code.github.io/sitelift-demos/car-check/
+- Google Maps: https://maps.google.com/?cid=9773035647262054899&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.1 from 89 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 4:00 PM
+- Sunday: Closed
+
+## About
+Car Check is a locally owned and operated auto repair shop in Houston. Our mission is simple: honest, top quality repair done in a timely and professional way, from basic tune-ups to major transmission work.
+Owner Ray Khalili lives in the area and looks after every job himself. He is an ASE Certified Technician and a graduate of the Auto Repair Technician program at Houston Community College. You're more likely to find him under a hood than behind the desk.
+We work on cars, trucks, vans, SUVs, motorcycles and diesel vehicles, foreign and domestic. Neighbors have given us a 4.1 rating from 89 Google reviews.
+
+## Services
+- Brake repair: Brake repair and installation by technicians who specialize in brake systems.
+- Tires, rims and wheels: New tires, rims and wheels for your car or truck, whether you need one or a full set.
+- Alignments and balancing: Keep your car tracking straight and your tires wearing evenly.
+- Shocks and struts: Shocks and struts for a smoother, steadier ride.
+- Oil changes, tune-ups and maintenance: The everyday upkeep that keeps your vehicle reliable.
+- Transmission and engine work: From transmission repairs to full engine replacements.
+- Computer diagnostics: Computer diagnostics to find what's going on with your vehicle.
+
+## FAQ
+Q: What kinds of vehicles do you work on?
+A: Cars, trucks, vans, SUVs, light trucks, motorcycles and diesel vehicles.
+
+Q: Do you give estimates?
+A: Yes. Give us a call for a free estimate.
+
+Q: Do you offer roadside help?
+A: Yes, we offer a roadside emergency assistance service. Call the shop and we'll help you out.
+
+Q: Can I just stop by with a question?
+A: You're welcome to come by the shop. We always have technicians around to talk with you and answer your questions.
+
+## What customers say
+- "I love this place!! An honest mechanic & auto shop is invaluable, and these folks are the best!
+
+It starts with the owner Ray K, great guy, and he cares about you and your problems
+
+Lily in the office, does great work, very compenent, and she does great job of explaining things, what's necessary, what's optional, etc.
+
+I can trust them to let me know the good and the bad, and they will offer the best solutions.
+
+So many times with auto repair shops, you hold your breath waiting for the bad news $, and past 2 years, both of my vehicles, they have taken great care of the work needed and me as a customer
+
+I highly recommend them to anyone in Houston needing a great, honest, fair priced, auto repair shop, this is the place to go!" (Mark Snyder, 5/5)
+- "AAA—better than most! I booked an appointment the same day, and at first, I thought I was being pranked (April 1st, no less). But the real joke? They actually gave me $5 off my repair! (They joked about it—but still honored it!)
+
+The shop looked different from the photos online and was busy, yet they stuck to my appointment and got my car done during my lunch break. Fast, efficient, and genuinely helpful. Thank you!" (Spencer, 5/5)
+- "Wonderful people. Ray is a super honest owner who gives you alternatives instead of trying to charge for large ticket items." (Hobokans Lakehouse, 5/5)

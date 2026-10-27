@@ -1,0 +1,56 @@
+# Wycliffe Automotive
+
+> Family-owned auto repair on the Katy Freeway in West Houston. Oil changes, brakes, A/C and inspections for domestic and foreign cars.
+
+- Type: Car repair and maintenance service
+- Address: 11009 Katy Fwy, Houston, TX 77079, USA
+- Phone: (832) 387-6124
+- Website: https://ronaks-code.github.io/sitelift-demos/wycliffe-automotive/
+- Google Maps: https://maps.google.com/?cid=15145752338027918164&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 210 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 6:00 PM
+- Sunday: Closed
+
+## About
+Wycliffe Automotive is a family-owned and operated auto repair shop on the Katy Freeway in West Houston. We look after drivers from the Energy Corridor, Memorial, Spring Branch and Katy, whether you bring in a daily driver or a weekend project.
+We handle just about everything your car needs under one roof, from oil changes, brakes and tires to A/C, transmissions, electrical, cooling, engine work, steering and suspension, auto painting and Texas emissions inspections. Domestic or foreign, every car gets the same care and the same straight answers.
+You get a clear estimate before any work begins, and the work is done by people who live and work in West Houston.
+
+## Services
+- Oil changes: Fast oil changes with quality oil and filters built to protect your engine.
+- A/C repair: A full diagnosis, not just a top-off. We test for leaks and work on compressors, condensers and evaporators.
+- Brake service: Squeaks, grinding or a soft pedal. We handle pads, rotors, calipers and complete brake jobs.
+- New and used tires: Mounting, balancing, rotations and flat repairs, with honest advice and no upsell.
+- Check engine diagnostics: We read the codes and find the real problem before you pay for parts.
+- Emissions inspection: Harris County requires an annual emissions inspection to renew your registration, and we take care of it here.
+- Transmission repair: Slipping gears, rough shifts or a delay pulling out, caught before a small issue becomes a rebuild.
+- Batteries and alternators: Dead batteries, failing alternators and wiring faults that leave you stranded.
+- Radiators and water pumps: Radiators, water pumps, hoses and coolant to keep your engine from overheating in Houston traffic.
+- Engine trouble: Odd noises, leaks, fuel-pump and performance problems, diagnosed straight and fixed only where needed.
+- Steering and suspension: Shocks, struts, steering and the wear behind pulls and clunks.
+- Tune-up: Spark plugs, filters, fluids and inspections to catch small issues early.
+- Panel painting and touch-ups: Color-matched repaints that bring back your car's finish after scratches, fade and chips.
+
+## FAQ
+Q: Do you work on foreign and luxury cars?
+A: Yes. We service domestic and foreign vehicles, including trucks, sedans, SUVs and European makes, with the same diagnostic process for all of them.
+
+Q: Will I know the cost before you start?
+A: Yes. We diagnose first, then give you a clear quote before any work starts.
+
+Q: How long does A/C service take?
+A: A recharge and leak check are often done the same day. Bigger jobs like a compressor or evaporator can take longer depending on parts, and we tell you the timeline when you drop off.
+
+## What customers say
+- "Wycliffe automotive is legit!! Passing Through town and started hearing a bear noise on a vehicle with only 36,000 miles Brought it into a dealership where they told me they could fix it for about $5000 and it was gonna take at least two weeks not having two weeks to spend. I was referred by my mother. Went in and spoke with Julian with a lot of confidence in his companies abilities. Gave me a very reasonable price and told me I could have it back tomorrow. Which is what I actually needed!! If you need it done Wycliffe is the one!!" (Chad Brunson, 5/5)
+- "Top tier services here. I’ve come in the past few years to get my inspection done. Always a flawless, easy and fast process. This time around while getting an inspection on another vehicle, I decided to bring my other vehicle in for them to look at as well. They were able to address all of my issues and then some. Fixed it right away and I’m pleased with the price and process. Definitely one of those shops you return to no matter the distance! Thank you guys again." (Jason Scott, 5/5)
+- "Highly recommended! I’ve been coming here for a while now, and every time the service is excellent. They always do a great job with my oil changes  fast, professional, and reliable. The staff is friendly, honest, and very knowledgeable. They make the whole process easy and stress-free. Definitely one of the best mechanic shops around, and I’ll keep coming back!" (Egmy Chacin, 5/5)
+- "Julian was awesome! He was super easy to work with, flexible, had good prices, fast but thorough work and excellent communication. I live almost an hour away from his shop but he was so pleasant to work with I would go back for other auto repair work. Thanks again Julian" (Eric Veltz, 5/5)
+- "Car service isn’t usually a pleasant experience, but Julian was awesome. He saved us a ton of money on replacing motor mounts, and communicated with us exceptionally well during the estimate process through completion. I highly recommend them!" (Allen Kight, 5/5)

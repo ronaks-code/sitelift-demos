@@ -1,0 +1,49 @@
+# Jerry Gowens Garage
+
+> Family owned Napa Auto Care Center in historic downtown Fairburn, GA. All makes and models, diagnostics, brakes, engines and maintenance.
+
+- Type: Car repair and maintenance service
+- Address: 20 NW Broad St, Fairburn, GA 30213, USA
+- Phone: (770) 964-8526
+- Email: office@jerrygowensgarage.com
+- Website: https://ronaks-code.github.io/sitelift-demos/jerry-gowens-garage/
+- Google Maps: https://maps.google.com/?cid=13960091855194740310&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 85 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:30 PM
+- Tuesday: 8:00 AM – 5:30 PM
+- Wednesday: 8:00 AM – 5:30 PM
+- Thursday: 8:00 AM – 5:30 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Jerry Gowens Garage is a family owned and operated shop in the Historic Downtown of Fairburn, just south of Atlanta. We want to be your hometown auto repair center, where you are a person to us, not just a number.
+As a Napa Auto Care Service Center, we use quality aftermarket parts, and we honor and accept manufacturer warranties. We use factory scan tools on both foreign and domestic vehicles, so we can work on just about whatever you drive in.
+Neighbors have given us a 4.5 rating from 85 reviews on Google. If you stop by, you might meet Roscoe the shop dog. One reviewer said they fell in love with him.
+
+## Services
+- Computer diagnostics: Finding out what is going on under the hood before we fix it.
+- Jasper engine work: We are Jasper engine specialists.
+- Jasper transmission work: We are Jasper transmission specialists.
+- Brakes and rotors: Brake and rotor replacement.
+- Oil and lube with tire rotation: Routine oil service with a tire rotation included.
+- Emission repair: Repairs to get your vehicle's emissions back where they should be.
+- Electrical repairs: Tracking down and fixing electrical problems.
+- Factory recommended maintenance: The maintenance your vehicle's manufacturer recommends.
+
+## FAQ
+Q: What kinds of vehicles do you work on?
+A: We repair all makes and all models of vehicles.
+
+Q: Do you honor manufacturer warranties?
+A: Yes. We honor and accept all manufacturer warranties.
+
+Q: How do I make an appointment?
+A: Call us at (770) 964-8526 to set up an appointment.
+
+## What customers say
+- "I had a very positive experience with Mike the owner.  I have an older F150 that I have had for 18 years.  I took it in for a fuel pump replacement, but my issues were deeper than that.  Mike got involved personally working to resolve the real issues.  I was treated like family and fell in love with Roscoe the shop dog.  When I found out he was a rescue that showed up there in bad shape and they took time and love to make him better, I was so impressed.  Truly an old time small town experience in modern times.  I will definitely use them for my future repairs." (Jeffrey Nachtrieb, 5/5)
+- "i came to them with problems with my durango stemming from a a dealership repair and they had the issue fixed in 2hrs. entire staff is very kind, I will definitely be using them in the future for my mechanic needs." (Ezra, 5/5)
