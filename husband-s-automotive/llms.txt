@@ -1,0 +1,50 @@
+# Husband's Automotive
+
+> Small, family owned auto repair in Scottsdale. Brakes, A/C, suspension and maintenance on all makes. Rated 4.7 on Google from 98 reviews.
+
+- Type: Car repair and maintenance service
+- Address: 14885 N 83rd Pl #111, Scottsdale, AZ 85260, USA
+- Phone: (480) 222-6777
+- Email: husbandsauto@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/husband-s-automotive/
+- Google Maps: https://maps.google.com/?cid=14753637942350652673&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 98 reviews
+
+## Hours
+- Monday: 7:30 AM – 5:00 PM
+- Tuesday: 7:30 AM – 5:00 PM
+- Wednesday: 7:30 AM – 5:00 PM
+- Thursday: 7:30 AM – 5:00 PM
+- Friday: 7:30 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Husband's Automotive is a small, family owned and operated repair shop in the heart of Scottsdale. Owners Dale and Laurie Husband are part of the daily operations, and Dale is always on hand to answer questions and help out in the shop when needed.
+Our mechanics, Clayton, Joe and Travis, love cars and care about yours. Mandy grew up around her family's auto repair shop in the East Valley, and now she helps customers with all of their car needs and keeps them updated on their repairs.
+Our mission has always been "Putting integrity back into the automotive repair business." Car repair is rarely fun or convenient, so we try to make the process as easy and enjoyable as we can.
+
+## Services
+- A/C service and repair: A/C service and repair to keep you comfortable on Scottsdale roads.
+- Brake and suspension work: Brake service and repair, plus suspension work when the ride starts feeling off.
+- Computer diagnostics: Computer diagnostics to track down what's going on with your car.
+- Preventative maintenance: A convenient way to keep your car healthy and in top condition.
+- Free used car inspections: Have a used car looked over before you buy it, at no charge. (Free)
+- Free road trip inspections: Get your car checked before you head out on a road trip, at no charge. (Free)
+- Fleet discount: Call Dale or Travis and ask about our fleet discount.
+
+## FAQ
+Q: Are you open on weekends?
+A: No. We're closed on Saturday and Sunday and open Monday through Friday.
+
+Q: Can I drop my car off after hours?
+A: Yes. We have a night drop available.
+
+Q: Do you work on my make of car?
+A: We work on all makes and models, including Acura, BMW, Ford, Honda, Jeep, Lexus, Subaru, Toyota, Volvo and more.
+
+## What customers say
+- "I highly recommend Husband's Automotive. I drove to Scottsdale from Michigan, and my truck required servicing. They agreed to service the truck right away when I arrived with the check engine light on. My truck was serviced the same day. The repair cost was reasonable and not overly expensive. Mandy, the service manager, provided excellent updates and detailed information about the repairs. The business card reads, "Putting Honesty and Integrity into the Automotive Repair Business," and my experience confirmed that the phrase is more than just a slogan." (D B, 5/5)
+- "Outstanding Service & Attention to detail:  I have an older, high-mileage truck that has required some major repairs.  I was nervous as to where to take it.  On a recommendation from a good friend, I went to Husbands Automotive and have never looked back.  They clearly explained what needed to be done, provided clear upfront quote on costs and turned it around quickly and perfectly.  They were also very thoughtful in the sourcing of parts, saving me money while not compromising on quality.   I highly recommend them for any repairs or service." (Carl Westphal, 5/5)
+- "The most reliable mechanic in Scottsdale! Husbands always makes sure to take care of my car and provide me the best service possible. They are great mechanics with great prices. Thank you to Travis and Mandy for always taking care of me :)" (judy fortier, 5/5)
+- "I highly recommend Husband's Automotive.  The folks at Husband's Automotive are very honest, and their work is fairly priced." (Edward Gillette, 5/5)

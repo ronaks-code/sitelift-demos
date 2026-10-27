@@ -1,0 +1,49 @@
+# Eserini's Automotive
+
+> Family owned foreign and domestic car repair on Robert Avenue in Santa Clara. ASE certified mechanics, hybrid service and more. Rated 4.7 on Google.
+
+- Type: Car repair and maintenance service
+- Address: 508 Robert Ave, Santa Clara, CA 95050, USA
+- Phone: (408) 748-1551
+- Email: eseriniauto@aol.com
+- Website: https://ronaks-code.github.io/sitelift-demos/eserini-s-automotive/
+- Google Maps: https://maps.google.com/?cid=448645473412539450&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 41 reviews
+
+## Hours
+- Monday: 7:30 AM – 5:30 PM
+- Tuesday: 7:30 AM – 5:30 PM
+- Wednesday: 7:30 AM – 5:30 PM
+- Thursday: 7:30 AM – 5:30 PM
+- Friday: 7:30 AM – 5:30 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Bill Eserini grew up in South San Francisco working with his father at the family gas station, where he picked up his love for cars. After a stint at FAR Performance in Mountain View, he opened his own shop and built a name as an honest, hardworking and competitively priced repair shop. Today the shop sits on Robert Avenue in Santa Clara.
+His sons Mat and Andrew work in the family business now. Andrew is head mechanic and ASE Master Tech certified, Mat trained in engine performance, electrical, suspension and steering, and assistant tech Greg Sanchez trained through the Sequoia Institute.
+We handle oil changes, tune-ups, wheel alignments, pre-buyer inspections, engine and transmission work and more, for foreign and domestic makes. Neighbors rate us 4.7 on Google from 41 reviews.
+
+## Services
+- Mile service checks: Scheduled service checks at 60, 90 and 120 mile marks.
+- Foreign and domestic repair: Repair for makes from Acura and BMW to Ford, Honda, Toyota and Volkswagen, with factory honored maintenance schedules.
+- Engine and transmission repair: Engine and transmission repair and rebuilds.
+- Air conditioning service: Air conditioning service to keep your car cool.
+- Hybrid service: Service for hybrid vehicles as well as gas cars and trucks.
+
+## FAQ
+Q: What are your hours?
+A: We're open Monday through Friday, 7:30 to 5:30, and closed on weekends.
+
+Q: Can I text the shop?
+A: Yes. You can text us at 408-661-8417.
+
+Q: Can you get me home after I drop off my car?
+A: We offer a shuttle within 3 miles, and ride share is available with an appointment.
+
+## What customers say
+- "My father had been going to the shop for years for his work trucks. He moved out of the Bay area and I was devastated when I thought my transmission was going out. He told me to go to the shop because they never overcharged and they only fixed what is needed for your car and they are very honest and after I took my car into them I can back up everything my father has told me about the shop. I can't thank them enough for the relief they gave me when my car wasn't as bad as I thought. I highly recommend them to all my friends and family and anyone else that reads this review!" (Erika Lopez, 5/5)
+- "I am so glad I found this shop, do not hesitate to bring your car.  I could tell the mechanics were very skilled by the feedback they gave about my car, and honest because everything they said matched up with what I knew.   They treated my car like a nice fancy car and did a fantastic job fixing it right.  Now you don't need to worry if you need repairs!" (N M, 5/5)
+- "Bill and Matt Eserini and their team provide exceptional service and honest rates and allow you to drop off and pick up your car on your schedule, which is great!  They are always friendly and handle things by phone and email to make it convenient.  I have referred them multiple times to friends and everyone who has gone there becomes a repeat customer." (Tabitha Kappeler-Hurley, 5/5)
+- "I was referred to them from AAA, and I was able to get a same day appointment. They had the bulbs to replace the taillights for the make and model of my car. They were knowledgeable, kind and the service was on-time. Definitely recommend!" (Rose-Stella, 5/5)
+- "Fast service, excellent price, nice folks" (Jerry Meadows, 5/5)

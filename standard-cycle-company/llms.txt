@@ -1,0 +1,51 @@
+# Standard Cycle Company
+
+> Motorcycle repair, maintenance, parts and dyno tuning in Berkeley Heights, NJ. Street, track, dirt and vintage bikes. Rated 4.6 from 57 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 57 Industrial Rd, Berkeley Heights, NJ 07922, USA
+- Phone: (908) 665-0163
+- Email: info@stdcycle.com
+- Website: https://ronaks-code.github.io/sitelift-demos/standard-cycle-company/
+- Google Maps: https://maps.google.com/?cid=17373224846100087447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 57 reviews
+
+## Hours
+- Monday: 9:30 AM – 4:00 PM
+- Tuesday: 9:30 AM – 4:00 PM
+- Wednesday: 9:30 AM – 4:00 PM
+- Thursday: 9:30 AM – 4:00 PM
+- Friday: 9:30 AM – 4:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Standard Cycle Company is a complete service center and retail store for all motorcycles. We're in Berkeley Heights, right at the foothills of some of the best riding in New Jersey, and we work on American, metric, sport, cruiser, dirt and racing motorcycles.
+The shop was started to offer good motorcycle parts, service and advice, and for the genuine love of motorcycles. Our background in engineering and in modern and vintage racing shapes how we work. We want to understand how and why the factory designed your bike the way it did before we put a wrench on it.
+Mike and the crew hold a 4.6 rating from 57 Google reviews. Stop by on a weekday or give us a call.
+
+## Services
+- Maintenance program: Our maintenance program follows the manufacturer's suggested schedule for your motorcycle.
+- Repairs for all makes and models: We diagnose and repair motorcycles of every make and model.
+- Dyno services: Our Dynojet chassis dynamometer gives real time horsepower and torque data, which helps us diagnose poor running motorcycles in a controlled environment.
+- Dynojet and ECU/ECM tuning: Tuning is available for all Dynojet products, along with stand alone ECU/ECM tuning.
+- Race motorcycle maintenance: Our crew has hands on experience in drag racing, land speed racing, road racing and motocross, and we offer full maintenance for race bikes.
+- Antique motorcycles: We work on foreign and domestic antique motorcycles of all types, from the 1920's through bikes built today.
+- Parts and accessories: Every parts and accessories purchase comes with free consultation and tech support.
+
+## FAQ
+Q: What kinds of motorcycles do you work on?
+A: All American, metric, sport, cruiser, dirt and racing motorcycles.
+
+Q: Can you special order something you don't have on the shelf?
+A: Yes. We stock most daily needs, and special orders are quick and easy, with free shipping in most cases.
+
+Q: Are you open on weekends?
+A: No. We're open Monday through Friday and closed Saturday and Sunday.
+
+## What customers say
+- "Standard Cycle and Mike specifically is the best tuner hands down. He’s a mad scientist on the Dyno. I’ve been using this shop since they opened and Mike has been working on my bikes even before that. His engineering approach and knowledge on not only all kinds of bikes in all years but also the knowledge of the different systems and components is unmatched. Any bike I’ve brought and anyone I’ve recommended to Mike has been 100% satisfied. Thank you Mike. She’s a ripper" (Mauro NFJ Bastard, 5/5)
+- "Had an oil leak from the neutral safety switch that they attempted to fix which ended up being an incorrect sized o ring which caused the safety switch to fail. I fixed it myself and they ended up giving me my money back when I brought it to their attention which I really appreciate them for doing. Everyone makes mistakes and I’m grateful they were willing to make it right." (Christopher Longobardi, 5/5)
+- "I couldn't wait to write this review today. These guy straight up rock and the best shop hands down in New Jersey that I've done business with. My 07 Victory Kingpin which has a lot of sentimental value to me, nobody else could figure it out, not even Indian/Polaris. They got it back running right, fully tuned.  Top notch guys!" (Kyle Owen, 5/5)
+- "Guys at standard are personable.
+Will be bringing my bike here for all services." (Noel Bracey, 5/5)
