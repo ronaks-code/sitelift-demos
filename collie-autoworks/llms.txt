@@ -1,0 +1,53 @@
+# Collie Autoworks
+
+> Family owned Mercedes-Benz, BMW and European car repair in San Rafael, Marin County. Rated 4.7 from 76 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 585 Irwin St, San Rafael, CA 94901, USA
+- Phone: (415) 721-7915
+- Email: e420benzo@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/collie-autoworks/
+- Google Maps: https://maps.google.com/?cid=10994121171241075279&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 76 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Collie Autoworks is a family owned, independent Mercedes-Benz and BMW service center in San Rafael, Marin County. We also service all other German and European motor vehicles, and we care for classic German and European cars too.
+Darren and Denise Collie and their staff treat your vehicle with the same care and respect you do. Darren is factory trained and certified to repair Mercedes-Benz, and our staff is Mercedes-Benz Master Certified and ASE Master Certified.
+Our customers have given us a 4.7 rating from 76 Google reviews. Stop by the shop on Irwin Street or give us a call. We are glad to answer your questions.
+
+## Services
+- Mercedes-Benz and BMW service: Service and care for Mercedes-Benz and BMW vehicles.
+- European car mechanical service: Mechanical work on all German and European motor cars, including classics.
+- Brake repair and replacement: Brake repairs and replacement for German and European vehicles.
+- Diagnostic and electrical service: Tracking down warning lights and electrical problems. One reviewer had an electrical problem on a Sprinter fixed here.
+- Transmission repair: Transmission repair, overhaul or replacement.
+- Air conditioning service: Keeping your car's air conditioning working the way it should.
+
+## FAQ
+Q: Which days is the workshop open?
+A: The workshop is open Monday to Friday.
+
+Q: Can I come in after hours?
+A: Yes, after hours visits are available by appointment. Call us to set one up.
+
+Q: Do you work on Sprinter and G-Wagen vehicles?
+A: Yes. Along with Mercedes-Benz and BMW cars, we service G-Wagen and Sprinter vehicles.
+
+Q: Where is the shop?
+A: We are on Irwin Street in San Rafael, near Highway 101.
+
+## What customers say
+- "Collie is the only place I trust to bring my car, I've been going there for 15 years. They are 100% honest, do excellent work and charge reasonable prices. They always let you know what repairs are actually needed, and whether or not it's urgent and what may be pending for future consideration. Their work is reliable and thorough. When they do a repair it's done right. I highly recommend them!!" (Brenda Stadnik, 5/5)
+- "This is the kind of shop that, once you go here, you won’t go anywhere else. They’ve done all the service on our Sprinter since we’ve owned it, 60,000 miles now. They are super nice people, they’re knowledgeable, they communicate well, and they go above and beyond. And their loaner cars all have names and personalities. Seriously, I can’t recommend them highly enough." (Don Klingbeil, 5/5)
+- "Can't say enough good things about Collie. My G63 had a check engine light after being to the dealership multiple times. Brought it to Collie instead and they rebuilt the engine faster than the dealership and at a more responble price. Just took it to Tahoe and back with no issues. Runs and drives great and I couldn't be happier.  Thanks for saving our beloved SUV!" (Chris Morosco, 5/5)
+- "I am very happy with the shop. They were able to fix an electrical problem for my sprinter 2020 at a great price. The office staff are very friendly and helpful. Will definitely recommend this place and come back for more work." (William Caceres, 5/5)
+- "Collie is my trusted service shop for our Mercedes GL350 Bluetec. They are honest, offer great advice, are wonderful to work with. I highly recommend!" (Laurence Bekins, 5/5)
