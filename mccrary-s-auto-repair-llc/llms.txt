@@ -1,0 +1,48 @@
+# McCrary's Auto Repair LLC
+
+> Family-owned auto repair in Huffman, TX. ASE-certified mechanics for brakes, alignments, tires and diagnostics. Rated 4.9 from 220 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 3731 Trent Rd, Huffman, TX 77336, USA
+- Phone: (281) 360-3303
+- Email: mccrarysautorepair@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/mccrary-s-auto-repair-llc/
+- Google Maps: https://maps.google.com/?cid=7575961660822520015&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 220 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+McCrary's Auto Repair is a locally owned and operated shop on Trent Rd in Huffman, TX. We treat every customer like family and focus on keeping your vehicle safe, reliable and running its best.
+Our ASE-certified mechanics handle everything from routine oil changes and brake repairs to check engine lights, suspension work and engines and transmissions. We give free estimates, explain what we find, and keep pricing transparent.
+We're rated 4.9 on Google from 220 reviews. Give us a call or book online when your car needs attention.
+
+## Services
+- Full synthetic oil change special: Full synthetic oil and filter changes for gas and diesel vehicles. Ask about BG products too.
+- 4-wheel alignments: Alignments done on our Hunter Hawkeye Elite alignment machine. ($89)
+- Brake repair and replacement: We make sure your braking system is safe and reliable, with in-house rotor and drum machining and anti-lock (ABS) repairs.
+- Tires: We're a Michelin, BF Goodrich and Uni Royal dealer and carry other major brands too. Tires are sold at cost.
+- Road hazard with free rotate and balancing: Road hazard on your tires, with free rotate and balancing included.
+- Engine diagnostics: Check engine light on? We use Snap on, Autel and Bosch equipment, plus factory Ford, GM and Chrysler programming, and explain what we find.
+- Suspension, struts and shocks: From struts and shocks to full suspension rebuilds.
+- AC and heater repair: Repairs to keep your air conditioning and heater working.
+- OEM engines and transmissions: Original engine manufacturer (OEM) engines and transmissions.
+
+## FAQ
+Q: Do you offer loaner cars?
+A: Yes. Free loaner cars are available for approved customers. The driver must be 25 or older and add the vehicle to their insurance policy while driving it.
+
+Q: Do you charge for estimates?
+A: No. Estimates are free.
+
+## What customers say
+- "I had an excellent experience at this auto mechanic. The staff was friendly, honest, and professional from start to finish. They quickly diagnosed the issue, explained everything clearly, and completed the work on time. The pricing was fair, and my car runs perfectly now. I highly recommend them to anyone looking for reliable and trustworthy service." (David Ericson, 5/5)
+- "I highly recommend McCrary's. Been there twice and each time was cheaper than quoted elsewhere. Job well done, Cecil was real nice- had my vehicle serviced and ready in no time. I will return." (Stacey Detiveaux, 5/5)
+- "Always have a great experience here. Very honest and good people. Got my car ready quick and it runs great." (Matthew Donelson, 5/5)

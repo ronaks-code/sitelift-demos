@@ -1,0 +1,48 @@
+# Bob's Premier Automotive Repair
+
+> Car and truck repair on Baker Blvd in Richland Hills, TX. AC, brakes, engine and transmission work with clear estimates up front. Rated 4.5 on Google.
+
+- Type: Car repair and maintenance service
+- Address: 6735 Baker Blvd, Richland Hills, TX 76118, USA
+- Phone: (817) 284-5550
+- Email: repairs@bobspremierautomotiverepair.com
+- Website: https://ronaks-code.github.io/sitelift-demos/bob-s-premier-automotive-repair/
+- Google Maps: https://maps.google.com/?cid=10574573964365747115&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 42 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Bob's Premier Automotive Repair is a full-service repair and preventive maintenance shop in Richland Hills. We work on domestic and import cars and trucks of all makes and models, from air conditioning and electrical problems to brakes, alignments, engines and transmissions.
+Before we touch anything, you get an estimate that is easy to understand, and we can talk through ways to keep costs down. Most maintenance can be done while you wait, and we stand behind our work with a guarantee.
+Neighbors have given us a 4.5 rating across 42 Google reviews. One longtime customer wrote that David always takes the time to make sure he understands what's going on with his vehicles, and that Steve in the office is always friendly.
+
+## Services
+- Air conditioning: If your AC isn't keeping the car or truck cab cool, our trained technicians can find the problem and fix it.
+- Engine & transmission: Engine and transmission work to keep your vehicle running the way it should.
+- Alignments: Wheel alignment to help your vehicle drive straight and keep your tires wearing evenly.
+- Electrical system: Checking your electrical system and tracking down symptoms before they turn into bigger issues.
+- Brakes: Brake inspection and repair for the most important safety system on your car.
+- Preventative maintenance: Staying on your vehicle's maintenance schedule to head off long-term, costly problems.
+- AWD service: Service for all-wheel-drive systems.
+
+## FAQ
+Q: How quickly can you finish a repair?
+A: Many repairs, such as AC, brakes and transmission work, are performed that day.
+
+Q: Do you work on my make of car?
+A: We work on domestic and import vehicles of all makes and models, cars and trucks alike.
+
+## What customers say
+- "My family and I have been using Bob's for going on 12 years now. I have had my 2014 Silverado, 2004 Excursion, and a few others for many different repairs. The mechanic David has always given me the right information and always takes the time to make sure I understand what issues my vehicles have. I have always recommended Bob's and I always will. Steve in the office is always friendly and I have never found a better mechanic than David. I would definitely give a higher rating if their was one." (Shawn McAdams, 5/5)
+- "I took my 2004 Honda Accord Coupe to Bob, described what was going on with my driver side window not going up. Bob stated that he will look at it and let me know what was the issue and how much it would cost to fix the problem. When he was finished he called me and explained what he did to fix my window and he charged me a fairly decent amount. I was definitely satisfied with the service and I will definitely be back. They now earned a customer!" (Jonathan Washington, 5/5)
+- "I had extensive damage to the suspension of my 2008 Didge Ram. They were able to get me in quickly, completed the repairs in a timely manner, even did a few extras to help me out. This family owned business has been in Richland Hills for over 30 years and guarantees their work. I do  recommend." (Ginger Woods, 5/5)
+- "This place is great they are quick to find problems with my car and it's recurring fuel line issues. They have great pricings and can get your car in and out usually in a day. Not to many places that will even work on fuel lines which what makes this place even greater." (Red Queen83, 5/5)
+- "They did a great job fixing my car after someone tried to steal it. You can't even tell it was broken into. They were even nice enough to get a window guy out to fix that so I didn't have to make two stops. Worth the price to have it all done right." (Reverend Patino, 5/5)

@@ -1,0 +1,49 @@
+# Weber Autowerks
+
+> Family-owned auto repair in San Antonio, TX. Maintenance, AC, diesel, engine, transmission and fleet work. Rated 4.6 from 224 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 18414 5th St, San Antonio, TX 78266, USA
+- Phone: (210) 314-4939
+- Email: weberautowerks@icloud.com
+- Website: https://ronaks-code.github.io/sitelift-demos/weber-autowerks/
+- Google Maps: https://maps.google.com/?cid=13244645374719860029&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 224 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:30 PM
+- Tuesday: 8:00 AM – 5:30 PM
+- Wednesday: 8:00 AM – 5:30 PM
+- Thursday: 8:00 AM – 5:30 PM
+- Friday: 8:00 AM – 5:30 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Weber Autowerks is a local, family-owned auto shop in San Antonio. We take care of routine maintenance, air conditioning, diesel performance and repair, engine and transmission work, and fleet vehicles.
+Our fully licensed technicians aim to get the job done right the first time, and our shop is insured and bonded for your protection. We serve drivers from Garden Ridge, Schertz, Cibolo, Selma, San Antonio and the surrounding areas.
+Customers have given us a 4.6 rating across 224 Google reviews. Give us a call or come see us on 5th St.
+
+## Services
+- Routine maintenance: Engine diagnostics, brakes and tune-ups, electrical work, oil changes, spark plugs, and radiator flush and fill.
+- Air conditioning services: Evacuate and recharge, resistor replacements, evaporator core and blower motor repairs and replacements, and complete AC system replacements.
+- Engine and transmission work: From engine rebuilds to engine replacements, plus transmission work.
+- Diesel performance and repair: Repair and performance work for diesel vehicles.
+- Fleet services: Repairs for your business's fleet vehicles, with help choosing the right parts from brands like BG Products.
+
+## FAQ
+Q: Do you offer free estimates?
+A: Yes. Call us or stop by the shop and we'll give you an estimate.
+
+Q: What are your hours?
+A: We're open Monday through Friday from 8:00 AM to 5:30 PM. We're closed Saturday and Sunday.
+
+Q: What areas do you serve?
+A: We serve Garden Ridge, Schertz, Cibolo, Selma, San Antonio and the surrounding areas.
+
+## What customers say
+- "This project for my MB '88 560 SL started out as a major challenge, mainly b/c the car is 38 years old but also b/c of a few untimely personnel hiccups. Eventually, as good management teams often do, they made some tough decisions & got the project "back on track." Kudos to Larry Thompson & Ken Weber (Owner). On the whole, especially w/ Larry, guidance & decisions were made to ensure the car was not only "road worthy" but that the "next" 560 owner is getting 1 of the best  R107s on I-35. I especially like Larry's attention-to-detail & his arguments of what could/could not happen if this or that was not fixed-never an 'upsell"  intention, just factual reality.  Very smart approach augmented w/ long-term vision. Not only is the car now "ultra-safe," but it looks s***  hot to boot.  To everyone, well done! And to Ken, nice job on reaching out w/that last minute invoice adjustment--very smart & strategic which to me proves that you care more about customer satisfaction than your bottom line. That's why your company will be around for years & years & years!" (Mike Taylor, 5/5)
+- "I found these guys on the way to Waco almost by accident. I stopped talk to Rudy told him my concerns with my truck and he said to bring it on back when I have time. Extremely friendly great service excellent communications. I brought my truck back had them take a look at it. I had this annoying ticking in my engine now ticket to two other shops who said it was going to be most likely engine rebuild or at least a head job costing over four grand all the way to a new engine, which is about nine grand. I told Rudy and his team. Let me know what they think. He called me back told me all it was was broken bolts on my manifold exhaust leak and it was no  Issues with my lifters no metal excellent running truck. They fixed a few odds and ends but overall save me a ton of money. Did a complete check of my truck and said it was running good. It sounds amazing the engine is clean. They did a great job no issues with my truck. They even cleaned my engine to make it look sparkling good . Definitely keeping them as my personal mechanic. Thank you so much guys ." (AJ A, 5/5)
+- "What a great shop!! I took my truck in there to get the air conditioner fixed.  They were quick to diagnose, responsive and accurate.  They repaired my truck in a timely manner.  Customer service is great, Larry, Jennifer, Ken and Chris are awesome!! I will come back and highly recommend this business." (Mitzi Kezar, 5/5)
+- "Weber was fantastic. They did major transmission and engine work on our 1998 Fedex truck. They got the truck in a great condition to convert into a food truck. Eric and Chris were outstanding in communication, keeping us updated and doing a superior job. 10 of 10." (Mike Rezendes, 5/5)
+- "If you want fair, honest, attentive car care, look no further than Weber Autowerks. Their technicians are top notch, their customer service can’t be beat, and they deliver first rate auto repair." (Kenneth Smith, 5/5)

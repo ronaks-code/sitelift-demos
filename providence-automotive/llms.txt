@@ -1,0 +1,57 @@
+# Providence Automotive
+
+> Family-owned auto repair on Main St in Providence Village, TX. Brakes, oil changes, diagnostics, tires and alignments. Rated 4.9 on Google.
+
+- Type: Car repair and maintenance service
+- Address: 2761 Main St, Providence Village, TX 76227, USA
+- Phone: (940) 365-9410
+- Email: ${esc(email)}
+- Website: https://ronaks-code.github.io/sitelift-demos/providence-automotive/
+- Google Maps: https://maps.google.com/?cid=9994254963751989224&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 579 reviews
+
+## Hours
+- Monday: 7:30 AM – 6:00 PM
+- Tuesday: 7:30 AM – 6:00 PM
+- Wednesday: 7:30 AM – 6:00 PM
+- Thursday: 7:30 AM – 6:00 PM
+- Friday: 7:30 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Providence Automotive is a local, family-owned repair shop on Main St in Providence Village, serving drivers around Aubrey, Denton, Little Elm, Prosper, Celina, Frisco, Pilot Point and nearby communities.
+We work on foreign and domestic vehicles, from a quick oil change to brake repair, suspension work, wheel alignment and engine diagnostics. We try to explain repairs clearly so you know what your car needs and why.
+We also like to stay connected to the neighborhood and support local events. Drivers have given us a 4.9 rating across 579 Google reviews.
+
+## Services
+- Oil change, brake repair and suspension work: Everyday maintenance and repairs, from a simple oil change to brake repair and suspension work.
+- Diagnostics: When something feels off with your car, diagnostics can help find the underlying cause.
+- Tire installation and balancing: Help choosing tires for your vehicle and budget, plus installation, balancing and alignment.
+- Wheel alignment: Alignment helps your car drive smoothly and your tires wear evenly.
+- Foreign and domestic repair: We work on both domestic and foreign vehicles.
+
+## FAQ
+Q: What are your hours?
+A: We are open Monday through Friday, 7:30 AM to 6:00 PM, and closed Saturday and Sunday.
+
+Q: How do I book an appointment?
+A: Give us a call at the shop to book an appointment or ask for a quote.
+
+Q: What areas do you serve?
+A: We serve Providence Village, Aubrey, Denton, Little Elm, Prosper, Celina, Frisco, Pilot Point and surrounding areas.
+
+Q: Do you offer financing?
+A: Yes. Promotional financing for 6 months is available on purchases of $199 or more made with a Synchrony Car Care credit card.
+
+## What customers say
+- "This is the place you hope you can find when you need help with your Automobile.
+I was lucky enough to have a friend recommend Providence Automotive to me and thank goodness they did.
+The folks there are fantastic, and here’s just one of the reasons why. I drove up and was met by an employee who after detailing my multiple reasons I came to see them recommended money saving options to me. How about that?
+The next time I called they didn’t give me an appointment for days or weeks later, I was asked to drop it off in the morning. When I arrived one of the folks recognized me and knew why I was bringing the vehicle in. I left it and a little bit later received a detailed report stating what was wrong and why I might be having the issue.
+I can speak from experience that this is a refreshing change from the Automotive repair institutions I’ve dealt with. So if you want great service, fair prices and detail oriented help on your automobile I highly recommend giving this business a try!" (Bruce Burkett, 5/5)
+- "This team is great. The business is family owned and operated, and it FEELS that way. They provide honest recommendations at very fair prices. They let you know what truly needs to be prioritized, and what can wait a bit when the budget is tight. I truly appreciate the kindness they've offered when we were going through some tough car troubles.
+
+They also accept Affirm as payment, which is a huge bonus!" (Zack, 5/5)
+- "Super polite and professional guys here. The gentlemen at the counter whose name was Brian I believe was super friendly and helpful with everything I had needed. Place is family owned so they care about actually offering good service and not just getting you to pay for expensive repairs. Couldn’t recommend this place enough. 5/5 ⭐️⭐️⭐️⭐️⭐️" (Brady O'Hare, 5/5)
+- "The team at Providence Auto always takes excellent care of us. They're honest, reliable, and truly care about doing a great job. We've had nothing but good experiences here, and I would highly recommend them!" (angel baer, 5/5)

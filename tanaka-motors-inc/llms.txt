@@ -1,0 +1,48 @@
+# Tanaka Motors Inc.
+
+> Family-owned Houston auto shop for European cars like Porsche, BMW and Mercedes. Repairs, maintenance and inspections. Rated 5 from 33 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 1330 Sherwood Forest St #206, Houston, TX 77043, USA
+- Phone: (713) 932-8201
+- Email: conce63@yahoo.com
+- Website: https://ronaks-code.github.io/sitelift-demos/tanaka-motors-inc/
+- Google Maps: https://maps.google.com/?cid=10482804665793329033&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 5 from 33 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 6:00 PM
+- Sunday: Closed
+
+## About
+Tanaka Motors Inc. is a locally owned and operated auto shop in Houston that specializes in European cars. We work on Porsche, BMW, Mercedes and more, with services that include air conditioning, brakes, engine diagnostics, alignment and regular maintenance.
+The owner, Marcelo, comes up by name in our reviews. One reviewer says he takes the time to explain what your car needs, and another calls him a car enthusiast. We're proud to hold a 5 rating from 33 Google reviews.
+We're on Sherwood Forest St in west Houston and serve drivers from Houston, The Woodlands, Katy and Sugar Land.
+
+## Services
+- Repairs and maintenance: Everyday repairs and scheduled maintenance for your car, all under one roof.
+- Inspections: Bring your car in for an inspection at the same shop that handles your repairs.
+- European car service: Care for your European car from a shop that specializes in them, including Porsche, BMW and Mercedes.
+- Sensor issues: Help with erroneous sensor messages, like the tire pressure and traction control issues one reviewer had sorted out on their Mercedes.
+
+## FAQ
+Q: What kinds of cars do you work on?
+A: We specialize in European cars. We work on Porsche, BMW, Mercedes and more.
+
+Q: What are your hours?
+A: We're open Monday through Friday, 8:00 AM to 6:00 PM, and closed on Sunday. Please call ahead if you'd like to come by on a Saturday.
+
+Q: What areas do you serve?
+A: Our shop is in Houston, and we serve drivers from Houston, The Woodlands, Katy and Sugar Land.
+
+## What customers say
+- "This is the best place where you can take your car. Marcelo it's the nicest knowledgeable person I know, he takes the time to explain and always give you the best for your car at a fair price. Francisco has done an outstanding job every single time, they always go the extra mile for your vehicle. Highly recommended." (Valeria Galassi, 5/5)
+- "Overall great place! The owner (Marcelo) is transparent and fair, he will be honest and take good care of your car’s needs. Hands down I would recommend this place to anyone with car issues." (camila trivino, 5/5)
+- "Very legitimate. Fixed 2 sensor issues at my M C300 (1 erroneous message on tire pressure; 1 on traction control) that the Mercedes dealership couldn’t fix." (Jonas Seyppel, 5/5)
+- "Marcelo is a great mechanic , very knowledgeable. I have been taking my cars to his shop for years and very satisfied. He is also a car enthusiast !" (Luis Frasson Nori, 5/5)
+- "Marcelo is the best! He figured out a problem that 2 other shops couldn't. I have gone to him for my Porsche and my wife's current and former BMW." (Matthew Reed, 5/5)
