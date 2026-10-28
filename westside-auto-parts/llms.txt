@@ -1,0 +1,57 @@
+# Westside Auto Parts
+
+> Auto parts store on West Flagler Street in Miami. Oil filters, timing belts, LED lights and accessories. Rated 4.8 from 90 Google reviews.
+
+- Type: Auto Parts Store
+- Address: 11400 W Flagler St, Miami, FL 33174, USA
+- Phone: (305) 551-3090
+- Website: https://ronaks-code.github.io/sitelift-demos/westside-auto-parts/
+- Google Maps: https://maps.google.com/?cid=6789016474481904429&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.8 from 90 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 4:00 PM
+- Sunday: 9:00 AM – 1:00 PM
+
+## About
+Westside Auto Parts is a parts store on West Flagler Street in Miami. We carry the everyday parts that keep a car running, like oil filters, timing belts, wipers, fuel pumps and NGK plugs, plus LED lights and accessories for inside the car.
+Our customers tell us what matters to them: getting the right part at a fair price, with someone who can answer questions about fit and specs. One customer has been coming to us since she was a teenager, and another says the whole family and their friends shop here too. We are rated 4.8 from 90 Google reviews.
+
+## Services
+- Car parts: Oil filters, timing belts, wipers, fuel pumps, radiators, disc brake parts and NGK plugs.
+- Brake lights: Emergency brake lights, including red ones.
+- Interior car mats: Excalibur interior car mats for your car.
+
+## FAQ
+Q: Can I get a quote before I come in?
+A: Yes. Give us a call and we'll give you a free quote.
+
+Q: What if you don't have my part in stock?
+A: We can order it. One customer said that when a part wasn't in stock, it typically came in within a few hours, or a day or less.
+
+Q: Are you open on Sunday?
+A: Yes, on Sunday we're open from 9:00 AM to 1:00 PM.
+
+## What customers say
+- "If you're looking for a reliable, affordable, and efficient place to get car parts, look no further than Westside Autoparts. I’ve been a loyal customer for a while now, and I can confidently say that they offer some of the best prices in the market without compromising on quality.
+
+The staff is incredibly friendly and helpful, always willing to take the time to answer questions and make sure I’m getting the right part. I’ve called them multiple times with questions about compatibility or part specifications, and each time, I’m met with a knowledgeable team member who takes the time to walk me through everything. It's rare to find a company that combines both great prices and exceptional customer service, but Westside Autoparts has truly nailed it.
+
+I highly recommend them to anyone looking for car parts. Whether you're a seasoned DIY mechanic or just need to replace a part here and there, they’ll make the process simple and stress-free. I’ll definitely continue to shop here for all my auto parts needs!" (Jorge Sanchez, 5/5)
+- "Nothing slow or small about this parts store!
+
+They have it all, granted it's they don't they will have it in a day or less (typically few hours)
+
+MY GO TO PARTS STORE FOR ALL MY PERSONAL AND WORK VEHICLES!!!!
+
+PS MY FAMILY AND FRIENDS ALSO GO THROUGH WESTSIDE AUTO PARTS!!
+
+RECOMMENDED" (Nicholas Flenor, 5/5)
+- "Have been buying my parts here for close to 10 years. They always have what I need, and if not, they'll get it ordered for you quickly. Helpful staff. Always try to see if they can help out. Great prices too. Always recommend Westside to my friends and family! 👌" (Jessica Hernandez, 5/5)
+- "I have been going to this store since I was a teenager to get all my.car part needs. The prices are very resonable. The knowledge they share have always been correct. I recommend this place ALWAYS!!" (Miriam Vasquez, 5/5)
+- "Great Price and knowledgeable" (Alberto Romero, 5/5)
