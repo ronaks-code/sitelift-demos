@@ -1,0 +1,48 @@
+# A & A Automotive Repair
+
+> Foreign and domestic car repair in Tempe, AZ. Brakes, oil changes, transmissions, radiators, shocks and struts. Rated 4.5 from 35 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 3216 S Fair Ln, Tempe, AZ 85282, USA
+- Phone: (602) 438-7213
+- Email: aautoservice@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/a-and-a-automotive-repair/
+- Google Maps: https://maps.google.com/?cid=635959024417377989&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 35 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+My name is Alex Meehleib, and working on cars is my passion. When I opened my own shop, I decided AZ would be my home, and I have been serving this community as best I can ever since.
+I do a little of everything, from basic oil changes and brakes up to transmissions. No job is too small or too big, and I want it done right before your car leaves the shop.
+Fixing cars is good work, but the best part is the friendships made with customers along the way. If something is wrong with your vehicle, reach out and I will help however I can.
+
+## Services
+- Brakes: Brake work for everyday drivers, one of the basics we handle all the time.
+- Oil changes: Routine oil changes to keep your engine running the way it should.
+- Transmission work: From transmission repair to replacement, the bigger jobs are welcome too.
+- Radiator service and repair: Cooling system service and repair to help keep your engine from overheating.
+- Shock and strut replacement: Replacing worn shocks and struts so your car rides and handles right.
+- Belts and hoses: Checking and replacing belts and hoses before they leave you stranded.
+
+## FAQ
+Q: Do you work on foreign cars?
+A: Yes. We work on both foreign and domestic vehicles.
+
+Q: What if the repair I need isn't listed?
+A: Not to worry. Contact us and tell us what is going on, and we will take care of it.
+
+Q: What's the quickest way to reach you?
+A: You can call, but for a quicker response, message us on Facebook.
+
+## What customers say
+- "I recently went to Alex and he replaced the oil pan gasket on my car and performed an oil change. I went to and called a couple other shops to get quotes and they wanted to charge me over $500 to replace the darn thing! I went to A & A automotive and he did the job for wayyy less than the other quotes I got. He was also communicative throughout the whole thing- which I really appreciate. He even called to let me know that some of my bolts were rusty and said he would have to soak them over night to get them loose because hammering them could break them. When I went to go pick up my car, he showed me the old gasket . He pointed out that someone had used silicon on it before which was the cause of the leak. To my surprise and delight he also straightened out my dipstick pipe for me. All of this amazing service at a really reasonable price . Alex truly goes above and beyond and won’t let you drive off without the job done right. He is so honest and communicative. I’ve experienced sketchy mechanics that mess with your car- and Alex is certainly not one of them. My car drives amazing now and I’m not going anywhere else for repairs. I can say from personal experience, your car is in good hands at A&A." (Grace, 5/5)
+- "Alex and his team are FREAKING AMAZING! I had my 2003 Dodge Ram 1500 and the Clutch went out... Looked up the best repair shops to do the job and called around. All the shops sounded they only wanted my money and gave me ridiculous Estimates. When Alex picked up the phone, he was sincere, gave me an estimate and when I brought it to him. The total cost was lower than the estimate! Had the clutch kit and all things fixed within a couple of days. If you want someone who is genuine and does the job right. Alex is your guy! I now tell everyone to go to A&A Auto because he Under promises and OVER DELIVERS! THANK YOU ALEX!!!" (JJ Lagasca, 5/5)
+- "This shop was amazing! Alex was extremely patient and kind and was able to diagnose a problem and fix what another shop could not. He kept me up to date and informed while he was trying to find the problem and was immediately able to fix it. I have an older car and sometimes it can be difficult to diagnose, but they had me back on the road in no time. I whole-heartedly recommend them. Great service and awesome people. They fixed it at a reasonable price and I will be returning there for any issues I have in the future." (TK Yturraspe, 5/5)

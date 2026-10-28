@@ -1,0 +1,44 @@
+# A & B Auto Body Repair Center
+
+> Collision repair, auto body work and factory specified paint on San Pedro St in Los Angeles. We work with all insurance companies. Rated 4.2 on Google.
+
+- Type: Car repair and maintenance service
+- Address: 14200 San Pedro St, Los Angeles, CA 90061, USA
+- Phone: (310) 329-7865
+- Email: drummond.abauto@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/a-and-b-auto-body-repair-center/
+- Google Maps: https://maps.google.com/?cid=16699280888217004560&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.2 from 480 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+A & B Auto Body Repair Center is a body shop on San Pedro St in Los Angeles. We handle collision repair, auto body work, auto restoration, custom paint and custom design.
+After an accident, the damage you can see is not always the whole story. There could be more behind the bumper, so we look past the surface and work to get your car back to its factory specifications.
+We work with all insurance companies and can help arrange a rental car while your vehicle is with us. Stop by on a weekday for an estimate, and we can show you the work we're doing on other cars.
+
+## Services
+- Collision repair: Collision damage can go deeper than it looks, sometimes behind the bumper. We check for the full extent of the damage and work to return your car to its factory specifications.
+- Auto body work: Whatever body part of the car needs work, we repair it, and we take the time the details need to bring it back to its factory state.
+- Custom paint: Custom paint and custom design work, plus auto restoration for cars that need more than a repair.
+
+## FAQ
+Q: When are you open?
+A: Monday through Friday, 8:00 AM to 6:00 PM. We're closed Saturday and Sunday.
+
+Q: Do you work with my insurance company?
+A: Yes. We work with all insurance companies.
+
+Q: Can you help me get a rental car?
+A: Yes. We can help arrange a rental car for you while we're working on your vehicle.
+
+## What customers say
+- "I have been using A & B Auto Repair Center for over 27 years.  They were located in Inglewood, CA on La Brea. They have always done great work on my cars and still continue to do so. It has been passed down to the sons and Mr. Drummond is still holding it down for the family. I appreciate his dedication to his customer and his willingness to help with all of my concerns throughout the years.  Thanks
+Drummond…" (JoAnn Harris, 5/5)
