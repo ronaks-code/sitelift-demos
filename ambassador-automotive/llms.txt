@@ -1,0 +1,49 @@
+# Ambassador Automotive
+
+> Family owned auto repair in Anaheim Hills with ASE Certified Technicians, STAR smog checks and Uber and Lyft inspections. Rated 4.9 from 357 reviews.
+
+- Type: Car repair and maintenance service
+- Address: 4730 E Wesley Dr, Anaheim, CA 92807, USA
+- Phone: (714) 970-2525
+- Email: ambassadorauto@sbcglobal.net
+- Website: https://ronaks-code.github.io/sitelift-demos/ambassador-automotive/
+- Google Maps: https://maps.google.com/?cid=18332153683602578706&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 357 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Ambassador Automotive is a family owned and operated repair shop on Wesley Drive in Anaheim Hills. Don Nelson started the business, and his sons Dan, Ken and Tim learned the trade working by his side. They're committed to carrying on his legacy of honest auto repair.
+Our ASE Certified Technicians work on domestic and Asian import cars and trucks, select European cars, and motor homes and other heavy vehicles. We're also a licensed State of California Test and Repair Smog Check station.
+Over the years we've sponsored local groups like Esperanza High School, Canyon High School and the Anaheim Fire Department. Give us a call or stop by to meet us. We'd love to earn your trust.
+
+## Services
+- Smog checks, test and repair: We're a licensed State of California Test and Repair Smog Check station, and we're authorized to do STAR smog inspections.
+- Uber and Lyft vehicle inspections: Driving for a rideshare app? We're a certified inspection location for Uber and Lyft. Call to set up an appointment.
+- Engine and fuel injection diagnosis: Diagnosis and repair of fuel injection and computerized engine management systems.
+- Mile service checks: Recommended service checks for your truck, van or car, so it's ready for the road.
+- Brake repair and service: Brake repair and service for the cars and trucks we work on.
+- Off-road suspension kits: Our technicians can install off-road suspension kits.
+
+## FAQ
+Q: My DMV notice says I need a STAR smog check. Can you do that?
+A: Yes. We're authorized to perform STAR smog inspections. It just means the DMV picked your car to be inspected at a station that's closely monitored by the Bureau of Automotive Repair.
+
+Q: Do you work on European cars or motor homes?
+A: We service domestic and Asian import cars and trucks, select European cars, and motor homes and other heavy vehicles. Call us to check on yours.
+
+Q: How do I make an appointment?
+A: Give us a call to set up an appointment, or stop by the shop on Wesley Drive.
+
+## What customers say
+- "I work just around the corner from
+Ambassador Automotive.  My work has used Ambassador for many, many years for their company vehicles.  I have had Ambassador do work for me before.  The car was finished in a very timely manner, and a very reasonable price.  I appreciate the honesty, quality of work, and professionalism.  Thank you Ken, Mitch, and the team.  I will definitely do business with you again." (Richard Pinkham, 5/5)
+- "Great experience here! The staff is friendly, professional, and efficient. They even offer drinks for customers and gave first-time visitors a T-shirt. The shop was clean, organized, and welcoming — such a nice change from other places I’ve tried. Highly recommend Ambassador Automotive for fast, honest, and courteous service." (Jessica M., 5/5)
+- "Best car repair at reasonable prices. Customer for 15 years and my kids now take their own cars there! They also stand behind their work!" (Theresa John, 5/5)

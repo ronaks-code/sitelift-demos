@@ -1,0 +1,58 @@
+# Cactus Car Care
+
+> Family owned car repair and smog checks on Portola Ave in Livermore. Written estimates and honest diagnostics. Rated 4.3 from 49 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 1253 B, 1253 Portola Ave, Livermore, CA 94551, USA
+- Phone: (925) 294-8288
+- Email: jonathan@cactuscarcare.com
+- Website: https://ronaks-code.github.io/sitelift-demos/cactus-car-care/
+- Google Maps: https://maps.google.com/?cid=1989776914774044785&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.3 from 49 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Cactus Car Care is a family owned shop in Livermore, right next to Oil Changers on Portola Ave. Our goal is simple: you leave satisfied and well informed. We won't sell you anything you don't need.
+Our team is led by Jonathan Wirth, an ASE master mechanic and diagnostician, along with David Hopkins, Matt Mckee and Jesus Uriostegui. If you have a problem no one else could find, bring it in and we'll work it out.
+We're rated 4.3 from 49 Google reviews, and we're grateful to the neighbors who keep coming back.
+
+## Services
+- Smog test and repair: We're a test and repair smog station, so if your car doesn't pass, we can fix it here.
+- Brake and lamp inspections: State certified brake and lamp inspections.
+- Check engine light diagnostics: Find out what that light means before deciding on any repair.
+- Oil change: Standard 5-quart oil change. ($ 46.00 and up)
+- Transmission service: Routine transmission service. ($ 150.00 and Up)
+- Engine repair: Diagnosis and repair of engine problems.
+- Exhaust systems: Exhaust system work.
+- Mileage plan service: Service on the mileage plan provided by your vehicle's manufacturer.
+- Pre-purchase vehicle inspections: Have us look over a car before you buy it.
+- Serpentine belts and batteries: We keep serpentine belts and Interstate Batteries in stock.
+
+## FAQ
+Q: Will I get an estimate before you do the work?
+A: Yes. Every customer gets a written estimate for the repairs that need to be done, along with options for how to fix the car.
+
+Q: Can you quote used parts?
+A: Yes. Just ask, and we can include used parts pricing in your estimate.
+
+Q: Do you offer commercial accounts?
+A: We do. Ask us about commercial account pricing.
+
+Q: When are you open?
+A: Monday through Friday, 8:00 AM to 5:00 PM. We're closed on weekends.
+
+## What customers say
+- "There's a reason this place always has a bunch of cars- they do a good job and very straightforward about the timeline and diagnosis. No extra nonsense like "dur dur, you need to change your air filter." They were actually able to do an impressive (tentative) diagnosis of my car over the phone, even though I hadn't requested it! I needed a new transmission (like, legitimately, I knew it was coming soon- it was not an upsell diagnosis on their end. They even saved the flywheel to show me how damaged it was!) I knew I couldn't do it myself and would need a shop to do it. If you can stand to wait a few days for repair, these guys are professional and they cut out the nonsense. Only downside is that everyone else knows they're good too!" (Melissa Zwilling, 5/5)
+- "Jonathan and his service technicians know their way around cars. They run a no frills shop and are honest with their diagnostics taking the time to explain the problem and fix options, allowing one to easily make decisions on service needs.
+I've been bringing my cars here since 2009, and have found their service to be consistent.
+Keep up the great work work guys!" (Pat Miller, 5/5)
+- "Jonathan and Jesus were very friendly and knowledgeable. I felt my vehicle was in safe hands. If I didn't understand something, they really took the time to explain everything to me step by step. I would highly recommend this repair shop. I will be coming here again for future maintenance for my vehicle." (Marissa Williams-Lake, 5/5)
+- "10/10 would recommend, The Mechanics here know what they are doing. Not only would they get the job done they will also let you know if anything else needs to be replaced in the future. Reasonable prices for great work." (Hargisname 1, 5/5)

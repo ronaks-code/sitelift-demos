@@ -1,0 +1,51 @@
+# American Auto Services
+
+> A family owned and operated car and truck repair shop on Cobb Parkway in Kennesaw. Cooling systems, transmissions, alignment and DOT fleet inspections.
+
+- Type: Car repair and maintenance service
+- Address: 2206 Cobb Pkwy NW, Kennesaw, GA 30152, USA
+- Phone: (770) 499-8306
+- Email: americanautoserv@msn.com
+- Website: https://ronaks-code.github.io/sitelift-demos/american-auto-services/
+- Google Maps: https://maps.google.com/?cid=12772064331394831362&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4 from 31 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+American Auto Service is a family owned and operated repair shop on Cobb Parkway in Kennesaw, in the same building as Ace Hardware. We work on import and domestic cars, plus light duty and medium trucks.
+There are no bean counters here, and we don't shuffle cars in and out just to look busy. We quote the work your car needs right now, and if you ask, we'll look it over and tell you what we think it may need soon.
+When you come back, you'll see the same faces you dealt with before. Just ask for Bob or Jo Ann. We're rated 4 on Google from 31 reviews.
+
+## Services
+- General maintenance: Oil changes and routine maintenance for passenger vehicles.
+- Cooling system repair: Repairs to keep your engine running at the right temperature.
+- Engine and transmission replacement: When an engine or transmission needs to be replaced, we handle it.
+- Wheel balance and alignment: Balancing and alignment to keep your car driving straight.
+- Shocks and struts: Suspension work for a steadier ride.
+- DOT and fleet inspections: Preventive maintenance inspections for DOT and fleet vehicles.
+- Truck repair: Repairs for light duty and medium trucks, import and domestic.
+
+## FAQ
+Q: Do you work with extended warranties?
+A: We accept some extended warranties and will deal with them for you. Bring your policy with you and we can check it out.
+
+Q: Where exactly is the shop?
+A: We're one mile north of Barrett Parkway on Cobb Parkway, in the same building as Ace Hardware.
+
+Q: Do you take credit cards?
+A: Yes, we accept all credit cards.
+
+## What customers say
+- "For 7 months I searched auto service companies to rewire my 92 Cartier Lincoln town car with few miles.  No one was able to handle it.   I was referred to American Auto Services who took on the task of doing a complete interior wiring of the car.   They performed the task with utmost excellence and in the time frame promised.   The Dawkins family own this business and I cannot say enough about their quality of workmanship in this regard.  Shortly after I received the car I drove it 3000 miles to Vancouver, BC in Canada and had no problems with it whatsoever.   In fact it worked better than before.   The charges were fair and equitable for this big task.  I would strongly recommend them when others can't fix your car!
+Grant B." (Grant B, 5/5)
+- "I have been a customer for over a decade Bob & Joann are the sweetest people.  Bob can be a tad gruff when things get busy, so like any relationship, I know when keep things light. They are two of the honest and helpful people I know. As mentioned by others, their prices are reasonable, service is great, and work is done quickly. They also care for a fleet of delierovehicle,so I try to be as flexible as I can with scheduling. I would and have recommended AAR to a number of people." (Don Dodge, 5/5)
+- "My family has been going to American Auto for over 10 years and have never once had an issue. Bob and Joann know how to treat their customers well and do quality work. I have only had my car their over night on one occasion and it was only due to the parts shop being closed for the holidays. I refuse to take my vehicle to anyone but Bob and Joann and highly recommend them to anyone looking for quality auto service done in a timely manner." (Cate Godley, 5/5)
+- "this is the best place ever! they had my car done in no time! the entire place is so nice and polite! and the prices are the best! lowest i’ve seen! i would definitely come back🫶🏻" (lexi barger, 5/5)
