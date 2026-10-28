@@ -1,0 +1,53 @@
+# David's Auto Central
+
+> Technician-owned auto repair in Stafford, TX. Brakes, air conditioning, inspections, classics and motorhomes. Rated 4.5 from 124 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 2526 5th St, Stafford, TX 77477, USA
+- Phone: (281) 499-9684
+- Email: davidsautocentral@aol.com
+- Website: https://ronaks-code.github.io/sitelift-demos/david-s-auto-central/
+- Google Maps: https://maps.google.com/?cid=13602989903148894198&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 124 reviews
+
+## Hours
+- Monday: 7:00 AM – 6:00 PM
+- Tuesday: 7:00 AM – 6:00 PM
+- Wednesday: 7:00 AM – 6:00 PM
+- Thursday: 7:00 AM – 6:00 PM
+- Friday: 7:00 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+David's Auto Central is a full service auto repair and maintenance shop in Stafford, Texas. We work on everything from daily drivers to rare classics. Classics, antiques and motorhomes are welcome here, along with all modern cars and trucks.
+The shop is technician owned, and our work covers diagnostics, brakes, electrical, engine, transmission, air conditioning, alignments, tires and custom jobs. We also handle fleet maintenance as a vendor for fleet leasing companies including ARI, Wheels and Enterprise.
+We hold a 4.5 rating from 124 Google reviews. One reviewer wrote that Melissa at the front desk has always been friendly and efficient, and another said we kept them informed through every step of fixing a project car's axle issues.
+
+## Services
+- Computer diagnosis: We track down check engine, ABS and SRS warning light problems.
+- Air conditioning: Air conditioning service and repair.
+- Transmission and clutch: Repair work on transmissions and clutches.
+- Steering and suspension: Steering and suspension repairs to keep your vehicle handling right.
+- State safety and emission inspections: Texas state safety and emission inspections done at the shop.
+- Classic car mechanical restoration: Mechanical restoration for classics and antiques, plus carb to fuel injection conversions.
+- Customization and modifications: Custom work and modifications to make your vehicle your own.
+- Motor home service and repair: We service and repair motorhomes.
+- Fleet maintenance: Maintenance for business fleets. We are a vendor with fleet leasing companies including ARI, Wheels and Enterprise.
+
+## FAQ
+Q: Do you work on older or unusual vehicles?
+A: Yes. Classics, antiques and motorhomes are welcome, along with all modern cars and trucks.
+
+Q: What forms of payment do you take?
+A: We accept all major credit cards.
+
+Q: Are you open on weekends?
+A: No. We're open Monday through Friday and closed Saturday and Sunday. Call ahead to confirm hours.
+
+## What customers say
+- "Melissa at the front desk has always been so friendly and efficient when it comes to helping with my repairs. I do not usually like to leave my vehicles for repairs but without a doubt I trust them to do their job correctly. I believe it was the owner that took care of my last issue and they worked so hard even past closing time to get my issues fixed. I will definitely keep going back to them for my auto repairs and recommend them if you're looking for a knowledgeable and trustworthy mechanic." (JP Rodriguez, 5/5)
+- "Love them! We take our 2019 ford edge to them and I started taking my 2022 Volkswagen Taos to them. They always do a phenomenal job! Couldn’t recommend anyone better! Always quick and efficient and very professional! Thank you Davis! I will continue taking my vehicles to you guys in the future!😊👍" (Maya Thibaudeau, 5/5)
+- "We had a project car that kept having axle issues, so we sent it to David’s. They took care of the problem and worked with us through every step, keeping us informed on what was going on. Will be looking forwards to doing more business with them." (Tom Huang, 5/5)
+- "Excellent service very knowledgeable one honest mechanic.  I will definitely will be bringing my cars here. Thanks a lot 100% recommend" (TRUCKING POWER, 5/5)
+- "I  used David’s Auto Central for 15 years! By far the most honest efficient mechanic shop I have experienced." (Mark Black, 5/5)

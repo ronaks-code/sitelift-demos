@@ -1,0 +1,49 @@
+# California Auto Repair Services
+
+> Car maintenance, diagnostics, tires, brakes and custom jobs on Geary Blvd in San Francisco. Rated 4.3 on Google from 40 reviews.
+
+- Type: Car repair and maintenance service
+- Address: 6027 Geary Blvd, San Francisco, CA 94121, USA
+- Phone: (415) 751-1128
+- Email: caautosf@att.net
+- Website: https://ronaks-code.github.io/sitelift-demos/california-auto-repair-services/
+- Google Maps: https://maps.google.com/?cid=12921570821143418980&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.3 from 40 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+California Auto Repair has been fixing cars in this city long enough to call itself a San Francisco institution. We work on all cars from Acura to Volvo, and we use only the best parts we can get.
+Our head mechanic, Lincoln Ching, is certified by the National Institute for Automotive Service Excellence. When he isn't at the shop, he's spending time with his family or working on his classic car collection.
+Our job is to keep you and your loved ones safe on the road. We're rated 4.3 on Google from 40 reviews, and we'd be glad to take a look at your car.
+
+## Services
+- Maintenance package: Regular service keeps your car running well. Our package covers oil and filter replacement, an exterior lights inspection, windshield wiper fluid, tire pressure adjustment and more.
+- Weird noises: Car making weird noises or not driving like it used to? Bring it in and our mechanics will diagnose the problem and recommend a solution.
+- Tires: Worn out or badly mounted tires hurt your gas mileage and safety. We'll make sure yours are in good shape.
+- Brakes: Brakes are easy to overlook until they cost you. Let us check that yours work properly.
+- Custom jobs: Need something extra? We've handled engine rebuilds, drive train installations and more. Drop us a line.
+
+## FAQ
+Q: Are you open Monday through Friday?
+A: Yes, Monday through Friday from 8:00 AM to 5:00 PM. We're closed Saturday and Sunday.
+
+Q: Where is the shop?
+A: You'll find us at 6027 Geary Blvd, San Francisco, CA 94121.
+
+Q: What kinds of cars do you work on?
+A: All cars, from Acura to Volvo.
+
+## What customers say
+- "A check engine lamp appeared on my dashboard, on my first day in San Francisco after a long cross country drive and I drove my Honda Odyssey to the nearest mechanic. I was so lucky that it was California Auto Repair. Lincoln is a very kind person and his optimistic attitude helped calm my nerves. He helped to diagnose the problem with my transmission and also alerted me to a problem with my rear brakes. I think his pricing is  honest and fair and his shop is very efficient. I am happy to have a trustworthy mechanic in the city." (Gemma Metzger, 5/5)
+- "I stopped by California Auto Repair Service for a check-up visit and had a really great experience. The owner, Lincoln, was thorough and honest in his evaluation, taking the time to explain what actually needed attention and what didn’t. The work was done in a timely manner, and the fees were fair—not overpriced at all. It’s clear he runs his business with high integrity, which is hard to find these days. I appreciate the straightforward service and would definitely recommend this shop." (David Y, 5/5)
+- "Lincoln quoted my daughter $90 to do a thorough check of her car before she was going on a long road trip. He was very nice on the phone and super nice when my daughter brought her car in. He checked it all out and only charged the $90. He didn’t try to upsell her on anything and explained things clearly. She did need the under carriage of the car re-fastened and he ordered the part and charged a fair price to do that work. We will bring our car back there for sure! Thanks Lincoln!" (Sarah Villegas, 5/5)
+- "Another great experience, our Q5 was leaking coolant, and they diagnosed the problem quickly and efficiently completed the repairs within hours!" (Michele Radcliffe, 5/5)
+- "Great service every time I’ve been, good communication and never tries to upsell. Service is fast and convenient" (Duncan Green, 5/5)
