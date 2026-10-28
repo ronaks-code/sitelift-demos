@@ -1,0 +1,48 @@
+# Express Tires & Services
+
+> New and used tires, brakes, oil changes, A/C recharge and engine diagnostics in Hialeah, FL. Rated 4.7 from 254 Google reviews.
+
+- Type: Tire Shop
+- Address: 1401 E 10th Ave, Hialeah, FL 33010, USA
+- Phone: (305) 885-7907
+- Website: https://ronaks-code.github.io/sitelift-demos/express-tires-and-services/
+- Google Maps: https://maps.google.com/?cid=16759970605183841354&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 254 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 3:30 PM
+- Sunday: Closed
+
+## About
+Express Tires & Services is a tire shop and general mechanic in Hialeah. We sell new and used tires, and we can help with everything from an oil change to an engine change, on both foreign and domestic vehicles.
+We want you to get the quality you'd expect from a dealership, in a more personal and friendly place. We only do the work that's needed to fix your problem, and we explain it before we start.
+Our neighbors have given us a 4.7 rating from 254 Google reviews. We're open Monday through Saturday and closed on Sunday.
+
+## Services
+- Tire and wheel services: New and used tires to fit your car and your budget.
+- Brake repair: Brake work to keep your car stopping the way it should.
+- Oil change: Conventional, high mileage, synthetic blend or full synthetic oil, plus a check of the essential systems and components of your vehicle.
+- Car A/C recharge: We clear out the old Freon, recharge the system with new Freon, then check pressure and temperature control to make sure everything is working.
+- Engine diagnostics: Diagnostic testing to find the root cause of the problem so we're not guessing at the repair.
+
+## FAQ
+Q: Do you work on foreign cars?
+A: Yes. We handle foreign and domestic vehicles.
+
+Q: Do you sell used tires?
+A: Yes. We carry both new and used tires.
+
+Q: Are you open on the weekend?
+A: Yes, on Saturday from 8:00 AM to 3:30 PM. We're closed on Sunday.
+
+## What customers say
+- "Amazing experience here! The team was friendly, honest, and incredibly skilled. I want to thank specially to Guillermo. They explained everything clearly, didn’t push unnecessary services, and got my car back to me quickly. My car runs like new! Highly recommend for anyone looking for trustworthy mechanics." (Marilyn Rivera, 5/5)
+- "They where very friendly and helped me get my car fixed quickly and affordable and they did a very good job , I would recommend this place ." (Yansy Leyva, 5/5)
+- "Went to get an alternator replacement. In and out in 3 hours. Excellent service and Darwin showed great care. 10/10 recommend to anyone." (Aniket Gupta, 5/5)
+- "Wow. Heaven. Great service, Great people, great timing. Idk why you haven't come here yet. These folks are good to go. Ty 😊" (Senior Member, 5/5)
+- "Great service at a great price." (Amilcar Ortiz, 5/5)

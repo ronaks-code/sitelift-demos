@@ -1,0 +1,47 @@
+# San Fernando Tires and Sons
+
+> Family tire shop on Magnolia Blvd in North Hollywood. New and used tires, custom wheels, tire and wheel repair. Rated 4.6 from 242 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 10637 Magnolia Blvd, North Hollywood, CA 91601, USA
+- Phone: (818) 505-0095
+- Website: https://ronaks-code.github.io/sitelift-demos/san-fernando-tires-and-sons/
+- Google Maps: https://maps.google.com/?cid=1949211087034451619&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 242 reviews
+
+## Hours
+- Monday: 9:00 AM – 6:00 PM
+- Tuesday: 9:00 AM – 6:00 PM
+- Wednesday: 9:00 AM – 6:00 PM
+- Thursday: 9:00 AM – 6:00 PM
+- Friday: 9:00 AM – 6:00 PM
+- Saturday: 9:00 AM – 6:00 PM
+- Sunday: 9:00 AM – 1:00 PM
+
+## About
+Welcome to our family business. We sell and install tires and rims, with new and used tires in all brands and sizes, plus a showroom of custom aftermarket wheels. Ask us about wheel and tire packages.
+We also handle tire repairs like plugs and patches, and wheel repairs for curb scratches, paint, powder coat, dents and cracks. Pass by anytime for a wheel and brake inspection. We want to get you back on the road safe.
+We're rated 4.6 from 242 Google reviews. One reviewer got a flat on the freeway and had it fixed the next day. Another stopped in with low tires and had them checked and filled with air in about a minute.
+
+## Services
+- New and used tires: New and used tires in all brands and sizes, sold and installed.
+- Custom wheels and packages: Browse our showroom of custom aftermarket wheels and ask about wheel and tire packages.
+- Tire repair: Plugs and patches for punctures and nails.
+- Wheel repair: Fixes for curb scratches, paint, powder coat, dents and cracks.
+- Wheel and brake inspection: Stop by and we'll take a look at your wheels and brakes.
+
+## FAQ
+Q: Is balancing included with new tires?
+A: Yes. All new tires come with free balancing.
+
+Q: Can you fix a tire with a nail in it?
+A: Yes. We do tire repairs like plugs and patches. One reviewer had a nail in their tire and said we patched it quickly.
+
+Q: What are your hours on Sunday?
+A: On Sunday we're open from 9:00 AM to 1:00 PM.
+
+## What customers say
+- "Absolutely great experience at San Fernando Tires & Son! Miguel, Jesus, and Ed were all amazing and provided excellent customer service from start to finish. They were friendly, professional, knowledgeable, and made sure everything was taken care of. It’s hard to find a business where the staff genuinely cares about their customers, but these guys definitely do. I really appreciate how helpful and welcoming they were. Highly recommend San Fernando Tires & Son—ask for Miguel, Jesus, or Ed! You won’t be disappointed!" (Amber Neal, 5/5)
+- "I've been here quite a few times and had a positive experience.  Today, my tires were low and Jesús was kind enough to check my tires and fill them up with air. Super fast within a minute! They have been kind and helpful every time. One time, I had a nail in my tire and they quickly patched up my tire. These guys are solid. Check them out!" (J G, 5/5)
+- "Great tours at some of the lowest prices in town.  Family owned for decades.  I saved over $1,000 off a coppery set of EV tires vs. Costco & Discount Tire.  You NEED to give them a shot.  Tell them John sent you & you'll get extras because I've taken cars there for decades." (The Bobnes Group Green Home Experts, 5/5)
+- "Love this place.  Got a flat tire on the freeway and got it fixed the next day with a very reasonable price.  Since the tire that I needed was rare.  Normally I would have to wait for 3-4 days in the other tire shop.  The owner is super friendly and funny as well." (brenda w., 5/5)

@@ -1,0 +1,48 @@
+# R S Auto Care
+
+> Tires and full auto repair on Harry Hines Blvd in Dallas. Walk-ins welcome, all makes and models. Rated 4.7 from 545 Google reviews.
+
+- Type: Tire Shop
+- Address: 11579 Harry Hines Blvd, Dallas, TX 75229, USA
+- Phone: (682) 777-4771
+- Website: https://ronaks-code.github.io/sitelift-demos/r-s-auto-care/
+- Google Maps: https://maps.google.com/?cid=11133320272730265118&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 545 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 6:00 PM
+- Sunday: Closed
+
+## About
+R S Auto Care is a tire and auto repair shop on Harry Hines Blvd in Dallas. We keep tires in stock and handle full auto repair on all makes and models, so you can take care of both in one stop.
+You can browse tire sizes, brands and prices online and we will hold what you pick. If something feels off with your car, describe it in a quote request and we will call you back with a price before any work starts. Walk-ins are welcome too.
+Drivers have given us a 4.7 rating from 545 Google reviews. One reviewer who came in stressed with a car that would not start said we were kind, clear, and fixed the problem without pushing anything else.
+
+## Services
+- Tires: Tire sizes, brands and prices in stock. Find your size online, pick what you need and we will hold it for you.
+- Auto repair: Full auto repair for all makes and models. Tell us the symptoms, warning lights and when it happens, and we will get back to you with an estimate.
+- Alignment: One reviewer came in for new tires and an alignment to keep the family safe on the road.
+
+## FAQ
+Q: Do I need an appointment?
+A: No. Walk-ins are welcome. You can also book a visit online if you would rather pick a time.
+
+Q: How do I find my tire size?
+A: Your size is printed on the sidewall of the tire you have now. If you are not sure about part of it, leave that box on Any when you search.
+
+Q: What are your hours on Saturday?
+A: Saturday hours are 8:00 AM to 6:00 PM. We are closed on Sunday.
+
+## What customers say
+- "This morning started with my car that wouldn't turn on. I called my insurance requesting a tow and they sent me Doone Towing Services. Once he got there, not only was he extremely polite and helpful, he also recommended R S Auto care. He even gave me quotes of what I could be looking at before even leaving my garage. I agreed to bringing my car there and it was the best decision I made. Everyone at R S Auto Care was very kind and clear. I was stressed out, had my two kids with me and I probably looked frazzled, but they addressed my problem quickly and effectively. In less than an hour I had my car diagnosed, fixed and pulling out of their parking lot. The service was phenomenal and the best experience I've ever had at a mechanic. They fixed the issue that I was there for and didn't push anything else. They were honest and reasonable and I am so very thankful. They've earned a new customer!" (Daiana Pompa, 5/5)
+- "Amazing experience from start to finish! They refinished the wheels on my BMW and installed a brand-new set of tires, and everything came out exactly how I wanted it. The wheels look incredible, and I was especially impressed with how carefully they handled the car throughout the process.
+
+The service was quick and completed in a very timely manner. They were friendly, communicative, easy to work with, and made sure everything was done the way I wanted. If you have a luxury or higher-end vehicle and want a shop that will treat it with care, I’d definitely recommend them. Great workmanship, great customer service, and excellent results. I’ll absolutely be coming back." (Jay, 5/5)
+- "Great place for tires.  Went to Azteca down the street, but they were closed (even though the website said they were open).  So, decided to give this place a shot.  Two tires, plus installation, came out to $240.  Not mad about that at all.  Will for sure bring my cars back here for tires and probably other services as well." (Kyle McKamie, 5/5)
+- "I came into this shop and got 8 new tires for my trailer (235/80/16) and 3 new tires for my truck (235/80/17) and these guys hooked it up! Gave me a great deal and better than any price anyone has given me. Be sure to stop by R & S it was a game changer for my business to go get the money 💴 d" (william johnson, 5/5)
+- "Khaled really helped me out in my time of need and got me new tires and alignment and made sure me and my family was safe on the road. Ordered tires for my car and got here in 10 mins when no other place could help. Been coming here for years and will always return. Top quality" (Big Free, 5/5)
