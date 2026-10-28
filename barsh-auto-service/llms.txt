@@ -1,0 +1,47 @@
+# Barsh Auto Service
+
+> Independently owned auto repair in Conroe, TX. Brake repairs and scheduled maintenance. Rated 4.7 from 360 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 829 S Frazier St, Conroe, TX 77301, USA
+- Phone: (936) 588-2010
+- Email: ${email.val()}
+- Website: https://ronaks-code.github.io/sitelift-demos/barsh-auto-service/
+- Google Maps: https://maps.google.com/?cid=4078734924912899889&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 360 reviews
+
+## Hours
+- Monday: 7:30 AM – 6:00 PM
+- Tuesday: 7:30 AM – 6:00 PM
+- Wednesday: 7:30 AM – 6:00 PM
+- Thursday: 7:30 AM – 6:00 PM
+- Friday: 7:30 AM – 5:30 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Barsh Auto Service is a full-service repair and preventive maintenance shop in South Conroe, independently owned and operated. We work on domestic and imported vehicles, and we use parts that meet or exceed the manufacturer's standards.
+If your car needs scheduled maintenance, you don't have to take it back to the dealership. We can service it here and your manufacturer's warranty stays intact.
+Something feel, sound or smell off? A shimmy in the steering wheel, a clunk when turning, a new light on the dash, a burning smell. Stop by or give us a call and one of our technicians will help you figure out what's going on before it turns into something bigger. We serve folks from Conroe, Montgomery, Willis, Woodlands and Spring.
+
+## Services
+- Brake repairs: Brake inspections, pad replacement, caliper repair, rotor replacement and brake fluid service for domestic and import vehicles.
+- Scheduled maintenance: Routine maintenance for your personal or company auto, pickup or truck, without the dealership trip.
+- Towing and roadside assistance: Barsh Towing and Roadside Assistance is available 24/7 if your vehicle can't make it to the shop.
+
+## FAQ
+Q: Will servicing my car here affect my manufacturer's warranty?
+A: No. Wherever your vehicle was built, we can service it and still maintain the manufacturer's warranty.
+
+Q: What kinds of vehicles do you work on?
+A: We're qualified to repair and service domestic and imported vehicles, from personal cars to company pickups and trucks.
+
+Q: How do I make an appointment?
+A: You can book online or call the shop at the number listed on this page.
+
+## What customers say
+- "We always used the dealership due to the free oils changes after purchasing my car, I decided to give Barsh a try once they were used and I was highly impressed compared to the dealership. Not only were they faster and more friendly, they even had a space with toys and books to keep my toddler entertained. My technician also informed me that their parts and labor warranty is significantly longer than the dealership. One more reason to love our small town!" (Courtney Barnes, 5/5)
+- "I brought my company truck in on a busy Friday, and it was running and sounding horrible. Marcus, the attentive staff member, got my truck right in. They did a free inspection, found the problem, and got it fixed all in the same afternoon. Being able to do that for me will allow me to return to servicing my customers and minimizing downtime. Thank you to the staff and the specialist for all that you did. God bless." (Bobby Whitehead, 5/5)
+- "After taking my vehicle to 2 different mechanics and getting the wrong service performed on my car Kyle was able to fix the issue and also found other safety issues thar no one else took the time to look. Im grateful for the service i got from Barsh. From Kyle to Marcos.  Great job guys." (Chris Bordelon, 5/5)
+- "I dont remember all the guys names sorry for that. Dave and the guys have been very helpful to me and my experience of keeping my car there why ive been making payments on my car. They could have been charging me a stow fee. Theyve been patient in helping me. I really appreciate them." (Johnny pittman, 5/5)
+- "daniel and marcus are incredible! they answered all of my questions and had my car in and out FAST! pricing was beyond fair and the experience at barsh automotive was 10 out of 10! will be coming back for all automotive needs" (kayleigh leblanc, 5/5)

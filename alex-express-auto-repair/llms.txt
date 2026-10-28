@@ -1,0 +1,50 @@
+# Alex Express Auto Repair
+
+> Alex Express Auto Repair in Miami: engine diagnostics, brakes, air conditioning, oil changes, belts, hoses and tires. Rated 4.9 on Google from 38 reviews.
+
+- Type: Car repair and maintenance service
+- Address: 2520 SW 16th St, Miami, FL 33145, USA
+- Phone: (786) 443-5409
+- Email: alex@alexexpressautorepair.com
+- Website: https://ronaks-code.github.io/sitelift-demos/alex-express-auto-repair/
+- Google Maps: https://maps.google.com/?cid=11302826557392267706&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 38 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 6:00 PM
+- Sunday: Closed
+
+## About
+Alex Express Auto Repair is a car repair shop on SW 16th St in Miami. The idea is simple: the quality you'd expect from a dealer, with a more personal and friendly feel, and only the work needed to fix your problem.
+The shop has invested in specialist tools and diagnostic software made for the systems in today's vehicles, and works on a wide range of makes, from Toyota and Honda to BMW, Mercedes-Benz and Jeep.
+Customers tend to mention Alex by name. One reviewer called him honest and down to earth, and another said he treated them like a guest in his home. The shop holds a 4.9 rating on Google from 38 reviews.
+
+## Services
+- Diagnóstico del motor: Engine diagnostics. Want to know what's wrong with your car or what shape it's in? Ask for a complete engine check.
+- Frenos: Brakes squealing or not stopping like they used to? Have them checked and replaced.
+- Aire acondicionado: Air conditioning repair so you're not sweating through Miami traffic.
+- Lubricantes, aceite y filtros: Oil changes, lubrication and filters to keep your car running well.
+- Correas y mangueras: Repairs for belt and hose problems.
+- Llantas y ruedas: Tire rotation and balancing to help your tires last, plus tire pressure monitoring system service.
+
+## FAQ
+Q: Do you have the diagnostic software for my vehicle?
+A: The shop has invested in specialist tools and diagnostic software tailored to the software in your vehicle.
+
+Q: Do you offer roadside assistance?
+A: The shop's website lists 24/7 roadside assistance. Give the shop a call to ask about your situation.
+
+Q: Can you order parts from the dealer?
+A: One reviewer said Alex ordered the part from the dealer for their Jeep ignition antenna, then programmed it and made new key chips.
+
+## What customers say
+- "Alex gives the best service he knows what a mechanic mean when you need one he order the part from the dealer for my jeep ignition antenna he programed it and did new chips for my key I did not have to buy new keys my jeep started right away he did a spectacular job thanks Alex again for the best service." (Lazaro Valladares, 5/5)
+- "Alejandro had my part ordered and ready in 20 minutes. He gave me his full attention and he treated me like a guest in his home. Great advice and even knew exactly what the sound in my engine was right away. I will be coming back for further service!" (Nikole Andrea, 5/5)
+- "Alex was able to help me find an original cheap power outlet for my car (cigarette port) and install it same day. Highly recommend." (Daniel Correa, 5/5)
+- "Great mechanic. Honestly and down to earth.  I recommend him anytime and loyal to is customer. One of the best of in miami." (Felix Guzman, 5/5)
+- "Great service, Alex was excellent. Very knowledgeable and understanding." (j p, 5/5)

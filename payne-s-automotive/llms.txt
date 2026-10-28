@@ -1,0 +1,57 @@
+# Payne's Automotive
+
+> Family owned auto repair at Bingle and Tidwell in Houston. Domestic and foreign cars, light and medium duty trucks, gas and diesel. Rated 4.6 on Google.
+
+- Type: Car repair and maintenance service
+- Address: 5801 Bingle Rd, Houston, TX 77092, USA
+- Phone: (713) 895-9948
+- Email: jevans@paynesautomotive.com
+- Website: https://ronaks-code.github.io/sitelift-demos/payne-s-automotive/
+- Google Maps: https://maps.google.com/?cid=17710034785706170506&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 412 reviews
+
+## Hours
+- Monday: 7:00 AM – 5:00 PM
+- Tuesday: 7:00 AM – 5:00 PM
+- Wednesday: 7:00 AM – 5:00 PM
+- Thursday: 7:00 AM – 5:00 PM
+- Friday: 7:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Payne's Automotive is a family owned and operated repair shop on the corner of Bingle and Tidwell. We work on personal, commercial and fleet vehicles, both domestic and foreign, and our mechanics are qualified on gas and diesel engines using current diagnostic tools.
+Before any work starts, you get a price estimate and we wait for your approval. We explain what your vehicle needs, help you decide what comes first, and keep you posted while it's in the shop. Every vehicle gets a computerized service history, and you leave with a detailed invoice to keep.
+Our goal is simple: earn your trust, keep you safe on the road, and help you avoid costly repairs down the line.
+
+## Services
+- Oil and oil filter service: Routine oil changes to keep your engine running right.
+- Air conditioning service: A/C diagnosis and repair to keep you cool through a Houston summer.
+- Brake service and repair: Inspection, service and repair of your brake system.
+- Transmission service: Service to keep your transmission shifting smoothly.
+- Cooling system service: Radiator and cooling system work to keep your engine from overheating.
+- Engine service and repair: Engine diagnosis and repair on gas and diesel engines.
+- Drivetrain service and repair: Service and repair for the parts that deliver power to your wheels.
+- Fleet and commercial vehicles: We service commercial and fleet vehicles along with personal cars and trucks.
+
+## FAQ
+Q: Do you work on diesel engines and trucks?
+A: Yes. Our mechanics are qualified on both gas and diesel engines, and we work on cars and light and medium duty trucks.
+
+Q: Can I see the parts you replaced?
+A: Yes. We save all replaced parts until you arrive so you can inspect them if you'd like.
+
+Q: What if my car is still under the dealer's warranty?
+A: We'll let you know if a problem we find is still covered under the dealer's warranty.
+
+Q: Are you open on weekends?
+A: No. We're open Monday through Friday and closed Saturday and Sunday.
+
+## What customers say
+- "Had been seeing this place for the longest since I live in the area. Heard they were kind of pricey. My regular mechanic closed shop for what ever reason. Had an electrical problem and couldn't figure it out myself. Was given a guy's number who supposedly does electrical work. Found him on Google and to say his reviews were horrible was an understatement. Long story short these guys are wonderful. Didn't seem pricey to me. Definitely will be back for any car problems." (Matthews Stanley III, 5/5)
+- "Payne's automotive did a great job! I needed my A/C fixed and they were able to help me out with replacing all the parts that had corroded. They were very professional and explained everything to me so I could see what was wrong with my car. They also worked in a very timely manner and got the repair  completed by the end of the day. Would definitely recommend them for your auto repair needs." (Tiffany Patterson, 5/5)
+- "They do good work. I've had my radiator fixed, transmission replaced, AC fixed... twice.
+
+But I have beef with them because they cheaped out on parts and repaired a broken heater hose connector with a cheap piece of plastic that broke again after only a year. Getting stranded again for $40 saved on a $600 bill definitely not worth. Bought the metal one myself so I'm not left stranded again." (Billy Carter, 5/5)
+- "I have been to Payne's twice now... They did an amazing job.  They diagnosed an issue that other mechanics didn't catch, and took care of it. I had my car back within two days. And that included the time to diagnose the main issue.  Payne's has earned my trust and a new customer.  Thank you guys!  Y'all knocked it!" (Elias Garcia, 5/5)
+- "I never go wrong with taking a car here. At times their prices are slightly higher; however, you get quality care, guaranteed fixed vehicle, and they get it done quick. If you are looking for a local mechanic with great service, quality mechanics, and quick response time. This is your place." (Guillermo G Rodriguez, 5/5)

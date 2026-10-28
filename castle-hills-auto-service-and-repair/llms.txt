@@ -1,0 +1,53 @@
+# Castle Hills Auto Service and Repair
+
+> Car repair and maintenance in Lewisville, TX for all makes and models. Rated 4.7 from 617 Google reviews. Open Monday through Saturday.
+
+- Type: Car repair and maintenance service
+- Address: 2000 FM 544, Lewisville, TX 75056, USA
+- Phone: (972) 236-5930
+- Email: ${email.val()}
+- Website: https://ronaks-code.github.io/sitelift-demos/castle-hills-auto-service-and-repair/
+- Google Maps: https://maps.google.com/?cid=12533376328834913511&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 617 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 5:00 PM
+- Sunday: Closed
+
+## About
+Castle Hills Auto Service and Repair is a full service auto shop in Lewisville. We handle everyday maintenance like oil changes, tires and A/C tune ups, along with larger repairs, for vehicles of all makes and models.
+We're part of North Texas Auto Services, and our sister shop, Stonebriar Auto Service, is over in Frisco.
+Neighbors have given us a 4.7 rating across 617 Google reviews. One reviewer said Kevin, a manager, took the time to explain the repair and the parts needed.
+
+## Services
+- Oil change: Stop in for an oil change. One reviewer came by without an appointment and was back on the road quickly.
+- Tires and wheels: Tire and wheel service for your car or truck.
+- A/C tune up: Keep the air conditioning working through a North Texas summer.
+- Routine maintenance and repairs: Regular upkeep or fixing something bigger.
+- Audi service and repair: Maintenance and repairs for Audi models.
+
+## FAQ
+Q: Do you work on my make of car?
+A: We offer auto repair for vehicles of all makes and models. Give us a call and we'll talk it through.
+
+Q: Are you open on Saturday?
+A: Yes. Saturday hours are 8:00 AM to 5:00 PM. We're closed on Sunday.
+
+Q: Do you offer pick up and drop off?
+A: We offer courtesy pick up and drop off service to local customers. Call to check if you're in the area.
+
+Q: Is there somewhere to wait?
+A: Yes. One reviewer said the waiting area was comfortable and has a kids' section for families.
+
+## What customers say
+- "I highly recommend this business!  Kevin, a manager, spoke with me by phone at length regarding my issues and offered his suggestions.  After speaking to me he sent a link to me with further info. After I mistakenly ordered the wrong headlights, he offered a restoration process, instead, on my foggy lights that was very well done.  Saved me money and looks great.  I also had a 90,000 mile check up and I am very pleased with the performance of my 2017 vehicle.  Castle Hills goes above and beyond and I am very impressed about the time, effort and courtesy offered to me during a car repair event.  It was a pleasure!  (My husband’s having his vehicle serviced by Castle Hills today!)" (Cindy Pierce, 5/5)
+- "I stopped by for an oil change without an appointment, and they were incredibly kind and accommodating. They got me in right away and had me back on the road in no time. The service was fast, friendly, and professional. I really appreciated how easy they made the whole experience. I’ll definitely be back and highly recommend them!
+
+A special thank you to CJ for his help and guidance. He went above and beyond to make sure everything was taken care of, and I truly appreciated his outstanding customer service. I’ll definitely be back and highly recommend them!" (MJ, 5/5)
+- "I had an amazing experience getting my car repaired here. Kevin went above and beyond with a service they don’t normally provide. He took time to explain the repair process and the parts needed, kept me updated throughout the work, and made sure everything was completed to a high standard. He treated me with honesty, professionalism, and genuine care from start to finish. I highly recommend this shop for great customer service!" (Nhi Nguyen, 5/5)
+- "Great Service! Very professional, honest, and informative. They took the time to explain and show me exactly what was going on with my vehicle before doing any work. Prices were fair, the facility was clean, and the waiting area was comfortable with a kids’ section for families. The entire experience was stress-free, and their customer service was outstanding. Highly recommend!" (Mmgymlife M Merrill, 5/5)

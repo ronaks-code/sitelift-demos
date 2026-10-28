@@ -1,0 +1,53 @@
+# Stonebriar Oil Change & Auto Service
+
+> Oil changes, A/C tune ups, tires and repairs for all makes and models on Lebanon Rd in Frisco, TX. Rated 4.6 from 626 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 12600 Lebanon Rd, Frisco, TX 75035, USA
+- Phone: (469) 388-0830
+- Email: ${email.val()}
+- Website: https://ronaks-code.github.io/sitelift-demos/stonebriar-oil-change-and-auto-service/
+- Google Maps: https://maps.google.com/?cid=7848216073172814642&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 626 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 5:00 PM
+- Sunday: Closed
+
+## About
+Stonebriar Oil Change & Auto Service is the Frisco shop of North Texas Auto Services, with a sister location in Castle Hills in Lewisville. The goal is simple: give you an experience similar to what a dealership offers, for vehicles of all makes and models.
+Neighbors keep coming back. One reviewer has trusted the shop with all of their vehicles for several years, including a very old car the team keeps running. Another named Kevin and his team as their new go-to, and a third thanked Ryan Ortiz for keeping them updated through the whole visit.
+We're open Monday through Saturday. Request an appointment and we'll reach out to confirm the details.
+
+## Services
+- Engine oil change: Routine oil service for your daily driver. One customer heading out on a road trip said the team brought in an extra associate to get him on his way.
+- Tires and wheels: Tire and wheel work when you need it.
+- A/C tune up: Keep your air conditioning working through the North Texas heat.
+- Water pump: One customer had their water pump replaced and said the team held the car indoors when they needed more time to pick it up.
+- Door lock: One reviewer had the driver side door lock fixed the same day.
+
+## FAQ
+Q: What vehicles do you work on?
+A: We service vehicles of all makes and models at our Frisco and Lewisville shops.
+
+Q: Are you open on Saturday?
+A: Yes. Saturday hours are 8:00 AM to 5:00 PM. We're closed on Sunday.
+
+Q: How does booking an appointment work?
+A: Send us your preferred date and time. That slot may not always be open, so we'll contact you to confirm your actual appointment.
+
+## What customers say
+- "They fixed the door lock on drivers side same day! They are all so professional and friendly.  Reassuring too!  I have a very old car but they keep it going for me. I am so grateful they are so trustworthy and follow up promptly for any questions or problems.  I have 3 vehicles and only use them, have for several years and never disappointed on any work they have done. Totally recommend them for automotive needs! Quick and stick to quoted work with a follow up text to review before work is done.  They are great!" (S Threlkeld, 5/5)
+- "I have used this service location for several years. Stonebriar continues to improve client experiences with system upgrades along with a very talented tech team. I was assisted by Ryan Ortiz during this visit. He was very professional, engaging and kept me updated on my ultimate service needs. I was provided with written quotes along with supporting pics. The express paylink was a very convenient option as well. Overall an great service experience....kudos to the entire team!" (DL Miller, 5/5)
+- "Went in for an oil change. Was told it would be an hour wait. I said I was trying to get on the road for a road trip and went ahead with the wait. 5 min later they brought in an extra associate to accommodate me and get me on my way. After the road trip we got an oil leak. Called, explained what happened to get squeezed in an hour before close. They were able to get right on it and fix the leak. Great work. Great people. Recommend taking your car here for work!" (Aaron Rodriguez, 5/5)
+- "Absolutely great service from start to finish! Our car was getting a water pump replaced, and they were able to save us $400 dollars for the same service, when quoted at a different shop. It took them only a day to complete the repairs after getting the part in.  They were also very gracious to hold our vehicle indoors after the repairs, when we needed more time to pick up the vehicle. I would definitely recommend!" (Monica Del Bosque, 5/5)
+- "Great experience! Kevin and his team will be my new go-to for future car care.
+
+Good and trustworthy auto care places are tough to find but this one exceeded expectations. Service was great, process was quick, shop was clean and pricing was completely fair. They were able to get my issue resolved in just two hours.
+
+They even have a kids center which is great for parents!" (Veronica Richards, 5/5)

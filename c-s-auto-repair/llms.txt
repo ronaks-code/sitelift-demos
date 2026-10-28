@@ -1,0 +1,47 @@
+# C's Auto Repair
+
+> Full service auto repair and maintenance on Inglewood Ave in Lawndale. Domestic and foreign cars. Rated 4.8 on Google from 79 reviews.
+
+- Type: Car repair and maintenance service
+- Address: 15020 Inglewood Ave, Lawndale, CA 90260, USA
+- Phone: (310) 615-0969
+- Email: saloum.csautorepair@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/c-s-auto-repair/
+- Google Maps: https://maps.google.com/?cid=14245077386749818763&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.8 from 79 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 9:00 AM – 2:00 PM
+- Sunday: Closed
+
+## About
+Cal's love for cars started when he was a young boy in Lebanon. He made sure he knew all makes and models, both technically and mechanically, then brought those skills to the Los Angeles area, starting out in West LA.
+He later came to the South Bay, where he was lead mechanic for Jim and Jacks before opening C's Auto. Today the shop serves South Bay residents and workers from Inglewood Avenue in Lawndale.
+His approach is simple: client trust and top notch service. We handle dealer maintenance and repair, from routine service to engine rebuilds, and customers have given us a 4.8 rating on Google from 79 reviews.
+
+## Services
+- Computer diagnostics: When something feels off, we'll run computer diagnostics to track down the cause.
+- Brake service: Brake inspection and repair to keep your car stopping the way it should.
+- Routine maintenance: Scheduled mileage maintenance to keep your car running right between bigger repairs.
+
+## FAQ
+Q: Do you work on foreign cars?
+A: Yes. We service both domestic and foreign models, new and late models.
+
+Q: What should I bring for routine maintenance?
+A: Please bring your car's maintenance schedule so we can make sure the routine service is accurate.
+
+## What customers say
+- "It’s honestly hard to find people like him anymore. I own a dealership, and a car I had just purchased suddenly overheated. I stopped by his shop — it was over 80 degrees and extremely hot inside — and he was clearly very busy.
+
+Despite that, he took 20–30 minutes out of his packed schedule to help diagnose the issue, without expecting any payment or asking for anything in return. Even though he ultimately couldn’t take the car in due to how busy he was, he kindly advised me to have it towed and made sure I was pointed in the right direction.
+
+That level of professionalism and genuine kindness is rare these days. I truly appreciate his help and integrity. Highly recommend." (arash roostaei, 5/5)
+- "I’ve been going to Cal at C’s for over 10 years. He’s a very honest mechanic, with very reasonable prices. I always feel like I’ve been treated fairly when I leave. I highly recommend them." (Jerry Fruchtman, 5/5)
+- "We’ve been bringing our cars in to C’s for years and they do amazing work. Friendly, professional, and don’t add things on for no reason like some other shops do. Will always come back!" (Victoria Rosenberg, 5/5)
+- "10/10 Service. Bring all my cars here because they are honest with their work as well as the prices. Will be my main repair shop" (Gursh, 5/5)
