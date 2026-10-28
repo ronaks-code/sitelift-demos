@@ -1,0 +1,35 @@
+# Zam Zam Auto Sales & Repairs
+
+> Car repair, maintenance and auto sales on W Northgate Dr in Irving, TX. Open Monday through Saturday. Rated 4.2 from 278 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 4944 W Northgate Dr, Irving, TX 75062, USA
+- Phone: (214) 604-1898
+- Website: https://ronaks-code.github.io/sitelift-demos/zam-zam-auto-sales-and-repairs/
+- Google Maps: https://maps.google.com/?cid=3392512250735903359&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.2 from 278 reviews
+
+## Hours
+- Monday: 9:30 AM – 5:30 PM
+- Tuesday: 9:30 AM – 5:30 PM
+- Wednesday: 9:30 AM – 5:30 PM
+- Thursday: 9:30 AM – 5:30 PM
+- Friday: 9:30 AM – 5:30 PM
+- Saturday: 9:30 AM – 5:30 PM
+- Sunday: Closed
+
+## About
+Zam Zam Auto Sales & Repairs is a car repair and maintenance shop on W Northgate Dr in Irving, Texas. We also sell cars, so you can come to us whether you need work done on the car you drive or are looking for your next one.
+We're open Monday through Saturday and closed on Sunday. Come see us and we'll talk through what your car needs.
+
+## Services
+- Car repair and maintenance: Repair and routine maintenance work for your car at our Irving shop.
+- Auto sales: We sell cars as well as fix them. Stop by to ask what we have on the lot.
+
+## FAQ
+Q: What are your hours?
+A: We're open Monday through Saturday, 9:30 AM to 5:30 PM. We're closed on Sunday.
+
+Q: Where are you located?
+A: You'll find us at 4944 W Northgate Dr, Irving, TX 75062.
+

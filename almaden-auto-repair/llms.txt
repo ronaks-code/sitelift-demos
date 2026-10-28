@@ -1,0 +1,44 @@
+# Almaden Auto Repair
+
+> Car repair and maintenance in San Jose. Oil changes, repair quotes and engine work. Rated 4.4 from 195 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 1680 Almaden Expy Ste d, San Jose, CA 95125, USA
+- Phone: (408) 292-1260
+- Website: https://ronaks-code.github.io/sitelift-demos/almaden-auto-repair/
+- Google Maps: https://maps.google.com/?cid=5753965602942956246&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.4 from 195 reviews
+
+## Hours
+- Monday: 8:30 AM – 5:30 PM
+- Tuesday: 8:30 AM – 5:30 PM
+- Wednesday: 8:30 AM – 5:30 PM
+- Thursday: 8:30 AM – 5:30 PM
+- Friday: 8:30 AM – 5:30 PM
+- Saturday: 8:30 AM – 5:30 PM
+- Sunday: Closed
+
+## About
+Almaden Auto Repair is a car repair and maintenance shop in San Jose. We handle routine work like oil changes as well as larger repairs.
+If another shop has handed you a list of repairs, you can call us and we'll take a look and give you our own quote. One reviewer said we texted photos of what needed fixing and why.
+We're open Monday through Saturday and closed Sunday. Drivers have given us a 4.4 rating across 195 Google reviews.
+
+## Services
+- Get your oil changed: Routine oil changes. One reviewer said we got back to them quickly with a price and appointment time.
+- Quote on needed repairs: Call and we'll take a look at your car and tell you which repairs it actually needs.
+- Replacing the engine: Larger jobs like engine work. One customer had the engine replaced on a 2019 Honda Accord.
+
+## FAQ
+Q: Are you open on Saturday?
+A: Yes. We're open Saturday from 8:30 AM to 5:30 PM, the same hours as weekdays. We're closed on Sunday.
+
+Q: Where is the shop?
+A: We're at 1680 Almaden Expy Ste d in San Jose.
+
+Q: Can I wait while my oil is changed?
+A: You can. One reviewer filled out a quick form and waited in the lobby for about 30 minutes.
+
+## What customers say
+- "Was looking up a place to get my oil changed because I haven’t had time to do it myself. Search around and Almaden auto repair got back to me fast with a price and appt time. Came in the lobby, filled out a quick form, and just hung out in the lobby for about 30 minutes. This place is nice and clean with classical music playing in the background which was relaxing. I’ve been here like ten years ago once so I decided to come back. I recommend this place because it’s organized, well managed,and just listening to the employees interacting with each other and customers, you can tell they’re very professional. Bringing in your car for anything can be daunting because you hope for the best and fear for the worst but this place eases your mind." (Rocky Quat, 5/5)
+- "Needed maintenance on my 2018 Ford Mustang Ecoboost, I was also looking for a new shop since the one I used to go to closed. I went for an oil change at a local shop and they gave me a list of recommended repairs that they found during inspection, the quote seemed excessive. So I called this shop and they said they would be happy to take a look and provide me with a quote and what repairs were actually needed. Not only was their quote much more reasonable, they texted me images of what needed to be repaired and why. They also told me what repairs were not actually needed. Will be bringing my car here from now on for any future repairs. Staff was also really friendly." (Juan Rangel, 5/5)
+- "Thank you Amanden Auto for doing such a great job replacing the engine on my 2019 Honda Accord as I requested. It was a relief to have this work completed on time by an experienced team. Its incredible how smooth my car drives now. Thank you." (Mario, 5/5)
