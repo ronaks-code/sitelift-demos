@@ -1,0 +1,55 @@
+# Collett Auto Care
+
+> Family owned auto repair and tire shop in East Dallas. Maintenance, brakes, alignment, transmissions and AC. Rated 4.5 from 330 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 201 N Collett Ave, Dallas, TX 75214, USA
+- Phone: (214) 380-5076
+- Website: https://ronaks-code.github.io/sitelift-demos/collett-auto-care/
+- Google Maps: https://maps.google.com/?cid=5316389647511182577&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 330 reviews
+
+## Hours
+- Monday: 8:00 AM – 7:00 PM
+- Tuesday: 8:00 AM – 7:00 PM
+- Wednesday: 8:00 AM – 7:00 PM
+- Thursday: 8:00 AM – 7:00 PM
+- Friday: 8:00 AM – 7:00 PM
+- Saturday: 8:00 AM – 6:00 PM
+- Sunday: Closed
+
+## About
+Collett Auto Care is a family owned and operated shop that has spent years serving the East Dallas area. Whether you need routine upkeep or a major repair, the team works on cars, trucks, SUVs and commercial vehicles.
+The crew is happy to share what they know about taking care of your vehicle, from checking oil levels to keeping an engine from overheating. The goal is simple: take some of the stress out of car trouble.
+Neighbors have given the shop a 4.5 rating from 330 Google reviews.
+
+## Services
+- Maintenance and diagnostics: Regular service and checks to catch problems early, before they turn into bigger repairs.
+- Tire services: Tire installation, balancing, rotation and replacement.
+- Wheel alignment: Alignment work for even tire wear, better handling and improved fuel efficiency.
+- Brakes: Brake inspections covering pads, rotors, fluids and brake lines.
+- Transmission: Maintenance, repair and replacement for automatic and manual transmissions.
+- Suspension: Diagnostics and repairs when your ride starts to feel loose, noisy or shaky.
+- Steering: Checks for alignment, worn components and leaks so the car steers the way it should.
+- Air conditioning: AC recharge, diagnostics and repairs to keep you cool on Dallas roads.
+
+## FAQ
+Q: What kinds of vehicles do you work on?
+A: Cars, trucks, SUVs and commercial vehicles.
+
+Q: How do I schedule service?
+A: Give the shop a call or send a message through the contact form, and the team will get back to you. You can also just visit during business hours.
+
+Q: What areas do you serve?
+A: Dallas and the surrounding areas.
+
+## What customers say
+- "I had been struggling to find a mechanic who would work on the suspension of my 97 Astro van and its rear tail light.
+
+Eric and Douglas  were professional and told me it would be no problem and they could take care of it . Service was quick, I picked up my van the following day and so far it rides smooth ! And the alignment is great !
+
+I hope this can be my go to mechanic from now on as its hard to find trustworthy mechanics.  I would recommend anyone to give Collett Auto Care a shot ! Thank you for fixing my van ❤️" (Pablo Guevara, 5/5)
+- "Rey and his team demonstrated excellent performance and outstanding work on my Dodge Charger. I Needed a new transmission and they delivered. 5/5 I work in Law Enforcement, so I needed a reliable shop with integrity and respect. They went above and beyond while working with me and getting me back on the road. Would recommend anyone to them!! Only professional and experienced mechanics work there!!" (TXLoneRanger817, 5/5)
+- "Erick was amazing ! Yesterday he ordered the tire I needed and replaced my old one with the new in less than 15 minutes. He is efficient and communicative with the clients. Collett is the place to go! Much better service and prices compared to Discount tire" (Priscila Martinez, 5/5)
+- "This place is incredibly reliable and offers great service at a reasonable price. I always bring my cars here for oil changes, and they consistently do an excellent job. The staff is professional, honest, and efficient. I highly recommend them—10/10!" (Miguel Lugo, 5/5)
+- "These folks have a good variety of new and used tires. I called several other area competitors looking for a specific tire and they just so happened to have two of them. The workers were very polite! Thank you for the help today gentleman." (Austin Noel, 5/5)
