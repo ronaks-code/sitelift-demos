@@ -1,0 +1,52 @@
+# Barsh Auto & Diesel Repair
+
+> Brake service, scheduled maintenance and diesel truck repair in Conroe, TX. Locally owned, rated 4.5 from 123 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 1401 N Loop 336 E, Conroe, TX 77301, USA
+- Phone: (936) 494-0065
+- Email: ${email.val()}
+- Website: https://ronaks-code.github.io/sitelift-demos/barsh-auto-and-diesel-repair/
+- Google Maps: https://maps.google.com/?cid=5842729189954594586&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 123 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 5:30 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Barsh Auto & Diesel Repair is a locally owned, full-service repair and maintenance shop in North Conroe, near Airport Road. We work on domestic and imported cars, pickups and trucks, and we use parts that meet or exceed the original manufacturer standards.
+For scheduled maintenance, we are a cost-effective alternative to the dealership, and servicing your vehicle with us still keeps the manufacturer's warranty intact. We also have shops on South Frazier Street in Conroe and in New Waverly, and we help drivers from Conroe, Montgomery, Willis, the Woodlands and Spring.
+We are rated 4.5 from 123 Google reviews. If something feels, sounds or smells off with your vehicle, bring it by and let us take a look before a small problem turns into a big one.
+
+## Services
+- Brake services: Brake inspections, pads, calipers, rotors and fluid service for domestic and import vehicles.
+- Scheduled maintenance: Routine maintenance for your personal or company car, pickup or truck, without the dealership visit.
+- Diagnosing vehicle malfunctions: Noticed a shimmy, a new noise, a warning light or a funny smell? Our technicians can help track down the cause.
+- Diesel repair: Diagnosis and repair for diesel pickups and trucks.
+
+## FAQ
+Q: Will having you service my vehicle affect the manufacturer's warranty?
+A: No. Wherever your car or truck was built, we can service it and the manufacturer's warranty stays in place.
+
+Q: What vehicles do you work on?
+A: We repair and service domestic and imported vehicles, including personal and company cars, pickups and trucks.
+
+Q: How do I make an appointment?
+A: You can book online or give us a call.
+
+## What customers say
+- "Absolutely amazing experience. Took a truck I had just bought to them just to see what issues it may have beyond what my limited diesel knowledge had noticed. First, the lady in the front office was extremely helpful, knowledgeable, and professional, and answered all the questions she could for me.
+
+Then, Chris the manager fella came in and answered several thousand more questions. He was patient, and took extra time to point out all the things.
+
+Then, in a much faster timeframe than I expected, the pro techs diagnosed all the issues. Chris called me and went through each thing line by line, was upfront and honest about which was critical and what could wait, and helped me come up with the most cost effective way to fix the issues. Cannot, CANNOT recommend this place enough." (Kenny, 5/5)
+- "Motor Flex was highly dedicated to making sure my 2000 Lincoln Town Car was back up and running, like new! Their keen attention to detail, and working to ensure that my engine rebuild was impressive at best! I appreciate their honesty throughout this stressful ordeal for me. The Town Car belonged to my Aunt, and was given to me when she passed this time last year. Their understanding and recognition of this sentimental value assured me that my inheritance was definitely on good hands! Thanks Ricky, Luis and the rest of the Motor Flex staff for putting me back on the road, and in my Aunt's car! I drove it for the first time in months on her Heavenly birthday, and it drove heavenly! She would be proud!" (James Keller, 5/5)
+- "I brought my 2001 F-350 7.3 Powerstroke here after having major issues immediately following repairs from another shop. Within just days of getting my truck back from the previous mechanic, I was dealing with leaks, steering problems, loose components, and multiple concerns that didn’t feel right.
+This shop took the time to thoroughly inspect the truck, document everything clearly, and explain what they found without trying to pressure me or upsell me. After a stressful experience with the prior mechanic, it was a huge relief dealing with people who were professional, detailed, and transparent. If you have a diesel truck needs repairs i would strongly recommend this shop." (Fischer Drury, 5/5)
+- "Chris is the man!!! I took my truck here twice for some electrical issues that another shop couldn’t fix. Chris and his team were able to fix it and they were very informative of the whole process. Definitely a shop you can trust!!!" (Garrett, 5/5)
