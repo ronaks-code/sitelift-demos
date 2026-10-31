@@ -1,0 +1,63 @@
+# Edgefield Animal Clinic
+
+> Neighborhood vet on S Edgefield Ave in Dallas. Dr. Ali and his team offer sick visits, blood work and end-of-life care. Rated 4.7 from 443 reviews.
+
+- Type: Veterinary Care
+- Address: 1827 S Edgefield Ave, Dallas, TX 75224, USA
+- Phone: (214) 946-4146
+- Website: https://ronaks-code.github.io/sitelift-demos/edgefield-animal-clinic/
+- Google Maps: https://maps.google.com/?cid=7538954957980209389&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 443 reviews
+
+## Hours
+- Monday: 8:00 AM – 2:00 PM
+- Tuesday: 8:00 AM – 2:00 PM
+- Wednesday: 8:00 AM – 2:00 PM
+- Thursday: 8:00 AM – 2:00 PM
+- Friday: 8:00 AM – 1:00 PM
+- Saturday: 8:00 AM – 1:00 PM
+- Sunday: Closed
+
+## About
+Edgefield Animal Clinic is a veterinary clinic on S Edgefield Ave in Dallas. Dr. Ali and his team look after the dogs and cats of the neighborhood, from sick visits to ongoing care for older pets.
+One family whose cat had kidney disease wrote that Dr. Ali read their home progress notes before a visit and walked them through a plan. Another pet owner said she was glad to have Dr. Ali and his team in the neighborhood.
+We are open mornings Monday through Saturday and closed on Sunday. Give us a call to set up a visit.
+
+## Services
+- Sick visits: Come see us when your dog isn't feeling well. One reviewer said Dr. Ali took great care of her sick dog and suggested what her diet needed to be.
+- Blood tests and kidney care: Blood work to find out what's going on, plus a plan and follow-up visits for ongoing conditions like kidney disease.
+- Euthanasia: Gentle end-of-life care when it's time to say goodbye.
+
+## FAQ
+Q: Who will see my pet?
+A: Dr. Ali and his team, including our techs.
+
+Q: Are you open on Sunday?
+A: No, we are closed on Sunday. We are open mornings Monday through Saturday.
+
+Q: Where are you located?
+A: We're at 1827 S Edgefield Ave in Dallas.
+
+## What customers say
+- ""Because you don't give up, we won't give up." - Dr. Ali
+
+Our "first-born" cat Hammy couldn't eat, pee, poo or walk properly. We took her to Dr. Ali on April 1, and he did a blood test and found out that her kidneys were failing her. She is anemic and has severe arthritis at age 16. He gave us a game plan to follow, and said we may still be able to help her.
+
+We couldn't get the supplements he suggested overnighted, so had to make do with what she had -- her kidney rx food, anti-nausea medication, Fe supplement and daily fluids using an IV at home. I never have done that before, but I learned to right away. It was such a stressful time for us trying to obtain those kidney supplements and we felt Hammy was running out of time.
+
+Her eyes were sunken. She could not even stand on her own, her body was completely limp, we had to feed her wet food with a syringe. She looked horrible. It was so hard to see her this way. She was peeing herself. We had to anticipate her every need and made sure she was as comfortable as we can possibly make her. I tracked her progress using Google Sheets and shared it with the the team.
+
+So from that sad visit, we were basically giving her palliative care and by Friday, she had a seizure, so we scheduled euthanasia on Monday.
+
+However, over Saturday and Sunday we noticed some signs of improvement, so we decided to hold off and have her seen for a  blood test on Tuesday. To our surprise, Dr. Ali read all the progress notes on Google sheets before the visit. I was impressed by his attention to her care. The blood test showed that she has Stage 4 kidney disease, but her kidney panel normalized. We were relieved, but she wasn't out of the woods yet. Her temperature was very low, so we also had to help her manage her temperature and she was not pooing on her own.
+
+Over the next three weeks, we witnessed her progress -- her eyes were back to normal -- big and full -- standing steadily, walking to her favorite spots in our house, jumping up on the couch and beds, having an appetite to eat on her own, drinking water independently, going to the litter box to pee and poo, and getting back to her fiesty self.
+
+We are now on week 4 of caring for her and as of this past Friday 4/25, Dr. Ali said, that her heart sounds normal (she was having heart murmurs). And that her kidneys are filtering her blood and fluids. She still has kidney disease but it's being managed. Friday was the first day, we were no longer in limbo. We feel so relieved and so amazed by our little girl's progress.
+
+Dr. Ali said it was because of the nursing care we gave and continue to give her. We think that's true, but we couldn't have provided that without his clinical guidance, and his entire team's compassion, attention to detail and care with our weekly checkins and two de-obstipations. We are so deeply grateful for all of them. He said, because you don't give up, we won't give up. That made us cry at the visit.
+
+Highly recommend Dr. Ali and his staff. They are attentive, caring, understanding, very competent and kept us informed in a timely manner. We are eternally grateful!" (Joyce Manalo, 5/5)
+- "Dr. Ali and his team made saying goodbye to my Pantera much more tolerable. They gave us SO much time with her and we didn't feel rushed. It meant so much. It was my first time putting down a fur baby. I could tell Dr. Ali was sad too and that broke me. I wanted to thank him but I couldn't get words out. I admire the work you all do and wish I could monetarily compensate you all. I can't imagine constantly dealing with this type of of heartache. I'm so glad we have Dr. Ali and his team in the neighborhood." (Maria M, 5/5)
+- "Dr. Ali is one of the nicest vets I've met. Brought my dog in as she was sick. He took great care of her and suggested what her diet needed to be. I'll be forever grateful. She's having surgery for her teeth this week and I know she'll be in excellent hands." (L Kyle, 5/5)
+- "The tech Jocelyne did an amazing job with attending us. The vet also was extremely patient and gentle with my pet. Overall, the whole experience was smooth." (Gabriela Escobedo, 5/5)
