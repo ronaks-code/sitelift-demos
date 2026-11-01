@@ -1,0 +1,59 @@
+# British + European Car Repair
+
+> Family owned San Diego shop for Land Rover, Jaguar, BMW and Mini Cooper service, repair, diagnostics and parts. Rated 4.7 from 36 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 3035 Moore St, San Diego, CA 92110, USA
+- Phone: (619) 295-6700
+- Website: https://ronaks-code.github.io/sitelift-demos/british-european-car-repair/
+- Google Maps: https://maps.google.com/?cid=6199487819075871829&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.7 from 36 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+British + European Car Repair is a local family owned business on Moore Street in San Diego. We bring our experience and knowledge of Land Rover, Jaguar, BMW and Mini Cooper to the neighborhood, building our reputation one happy customer at a time.
+We work on everything from a Range Rover Sport or Freelander to a Defender or an early Jaguar. We're a fully computerized garage with factory specification diagnostic equipment, so your car gets diagnosed accurately and repaired correctly.
+Customers know Steve and his team by name, and we're proud of a 4.7 rating from 36 Google reviews.
+
+## Services
+- Land Rover service and repair: From Range Rover Full Size and Sport to Freelander, Discovery, Range Rover Classic and Defender.
+- Jaguar service and repair: From early E-Types to the XJS, XJ, XK and XF.
+- Driveability diagnostics: Finding the real cause of a problem with factory specification diagnostic equipment.
+- Preventative maintenance and repair: Scheduled service intervals, inspections, belts and hoses, and fluid flushes.
+- Land Rover suspension conversion
+- Brake work and maintenance
+- Cooling system service: Radiators, water pumps and hoses.
+- AC and heating services
+- BG transmission service: Helps extend transmission life, eliminate transmission shudder and reduce overall maintenance costs.
+- BG fuel injection service: Cleaning of fuel injectors, throttle body, plenum, air intake, and intake valves and ports.
+- Prepurchase inspection: Buying a used Land Rover or Jaguar? Know exactly what you're buying before you sign.
+- Land Rover and Jaguar parts: New and used parts in stock. Call us and we'll help you locate the part you need.
+
+## FAQ
+Q: Which cars do you work on?
+A: We specialize in Land Rover, Jaguar, Mini Cooper and BMW.
+
+Q: How often should my Land Rover be serviced?
+A: The factory recommended service schedule for all Land Rover vehicles is every 7500 miles.
+
+Q: Can you help me find a part?
+A: Yes. We carry new and used Land Rover and Jaguar parts. Give us a call and we'll help you track down what you need.
+
+## What customers say
+- "I've been taking both of my Range Rovers to Steve at British Car Repair in San Diego for about a decade, and he's the only person I trust with these cars. His communication is always clear, his knowledge of every Land Rover model is unmatched, and he gives straightforward guidance on which services are worth doing. The results speak for themselves: my 2006 full-size Range Rover still drives like new.
+
+Steve is friendly, helpful, and consistently goes the extra mile for his customers. I'm leaving this review today because even though I'm on a road trip in Florida, I needed an urgent part, and Steve still took time out of his day to locate it and ship it to me over the weekend. That level of care is rare.
+
+My family has owned a car dealership in Maine for 50 years, so I know the industry well. Steve and his team operate with real skill and offer service that matches, if not surpasses, what you'd get at a Range Rover dealership, but for a far better price. I highly recommend British Car Repair to anyone with a European car. Thank you, Steve!!" (Nicholas DePalmer, 5/5)
+- "I’m sad to be moving away and losing Steve with his team of reliable, trustworthy mechanics. They treated me like family for the past 8 years and always provided high quality service for my Range Rovers. They’re friendly, you can tell they love their jobs, make deadlines, and are able to work with me on my different goals. I’ve always followed their advice on maintenance and my 2006 HSE still runs like it’s new; I still love it as much as my 2020 Sport (photos attached). My tip is don’t be afraid to stop by in person the old fashioned way for updates, I was always warmly greeted even-though they’re beyond busy. Support this small business at a convenient location and you’ll be greatly rewarded. I was lucky to find them and hope to cross paths with Steve again." (Nicholas DePalmer, 5/5)
+- "Steve is the best !!! I highly recommend British European Car Repair they are the best the hold staff are amazing they are very professional and knowledgeable I been a customer for years and I’m so glad and grateful to find them" (Arthur Mendez DDS, 5/5)
+- "Our prior mechanic retired and recommended that we take our Range Rover here for an oil leak.  It was a great recommendation!  The work was efficient and the price was fair." (Russ, 5/5)
+- "Steve is great did my transmission repair at a very fair price. it rides like new. very happy." (Steve, 5/5)
