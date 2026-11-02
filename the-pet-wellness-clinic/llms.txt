@@ -1,0 +1,53 @@
+# The Pet Wellness Clinic
+
+> Family owned, full service veterinary clinic in Magnolia, TX. Dr. Don offers routine care, vaccinations, surgery, nutrition and an in-house pharmacy.
+
+- Type: Veterinary Care
+- Address: 6315 FM 1488, Magnolia, TX 77354, USA
+- Phone: (281) 252-0780
+- Email: petwellnessclinic@outlook.com
+- Website: https://ronaks-code.github.io/sitelift-demos/the-pet-wellness-clinic/
+- Google Maps: https://maps.google.com/?cid=15181844513110702522&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 120 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 9:00 AM – 1:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+The Pet Wellness Clinic is a family owned and operated hospital in Magnolia. We're here for routine checkups, a much needed vaccination, or an emergency snake bite, with clean, well-lit facilities and up-to-date equipment.
+Dr. Don is a graduate of Texas A&M University and school of Veterinary Medicine, and he is a certified Animal Nutritionist. He believes the key to a long, happy life for your pet is prevention: regular vaccinations, a healthy diet and natural supplements.
+The good stories and hot coffee are always flowing, and Ginger, our clinic's best friend, waits to greet you at the door. Pet owners have given us a 4.5 rating from 120 Google reviews.
+
+## Services
+- Surgical suite: A full service surgical suite on site for the critical moments when your pet's health can't wait.
+- Checkups and vaccinations: Routine checkups and vaccinations to keep your dog or cat healthy and catch problems early.
+- Pet nutrition: Dr. Don is a certified Animal Nutritionist and can help you find a healthy, balanced diet for your dog or cat.
+
+## FAQ
+Q: Can I bring my pet in the same day they get sick?
+A: Give us a call. A reviewer whose dog had a ruptured anal gland and a fever was told to come right in and was seen as a walk in that same day.
+
+Q: Who do I call for an emergency after hours?
+A: Our contact page lists an emergency phone line with Dr. Quillivan, DVM. You can also call the clinic during regular hours.
+
+Q: What should I do before my first visit?
+A: You're welcome to download our new client information sheet and fill it out ahead of time so it's ready when you arrive.
+
+## What customers say
+- "I can’t say enough wonderful things about Dr. Don and the entire team at Pet Wellness Clinic. I’ve brought two kitties and a dog here, and every single visit has been exceptional. Dr. Don has that rare combination of deep medical knowledge and genuine compassion—you can feel that he truly cares about the animals he treats.
+
+He takes the time to explain everything clearly, never rushes through appointments, and always makes sure my pets are comfortable and calm.  I always leave feeling confident that my animals are in the best hands possible.
+
+The staff is equally amazing, kind, patient, and incredibly helpful. You can tell this clinic is built on a real love for animals and a commitment to doing things the right way.
+
+If you’re looking for a veterinarian who treats your pets like family, Dr. Don is the one. I’m so grateful to have found a clinic I trust this much. My fur babies are healthier and happier because of him!!" (Sandra Harper, 5/5)
+- "We are new to area and needed a new vet because Magic had a cough all day and it wasn’t improving. They were able to get him in and Doc and Sandra got Magic to the back and help soothe his cough. He was very nervous because he was born blind so sometimes new people make him nervous but Sandra helped him relax. They gave him the right meds he needed and asked us to come back in two weeks. Two weeks his cough was gone but we needed to find out why he was coughing. After some XRays we found the cause though it’s not the outcome I wanted, Doc is confident Magic will live a long and happy life. Everyone there has fallen in love with Magic which means the world to me. I’m so glad to have found the Pet Wellness Clinic. Love, Mari and Magic" (mari york, 5/5)
+- "I have never experienced just a welcoming and friendly Veterinary Clinic. I would totally recommend this place to anyone.  This was my first time taking my fur babies there.  Dr. Don was very gentle and kind with them, along with all the other staff there. They were all so amazing and very kind to my fur babies. Also the owner Sandy was very helpful with questions and concerns I had. Also there prices are affordable compared to other Veterinarians. They also work with you on payments etc. Thank you Pet Wellness for taking care of my fur babies and treating us like family. Truly blessed. Definitely will be coming back. Thank you all so much...🐾💕🐾" (Juliet Quintana, 5/5)
+- "I would totally recommend this place this was my first time taking my dachshund Millie Maxx here and they all loved her and how she smiles!! Dr Don was very nice with her along with Vet tech Sandra she was amazing, and very kind to my Millie girl!! Also the owner Sandy was very helpful with questions and concerns I had. Also there prices are very affordable from other places like vet hospitals can be tend to be higher. They also work with you on your payments/plans which is very helpful!! Thank you Pet Wellness for taking care of my fur baby!! Definitely will be coming back & I found a great Vet Clinic close to home!! 🏠 ❤️🐾🐾" (Chloe Junebug, 5/5)
+- "We've been here before in the past and they were wonderful . Today Doc was able to get us in as a walk in same day. My girl doggie's anal gland ruptured and she has a slight fever. I was worried and didn't want to wait until tomorrow to get her in somewhere.  I want to get her on antibiotics asap. They told us to come right in. Highly recommend!" (Katherine, 5/5)

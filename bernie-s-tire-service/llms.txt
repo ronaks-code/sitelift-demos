@@ -1,0 +1,44 @@
+# Bernie's Tire Service
+
+> Tire shop on Torresdale Ave in Philadelphia selling new and used tires. No appointment needed. Rated 4.4 from 318 Google reviews.
+
+- Type: Tire Shop
+- Address: 5740 Torresdale Ave, Philadelphia, PA 19135, USA
+- Phone: (215) 533-2705
+- Email: bernie@berniestires.com
+- Website: https://ronaks-code.github.io/sitelift-demos/bernie-s-tire-service/
+- Google Maps: https://maps.google.com/?cid=1551735441409623187&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.4 from 318 reviews
+
+## Hours
+- Monday: 8:30 AM – 5:00 PM
+- Tuesday: 8:30 AM – 5:00 PM
+- Wednesday: 8:30 AM – 5:00 PM
+- Thursday: 8:30 AM – 5:00 PM
+- Friday: 8:30 AM – 5:00 PM
+- Saturday: 8:30 AM – 3:30 PM
+- Sunday: Closed
+
+## About
+Bernie F. Beri Sr. started Bernie's Tire Service as a truck tire company. His son, Bernie Jr., picked up where his father left off and has carried on his father's legacy.
+As Bernie Jr. puts it, "A happy customer is a customer for life." We get to know the folks who come through our doors, and we like seeing them come back.
+Drivers have given us a 4.4 rating from 318 Google reviews. Come see us on Torresdale Avenue in Philadelphia.
+
+## Services
+- New and used tires: We carry both new and used car tires, so you can pick what fits your car and your budget.
+
+## FAQ
+Q: Do I need an appointment for tire service?
+A: No. Just stop by during business hours.
+
+Q: What's included in the price of a new tire?
+A: Each new tire price includes mounting, balancing, valve stems and old tire disposal.
+
+Q: Where are you located?
+A: We're on Torresdale Avenue in Philadelphia, only 5 minutes from the Tacony Bridge.
+
+## What customers say
+- "Ty is great! He got out to replace a tire in less than 30 minutes and he was done in less than 15 to get us on the road. We picked up a trailer with a giant slash through the side wall of a tire and we were stressing it. We have a long drive ahead of us and we appreciate you guys getting out here so quickly. Excellent customer service. Highly recommend! Thanks guys!" (Kay Dietzel, 5/5)
+- "I will always point people towards Bernie's! They always provide top notch service and are quick to solve any problem you bring to them. I cannot even tell you how many times Bernie's has saved my ass in a pinch and highly recommend them!" (Jordan Desjardins, 5/5)
+- "Went today to get 2 tires fixed and replaced. They were very fast and very professional. GREAT SERVICE ALL AROUND!!!" (Dominic Rivera, 5/5)
+- "Always honest and a good price. Quick service." (Jen Hensor, 5/5)
