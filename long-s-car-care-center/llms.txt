@@ -1,0 +1,56 @@
+# Long's Car Care Center
+
+> Family-owned, AAA-approved auto repair in Woodinville, WA with ASE-certified technicians. Rated 4.8 from 420 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 19111 144th Ave NE #4371, Woodinville, WA 98072, USA
+- Phone: (425) 481-1739
+- Email: info@longscarcarecenter.com
+- Website: https://ronaks-code.github.io/sitelift-demos/long-s-car-care-center/
+- Google Maps: https://maps.google.com/?cid=5180621974651147266&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.8 from 420 reviews
+
+## Hours
+- Monday: 7:30 AM – 12:00 PM, 1:00 – 5:00 PM
+- Tuesday: 7:30 AM – 12:00 PM, 1:00 – 5:00 PM
+- Wednesday: 7:30 AM – 12:00 PM, 1:00 – 5:00 PM
+- Thursday: 7:30 AM – 12:00 PM, 1:00 – 5:00 PM
+- Friday: 7:30 AM – 12:00 PM, 1:00 – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Long's Car Care Center is a local, family-owned shop in Woodinville, led by Randy Long. We treat every vehicle with the same care and attention we'd give our own.
+We keep detailed records of your vehicle's service history and send maintenance reminders, so you can stay ahead of problems instead of reacting to them. When something does go wrong, we tell you what we found, what your options are and what it will cost.
+Our neighbors have given us a 4.8 rating across 420 Google reviews, and a lot of them keep coming back and sending friends and family our way.
+
+## Services
+- Oil changes: Routine oil changes to keep your engine running well.
+- Preventative maintenance: Scheduled maintenance and regular service reminders to help you avoid unexpected breakdowns.
+- Electrical diagnosis and repair: Tracking down charging system and other electrical problems.
+- Brakes and ABS: Brake service and repair, including ABS diagnostics.
+- Suspension, steering and exhaust: Repairs to keep your car handling right and running clean.
+- Emissions repairs: Repairs to address emissions problems.
+- Cooling and air conditioning: Service for your cooling and air conditioning systems.
+- Tire puncture repair: A reviewer who came in with a tire going flat got immediate attention and a repair.
+
+## FAQ
+Q: What are your hours?
+A: We're open Monday through Friday, 7:30 AM to noon and 1:00 to 5:00 PM. We're closed Saturday and Sunday.
+
+Q: What if I can't get there during business hours?
+A: Use our secure key drop box just outside the front door, and we'll get started on your car first thing in the morning.
+
+Q: What kind of parts do you use?
+A: We use high-quality OEM or equivalent parts and products.
+
+## What customers say
+- "Honestly, I had a really stressful experience recently when one of my truck’s tires blew out and I couldn’t drive it to the shop. I was worried about how I was going to get it repaired, but a friend recommended Long’s Cat Care Center. I gave them a call, explained the situation, and they were really helpful. They replaced the tire and got my truck back on the road. The service was straightforward, friendly, and professional. I really appreciated how easy they made the whole situation. Definitely a good experience overall!" (Zander Myles, 5/5)
+- "A few months ago I had an issue with my charging system, took my truck to Firestone, and was told the alternator was fine, turns out the alternator was shot and had a new OEM alternator installed and haven’t had any issues with the charging system. Would highly recommend this shop and Kevin’s customer service was impeccable!" (Shawn Horst, 5/5)
+- "Kevin and Cameron provided excellent, knowledgeable and courteous response to repair of tire puncture issue. I was an early AM walk in with a tire on the process of going flat and received immediate and professional attention. Definitely recommend Longs. I will be back." (Steve Horton, 5/5)
+- "Friendly, competent, professional, and affordable.
+
+Routine oil change, transmission preventive maintenance service along with headlight adjustment on my 2023 Grand Jeep Cherokee L.
+
+Highly recommended and will be retire continued maintenance." (Kendra Moore, 5/5)
+- "Kevin helped me out with my truck and Highlander. Honest prices and knowledgeable advisor. Tech did a great MPI, will be coming back as long as I live on the east side. Couldn’t recommend more." (Jonathan Rose, 5/5)

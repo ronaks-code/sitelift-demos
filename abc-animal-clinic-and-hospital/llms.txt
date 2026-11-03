@@ -1,0 +1,60 @@
+# ABC Animal Clinic and Hospital
+
+> Full service vet hospital in Downtown Fort Worth's Medical District. Low cost spays and neuters, wellness exams, dental care and boarding.
+
+- Type: Veterinary Care
+- Address: 500 South Fwy, Fort Worth, TX 76104, USA
+- Phone: (817) 332-8787
+- Email: abcvetopportunities@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/abc-animal-clinic-and-hospital/
+- Google Maps: https://maps.google.com/?cid=13023420651897698749&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.4 from 290 reviews
+
+## Hours
+- Monday: 7:30 AM – 5:30 PM
+- Tuesday: 7:30 AM – 5:30 PM
+- Wednesday: 7:30 AM – 5:30 PM
+- Thursday: 7:30 AM – 5:30 PM
+- Friday: 7:30 AM – 5:30 PM
+- Saturday: 7:30 AM – 5:30 PM
+- Sunday: Closed
+
+## About
+ABC Animal Clinic and Hospital started out as a low cost spay and neuter clinic in Downtown Fort Worth's Medical District. Over the years it grew into a full service veterinary hospital, and it has kept the affordable clinic feel it started with.
+Our focus is disease prevention, maintenance and treatment. We also believe informed owners are a pet's first line of defense, so we work to keep you educated and well informed about your pet's health.
+We are open Monday through Saturday, and visits are by appointment. Google reviewers rate us 4.4 stars across 290 reviews.
+
+## Services
+- Preventative care examinations: Routine checkups to keep your pet healthy and catch problems early. ($25)
+- Medical examinations: An exam when your pet is sick, hurt or just not acting right. ($75)
+- Spays and neuters: Low cost spay and neuter surgery for cats and dogs.
+- Orthopedics and soft tissue surgeries: Beyond spays and neuters, our doctor performs more involved procedures. A pre-surgical exam comes first so you get a detailed estimate.
+- Heartworm testing: In-clinic heartworm testing for dogs and cats, plus guidance on staying current with prevention.
+- Dental cleanings: Regular cleanings help prevent periodontal disease and keep your pet's teeth longer.
+- In-house diagnostics and digital X-rays: Lab work like fecal testing, certain blood work, skin scrapings and eye staining done here while you wait, plus digital imaging to help diagnose illness or injury.
+- Medications in stock: A wide range of medications on hand so your pet can start treatment without a second trip.
+- Prescription diets and treats: Help with weight and diet plans, with prescription diets and treats available to buy here.
+- Behavioral counseling: Advice and guidance to help you understand and train your own pet.
+- Boarding: A place for your pets to stay while you are away. Reservations can be booked through our appointment scheduler.
+
+## FAQ
+Q: Do you take walk-ins?
+A: Office visits are by appointment only. Walk-ins and emergencies are seen with additional charges, so it is best to call ahead.
+
+Q: Is the front door open every day you are open?
+A: On Mondays and Saturdays the front door is only open for boarding and medication pick ups. Please call the clinic for refill requests, pick ups and drop offs.
+
+Q: Does my pet need an exam before surgery?
+A: Yes. A pre-surgical exam is required before any procedure that involves anesthesia, and it is also how we put together a detailed estimate.
+
+Q: When can I pick my pet up after surgery?
+A: Pets are dropped off the evening before surgery, and most can go home the following day between 3:30 PM and 5 PM.
+
+## What customers say
+- "Dr. Snodgrass has been my dog’s veterinarian for years, and I truly couldn’t ask for a better doctor. He is incredibly professional, knowledgeable, and experienced, which always gives me peace of mind. Most importantly, he is one of the kindest people you’ll ever meet.
+
+The way he explains things is clear, patient, and easy to understand, making even stressful situations feel manageable. He takes the time to answer all my questions and genuinely cares about both his patients and their owners.
+
+I’m so grateful for the care and compassion he has shown over the years. I highly recommend Dr. Snodgrass to anyone looking for a trustworthy and dedicated veterinarian." (Mariela H, 5/5)
+- "The best vet we've ever gone to! Extremely kind staff. Very knowledgeable doctor that took his time to sit down and talk through possible health issues concerning our cat. Very transparent and fair pricing. They were able to handle Bibi with no issues whatsoever. Could not have asked for a better experience! Will be returning and recommending to others!!" (Rogelio Garcia, 5/5)
+- "The best team I've ever encountered. Saved my cats life. I don't know the words to describe how wonderful these people are. Those words may not exist yet. They're just incredible. ♥️♥️♥️" (Bryan Phillips, 5/5)
