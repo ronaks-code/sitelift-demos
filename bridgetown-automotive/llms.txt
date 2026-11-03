@@ -1,0 +1,74 @@
+# Bridgetown Automotive
+
+> Family owned auto repair and tire shop on SE McLoughlin Blvd in Milwaukie, OR. Rated 4.9 from 520 Google reviews. Hybrid, EV, brakes and more.
+
+- Type: Car repair and maintenance service
+- Address: 17855 SE McLoughlin Blvd, Milwaukie, OR 97267, USA
+- Phone: (503) 230-0620
+- Email: bridgetownautomotive1@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/bridgetown-automotive/
+- Google Maps: https://maps.google.com/?cid=12504670621939591560&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 520 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Bridgetown Automotive is a family owned and operated repair shop in Milwaukie, run by owners Chris and Krissy Ryser. Chris grew up on a farm learning to fix the tractors, trucks and cars that kept it running, then worked at a local dealership before opening his own shop.
+We handle everything from oil changes and tune ups to brakes, tires, alignments and check engine lights. Our ASE Certified technicians also work on hybrids, Tesla and other electric vehicles, and we work on all makes and models, foreign and domestic.
+Neighbors have given us a 4.9 rating from 520 Google reviews. If you leave happy or unhappy, we want to know, and we will do what we can to make it right.
+
+## Services
+- Preventative maintenance: Tune ups, oil changes and regular maintenance for import and domestic cars, to keep small problems from turning into big ones.
+- Diagnostics: Check engine light on? We track down the problem and get it sorted out.
+- Brake service: Brake diagnostics and repairs to keep your stopping power where it should be.
+- Tire service: Tire mounting, balancing and rotation for every kind of vehicle.
+- Alignments: An alignment helps your tires last longer and improves how your vehicle handles.
+- Heating and cooling service: Heating and AC system service for your vehicle.
+- Hybrid electric vehicle service: Hybrids need special training and tools. We have both, for routine maintenance through complex repairs.
+- Tesla and EV service: Diagnostics and maintenance for Tesla and other electric vehicles.
+- Digital vehicle inspections: Detailed inspection reports so you can plan maintenance ahead of time.
+- Fleet services: Maintenance and repair for business vehicles, with a focus on keeping downtime low.
+
+## FAQ
+Q: When are you open?
+A: We are open Monday through Friday.
+
+Q: What kinds of vehicles do you work on?
+A: All makes and models, foreign and domestic, from a smart car to a motorhome.
+
+Q: Is your work under warranty?
+A: Yes. Our repairs are covered by a 3 year/36,000 mile warranty.
+
+Q: Can you pick up my car?
+A: Yes, we offer local pickup and drop-off, and a local shuttle service when you drop your vehicle off.
+
+Q: Can you inspect a car I am thinking of buying?
+A: One customer brought in a vehicle she was considering and said our thorough report helped her decide and plan for future repairs.
+
+## What customers say
+- "I recently had my Toyota Sienna serviced at Bridgetown Automotive, and I honestly couldn’t be more impressed with the experience. I was referred to them by my longtime, trusted mechanic who recently retired, which already gave me a sense of confidence—and they absolutely lived up to that trust.
+
+I originally brought my van in because the “Check Engine” light was on, and Greg, the owner, assured me they would take a look at the entire vehicle. He followed through on that promise with an incredibly thorough inspection. The estimate I received was very clear and easy to understand, and what really stood out was the inclusion of photos, showing exactly what was going on with my vehicle. That level of transparency is rare.
+
+In today’s world, it can feel nearly impossible to find an honest mechanic, so discovering a shop like this was such a relief. The owner, Chris, who is deeply involved in the day-to-day operations, is one of the kindest people I’ve met—he works every day, answers calls, and stays on top of everything. Greg, the service manager, has been just as kind and helpful throughout the process. Together, they make an incredible team.
+
+It’s clear they truly care about their customers and are committed to providing top-notch quality work. That kind of integrity really sets them apart.
+
+I can confidently say I’ll be a lifetime customer, and I’ll be recommending Bridgetown Automotive to everyone I know. Thank you, Chris and Greg, for your honesty, excellent service, and for being such wonderful people. The world truly needs more kind and honest people like you!" (Young Wood, 5/5)
+- "Recently had my brakes go out on me and brought my truck in for repairs Greg was super friendly and honest about cost and what needed to be done as a bare minimum just to get it back on the road if nothing else was an immediate replacement for safety reasons. After they managed to get the inspection done they gave me a call back and told me what was wrong with it and what needed to be done, as well as alerting me to what else could be an issue in the future. They got my parts ordered up after I gave the go ahead and had my truck ready to go the next day despite being busy. I appreciate the honesty and speed of how fast they got the repairs done. I will definitely bring my truck back in for the other repairs needed as soon as I can find the budget to do so." (apersonwhoplaysgames, 5/5)
+- "Literally the kindest, most honest, no-BS, smartest mechanic shop on the planet! 🔧❤️
+They’re an incredible group of people who genuinely care about the quality of their work and, even more importantly, the relationships they build with their customers.
+
+The best advertising a business can have is simply caring. When you truly care about your customers and take pride in what you do, people notice — and they tell others.
+
+You guys do an amazing job of keeping that old-school, honest, customer-first mindset while also bringing in the most up-to-date and informative business practices.
+That combination is hard to find these days. Keep doing exactly what you’re doing —
+BRAVO... BRIDGETOWN AUTOMOTIVE !!👏🏻" (Mindy Busch, 5/5)
+- "Greg, Chris, and Alex were all fantastic- i cant remember the last time i was provided the level of service I was given when servicing my vehicle. So knowledgeable,  explaining each and every issue in language i was able to understand. I am SO happy I researched before I chose them. Believe all the stars you're seeing. They've worked hard to earn them!" (Mai Otsuki, 5/5)

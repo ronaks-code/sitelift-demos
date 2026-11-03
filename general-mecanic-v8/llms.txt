@@ -1,0 +1,65 @@
+# General Mecanic V8
+
+> Family-run auto repair on Grier Rd in Charlotte. NC safety and emission inspections, diagnostics, brakes, A/C, tires and towing. Rated 4.9 on Google.
+
+- Type: Car repair and maintenance service
+- Address: 7542 Grier Rd, Charlotte, NC 28213, USA
+- Phone: (704) 907-7290
+- Email: generalmecanicv8@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/general-mecanic-v8/
+- Google Maps: https://maps.google.com/?cid=3543553779632524957&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 222 reviews
+
+## Hours
+- Monday: 7:00 AM – 6:00 PM
+- Tuesday: 7:00 AM – 6:00 PM
+- Wednesday: 7:00 AM – 6:00 PM
+- Thursday: 7:00 AM – 6:00 PM
+- Friday: 7:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 2:00 PM
+- Sunday: Closed
+
+## About
+General Mecanic is a family business on Grier Rd in Charlotte. The owner's father started the shop with one goal: give people auto service that meets a high standard of quality. We still follow that policy today.
+Juan Carrera and Gilberto Salas co-own the shop and run the tow truck. Denis Lazo is our foreman and technician, and Reyna Salgado will greet you at the front desk as your service advisor. Every repair is done right here on-site, so your vehicle stays with us from start to finish.
+Neighbors have given us a 4.9 rating across 222 Google reviews. Stop by, or call or text and tell us what your car is doing.
+
+## Services
+- Diagnostics: We test your vehicle's electrical system to find the real cause of a problem, whether it's the battery, alternator, starter, wiring or sensors, so you only pay for the repair you need. Diagnostics start at $120. ($120)
+- North Carolina safety inspection: The yearly inspection you need before renewing your plate. We check brakes, tires, lights and signals, steering and suspension, wipers, mirrors and horn.
+- North Carolina emission inspection: A computer check (OBD-II) required in some counties along with your safety inspection. A check engine light means the car will fail, so it pays to get that looked at first.
+- Oil changes and tune-ups: Routine maintenance to keep your daily driver dependable.
+- Brake repairs: Brake work done at the shop by our technicians.
+- Engine and transmission work: We remove the old unit, prepare every connection, and install a new, rebuilt or used engine or transmission to factory specs, including fluids, sensors, wiring and mounts.
+- Suspension and steering: Worn shocks, struts, ball joints and bushings cause noises, a rough ride and uneven tire wear. We inspect, repair and replace them.
+- Heating and A/C: A/C not blowing cold or heater not warming up? We find the cause, recharge refrigerant and replace worn parts.
+- Tires: Tire inspections, rotations, balancing, repairs and replacements.
+- Wheel alignment: We align your vehicle to its original specifications for a smoother ride.
+- Towing: Our co-owners run the tow truck, any hour of the day.
+
+## FAQ
+Q: How much will my repair cost?
+A: Diagnostics start at $120. That test tells us what's wrong so we can give you the total cost of the repair.
+
+Q: I only need a small job. Will you do it?
+A: Yes. Big or small, we handle all kinds of automotive repairs.
+
+Q: Do you work on business vehicles?
+A: We do. We service commercial vehicles, and our pricing is the same for every customer.
+
+Q: My check engine light is on. Will I pass the emission inspection?
+A: No. A vehicle with a check engine light on will fail, so we recommend a diagnostic first.
+
+Q: When can I reach you?
+A: You can call or text us any day of the week.
+
+## What customers say
+- "I got my valve cover gaskets replaced in my 13’ Genesis and while I was looking for a mechanic to trust to do the job, I knew that it was not a simple process, but the team at General Mechanic V8 was so honest about the work, very helpful with their quotes and they gave me the best price for this service. I also felt comfortable asking any questions I had in regards to the repair. The whole team is super knowledgeable and this is an amicable business. I did get quoted for some other lesser repairs, but I hope I don’t have to go back for any major repairs soon. I definitely recommend their service to others, and would use their services again for myself in the future! Thank you guys for your hard work and insight." (Bella Aloise, 5/5)
+- "Juan and his team are the most professional and caring group of people. The diagnosed my vehicle, ordered the part, offered to take me home while it was being repaired and completed the services in a matter of 2 hours. They gave me complete details and a walk through of the issue and made sure I was comfortable with what needed to be done. 20/10 in my book and I’m a hard judge. Highly recommended and they wil forever take care of all of my vehicles." (Tiffany North, 5/5)
+- "We’ve been taking our vehicles to them, and the experience has been excellent. They are very professional and always reach out whenever they find something unexpected, providing pictures and clear evidence before proceeding. Their transparency and communication give us a lot of confidence in their work. I highly recommend V8 Mechanic Auto Repair they’ve been great, and we will definitely continue using them." (GOGO LEASING, 5/5)
+- "Awesome people!
+More importantly very competent mechanics.
+Took this mustang to 2 dealerships & they could not figure out what was wrong
+These guys had it for 4 days & got everything that was wrong fixed!!!
+Thank you Juan & crew!!!
+Great job!" (J, 5/5)
