@@ -1,0 +1,45 @@
+# Ramsey Auto Recyclers
+
+> Ramsey Auto Recyclers sells quality used parts for late model cars and trucks, foreign and domestic, on Mellon St in Detroit. Rated 4.4 on Google.
+
+- Type: Auto Parts Store
+- Address: 14301 Mellon St, Detroit, MI 48217, USA
+- Phone: (313) 849-5045
+- Email: parts@ramseysautorecyclers.com
+- Website: https://ronaks-code.github.io/sitelift-demos/ramsey-auto-recyclers/
+- Google Maps: https://maps.google.com/?cid=8677118179535455839&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.4 from 86 reviews
+
+## Hours
+- Monday: 9:00 AM – 5:30 PM
+- Tuesday: 9:00 AM – 5:30 PM
+- Wednesday: 9:00 AM – 5:30 PM
+- Thursday: 9:00 AM – 5:30 PM
+- Friday: 9:00 AM – 5:30 PM
+- Saturday: 9:00 AM – 2:00 PM
+- Sunday: Closed
+
+## About
+Ramsey Auto Recyclers is a used auto parts yard on Mellon Street in Detroit. We specialize in late model cars and trucks, foreign and domestic, and we sell quality used parts to folks across the Detroit area.
+Our customers tell it better than we can. One reviewer thanked Billy, Bobby, and Tony by name, and another said they have come to us for years because the guys are helpful and friendly. We hold a 4.4 rating from 86 Google reviews.
+
+## Services
+- Quality used parts: Used parts for drivers across the Detroit area.
+- Late model cars and trucks: Late model cars and trucks are our specialty.
+
+## FAQ
+Q: Do your parts come with a warranty?
+A: Yes. Our parts come with a 30 day warranty.
+
+Q: What kinds of vehicles do you specialize in?
+A: We specialize in late model cars and trucks.
+
+Q: Where are you located?
+A: We are at 14301 Mellon Street in Detroit.
+
+## What customers say
+- "Picked a differential for a Cadillac ATS. System said it would work but it did not. Not an error on these guys, this stuff happens sometimes. Ramseys made it right and refunded me my money ZERO hassle. Had I went to Glens in Taylor or many other yards, I would have been stuck with store credit. Extremely good business practices.  I wish more yards would take this approach with customer service. I will absolutely be back" (Rick Solis, 5/5)
+- "So I have been looking for a part for over 2 weeks. Well even though I still haven't found it, the employees at this place went beyond there call they are trying there best to get my part even if they dont sell it themselves. Now u tell me if thats not customer service at its finest. Noone I mean noone I spoke to was willing to do what they have offered to.. 5 stars all around." (Gmela Nance, 5/5)
+- "These guys are great, I had a truck park there and the driver was asleep. I called them and they went out and woke up the driver and got him moving again. GREAT PEOPLE!" (Kohl Forrest, 5/5)
+- "Good people, always been easy to deal with. Had the stuff I needed at the time needed. I highly recommend! Thanks to Billy, Bobby, and Tony." (Dan M, 5/5)
+- "The guys are great here especially Billy! Lol. I have patronized them for years, helpful and friendly." (Lakesha Berry, 4/5)
