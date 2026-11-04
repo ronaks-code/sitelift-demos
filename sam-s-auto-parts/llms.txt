@@ -1,6 +1,6 @@
 # Sam's Auto Parts
 
-> Sam's Auto Parts is a junkyard serving the Fridley, MN area with quality used parts. Search our inventory or call to ask about a part.
+> Sam's Auto Parts is a junkyard serving the Fridley, MN area with quality used parts. Call to check what's in stock.
 
 - Type: Auto Parts Store
 - Address: 1230 73rd Ave NE, Minneapolis, MN 55432, USA
@@ -20,20 +20,15 @@
 - Sunday: Closed
 
 ## About
-Sam's Auto Parts serves the Fridley area with quality used parts. We're a junkyard, so the parts come off vehicles in our yard, and our staff works to help you find what you need.
-You can search our inventory on our website, search by image, or run a multi-part search. If you'd rather talk to someone, call and ask whether we have the part you're after.
-We work with everyday drivers and with local repair shops. One auto shop that buys from us wrote that the owner is putting real effort into improving the business.
+Sam's Auto Parts is a junkyard serving the Fridley, MN area with quality used parts.
+Need a part? Call us and ask. We'll tell you what we have.
 
 ## Services
-- Used auto parts: Quality used parts pulled from our yard.
-- Inventory search: Search our inventory, search by image, or run a multi-part search.
+- Quality used parts: Used auto parts for drivers and repair shops in the Fridley area.
 
 ## FAQ
-Q: Can I call to check if you have a part?
-A: Yes. Give us a call and ask about the part you need. One reviewer said a staff member went out and checked in person whether it was in stock.
-
-Q: Are you open on Sunday?
-A: No, we're closed on Sunday.
+Q: Can I call to check if you have my part?
+A: Yes. Call and ask. One customer called to see if we had a part, and we went out and checked whether it was in stock.
 
 ## What customers say
 - "We’ve been doing business with Sam’s Auto Parts for a long time now, and I can honestly say they’ve always treated us right. As an auto shop, we rely on solid parts and fair deals, and they’ve consistently come through for us.

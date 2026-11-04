@@ -1,6 +1,6 @@
 # The Pet Wellness Clinic
 
-> Family owned, full service veterinary clinic in Magnolia, TX. Dr. Don offers routine care, vaccinations, surgery, nutrition and an in-house pharmacy.
+> Family owned, full service veterinary hospital in Magnolia, TX. Dr. Don offers routine care, surgery, nutrition and an in-house pharmacy.
 
 - Type: Veterinary Care
 - Address: 6315 FM 1488, Magnolia, TX 77354, USA
@@ -20,24 +20,32 @@
 - Sunday: Closed
 
 ## About
-The Pet Wellness Clinic is a family owned and operated hospital in Magnolia. We're here for routine checkups, a much needed vaccination, or an emergency snake bite, with clean, well-lit facilities and up-to-date equipment.
-Dr. Don is a graduate of Texas A&M University and school of Veterinary Medicine, and he is a certified Animal Nutritionist. He believes the key to a long, happy life for your pet is prevention: regular vaccinations, a healthy diet and natural supplements.
-The good stories and hot coffee are always flowing, and Ginger, our clinic's best friend, waits to greet you at the door. Pet owners have given us a 4.5 rating from 120 Google reviews.
+The Pet Wellness Clinic is a family owned and operated hospital in Magnolia. We started it because it's tough to know where to turn when your dog or cat isn't feeling well, and we wanted one place where your pet can get everything he or she needs.
+Dr. Don is a graduate of Texas A&M University and school of Veterinary Medicine, and he's a certified Animal Nutritionist. He believes the key to a long, happy life is prevention: regular vaccinations, a healthy diet and natural, yet effective supplements.
+Ginger, our best friend, waits by the door to greet you, and the good stories and hot coffee are always flowing. Our clients rate us 4.5 from 120 Google reviews.
 
 ## Services
-- Surgical suite: A full service surgical suite on site for the critical moments when your pet's health can't wait.
-- Checkups and vaccinations: Routine checkups and vaccinations to keep your dog or cat healthy and catch problems early.
-- Pet nutrition: Dr. Don is a certified Animal Nutritionist and can help you find a healthy, balanced diet for your dog or cat.
+- Routine Care: Routine checkups and much needed vaccinations to keep your pet healthy and strong.
+- Preventive care: From diet to natural supplements, Dr. Don can help keep your pet healthy. As the saying goes, an ounce of prevention is worth a pound of cure.
+- Surgical suite: When time is of the essence, we have a full service surgical suite for those critical times.
+- Nutrition: Dr. Don is a certified Animal Nutritionist who specializes in pet nutrition, so your best friend stays healthy and visits us less often.
+- In-house pharmacy: Prescriptions are filled right here while you wait.
 
 ## FAQ
-Q: Can I bring my pet in the same day they get sick?
-A: Give us a call. A reviewer whose dog had a ruptured anal gland and a fever was told to come right in and was seen as a walk in that same day.
+Q: What should I bring to my first visit?
+A: You can download our new client information sheet from our website and have it filled out before you come in. We want your first visit to be a pleasant one.
 
-Q: Who do I call for an emergency after hours?
-A: Our contact page lists an emergency phone line with Dr. Quillivan, DVM. You can also call the clinic during regular hours.
+Q: Who do I call in an emergency?
+A: Our contact page lists an emergency phone line with Dr. Quillivan, DVM.
 
-Q: What should I do before my first visit?
-A: You're welcome to download our new client information sheet and fill it out ahead of time so it's ready when you arrive.
+Q: Can you see my pet the same day?
+A: A reviewer whose dog had a ruptured anal gland wrote that Doc got them in as a walk in the same day. Give us a call and we'll let you know what we can do.
+
+Q: Do you work with clients on payments?
+A: A reviewer wrote that we worked with her on payments. Please ask us about it when you call.
+
+Q: What are your Wednesday hours?
+A: Our Wednesday hours are shorter: 9:00 AM to 1:00 PM.
 
 ## What customers say
 - "I can’t say enough wonderful things about Dr. Don and the entire team at Pet Wellness Clinic. I’ve brought two kitties and a dog here, and every single visit has been exceptional. Dr. Don has that rare combination of deep medical knowledge and genuine compassion—you can feel that he truly cares about the animals he treats.
