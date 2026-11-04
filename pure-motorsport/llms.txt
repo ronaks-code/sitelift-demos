@@ -1,6 +1,6 @@
 # PURE Motorsport
 
-> Independent Audi and VW specialist in Miramar, San Diego. Diagnostics, scheduled service and APR and AWE performance parts. Rated 4.6 on Google.
+> Independent Audi and VW specialist in Miramar, San Diego. Factory trained technicians, ODIS and VCDS diagnostics. Rated 4.6 from 150 Google reviews.
 
 - Type: Car repair and maintenance service
 - Address: 8451 Miralani Dr H, San Diego, CA 92126, USA
@@ -20,27 +20,35 @@
 - Sunday: Closed
 
 ## About
-We are a full service independent Audi and VW specialist in the heart of Miramar, San Diego. Our factory trained technicians use current diagnostic equipment to service and repair your car, from an oil change to a complete vehicle restoration.
-As an independent shop, our prices are typically lower than what local dealerships charge, and we work closely with local dealerships in case something you need is covered under the manufacturer's warranty.
-We also stock parts. We're warehouse distributors and partners with companies like KONI, Eibach, Bilstein, Vogtland, Neuspeed, AWE Tuning, APR, HRE Wheels and Brembo.
+PURE Motorsport is a full service independent Audi and VW specialist in the heart of Miramar, San Diego. Our factory trained technicians use current tools and diagnostic equipment, including factory ODIS and VAG-COM (VCDS), to find the problem and fix it right.
+As an independent repair facility, our prices are typically lower than what local dealerships charge. We stick closely to manufacturer recommended service intervals, and we work with the local dealerships when something may be covered under the manufacturer's warranty. Consider us your dealership alternative.
+We also stock performance parts. We carry APR and AWE Tuning, and we are warehouse distributors for companies like KONI, Eibach, Bilstein, Vogtland, Neuspeed, HRE Wheels and Brembo.
 
 ## Services
-- Diagnostics: Check engine lights, no-starts, poor running, overheating and coolant loss, smog issues, unusual noises and A/C problems, using VAG-COM (VCDS) and factory ODIS diagnostics.
-- Factory recommended scheduled service: Routine maintenance that follows the manufacturer's recommended service intervals.
-- DSG transmission flush: Transmission flushes for DSG gearboxes.
-- Alignments and corner balancing: Alignments and corner balancing for your Audi or VW.
-- APR parts and accessories: We carry a wide array of APR parts and accessories here in Miramar.
-- AWE Tuning options: Ask us about AWE Tuning options for your car.
+- Check Engine Lights (CEL): We read the codes and trace the fault behind a check engine light.
+- Factory ODIS Diagnostics: Diagnostics with the factory ODIS system used for Audi and VW.
+- VAG-COM (VCDS) Services: Scanning, coding and adjustments with VAG-COM (VCDS).
+- Factory Recommended Scheduled Service: Scheduled maintenance at the intervals the factory recommends.
+- Timing Belt Service: Timing belt replacement for the engines that use one.
+- DSG Transmission Flush: Fluid service for DSG transmissions.
+- Haldex Differential Service: Service for the Haldex all-wheel-drive differential.
+- Alignments / Corner balancing: Wheel alignments and corner balancing.
 
 ## FAQ
-Q: What cars do you work on?
-A: We specialize in Audi and Volkswagen.
+Q: Which cars do you work on?
+A: We specialize in Audi and Volkswagen, and we also service Porsche.
 
-Q: Do you follow factory service intervals?
-A: Yes. We stick closely to all manufacturer recommended service intervals.
+Q: Do you follow the factory service intervals?
+A: Yes. We stick closely with all manufacturer recommended service intervals.
 
-Q: What if a repair might be covered under the manufacturer's warranty?
-A: We work closely with the local dealerships in case something you need may be covered under the manufacturer's warranty.
+Q: Is your work under warranty?
+A: Yes. We back all our work with our own shop warranty.
+
+Q: Can I wait while you diagnose a problem?
+A: Often, yes. Give us a call or stop in, and we can usually diagnose problems quickly while you wait.
+
+Q: Do you sell performance parts?
+A: Yes. We carry APR and AWE Tuning, and we are warehouse distributors for brands such as KONI, Eibach, Bilstein and Brembo.
 
 ## What customers say
 - "This group has been amazingly helpful. When I made a mistake, they fixed the issue and did not charge me. The fix was to switch programming slots but still, no charge. 2 years later, I was unable to ready up all monitors and after working with me over the phone for about 30 minutes their tech gave me an idea to try while I wait for the scheduled appointment. The tech was correct and I was able to finish and again, no charge. I am very grateful and humbled that there are still people out there that just want to help. You are all rock stars and I will find a way to bring you some business! Thank you PMS!" (michael thayer, 5/5)

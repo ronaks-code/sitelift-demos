@@ -1,6 +1,6 @@
 # Roessler Equipment Company
 
-> Family owned commercial HVAC supplier on Schumacher Lane in Houston. VFD repair, gas detection, panel services and stocked items. Rated 4.7 on Google.
+> Family owned Commercial HVAC equipment supplier in Houston. VFD repair, gas detection, chemical free water treatment, custom panels. Rated 4.7 on Google.
 
 - Type: Local business
 - Address: 5805 Schumacher Ln, Houston, TX 77057, USA
@@ -20,28 +20,29 @@
 - Sunday: Closed
 
 ## About
-Roessler Equipment Company started as a commercial HVAC representative serving the greater Houston region. Charles Bradbury Roessler, known as Charlie, began out of his home, moved to an office on Louisiana Street downtown, and then bought the property on Schumacher Lane back when it was mostly a residential neighborhood. We are still at that same address, and we are still family owned and operated.
-Today we represent commercial HVAC manufacturers including ABB, LAKOS, Mueller, Flow-Tech and REYMSA Cooling Towers. We have also grown beyond supplying equipment, with VFD repair, gas and refrigerant monitoring repair, cooling tower refurbishment, panel and enclosure services and training classes.
-Customers have given us a 4.7 rating across 45 Google reviews.
+Roessler Equipment Company is a family owned and operated Commercial HVAC equipment supplier serving the greater Houston region. Charles Bradbury Roessler, known as Charlie, started the business from his home as a Commercial HVAC Representative, moved to an office on Louisiana Street downtown, then bought the property on Schumacher Lane. We're still at that same location.
+Over the years we've grown beyond being just an equipment supplier. Our full-time service team handles VFD and gas monitoring issues. We also offer cooling tower refurbishment, Gas/Refrigerant Monitoring system repair, panel and enclosure fabrication, and VFD training classes.
+Brands we carry include ABB, Bosch-FHP, Critical Room Control, Flow-Tech, Honeywell-Vulcain, LAKOS, Magic Aire/RECO, Mueller, Proco Products, REYMSA Cooling Towers and Teco-Westinghouse.
 
 ## Services
-- VFD diagnostics and repair: Diagnostics, repairs, preventative maintenance and soft charging for variable frequency drives.
-- ABB VFD installations and start-ups: Installation and start-up of ABB variable frequency drives.
-- Gas detection: Start-ups, diagnostics and repairs for gas detection devices.
-- Chemical free water treatment: We provide, install and service Flow Tech chemical free water treatment, which replaces costly and hazardous chemicals and allows for water and energy savings.
-- Panel and enclosure services: We provide panel and enclosure services to our clients.
-- Cooling tower refurbishment: Refurbishment work for commercial cooling towers.
-- Items in stock: We stock thousands of items to serve your immediate needs.
+- Diagnostics and Repairs for all Variable Frequency Drives (VFDs): Troubleshooting and repair on all Variable Frequency Drives.
+- Preventative Maintenance on all VFDs: Scheduled maintenance to keep your drives running.
+- Soft Charging on all VFDs: Soft charging service for all VFDs.
+- ABB VFD Installations & Start-ups: Installation and start-up of ABB drives.
+- Chemical Free Water Treatment: We provide, install and service Flow Tech chemical free water treatment. It replaces the need for costly and hazardous chemicals and allows for water and energy savings.
+- Gas Detection: Gas Detection Start-ups, plus diagnostics and repairs for all gas detection devices.
+- Panel + Enclosure Fabrication: Custom panels and enclosure services for our clients.
+- Inventory + Will Call: We keep stock on hand to serve your immediate needs. Call ahead and pick up.
 
 ## FAQ
+Q: Do you take after-hours emergency calls?
+A: Yes. Our technicians are available for after-hour emergency calls for VFD and gas monitoring issues.
+
+Q: Do you keep items in stock?
+A: Yes. We stock items to serve your immediate needs. Call us and we'll check before you head over.
+
 Q: What are your hours?
-A: We are open Monday, Tuesday, Thursday and Friday from 7:00 AM to 5:00 PM. We are closed Wednesday, Saturday and Sunday.
-
-Q: How do I schedule a technician?
-A: Contact our team by phone or at Sales@recohvac.com for technical assistance or to set up a service visit.
-
-Q: Do you hold classes?
-A: Yes. We offer VFD training classes, and one reviewer mentions that we host free classes on mechanical topics.
+A: Monday, Tuesday, Thursday and Friday, 7:00 AM to 5:00 PM. We're closed Wednesday, Saturday and Sunday.
 
 ## What customers say
 - "Does not get any better than Roesslers customer service. The slack kids out there today just don't cut the mustard for customer service.. Roesslers has an experienced focused team to help us all out. Repeat customer." (Go Navy, 5/5)

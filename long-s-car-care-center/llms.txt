@@ -1,6 +1,6 @@
 # Long's Car Care Center
 
-> Family-owned, AAA-approved auto repair in Woodinville, WA with ASE-certified technicians. Rated 4.8 from 420 Google reviews.
+> Family-owned, AAA-approved auto repair in Woodinville, WA. ASE-certified technicians and honest quotes. Rated 4.8 from 420 reviews.
 
 - Type: Car repair and maintenance service
 - Address: 19111 144th Ave NE #4371, Woodinville, WA 98072, USA
@@ -20,26 +20,29 @@
 - Sunday: Closed
 
 ## About
-Long's Car Care Center is a local, family-owned shop in Woodinville, led by Randy Long. We treat every vehicle with the same care and attention we'd give our own.
-We keep detailed records of your vehicle's service history and send maintenance reminders, so you can stay ahead of problems instead of reacting to them. When something does go wrong, we tell you what we found, what your options are and what it will cost.
-Our neighbors have given us a 4.8 rating across 420 Google reviews, and a lot of them keep coming back and sending friends and family our way.
+Long's Car Care Center is a local, family-owned shop in Woodinville, under the leadership of Randy Long. We treat every vehicle with the same care and attention we'd give our own.
+We're Woodinville's only AAA-approved auto repair facility, and our ASE-certified technicians use high-quality OEM or equivalent parts and products.
+We listen, keep detailed records of your vehicle's service history, and send maintenance reminders so you can stay ahead and stress less. When something needs fixing, we explain the problem, your repair options, and the costs before any work starts.
 
 ## Services
-- Oil changes: Routine oil changes to keep your engine running well.
-- Preventative maintenance: Scheduled maintenance and regular service reminders to help you avoid unexpected breakdowns.
-- Electrical diagnosis and repair: Tracking down charging system and other electrical problems.
-- Brakes and ABS: Brake service and repair, including ABS diagnostics.
-- Suspension, steering and exhaust: Repairs to keep your car handling right and running clean.
-- Emissions repairs: Repairs to address emissions problems.
-- Cooling and air conditioning: Service for your cooling and air conditioning systems.
-- Tire puncture repair: A reviewer who came in with a tire going flat got immediate attention and a repair.
+- Oil Changes: Routine oil changes, done right and on schedule.
+- Electrical Diagnosis & Repair: Charging systems, alternators and other electrical problems tracked down and fixed.
+- Brakes & ABS Diagnostics Service/Repair: Brake service and ABS diagnostics and repair.
+- Suspension, Steering & Exhaust Repairs: Repairs to keep your car riding, steering and running the way it should.
+- Emissions Repairs: Repairs to get your vehicle's emissions back in order.
+- Preventative Maintenance: Staying ahead of problems to reduce the risk of unexpected breakdowns and costly repairs.
+- Cooling/Air conditioning System Service: Service for your cooling and air conditioning systems.
+- Regular Service Reminders: We keep your service history on file and remind you when maintenance is coming up.
 
 ## FAQ
 Q: What are your hours?
-A: We're open Monday through Friday, 7:30 AM to noon and 1:00 to 5:00 PM. We're closed Saturday and Sunday.
+A: Monday through Friday, 7:30 AM to 12:00 PM and 1:00 to 5:00 PM. We're closed Saturday and Sunday.
 
-Q: What if I can't get there during business hours?
-A: Use our secure key drop box just outside the front door, and we'll get started on your car first thing in the morning.
+Q: Can I drop my car off outside business hours?
+A: Yes. Use our secure key drop box just outside the front door, and we'll get started first thing in the morning.
+
+Q: Will I be surprised by the bill?
+A: No. Our estimates are based on honest assessments, and we keep you informed throughout the repair.
 
 Q: What kind of parts do you use?
 A: We use high-quality OEM or equivalent parts and products.
