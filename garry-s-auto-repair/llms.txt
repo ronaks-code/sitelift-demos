@@ -1,0 +1,55 @@
+# Garry's Auto Repair
+
+> Auto repair and collision repair on Corporation Pkwy in Raleigh, NC. Brakes, diagnostics, oil changes, accident repair. Rated 4.9 from 56 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 1015 Corporation Pkwy, Raleigh, NC 27610, USA
+- Phone: (919) 231-8090
+- Email: sample@onsr.com
+- Website: https://ronaks-code.github.io/sitelift-demos/garry-s-auto-repair/
+- Google Maps: https://maps.google.com/?cid=15716160092919668239&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 56 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Garry's Auto Repair was started by Garry Oates, originally from Mount Olive. He opened the shop on Freedom Drive in Raleigh, and when it outgrew that building, it moved to its current spot on Corporation Parkway.
+We provide full service auto repair as well as collision repair: electrical repairs, brake service, oil changes and body work after an accident. Our goal is to talk one-on-one with you and listen to your repair needs.
+Customers rate us 4.9 from 56 Google reviews. One reviewer calls Garry "very knowledgeable and fair," and a second says they have trusted him with their vehicles for years.
+
+## Services
+- Accident Repair: Body repair after a collision, domestic or imported, luxury or SUV.
+- Fender Bender Repair: Small dents and bumps fixed right.
+- Frame Straightening: Getting the frame back where it belongs after a hit.
+- Insurance Claims: If you're dealing with an insurance company for your repairs, we'll help you through it.
+- Engine Performance: Diagnosis and Repair: Finding out why the engine isn't running right, then fixing it.
+- Computer Diagnostics and Electronics: Electrical problems and warning lights tracked down.
+- Brake System Repair: Brake service and repair to keep you stopping safely.
+- Tune-Ups and Oil Changes: Routine upkeep. One reviewer said Garry did a great job on his wife's oil change.
+
+## FAQ
+Q: When are you open?
+A: We're open Monday through Friday.
+
+Q: How do I get my car in?
+A: You can schedule an appointment online, give us a call, or just stop by the shop.
+
+Q: Do you do body work on imported or luxury cars?
+A: Yes. Domestic or imported, luxury or SUV, we can handle your body shop needs.
+
+Q: Can you help with my insurance company after an accident?
+A: Yes. If you're dealing with an insurance company for your repairs, we're here to help.
+
+## What customers say
+- "It Was the 1st. Oil Change I’ve Had Done on the 2 Year Old Car I Bought My Wife!!! Garry Did a Great Job on the Oil Change!!! Unfortunately, He Found the Car Had Been Wrecked & Repaired Previously & It Wasn’t Reported to CarFax!!! Glad to Now Know This Information! Now, Just Wish the Garage I Paid for the Pre-purchase Inspection Had’ve Found It!!!" (Tony Tucker, 5/5)
+- "I have trusted Garry with my vehicles for years and he has never disappointed. Emergency situations, diagnostics, repairs, you name it and he has done it all. Garry has always been accommodating, efficient, and friendly. He looks out for your best interest and has always been trustworthy. I can’t recommend his services enough!" (RaShaun Robinson, 5/5)
+- "Mr. Garry provides nothing shy of EXCEPTIONAL service.  He's very knowledgeable and fair.  He communicates well and I recommend anyone needing a personable mechanic to stop by Garry's Auto Repair.  Mr. Garry ALWAYS comes thru!!!  Thank you Mr. Garry!!!" (Shandale Best, 5/5)
+- "I hit a deer and it messed up the front of my car. After Garry got a hold of it, she looks brand new. ETA: Garry deals with your insurance company so you don’t have to worry about that headache." (Yolanda Temple, 5/5)
+- "Gary is honest and always does a great job. He's worked on my cars for a couple of decades." (William King, 5/5)

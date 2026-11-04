@@ -1,0 +1,51 @@
+# Steve's Automotive
+
+> Local, family-owned car repair in Portland. ASE-certified technicians, DEQ repair facility, shuttle and Enterprise rentals. Rated 4.4 from 112 reviews.
+
+- Type: Car repair and maintenance service
+- Address: 22 NW 14th Ave, Portland, OR 97209, USA
+- Phone: (503) 227-4112
+- Email: bob@stevesautomotive.com
+- Website: https://ronaks-code.github.io/sitelift-demos/steve-s-automotive/
+- Google Maps: https://maps.google.com/?cid=5460508600317461224&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.4 from 112 reviews
+
+## Hours
+- Monday: 7:30 AM – 5:30 PM
+- Tuesday: 7:30 AM – 5:30 PM
+- Wednesday: 7:30 AM – 5:30 PM
+- Thursday: 7:30 AM – 5:30 PM
+- Friday: 7:30 AM – 5:30 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Steve's Automotive is a local, family-owned auto repair shop in Portland. We look after our friends and neighbors throughout the Portland Metro area. We are not too big where you are forgotten. We've stayed just the right size to know you and your car's needs well.
+We're a full-service maintenance and repair facility for both domestic and popular imported vehicles. Our technicians are ASE-certified, and we're an Oregon State Certified DEQ Repair Facility.
+We're rated 4.4 on Google from 112 reviews. A reviewer mentions Ed by name, saying he was able to talk them through what he found.
+
+## Services
+- Full-Service Automotive Maintenance and Repair: Maintenance and repair for your car, all under one roof.
+- DEQ repair: We're an Oregon State Certified DEQ Repair Facility.
+- Early morning shuttle: A one-way shuttle to downtown Portland in the early morning, by appointment.
+- Rental cars through Enterprise: Need a car while yours is in the shop? We can set up a rental through Enterprise with prior arrangement.
+
+## FAQ
+Q: What are your hours?
+A: Monday through Friday, 7:30 AM to 5:30 PM. We're closed Saturday and Sunday.
+
+Q: Do you guarantee your work?
+A: Yes. Personalized Professional Auto Care includes a guarantee on service and repairs.
+
+Q: What payment do you accept?
+A: We accept Visa, MasterCard, and debit cards.
+
+Q: Can I book an appointment online?
+A: Yes. Request an appointment online, pick the services you'd like, and one of our staff will contact you to confirm.
+
+## What customers say
+- "Bought a used car and it ended up having trouble starting even after a new battery, figuring it was most likely the starter that need replaced, we brought our car into Steve’s for a basic check up. Ed was able to talk us through what he found and basic maintenance he recommended for the mileage. After he replaced our starter he told us he found an oil leak. Which he showed us pictures of where the leak was and what he thought needed repaired.
+We went forward with fixing the oil leak as well as getting a full detailed check up, and found the rear struts and water pump were leaking. A few days in the shop, she good as new! I really appreciated the amount of communication with the shop and how quickly they were able to get our car back up in tip top shape! Thanks again Emily & Charlie" (Em_Zum, 5/5)
+- "I’m new to Portland and I had to find somebody to service my 2018 Tacoma, which has always been well-maintained. The Internet search told me that these guys are reputable. I gave them a shot. Ed at the shop is the man. So kind, honest, trustworthy, timely, communicative.  It’s hard to know who to trust in the automotive repair world. I knew what needed to be done on my truck and Ed Came back to me with exact analysis of what I expected. And the pricing was very fair. In and out in one day. Gotta love it." (Sterling Macdonell, 5/5)
+- "We had a couple of long standing issues with our Jeep GC. Over 5 years, 2 dealer visits and 3 visits to a well recognized independent shop. And $$$$$$. Still issues. Steve's was recommended to us bc that's where Enterprise takes their rental cars for service. Yep you guessed it fix it, first time, granted they had to do some Sherlocking, but they didn't join the pay me but we"tried" what is it that Yoda says... ? Don't try, Do. Anyway best shop in Portland. And nice folks to boot!" (jennifer gomersall, 5/5)
+- "My headlights died on a Friday afternoon before a long weekend, and I was able to get them fixed in 5 minutes at a fair price. Highly recommend" (Matt Levy, 5/5)
