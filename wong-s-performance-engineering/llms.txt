@@ -1,6 +1,6 @@
 # Wong's Performance Engineering
 
-> GM-dedicated performance tuning, dyno tunes and engine control system repair in Vancouver, WA. Rated 4.8 from 78 Google reviews.
+> GM-dedicated high-performance tuning, dyno tunes and engine control system repair in Vancouver, WA. Rated 4.8 from 78 Google reviews.
 
 - Type: Car repair and maintenance service
 - Address: 9305 NE Hwy 99, Vancouver, WA 98665, USA
@@ -20,23 +20,24 @@
 - Sunday: Closed
 
 ## About
-Wong's Performance Engineering is a GM-dedicated, high-performance tuning center serving Portland and Vancouver. We diagnose, repair and tune engine control systems, including the complex ones.
-Customers tell us they come here for the knowledge and the communication. Corvette owners find their way to us, and our customers have given us a 4.8 rating from 78 Google reviews.
+Wong's Performance Engineering is Portland and Vancouver's only GM-dedicated, high-performance tuning center. The work centers on engine control systems: finding the fault, fixing it and getting the car to run right.
+Behind the shop is an electrical engineer. Our equipment is the same as what dealerships use. What we add is what dealers can't: passion, experience and personal attention.
+We're rated 4.8 from 78 Google reviews. One reviewer put it simply: he knows those engines forwards and backwards.
 
 ## Services
-- Dyno tune: A quality dyno tune for modified engines. One reviewer said he took his time on the job.
-- Engine control system repair: We diagnose, repair and tune engine control systems, even the most complex ones.
-- ECM/PCM VATS bypass: Help with a VATS bypass for passlock issues. One reviewer had this done on a Chevy Suburban.
+- Dyno tune: A quality dyno tune for modified engines, done without rushing.
+- Engine control system repair: We diagnose, repair and tune engine control systems, including the complex ones.
+- ECM/PCM VATS bypass: VATS bypass for passlock issues. One customer had it done on a Chevy Suburban.
 
 ## FAQ
-Q: What kind of cars do you work on?
-A: We are a GM-dedicated, high-performance tuning center.
+Q: What kind of vehicles do you work on?
+A: We're a GM-dedicated, high-performance tuning center serving Portland and Vancouver.
 
-Q: How long does a tune take?
-A: It depends on the car. One reviewer said it took about 3 hours.
+Q: What are your hours?
+A: Monday through Friday, 9:00 AM to 5:00 PM. We're closed Saturday and Sunday.
 
-Q: When are you open?
-A: Monday through Friday, 9:00 AM to 5:00 PM. We are closed on weekends.
+Q: Where is the shop?
+A: 9305 N.E. Hwy 99 in Vancouver.
 
 ## What customers say
 - "My C7 ZO6 is currently in the shop. He's only had it one day and he already solved the problem that two other local shops couldn't figure out. Everybody says he's the wizard in the area for Corvettes and I can already see that's the case. Can't wait to get it back. Not only has he had great communication but he's great to work with. Five stars all the way highly recommend if you own a Corvette" (Zach Roetker, 5/5)

@@ -1,6 +1,6 @@
 # Eurocharged Performance HTX
 
-> ECU, transmission and custom tuning for European, luxury and performance vehicles in Houston, TX. Rated 4.7 on Google from 234 reviews.
+> ECU, transmission and custom tuning, dyno testing and diagnostics for European and performance cars in Houston. Rated 4.7 on Google from 234 reviews.
 
 - Type: Car repair and maintenance service
 - Address: 11961 FM 529 A, Houston, TX 77041, USA
@@ -20,26 +20,34 @@
 - Sunday: Closed
 
 ## About
-Eurocharged Performance HTX is the Houston shop for Eurocharged tuning. We work mostly with European, luxury, exotic and high-performance vehicles, and every calibration starts with your engine, your existing software, your modifications and how you actually drive.
-We aren't chasing a big number on a dyno graph. The goal is usable power that still feels smooth and predictable in everyday traffic, with better throttle response, torque delivery and shifting.
-Customers who have left reviews mention Jerry and Benitt by name for taking care of them from the first conversation to the drive home. Give us a call, tell us about your car, and we'll talk through what makes sense for it.
+Eurocharged Performance HTX is a Houston tuning shop for European, luxury, exotic and high-performance vehicles. The work covers ECU tuning, transmission tuning, custom calibration, dyno testing, diagnostics and maintenance.
+Every vehicle responds differently to software calibration. Before changing anything, we look at the engine, factory software, fuel, existing hardware and how you plan to drive the car. The goal is a balanced result, not just a peak horsepower figure: usable performance with smooth, predictable power delivery.
+Customers rate us 4.7 on Google from 234 reviews.
 
 ## Services
-- ECU tuning: Software calibration for your specific vehicle to improve performance, throttle response and power delivery.
-- Transmission tuning: Transmission calibration for quicker, crisper shifts and better torque management.
-- Stage 1 and Stage 2 tuning: Performance calibrations matched to your car's setup, supported modifications, fuel and goals.
-- Custom tuning: Individual calibration for cars that need a more specific setup than a standard package.
-- Dyno tuning: Testing under controlled conditions so calibration changes are based on measured data, especially useful on cars with upgraded hardware.
+- ECU Tuning: Vehicle-specific software calibration to improve engine performance, power delivery, throttle response and torque.
+- Transmission tuning: Transmission calibration for shift behavior, responsiveness, torque management and overall driving performance.
+- CPC calibration: Calibration for supported platforms where CPC programming plays a big role in performance and torque management.
+- Stage 1 and Stage 2 Tuning: Performance calibrations developed around the vehicle's configuration, supported modifications, fuel and goals.
+- Custom calibration: Individual calibration for vehicles that need a more specific setup than a standard tuning package.
+- Dyno tuning: Testing under controlled conditions so calibration adjustments are based on measured data.
+- Diagnostics and maintenance: Diagnostics and supporting services that find issues and keep performance vehicles running properly.
 
 ## FAQ
-Q: Which brands do you tune?
-A: Mostly European, luxury, exotic and performance cars, including Mercedes-Benz, BMW, Audi, Porsche, McLaren, Lamborghini and other supported makes.
+Q: What is ECU tuning?
+A: ECU tuning adjusts selected engine-control parameters to improve performance, throttle response and power delivery.
 
-Q: Can you tune a car that's already modified?
-A: Yes. Compatible modified vehicles get a calibration developed around their specific hardware and performance goals.
+Q: Which brands do you tune?
+A: Mostly European, luxury, exotic and performance vehicles, including Mercedes-Benz, BMW, Audi, Porsche, McLaren, Lamborghini and other supported makes.
+
+Q: Can you tune a modified car?
+A: Yes. Compatible modified vehicles get a calibration developed around their specific hardware and performance requirements.
 
 Q: Do you offer remote tuning?
-A: Yes, for eligible vehicles. That lets you get a professional calibration without visiting a tuning facility.
+A: Yes, for eligible vehicles. You can get a professional calibration without visiting a tuning facility.
+
+Q: When are you open?
+A: Monday through Friday, 9:00 AM to 6:00 PM. We're closed Saturday and Sunday.
 
 ## What customers say
 - "I’ve been working with Jerry (THE OG) @Eurocharged Houston since they were only in Houston about 10 years ago, starting with an AMG they tuned for me. Since then, they’ve tuned seven of my vehicles — this latest being the seventh — and the experience has been consistently exceptional.
