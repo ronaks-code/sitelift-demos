@@ -1,0 +1,60 @@
+# Hillside Auto Service
+
+> Family owned auto repair, diagnostics and Pennsylvania State Inspection in Jenkintown, PA. Rated 4.9 from 43 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 500 Hillside Ave, Jenkintown, PA 19046, USA
+- Phone: (215) 884-3930
+- Email: info@autorepairjenkintown.com
+- Website: https://ronaks-code.github.io/sitelift-demos/hillside-auto-service/
+- Google Maps: https://maps.google.com/?cid=10424168916032155688&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 43 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:30 PM
+- Tuesday: 8:00 AM – 5:30 PM
+- Wednesday: 8:00 AM – 5:30 PM
+- Thursday: 8:00 AM – 5:30 PM
+- Friday: 8:00 AM – 5:30 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Hillside Auto Service is a family shop in Jenkintown. Joseph Regan started it when he came home from the war and saw a need for auto repair in town. Today his sons, John and his brother, run the day-to-day operations, and Dad has always believed customer service is the number one part of the business.
+Our motto is "come as a customer leave as a friend." We believe in honesty, integrity and fair prices. Whether you drive a car, truck, import or domestic, you can bring it to us for repairs and maintenance.
+Neighbors have given us a 4.9 rating from 43 Google reviews. One longtime customer calls Tom a fantastic mechanic and a wonderful person who always goes out of his way to make sure the customer is satisfied.
+
+## Services
+- Pennsylvania State Inspection: Bring your car in for your Pennsylvania State Inspection and we'll take care of it.
+- Diagnostic services: When your check engine or service warning light comes on, bring it to us and we can diagnose the problem.
+- Scheduled maintenance: You don't have to go to the dealer. We can perform your required scheduled maintenance.
+- Oil, lube and filter: Regular oil service to keep your engine running right.
+- Timing belt replacement: A broken timing belt can cause major engine damage, and replacing it costs far less than repairing the engine.
+- Antilock brake system diagnosis: We track down what's behind your antilock brake problems.
+- Electrical system repairs: If a fuse keeps blowing, have the circuit checked by one of our technicians.
+- Shock & strut replacement: Worn shocks and struts replaced so your car rides and handles the way it should.
+
+## FAQ
+Q: Do I have to go to the dealer for scheduled maintenance?
+A: No. We can perform your required scheduled maintenance right here at the shop.
+
+Q: My check engine light is on, but the car seems fine. Should I worry?
+A: Your car may seem to run fine, but it's important to have the issue addressed to prevent long-term problems. Bring it in and we can diagnose the problem.
+
+Q: What should I do if my car starts to overheat?
+A: Find a safe place to pull off the road and shut the engine off as soon as possible. Don't try to check the radiator fluid. The hot fluid can cause severe burns. The best thing to do is have your car towed to us.
+
+Q: How often should I rotate my tires?
+A: Every other oil change, or every 6,000 miles. Skipping rotations is a major cause of premature tire wear.
+
+Q: What kinds of vehicles do you work on?
+A: Cars, trucks, imports and domestics. Any make or model.
+
+## What customers say
+- "So amazing & super attentive. I came in for an oil change and asked if they could take a look at my tire pressure sensor. My car was done in under 2 hours and my tire pressure light was off. I thought I was going to have to pay for a new tire pressure sensor but they explained that it wasn’t necessary and explained how they recalibrated everything for me. I’ve had HORRIBLE experiences with other shops in the area. I’ve had people not put my transmission cap back on, not screw on my undercarriage cover on good enough and so much more. These guys were so pleasant and have become my new go to in the area!" (Jerrie Thifault, 5/5)
+- "Beyond impressed with their service! I got an unrepairable flat over the weekend and needed a tire. Not only were they able to squeeze me in Monday morning, but they also had me back in my car by 3pm the same day.
+
+Pricing was fair and transparent, and I appreciated the open communication. I will certainly return for any future needs! Thanks so much Hillside!!" (Casey McKillion, 5/5)
+- "I have been a customer of Tom’s for over 15 years. He is a fantastic mechanic and a wonderful person. he always goes out of his way to make sure the customer is satisfied. If you are looking for quality work at a fair price , bring your car to Hillside. I highly recommend that you do." (Joe Brett, 5/5)
+- "The guys took great care of me when I had a surprise flat tire a few weeks ago. They put my donut on for me and ordered new tires, which were replaced quickly the next day. Price was reasonable, vibes were immaculate. Thanks!" (Rae McClellan, 5/5)
+- "Excellent job! I took my 2018 honda  civic on four separate occasions for brakes, state inspection, oil change andserpentine belt replacement. I was impressed with the service they provided." (Kimberly Bromell, 5/5)
