@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu | Pam's Patio Kitchen &amp; Wine Bar</title>
+<meta name="description" content="Lunch, dinner, desserts, wine and craft beer at Pam's Patio Kitchen and Wine Bar, San Antonio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#5a1e2b;--wine-d:#3c121c;--cream:#f7f2ea;--paper:#fffdf9;--ink:#2a2421;--muted:#7a6e66;--oak:#4b5a3f;--gold:#b38b55;--line:#e4dbcf}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Jost,system-ui,sans-serif;font-weight:300;color:var(--ink);background:var(--cream);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1080px,100% - 40px);margin-inline:auto}
+.eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;line-height:1.1}
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:1em 1.8em;border:1px solid currentColor;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;font-weight:500;transition:background .3s,color .3s}
+.btn.solid{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+.btn.solid:hover{background:var(--wine-d)}
+header{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:"Cormorant Garamond",serif;font-weight:500;font-style:italic;font-size:1.65rem}
+.logo small{font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;margin-top:4px}
+.links{display:flex;gap:2rem;align-items:center}
+.links a{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+.links a:hover{color:var(--gold)}
+.links .btn{padding:.8em 1.4em;background:var(--wine);color:var(--cream);border-color:var(--wine)}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer}
+.burger span{display:block;height:1px;background:var(--ink);margin:7px 8px}
+.pagehead{background:var(--wine-d);color:var(--cream);text-align:center;padding:90px 0 80px}
+.pagehead h1{font-size:clamp(3rem,8vw,5.4rem);margin-top:.6rem}
+.pagehead p{color:#dcc6b9;max-width:34rem;margin:1rem auto 0}
+.tabs{position:sticky;top:74px;z-index:40;background:var(--paper);border-bottom:1px solid var(--line)}
+.tabs .wrap{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.tabs a{padding:18px 18px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;border-bottom:2px solid transparent;color:var(--muted);transition:color .3s,border-color .3s}
+.tabs a.on,.tabs a:hover{color:var(--wine);border-color:var(--wine)}
+.note{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;padding:26px 0 0;color:var(--muted);font-size:.85rem}
+.v{display:inline-block;font-size:.6rem;font-weight:500;letter-spacing:.12em;border:1px solid var(--oak);color:var(--oak);border-radius:99px;padding:1px 7px;margin-left:8px;vertical-align:middle;font-family:Jost,sans-serif;font-style:normal}
+.menu-sec{padding:80px 0 30px;scroll-margin-top:130px}
+.menu-sec>.wrap>header{all:unset;display:block;text-align:center;margin-bottom:46px}
+.menu-sec h2{font-size:clamp(2.4rem,5vw,3.4rem)}
+.menu-sec .sub{color:var(--muted);margin-top:.4rem}
+.cat{margin-bottom:56px}
+.cat h3{font-size:1.15rem;font-family:Jost,sans-serif;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--wine);text-align:center;margin-bottom:26px;display:flex;align-items:center;gap:18px}
+.cat h3::before,.cat h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:30px 60px}
+.item .row{display:flex;align-items:baseline;gap:10px}
+.item h4{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.45rem;line-height:1.2}
+.item .dots{flex:1;border-bottom:1px dotted #cbbfb0;transform:translateY(-5px)}
+.item .p{font-family:"Cormorant Garamond",serif;font-size:1.35rem;color:var(--wine)}
+.item p{color:var(--muted);font-size:.93rem;margin-top:4px}
+.wine-sec{background:var(--wine-d);color:var(--cream);margin-top:60px;padding-bottom:90px}
+.wine-sec .cat h3{color:#e8c99a}
+.wine-sec .cat h3::before,.wine-sec .cat h3::after{background:rgba(247,242,234,.18)}
+.wine-sec .item p,.wine-sec .sub{color:#d6c0b2}
+.wine-sec .item .p{color:#e8c99a}
+.wine-sec .item .dots{border-color:rgba(247,242,234,.25)}
+.growler{border:1px solid rgba(247,242,234,.25);padding:40px;text-align:center;margin-top:20px}
+.growler h3{font-size:2rem}
+.growler p{color:#d6c0b2;margin:.6rem auto 0;max-width:30rem}
+.band{text-align:center;padding:90px 0}
+.band h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1.6rem}
+footer{background:var(--ink);color:#bfb3a8;padding:50px 0 34px;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
+footer .logo{color:var(--cream)}
+footer a:hover{color:var(--cream)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s,transform .9s}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+@media (max-width:860px){
+ .links{position:fixed;inset:74px 0 auto;background:var(--cream);flex-direction:column;gap:0;padding:10px 20px 24px;transform:translateY(-140%);transition:transform .4s;box-shadow:0 20px 30px -20px rgba(0,0,0,.2)}
+ .links.open{transform:none}
+ .links a{padding:14px 0;width:100%;border-bottom:1px solid var(--line)}
+ .links .btn{margin-top:14px;justify-content:center}
+ .burger{display:block}
+ .items{grid-template-columns:1fr}
+ .menu-sec{padding-top:60px}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a href="index.html" class="logo"><b>Pam's Patio</b><small>Kitchen &amp; Wine Bar</small></a>
+  <nav class="links" id="links">
+   <a href="index.html">Home</a>
+   <a href="#lunch">Menu</a>
+   <a href="#wine">Wine &amp; Beer</a>
+   <a href="index.html#visit">Visit</a>
+   <a href="reserve.html" class="btn">Reserve</a>
+  </nav>
+  <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+ </div>
+</header>
+
+<div class="pagehead">
+ <p class="eyebrow" style="color:#d9b98e">Lunch &middot; Dinner &middot; Wine &amp; Beer</p>
+ <h1>The Menu</h1>
+ <p>From Texas to Thailand and back. Soups made in-house daily, sandwiches at lunch, the grill and the wok at dinner.</p>
+</div>
+
+<nav class="tabs" aria-label="Menu sections">
+ <div class="wrap">
+  <a href="#lunch" class="on">Lunch</a>
+  <a href="#dinner">Dinner</a>
+  <a href="#sweets">Sweets</a>
+  <a href="#wine">Wine &amp; Beer</a>
+ </div>
+</nav>
+
+<div class="wrap note"><span><span class="v">V</span> vegetarian</span><span>Prices shown where currently listed. Ask your server about today's soups and specials.</span></div>
+
+<section class="menu-sec" id="lunch">
+ <div class="wrap">
+  <header class="reveal"><p class="eyebrow">Tuesday &ndash; Saturday from 11 am</p><h2>Lunch</h2><p class="sub">Sandwiches, tortas, soups and salads</p></header>
+  <div class="cat reveal">
+   <h3>Soups</h3>
+   <div class="items">
+    <div class="item"><div class="row"><h4>Soups du Jour</h4><span class="dots"></span><span class="p">4 / cup</span></div><p>Usually three house-made soups each day.</p></div>
+    <div class="item"><div class="row"><h4>Chicken Tortilla Soup</h4><span class="dots"></span></div><p>Avocado, cilantro and house-made tortilla strips.</p></div>
+    <div class="item"><div class="row"><h4>Tomato Basil Soup</h4><span class="dots"></span></div><p>A regular on the soup board.</p></div>
+    <div class="item"><div class="row"><h4>Tom Kha Gai</h4><span class="dots"></span></div><p>Thai coconut chicken soup.</p></div>
+   </div>
+  </div>
+  <div class="cat reveal">
+   <h3>Sandwiches &amp; Tortas</h3>
+   <div class="items">
+    <div class="item"><div class="row"><h4>Flame Grilled Fresh Salmon Sandwich</h4><span class="dots"></span></div><p>Grilled salmon with chipotle mayo.</p></div>
+    <div class="item"><div class="row"><h4>Reuben</h4><span class="dots"></span></div><p>A lunchtime favorite.</p></div>
+    <div class="item"><div class="row"><h4>Torta Valencia</h4><span class="dots"></span></div><p>The house torta.</p></div>
+    <div class="item"><div class="row"><h4>Vietnamese Chicken Sandwich</h4><span class="dots"></span></div><p>Bright, fresh and a little spicy.</p></div>
+    <div class="item"><div class="row"><h4>Half Garden Club Special</h4><span class="dots"></span></div><p>Half a club, paired for lunch.</p></div>
+    <div class="item"><div class="row"><h4>Veggie Sandwich<span class="v">V</span></h4><span class="dots"></span></div><p>Garden vegetables on house-made bread.</p></div>
+    <div class="item"><div class="row"><h4>BLT</h4><span class="dots"></span></div><p>The classic, done right.</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="menu-sec" id="dinner" style="background:var(--paper)">
+ <div class="wrap">
+  <header class="reveal"><p class="eyebrow">Tue&ndash;Thu 5&ndash;8 pm &middot; Fri&ndash;Sat 5&ndash;9 pm</p><h2>Dinner</h2><p class="sub">Starters, salads, and plates from the grill and the wok</p></header>
+  <div class="cat reveal">
+   <h3>Starters</h3>
+   <div class="items">
+    <div class="item"><div class="row"><h4>Guacamole Salad<span class="v">V</span></h4><span class="dots"></span><span class="p">9</span></div><p>Guacamole with house-made corn tortilla chips and three salsas.</p></div>
+    <div class="item"><div class="row"><h4>Hop Sing's Lettuce Wraps</h4><span class="dots"></span><span class="p">10</span></div><p>Wok-cooked chicken, celery, cashews and water chestnuts with crisp rice noodles, lettuce leaves and sambal red chili sauce.</p></div>
+    <div class="item"><div class="row"><h4>Campech&eacute; Shrimp Cocktail</h4><span class="dots"></span><span class="p">13</span></div><p>Shrimp with lime, cilantro, onion and ketchup, topped with avocado. Chips, and habanero sauce on request.</p></div>
+    <div class="item"><div class="row"><h4>Chick Guacamole Nachos</h4><span class="dots"></span><span class="p">13</span></div><p>Chips with beans, spicy tinga chicken, melted cheese, onion and guacamole. Ask about jalape&ntilde;os.</p></div>
+    <div class="item"><div class="row"><h4>Rajas Shrimp Nachos</h4><span class="dots"></span><span class="p">16</span></div><p>Shrimp, poblano rajas, onion, beans, Jack and Cotija cheeses, pico de gallo.</p></div>
+   </div>
+  </div>
+  <div class="cat reveal">
+   <h3>Soups &amp; Salads</h3>
+   <div class="items">
+    <div class="item"><div class="row"><h4>Soups du Jour</h4><span class="dots"></span><span class="p">4 / cup</span></div><p>Usually three, made in-house.</p></div>
+    <div class="item"><div class="row"><h4>Thai Beef Steak &amp; Romaine Salad</h4><span class="dots"></span><span class="p">15</span></div><p>Sliced hot grilled beef over romaine with cucumber, tomato and cilantro.</p></div>
+   </div>
+  </div>
+  <div class="cat reveal">
+   <h3>Plates</h3>
+   <div class="items">
+    <div class="item"><div class="row"><h4>Shrimp al Mojo de Ajo</h4><span class="dots"></span></div><p>Shrimp in a garlic sauce.</p></div>
+    <div class="item"><div class="row"><h4>Chicken Saltimbocca</h4><span class="dots"></span></div><p>A dinner favorite.</p></div>
+    <div class="item"><div class="row"><h4>Stacked Tinga Chicken Enchiladas</h4><span class="dots"></span></div><p>Stacked enchiladas with spicy tinga chicken; add an egg on top.</p></div>
+    <div class="item"><div class="row"><h4>Pad Thai</h4><span class="dots"></span></div><p>From the wok.</p></div>
+    <div class="item"><div class="row"><h4>Thai Beef Curry</h4><span class="dots"></span></div><p>Warm, fragrant curry with tender beef.</p></div>
+    <div class="item"><div class="row"><h4>Steaks &amp; Seafood</h4><span class="dots"></span></div><p>Ask your server about tonight's cuts and catch.</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="menu-sec" id="sweets">
+ <div class="wrap">
+  <header class="reveal"><p class="eyebrow">Baked here</p><h2>Sweets</h2><p class="sub">From Pam's cake case. Selection changes daily.</p></header>
+  <div class="cat reveal">
+   <div class="items">
+    <div class="item"><div class="row"><h4>Carrot Cake<span class="v">V</span></h4><span class="dots"></span></div></div>
+    <div class="item"><div class="row"><h4>Italian Cream Cake<span class="v">V</span></h4><span class="dots"></span></div></div>
+    <div class="item"><div class="row"><h4>Lemon Blueberry Cupcake<span class="v">V</span></h4><span class="dots"></span></div></div>
+    <div class="item"><div class="row"><h4>Lemon Bars<span class="v">V</span></h4><span class="dots"></span></div></div>
+    <div class="item"><div class="row"><h4>Strawberry Lemonade</h4><span class="dots"></span></div><p>House-made, with real strawberry slices.</p></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section class="menu-sec wine-sec" id="wine">
+ <div class="wrap">
+  <header class="reveal"><p class="eyebrow" style="color:#d9b98e">By the glass, by the bottle, to go</p><h2>Wine &amp; Beer</h2><p class="sub">All wine is available to go.</p></header>
+  <div class="cat reveal">
+   <h3>Wine</h3>
+   <div class="items">
+    <div class="item"><div class="row"><h4>Chardonnay</h4><span class="dots"></span></div><p>Our white of choice for the patio.</p></div>
+    <div class="item"><div class="row"><h4>Pinot Noir</h4><span class="dots"></span></div><p>Light and easy with salmon and chicken.</p></div>
+    <div class="item"><div class="row"><h4>Cabernet Sauvignon</h4><span class="dots"></span></div><p>Built for the steaks.</p></div>
+    <div class="item"><div class="row"><h4>Malbec</h4><span class="dots"></span></div><p>Dark fruit, soft finish.</p></div>
+   </div>
+  </div>
+  <div class="cat reveal">
+   <h3>Beer &amp; Cider</h3>
+   <div class="items">
+    <div class="item"><div class="row"><h4>8 Craft Brews on Tap</h4><span class="dots"></span></div><p>Rotating taps. Ask what's pouring.</p></div>
+    <div class="item"><div class="row"><h4>Bottled Beers &amp; Cider</h4><span class="dots"></span></div><p>Dozens to choose from.</p></div>
+   </div>
+  </div>
+  <div class="growler reveal"><p class="eyebrow" style="color:#d9b98e">Bring your own growler</p><h3>Wine &amp; beer growlers to go</h3><p>Fill up on the way home. Call ahead at 210-492-1359.</p></div>
+ </div>
+</section>
+
+<section class="band">
+ <div class="wrap reveal"><p class="eyebrow">Hungry yet?</p><h2 style="margin-top:.8rem">Save a table on the patio.</h2><a href="reserve.html" class="btn solid">Reserve a table</a></div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <a href="index.html" class="logo"><b>Pam's Patio</b><small>Kitchen &amp; Wine Bar</small></a>
+  <p>11826 Wurzbach Road, San Antonio, TX 78230 &middot; <a href="tel:+12104921359">210-492-1359</a></p>
+  <p>&copy; 2026 Pam's Patio Kitchen and Wine Bar</p>
+ </div>
+</footer>
+<script>
+const b=document.getElementById('burger'),l=document.getElementById('links');
+b.addEventListener('click',()=>l.classList.toggle('open'));
+l.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>l.classList.remove('open')));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const tabs=[...document.querySelectorAll('.tabs a')],secs=tabs.map(t=>document.querySelector(t.getAttribute('href')));
+addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<200)i=k});tabs.forEach((t,k)=>t.classList.toggle('on',k===i))},{passive:true});
+</script>
+</body>
+</html>

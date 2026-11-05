@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menu | Las Cazuelas Mexican Restaurant</title>
+<meta name="description" content="Breakfast tacos, breakfast plates, daily lunch specials, enchiladas, caldos and more at Las Cazuelas, 645 Chalmers Ave, San Antonio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Nunito+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--clay:#c2452d;--clay-d:#8f2e1d;--gold:#f4a62a;--green:#1f5e3b;--rosa:#e2547f;--sky:#2b8fb3;--cream:#fff4e3;--paper:#fffaf2;--ink:#2b1a12;--muted:#7a5f50;--line:#f0dcc0}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Nunito Sans",system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1100px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.05}
+.script{font-family:Caveat,cursive;font-size:1.6rem;color:var(--gold);line-height:1}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:.9em 1.5em;border-radius:14px;font-weight:800;transition:transform .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn.clay{background:var(--clay);color:#fff;box-shadow:0 5px 0 var(--clay-d)}
+.btn.white{background:var(--paper);color:var(--ink);box-shadow:0 5px 0 rgba(0,0,0,.18)}
+.picado{height:30px;background:linear-gradient(135deg,transparent 50%,var(--cream) 50%) 0 100%/24px 12px repeat-x,linear-gradient(225deg,transparent 50%,var(--cream) 50%) 0 100%/24px 12px repeat-x,linear-gradient(90deg,var(--rosa) 0 20%,var(--gold) 20% 40%,var(--green) 40% 60%,var(--sky) 60% 80%,var(--clay) 80%);background-size:24px 12px,24px 12px,600px 100%}
+header{position:sticky;top:0;z-index:50;background:rgba(255,244,227,.95);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;align-items:center;height:56px}
+.logo img{height:54px;width:auto}
+.logo .wm{display:none;font-family:Fraunces;font-weight:900;font-size:1.4rem;color:var(--clay);line-height:1}
+.logo.noimg img{display:none}.logo.noimg .wm{display:block}
+.links{display:flex;gap:1.4rem;align-items:center;font-weight:700}
+.links .btn{padding:.6em 1.1em}
+.hero{background:var(--clay);color:#fff;padding:64px 0 54px;text-align:center}
+.hero h1{font-size:clamp(3rem,9vw,5.6rem);font-weight:900}
+.hero p{max-width:36rem;margin:1rem auto 0;opacity:.93;font-size:1.08rem}
+.cats{position:sticky;top:74px;z-index:40;background:var(--paper);box-shadow:0 1px 0 var(--line)}
+.cats .wrap{display:flex;gap:8px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+.cats a{white-space:nowrap;border-radius:12px;padding:.45em 1em;font-weight:800;font-size:.92rem;background:var(--cream);transition:background .2s,color .2s}
+.cats a.on,.cats a:hover{background:var(--green);color:#fff}
+.legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;padding:22px 0 0;color:var(--muted);font-size:.9rem;font-weight:600}
+.v{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.06em;background:#dcefe2;color:var(--green);border-radius:99px;padding:.15em .6em;margin-left:6px;vertical-align:2px}
+.dt{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.06em;background:#fde6c3;color:#8a5208;border-radius:99px;padding:.15em .6em;margin-left:6px;vertical-align:2px}
+.sec{padding:60px 0 10px;scroll-margin-top:140px}
+.sec h2{font-size:clamp(2.1rem,4.6vw,3rem);font-weight:900;color:var(--clay)}
+.sec .sub{color:var(--muted);margin:.5rem 0 1.6rem;font-weight:600}
+.list{display:grid;grid-template-columns:1fr 1fr;gap:0 50px}
+.it{padding:16px 0;border-bottom:2px dotted var(--line)}
+.it .row{display:flex;align-items:baseline;gap:10px}
+.it h3{font-size:1.25rem;font-weight:800}
+.it .dots{flex:1}
+.it .p{font-family:Fraunces;font-weight:900;font-size:1.25rem;color:var(--green)}
+.it p{color:var(--muted);font-size:.94rem;margin-top:2px}
+.week{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.day{background:var(--paper);border-radius:20px;padding:20px;border:2px solid var(--line)}
+.day.today{border-color:var(--gold);box-shadow:0 0 0 3px rgba(244,166,42,.3)}
+.day h3{font-size:1.2rem;font-weight:900;margin-bottom:6px}
+.day .k{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:10px}
+.day li{list-style:none;display:flex;justify-content:space-between;gap:8px;font-weight:700;font-size:.93rem;padding:5px 0}
+.day li b{color:var(--clay);font-family:Fraunces}
+.pdf{margin:60px 0 0;background:var(--paper);border:2px dashed #e3c79f;border-radius:22px;padding:24px 26px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--muted)}
+.pdf b{color:var(--ink)}
+.cta{text-align:center;padding:90px 0}
+.cta h2{font-size:clamp(2.2rem,5vw,3.4rem);font-weight:900;margin-bottom:1.4rem}
+footer{background:var(--ink);color:#d8c3b0;padding:34px 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:900px){.list{grid-template-columns:1fr}.week{grid-template-columns:1fr 1fr}.links a:not(.btn){display:none}}
+@media (max-width:480px){.week{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a href="index.html" class="logo"><img src="https://lascazuelassa.com/LasCazuelas280Logo.png" alt="Las Cazuelas Mexican Restaurant" onerror="this.parentNode.classList.add('noimg')"><span class="wm">Las Cazuelas</span></a>
+  <nav class="links"><a href="index.html">Home</a><a href="index.html#specials">Specials</a><a href="index.html#visit">Visit</a><a href="order.html" class="btn clay">Order &amp; Drive-Thru</a></nav>
+ </div>
+</header>
+<div class="hero">
+ <p class="script">El men&uacute;</p>
+ <h1>Hecho en casa.</h1>
+ <p>Flour tortillas made in-house on the comal. Family recipes since 1997. Breakfast and lunch, 7 am to 2 pm.</p>
+</div>
+<div class="picado" aria-hidden="true"></div>
+<nav class="cats" aria-label="Menu sections"><div class="wrap" id="cats">
+ <a href="#tacos" class="on">Breakfast Tacos</a><a href="#plates">Breakfast Plates</a><a href="#lunch">Lunch Specials</a><a href="#enchiladas">Enchiladas</a><a href="#soups">Caldos &amp; Soups</a><a href="#apps">Appetizers</a><a href="#texas">Texas Flavor</a><a href="#drinks">Drinks</a>
+</div></nav>
+<div class="wrap legend"><span><span class="v">VEG</span> vegetarian</span><span><span class="dt">DRIVE-THRU</span> drive-thru deal</span><span>Prices subject to change</span></div>
+
+<main class="wrap">
+ <section class="sec" id="tacos"><h2>Breakfast Tacos</h2><p class="sub">On homemade flour tortillas, cooked on the comal.</p>
+  <div class="list">
+   <div class="it"><div class="row"><h3>Bean &amp; Cheese<span class="v">VEG</span></h3><span class="dots"></span><span class="p">$1.19</span></div></div>
+   <div class="it"><div class="row"><h3>Bean &amp; Egg<span class="v">VEG</span></h3><span class="dots"></span><span class="p">$1.69</span></div></div>
+   <div class="it"><div class="row"><h3>Chorizo &amp; Egg</h3><span class="dots"></span></div><p>A morning classic.</p></div>
+   <div class="it"><div class="row"><h3>Taco Combo<span class="dt">DRIVE-THRU</span></h3><span class="dots"></span><span class="p">$2.68</span></div><p>One Bean &amp; Cheese and one Chorizo &amp; Egg. Monday&ndash;Friday, drive-thru only.</p></div>
+  </div>
+ </section>
+
+ <section class="sec" id="plates"><h2>Breakfast Plates</h2><p class="sub">Served with potatoes, beans and two tortillas (except oatmeal).</p>
+  <div class="list">
+   <div class="it"><div class="row"><h3>Huevos Rancheros<span class="v">VEG</span></h3><span class="dots"></span><span class="p">$5.69</span></div><p>Eggs smothered in our ranchero sauce.</p></div>
+   <div class="it"><div class="row"><h3>Huevos Rancheros with Carne Guisada</h3><span class="dots"></span><span class="p">$7.59</span></div></div>
+   <div class="it"><div class="row"><h3>Huevos a la Mexicana<span class="v">VEG</span></h3><span class="dots"></span><span class="p">$5.09</span></div><p>Tuesday breakfast special.</p></div>
+   <div class="it"><div class="row"><h3>Weiner &amp; Egg Plate</h3><span class="dots"></span><span class="p">$5.09</span></div><p>Thursday breakfast special.</p></div>
+   <div class="it"><div class="row"><h3>Oatmeal with Toast<span class="v">VEG</span></h3><span class="dots"></span><span class="p">$4.69</span></div><p>Monday breakfast special.</p></div>
+  </div>
+ </section>
+
+ <section class="sec" id="lunch"><h2>Daily Lunch Specials</h2><p class="sub">11 am &ndash; 2 pm. With rice, beans, two tortillas and iced tea.</p>
+  <div class="week" id="week">
+   <div class="day" data-d="1"><h3>Monday</h3><ul><li>Enchiladas Tejanas <b>$9.99</b></li><li>Enchiladas Verdes <b>$9.99</b></li></ul></div>
+   <div class="day" data-d="2"><h3>Tuesday</h3><ul><li>Carne Asada a la Mexicana <b>$9.99</b></li><li>Calabaza con Pollo <b>$9.99</b></li></ul></div>
+   <div class="day" data-d="3"><h3>Wednesday</h3><ul><li>Chicken Mole <b>$10.99</b></li></ul></div>
+   <div class="day" data-d="4"><h3>Thursday</h3><ul><li>Mole Enchiladas <b>$9.99</b></li><li>Chicken Fajitas <b>$10.99</b></li><li>Beef Fajitas <b>$11.99</b></li></ul></div>
+   <div class="day" data-d="5"><h3>Friday</h3><ul><li>Chile Relleno <b>$11.99</b></li><li>Fried Fish <b>$10.99</b></li></ul></div>
+  </div>
+ </section>
+
+ <section class="sec" id="enchiladas"><h2>Enchiladas</h2><p class="sub">Our customers' favorites.</p>
+  <div class="list">
+   <div class="it"><div class="row"><h3>2 Cheese Enchiladas Plate<span class="v">VEG</span><span class="dt">DRIVE-THRU</span></h3><span class="dots"></span><span class="p">$5.99</span></div><p>With rice, beans and two tortillas. Monday&ndash;Friday, dine-in or drive-thru.</p></div>
+   <div class="it"><div class="row"><h3>Chicken Cilantro Enchiladas</h3><span class="dots"></span></div><p>A regular's must-order.</p></div>
+   <div class="it"><div class="row"><h3>Enchiladas Tejanas</h3><span class="dots"></span><span class="p">$9.99</span></div><p>Monday lunch special.</p></div>
+   <div class="it"><div class="row"><h3>Enchiladas Verdes</h3><span class="dots"></span><span class="p">$9.99</span></div><p>Monday lunch special.</p></div>
+   <div class="it"><div class="row"><h3>Mole Enchiladas</h3><span class="dots"></span><span class="p">$9.99</span></div><p>Thursday lunch special.</p></div>
+  </div>
+ </section>
+
+ <section class="sec" id="soups"><h2>Caldos &amp; Soups</h2><p class="sub">Simmered the family way.</p>
+  <div class="list">
+   <div class="it"><div class="row"><h3>Caldo de Res</h3><span class="dots"></span></div><p>Beef soup. "The best Caldo de Res I've had in San Antonio." &ndash; Sandra C., Yelp</p></div>
+   <div class="it"><div class="row"><h3>Caldo de Pollo</h3><span class="dots"></span><span class="p">$7.59</span></div><p>Chicken soup.</p></div>
+   <div class="it"><div class="row"><h3>Tortilla Soup with Flauta</h3><span class="dots"></span><span class="p">$8.39</span></div></div>
+   <div class="it"><div class="row"><h3>Menudo</h3><span class="dots"></span></div><p>Ask about today's menudo.</p></div>
+  </div>
+ </section>
+
+ <section class="sec" id="apps"><h2>Appetizers</h2><p class="sub">&nbsp;</p>
+  <div class="list">
+   <div class="it"><div class="row"><h3>Chips &amp; Salsa<span class="v">VEG</span></h3><span class="dots"></span><span class="p">$1.09</span></div></div>
+   <div class="it"><div class="row"><h3>Chips &amp; Queso<span class="v">VEG</span></h3><span class="dots"></span><span class="p">$3.99</span></div></div>
+  </div>
+ </section>
+
+ <section class="sec" id="texas"><h2>Texas Flavor</h2><p class="sub">For the ones who want something different.</p>
+  <div class="list">
+   <div class="it"><div class="row"><h3>Hamburger</h3><span class="dots"></span><span class="p">$7.99</span></div></div>
+   <div class="it"><div class="row"><h3>Chicken Tenders</h3><span class="dots"></span><span class="p">$6.49</span></div></div>
+  </div>
+ </section>
+
+ <section class="sec" id="drinks"><h2>Drinks</h2><p class="sub">&nbsp;</p>
+  <div class="list">
+   <div class="it"><div class="row"><h3>Margaritas</h3><span class="dots"></span></div><p>Now serving alcoholic drinks.</p></div>
+   <div class="it"><div class="row"><h3>Iced Tea</h3><span class="dots"></span></div><p>Included with lunch specials.</p></div>
+  </div>
+ </section>
+
+ <div class="pdf"><span><b>Looking for the printed menu?</b> Our full menu with current prices is available as a PDF.</span><a class="btn white" href="https://lascazuelassa.com/LC%20MENU%20NEW%20PRICES%201.22.2024.pdf" target="_blank" rel="noopener">View printed menu</a></div>
+</main>
+
+<section class="cta"><div class="wrap"><p class="script" style="color:var(--clay)">&iexcl;Provecho!</p><h2>Skip the line. Order ahead.</h2><a href="order.html" class="btn clay">Order for pickup or drive-thru</a></div></section>
+<footer><div class="wrap"><span>&copy; 2026 Las Cazuelas Restaurant</span><span>645 Chalmers Avenue, San Antonio, TX 78214 &middot; <a href="tel:+12109321785">210.932.1785</a></span></div></footer>
+<script>
+const td=new Date().getDay();document.querySelectorAll('.day').forEach(d=>{if(+d.dataset.d===td)d.classList.add('today')});
+const tabs=[...document.querySelectorAll('#cats a')],secs=tabs.map(t=>document.querySelector(t.getAttribute('href')));
+addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<220)i=k});tabs.forEach((t,k)=>t.classList.toggle('on',k===i))},{passive:true});
+</script>
+</body>
+</html>

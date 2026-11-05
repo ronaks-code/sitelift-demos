@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reserve | Pam's Patio Kitchen &amp; Wine Bar</title>
+<meta name="description" content="Reserve a table for dinner at Pam's Patio Kitchen and Wine Bar, San Antonio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#5a1e2b;--wine-d:#3c121c;--cream:#f7f2ea;--paper:#fffdf9;--ink:#2a2421;--muted:#7a6e66;--oak:#4b5a3f;--gold:#b38b55;--line:#e4dbcf}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Jost,system-ui,sans-serif;font-weight:300;color:var(--ink);background:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+.eyebrow{font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-weight:500}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:400;line-height:1.1}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:.6em;padding:1.05em 1.8em;border:1px solid var(--wine);background:var(--wine);color:var(--cream);font:500 .78rem Jost,sans-serif;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:background .3s}
+.btn:hover{background:var(--wine-d)}
+.btn.ghost{background:none;color:var(--wine)}
+.btn.ghost:hover{background:var(--wine);color:var(--cream)}
+header{position:sticky;top:0;z-index:50;background:rgba(247,242,234,.96);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo b{font-family:"Cormorant Garamond",serif;font-weight:500;font-style:italic;font-size:1.65rem}
+.logo small{font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;margin-top:4px}
+.links{display:flex;gap:2rem}
+.links a{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+.links a:hover{color:var(--gold)}
+.layout{display:grid;grid-template-columns:.9fr 1.1fr;min-height:calc(100vh - 74px)}
+.side{background:var(--wine-d);color:var(--cream);padding:80px 60px;display:flex;flex-direction:column;justify-content:space-between;gap:40px;position:relative;overflow:hidden}
+.side h1{font-size:clamp(2.8rem,5vw,4.4rem);margin-top:1rem}
+.side h1 em{color:#e8c99a}
+.side p{color:#dcc6b9;margin-top:1.2rem;max-width:26rem}
+.side dl div{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid rgba(247,242,234,.15);font-size:.92rem}
+.side dd{color:#dcc6b9;text-align:right}
+.main{padding:70px 60px;background:var(--paper)}
+form{max-width:560px}
+.step{margin-bottom:34px}
+.step>label,.step>.lbl{display:block;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--muted);margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:var(--paper);padding:.7em 1.1em;font:400 .95rem Jost,sans-serif;color:var(--ink);cursor:pointer;transition:all .25s;min-width:52px}
+.chip:hover{border-color:var(--gold)}
+.chip.on{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+.chip:disabled{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.dates{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.date{border:1px solid var(--line);background:var(--paper);padding:10px 0;text-align:center;cursor:pointer;font-family:Jost,sans-serif;color:var(--ink);transition:all .25s}
+.date small{display:block;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.date b{font-family:"Cormorant Garamond",serif;font-size:1.5rem;font-weight:500}
+.date.on{background:var(--wine);border-color:var(--wine);color:var(--cream)}
+.date.on small{color:#e8c99a}
+.date:disabled{opacity:.35;cursor:not-allowed}
+input,textarea,select{width:100%;border:0;border-bottom:1px solid #cdbfb0;background:transparent;padding:12px 0;font:300 1.05rem Jost,sans-serif;color:var(--ink);outline:none;transition:border-color .3s}
+input:focus,textarea:focus{border-color:var(--wine)}
+textarea{resize:vertical;min-height:80px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.seat{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.seat label{border:1px solid var(--line);padding:16px;cursor:pointer;display:flex;gap:12px;align-items:flex-start;transition:border-color .25s}
+.seat input{width:auto;margin-top:5px;accent-color:var(--wine)}
+.seat b{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:1.25rem;display:block}
+.seat small{color:var(--muted)}
+.seat label:has(input:checked){border-color:var(--wine);background:#fbf6f1}
+.summary{border-top:1px solid var(--line);padding-top:24px;margin-top:10px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+.summary p{font-family:"Cormorant Garamond",serif;font-size:1.3rem}
+.err{color:#a1322f;font-size:.85rem;margin-top:10px;min-height:1.2em}
+.done{display:none;max-width:560px;text-align:center;padding:40px 0;animation:up .8s ease}
+.done.show{display:block}
+.done .ring{width:84px;height:84px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin:0 auto 26px;color:var(--wine);font-size:2rem;font-family:"Cormorant Garamond",serif}
+.done h2{font-size:3rem}
+.done .card{border:1px solid var(--line);padding:26px;margin:28px 0;text-align:left;background:var(--cream)}
+.done .card div{display:flex;justify-content:space-between;padding:6px 0}
+.done .card span{color:var(--muted)}
+@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+footer{background:var(--ink);color:#bfb3a8;padding:30px 0;font-size:.82rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:900px){
+ .layout{grid-template-columns:1fr}
+ .side,.main{padding:56px 20px}
+ .links a:first-child{display:none}
+ .two,.seat{grid-template-columns:1fr}
+ .dates{grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+ .date b{font-size:1.2rem}
+}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a href="index.html" class="logo"><b>Pam's Patio</b><small>Kitchen &amp; Wine Bar</small></a>
+  <nav class="links"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="menu.html#wine">Wine</a></nav>
+ </div>
+</header>
+
+<div class="layout">
+ <aside class="side">
+  <div>
+   <p class="eyebrow" style="color:#d9b98e">Reservations</p>
+   <h1>An evening<br><em>on the patio.</em></h1>
+   <p>Reserve dinner Tuesday through Saturday. Lunch is first come, first served from 11 am. For parties larger than eight, please call us.</p>
+  </div>
+  <dl>
+   <div><dt>Dinner</dt><dd>Tue&ndash;Thu 5&ndash;8 pm<br>Fri&ndash;Sat 5&ndash;9 pm</dd></div>
+   <div><dt>Call</dt><dd><a href="tel:+12104921359">210-492-1359</a></dd></div>
+   <div><dt>Find us</dt><dd>11826 Wurzbach Road<br>San Antonio, TX 78230</dd></div>
+  </dl>
+ </aside>
+
+ <main class="main">
+  <form id="f" novalidate>
+   <div class="step">
+    <span class="lbl">Party size</span>
+    <div class="chips" id="party"></div>
+   </div>
+   <div class="step">
+    <span class="lbl">Date <span style="text-transform:none;letter-spacing:0;font-weight:300">(closed Sunday &amp; Monday)</span></span>
+    <div class="dates" id="dates"></div>
+   </div>
+   <div class="step">
+    <span class="lbl">Time</span>
+    <div class="chips" id="times"><span style="color:var(--muted)">Choose a date first.</span></div>
+   </div>
+   <div class="step">
+    <span class="lbl">Seating preference</span>
+    <div class="seat">
+     <label><input type="radio" name="seat" value="Patio" checked><span><b>The patio</b><small>Outdoors, under the oaks</small></span></label>
+     <label><input type="radio" name="seat" value="Dining room"><span><b>Dining room</b><small>Indoors</small></span></label>
+    </div>
+   </div>
+   <div class="step two">
+    <div><label for="nm" class="lbl" style="display:block;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--muted)">Name</label><input id="nm" autocomplete="name" placeholder="Your name"></div>
+    <div><label for="ph" style="display:block;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;font-weight:500;color:var(--muted)">Phone</label><input id="ph" type="tel" autocomplete="tel" placeholder="(210) 555-0123"></div>
+   </div>
+   <div class="step">
+    <label for="req">Special requests</label>
+    <textarea id="req" placeholder="Celebrating something? Allergies? A cake from the case set aside?"></textarea>
+   </div>
+   <div class="summary">
+    <p id="sum">Select a party size, date and time.</p>
+    <button class="btn" type="submit">Request table</button>
+   </div>
+   <p class="err" id="err" role="alert"></p>
+  </form>
+
+  <div class="done" id="done" aria-live="polite">
+   <div class="ring">&#10003;</div>
+   <p class="eyebrow">Request received</p>
+   <h2 style="margin-top:.6rem">See you soon.</h2>
+   <p style="color:var(--muted);margin-top:.8rem">We'll call or text to confirm your table.</p>
+   <div class="card" id="card"></div>
+   <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><a href="menu.html" class="btn">Browse the menu</a><button class="btn ghost" id="again">Make another</button></div>
+  </div>
+ </main>
+</div>
+
+<footer><div class="wrap"><span>&copy; 2026 Pam's Patio Kitchen and Wine Bar</span><span>11826 Wurzbach Road, San Antonio &middot; 210-492-1359</span></div></footer>
+
+<script>
+const st={party:2,date:null,time:null};
+const P=document.getElementById('party'),D=document.getElementById('dates'),T=document.getElementById('times');
+[1,2,3,4,5,6,7,8].forEach(n=>{const b=document.createElement('button');b.type='button';b.className='chip'+(n===2?' on':'');b.textContent=n===8?'8+':n;b.onclick=()=>{st.party=n;[...P.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');sum()};P.appendChild(b)});
+const dn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],mn=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const today=new Date();today.setHours(0,0,0,0);
+for(let i=0;i<14;i++){const d=new Date(today);d.setDate(d.getDate()+i);const b=document.createElement('button');b.type='button';b.className='date';b.innerHTML=`<small>${dn[d.getDay()]}</small><b>${d.getDate()}</b>`;b.title=`${dn[d.getDay()]} ${mn[d.getMonth()]} ${d.getDate()}`;if(d.getDay()<2)b.disabled=true;b.onclick=()=>{st.date=d;st.time=null;[...D.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');times();sum()};D.appendChild(b)}
+function times(){T.innerHTML='';const late=st.date.getDay()>=5;const end=late?20.5:19.5;for(let h=17;h<=end;h+=.5){const b=document.createElement('button');b.type='button';b.className='chip';const hh=Math.floor(h),mm=h%1?'30':'00';b.textContent=`${hh-12}:${mm}`;b.onclick=()=>{st.time=b.textContent+' pm';[...T.children].forEach(c=>c.classList.remove('on'));b.classList.add('on');sum()};T.appendChild(b)}}
+function fmt(d){return `${dn[d.getDay()]}, ${mn[d.getMonth()]} ${d.getDate()}`}
+function sum(){document.getElementById('sum').textContent=st.date&&st.time?`${st.party===8?'8+':st.party} ${st.party===1?'guest':'guests'} · ${fmt(st.date)} · ${st.time}`:'Select a party size, date and time.'}
+document.getElementById('f').onsubmit=e=>{e.preventDefault();const nm=document.getElementById('nm').value.trim(),ph=document.getElementById('ph').value.trim(),err=document.getElementById('err');
+ if(!st.date||!st.time){err.textContent='Please choose a date and time.';return}
+ if(!nm||ph.replace(/\D/g,'').length<10){err.textContent='Please add your name and a phone number so we can confirm.';return}
+ err.textContent='';const seat=document.querySelector('input[name=seat]:checked').value,req=document.getElementById('req').value.trim();
+ document.getElementById('card').innerHTML=`<div><span>Name</span><b>${nm.replace(/</g,'&lt;')}</b></div><div><span>Party</span><b>${st.party===8?'8+':st.party}</b></div><div><span>When</span><b>${fmt(st.date)}, ${st.time}</b></div><div><span>Seating</span><b>${seat}</b></div>${req?`<div><span>Note</span><b style="max-width:60%;text-align:right">${req.replace(/</g,'&lt;')}</b></div>`:''}`;
+ document.getElementById('f').style.display='none';document.getElementById('done').classList.add('show');window.scrollTo({top:0,behavior:'smooth'})};
+document.getElementById('again').onclick=()=>{document.getElementById('done').classList.remove('show');document.getElementById('f').style.display='';document.getElementById('f').reset();st.date=null;st.time=null;[...D.children].forEach(c=>c.classList.remove('on'));T.innerHTML='<span style="color:var(--muted)">Choose a date first.</span>';sum()};
+</script>
+</body>
+</html>

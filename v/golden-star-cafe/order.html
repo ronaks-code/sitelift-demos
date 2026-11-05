@@ -1,0 +1,337 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Order Take-Out | Golden Star Cafe</title>
+<meta name="description" content="Order Golden Star Cafe take-out for pickup at 821 W. Commerce St.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Rubik:wght@400;500;600;700&family=Yellowtail&display=swap" rel="stylesheet">
+<style>:root{--bg:#fff6e3;--text:#2b1810;--muted:#6e5446;--accent:#c4161c;--on-accent:#fff;--line:rgba(80,30,10,.14);
+--head-bg:rgba(255,246,227,.92);--menu-bg:#fff6e3;--card:#fffdf7;--ph:#e9d7b5;--shadow:rgba(90,20,0,.45);--ok:#1d7a52;
+--display:'Alfa Slab One',Georgia,serif;--display-weight:400;--body:'Rubik',system-ui,sans-serif;--radius:16px;--radius-btn:999px;
+--veg-bg:#dff1e4;--veg:#1d6b45;--gf-bg:#fbe9c4;--gf:#8a5a00;--hot-bg:#fde0dc;--hot:#b0161b;--item-font:'Rubik',sans-serif;
+--foot-bg:#7e0d10;--foot-text:#ffe9c2;--foot-line:rgba(255,220,150,.25);--gold:#f3b51b;--red:#c4161c;--deep:#8f0f13;--jade:#0f6b4f;--ink:#2b1810}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:16px;top:16px;z-index:99;background:var(--accent);color:var(--on-accent);padding:8px 14px}
+/* header */
+.site-head{position:sticky;top:0;z-index:50;background:var(--head-bg);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.02em;opacity:.88;transition:opacity .2s,color .2s}
+.nav a:hover,.nav a[aria-current=page]{opacity:1;color:var(--accent)}
+.nav .btn{opacity:1}
+.nav .btn[aria-current],.nav .btn:hover{color:var(--on-accent)}
+.nav-toggle{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;padding:10px}
+.nav-toggle span{display:block;height:2px;background:currentColor;margin:5px 0;transition:transform .25s,opacity .25s}
+@media (max-width:860px){
+ .nav-toggle{display:block}
+ .nav{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--menu-bg);padding:8px 16px 20px;border-bottom:1px solid var(--line);transform:translateY(-12px);opacity:0;pointer-events:none;transition:.25s}
+ .nav a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:17px}
+ .nav .btn{margin-top:14px;text-align:center;border-bottom:0}
+ body.nav-open .nav{transform:none;opacity:1;pointer-events:auto}
+ body.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+ body.nav-open .nav-toggle span:nth-child(2){opacity:0}
+ body.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:var(--radius-btn);background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:600;letter-spacing:.02em;border:2px solid var(--accent);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px var(--shadow)}
+.btn.ghost{background:transparent;color:var(--ghost,var(--text));border-color:currentColor}
+.btn.small{padding:9px 16px;font-size:14px}
+/* sections */
+section{position:relative}
+.pad{padding:clamp(64px,9vw,120px) 0}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0 0 .4em;font-weight:var(--display-weight,600)}
+h2{font-size:clamp(34px,5vw,56px)}
+h3{font-size:clamp(22px,2.4vw,28px)}
+p{margin:0 0 1em}
+.lead{font-size:clamp(18px,2vw,21px);color:var(--muted)}
+.muted{color:var(--muted)}
+.center{text-align:center}
+.grid{display:grid;gap:24px}
+.ph{background:var(--ph);position:relative;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease,opacity .3s;color:transparent;font-size:0}
+.ph:hover img{transform:scale(1.04)}
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+/* hours */
+.hours{width:100%;border-collapse:collapse;font-size:16px}
+.hours td{padding:9px 0;border-bottom:1px dashed var(--line)}
+.hours td:last-child{text-align:right}
+.hours tr.today td{font-weight:700;color:var(--accent)}
+.map{border:0;width:100%;height:100%;min-height:340px;filter:var(--map-filter,none)}
+/* footer */
+.site-foot{padding:56px 0 36px;background:var(--foot-bg);color:var(--foot-text);font-size:15px}
+.site-foot a{text-decoration:none;opacity:.85}
+.site-foot a:hover{opacity:1;color:var(--accent)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.foot-grid h4{font-family:var(--display);font-size:20px;margin:0 0 12px;font-weight:var(--display-weight,600)}
+.foot-grid ul{list-style:none;padding:0;margin:0}
+.foot-grid li{margin:6px 0}
+.foot-bottom{margin-top:40px;padding-top:20px;border-top:1px solid var(--foot-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;opacity:.75;font-size:14px}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
+/* menu page */
+.menu-hero{padding:clamp(48px,7vw,90px) 0 32px}
+.cat-nav{position:sticky;top:72px;z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
+.cat-nav .wrap{display:flex;gap:8px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+.cat-nav .wrap::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;padding:8px 16px;border-radius:999px;border:1px solid var(--line);text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;background:transparent;cursor:pointer;transition:.2s}
+.chip:hover,.chip.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.menu-tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:22px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.tag{display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:.04em;padding:2px 7px;border-radius:999px;vertical-align:middle;margin-left:6px;line-height:1.5;font-family:var(--body)}
+.tag.v{background:var(--veg-bg);color:var(--veg)}
+.tag.gf{background:var(--gf-bg);color:var(--gf)}
+.tag.hot{background:var(--hot-bg);color:var(--hot)}
+.menu-sec{padding:44px 0 12px;scroll-margin-top:140px}
+.menu-sec>header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid var(--accent);padding-bottom:10px;margin-bottom:8px}
+.menu-sec>header h2{font-size:clamp(28px,4vw,40px);margin:0}
+.sec-note{font-size:15px;color:var(--muted);margin:10px 0 6px}
+.items{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+@media (max-width:760px){.items{grid-template-columns:1fr}}
+.item{padding:16px 0;border-bottom:1px solid var(--line)}
+.item .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.item h3{font-size:19px;font-family:var(--item-font,var(--body));font-weight:700;margin:0;line-height:1.3}
+.item .price{font-weight:700;white-space:nowrap;color:var(--accent)}
+.item p{margin:4px 0 0;font-size:15px;color:var(--muted)}
+.item .opts{font-size:14px;color:var(--muted);margin-top:4px}
+body.veg-only .item:not(.is-v){display:none}
+body.veg-only .menu-sec:not(.has-v){display:none}
+.cta-band{padding:56px 0;text-align:center}
+/* order page */
+.order-layout{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start;padding:28px 0 80px}
+@media (max-width:980px){.order-layout{grid-template-columns:1fr}}
+.o-cat{scroll-margin-top:140px;margin-bottom:36px}
+.o-cat h2{font-size:clamp(26px,3.4vw,34px);margin-bottom:14px}
+.o-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.o-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:8px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.o-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px var(--shadow);border-color:var(--accent)}
+.o-card h3{font-family:var(--item-font,var(--body));font-size:17px;font-weight:700;margin:0}
+.o-card p{font-size:14px;color:var(--muted);margin:0;flex:1}
+.o-card .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:6px}
+.o-card select{font-size:13px;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);max-width:100%}
+.add{background:var(--accent);color:var(--on-accent);border:0;border-radius:999px;padding:8px 16px;font-weight:700;cursor:pointer;font-size:14px;transition:transform .15s}
+.add:active{transform:scale(.94)}
+.add.done{background:var(--ok)}
+.cart{position:sticky;top:150px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 20px 50px -30px var(--shadow)}
+.cart h2{font-size:26px;margin:0 0 10px}
+.cart-lines{list-style:none;margin:0;padding:0;max-height:300px;overflow:auto}
+.cart-lines li{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.cart-lines .nm{flex:1}
+.cart-lines small{display:block;color:var(--muted);font-size:12px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}
+.qty button{background:none;border:0;width:28px;height:28px;cursor:pointer;font-weight:700}
+.qty span{min-width:18px;text-align:center;font-size:14px}
+.cart-empty{color:var(--muted);font-size:15px;padding:12px 0}
+.totals{margin:14px 0;font-size:15px}
+.totals div{display:flex;justify-content:space-between;padding:3px 0}
+.totals .grand{font-weight:800;font-size:18px;border-top:1px solid var(--line);margin-top:6px;padding-top:8px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px;font-size:14px;font-weight:600}
+.field input,.field select,.field textarea{padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);font-weight:400;font-size:16px;width:100%}
+.field textarea{min-height:80px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){.two{grid-template-columns:1fr}}
+.checkout{width:100%;margin-top:6px}
+.checkout[disabled]{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.success{display:none;text-align:center;padding:18px 4px}
+.success.show{display:block;animation:pop .5s ease}
+.success .check{width:64px;height:64px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;margin:0 auto 12px;font-size:32px}
+@keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+.cart-bar{display:none}
+@media (max-width:980px){
+ .cart{position:fixed;left:0;right:0;bottom:0;top:auto;border-radius:20px 20px 0 0;max-height:88vh;overflow:auto;z-index:60;transform:translateY(105%);transition:transform .35s ease;margin:0}
+ body.cart-open .cart{transform:none}
+ .cart-bar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:55;justify-content:space-between;align-items:center;padding:14px 20px;border-radius:999px;background:var(--accent);color:var(--on-accent);font-weight:700;border:0;cursor:pointer;box-shadow:0 12px 30px -10px var(--shadow)}
+ .cart-close{display:block!important}
+ body.cart-open::after{content:"";position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:58}
+ .order-layout{padding-bottom:110px}
+}
+.cart-close{display:none;position:absolute;right:14px;top:12px;background:none;border:0;font-size:28px;cursor:pointer;line-height:1}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:var(--ink,#111);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;transition:.3s;z-index:70;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.brand img{width:52px;height:52px;border-radius:50%;object-fit:cover;background:var(--red);border:2px solid var(--gold)}
+.brand .wm{font-family:var(--display);font-size:22px;color:var(--red);line-height:1}
+.brand .wm small{display:block;font-family:'Yellowtail',cursive;font-size:17px;color:var(--jade);margin-top:2px}
+.script{font-family:'Yellowtail',cursive;font-weight:400}
+.hero{background:var(--red);color:#fff7e6;overflow:hidden;position:relative}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(243,181,27,.22) 1.5px,transparent 1.6px);background-size:26px 26px;opacity:.6}
+.hero::after{content:"\2605";position:absolute;right:-60px;top:-110px;font-size:520px;line-height:1;color:rgba(243,181,27,.10);transform:rotate(12deg)}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:clamp(56px,8vw,110px) 0}
+.hero .eyebrow{color:var(--gold)}
+.hero h1{font-size:clamp(52px,8.4vw,108px);line-height:.95;margin:.15em 0 .2em;text-shadow:0 4px 0 var(--deep)}
+.hero h1 .script{display:block;font-size:.5em;color:var(--gold);text-shadow:none;margin-top:.2em}
+.hero .lead{color:#ffe7cf;max-width:32em}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero .btn{--accent:var(--gold);--on-accent:#3b1400}
+.hero .btn.ghost{color:#fff7e6}
+.polas{position:relative;height:460px}
+.pola{position:absolute;background:#fffaf0;padding:12px 12px 46px;box-shadow:0 24px 50px -20px rgba(0,0,0,.6);width:min(300px,70%);transition:transform .4s}
+.pola .ph{aspect-ratio:1;background:#d9c39b}
+.pola figcaption{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:'Yellowtail',cursive;color:#5b3a28;font-size:20px}
+.pola.a{left:0;top:20px;transform:rotate(-6deg)}
+.pola.b{right:0;top:120px;transform:rotate(5deg)}
+.pola:hover{transform:rotate(0) scale(1.03);z-index:3}
+.since{position:absolute;left:44%;top:0;width:118px;height:118px;border-radius:50%;background:var(--gold);color:#5a1300;display:grid;place-items:center;text-align:center;font-family:var(--display);font-size:30px;line-height:.9;box-shadow:0 10px 30px -10px rgba(0,0,0,.5);transform:rotate(-10deg);z-index:4;border:3px dashed rgba(90,19,0,.35)}
+.since small{display:block;font-family:var(--body);font-size:11px;letter-spacing:.2em;font-weight:700}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}.polas{height:400px;max-width:420px;margin:0 auto;width:100%}}
+.ticker{background:var(--gold);color:#5a1300;overflow:hidden;white-space:nowrap;border-block:3px solid var(--deep)}
+.ticker div{display:inline-block;padding:14px 0;animation:tick 32s linear infinite;font-family:var(--display);font-size:20px;letter-spacing:.04em}
+.ticker span{margin:0 22px}
+@keyframes tick{to{transform:translateX(-50%)}}
+.feature{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.plate{aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 50% 50%,#fff 0 52%,#f2e6cf 53% 60%,#fff 61% 64%,#e7d6b5 65% 66%,transparent 67%);position:relative;max-width:460px;margin:auto;width:100%;display:grid;place-items:center}
+.plate::before{content:"";position:absolute;inset:-6%;border-radius:50%;border:2px dashed rgba(196,22,28,.35);animation:spin 60s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.plate .in{text-align:center;padding:0 22%}
+.plate .in b{display:block;font-family:var(--display);font-size:clamp(34px,4.6vw,54px);color:var(--red);line-height:.95}
+.plate .in i{display:block;font-family:'Yellowtail',cursive;font-style:normal;color:var(--jade);font-size:clamp(24px,3vw,32px);margin-top:6px}
+.plate .in small{display:block;margin-top:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+@media (max-width:860px){.feature{grid-template-columns:1fr}}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.card3{background:var(--card);border-radius:22px;padding:30px 28px;border:2px solid var(--line);position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s}
+.card3:hover{transform:translateY(-4px);box-shadow:0 18px 40px -24px var(--shadow)}
+.card3 .ico{font-size:34px;width:64px;height:64px;border-radius:18px;display:grid;place-items:center;margin-bottom:16px;color:#fff}
+.card3 ul{padding:0;margin:14px 0 0;list-style:none}
+.card3 li{padding:8px 0;border-bottom:1px dashed var(--line);font-weight:500}
+.card3 li:last-child{border:0}
+@media (max-width:860px){.three{grid-template-columns:1fr}}
+.jade{background:var(--jade);color:#eaf6ef;--muted:#bfe0cf;--line:rgba(255,255,255,.18)}
+.jade .eyebrow{color:var(--gold)}
+.timeline{position:relative;margin-top:48px}
+.timeline::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:repeating-linear-gradient(var(--gold) 0 10px,transparent 10px 18px);transform:translateX(-50%)}
+.tl{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:56px;position:relative}
+.tl::after{content:"\2605";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--gold);color:var(--deep);display:grid;place-items:center;font-size:22px}
+.tl:nth-child(even) .txt{order:2}
+.tl .when{font-family:var(--display);font-size:clamp(44px,6vw,72px);color:var(--gold);line-height:1}
+.tl .ph{aspect-ratio:4/3;border-radius:14px;border:6px solid #fffaf0;box-shadow:0 20px 40px -24px rgba(0,0,0,.6);background:#2c5b47}
+.tl .ph.noimg{display:grid;place-items:center;background:#0b5540;font-family:var(--display);color:var(--gold);font-size:28px;text-align:center;padding:20px}
+@media (max-width:760px){.timeline::before,.tl::after{left:14px}.tl{grid-template-columns:1fr;gap:18px;padding-left:44px}.tl:nth-child(even) .txt{order:0}.tl::after{top:24px;width:32px;height:32px;font-size:16px}}
+.album{columns:4 220px;column-gap:16px;margin-top:40px}
+.album figure{break-inside:avoid;margin:0 0 16px;background:#fffaf0;padding:10px 10px 12px;box-shadow:0 10px 26px -18px var(--shadow);border-radius:4px;transition:transform .3s}
+.album figure:nth-child(odd){transform:rotate(-1.2deg)}.album figure:nth-child(even){transform:rotate(1deg)}
+.album figure:hover{transform:rotate(0) scale(1.02)}
+.album .ph{aspect-ratio:1;background:var(--ph)}
+.album figcaption{font-family:'Yellowtail',cursive;font-size:19px;text-align:center;margin-top:8px;color:#5b3a28}
+.quote{background:var(--red);color:#fff4df;text-align:center}
+.quote blockquote{margin:0 auto;max-width:900px}
+.quote q{font-family:var(--display);font-size:clamp(28px,4vw,46px);line-height:1.15;display:block;quotes:"\201C" "\201D"}
+.quote cite{display:block;margin-top:18px;font-style:normal;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-size:14px;font-weight:700}
+.honors{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:34px}
+.honors span{border:2px solid rgba(255,220,150,.5);padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px}
+.visit{display:grid;grid-template-columns:1fr 1.1fr;gap:28px;align-items:stretch}
+.vcard{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:clamp(24px,4vw,40px)}
+.mapw{border-radius:22px;overflow:hidden;border:2px solid var(--line);min-height:380px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 18px}
+.badges span{background:var(--gold);color:#5a1300;font-weight:700;font-size:13px;padding:6px 12px;border-radius:999px}
+@media (max-width:860px){.visit{grid-template-columns:1fr}}
+.foot-logo{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);margin-bottom:12px;background:var(--red)}
+.anniv{max-width:300px;margin:0 auto;filter:drop-shadow(0 18px 30px rgba(0,0,0,.35))}
+.menu-hero{background:var(--red);color:#fff4df}
+.menu-hero .lead{color:#ffe1c4}
+.menu-hero .eyebrow{color:var(--gold)}
+.menu-hero .btn{--accent:var(--gold);--on-accent:#3b1400}
+.menu-hero .btn.ghost{color:#fff4df}
+.callout{background:#fff;border:2px dashed var(--accent);border-radius:18px;padding:22px 26px;margin:30px 0;display:flex;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.star-item{background:linear-gradient(135deg,#fff8e8,#fde9b8);border:2px solid var(--gold);border-radius:20px;padding:28px;margin:26px 0 8px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+.star-item .st{width:80px;height:80px;border-radius:50%;background:var(--red);color:var(--gold);display:grid;place-items:center;font-size:40px}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap"><a class="brand" href="index.html" aria-label="Golden Star Cafe home"><img onerror="this.style.opacity=0" src="https://static.wixstatic.com/media/35132b_767db3c53da641b3b3f7001737633569~mv2.jpg/v1/fill/w_240,h_236,al_c,q_85/covercolor2022-SQ.jpg" alt="Golden Star Cafe logo"><span class="wm">Golden Star Cafe<small>since 1932</small></span></a><button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><nav class="nav"><a href="menu.html">Menu</a><a href="index.html#story">Our Story</a><a href="index.html#album">Family Album</a><a href="index.html#visit">Visit</a><a class="btn small" href="order.html" aria-current="page">Order Take-Out</a></nav></div></header>
+<main id="main">
+<section class="menu-hero" style="padding-bottom:36px"><div class="wrap"><span class="eyebrow">Take-Out</span><h1 style="font-size:clamp(42px,6vw,72px)">Order ahead, skip the wait</h1><p class="lead">Pick your favorites and a pickup time. We'll call to confirm your order and total. Take-out runs Monday to Saturday until 9 pm.</p></div></section><nav class="cat-nav"><div class="wrap"><a class="chip" href="#o-the-golden-star-special">The Golden Star Special</a><a class="chip" href="#o-chinese">Chinese</a><a class="chip" href="#o-tex-mex-american">Tex-Mex &amp; American</a></div></nav><div class="wrap order-layout"><div><section class="o-cat" id="o-the-golden-star-special"><h2>The Golden Star Special</h2><div class="o-grid"><article class="o-card" data-name="Fish With Gravy" data-p=""><h3>Fish With Gravy</h3><p>Hand-breaded fried fish with gravy. Our signature since the beginning.</p><div class="foot"><span class="price p"></span><button class="add" type="button">Add</button></div></article></div></section>
+<section class="o-cat" id="o-chinese"><h2>Chinese</h2><div class="o-grid"><article class="o-card" data-name="Chicken Chop Suey" data-p=""><h3>Chicken Chop Suey</h3><p>A decades-long regulars&#x27; favorite.</p><div class="foot"><span class="price p"></span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Chicken &amp; Broccoli" data-p=""><h3>Chicken &amp; Broccoli</h3><p>Tender chicken stir-fried with broccoli.</p><div class="foot"><span class="price p"></span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Pepper Chicken" data-p=""><h3>Pepper Chicken</h3><p>Wok-fired chicken with peppers.</p><div class="foot"><span class="price p"></span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Combination Fried Rice" data-p=""><h3>Combination Fried Rice</h3><p>Our fried rice, loaded up.</p><div class="foot"><span class="price p"></span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Wonton Soup" data-p=""><h3>Wonton Soup</h3><p>Comfort in a bowl.</p><div class="foot"><span class="price p"></span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Egg Rolls" data-p=""><h3>Egg Rolls</h3><p>Crisp and golden.</p><div class="foot"><span class="price p"></span><button class="add" type="button">Add</button></div></article></div></section>
+<section class="o-cat" id="o-tex-mex-american"><h2>Tex-Mex &amp; American</h2><div class="o-grid"><article class="o-card" data-name="Tacos" data-p=""><h3>Tacos</h3><p>West Side comfort, Golden Star style.</p><div class="foot"><span class="price p"></span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Burger" data-p=""><h3>Burger</h3><p>A diner classic.</p><div class="foot"><span class="price p"></span><button class="add" type="button">Add</button></div></article></div></section><div class="callout"><div><h3 style="margin:0">Don't see your usual?</h3><p class="muted" style="margin:6px 0 0">Add it to the kitchen notes, or check the <a href="https://www.goldenstarcafetx.com/_files/ugd/99d8a2_6b110fd73a2c43acab791b9b361c18d3.pdf" target="_blank" rel="noopener">printed menu</a>.</p></div></div></div><aside class="cart" aria-label="Your order"><button class="cart-close" aria-label="Close cart">&times;</button><div class="cart-form"><h2>Your order</h2><ul class="cart-lines"></ul><p class="cart-empty">Your bag is empty. Add a few favorites.</p><div class="totals" style="display:none"><span id="sub"></span><span id="tax"></span><span id="tot"></span></div><p id="unpriced" class="muted" style="font-size:14px;margin:12px 0">We'll confirm your total when we call to confirm your order.</p><label class="field">Pickup time<select id="pickup"></select></label><div class="two"><label class="field">Name<input autocomplete="name" placeholder="Your name"></label><label class="field">Phone<input type="tel" autocomplete="tel" placeholder="(210) 555-0123"></label></div><label class="field">Notes for the kitchen<textarea placeholder="Spice level, allergies, extra sauce&hellip;"></textarea></label><p class="muted" style="font-size:13px">Pay at pickup. Prices subject to change.</p><button class="btn checkout" disabled>Place pickup order</button></div><div class="success" role="status"><div class="check">&#10003;</div><h2>Order received!</h2><p>Order <strong id="onum"></strong> will be ready <strong id="otime"></strong>.</p><p class="muted">We'll text you when it's hot and ready.</p><button class="btn ghost small" id="again" type="button">Start a new order</button></div></aside><button class="cart-bar" type="button"><span class="n">0 items</span><span class="t">View order</span></button><div class="toast" role="status" aria-live="polite"></div></div>
+</main>
+<footer class="site-foot"><div class="wrap"><div class="foot-grid"><div><img onerror="this.style.opacity=0" class="foot-logo" src="https://static.wixstatic.com/media/35132b_767db3c53da641b3b3f7001737633569~mv2.jpg/v1/fill/w_240,h_236,al_c,q_85/covercolor2022-SQ.jpg" alt="Golden Star Cafe" loading="lazy"><p>Made with love. Simply delicious. Family-owned and operated by the Lim family on San Antonio's West Side since 1932.</p></div><div><h4>Visit</h4><p>821 W. Commerce St.<br>San Antonio, TX 78207<br>At the corner of S. Frio</p></div><div><h4>Contact</h4><ul><li><a href="tel:+12102231681">(210) 223-1681</a></li><li><a href="mailto:goldenstarcafetx@gmail.com">goldenstarcafetx@gmail.com</a></li><li><a href="https://www.facebook.com/GoldenStarCafe/" target="_blank" rel="noopener">Facebook</a></li></ul></div><div><h4>Explore</h4><ul><li><a href="menu.html">Menu</a></li><li><a href="order.html">Order Take-Out</a></li><li><a href="index.html#story">Our Story</a></li><li><a href="index.html#visit">Hours</a></li></ul></div></div><div class="foot-bottom"><span>&copy; <span class="yr">2026</span> Golden Star Cafe. All rights reserved.</span><span>Dine In &middot; Take Out</span></div></div></footer>
+<script>
+(function(){
+ var t=document.querySelector('.nav-toggle');
+ if(t){t.addEventListener('click',function(){var o=document.body.classList.toggle('nav-open');t.setAttribute('aria-expanded',o)});
+  document.querySelectorAll('.nav a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('nav-open')})});}
+ var els=document.querySelectorAll('.reveal');
+ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});els.forEach(function(e){io.observe(e)})}else{els.forEach(function(e){e.classList.add('in')})}
+ var d=new Date().getDay();document.querySelectorAll('.hours tr[data-day]').forEach(function(r){if(+r.dataset.day===d)r.classList.add('today')});
+ document.querySelectorAll('img').forEach(function(i){i.addEventListener('error',function(){i.style.opacity=0})});
+ var y=document.querySelectorAll('.yr');y.forEach(function(e){e.textContent=new Date().getFullYear()});
+})();
+</script>
+<script>window.ORDER_DATA={"priced": false, "hours": [null, [11, 21], [11, 21], [11, 21], [11, 21], [11, 21], [11, 21]]};
+(function(){
+ var D=window.ORDER_DATA, cart=[], TAX=0.0825;
+ var $=function(s){return document.querySelector(s)};
+ function money(n){return '$'+n.toFixed(2)}
+ function toast(m){var t=$('.toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show')},1600)}
+ document.querySelectorAll('.o-card').forEach(function(c){
+  var btn=c.querySelector('.add'), sel=c.querySelector('select');
+  function upd(){if(!sel)return;var o=sel.options[sel.selectedIndex];var pr=c.querySelector('.p');if(pr&&o.dataset.p)pr.textContent=money(+o.dataset.p)}
+  if(sel)sel.addEventListener('change',upd);
+  btn.addEventListener('click',function(){
+   var name=c.dataset.name, price=c.dataset.p===''?null:+c.dataset.p, opt='';
+   if(sel){var o=sel.options[sel.selectedIndex];opt=o.value;if(o.dataset.p)price=+o.dataset.p}
+   var key=name+'|'+opt, ex=cart.filter(function(l){return l.key===key})[0];
+   if(ex)ex.q++;else cart.push({key:key,name:name,opt:opt,price:price,q:1});
+   render();btn.classList.add('done');btn.textContent='Added';setTimeout(function(){btn.classList.remove('done');btn.textContent='Add'},900);toast(name+' added');
+  });
+ });
+ function render(){
+  var ul=$('.cart-lines');ul.innerHTML='';var sub=0,n=0,unpriced=false;
+  cart.forEach(function(l,i){n+=l.q;if(l.price===null)unpriced=true;else sub+=l.price*l.q;
+   var li=document.createElement('li');
+   li.innerHTML='<div class="nm">'+l.name+(l.opt?'<small>'+l.opt+'</small>':'')+'</div><div class="qty"><button aria-label="Remove one" data-i="'+i+'" data-d="-1">&minus;</button><span>'+l.q+'</span><button aria-label="Add one" data-i="'+i+'" data-d="1">+</button></div><div>'+(l.price===null?'':money(l.price*l.q))+'</div>';
+   ul.appendChild(li)});
+  $('.cart-empty').style.display=cart.length?'none':'block';
+  var tax=sub*TAX;
+  $('#sub').textContent=money(sub);$('#tax').textContent=money(tax);$('#tot').textContent=money(sub+tax);
+  var un=$('#unpriced');if(un)un.style.display=unpriced?'block':'none';
+  $('.checkout').disabled=!cart.length;
+  $('.cart-bar .n').textContent=n+(n===1?' item':' items');
+  $('.cart-bar .t').textContent=D.priced?money(sub+tax):'View order';
+ }
+ $('.cart-lines').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var l=cart[+b.dataset.i];l.q+=+b.dataset.d;if(l.q<1)cart.splice(+b.dataset.i,1);render()});
+ // pickup times
+ var ps=$('#pickup');
+ function buildTimes(){
+  var now=new Date(),day=now.getDay(),h=D.hours[day];ps.innerHTML='';
+  var loc=$('#loc');if(loc&&D.locHours){h=D.locHours[loc.value][day]}
+  if(!h){ps.innerHTML='<option>Closed today: schedule for tomorrow</option>';return}
+  var start=new Date(now.getTime()+25*60000);var mins=Math.ceil((start.getHours()*60+start.getMinutes())/15)*15;
+  var open=h[0]*60,close=h[1]*60;if(mins<open+15)mins=open+15;
+  var first=true;
+  for(var m=mins;m<=close;m+=15){var hh=Math.floor(m/60),mm=m%60;var lab=((hh+11)%12+1)+':'+(mm<10?'0':'')+mm+(hh<12?' am':' pm');
+   var o=document.createElement('option');o.textContent=(first?'ASAP · about ':'Today · ')+lab;ps.appendChild(o);first=false}
+  if(!ps.options.length)ps.innerHTML='<option>We are closed for the day: schedule for tomorrow</option>';
+ }
+ buildTimes();var loc=$('#loc');if(loc)loc.addEventListener('change',buildTimes);
+ $('.checkout').addEventListener('click',function(e){e.preventDefault();
+  var num=Math.floor(1000+Math.random()*8999);$('#onum').textContent='#'+num;$('#otime').textContent=ps.value.replace('ASAP · ','');
+  var lo=$('#loc');if(lo)$('#oloc').textContent=lo.options[lo.selectedIndex].text;
+  $('.cart-form').style.display='none';$('.success').classList.add('show');
+ });
+ $('#again').addEventListener('click',function(){cart=[];render();$('.cart-form').style.display='block';$('.success').classList.remove('show');document.body.classList.remove('cart-open')});
+ $('.cart-bar').addEventListener('click',function(){document.body.classList.add('cart-open')});
+ $('.cart-close').addEventListener('click',function(){document.body.classList.remove('cart-open')});
+ document.addEventListener('click',function(e){if(document.body.classList.contains('cart-open')&&!e.target.closest('.cart')&&!e.target.closest('.cart-bar')&&!e.target.closest('.add'))document.body.classList.remove('cart-open')});
+ render();
+})();
+</script>
+</body>
+</html>

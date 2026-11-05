@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Ahead &amp; Drive-Thru | Las Cazuelas</title>
+<meta name="description" content="Order ahead for counter pickup or drive-thru at Las Cazuelas Mexican Restaurant, 645 Chalmers Ave, San Antonio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800;9..144,900&family=Nunito+Sans:wght@400;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+<style>
+:root{--clay:#c2452d;--clay-d:#8f2e1d;--gold:#f4a62a;--green:#1f5e3b;--rosa:#e2547f;--sky:#2b8fb3;--cream:#fff4e3;--paper:#fffaf2;--ink:#2b1a12;--muted:#7a5f50;--line:#f0dcc0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Nunito Sans",system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.05}
+.picado{height:26px;background:linear-gradient(135deg,transparent 50%,var(--cream) 50%) 0 100%/24px 12px repeat-x,linear-gradient(225deg,transparent 50%,var(--cream) 50%) 0 100%/24px 12px repeat-x,linear-gradient(90deg,var(--rosa) 0 20%,var(--gold) 20% 40%,var(--green) 40% 60%,var(--sky) 60% 80%,var(--clay) 80%);background-size:24px 12px,24px 12px,600px 100%}
+header{position:sticky;top:0;z-index:50;background:rgba(255,244,227,.95);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;height:54px}
+.logo img{height:50px;width:auto}
+.logo .wm{display:none;font-family:Fraunces;font-weight:900;font-size:1.35rem;color:var(--clay)}
+.logo.noimg img{display:none}.logo.noimg .wm{display:block}
+.links{display:flex;gap:1.4rem;font-weight:700}
+.links a:hover{color:var(--clay)}
+.top{padding:36px 0 18px;display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.top h1{font-size:clamp(2.4rem,6vw,3.8rem);font-weight:900}
+.top p{color:var(--muted);margin-top:.4rem;font-weight:600}
+.mode{display:flex;background:var(--paper);border-radius:18px;padding:6px;gap:6px;border:2px solid var(--line)}
+.mode button{border:0;background:none;border-radius:13px;padding:.75em 1.2em;font-weight:800;display:flex;align-items:center;gap:8px;transition:background .2s,color .2s}
+.mode button.on{background:var(--clay);color:#fff}
+.layout>div{min-width:0}
+.layout{display:grid;grid-template-columns:1fr 380px;gap:30px;align-items:start;padding-bottom:80px}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:4px 0 18px;scrollbar-width:none;position:sticky;top:70px;background:var(--cream);z-index:20}
+.filters button{white-space:nowrap;border:0;border-radius:12px;padding:.5em 1em;font-weight:800;font-size:.92rem;background:var(--paper)}
+.filters button.on{background:var(--green);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{background:var(--paper);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;border:2px solid var(--line);transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 26px -16px rgba(90,40,10,.45)}
+.card .art{height:100px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:10px 14px;color:#fff;font-family:Fraunces;font-weight:900;font-size:1.5rem}
+.card .art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.card .art span{position:relative;text-shadow:0 1px 6px rgba(0,0,0,.35)}
+.card .b{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:1.12rem;font-weight:800}
+.card p{color:var(--muted);font-size:.86rem;margin:.3rem 0 .8rem;flex:1}
+.card .row{display:flex;justify-content:space-between;align-items:center}
+.card .pr{font-family:Fraunces;font-weight:900;font-size:1.2rem;color:var(--green)}
+.add{background:var(--clay);color:#fff;border:0;border-radius:12px;padding:.45em 1em;font-weight:800;font-size:.9rem;box-shadow:0 3px 0 var(--clay-d);transition:transform .15s}
+.add:active{transform:translateY(2px);box-shadow:0 1px 0 var(--clay-d)}
+.add:disabled{background:#cdb9a6;box-shadow:none;cursor:not-allowed}
+.tag{display:inline-block;font-size:.62rem;font-weight:800;letter-spacing:.06em;border-radius:99px;padding:.15em .55em;margin-left:5px;vertical-align:2px}
+.t-v{background:#dcefe2;color:var(--green)}.t-d{background:#fde6c3;color:#8a5208}
+.g0{background:linear-gradient(135deg,#f0c56e,#c27f12)}.g1{background:linear-gradient(135deg,#e8a34f,#b8461f)}.g2{background:linear-gradient(135deg,#3e8c5c,#1f5e3b)}.g3{background:linear-gradient(135deg,#e2547f,#a8274f)}.g4{background:linear-gradient(135deg,#7a3b24,#3d1d10)}.g5{background:linear-gradient(135deg,#2b8fb3,#1b5f78)}
+.cart{position:sticky;top:90px;background:var(--paper);border-radius:26px;padding:22px;box-shadow:0 24px 40px -24px rgba(90,40,10,.45);border:2px solid var(--line);max-height:calc(100vh - 110px);overflow:auto}
+.cart h2{font-size:1.6rem;font-weight:900;display:flex;justify-content:space-between;align-items:center}
+.cart .x{display:none;background:none;border:0;font-size:1.6rem}
+.modebox{margin-top:10px;background:var(--cream);border-radius:14px;padding:10px 14px;font-weight:700;font-size:.92rem;display:flex;gap:10px;align-items:center}
+.empty{color:var(--muted);padding:22px 0;text-align:center}
+.line{display:flex;justify-content:space-between;gap:10px;padding:13px 0;border-bottom:2px dotted var(--line);align-items:center}
+.line b{font-weight:800}
+.line .q{display:flex;align-items:center;gap:8px}
+.line .q button{width:28px;height:28px;border-radius:9px;border:0;background:var(--cream);font-weight:800}
+.lbl{font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px;display:block}
+.slots{display:flex;flex-wrap:wrap;gap:6px}
+.slots button{border:0;border-radius:10px;padding:.4em .7em;font-size:.86rem;background:var(--cream);font-weight:700}
+.slots button.on{background:var(--green);color:#fff}
+.cart input{width:100%;border:2px solid var(--line);border-radius:12px;padding:.7em .8em;font:inherit;background:#fff;margin-bottom:8px;outline:none}
+.cart input:focus{border-color:var(--clay)}
+#carf{display:none}
+.drive #carf{display:block}
+.chk{display:flex;gap:8px;align-items:center;font-weight:700;font-size:.9rem;margin:6px 0}
+.chk input{width:auto;margin:0;accent-color:var(--clay)}
+.tot{margin-top:14px}
+.tot div{display:flex;justify-content:space-between;padding:3px 0;color:var(--muted);font-weight:600}
+.tot .g{color:var(--ink);font-family:Fraunces;font-weight:900;font-size:1.35rem;padding-top:8px}
+.go{width:100%;margin-top:14px;background:var(--clay);color:#fff;border:0;border-radius:14px;padding:1em;font-weight:800;font-size:1.05rem;box-shadow:0 5px 0 var(--clay-d);transition:transform .15s}
+.go:hover{transform:translateY(-1px)}
+.go:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.err{color:var(--clay);font-size:.86rem;min-height:1.1em;margin-top:8px;font-weight:700}
+.small{font-size:.8rem;color:var(--muted);margin-top:10px;text-align:center}
+.ok{display:none;text-align:center}
+.ok.show{display:block;animation:pop .5s ease}
+.ok .badge{width:96px;height:96px;border-radius:50%;background:var(--gold);margin:6px auto 16px;display:grid;place-items:center;font-size:2.6rem;box-shadow:0 0 0 8px rgba(244,166,42,.25)}
+.ok .num{font-family:Fraunces;font-weight:900;font-size:2.2rem;color:var(--clay);margin:.3rem 0}
+.ok p{color:var(--muted);font-weight:600}
+.ok .steps{text-align:left;background:var(--cream);border-radius:16px;padding:16px 18px;margin:16px 0;font-weight:700;font-size:.92rem}
+.ok .steps li{margin:6px 0 6px 18px}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.bar{display:none}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,30px);background:var(--ink);color:#fff;padding:.7em 1.2em;border-radius:12px;font-weight:800;opacity:0;transition:all .3s;z-index:90;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{background:var(--ink);color:#d8c3b0;padding:30px 0;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:960px){
+ .layout{grid-template-columns:1fr}
+ .links a:not(:last-child){display:none}
+ .cart{position:fixed;inset:auto 0 0 0;top:auto;max-height:88vh;border-radius:26px 26px 0 0;transform:translateY(105%);transition:transform .35s;z-index:80}
+ .cart.open{transform:none}
+ .cart .x{display:block}
+ .bar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;background:var(--clay);color:#fff;border:0;border-radius:16px;padding:1em 1.3em;justify-content:space-between;font-weight:800;box-shadow:0 5px 0 var(--clay-d)}
+ .grid{grid-template-columns:1fr 1fr;gap:12px}
+ .mode{width:100%}.mode button{flex:1;justify-content:center;padding:.7em .5em}
+ footer{padding-bottom:90px}
+}
+@media (max-width:420px){.card p{display:none}.card h3{font-size:1rem}.card .art{height:84px;font-size:1.25rem}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a href="index.html" class="logo"><img src="https://lascazuelassa.com/LasCazuelas280Logo.png" alt="Las Cazuelas Mexican Restaurant" onerror="this.parentNode.classList.add('noimg')"><span class="wm">Las Cazuelas</span></a>
+  <nav class="links"><a href="index.html">Home</a><a href="menu.html">Full menu</a><a href="tel:+12109321785">210.932.1785</a></nav>
+ </div>
+</header>
+<div class="picado" aria-hidden="true"></div>
+
+<div class="wrap top">
+ <div><h1>Order ahead</h1><p>645 Chalmers Ave &middot; Ready for the counter or the drive-thru window.</p></div>
+ <div class="mode" role="tablist" aria-label="Pickup method">
+  <button class="on" data-m="counter">&#127869; Counter pickup</button>
+  <button data-m="drive">&#128663; Drive-thru</button>
+ </div>
+</div>
+
+<div class="wrap layout">
+ <div>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+ </div>
+ <aside class="cart" id="cart" aria-label="Your order">
+  <div id="cartbody">
+   <h2>Your order <button class="x" id="close" aria-label="Close">&times;</button></h2>
+   <div class="modebox" id="modebox"></div>
+   <div id="lines"></div>
+   <span class="lbl">Pickup time &middot; <span id="when">today</span></span>
+   <div class="slots" id="slots"></div>
+   <span class="lbl">Your details</span>
+   <input id="nm" placeholder="Name" autocomplete="name">
+   <input id="ph" type="tel" placeholder="Phone" autocomplete="tel">
+   <input id="carf" placeholder="Car make &amp; color (e.g. red Silverado)">
+   <label class="chk"><input type="checkbox" id="fr"> SAPD / SAFD (10% off)</label>
+   <div class="tot"><div><span>Subtotal</span><span id="sub">$0.00</span></div><div id="disrow" style="display:none"><span>First responder 10%</span><span id="dis">-$0.00</span></div><div><span>Tax (8.25%)</span><span id="tax">$0.00</span></div><div class="g"><span>Total</span><span id="tot">$0.00</span></div></div>
+   <button class="go" id="go" disabled>Place order</button>
+   <p class="err" id="err" role="alert"></p>
+   <p class="small">Pay at the counter or the window. Questions? 210.932.1785</p>
+  </div>
+  <div class="ok" id="ok" aria-live="polite">
+   <div class="badge" id="okicon">&#10003;</div>
+   <h2 style="font-size:2rem;font-weight:900">&iexcl;Gracias!</h2>
+   <div class="num" id="onum"></div>
+   <p id="omsg"></p>
+   <ol class="steps" id="steps"></ol>
+   <button class="go" id="new" style="background:var(--green);box-shadow:0 5px 0 #133d26">Start a new order</button>
+  </div>
+ </aside>
+</div>
+
+<button class="bar" id="bar"><span id="barn">View order (0)</span><span id="bart">$0.00</span></button>
+<div class="toast" id="toast"></div>
+<footer><div class="wrap"><span>&copy; 2026 Las Cazuelas Restaurant</span><span>645 Chalmers Avenue, San Antonio, TX 78214 &middot; 210.932.1785</span></div></footer>
+
+<script>
+const dow=new Date().getDay();
+const SPEC={1:[['Enchiladas Tejanas',9.99],['Enchiladas Verdes',9.99]],2:[['Carne Asada a la Mexicana',9.99],['Calabaza con Pollo',9.99]],3:[['Chicken Mole',10.99]],4:[['Mole Enchiladas',9.99],['Chicken Fajitas',10.99],['Beef Fajitas',11.99]],5:[['Chile Relleno',11.99],['Fried Fish',10.99]]};
+const BSPEC={1:['Oatmeal with Toast',4.69,1],2:['Huevos a la Mexicana',5.09,1],3:['Huevos Rancheros (special)',5.09,1],4:['Weiner & Egg Plate',5.09]};
+const wk=dow>=1&&dow<=5;
+const CATS=[
+ ['Drive-Thru Deals',[['2 Cheese Enchiladas Plate','Rice, beans & two tortillas. Mon–Fri.',5.99,{v:1,wk:1}],['Breakfast Taco Combo','Bean & Cheese + Chorizo & Egg. Drive-thru only, Mon–Fri.',2.68,{d:1,wk:1}]]],
+ ['Breakfast Tacos',[['Bean & Cheese Taco','Homemade flour tortilla.',1.19,{v:1}],['Bean & Egg Taco','Homemade flour tortilla.',1.69,{v:1}]]],
+ ['Breakfast Plates',[['Huevos Rancheros','Potatoes, beans, two tortillas.',5.69,{v:1}],['Huevos Rancheros w/ Carne Guisada','Potatoes, beans, two tortillas.',7.59]].concat(BSPEC[dow]?[[BSPEC[dow][0],"Today's breakfast special, until 11 am.",BSPEC[dow][1],{v:BSPEC[dow][2]}]]:[])],
+ ["Today's Lunch Special",(SPEC[dow]||[]).map(([n,p])=>[n,'Rice, beans, two tortillas & iced tea. 11–2.',p,{}])],
+ ['Caldos & Soups',[['Caldo de Pollo','Chicken soup.',7.59,{img:'https://lascazuelassa.com/data1/images/caldo1.jpg'}],['Tortilla Soup with Flauta','',8.39,{}]]],
+ ['Sides & More',[['Chips & Salsa','',1.09,{v:1}],['Chips & Queso','',3.99,{v:1}],['Hamburger','Texas Flavor.',7.99,{}],['Chicken Tenders','Texas Flavor.',6.49,{}]]]
+].filter(c=>c[1].length);
+let mode=location.hash==='#drive'?'drive':'counter',cat=0,slot=null;const cart=new Map();
+const $=id=>document.getElementById(id),money=n=>'$'+n.toFixed(2);
+function setMode(m){mode=m;document.querySelectorAll('.mode button').forEach(b=>b.classList.toggle('on',b.dataset.m===m));$('cart').classList.toggle('drive',m==='drive');
+ $('modebox').innerHTML=m==='drive'?'&#128663; Drive-thru: pull up to the window and give your name.':'&#127869; Counter pickup: come inside, it\'ll be bagged and waiting.';
+ if(m!=='drive'){for(const [k,c] of cart)if(c.d)cart.delete(k)}grid();render()}
+document.querySelectorAll('.mode button').forEach(b=>b.onclick=()=>setMode(b.dataset.m));
+const F=$('filters'),G=$('grid');
+CATS.forEach(([t],i)=>{const b=document.createElement('button');b.textContent=t;b.onclick=()=>{cat=i;grid()};F.appendChild(b)});
+function grid(){[...F.children].forEach((c,k)=>c.classList.toggle('on',k===cat));const list=CATS[cat][1];
+ G.innerHTML=list.map(([n,d,p,o],i)=>{const off=(o.d&&mode!=='drive')||(o.wk&&!wk);return `<article class="card"><div class="art g${(i+cat)%6}">${o.img?`<img src="${o.img}" alt="" loading="lazy" onerror="this.remove()">`:''}<span>${(n.match(/[A-Za-z][a-z]+/)||[''])[0]}</span></div><div class="b"><h3>${n}${o.v?'<span class="tag t-v">VEG</span>':''}${o.d?'<span class="tag t-d">DRIVE-THRU</span>':''}</h3><p>${d}${off?`<br><b style="color:var(--clay)">${o.d&&mode!=='drive'?'Switch to drive-thru to add.':'Available Monday–Friday.'}</b>`:''}</p><div class="row"><span class="pr">${money(p)}</span><button class="add" data-i="${i}" ${off?'disabled':''}>+ Add</button></div></div></article>`}).join('');
+ G.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const [n,,p,o]=list[+b.dataset.i];const c=cart.get(n)||{name:n,price:p,q:0,d:!!o.d};c.q++;cart.set(n,c);toast('Added '+n);render()})}
+function render(){const L=$('lines');
+ L.innerHTML=cart.size?[...cart.values()].map(c=>`<div class="line"><div><b>${c.name}</b><div style="color:var(--muted);font-size:.86rem">${money(c.price*c.q)}</div></div><div class="q"><button data-k="${c.name}" data-d="-1" aria-label="Remove one">&minus;</button><span>${c.q}</span><button data-k="${c.name}" data-d="1" aria-label="Add one">+</button></div></div>`).join(''):'<p class="empty">Nothing here yet.<br>Add some tacos. You know you want to.</p>';
+ L.querySelectorAll('.q button').forEach(b=>b.onclick=()=>{const c=cart.get(b.dataset.k);c.q+=+b.dataset.d;if(c.q<=0)cart.delete(b.dataset.k);render()});
+ const sub=[...cart.values()].reduce((a,c)=>a+c.price*c.q,0),n=[...cart.values()].reduce((a,c)=>a+c.q,0),dis=$('fr').checked?sub*.1:0,tax=(sub-dis)*.0825,tot=sub-dis+tax;
+ $('sub').textContent=money(sub);$('disrow').style.display=dis?'flex':'none';$('dis').textContent='-'+money(dis);$('tax').textContent=money(tax);$('tot').textContent=money(tot);
+ $('barn').textContent=`View order (${n})`;$('bart').textContent=money(tot);$('go').disabled=!n}
+$('fr').onchange=render;
+function slots(){const S=$('slots'),now=new Date();let min=now.getHours()+now.getMinutes()/60+.25;S.innerHTML='';const tmr=min>13.75;if(tmr)min=0;$('when').textContent=tmr?'tomorrow':'today';
+ for(let h=7.25;h<=13.75;h+=.25){if(h<min)continue;const hh=Math.floor(h),mm=String(Math.round(h%1*60)).padStart(2,'0'),lab=`${hh>12?hh-12:hh}:${mm} ${hh>=12?'pm':'am'}`;const b=document.createElement('button');b.textContent=lab;b.onclick=()=>{slot=lab;[...S.children].forEach(c=>c.classList.remove('on'));b.classList.add('on')};S.appendChild(b)}
+ if(!S.children.length){S.innerHTML='<span style="color:var(--muted);font-weight:600;font-size:.9rem">We\'re closed for today (open 7 am – 2 pm). Call us to order for tomorrow.</span>'}}
+slots();
+function toast(t){const T=$('toast');T.textContent=t;T.classList.add('show');clearTimeout(T._t);T._t=setTimeout(()=>T.classList.remove('show'),1400)}
+$('bar').onclick=()=>$('cart').classList.add('open');$('close').onclick=()=>$('cart').classList.remove('open');
+$('go').onclick=()=>{const nm=$('nm').value.trim(),ph=$('ph').value.replace(/\D/g,''),car=$('carf').value.trim();
+ if(!slot){$('err').textContent='Choose a pickup time.';return}
+ if(!nm||ph.length<10){$('err').textContent='Add your name and a 10-digit phone number.';return}
+ if(mode==='drive'&&!car){$('err').textContent='Tell us your car so we can spot you at the window.';return}
+ $('err').textContent='';$('cartbody').style.display='none';$('ok').classList.add('show');$('okicon').innerHTML=mode==='drive'?'&#128663;':'&#10003;';
+ $('onum').textContent='#'+(100+Math.floor(Math.random()*900));
+ $('omsg').textContent=`Thanks, ${nm}. Your order (${$('tot').textContent}) will be ready at ${slot} ${$('when').textContent}.`;
+ $('steps').innerHTML=mode==='drive'?`<li>Head to 645 Chalmers Ave.</li><li>Pull into the drive-thru lane.</li><li>Give your name at the window. We'll look for the ${car.replace(/</g,'')}.</li><li>Pay and go. &iexcl;Provecho!</li>`:'<li>Head to 645 Chalmers Ave.</li><li>Come inside to the counter.</li><li>Give your name and pay.</li><li>&iexcl;Provecho!</li>'};
+$('new').onclick=()=>{cart.clear();$('ok').classList.remove('show');$('cartbody').style.display='';['nm','ph','carf'].forEach(i=>$(i).value='');slot=null;slots();render()};
+setMode(mode);
+</script>
+</body>
+</html>
