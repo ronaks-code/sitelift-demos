@@ -1,0 +1,68 @@
+# Skyline Animal Hospital
+
+> Full-service vet clinic on Almeda Rd in Houston serving Museum District, Midtown and Third Ward. Wellness, surgery, dentistry and more. Rated 4.9.
+
+- Type: Veterinary Care
+- Address: 5108 Almeda Rd, Houston, TX 77004, USA
+- Phone: (713) 929-3511
+- Email: info@skylinevetshtx.com
+- Website: https://ronaks-code.github.io/sitelift-demos/skyline-animal-hospital/
+- Google Maps: https://maps.google.com/?cid=11657688184313215068&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 226 reviews
+
+## Hours
+- Monday: 8:00 AM – 6:00 PM
+- Tuesday: 8:00 AM – 6:00 PM
+- Wednesday: 8:00 AM – 6:00 PM
+- Thursday: 8:00 AM – 6:00 PM
+- Friday: 8:00 AM – 6:00 PM
+- Saturday: 9:00 AM – 1:00 PM
+- Sunday: Closed
+
+## About
+Skyline Animal Hospital is a full-service veterinary clinic in the heart of Houston, serving Museum District, Museum Park, Midtown, Medical Center, and Greater Third Ward. Our name comes from the view of the downtown Houston skyline from our street on Almeda Road.
+Dr. Adria Flowers and Dr. Cherese Sullivan lead our team. We believe in meeting people where they are at while keeping the integrity of high-quality medicine, and in being respectful of your lifestyle, preferences, and beliefs.
+We want this to be a safe, welcoming, and inclusive place for everyone. We work with local animal assistance groups and rescue organizations, and we hold community outreach events. Pet owners have given us a 4.9 rating from 226 Google reviews.
+
+## Services
+- Pet wellness: We will work with you to help your pet live a longer and healthier life.
+- Pet Surgery: Surgical care in our own surgical suite, with anesthetic machines and updated anesthetic protocols.
+- Pet Dentistry: Your pet's oral health is connected to their overall health, and we have dental radiographs on site.
+- Pet radiology: Digital radiographs help us see what is going on with your pet.
+- Pet dermatology: Our team will help treat skin allergies your pet may have.
+- Pet internal medicine: Treatment and ongoing management for your pet's health conditions.
+- Pet behavior: Consultations and treatments for your pet's behavior.
+
+## FAQ
+Q: Which neighborhoods do you serve?
+A: We are at 5108 Almeda Rd and serve Museum District, Museum Park, Midtown, Medical Center, and Greater Third Ward, along with the greater Houston community.
+
+Q: Who are the veterinarians?
+A: Dr. Adria Flowers and Dr. Cherese Sullivan, along with the rest of the Skyline Animal Hospital team.
+
+Q: Can I fill out forms before my visit?
+A: Yes. Our site has a New Client Form, a Curbside Check-In Form, and a Surgery Release Form you can complete online.
+
+## What customers say
+- "We had an amazing experience at Skyline Animal Hospital with our English Bulldog, Junie! From the moment we arrived, the entire team was welcoming, professional, attentive, and genuinely caring.
+
+Dr. Flowers was absolutely amazing! She took the time to make sure Junie was comfortable, thoroughly addressed our questions and concerns, and explained everything in a way that made us feel confident about Junie’s care. You can truly tell that she has a passion for animals and treats every pet like they’re her own.
+
+As new bulldog parents, having a veterinarian we can trust means everything, and Dr. Flowers and the Skyline Animal Hospital team gave us that reassurance. We left feeling like Junie was in excellent hands.
+
+Thank you for taking such great care of our girl! Skyline Animal Hospital and Dr. Flowers have definitely earned five stars from the J-Crew! 🐾❤️
+
+Highly recommend!" (Jeremy Hagans, 5/5)
+- "I love Skyline. It’s an experience as soon as you enter! The office is always of the utmost cleanliness and smells like a spa. Caesar and I are always greeted warmly and everyone is happy to see him. My dog has some health challenges including anxiety. He gets scared and very timid at every vet we’ve been to except Skyline! That means the world to me. This is the only veterinarian I’d consider boarding Caesar and he’s never been boarded in all of his 9 years. Dr. Flowers is amazing! She’s very attentive. She listens and doesn’t dismiss my concerns. She checks on Caesar when he’s not scheduled to see her.  She gave him a nickname.  The only thing that could make Skyline better is expanding services. Thank you so much!" (K.S., 5/5)
+- "Skyline Animal Hospital has been absolutely amazing! They took such wonderful care of Suki, and we couldn’t be more grateful. From the moment we walked in, their team showed incredible compassion, professionalism, and attention to detail. They treated Suki like one of their own, making sure she was comfortable and well cared for every step of the way.
+
+The staff was thorough in explaining her treatment and made us feel confident that she was in the best hands. Suki is now happy and healthy, and we owe it all to the amazing care she received at Skyline Animal Hospital. Thank you for going above and beyond—you’re the best! Highly recommend to anyone looking for a veterinary team that truly cares." (andrea warren, 5/5)
+- "After my mom passed away, I took in her cat, Murray. He’s 8 years old and very set in his ways - aggressive, temperamental, and extremely resistant to things like nail trimming. I’ve always struggled to clip his nails because he fights any kind of restraint.
+Skyline Veterinary Clinic went above and beyond. Not only were they able to trim Murray’s nails safely, but they also took the time to show me how to properly scruff and calm him so I can manage his care at home.
+They truly care about your pet’s well-being and also about empowering you as an owner. That made all the difference for me.
+I highly recommend Skyline to anyone looking for compassionate, knowledgeable care." (Mike Robson, 5/5)
+- "Skyline Animal Hospital is outstanding.  There are several vets much closer to us, but we happily make the extra drive because the level of care at Skyline is more than worth it.
+
+The entire team is knowledgeable, kind, and they all  love animals. They take wonderful care of our dog, never make us feel rushed, and always take the time to explain things clearly.  You can tell they care about both the animals they treat and the people who bring them in.
+
+Finding a vet you truly trust is a big deal, and that’s exactly how we feel about Skyline. We’re very grateful for the care they provide and would recommend them without hesitation." (James Mooney, 5/5)
