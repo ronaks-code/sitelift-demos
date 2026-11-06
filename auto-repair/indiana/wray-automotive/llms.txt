@@ -1,0 +1,51 @@
+# Wray Automotive
+
+> Auto repair, maintenance & towing based in Bloomington, Indiana. Bloomington's no-upsell repair shop. We tell you what your car needs now, what can wait, and what it costs before we start. Broke down? Our own trucks tow it in.
+
+- Phone: (812) 369-4520
+- Based in: Bloomington, IN
+- Service area: Bloomington, Ellettsville, Bedford, Martinsville, Spencer, Nashville
+- Google rating: 4.8 from 456 reviews
+- Request a quote: https://ronaks-code.github.io/sitelift-demos/auto-repair/indiana/wray-automotive/quote.html
+- Book a drop-off: https://ronaks-code.github.io/sitelift-demos/auto-repair/indiana/wray-automotive/book.html
+
+## Services
+- Diagnostics & repair: Warning light, strange noise, burning smell? We find the real problem and explain it in plain terms before anything gets replaced.
+- Brakes: An authorized PowerStop installation center. Squeals, shakes or a soft pedal get a proper look and a fair quote.
+- Oil changes & maintenance: AMSOIL and Castrol on the shelf, Hunter tire equipment in the bay, and an honest look-over while your car is in.
+- Towing & roadside: Our own Wray flatbeds and wrecker. Broke down on a Sunday night? Call and we'll get the car to the shop.
+- Students' & older cars: IU parents trust us with their kids' cars. We explain what matters, what can wait, and keep you in the loop from miles away.
+- Classics & performance: Hot rods, a '55 Chevy pickup, Corvettes, Vipers and AMGs all turn up in our lot. Bring the fun car in with the daily driver.
+
+## About
+Wray Automotive is a family-run repair shop at 1109 N Jackson St #1 in Bloomington. Look for the brown steel building with five bay doors and orange bollards, the black sign with the piston, crossed wrenches and orange WRAY plate, and the blue awning over the office door. We are ASE certified with over twenty years of experience, and we work on just about anything: daily drivers, Subarus, students' hand-me-downs, work trucks, hot rods and performance cars. Our own flatbeds and wrecker run 24-hour towing, so a breakdown can come straight into our bays. When you call, you will usually talk with Dalton or Chris. Customers come back for the same reasons: we tell you exactly what your car needs and nothing more, we explain what can wait, and when we find the same quality part for less, the bill comes in under the estimate. Nextdoor neighbors named us a Neighborhood Favorite in 2024.
+
+## Service area pages
+- Bloomington, IN: https://ronaks-code.github.io/sitelift-demos/auto-repair/indiana/wray-automotive/service-area-bloomington.html
+- Ellettsville, IN: https://ronaks-code.github.io/sitelift-demos/auto-repair/indiana/wray-automotive/service-area-ellettsville.html
+- Bedford, IN: https://ronaks-code.github.io/sitelift-demos/auto-repair/indiana/wray-automotive/service-area-bedford.html
+- Martinsville, IN: https://ronaks-code.github.io/sitelift-demos/auto-repair/indiana/wray-automotive/service-area-martinsville.html
+- Spencer, IN: https://ronaks-code.github.io/sitelift-demos/auto-repair/indiana/wray-automotive/service-area-spencer.html
+- Nashville, IN: https://ronaks-code.github.io/sitelift-demos/auto-repair/indiana/wray-automotive/service-area-nashville.html
+
+## Frequently asked questions
+- Q: How do I get my car looked at?
+  A: Call (812) 369-4520 or send a service request online, then bring the car to 1109 N Jackson St #1. We call you with what we find and the cost before any work starts.
+- Q: Will you tell me what can wait?
+  A: Yes. We explain what needs fixing now and what you can put off, so you can plan around your budget.
+- Q: Will the final bill match the quote?
+  A: You get a fair quote up front. Customers have had the bill come in under the estimate when we found the same quality part at a better price.
+- Q: Do you tow?
+  A: Yes. We run our own flatbeds and a wrecker with 24-hour service. Call (812) 369-4520 and we will bring the car straight to the shop.
+- Q: My student at IU needs a mechanic. Can you help?
+  A: Yes, we see a lot of IU students. We explain the problem to them, call parents with the plan if you like, and keep everyone updated until the car is ready.
+- Q: Where are you and when are you open?
+  A: 1109 N Jackson St #1, Bloomington, IN 47404. Monday to Friday, 8 AM to 6 PM. Closed Saturday and Sunday.
+
+## What customers say
+- "They told me exactly what I needed, nothing more, and we're beyond fair and honest. They also were able to accommodate my many questions and me not being able to get to my vehicle for a few days after everything was done. This place is run by honest and good people." (Tony Evans, Google review)
+- "This shop is a good example of getting all the basics right. This is a family run operation... I was contacted promptly after diagnosis with a repair plan, they involved me in the plan which allowed me to decide if the cost of repair was worth it, and I got a call the moment my car was ready for pickup. They respected my time and they were honest and frugal with their service." (Scott P., Google review)
+- "They took care of my daughter's old car and treated her well. Since the car is old, they explained the necessary repairs and other things we could put off. And when it was all done, it came in under the estimate. They said they found a part cheaper and passed the savings on to the customer." (Joy Sullivan, Google review)
+- "ATTENTION PARENTS of IU STUDENTS... Guys said it would be 18 days to fix and six days later, the car is complete. They also replaced other components, test drove, double-checked everything, and the cost came in under the quote. They communicated every step and were extremely kind to my son who was in a panic." (Jeff M., Google review)
+- "I got an appointment at wray automotive immediately and they went above and beyond to help me get my car fixed correctly and I had it back to me in 24h. Super friendly service from Dalton and everyone in there and they made sure to educate me on what was wrong with my car." (Elaina Haggard, Google review)
+- "I broke down on a Sunday night (before a Monday holiday!) and these guys towed me that night. They fit me in between appointments on Monday and had my car ready for me that afternoon! Such courteous service, reasonably priced." (Stiletto Z., Google review)

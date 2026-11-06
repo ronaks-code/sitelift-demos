@@ -1,0 +1,52 @@
+# Miller's Barber Shop
+
+> Old-school walk-in barbershop based in Bloomington, Indiana. Sam has run this walk-in barbershop on N Washington St since 2000. No appointments, no fuss: come in, take a seat, and get a careful cut with good conversation.
+
+- Phone: (812) 323-9256
+- Based in: Bloomington, IN
+- Nearby areas: Bloomington, Ellettsville, Spencer, Bedford, Martinsville, Nashville
+- Google rating: 4.3 from 56 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/millers-barber-shop/quote.html
+- Take a seat: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/millers-barber-shop/book.html
+
+## Services
+- Haircuts: A careful, even cut. Sam takes his time, and regulars say the sides finally come out even.
+- Haircut & shave: The full old-school visit: a cut and a shave in the same chair. Or come in for a shave on its own.
+- Walk-ins only: No appointments, ever. Come by during open hours and grab the next seat, downtown on N Washington St.
+
+## About
+Miller's Barber Shop opened on March 1, 2000, in the red brick storefront at 121 N Washington St in downtown Bloomington, with the barber pole out front and the Miller's sign in the window. Sam has been behind the chair ever since. There are no appointments here. Come by Tuesday to Friday between 8 and 5, or Saturday morning until noon, and take the next seat. First come, first served, and everybody sits in the same chair. What people keep writing about is the care and the company: Sam takes the time, gets the sides even and gives you a good ol' fashioned haircut, with a story or two while you're in the chair.
+
+## Nearby areas pages
+- Bloomington, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/millers-barber-shop/service-area-bloomington.html
+- Ellettsville, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/millers-barber-shop/service-area-ellettsville.html
+- Spencer, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/millers-barber-shop/service-area-spencer.html
+- Bedford, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/millers-barber-shop/service-area-bedford.html
+- Martinsville, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/millers-barber-shop/service-area-martinsville.html
+- Nashville, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/millers-barber-shop/service-area-nashville.html
+
+## Frequently asked questions
+- Q: Do I need an appointment?
+  A: No. Miller's is walk-in only and doesn't book appointments. Just come by during open hours and take the next seat.
+- Q: What are your hours?
+  A: Tuesday to Friday 8 AM to 5 PM, Saturday 8 AM to noon. Closed Sunday and Monday. Hours can change around holidays, so call (812) 323-9256 if you're not sure.
+- Q: Where are you?
+  A: 121 N Washington St in downtown Bloomington, in the brick storefront with the barber pole out front, right next to the Smith House awning.
+- Q: Do you take cards?
+  A: Yes. Cards are accepted through Square.
+- Q: Do you do shaves?
+  A: Yes. You can get a haircut and shave, or come in for a shave only.
+- Q: Is the shop ever closed during regular hours?
+  A: Now and then, for things like a friend's funeral or a veterans' ride. Closures are posted on the shop's Facebook page, or you can call (812) 323-9256 before heading over.
+- Q: How long has Miller's been open?
+  A: Since March 1, 2000, in the same downtown storefront on N Washington St.
+- Q: When is the best time to come in?
+  A: It's first come, first served. If you want to check how busy it is before walking over, give the shop a call.
+
+## What customers say
+- "Perfect Haircut, he takes the time and is careful to do what you want! You can go without any appointments… I definitely recommend" (Emilien Renard, Google review)
+- "Good ol' fashioned haircut and good company. Great price, my favorite place downtown! Walk in!" (Wayne Chandler, Google review)
+- "Best haircut i have received. Great guy and will be coming back." (Felipe Van Hoorde, Google review)
+- "It does not look like much from the outside, but that's not what matters. The haircut is what matters and let me tell you Sam is a perfectionist… He is also a fun guy to talk to and has a ton of stories." (Evan W., Yelp review)
+- "Always give the best cut at the cheapest price, and with good conversation. Thank you sam!" (Hayden Miller, Facebook review)
+- "Best dang haircut ever. It was "even" all over for once and my head no longer looked lopsided. Sam is a great conversationist and a great guy!" (Frank M., Yelp review)

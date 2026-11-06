@@ -1,0 +1,48 @@
+# Hoosier Barber Shop
+
+> Neighborhood barbershop based in Bloomington, Indiana. Bloomington's neighborhood barbershop since 2001. Fades, tapers, line-ups, shaves and classic cuts on N Walnut St: ask for a normal haircut and you get a normal haircut, done sharp, by barbers who know your name and never rush you.
+
+- Phone: (812) 332-0444
+- Based in: Bloomington, IN
+- Nearby areas: Bloomington, Ellettsville, Spencer, Bedford, Martinsville, Nashville
+- Google rating: 4.6 from 124 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/hoosier-barber-shop/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/hoosier-barber-shop/book.html
+
+## Services
+- Haircuts: A normal haircut, done right. Tell your barber what you want and that's what you walk out with, kids and adults alike.
+- Fades & tapers: Ball fades, bald fades and tapers blended clean by barbers regulars trust with the details.
+- Shaves, line-ups & beards: Straight-razor shaves, professional head shaves, crisp line-ups and beard fades to finish the look.
+
+## About
+Jay Thompson opened Hoosier Barber Shop in 2001. He had cut hair in Indianapolis and Kokomo before moving to Bloomington in 2000, and the shop spent its first dozen years at 10th Street and the Bypass before moving up N Walnut St. Today you'll find it at 908 N Walnut, a few minutes north of the square. It calls itself a full-service barbershop and salon, and it's known for two things: reliable cuts and a relaxed room. As one regular put it, some shops will try to turn your hair into an art project; here, if you ask for a normal haircut, you get a normal haircut, done right. Cuts take a little longer because nobody rushes you out the door. It's the kind of place where everyone gets greeted when they walk in and the conversation is half the visit. Jay has shown up for the community too, giving free haircuts to kids at a Thriving Connections event, and Nextdoor neighbors named the shop a Neighborhood Favorite in 2025.
+
+## Nearby areas pages
+- Bloomington, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/hoosier-barber-shop/service-area-bloomington.html
+- Ellettsville, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/hoosier-barber-shop/service-area-ellettsville.html
+- Spencer, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/hoosier-barber-shop/service-area-spencer.html
+- Bedford, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/hoosier-barber-shop/service-area-bedford.html
+- Martinsville, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/hoosier-barber-shop/service-area-martinsville.html
+- Nashville, IN: https://ronaks-code.github.io/sitelift-demos/barbershops/indiana/hoosier-barber-shop/service-area-nashville.html
+
+## Frequently asked questions
+- Q: Do I need an appointment?
+  A: Appointments are the way to go: call (812) 332-0444 to grab a time. If you want to come in today, call and ask if there's an open chair.
+- Q: What are your hours?
+  A: Monday to Saturday, 8 AM to 5 PM. Closed Sunday. Hours can change around holidays, so call if you're not sure.
+- Q: Where is the shop?
+  A: 908 N Walnut St, Bloomington, IN 47404, a few minutes north of the downtown square and the IU campus.
+- Q: Do you cut kids' hair?
+  A: Yes. Jay and the team cut hair for kids and families as well as adults. Call ahead to book a time.
+- Q: Do you do fades, shaves and beard work?
+  A: Yes. Ball fades, bald fades, tapers, straight-razor and head shaves, line-ups and beard fades are all regular work here.
+- Q: Can I ask for a specific barber?
+  A: Yes. Plenty of regulars ask for Jay or Aaron by name. Mention who you want when you call.
+
+## What customers say
+- "I've tried several different barbershops in Bloomington, and this is the best. You get a good haircut for a good price from friendly people. Besides being the most relaxing environment of any barbershop I've been to, you'll get a good haircut here more reliably than any other place." (Micah Torcellini, Google review)
+- "I cannot believe it took me this long to find Jay and the other barbers. This felt like a visit to some old friends with supernatural skills... Hoosier Barbershop, though, is the best - welcoming and unbelievably talented. I looked sharper than I thought possible. Will book again." (Jamison Saltsman, Google review)
+- "This place is the best! Love Jay and the staff... reminds me my old Brooklyn barber shops. Lots of character and conversation. Everyone is truly welcome. Yeah, also a great haircut... not too much money." (Greg B., Google review)
+- "Been coming here for a few years. Jay is great at what he does and always brings fun, interesting conversation. Cuts are decently priced." (Aether, Google review)
+- "Super nice people here, the second you get in they loudly greet you and try to make it as much of a friendly community feeling as they can... you can tell they have a lot of loyal customers. Haircut really was fantastic, and very reasonable prices too." (Pat L., Google review)
+- "Aaron is my guy and always does a fantastic job." (Jack McNeil, Google review)
