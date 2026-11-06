@@ -1,0 +1,85 @@
+# Frantz Automotive Center
+
+> Locally owned auto repair and service in downtown Cary, NC. Rated 4.8 from 283 Google reviews. Maintenance, NC state inspections and major repairs.
+
+- Type: Car repair and maintenance service
+- Address: 410 W Chatham St, Cary, NC 27511, USA
+- Phone: (919) 469-5423
+- Email: frantzautomotive@hotmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/frantz-automotive-center/
+- Google Maps: https://maps.google.com/?cid=10393893019857909621&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.8 from 283 reviews
+
+## Hours
+- Monday: 7:30 AM – 6:00 PM
+- Tuesday: 7:30 AM – 6:00 PM
+- Wednesday: 7:30 AM – 6:00 PM
+- Thursday: 7:30 AM – 6:00 PM
+- Friday: 7:30 AM – 6:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Frantz Automotive Center is locally owned and operated by Don and Lisa Frantz, right in the heart of downtown Cary. Our goal is simple: your complete satisfaction, both professionally and personally. Earning your trust matters to us.
+Don is an ASE Certified Master Technician and leads the shop floor. Lisa handles business management, customer relations and planning. Our service manager, Darryl Phillips, estimates and authorizes your repair and service work and handles parts ordering.
+Our neighbors have given us a 4.8 rating from 283 Google reviews. One customer said it plainly: call them, you will be in good hands.
+
+## Services
+- Lube, Oil and Filter Service: Routine oil and filter changes to keep your engine running right.
+- North Carolina State Inspections: We're an Official North Carolina State Inspection Station.
+- Brake System Service: Service for your brake system, plus anti-lock brake repair.
+- Air Conditioning Service: Air conditioning service, and air conditioning system repair when something's wrong.
+- Computerized Wheel Alignment: Alignment to keep your car tracking straight.
+- Computer Diagnostics / Check Engine Light: When the check engine light comes on, we find out why.
+- Transmission Repair and Replacement: Transmission repair, replacement and fluid service.
+- Steering and Suspension Repair: For a ride that feels bumpy or steering that doesn't feel right.
+
+## FAQ
+Q: Do you work on my kind of vehicle?
+A: Yes. We work on foreign and domestic vehicles, whether you drive an American or import car or truck, SUV, mini van or hybrid.
+
+Q: Can I get my state inspection done here?
+A: Yes. We're an Official North Carolina State Inspection Station.
+
+Q: What are your hours?
+A: We're open Monday through Friday, 7:30 AM to 6:00 PM. We're closed Saturday and Sunday.
+
+Q: How do I schedule an appointment?
+A: Give us a call at 919-469-5423 to schedule. You can also email us at frantzautomotive@hotmail.com.
+
+## What customers say
+- "We first came here a few months ago when one of our cars had an issue with it’s brake line breaking. What initially attracted us were the amazing reviews, but we were especially impressed to learn that they are family-owned.
+
+When we brought that car in, they were incredibly transparent with us. They explained that they wouldn’t be able to get a brand-new part anytime soon, but they could overnight a used part rather than having us wait 6–9 months for a new one. They took such great care of our car and made the whole process so easy.
+
+Recently, my car started making a questionable noise and eventually became unreliable. We brought it back to them, and they took the time to research the issue as much as possible. They were honest with us and explained that it was going to be an expensive repair.
+
+When we came in to pick up my car, they remembered exactly who I was, welcomed me in, and took the time to explain everything in terms I could actually understand. They were so easy to talk to and never once made me feel talked down to.
+
+As a younger woman, I’ve unfortunately experienced the opposite at other automotive places, where you can sometimes feel like people assume you don’t know anything about cars. That was never the case here. I genuinely felt respected, listened to, and taken care of.
+
+Even today, when I came by to pick up my car to take it to the dealership to trade it in, they told me that if I ever have questions about the reliability of my new vehicle or common issues to look out for, I can always call them. That small gesture really stood out to me because it showed that they genuinely care about their customers, even when there’s nothing in it for them.
+
+I cannot recommend them enough. I’ll be sending everyone I know here, and I’ll absolutely be coming back when my new car needs service. If you’ve been looking for a sign that you should give them a try, let this be it! You will not regret it.🫶" (Renee Burwell, 5/5)
+- "Short review Yes call them you will be in good hands.
+Longer review:
+We recently reached out to Frantz Automotive Center after buying my son his first car a manual and knowing from the pre‑inspection report that it would need a clutch replacement and a new oil pan. We contacted several shops in the Raleigh and Cary area, and while some never responded, Frantz stood out immediately.
+
+They turned around a detailed quote quickly and answered every question we had in that first response. No back‑and‑forth, no chasing them down, just clear, straightforward communication. Their timeline worked for us, and when we needed to push the appointment out a bit, they were flexible and easy to work with.
+
+When we dropped off the car, they called to confirm whether we wanted to take care of another minor issue they found, and later updated us once everything was completed which was actually earlier than the estimated time they gave us just for the clutch alone. They stayed within the quoted budget, and the entire process felt organized, honest, and professional.
+
+For a first‑car repair experience for my son , we couldn’t have asked for better. We truly appreciate this company and the way they do business.
+
+No i did not get any addtional monies or discounts for writing this and Yes we are real customers." (Ricardo Callado, 5/5)
+- "When we moved to Cary 2 years ago, I did a LOT of research on local car repair shops. Several were rated highly across many websites, but I kept coming back to the glowing reviews about Frantz Automotive Center in particular.
+
+So, we started using them for all our repairs, and we have never been disappointed in the 2 years since.
+
+Frantz is a unique business where the owner is actively involved in its operations. I have visited multiple times and have always left satisfied.
+
+They are trustworthy, perform quality work without pushing unnecessary services, and keep customers well-informed. I have complete confidence in them for my car's needs.
+
+Additionally, the waiting room is a great space to relax in, even if you don't have any work scheduled for your vehicle." (Charlie Byrne, 5/5)
+- "I took my prius to them for a quick check up to make sure i twas safe to drive because the ride felt "bumpy" and we have a baby on the way. The staff was super nice, the service was quick and they were truly exceptional the way how they treated me. They are really there for your car and not just to grab your money! I am 100% coming back to Frantz from now on." (Kristóf Cank, 5/5)
+- "Went for an oil change and all-around inspection and service was phenomenal. Fair price, quick and very friendly customer service. They didn’t try to upsell which I really appreciate and answered all my questions. I will definitely be returning for all future needs!" (Pedro, 5/5)
