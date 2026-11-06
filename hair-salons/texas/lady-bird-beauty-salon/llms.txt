@@ -1,0 +1,48 @@
+# Lady Bird Beauty Salon
+
+> Beauty salon based in Austin, Texas. Haircuts, color and classic shampoo and sets with Elly, in a clean, quiet salon where every client, and every elder, is treated with real respect.
+
+- Phone: (512) 478-0941
+- Based in: Austin, TX
+- Nearby areas: Austin, East Austin, Downtown Austin, Travis Heights, Holly, Rainey Street
+- Google rating: 4.7 from 15 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/lady-bird-beauty-salon/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/lady-bird-beauty-salon/book.html
+
+## Services
+- Haircuts: Shampoo and cut for women and men, done exactly the way you ask for it, from a light trim to a clean bald fade.
+- Color, highlights & perms: All-over color, highlights and lowlights, on their own or with a cut, plus perms for soft, lasting curl and body.
+- Sets, blowouts & waxing: The classic shampoo and set, with sculpted curls one visitor called artwork, a smooth shampoo blowout, and quick waxing.
+
+## About
+Lady Bird Beauty Salon is a small neighborhood salon at 1320 Art Dilly Drive in East Austin, a few blocks from Lady Bird Lake. It is owned by Elly, who does the hair herself: shampoo cuts and bald fades, color, highlights and perms, blowouts, and the classic shampoo and set. Clients describe it as well kept, clean and calm, and they come back for the way Elly treats people. One visitor who stopped in to chat wrote that it is "a joy to observe her treatment of her elderly clients. Such respect and caring!"
+
+## Nearby areas pages
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/lady-bird-beauty-salon/service-area-austin.html
+- East Austin, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/lady-bird-beauty-salon/service-area-east-austin.html
+- Downtown Austin, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/lady-bird-beauty-salon/service-area-downtown-austin.html
+- Travis Heights, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/lady-bird-beauty-salon/service-area-travis-heights.html
+- Holly, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/lady-bird-beauty-salon/service-area-holly.html
+- Rainey Street, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/lady-bird-beauty-salon/service-area-rainey-street.html
+
+## Frequently asked questions
+- Q: What services do you offer?
+  A: Shampoo cuts, bald fades, color, highlights, lowlights, perms, shampoo and sets, shampoo blowouts and waxing. Call (512) 478-0941 if you're looking for something else and we'll tell you if we can help.
+- Q: How much does a haircut cost?
+  A: Call (512) 478-0941 and we'll tell you the price for what you have in mind. Clients often mention that the prices are very reasonable.
+- Q: What are your hours?
+  A: Tuesday to Friday 10 AM to 5 PM, Saturday 9 AM to 2 PM, closed Sunday and Monday. Holiday hours can change, so call ahead if you're not sure.
+- Q: Where are you?
+  A: 1320 Art Dilly Dr, Austin, TX 78702, a few blocks from Lady Bird Lake. Look for the Lady Bird sign in the window and the Hair Salon sign by the door.
+- Q: Do I need an appointment?
+  A: Calling ahead is best so Elly can set aside time for you, and same-day openings do happen: one client called and got in a couple of hours later. Call (512) 478-0941 or send an appointment request on this site and we'll call you back.
+- Q: Do you do wash and sets for older clients?
+  A: Yes. Weekly wash and sets are a big part of what we do, and our older regulars are some of our favorite clients.
+
+## What customers say
+- "I just stopped in to chat with the owner. It's just a joy to observe her treatment of her elderly clients. Such respect and caring! And one lady's wash and set looked standard from the front but the sculpted curls in back were artwork. Elly is so talented!" (Margaret McGonegle, Google review)
+- "Called ahead and was able to get an appointment just a couple of hours later. Elly herself did my cut and she was extremely kind. Really reasonable pricing too. My new default hair cut spot." (Jason M., Yelp review)
+- "Elly is quite wonderful, efficient and giving me a perfect cut for my tastes every time." (Allan Joy, Google review)
+- "Great customer service. Elly is really wonderful to chat to, very throughout and efficient. Prices are very reasonable too!" (Geraldine H., Yelp review)
+- "It a well kept clean place and hair stylist very polite very Christian women. He cares about all the elders and does a fine job. I did highlights and haircut. It's my third time going there. I just love it. I recommend it." (Norma Castro, Google review)
+- "Had a great experience here! Loved my haircut and got it at a good price. Nice clean salon space" (Mona Q., Yelp review)

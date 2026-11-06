@@ -1,0 +1,51 @@
+# Fairlady Salon
+
+> Hair salon based in Pflugerville, Texas. Balayage, color correction, curls and precision cuts in Pflugerville since 2006, starting with an essential-oil wash and an aromatherapy towel that clients call the best part.
+
+- Phone: (512) 670-0838
+- Based in: Pflugerville, TX
+- Nearby areas: Pflugerville, Austin, Round Rock, Hutto, Manor, Wells Branch
+- Google rating: 4.7 from 313 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/fairlady-salon/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/fairlady-salon/book.html
+
+## Services
+- Balayage & highlights: Hand-painted balayage, partial highlights, face framing and babylights in caramel, honey, mocha and blonde.
+- Color & color correction: Root touch-ups, rich brunettes, cherry cola and vivid shades, plus color correction when a past color went wrong.
+- Cuts & pixies: Precision cuts for women and men, done neatly and without rushing, including the short cuts that are hard to get right.
+- Curls & perms: Expert care for curly, thick or fine hair, plus perms and relaxers with a stylist who asks the right questions first.
+- Brazilian Blowout & keratin: Every Fairlady stylist is Brazilian Blowout certified. Smoothing for frizz-free, shiny hair that is easier to style.
+- Wash & treatments: Our signature essential-oil wash and aromatherapy towel, with deep conditioning and repair treatments.
+
+## About
+Fairlady Salon has been doing hair in Pflugerville since 2006. Owner Vilma Lopez leads the team from 1202 FM 685, under the blue Fairlady sign. Inside it's black leather chairs, marble floors and glass mosaic tile, and clients describe it as serene, chic and spa-like from the moment they walk in. We're the home of color correction and balayage specialists, with expert care for curly, thick or fine hair. Fairlady is a Redken salon, every stylist is Brazilian Blowout certified, and walk-ins are welcome. Our stylists explain your hair type and its condition, suggest what will suit you, and take their time so everything is done properly.
+
+## Nearby areas pages
+- Pflugerville, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/fairlady-salon/service-area-pflugerville.html
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/fairlady-salon/service-area-austin.html
+- Round Rock, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/fairlady-salon/service-area-round-rock.html
+- Hutto, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/fairlady-salon/service-area-hutto.html
+- Manor, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/fairlady-salon/service-area-manor.html
+- Wells Branch, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/fairlady-salon/service-area-wells-branch.html
+
+## Frequently asked questions
+- Q: What services do you offer?
+  A: Balayage and highlights, roots and all-over color, color correction and vivids, haircuts for women and men including pixies, curly cuts, perms and relaxers, Brazilian Blowout and keratin smoothing, and treatments with our signature essential-oil wash.
+- Q: How much does a visit cost?
+  A: Our starting prices are on the services page, for example a women's cut and style from $47 and balayage from $130. Prices go up with length, density and stylist level, so your stylist confirms the total at your consultation. Services of $125 or more need a 25% deposit when you book.
+- Q: Do you take walk-ins?
+  A: Yes, walk-ins are welcome. To be sure of your stylist and time, especially for color, call (512) 670-0838 or book online any time, and send an inspiration photo if you have one.
+- Q: Do you work with curly or short hair?
+  A: Yes. Clients come to us for curly cuts and color, perms, and pixie cuts. Tell us about your hair when you book and we'll plan the right appointment.
+- Q: What are your hours?
+  A: Monday 10 AM to 7 PM, Tuesday 9 AM to 7 PM, Wednesday 10 AM to 7 PM, Thursday and Friday 9 AM to 8 PM, Saturday 9 AM to 5 PM (VIP appointments from 7:30 AM), closed Sunday. We close for Good Friday, Memorial Day, July 4th, Labor Day, Veterans Day, Thanksgiving, Christmas Day and New Year's Eve.
+- Q: Where is Fairlady Salon?
+  A: 1202 FM 685, Suite B-1, Pflugerville, TX 78660, under the blue Fairlady sign. It's an easy drive from Austin, Round Rock, Hutto, Manor and Wells Branch.
+
+## What customers say
+- "The hair shampooing was excellent, and the deep conditioning treatment left my hair feeling so soft and healthy. They took the time to explain my hair type, its condition, and the haircut that would suit me best. I really appreciated their patience, attention to detail, and the way they handled my haircut so neatly and smoothly without rushing through the process." (Rashmi Reddy, Google review)
+- "The salon's design is serene and chic, with a clean, contemporary vibe that instantly puts you at ease. The use of essential oils during the wash added a calming, spa-like touch that made the whole experience feel extra pampering. Every step felt polished, from the consultation to the finish, and I left feeling fresh, confident, and well cared for." (Gladys Quiroz, Google review)
+- "I have a pixie hair cut and if you have short hair as a woman you know how difficult it can be to find someone who cuts your hair correctly! I been going to Dulce for months and she has never disappointed! Appointments are easy to make and the aroma therapy towel while washing hair is the best and such a nice little touch!" (April Pflours, Google review)
+- "This was my first time going to Fairlady salon, amazing experience!! I can't say enough about my stylist Erica, love how she did my hair, she will give you suggestions. Definitely will continue going to the salon." (Julissa Fernandez, Google review)
+- "I'm from out of town and needed hair saving so bad! Booked a partial highlight with Kaitlyn and she matched up my previous highlights/money pieces sooo perfectly! Looked so natural and loved the tone 10/10 would recommend!! All the stylists were friendly and I just felt totally at home!" (Bethany T., Yelp review)
+- "Very good experience! I went in for a perm and a haircut. Dulce was very knowledgeable about the process, was very diligent in asking specific questions to ensure she understood my hair needs, and was very attentive through the entire process." (Amanda McFarland, Google review)

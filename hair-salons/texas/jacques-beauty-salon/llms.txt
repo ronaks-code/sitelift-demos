@@ -1,0 +1,53 @@
+# Jacque's Beauty Salon
+
+> Hair & beauty salon based in Georgetown, Texas. A small, warm salon on Williams Drive where Jacque and her stylists listen first, fix the cut that went wrong somewhere else, and send you home with hair that feels like you. Walk-ins welcome.
+
+- Phone: (512) 869-8576
+- Based in: Georgetown, TX
+- Nearby areas: Georgetown, Round Rock, Leander, Liberty Hill, Jarrell, Florence
+- Google rating: 4.8 from 34 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/jacques-beauty-salon/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/jacques-beauty-salon/book.html
+
+## Services
+- Cuts & hair design: Women's cuts, men's cuts, dry razor cuts, beard trims and quick bang or neck trims, shaped to your hair type.
+- Color & fashion shades: All-over color, root coverage and vivid shades, all the way to bright pink or red in one session.
+- Highlights & blondes: Full and partial highlights, honey blondes and soft silver toning.
+- Blowouts & styling: Shampoo and sets, smooth blowouts, Brazilian blowouts and soft, bouncy waves.
+- Perms & formal up-dos: Permanents with a full cut and finish, and up-dos for weddings, proms and big nights.
+- Waxing & brow tinting: Facial waxing and eyebrow tinting, done while you're already in the chair.
+
+## About
+Jacque Liendo has been doing hair in Georgetown for more than 30 years, and some of her clients have been with her since the early '90s. Her salon, Jacque's Beauty Salon, now sits at 4841 Williams Drive, Building 107, Suite 16: a silk-flower arch in blush and cream over brushed-gold arched mirrors, a crystal chandelier, mauve velvet chairs and gold lily-pad side tables in the waiting area. Jacque cuts, colors and styles, and clients say she knows what will work with their hair type. Some came to her to fix a bad haircut or color from somewhere else. Others found her after trying stylist after stylist, or while visiting family in town, and now come back every trip. Sabrina is the newest name in the reviews, with new Georgetown residents walking in and walking out happy. Cuts, dry razor cuts, color, highlights, perms, Brazilian blowouts, formal up-dos, facial waxing and brow tinting all happen in the same chair. Walk-ins are welcome, and appointments are usually easy to get within a week or so.
+
+## Nearby areas pages
+- Georgetown, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/jacques-beauty-salon/service-area-georgetown.html
+- Round Rock, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/jacques-beauty-salon/service-area-round-rock.html
+- Leander, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/jacques-beauty-salon/service-area-leander.html
+- Liberty Hill, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/jacques-beauty-salon/service-area-liberty-hill.html
+- Jarrell, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/jacques-beauty-salon/service-area-jarrell.html
+- Florence, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/jacques-beauty-salon/service-area-florence.html
+
+## Frequently asked questions
+- Q: Do you take walk-ins?
+  A: Yes, walk-ins are welcome Tuesday through Saturday. To be sure of a time, call (512) 869-8576 or book online.
+- Q: What are your hours?
+  A: Tuesday to Friday 9 AM to 5 PM and Saturday 9 AM to 1 PM. We're closed Sunday and Monday, and holiday hours can change.
+- Q: Who are the stylists?
+  A: Jacque Liendo owns the salon and does cuts, color and styling; she has been doing hair in Georgetown for more than 30 years. Sabrina is also behind the chair. Ask for either one when you call.
+- Q: Do you do Brazilian blowouts?
+  A: Yes. Brazilian blowouts, perms, shampoo and sets and dry razor cuts are all on the menu. Call to book the time you need.
+- Q: Can you fix a haircut or color from another salon?
+  A: Yes. Clients have come to Jacque after a bad cut elsewhere and left with exactly what they wanted. Bring photos of what you're after.
+- Q: Can I go bright or vivid in one visit?
+  A: Often, yes. One client went from black to an all-over bright red in a single session. Every head of hair is different, so we'll talk it through first.
+- Q: What's your cancellation policy?
+  A: Same-day cancellations and no-shows may be charged a fee, so please call (512) 869-8576 as early as you can if your plans change.
+
+## What customers say
+- "Jacque is fantastic. She recently fixed a terrible haircut I got from another salon. The style she gave me was exactly what I wanted, and it cost less than the awful one. It's easy to make appointments with her within a week or so. This week she will be coloring my hair. I will exclusively be seeing her for all of my hair needs in the future." (Lacey Gholson, Google review)
+- "Jacque cut my hair for the first time today. I trusted her to know what would work with my hair type and I'm very happy with how it turned out. Will definitely return. Thank you, Jacque." (Linda Gurian, Google review)
+- "I'm from out of town visiting my parents, and I've now found my absolutely new favourite stylist! Jacque is superb. GREAT haircut, GREAT attention to detail and she really knows what she is doing. I'll be back every time I come to town. Thank you!" (Mary Leslie, Google review)
+- "Recently moved to Georgetown, I found this stylist on a google search. I walked in looking like a shaggy dog and this sweet and polite young lady did an outstanding job on my hair.. Thank you Ms. Sabrina." (CaptainMike K, Google review)
+- "After using the same hair stylists for 25+ years in San Antonio, I moved to Georgetown and tried 4 stylists before I found Jacque. She is amazing and very competitively priced! She makes me look like I have hair (when I have fine, thinning hair and want to wear a trendy haircut). I also like Kat, who works with her. Kat does my color and she does a great job." (Tammany L., Yelp review)
+- "Jacque is amazing! Today was the second time my daughter has seen her. Both times she gave her EXACTLY what she wanted. First was just a haircut ... between a pixie cut and a mullet. It was perfection! Today we went in and she had it colored. A-mazing again!" (Janet K., Yelp review)

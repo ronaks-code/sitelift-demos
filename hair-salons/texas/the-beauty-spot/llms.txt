@@ -1,0 +1,47 @@
+# The Beauty Spot
+
+> Family hair salon & barber based in Pflugerville, Texas. A friendly, bilingual family salon and barber on Dessau Rd in Pflugerville. Women's, men's and kids' cuts, color, highlights and hot-towel shaves, open seven days. Walk-ins welcome. Se habla español.
+
+- Phone: (512) 294-3873
+- Based in: Pflugerville, TX
+- Nearby areas: Pflugerville, Austin, Wells Branch, Round Rock, Hutto, Manor
+- Google rating: 3.9 from 66 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-beauty-spot/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-beauty-spot/book.html
+
+## Services
+- Women's cuts: From short bobs to long layers, cut the way you asked for it.
+- Kids' cuts: Short, long or something new: we listen to what they want.
+- Barber & beard: Men's cuts and classic hot-towel beard shaves.
+- Color: Rich all-over color, from deep burgundy to glossy brunette.
+- Highlights & balayage: Caramel, copper and blonde, blended to grow out soft.
+- Sleek & straight: Glass-straight, shiny finishes that show off the color.
+
+## About
+The Beauty Spot is a family-run hair salon and barber in the limestone strip center at 14905 Dessau Rd, Suite 400, in Pflugerville, next door to the frozen yogurt shop. Some of our clients found us just by spotting the sign on Dessau Rd and pulling in. Our team speaks Spanish and English. We cut whole families' hair, take walk-ins seven days a week, and our favorite question is the one on our aprons: ¿Cómo quieres lucir hoy? How do you want to look today?
+
+## Nearby areas pages
+- Pflugerville, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-beauty-spot/service-area-pflugerville.html
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-beauty-spot/service-area-austin.html
+- Wells Branch, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-beauty-spot/service-area-wells-branch.html
+- Round Rock, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-beauty-spot/service-area-round-rock.html
+- Hutto, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-beauty-spot/service-area-hutto.html
+- Manor, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-beauty-spot/service-area-manor.html
+
+## Frequently asked questions
+- Q: Do you take walk-ins?
+  A: Yes. Walk in any day we're open and we'll fit you in, or call (512) 294-3873 to check the wait.
+- Q: What are your hours?
+  A: Monday to Thursday 10 AM to 8 PM, Friday and Saturday 9 AM to 8 PM, and Sunday 10 AM to 4 PM.
+- Q: ¿Hablan español?
+  A: Sí. Our team speaks Spanish and English, so you can explain your cut or color however you like.
+- Q: Do you cut kids' hair?
+  A: Yes. Kids are welcome, whether they want a quick trim or a brand new short cut.
+- Q: Where are you?
+  A: 14905 Dessau Rd, Suite 400, in Pflugerville, in the limestone strip center next to the frozen yogurt shop, with parking right out front.
+
+## What customers say
+- "I've known Mireya Macias for many years. She is always kind, friendly and caring. She cuts my family's hair and it looks great." (M Harper, Google review)
+- "I was driving down Dessau Rd Sunday afternoon and the sign got my attention. I did a "turn around" and pulled in. From the moment I walked in staff made me feel comfortable. Abby cut my hair in a short-bob and it is beautiful. Best cut I have ever gotten. This is my Beauty Shop now, thanks Abby." (Sandy Aylieff, Google review)
+- "My first visit to The Beauty Spot is the Best hidden gem ever. I will definitely be going back. Abigail, my new hair stylist, is awesome and very accommodating. She is such a great artist who listens to her clients." (Vanessa Fernandez, Google review)
+- "My daughter loves her haircut! Thankfully this place took walk-ins because everywhere else was booked. Other hair salons didn't like when I said my daughter wanted short hair, here they had no issues with it. They made sure she loved it and did what she wanted. This is definitely a great place to go and they have amazing prices." (TrippMachine, Google review)
