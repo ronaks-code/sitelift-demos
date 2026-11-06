@@ -1,0 +1,54 @@
+# KC Beauty Salon
+
+> Beauty salon & barber shop based in Pflugerville, Texas. Fresh cuts and hot-towel shaves, women's hair and color, nails, lashes and brows, all under one gold sign on FM 685. Open seven days.
+
+- Phone: (512) 243-8266
+- Based in: Pflugerville, TX
+- Nearby areas: Pflugerville, Round Rock, Hutto, Manor, Wells Branch, Austin
+- Google rating: 5.0 from 57 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/kcbeautysalon/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/kcbeautysalon/book.html
+
+## Services
+- Haircuts & fades: Skin fades, tapers and textured tops, finished sharp and even. Cortes for men and boys.
+- Beard & hot-towel shave: A slow, proper beard service in a gold barber chair, finished with a hot towel. Barba con toalla caliente.
+- Women's cuts & styling: Cuts, blowouts and styling with stylists who listen first. Cortes y peinados.
+- Color, keratin & extensions: Balayage, highlights, color, keratin, perms and extensions. Color, keratina y extensiones.
+- Nails: Manicures, French sets and pedicures, from a clean natural look to long sets with chrome, marble and stones. Uñas.
+- Lashes, brows, wax & makeup: Lash extensions and lifts, brow lamination, waxing, facials, makeup and bridal looks. Pestañas, cejas, cera y maquillaje.
+
+## About
+KC Beauty Salon, also known as KC Barber & Beauty, is a barber shop and a beauty salon under one roof, in Suite 105 on FM 685 in Pflugerville. Black capes, gold chairs, white stations and a lit gold sign out front. Barbers work fades and hot-towel shaves on one side while stylists do cuts, color, nails and lashes on the other. The shop is led by Karina Coronado, who also does makeup, bridal looks and nail art. KC also runs hands-on nail classes for people who want to start their own business. Precision, patience and pure passion is how the team puts it. Clients come back for the people. Reviews name Kaleb, Fabian, Alondra and Annie, and talk about a team that takes its time, listens, and keeps the atmosphere laid back. Some families have made KC their go-to salon for over five years, for hair and nails alike. Hablamos español, and the whole family is welcome.
+
+## Nearby areas pages
+- Pflugerville, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/kcbeautysalon/service-area-pflugerville.html
+- Round Rock, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/kcbeautysalon/service-area-round-rock.html
+- Hutto, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/kcbeautysalon/service-area-hutto.html
+- Manor, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/kcbeautysalon/service-area-manor.html
+- Wells Branch, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/kcbeautysalon/service-area-wells-branch.html
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/kcbeautysalon/service-area-austin.html
+
+## Frequently asked questions
+- Q: What services does KC Beauty Salon offer?
+  A: Barber cuts and fades, beard trims with a hot towel, women's cuts and styling, color, balayage, highlights, keratin, perms and extensions, nails and pedicures, lash extensions and lifts, brow lamination, waxing, facials and makeup.
+- Q: What are your hours?
+  A: Monday to Friday 10 AM to 7 PM, Saturday 8 AM to 5 PM and Sunday 10 AM to 3 PM. Holiday hours can change, so call (512) 243-8266 if you're not sure.
+- Q: Where are you located?
+  A: 401 FM 685, Suite 105, Pflugerville, TX 78660, under the lit KC Beauty Salon / Barber Shop sign. It's an easy drive from Round Rock, Hutto, Manor and north Austin.
+- Q: How do I book?
+  A: Call or text (512) 243-8266, or send a request through the booking page with the service you want, and the team will get back to you to set a time.
+- Q: Do you do bridal hair and makeup?
+  A: Yes. Karina Coronado and the team do bridal hair and makeup. Call or text (512) 243-8266 with your date to plan your look.
+- Q: Do you teach nail classes?
+  A: Yes. KC offers hands-on nail classes (clases de uñas) for people who want to start their own nail business. Call or text to ask about the next class.
+- Q: Can the whole family come in together?
+  A: Yes. The barbers and the beauty side work in the same shop, so cuts, nails and lashes can happen in the same visit.
+- Q: ¿Hablan español?
+  A: Sí. El equipo habla español y el menú de servicios está en inglés y español. Llama o manda mensaje al (512) 243-8266 para agendar tu cita.
+
+## What customers say
+- "Five stars is not enough! For over 5 years, this has been the go-to salon for my entire family. Whether it's hair or nails, the service is always excellent. The team is incredibly talented, friendly, and always takes great care of us. We wouldn't go anywhere else!" (Perla Martinez, Google review)
+- "Been getting my hair cut for a while now by one of the barbers by the name Kaleb, he always cut my hair, and he does a great job. He takes his time, listens to what I want, and makes sure everything is cleaned up and even before finishing. The staff is always friendly, the atmosphere is laid back, and I always walk out with a "fresh cut" like Kaleb says." (David Barrett, Google review)
+- "Alandra did an amazing job with my hair! The haircut is beautiful, and the styling was even better than I expected. She was easy to talk to, very gentle throughout the appointment, and made me feel comfortable the whole time. The price was fair, and the quality of her work was outstanding. When I looked at myself in the mirror, I was almost in tears because of how beautifully you transformed my hair." (Haben Giley, Google review)
+- "I've had the pleasure of knowing Fabian for over two years now. He's thorough, consistent, and very professional. I'd strongly recommend him!" (Praneet Sundaram, Google review)
+- "Annie was amazing with my hair! She gave me exactly what I wanted along with being very detail oriented. As well as Alondra with amazing service and making sure I was well taken care of the whole time." (BBhidrogo, Google review)
