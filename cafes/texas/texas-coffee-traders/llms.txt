@@ -1,0 +1,27 @@
+# Texas Coffee Traders
+
+> Austin's original Eastside coffee roaster, founded in 1994 by RC and Beth Beall. Roasts coffee Monday–Friday in East Austin, runs a cafe and retail shop on East 7th Street, sells wholesale across Central Texas, and services espresso equipment through Coffee Techs.
+
+## Locations and hours
+- Cafe & retail: 3223 E 7th St, Austin, TX 78702. Mon–Fri 7am–4pm, Sat 9am–4pm, closed Sunday. Free parking lot, patio, free Wi-Fi, walk-up window.
+- Roastery & warehouse: 5815 Wilcab Rd, Austin, TX 78721. Mon–Thu 8am–5pm, Fri 8am–4pm. Full bean catalog, bulk bags, bar supply, home espresso machines. Walk-ins welcome.
+- Coffee Techs (equipment service): 1138 Airport Blvd, Austin, TX 78702. Mon–Fri by appointment. (512) 476-1437.
+- Phone: (512) 476-2279. Wholesale: orders@texascoffeetraders.com.
+- Moved in 2024 from the longtime warehouse at 1400 E 4th St (no longer open there).
+
+## Coffee
+- 55 coffees: house blends (Dovetail Blend, 4th Street Blend, Breakfast Blend, Buffalo, Fredo, Fresh Pick, Gatlin, Gato Negro, Gato Rubio, Great Rift Valley, Grizzly, Jonesy, Lonestar Blend, Lumberjack, Moka Java, Cafe Monteverde (Especial), Starling, Victory, Texas Blend - Light, Texas Blend - Vienna, Texas Blend - French, Texas Blend - Viennese, Texas Blend - Italian), single origins from Latin America, Ethiopia and Indonesia, Café Monteverde direct-trade coffees from Costa Rica, and decaf. Most come in ½ lb, 1 lb and 5 lb bags (½ lb from $8.50, 1 lb from $17.00).
+- Espresso blend: Café Monteverde Especial (lighter option: Gato Rubio). Cold brew: Organic Lonestar.
+- Flavored coffees, loose-leaf teas, canned Iced Coffee and Coffee Shandy, compostable pods, cold brew packs, growlers.
+
+## Ratings
+- Google: 4.8★ (559 reviews, cafe). Yelp: 4.9★ (309 reviews). Facebook: 98% recommend (327).
+
+## Pages
+- [Home](https://ronaks-code.github.io/sitelift-demos/cafes/texas/texas-coffee-traders/): overview, locations, featured beans, reviews
+- [Cafe menu & prices](https://ronaks-code.github.io/sitelift-demos/cafes/texas/texas-coffee-traders/menu.html)
+- [Coffee beans & shop](https://ronaks-code.github.io/sitelift-demos/cafes/texas/texas-coffee-traders/beans.html)
+- [Wholesale coffee](https://ronaks-code.github.io/sitelift-demos/cafes/texas/texas-coffee-traders/wholesale.html)
+- [Hours & locations](https://ronaks-code.github.io/sitelift-demos/cafes/texas/texas-coffee-traders/visit.html)
+- [Our story](https://ronaks-code.github.io/sitelift-demos/cafes/texas/texas-coffee-traders/about.html)
+- Online shop: https://www.texascoffeetraders.com/shop · Instagram: https://www.instagram.com/texascoffeetraders/

@@ -1,0 +1,6 @@
+# All crawlers welcome.
+User-agent: *
+Allow: /
+Disallow: /404.html
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/cafes/texas/texas-coffee-traders/sitemap.xml
