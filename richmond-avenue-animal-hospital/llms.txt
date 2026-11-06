@@ -1,0 +1,62 @@
+# Richmond Avenue Animal Hospital
+
+> AAHA-accredited, full-service veterinary care for dogs and cats on Richmond Ave in Houston. Rated 4.8 from 290 Google reviews.
+
+- Type: Veterinary Care
+- Address: 4014 Richmond Ave, Houston, TX 77027, USA
+- Phone: (832) 333-5448
+- Email: raahvet@att.net
+- Website: https://ronaks-code.github.io/sitelift-demos/richmond-avenue-animal-hospital/
+- Google Maps: https://maps.google.com/?cid=652575974249779598&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.8 from 290 reviews
+
+## Hours
+- Monday: 7:00 AM – 6:00 PM
+- Tuesday: 7:00 AM – 6:00 PM
+- Wednesday: 7:00 AM – 6:00 PM
+- Thursday: 7:00 AM – 6:00 PM
+- Friday: 7:00 AM – 6:00 PM
+- Saturday: 8:00 AM – 12:00 PM
+- Sunday: Closed
+
+## About
+Richmond Avenue Animal Hospital is a full-service, AAHA-accredited hospital for dogs and cats. Dr. Diane Wilkie always dreamed of opening her own practice, and she runs it with her partner, Dr. Randall Gallagher. We built it on kindness and expertise, as a place where pets feel safe and clients feel understood.
+Our philosophy is simple: great veterinary care begins with listening. We take time to understand each pet's needs and every family's concerns, then make a care plan that fits. As one reviewer said of Dr. Riley, she "always explains her thought process so I know the plan."
+Neighbors have given us a 4.8 rating from 290 Google reviews. One reviewer put it simply: "This clinic feels like family."
+
+## Services
+- Pet Wellness Exams: Nose-to-tail evaluations, parasite screening, vaccinations and guidance suited to your pet's lifestyle and age.
+- Pet Spaying and Neutering: Safe, compassionate procedures with comfort and safety put first at every step.
+- Pet Dental Care: Cleanings, digital dental X-rays and treatment for periodontal disease to keep your pet comfortable.
+- Pet Laboratory Testing: Our in-house lab runs bloodwork, urinalysis and other tests so we can guide your pet's care.
+- Pet X-Rays & Ultrasound: Radiology and ultrasound to look at bones, organs and soft tissues safely and comfortably.
+- Pet Soft Tissue Surgery: From mass removals to abdominal surgeries, with close attention to pain management and care after surgery.
+- Pet Grooming: From routine baths to breed-specific grooming, in a calm and caring setting.
+- Pet Boarding: Comfortable accommodations for dogs and cats, with caring supervision the whole stay.
+
+## FAQ
+Q: What are your hours?
+A: Monday through Friday, 7:00 AM to 6:00 PM, and Saturday, 8:00 AM to 12:00 PM. We're closed Sunday. We offer early drop-offs on weekdays, and we suggest booking ahead for Saturday visits.
+
+Q: Which pets do you see?
+A: We provide full-service veterinary care for dogs and cats.
+
+Q: Are you taking new clients?
+A: Yes, we're welcoming new clients. Book now and get $50 off your first exam with Dr. Ezra McCaw.
+
+Q: What neighborhoods do you serve?
+A: Families come to us from across Houston, including Bellaire, West University, the Galleria area, Greenway and River Oaks.
+
+Q: Is there help for pets who need care their family can't cover?
+A: Our Angel Fund supports pets in need of essential medical care through community donations.
+
+## What customers say
+- "I can’t say enough great things about this clinic. My cat Biscuit was actually rescued and brought here, and that’s where I ended up adopting him—so it already holds such a special place in my heart. Since then, they’ve taken amazing care of him every step of the way. From getting him neutered to routine visits, I’ve always felt like he’s in the best hands.
+
+Dr. Diane is one of the vets there, and the level of care, attention, and genuine love they show every animal is so evident. The whole team is kind, knowledgeable, and truly goes above and beyond. It’s such a comforting feeling knowing your pet is being cared for by people who treat them like their own.
+
+I’m so grateful for everything they’ve done for Biscuit and couldn’t recommend them more!" (Caroline Whitehead, 5/5)
+- "The service at this clinic is excellent. We have five cats and a dog, and the care they receive is truly outstanding. Natalie, the dog groomer, has so much patience and kindness with my rescue dog, which means the world to us. Mary, the office manager, has also played a very special role in our lives — she has helped place most of our cats with us, and we love every one of them. This clinic feels like family." (Frances Howard, 5/5)
+- "We had our puppy spayed.  Dr dewess was great. Kelli our technician was even better.   She sent me a picture when in recovery and kept me in constant phone updates.  Was very comforting to know my pup was in good hands and ok.  Highly recommend! 👏" (Lisa Whatley, 5/5)
+- "The staff and Dr Riley were wonderful! She’s very kind and always explains her thought process so I know the plan. My dog Honey loves her too!" (Neeha kalakota, 5/5)
+- "They always take such great care of my pup! I never worry. My doodle gets the best grooming and care here! Thank you!" (Patricia Thibodeaux, 5/5)
