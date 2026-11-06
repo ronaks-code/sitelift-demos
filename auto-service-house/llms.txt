@@ -1,0 +1,58 @@
+# Auto Service House
+
+> Family-owned auto repair on S Quebec St in Denver. ASE Master Technicians, loaner cars and shuttle service. Rated 4.9 from 308 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 2240 S Quebec St, Denver, CO 80231, USA
+- Phone: (303) 755-6217
+- Email: autoservicehouse2240@outlook.com
+- Website: https://ronaks-code.github.io/sitelift-demos/auto-service-house/
+- Google Maps: https://maps.google.com/?cid=11365317035675522476&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 308 reviews
+
+## Hours
+- Monday: 7:30 AM – 5:00 PM
+- Tuesday: 7:30 AM – 5:00 PM
+- Wednesday: 7:30 AM – 5:00 PM
+- Thursday: 7:30 AM – 5:00 PM
+- Friday: 7:30 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Auto Service House is a family-owned, full service auto repair shop on South Quebec Street in Denver. Skyler Llewellyn owns and runs the shop today. He ran it for years alongside his father, Steve Llewellyn, who has recently retired.
+Our first priority is getting you back on the road quickly, safely and affordably. When the job is done, we still call each and every customer, just to make sure we're still everything Colorado has come to expect.
+We work on everything from older vehicles to today's computer-controlled foreign and domestic cars, for personal and fleet accounts alike. One reviewer told us they don't live close but make the drive anyway, and another got some puppy love from the shop puppy while they were here.
+
+## Services
+- Bumper to Bumper Service: Funny noises, strange vibrations and check engine lights, diagnosed and fixed right the first time.
+- Engine Performance: Take care of your engine and your car will go the distance. Our techs have the skill and tools to keep it running right.
+- Emissions Systems: A check engine light can point to an emission system failure. We diagnose it and correct whatever the problem may be.
+- Alignment and Suspension: If your car pulls or your tires squeal when you turn, we check it out. Every alignment comes with a complete steering and suspension inspection.
+- Electrical Systems: Electrical problems can be elusive. We have the training, experience and tools to find and fix them.
+- Air Conditioning: We keep your AC and heating comfortable and dependable through Colorado's extreme temperatures.
+- Brakes and ABS: Getting your car to stop matters as much as getting it moving, from drum and shoe brakes to modern ABS.
+- Scheduled factory maintenance: Keep up with the maintenance your car's maker calls for.
+
+## FAQ
+Q: What are your hours?
+A: We're open 7:30am-5pm Monday through Friday. We're closed Saturday and Sunday.
+
+Q: Can I text you instead of calling?
+A: Yes. You can call or text us at (303) 755-6217.
+
+Q: How do I get around while my car is in the shop?
+A: We can provide shuttle service, delivery and vehicle pickup. Call us for details.
+
+Q: Can I wait while you work on my car?
+A: Yes. We have a comfortable customer area for you while you wait.
+
+Q: Do you work on fleet vehicles?
+A: Yes. Whether it's your own car or a fleet account, you'll get the same expert care.
+
+## What customers say
+- "I have been taking my cars to Auto service house for 3+ years now. I don’t really live close to the shop but when you find a reliable and honest mechanic shop, it’s worth the extra effort to get my car there. I also have referred friends and family members to them and have heard only positive reports from them. I would especially recommend them if you are looking for diagnosing accuracy. 5/5 stars was easy to give on this one!" (Brennen Reed, 5/5)
+- "One of the most honest, helpful, flexible mechanic shops out there. I’ve worked with them for years and at each turn they have been more than helpful to me. Most important they are competent. In a day and age where many folks are looking at YouTube for knowledge this staff is well trained, dialed in and brutally honest!  Not sure what else you can expect from an automotive mechanic shop." (Steven Tilghman, 5/5)
+- "I loved working with Auto Service House on my 4Runner! They were so reasonable and flexible, and being able to drop off and pick up my car after hours made everything incredibly convenient. Plus, I got some puppy love from the shop puppy while I was there, which made the experience even better! 10/10, I’d absolutely recommend them!" (Holly Reisbeck, 5/5)
+- "Auto Service House has been taking care of our cars for years. Always positive, informative, and timely. A great experience where you feel comfortable and assured with their expertise. The best care from small to big issues, like your car is part of their family" (Jen Good, 5/5)
+- "Excellent service! Auto Service House is a great team and they work hard to bring you the best service possible for your car! I always know with them that I will be taken care of and my car will be better for it!" (Sharon, 5/5)
