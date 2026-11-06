@@ -1,0 +1,19 @@
+# Flitch Coffee
+
+> Specialty coffee shop in a remodeled 1952 Spartan trailer in East Austin, Texas. Outdoor, covered, dog-friendly and kid-friendly patio; open every day 7am–3pm. Opened in 2015.
+
+- Address: 641 Tillery St, Suite 110, Austin, TX 78702 (corner of Holton & Tillery; shares a lot with Harvest Lumber Company)
+- Phone: (512) 698-1326 · Email: manager@flitchcoffee.com
+- Hours: Monday–Sunday, 7:00am–3:00pm
+- Ratings: 4.7/5 from 475 Google reviews; 4.6/5 from 134 Yelp reviews
+- Known for: Little Sweetie (cold brew, maple syrup + milk), maple latte, cortado, golden milk, Pueblo Viejo breakfast tacos
+- Coffee and partners: Onyx Coffee (house cold brew), Creature Coffee (house drip), Proud Mary, Zhi Tea, Sour Duck pastries, Andy K's Donuts (weekends)
+- Instagram: https://www.instagram.com/flitchcoffee/
+
+## Pages
+- [Home](https://ronaks-code.github.io/sitelift-demos/cafes/texas/flitch-coffee/): overview, signature drinks, patio, reviews, FAQ
+- [Menu & prices](https://ronaks-code.github.io/sitelift-demos/cafes/texas/flitch-coffee/menu.html): full coffee, tea and food menu with prices
+- [Visit](https://ronaks-code.github.io/sitelift-demos/cafes/texas/flitch-coffee/visit.html): hours, address, parking, map, visiting FAQ
+- [Our story](https://ronaks-code.github.io/sitelift-demos/cafes/texas/flitch-coffee/about.html): the 1952 Spartan trailer, the name, partners
+- [Events](https://ronaks-code.github.io/sitelift-demos/cafes/texas/flitch-coffee/events.html): makers markets, live music, hosting events
+- [Catering & gift cards](https://ronaks-code.github.io/sitelift-demos/cafes/texas/flitch-coffee/catering.html): gallon cold brew $32, gallon Little Sweetie $36, gallon iced tea $15, hot coffee carafe $26 (pickup), gift cards
