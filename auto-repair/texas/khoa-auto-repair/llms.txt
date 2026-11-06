@@ -1,0 +1,45 @@
+# Khoa Auto Repair
+
+> Import & everyday auto repair based in Pflugerville, Texas. Khoa Auto Repair is the Pflugerville shop people find by word of mouth. Mr. Ly and Mr. Toan diagnose it right the first time, text you updates, and charge fairly.
+
+- Phone: (512) 573-4142
+- Based in: Pflugerville, TX
+- Service area: Pflugerville, Austin, Wells Branch, Round Rock, Hutto
+- Google rating: 4.6 from 106 reviews
+- Request a quote: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/khoa-auto-repair/quote.html
+- Book a drop-off: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/khoa-auto-repair/book.html
+
+## Services
+- Diagnosis done right: The real cause found first, even when other shops guessed wrong.
+- Brakes: Rotors and pads on both axles, done quickly and cleanly.
+- Engine & cooling: Water pumps, ignition coils, plugs and coolant service.
+- Starting & electrical: No-starts, starters and lighting repairs.
+- Scheduled maintenance: Oil changes and the maintenance your dash keeps reminding you about.
+
+## About
+Khoa Auto Repair is run by Mr. Ly, with Mr. Toan in the bays. Most customers heard about it from a friend or neighbor and stayed for years. Reviewers mention getting a text when the car is ready, same-day fixes for check-engine lights, and correct diagnoses after a chain shop got it wrong.
+
+## Service area pages
+- Pflugerville, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/khoa-auto-repair/service-area-pflugerville.html
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/khoa-auto-repair/service-area-austin.html
+- Wells Branch, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/khoa-auto-repair/service-area-wells-branch.html
+- Round Rock, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/khoa-auto-repair/service-area-round-rock.html
+- Hutto, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/khoa-auto-repair/service-area-hutto.html
+
+## Frequently asked questions
+- Q: Do you work on Lexus and Toyota?
+  A: Yes. Many regulars bring Camrys, RX 350s and other Toyota and Lexus models.
+- Q: Can I text the shop?
+  A: Reviewers say they text Khoa for updates and scheduling.
+- Q: What are your hours?
+  A: Monday to Friday, 8 AM to 5 PM.
+- Q: Do I need an appointment?
+  A: Call or book online; the shop works by appointment so it can give each car proper time.
+
+## What customers say
+- "I had heard about them from word of mouth when I bought my Toyota Camry. I started getting a message that maintenance was required but it didn't give any other info. The dealer reviews were awful, but the reviews here were great so I drove over without out an appointment and they were available to be see." (Thomas Danuser, Google review)
+- "Could not ask for a better experience! I got new rotors and pads on both axles about 6 weeks ago. Although not the most technical of jobs, it was executed swiftly and precisely and at a price that inspires me to believe in humanity again lol. Truly though, Mr." (Robby wp, Google review)
+- "Very honest mechanics and extremely fair prices. I had a check engine light come on, and they were able to get it fixed the exact same day. I love that I can always text them whenever I have an issue with my car just to get their opinion first." (Ali Talib, Google review)
+- "Mr. Ly is reliable, very experienced and genuinely cares about doing what is needed for the customer at extremely affordable rates. Hard to find such mechanics these days. The shop is also family owned and run. Highly recommend." (Bhavik Shah, Google review)
+- "I've been dropping both my cars for service and repairs at Khoa Auto and nothing but good experience and fair prices. I highly recommend this shop since they only take work they can fix %100 or else they don't take it is what i truly appreciate them for." (Momar T., Google review)
+- "Great experience. Mr Toan correctly diagnosed the a squeaky engine noise to be a water pump. Firestone incorrectly diagnosed it was ac compressor failure." (Amit Shah, Google review)

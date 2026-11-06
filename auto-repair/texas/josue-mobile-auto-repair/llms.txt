@@ -1,0 +1,46 @@
+# Josue Mobile Auto Repair
+
+> Mobile auto repair based in Austin, Texas. Josue fixes cars where they're parked: brakes, AC, fuel and suspension work across Austin. No tow, no waiting room, and honest advice on what you actually need.
+
+- Phone: (512) 431-4152
+- Based in: Austin, TX
+- Service area: Austin, Del Valle, Buda, Pflugerville, Manor, Round Rock
+- Google rating: 5.0 from 14 reviews
+- Request a quote: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/josue-mobile-auto-repair/quote.html
+- Book a drop-off: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/josue-mobile-auto-repair/book.html
+
+## Services
+- Brakes at home: Pads and rotors changed in your driveway, trucks included.
+- AC repair: Compressor and clutch problems fixed without dealership hassle.
+- Fuel & engine: Fuel gauges, injectors and engine diagnostics, on the spot.
+- Suspension: Control arms and front-end parts swapped where the car sits.
+- Used car inspections: A full look before you buy, with a plain-English list of what needs work.
+
+## About
+Josue works out of Southeast Austin and drives to his customers. Reviewers found him on Google and keep calling him back for the next car in the family. He's known for explaining the problem, helping people buy the right part themselves when it saves money, and picking up the phone.
+
+## Service area pages
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/josue-mobile-auto-repair/service-area-austin.html
+- Del Valle, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/josue-mobile-auto-repair/service-area-del-valle.html
+- Buda, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/josue-mobile-auto-repair/service-area-buda.html
+- Pflugerville, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/josue-mobile-auto-repair/service-area-pflugerville.html
+- Manor, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/josue-mobile-auto-repair/service-area-manor.html
+- Round Rock, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/josue-mobile-auto-repair/service-area-round-rock.html
+
+## Frequently asked questions
+- Q: Do you really come to me?
+  A: Yes. Josue is a mobile mechanic and does most repairs where the car is parked.
+- Q: What can be fixed in a driveway?
+  A: Brakes, AC components, fuel parts, control arms, diagnostics and more. Bigger jobs, he'll tell you up front.
+- Q: Do you work Saturdays?
+  A: Yes, 8 AM to 2 PM, and weekdays 9 to 5.
+- Q: Which areas do you cover?
+  A: Austin and nearby towns including Del Valle, Buda, Manor, Pflugerville and Round Rock.
+
+## What customers say
+- "Saved us thousands of dollars that other shops wanted to fix a fuel gauge issue on an older truck that we had issues finding parts for. Super friendly, easy to communicate with, quick with his work without losing quality even a little." (Angelica Ash, Google review)
+- "Amazingly thorough, true professional that knows his stuff. I bought a 2006 Nissan used and wanted to get it inspected to see what needed to be fixed. Josue explained everything that was going on with the car, needed to get fixed and the price of the parts." (Christian Echevarria-Reina, Google review)
+- "Needed a control arm replaced on my Mazda 6. My friend Ricardo kept referring me to his mechanic, but his mechanic wanted me to drive to his house, leave my car there a day, then come back and get it! Say what?! Did some research on Google and found Josue." (High Impact Programs, Google review)
+- "My AC compressor clutch locked up and the dealership wanted dealership prices for the repair, so I went looking for a trustworthy mechanic. Josue was very responsive and gave me a very fair deal for the repair." (Cristian, Google review)
+- "Extremely competent w his work and ethical in his advice and parts planning. Really easy to work with, and tbh he should be considered a community service." (Charles Del Rosario, Google review)
+- "Josue was great. Professional, thorough, and knowledgeable." (Arturo Carrasco, Google review)

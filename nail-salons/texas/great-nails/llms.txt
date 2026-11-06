@@ -1,0 +1,46 @@
+# Great Nails
+
+> Nail salon based in Austin, Texas. Great Nails on Brodie Lane is a small, no-frills salon where Bobby, Vanessa, Jennifer, Nancy and Johnny do meticulous SNS, gel manicures and pedicures that clients say outlast pricier places.
+
+- Phone: (512) 891-8888
+- Based in: Austin, TX
+- Nearby areas: Austin, Sunset Valley, Manchaca, Buda, Kyle
+- Yelp rating: 4.3 from 141 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/great-nails/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/great-nails/book.html
+
+## Services
+- Manicures & gel: Classic, gel and shellac manicures with clean cuticle work and even polish.
+- Pedicures: Relaxing pedicures with soak, scrub and massage.
+- Dip & full sets: Dip powder (SNS), acrylic full sets and fills in any shape.
+- Nail art: French tips, chrome, seasonal designs and art copied from your photo.
+
+## About
+Great Nails is a smaller salon at 5207 Brodie Lane, near Sunset Valley. Techs including Bobby, Vanessa, Jennifer, Nancy and Johnny do SNS dip, gel manicures, nail art and pedicures. Clients call it a hidden gem with great energy. Gel manicures regularly last two weeks or more, and the team will copy a design from your photo. They take walk-ins, but calling ahead is smart.
+
+## Nearby areas pages
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/great-nails/service-area-austin.html
+- Sunset Valley, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/great-nails/service-area-sunset-valley.html
+- Manchaca, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/great-nails/service-area-manchaca.html
+- Buda, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/great-nails/service-area-buda.html
+- Kyle, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/great-nails/service-area-kyle.html
+
+## Frequently asked questions
+- Q: Do you take walk-ins at Great Nails?
+  A: Walk-ins are welcome, but it's a smaller salon, so call ahead to lock in your time.
+- Q: Where is Great Nails?
+  A: 5207 Brodie Ln, Ste 140, Austin, TX. Parking is right outside.
+- Q: What nail services do you offer?
+  A: Manicures, pedicures, gel, dip powder, acrylic full sets and fills, nail art and waxing.
+- Q: Can I bring a nail art idea?
+  A: Yes. Bring a photo and your tech will match the shape, color and design.
+- Q: What do clients say about Great Nails?
+  A: Great Nails is rated 4.3 stars from 141 Yelp reviews. Clients mention meticulous techs, gel that lasts two weeks and great energy.
+
+## What customers say
+- "Stumbled across Great Nails needing my nails done last minute before a trip and honestly this was the best manicure I've ever had. Bobby made my nails look PERFECT!!" (Angela U., Yelp review)
+- "I was pleasantly surprised with the quality and attention to detail. One of the best manicures and pedicures I have gotten. The staff also had great energy." (Gabriela F., Yelp review)
+- "A no frills salon with great results! I get a gel manicure and it lasts a full two weeks or more." (Kelly L., Yelp review)
+- "I started again today and was VERY impressed with the service I received. Nancy was meticulous and professional. My nails look amazing." (Dawn D., Yelp review)
+- "I got a pedicure from Jennifer and it truly was one of the best pedicures I have gotten. She was very detailed and took her time." (Emily B., Yelp review)
+- "Discovered this nail salon early this year and been coming ever since. Johnny does my nails and is great at doing SNS and a thorough job at a pedi." (Erica D., Yelp review)

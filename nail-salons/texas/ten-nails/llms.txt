@@ -1,0 +1,48 @@
+# Ten Nails
+
+> Nail salon based in Austin, Texas. Ten Nails is a family-owned South Austin nail salon where Anna, Nina and the team give careful gel manicures and relaxing pedicures, and regulars have kept coming for ten years.
+
+- Phone: (512) 444-1510
+- Based in: Austin, TX
+- Nearby areas: Austin, Sunset Valley, Manchaca, Buda, Kyle
+- Yelp rating: 4.4 from 262 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/ten-nails/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/ten-nails/book.html
+
+## Services
+- Manicures & gel: Classic, gel and shellac manicures with clean cuticle work and even polish.
+- Pedicures: Relaxing pedicures with soak, scrub and massage.
+- Dip & full sets: Dip powder (SNS), acrylic full sets and fills in any shape.
+- Nail art: French tips, chrome, seasonal designs and art copied from your photo.
+
+## About
+Ten Nails is a family-owned nail salon at 5700 Manchaca Road in South Austin. Owner Nina and techs like Anna and Lily do manicures, gel and shellac, pedicures and dip. Reviewers call it clean, chill and personal. One client has come for ten years and trusts only Anna; another says the owner is the nicest lady. On Longhorns weekends, burnt orange is always on the wall.
+
+## Nearby areas pages
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/ten-nails/service-area-austin.html
+- Sunset Valley, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/ten-nails/service-area-sunset-valley.html
+- Manchaca, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/ten-nails/service-area-manchaca.html
+- Buda, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/ten-nails/service-area-buda.html
+- Kyle, TX: https://ronaks-code.github.io/sitelift-demos/nail-salons/texas/ten-nails/service-area-kyle.html
+
+## Frequently asked questions
+- Q: Do you take walk-ins at Ten Nails?
+  A: Appointments are recommended since they are usually busy, but walk-ins are welcome when there's a chair.
+- Q: Where is Ten Nails?
+  A: 5700 Manchaca Rd, Austin, TX. Parking is right outside.
+- Q: What nail services do you offer?
+  A: Manicures, pedicures, gel, dip powder, acrylic full sets and fills, nail art and waxing.
+- Q: Can I bring a nail art idea?
+  A: Yes. Bring a photo and your tech will match the shape, color and design.
+- Q: What do clients say about Ten Nails?
+  A: Ten Nails is rated 4.4 stars from 262 Yelp reviews. Clients mention patient, detail-oriented techs, a clean and chill salon, and family-owned warmth.
+- Q: Can you do Longhorns or Austin FC nails?
+  A: Yes. Burnt orange and white for game day or verde for match night. Bring a design photo and your tech will match it.
+
+## What customers say
+- "I have been coming here for 10 years and I will not go anywhere else in Austin for a pedicure or gel manicure. The ONLY person I trust is Anna! She is so kind and caring and is the most detail oriented." (Brandelyn G., Yelp review)
+- "So great!! The technicians were very patient with me. My favorite salon I've been to in Austin, it's very nice and chill here!" (georgia g., Yelp review)
+- "Ten Nails is clean and comfortable. Ana does a great job every visit. I have been going to this nail place for years. All the technicians are so nice." (Melissa S., Yelp review)
+- "A family owned spot and it's lovely! It may be a little hole in the wall but they take super great care of you. Ms. Anna works with her heart and loves her customers." (Maggie E., Yelp review)
+- "Had a pedicure and Lily did a great job. Made me feel very comfortable as a male client. I will definitely be going back." (Bill B., Yelp review)
+- "This is my place! Been going consistently for a year now and have never had a bad experience. Staff is so nice and genuinely want to make sure you are a satisfied customer." (Laura H., Yelp review)
