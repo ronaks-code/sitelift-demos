@@ -1,0 +1,51 @@
+# Lunar Hare
+
+> Hair salon & barber based in Bloomington, Indiana. A plant-filled salon and barber chair in downtown Bloomington. Cuts, curly cuts, color, shaves and updos from a stylist who listens first, plus a shampoo and head massage people come back for.
+
+- Phone: (812) 340-5052
+- Based in: Bloomington, IN
+- Nearby areas: Bloomington, Ellettsville, Bedford, Spencer, Martinsville, Nashville
+- Google rating: 4.9 from 38 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/hair-salons/indiana/lunar-hare/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/hair-salons/indiana/lunar-hare/book.html
+
+## Services
+- Cuts & long layers: Long, mid-length and short cuts shaped around how you actually wear your hair, plus child cuts for 12 and under.
+- Custom curly cuts: Deva-certified curly cuts that coax natural curl out, with tips for your routine at home.
+- Color & balayage: Soft, detailed balayage and highlights, rich all-over shades and bold fashion color.
+- Barber cuts & shaves: Fades and short cuts in a real barber chair, plus hot-towel, straight-razor shaves.
+- Blowouts, updos & extensions: Special-occasion styling with a trial a week before, blowouts, and extensions that move naturally.
+- Treatments, tints & waxing: A Malibu treatment for dry, dull, chlorine-tired hair, brow and lash tints, and face waxing.
+
+## About
+Lunar Hare is Jayme Carney's salon at 236 N Morton St in downtown Bloomington. She opened it in 2021 "with hopes of growing and here we are!" Jayme is a licensed barber and cosmetologist, trained in classic cuts and classic color at the TIGI Academy in Manhattan, Deva certified, with advanced curly-cut training in Chicago. Inside it's warm and lived-in: stained concrete floors, vintage armchairs, a floral front counter, a teal sofa (usually with the salon dog on it), a pink cabinet and plants on every shelf. It's a Green Circle certified salon, and clients say it best: a down-to-earth, welcoming vibe, a stylist who listens, and a wash and head massage worth the trip on its own.
+
+## Nearby areas pages
+- Bloomington, IN: https://ronaks-code.github.io/sitelift-demos/hair-salons/indiana/lunar-hare/service-area-bloomington.html
+- Ellettsville, IN: https://ronaks-code.github.io/sitelift-demos/hair-salons/indiana/lunar-hare/service-area-ellettsville.html
+- Bedford, IN: https://ronaks-code.github.io/sitelift-demos/hair-salons/indiana/lunar-hare/service-area-bedford.html
+- Spencer, IN: https://ronaks-code.github.io/sitelift-demos/hair-salons/indiana/lunar-hare/service-area-spencer.html
+- Martinsville, IN: https://ronaks-code.github.io/sitelift-demos/hair-salons/indiana/lunar-hare/service-area-martinsville.html
+- Nashville, IN: https://ronaks-code.github.io/sitelift-demos/hair-salons/indiana/lunar-hare/service-area-nashville.html
+
+## Frequently asked questions
+- Q: How do I book at Lunar Hare?
+  A: Book online through our booking page any time, or call (812) 340-5052. We're at 236 N Morton St in downtown Bloomington.
+- Q: What are your hours?
+  A: Wednesday 12 to 8 pm, Friday 10 am to 6 pm and Saturday 10 am to 4 pm. Closed Sunday, Monday, Tuesday and Thursday.
+- Q: Do you cut curly hair?
+  A: Yes. Jayme is Deva certified, with advanced curly-cut training in Chicago. A custom curly cut starts at $75.
+- Q: Do you cut kids' hair?
+  A: Yes. Child cuts (12 and younger) start at $35, and reviewers mention stylists gently coaxing a six-year-old through a haircut.
+- Q: Do you do fades and shaves?
+  A: Yes. Jayme is a licensed barber too: short cuts, fades, beard trims, traditional straight-razor shaves and hot lather head shaves.
+- Q: What's your cancellation policy?
+  A: Please give 24 hours' notice. Cancellations within 24 hours are charged 50% of the appointment, and after three cancellations in a row we ask for a non-refundable deposit.
+
+## What customers say
+- "My daughter has seen Jayme for years. She finally convinced me to invest in myself and see what she could do to coax my natural curls to curl even better. I've been so happy with my hair. She listens and responds so well. Her laidback style makes me relaxed the whole time. And, honestly, I'd come back again and again just for the hair wash and head massage." (Tina Lampke, Google review)
+- "I have been seeing Jayme for years and there is nobody else I would put as much trust in to manage my thick, curly hair. She adapts her methods based off client need and is very conscious about using cruelty free, non wasteful methods and products. For anyone with naturally curly hair especially, you must go with Jayme." (Darbi Haug, Google review)
+- "Jayme has been cutting my hair and family's hair for years. She listens to what you want and the end results speaks for itself. The salon has a down to earth welcoming vibe. She's the best in town!!" (Melanie Rubeck, Google review)
+- "I've gone to Jayme for years. No one gives a better shampoo and scalp massage. Occasionally I treat myself to a mask treatment or blow out in between cuts just because her washes are so relaxing. I recently started taking my teen sons to Jayme, too. I love how she takes the time to explain scalp health and hair care to them." (Amber Kent, Google review)
+- "Jayme is hands-down the best there is when it comes to curls. She made my hair go from “eh, it's kinda wavy” to “wow! Who knew you had really curly hair!” I highly highly highly recommend her to everyone." (Danielle Raymond, Google review)
+- "Best haircut ever!! I've been to a handful of salons over the years and I've really struggled to find a stylist that knows how to cut my hair in a way that gives it shape and really brings out the curls. Jayme not only gave me a cut that I LOVE, she took the time to talk to me about small changes I can make to my haircare routine. I'm soooooo excited I found this place, and I can't wait to go back." (Emma Gliessman, Google review)
