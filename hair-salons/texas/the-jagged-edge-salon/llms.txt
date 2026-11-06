@@ -1,0 +1,55 @@
+# The Jagged Edge Salon
+
+> Hair salon based in Pflugerville, Texas. Men's cuts and beard work, color, women's cuts, kids and nails, from stylists clients have followed for years. On 1st Street, Tuesday to Saturday.
+
+- Phone: (512) 990-8477
+- Based in: Pflugerville, TX
+- Nearby areas: Pflugerville, Round Rock, Hutto, Wells Branch, Manor, Austin
+- Google rating: 4.8 from 24 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-jagged-edge-salon/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-jagged-edge-salon/book.html
+
+## Services
+- Men's cuts & beard trims: Fades, classic cuts and a sharp line-up, plus beard shaping that clients call magic.
+- Straight razor shaves: A hot-towel straight razor shave for the closest, smoothest shave you've had.
+- Women's cuts & restyles: Trims for long hair, or the big change: shorter cuts, layers and undercuts.
+- Hair color: All-over color done the way you asked, and adjusted until you love it.
+- Kids' cuts & styles: Cuts and styles for kids, twins and teens, so the whole family can come at once.
+- Nails: Manicures, pedicures and fill-ins at our own nail station, with a wall of polish colors to pick from.
+
+## About
+You'll find us at 103 1st St N in historic downtown Pflugerville, in the stone building under the big oak trees, with a plain white sign out front and a chalkboard by the door that says we're open. Inside it feels more like a home than a salon: soft gray walls, honey maple stations, plants in every corner, a shampoo room with a garden window and chalkboard signs that say "Hello Beautiful" and "Beauty begins the moment you decide to be yourself." One client put it best: "not a high pressure sales pitch, let's drink chai tea kind of place." Each stylist has clients who have been coming back for years. Adam keeps men lined up and does the beard and straight razor work, Elva does color and styles for whole families, and Rebecca has cut some clients' hair for many years, from long trims and color corrections to a short new look with an undercut.
+
+## Nearby areas pages
+- Pflugerville, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-jagged-edge-salon/service-area-pflugerville.html
+- Round Rock, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-jagged-edge-salon/service-area-round-rock.html
+- Hutto, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-jagged-edge-salon/service-area-hutto.html
+- Wells Branch, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-jagged-edge-salon/service-area-wells-branch.html
+- Manor, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-jagged-edge-salon/service-area-manor.html
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/hair-salons/texas/the-jagged-edge-salon/service-area-austin.html
+
+## Frequently asked questions
+- Q: What are your hours?
+  A: Tuesday to Saturday, 9 AM to 6 PM. We're closed Sunday and Monday. Holiday hours can differ, so call (512) 990-8477 if you're not sure.
+- Q: Where are you?
+  A: 103 1st St N, Pflugerville, TX 78660, in the stone building under the oak trees in downtown Pflugerville.
+- Q: Who should I book for a beard or straight razor shave?
+  A: Ask for Adam. He does men's cuts, beard trims and straight razor shaves, and reviewers call him an absolute magician with a beard.
+- Q: Do you cut and color kids' hair?
+  A: Yes. Elva does kids' cuts and styles, including twins and teens, so families can come in together.
+- Q: Can I go for a big change, like a short cut or undercut?
+  A: Yes. Rebecca does restyles from long hair to shorter cuts, including undercuts. Call to book a time with her.
+- Q: Do you take walk-ins?
+  A: Yes, walk-ins are welcome when a chair is open. To be sure of a time with a certain stylist, call (512) 990-8477 or send a request through this site.
+- Q: How do I book?
+  A: Call (512) 990-8477 or send a request through this site, and we'll confirm your appointment. If we're with a client when you call, leave a message or send a request here and we'll get back to you.
+- Q: Do you rent booths to stylists?
+  A: Yes. We rent booths to independent stylists. Call (512) 990-8477 to ask about an open booth.
+
+## What customers say
+- "Adam S is the man! He has kept me lined up for some years now. If you have a beard he is an absolute magician. If not your hair cut will be the best one you've ever had. Get the straight razor shave for the closest smoothest shave! Highly recommend" (Josh Carpenter, Google review)
+- "Rebecca is always so amazing. I've been seeing her for many years and she does an incredible job. I've always had long hair, but recently went for a much shorter hairstyle with an undercut. and I love what she's done with it. Highly recommend Rebecca!!" (Barbara Najera, Google review)
+- "If your looking for a men's haircut and beard trim, I highly recommend Adam. He has been cutting my hair for about a year now and even though I moved an hour away I keep coming back. Adam knows what's he's doing and is highly professional. Thank you brother Adam!" (Robert Pomponio, Google review)
+- "The best salon in the Austin area! ... All the ladies are great, it's such a comfortable feeling at The Jagged Edge. Fantastic service from people who really care what you want, and most importantly what you do not. It's not a high pressure sales pitch, let's drink chai tea kind of place. It's beautifully decorated, fun and relaxing atmosphere." (Julie B. · Yelp, Google review)
+- "Very good job with the lady elva whom did my hair dying my kids hairs styles for my twins and my oldest son. She is that good. Would recommend her to anyone. And she will do your hair just the way you asked to be done and if something isn't right than she will make it to where you like your hair. ... And affordable as well" (JPOW, Google review)
+- "I went in for a color correction with Rebecca and was blown away with her talent!!! She did an amazing job. I would highly recommend this place. It was clean, relaxing, and everyone there is so nice and very welcoming." (Elizabeth A. · Yelp, Google review)
