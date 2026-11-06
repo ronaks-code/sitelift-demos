@@ -1,0 +1,45 @@
+# Ideal Barber Shop
+
+> Neighborhood barbershop based in Austin, Texas. Austin's oldest standing Black-owned barbershop. Founded by Leonard Hill, run today by his grandson Cornell. Clean cuts, straight-razor edges and good conversation. Walk-ins welcome, Tuesday to Saturday.
+
+- Phone: (512) 477-0542
+- Based in: Austin, TX
+- Nearby areas: East Austin, Chestnut, Cherrywood, Mueller, Downtown Austin
+- Google rating: 4.5 from 57 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/ideal-barber-shop/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/ideal-barber-shop/book.html
+
+## Services
+- Haircuts: Straight hair, Afro hair, anybody who sits down. Cornell edges every cut with a straight razor, the old-school way.
+- Beard trims & shaves: A beard trim on its own, or a shave only. Ask in the chair for the shape you want.
+- Haircut & shave: The full visit: a fresh cut and a shave in one sitting, plus whatever conversation comes up along the way.
+
+## About
+Leonard F. Hill opened Ideal Barber Shop on East 12th Street in 1948, with help from his wife, Rosa Crenshaw Hill, who put money from her inheritance into the shop. Today it is the oldest standing Black-owned barbershop in Austin. During segregation the shop was more than a place to get a haircut. People gathered here to talk, including about civil rights, and Mr. Hill registered Ideal as a poll tax collection site so neighbors had a less hostile place to pay than the county courthouse. His grandson Cornell Hill, known to a lot of customers as Big C, runs the shop today and still keeps his grandfather's razor and first clippers. More than 75 years on, the door is open to anybody who wants a cut: straight hair, Afro hair, regulars and first-timers alike.
+
+## Nearby areas pages
+- East Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/ideal-barber-shop/service-area-east-austin.html
+- Chestnut, Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/ideal-barber-shop/service-area-chestnut.html
+- Cherrywood, Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/ideal-barber-shop/service-area-cherrywood.html
+- Mueller, Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/ideal-barber-shop/service-area-mueller.html
+- Downtown Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/ideal-barber-shop/service-area-downtown-austin.html
+
+## Frequently asked questions
+- Q: Do I need an appointment?
+  A: No. Walk-ins are welcome Tuesday to Saturday. Appointments are available too, and they're a good idea on Fridays, when the wait can run up to 45 minutes. Call (512) 477-0542 to save a chair.
+- Q: What kind of hair do you cut?
+  A: All kinds. In Cornell's words: "I'm open to anybody who wants to come in for a cut, straight hair, Afro hair." Every cut gets a straight-razor edge.
+- Q: Where are you and when are you open?
+  A: 1914 E 12th St, Austin, TX 78702, in the red brick building with the blue trim and the barber pole. Tuesday to Saturday, 8 AM to 6 PM. Closed Sunday and Monday.
+- Q: Can you accommodate customers with disabilities?
+  A: Yes. Families who have been coming for years tell us the shop makes room for customers with disabilities and treats them with respect. Call ahead if there's anything we should know.
+- Q: Do you take cards?
+  A: Yes, credit cards are accepted.
+- Q: Can I see the mural and learn the history?
+  A: The mural An East Side Story covers the side wall of the shop. Black Austin Tours, founded by Leonard Hill's grandson Javier Wallace, runs a history and mural walk that starts at the shop.
+
+## What customers say
+- "Amazing work by professional staff. No long drawn out visits. The barbers immediately got us in and out. Located in a great spot. Not one single complaint. Tell Cornell I sent you." (Katrina H., Google review)
+- "I've had such a great experience here! Big C makes sure your not bored in a chair; he initiates great and deep conversations, which is an awesome way to have entertainment for both. My haircut was PERFECT, he uses a straight razor blade for edging which really shows off his skill and excellence in his craft! Come here for a fantastic experience!!!" (Isaac L., Google review)
+- "We have been coming her for years and serval more years to come!! Wonderful service! They will accomadate for those who are disable. My brother has a disability. They treat him with respect and conversate unlike some shop. … you will walk out looking fly has my brother puts it." (Alexis V., Google review)
+- "Very friendly and helpful people. Nice haircut and beard trim." (Allen R., Google review)

@@ -1,0 +1,49 @@
+# Phase One Barber Shop
+
+> Neighborhood barbershop based in Austin, Texas. A one-chair neighborhood barbershop at 6650 Manor Rd. Terry works fast, keeps the conversation going, and has regulars who have been sitting in his chair for almost ten years.
+
+- Phone: (512) 662-1798
+- Based in: Austin, TX
+- Nearby areas: Austin, Windsor Park, Mueller, Northeast Austin, Manor, Pflugerville
+- Google rating: 4.8 from 52 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/phase-one-barber/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/phase-one-barber/book.html
+
+## Services
+- Men's haircuts: The everyday cut for ages 13 and up. Walk in, take a seat, and leave looking right.
+- Boys' haircuts: Cuts for boys 12 and under. Bring the kids in on a Saturday morning: the shop opens at 6 AM.
+- College student cuts: Show a current student ID and get the college student cut on the shop's price list.
+- Women's haircuts: Tapers and full cuts for women who want a clean, short style from a barber.
+- Shaves: Head shaves with clippers or a razor, plus face shaves.
+- Edge-ups, beards & mustaches: A quick edge-up between cuts, or a mustache or full beard cleaned up and shaped.
+
+## About
+Phase One Barber Shop is a one-chair neighborhood barbershop at 6650 Manor Rd in Northeast Austin. Look for the white-and-blue building with the checkered flag up top and the oval Phase One sign over the door. Terry runs the chair. Customers write about the same things again and again: walk-ins are welcome, he works fast, he does a great job, and there is never a dull moment. One regular has been coming to him for almost ten years. The shop is closed on Mondays and opens early the rest of the week, starting at 6 AM on Saturdays, so you can get a cut before the day gets going.
+
+## Nearby areas pages
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/phase-one-barber/service-area-austin.html
+- Windsor Park, Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/phase-one-barber/service-area-windsor-park.html
+- Mueller, Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/phase-one-barber/service-area-mueller.html
+- Northeast Austin, Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/phase-one-barber/service-area-northeast-austin.html
+- Manor, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/phase-one-barber/service-area-manor.html
+- Pflugerville, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/phase-one-barber/service-area-pflugerville.html
+
+## Frequently asked questions
+- Q: Do you take walk-ins?
+  A: Yes. Phase One is a one-chair shop and walk-ins are welcome. If a few people are ahead of you it still doesn't take long; one parent waited about 10 minutes early on a Saturday before her boys were in the chair.
+- Q: What are your hours?
+  A: Tuesday to Thursday 9 AM to 6 PM, Friday 7:30 AM to 6 PM, Saturday 6 AM to 5 PM, Sunday 2 PM to 5 PM. Closed Monday. Holiday hours can change, so call (512) 662-1798 if you're not sure.
+- Q: Do you cut kids' hair?
+  A: Yes. Boys 12 and under have their own cut on the price list, and Saturday mornings are a good time to bring them in.
+- Q: Is there a college student cut?
+  A: Yes. The shop has a college student cut. Bring a current student ID.
+- Q: Do you cut women's hair?
+  A: Yes. Terry does women's tapers and full cuts.
+- Q: Where is the shop?
+  A: 6650 Manor Rd, Austin, TX 78723, in the white-and-blue building with the oval Phase One Barber Shop sign. The building is shared with Mobile One Lube.
+
+## What customers say
+- "Never a dull moment at the barbershop. Plenty of good conversations, and getting the chance to catch up on all the happenings. Terry (the barber) will keep you coming back. I've been going to him for almost 10 years." (Gregory S., Google review)
+- "I dropped in and asked if he took walk-ins. He did, A short time later, I was very pleased with my haircut. He is a one-chair shop, and he did a great job." (BD N., Google review)
+- "Got both of my boys right and it didn't take long and it was very affordable we came early on a Saturday and waited maybe 10 mins before my boys where in his chair" (Lisa J., Google review)
+- "has walk in's ! doesn't take long if a few people there; Terry is welcoming and works fast" (Daniel M., Google review)

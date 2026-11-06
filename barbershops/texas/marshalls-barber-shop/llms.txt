@@ -1,0 +1,48 @@
+# Marshall's Barber Shop
+
+> Old-school barbershop based in Austin, Texas. Tight fades, shaves and classic cuts from barbers who can work with any hair texture. Walk in, grab a seat, and stay for the conversation.
+
+- Phone: (512) 472-0302
+- Based in: Austin, TX
+- Nearby areas: East Austin, Chestnut, Rosewood, Cherrywood, Mueller, Downtown Austin
+- Google rating: 4.7 from 129 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/marshalls-barber-shop/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/marshalls-barber-shop/book.html
+
+## Services
+- Haircuts & fades: Skin fades, tapers, classic and urban cuts. Customers say every barber in the shop can work wonders, whatever your hair texture.
+- Haircut & shave: A cut and a shave in the chair, the way a barbershop is supposed to do it. Or come in for just the shave.
+- Kids' cuts: Bring the young ones in with you. Kids are welcome in the chair, so walk in together or call ahead for a time.
+
+## About
+Marshall's Barber Shop sits at 1915 E 12th St, near 12th and Chicon: the mint-green tile building with the barber-pole stripes and the hand-painted sign in the window. It has been cutting hair in East Austin for more than thirty years. It's a Black-owned shop, and as one longtime customer puts it, a historical landmark for Black business on the east side. Some regulars have been coming for decades. One has been in the chair since 2010, has had haircuts in all 50 states, and still says this is the best. What keeps people coming back is simple: experienced barbers who can cut any hair texture, prices that stay affordable, and a shop full of good conversation and laughs.
+
+## Nearby areas pages
+- East Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/marshalls-barber-shop/service-area-east-austin.html
+- Chestnut, Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/marshalls-barber-shop/service-area-chestnut.html
+- Rosewood, Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/marshalls-barber-shop/service-area-rosewood.html
+- Cherrywood, Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/marshalls-barber-shop/service-area-cherrywood.html
+- Mueller, Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/marshalls-barber-shop/service-area-mueller.html
+- Downtown Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/marshalls-barber-shop/service-area-downtown-austin.html
+
+## Frequently asked questions
+- Q: Do I need an appointment?
+  A: Walk-ins are welcome during shop hours. If you'd rather not wait, call (512) 472-0302 or send a booking request online and we'll set up a time with your barber.
+- Q: What are your hours?
+  A: Monday to Friday 6 AM to 5 PM, Saturday 7 AM to 5 PM, closed Sunday.
+- Q: Where are you?
+  A: 1915 E 12th St, Austin, TX 78702, near 12th and Chicon. Look for the mint-green tile, the barber-pole stripes and the Marshall's sign painted on the window.
+- Q: Can you cut my hair texture?
+  A: Yes. Our barbers work with every hair texture, from tight skin fades to classic and modern cuts.
+- Q: Do you cut kids' hair?
+  A: Yes, kids are welcome. Bring them in with you or call ahead to book.
+- Q: How can I pay?
+  A: Credit cards and Apple Pay are accepted.
+
+## What customers say
+- "I grew up in Round Rock and have been coming here since 2010. This is the best barber shop I've been to and this is after visiting all 50 states getting cuts." (Clement O., Google review)
+- "This is an old school, real deal barbershop, like the kind my mama brought me to as a boy… I got a tight skin fade that was as good as any I've received here in Austin… Jermaine is my man, but as I sat in the chair, I could see that all the brotha's had impeccable skills." (Sean M., Yelp review)
+- "Jermaine one of the best barbers in Austin. The shop is a historical landmark for black business on eastside of town here in central Texas. I am very proud of the quality of service those men have provided to me as a loyal customer for over several decades." (Joseph O., Yelp review)
+- "Great barbershop that's still affordable in this "wonderful" economy. Always good vibes and lots of laughs with the barber discussing various topics each time I visit." (Joshua D., Yelp review)
+- "I was returning to the city and desperately needed a haircut… I found this place walked in, and was promptly greeted by the establishment, in no time at all i got my hair cut and was out quickly. The barber gave me tips for keeping my hair healthy and even gave me a card to request appointments." (Paul T., Google review)
+- "I made an appointment with my Master Barber extraordinaire Jermaine. I showed up on time for my appointment and Jermaine hooked me with a fresh cut. No matter what texture your hair is, Jermaine and Curt can work wonders." (Richard A., Yelp review)

@@ -1,0 +1,49 @@
+# Century Automotive
+
+> Foreign & domestic auto repair based in Austin, Texas. A small, busy shop on Jim Hogg Ave. We explain what we find, give you options when there are some, and only fix what your car actually needs.
+
+- Phone: (512) 467-1255
+- Based in: Austin, TX
+- Service area: Rosedale, Brentwood, Allandale, Hyde Park, North Loop, Crestview
+- Google rating: 4.9 from 179 reviews
+- Request a quote: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/century-automotive/quote.html
+- Book a drop-off: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/century-automotive/book.html
+
+## Services
+- General repair, foreign & domestic: Customers bring us everything from family domestics to BMWs. We find the real problem and explain it in plain terms.
+- Brakes: Shaking, squealing or a soft pedal. We track down the cause, even when other shops have blamed the tires.
+- A/C repair: Austin summers are no time to sweat it out. We get your A/C blowing cold and tell you everything we did.
+- Check-engine & warning lights: A light on the dash? We figure out what it actually means before any parts get replaced.
+- Cooling system & radiators: Running hot or leaking coolant? We find the source and fix it, up to a full radiator replacement.
+- Routine maintenance: The regular service that keeps a car on the road for years, without the add-ons you don't need.
+
+## About
+Century Automotive is a small repair shop at 5220A Jim Hogg Ave in Austin. Look for the blue sign with gold letters over the two bays at Unit A: quality car repair, with Joe and Travis's names in the corners. Travis and his father took over the shop in 2008. It has run on word of mouth ever since. Customers find us once and keep coming back, some driving past other shops closer to home to get here. What people say most is simple: we explain the problem in plain terms, give you options when there are some, and never try to oversell. If the dealership is the better call for your car, we'll tell you that too.
+
+## Service area pages
+- Rosedale, Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/century-automotive/service-area-rosedale.html
+- Brentwood, Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/century-automotive/service-area-brentwood.html
+- Allandale, Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/century-automotive/service-area-allandale.html
+- Hyde Park, Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/century-automotive/service-area-hyde-park.html
+- North Loop, Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/century-automotive/service-area-north-loop.html
+- Crestview, Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/century-automotive/service-area-crestview.html
+
+## Frequently asked questions
+- Q: Do you work on foreign and domestic cars?
+  A: Yes. Customers bring us both, from everyday domestics to imports like BMW. Call and tell us the year, make and model.
+- Q: Do I need an appointment?
+  A: It's best to call ahead. We're a small shop and we stay busy, so many customers book in advance. Call (512) 467-1255 or send a service request online.
+- Q: Will I know the cost before you start?
+  A: Yes. We explain what we find and what it will cost before any work begins, and if there's more than one way to fix it, we'll walk you through the options.
+- Q: Will you tell me if I should go to the dealer instead?
+  A: Yes. If the dealership is the better option for a particular repair, we'll say so.
+- Q: Where are you and when are you open?
+  A: 5220A Jim Hogg Ave, Austin, TX 78756, Unit A, under the blue sign. Monday to Friday, 7 AM to 5 PM. Closed Saturday and Sunday.
+
+## What customers say
+- "Century Automotive is an outstanding auto repair shop that I trust completely with my vehicle. The mechanics are highly experienced, honest and take the time to explain every issue and repair in a way that is easy to understand. The work is always done thoroughly and at a very fair price with no hidden costs or unnecessary add ons." (David Z., Google review)
+- "Travis is our go to mechanic. We trust his work - he is knowledgeable, upfront and friendly. He takes his time to explain to you what he finds and the price for it." (Diana F., Google review)
+- "Travis and Matthew give excellent customer service and more importantly do exactly what they say they're gonna do and when they're going to do it. It's a small shop, but it's incredible how much they get done." (Maro, Yelp review)
+- "I took it to other mechanics who blamed the tires. Hundreds of dollars later, I still had this issue. But after taking my car to Travis at Century Automotive, I finally got answers! Travis said that my rotors needed to be resurfaced. The work was done quickly and affordably." (Genevieve K., Google review)
+- "We bring both our foreign and domestic cars here and trust them completely. They are honest, direct, and extremely knowledgeable." (Jacqueline C., Google review)
+- "They fixed my A/C for a very reasonable price and told me about everything they did. Do not hesitate to bring your car to Joe and Travis, they truly know their way around cars and are honest and forthright!" (Chuck M., Yelp review)

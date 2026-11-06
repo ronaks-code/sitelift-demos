@@ -1,0 +1,47 @@
+# A & A Car Repair
+
+> Car repair & maintenance based in Round Rock, Texas. Francisco and the crew show you what's wrong, tell you straight what your car needs (and what it doesn't), and charge a fair price for the work.
+
+- Phone: (512) 527-3016
+- Based in: Round Rock, TX
+- Service area: Round Rock, Pflugerville, Hutto, Georgetown, Austin, Cedar Park
+- Google rating: 4.8 from 66 reviews
+- Request a quote: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/a-and-a-car-repair/quote.html
+- Book a drop-off: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/a-and-a-car-repair/book.html
+
+## Services
+- Diagnostics: Noise, warning light or something that just feels off? We find the real problem first and show it to you. One customer even got a video of the issue by text.
+- Alignment & front end: Noisy front end or a car that pulls? Wheel bearings, front-end work and alignment on our Hunter alignment lift.
+- Oil changes & maintenance: Regular maintenance that keeps your car running, done by people customers trust with their car year after year.
+- Struts & suspension: Bouncy, noisy or uneven ride? We check struts and suspension parts and tell you honestly what needs replacing.
+- Electrical & sensors: Turn signals, alternators, knock sensors and other electrical problems tracked down and fixed, often while you wait.
+- Car detail: It's right there on the sign over the bay door. Ask about getting your car cleaned up while it's in the shop.
+
+## About
+A & A Car Repair is a neighborhood auto repair shop at 4100 Sunrise Rd in Round Rock. Look for the hand-painted A & A sign with the old Beetle on it, right next to the open bay. Customers mention Francisco by name again and again. He looks the car over, shows you what's going on, and tells you straight what it needs. If you bought a part you don't need, he'll say so. If a job is outside what the shop does, he'll point you to someone who can do it. That's why people keep coming back. One customer has brought every car repair and maintenance job to A & A for about five years and says they're the only ones he trusts with his car.
+
+## Service area pages
+- Round Rock, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/a-and-a-car-repair/service-area-round-rock.html
+- Pflugerville, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/a-and-a-car-repair/service-area-pflugerville.html
+- Hutto, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/a-and-a-car-repair/service-area-hutto.html
+- Georgetown, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/a-and-a-car-repair/service-area-georgetown.html
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/a-and-a-car-repair/service-area-austin.html
+- Cedar Park, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/a-and-a-car-repair/service-area-cedar-park.html
+
+## Frequently asked questions
+- Q: Where is the shop and when are you open?
+  A: 4100 Sunrise Rd Ste 140, Round Rock, TX 78665. Look for the hand-painted A & A sign by the open bay. Monday to Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM, closed Sunday.
+- Q: Will you tell me what's wrong before doing any work?
+  A: Yes. We look the car over and show you what we find before any work starts. Francisco has even texted customers a video of the problem.
+- Q: What if my car needs something you don't do?
+  A: We'll tell you straight. Some jobs, like head gaskets, aren't work we take on, and we'll point you to someone who does them rather than take a job we shouldn't.
+- Q: Can I bring my own parts?
+  A: Call and ask about your repair. We've told customers when a part they bought wasn't needed, and pointed them to the parts store across the street when that saved them money.
+- Q: Do you do alignments?
+  A: Yes. The shop has a Hunter alignment lift for wheel alignments and front-end work.
+
+## What customers say
+- "Francisco was amazing! Super nice and welcoming the whole time. Even though there were people ahead of me, he still had me in and out in less than 30 minutes. What I really liked was how honest he was. I had bought some extra stuff from AutoZone for my turn signals, and he told me straight up that it wasn’t needed and could actually do more harm than good." (Xiomara Z., Google review)
+- "For about five years, I've been coming to A&A for all my car repair and maintenance needs. Francisco and his crew are the best! … Their prices are very reasonable and affordable and they're the only ones I trust with my car." (Lou Marlin T., Google review)
+- "I took my 2015 Equinox into A & A Automotive Car Repair for a noisy front end. Francisco took a look and correctly identified the problem. He recommended repacking the wheel bearings and a front end realignment. The repair was fast and smooth at a price that was fair and reasonable." (Michael C., Google review)
+- "They even took the time to show me what was going on, Francisco even texted me a video of the issue. … Overall the price was not bad, very reasonable for the work they did and the diagnostic was no charge as well. … These guys are phenomenal with their work & care about their customers!!" (Otho N., Google review)
