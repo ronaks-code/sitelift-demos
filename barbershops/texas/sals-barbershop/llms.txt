@@ -1,0 +1,48 @@
+# Sal's Barbershop
+
+> One-chair barbershop based in Austin, Texas. Consistent classic cuts, honest advice about your hair and good conversation at 4809 S Congress Ave, from the barber his regulars followed from Avenue Barber Shop.
+
+- Phone: (512) 525-5632
+- Based in: Austin, TX
+- Nearby areas: Austin, Sunset Valley, Manchaca, Buda, Kyle
+- Google rating: 4.8 from 65 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/sals-barbershop/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/sals-barbershop/book.html
+
+## Services
+- Classic haircuts: A clean, classic cut, done right and done the same way every time you sit down.
+- Textured & tricky hair: Coarse, curly or textured hair and odd growth patterns, handled with ease.
+- Honest hair advice: Sal tells you straight what will work for your hair and what won't.
+
+## About
+Sal's Barbershop is a one-chair shop at 4809 S Congress Ave in South Austin: a dark-wood kiosk with a red-and-white striped awning, a barber pole by the door and a big BARBER sign out front. The roadside sign says it plainly: EST 2025. Sal (Salvador Vasquez on his booking page) built a following at Avenue Barber Shop, and a lot of his regulars came with him when he struck out on his own. They keep coming back every few weeks for the same reasons: the cut is consistent, he is honest about what works for your hair and what doesn't, and textured or tricky hair is no problem. Sal is a former schoolteacher, so the conversation is half the visit: history, current events, sports and stories from the '80s and '90s. You might leave with a fresh cut and something new to think about.
+
+## Nearby areas pages
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/sals-barbershop/service-area-austin.html
+- Sunset Valley, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/sals-barbershop/service-area-sunset-valley.html
+- Manchaca, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/sals-barbershop/service-area-manchaca.html
+- Buda, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/sals-barbershop/service-area-buda.html
+- Kyle, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/sals-barbershop/service-area-kyle.html
+
+## Frequently asked questions
+- Q: What are your hours?
+  A: Monday, Tuesday, Thursday and Friday 12 PM to 7 PM, Saturday 8 AM to 3 PM, closed Sunday. Call (512) 525-5632 to check Wednesdays and holidays.
+- Q: Where is the shop, and where do I park?
+  A: 4809 S Congress Ave, Austin, TX 78745. Look for the wood kiosk with the red-and-white striped awning, the barber pole and the BARBER sign. Parking is free in back, or on the grass by the sidewalk.
+- Q: How do I book?
+  A: Book online on Sal's Vagaro page (there's a QR code on the sign out front too) or call (512) 525-5632. If something comes up, please cancel at least an hour ahead so someone else can take the spot.
+- Q: How can I pay?
+  A: Cash and Venmo.
+- Q: Can Sal cut textured or curly hair?
+  A: Yes. Regulars with textured hair and tricky growth patterns say he handles it with ease and they never have to explain twice.
+- Q: Do you cut kids' hair?
+  A: Yes, kids are welcome in the chair. Book them on Vagaro like any other cut.
+- Q: Who cuts my hair?
+  A: Sal does. It's a one-chair shop, so you get the same master barber every visit.
+
+## What customers say
+- "I've been getting my hair cut by Sal every 2½ to 3½ weeks for years. I know exactly what I'm going to get every time, and that's because Sal genuinely knows his craft. My hair isn't the easiest to cut... Sal has always handled it with ease, and I've never had to explain or correct anything." (Ragui Selwanes, Google review)
+- "I have been going to Sal for over a year in Austin now and am convinced he's the best barber in town! I used to get my hair cut with him when he was at Avenue Barber Shop and came along when he struck out on his own. He's friendly, gives great hair cuts and as a former schoolteacher might even drop some new knowledge on you during your cut." (Prashanth Magadi, Google review)
+- "Sal is the man! Been with him since his Avenue Barber days and happy to see him with his own spot now. The city of Austin is lucky to have someone like him, a true master barber and great human being. Can't recommend him enough." (Alejandro Nava, Google review)
+- "Sal is the man. Always easy to talk to and makes you feel welcome. He's genuinely honest about what works and what doesn't for your hair. I've been to plenty of barbers around Austin and haven't found anyone else who can give a cut this consistent." (Jameson Hurst, Google review)
+- "Big Sal is not only the coolest barber I ever met but he is also definitely one of the coolest people I ever met. He is professional, skilled & truly cares for his clients. I definitely recommend to anyone!!" (Alonzo Arispe, Google review)

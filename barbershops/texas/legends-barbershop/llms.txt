@@ -1,0 +1,46 @@
+# Legends Barbershop
+
+> Appointment-only barbershop based in Austin, Texas. A one-chair South Austin barbershop run by Joe, a third-generation barber with 35+ years behind the chair. Quality haircuts, fair prices and good conversation, by appointment.
+
+- Phone: (512) 443-6757
+- Based in: Austin, TX
+- Nearby areas: Austin, Sunset Valley, Oak Hill, Manchaca, Rollingwood, Buda
+- Google rating: 4.5 from 85 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/legends-barbershop/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/legends-barbershop/book.html
+
+## Services
+- Haircuts: A quality cut, done fast and done right. Tell Joe what you want and he will tell you straight what works.
+- Clean fades: Sharp, clean fades from a barber who has been doing this for 35+ years.
+- Undercut trims: Keeping an undercut sharp between cuts, the way regulars have counted on for years.
+
+## About
+Legends is Joe's shop. Joe is a third-generation barber with more than 35 years behind the chair, and these days he runs a one-chair shop in Suite B on Brodie Lane in South Austin. He has moved shops before, and his regulars followed him. The current shop was recently updated: a dark stacked-stone wall, hex lights on the ceiling, a black barber chair, classic car prints, burnt-orange Longhorns kicks under the TV and the game on. Joe keeps his prices reasonable on purpose, so a good haircut stays within reach for new Austinites and longtime regulars alike. He is easy to talk to and tells it like it is. It is appointment only now, so call or text to get on the books.
+
+## Nearby areas pages
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/legends-barbershop/service-area-austin.html
+- Sunset Valley, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/legends-barbershop/service-area-sunset-valley.html
+- Oak Hill, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/legends-barbershop/service-area-oak-hill.html
+- Manchaca, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/legends-barbershop/service-area-manchaca.html
+- Rollingwood, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/legends-barbershop/service-area-rollingwood.html
+- Buda, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/legends-barbershop/service-area-buda.html
+
+## Frequently asked questions
+- Q: Do you take walk-ins?
+  A: Not anymore. Legends is appointment only. Call or text (512) 443-6757 to set up a time.
+- Q: What are your hours?
+  A: Tuesday to Friday 10 AM to 7 PM and Saturday 9 AM to 1 PM. Closed Sunday and Monday. Holiday hours can differ, so text to check.
+- Q: Where is the shop?
+  A: 7703-B Brodie Ln, Suite B, Austin, TX 78745, in South Austin near Sunset Valley. It is the glass door with the barber pole, next to Caden Roofing.
+- Q: Who cuts my hair?
+  A: Joe, a third-generation barber with more than 35 years of experience. It is a one-chair shop, so you get Joe every time.
+- Q: What cuts does Joe do?
+  A: Men's haircuts, clean fades and undercut trims. Tell him what you are after and he will give you a straight answer.
+- Q: How do I book?
+  A: Call or text (512) 443-6757. Texting is easiest if he is mid-cut.
+
+## What customers say
+- "Excellent! Skilled, third-generation barber with 35+ years experience. Recently updated shop. Joe is a super nice guy too!! Great value. Hidden gem. Appointments only now." (Heather Bancroft, Google review)
+- "I love Joe. He is so much fun to talk to and I always get a great haircut and have interesting conversations. I leave feeling better than when I walked in every time. … he is a skilled barber and a chill dude charging a reasonable price - not to be competitive but to try to keep his services accessible for new Austinites and his regulars alike." (George Winn, Google review)
+- "Fast, efficient, quality haircut, affordable, and great friendly guy. Joe is fun and easy going to talk to. He very much cares about his clients and I’ll be coming to him until he or I either leave Austin" (theanro, Google review)
+- "Gotta love Joe. He tells it like it is and gives you a good haircut (or trim of your undercut)! I followed him from one location to another, where hopefully he'll get to stay a while." (Wendy Salter, Google review)

@@ -1,0 +1,52 @@
+# Adolph's Barber Shop
+
+> Walk-in barbershop based in Austin, Texas. A locally-owned family barber shop at Ben White & Menchaca. Clean, friendly and never overpriced: haircuts, hot shaves and beard line-ups for kids, dads and granddads, with the barber pole by the door and Longhorns on the wall.
+
+- Phone: (512) 444-9153
+- Based in: Austin, TX
+- Nearby areas: Austin, Sunset Valley, Rollingwood, West Lake Hills, Manchaca, Buda
+- Google rating: 4.5 from 241 reviews
+- Book an appointment: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/adolphs-barber-shop/quote.html
+- Pick a time: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/adolphs-barber-shop/book.html
+
+## Services
+- Classic haircuts: Tapers, trims, head shaves and the cut you have been getting for twenty years. Tell your barber what you want, and bring a picture if you like.
+- Shaves & beard line-ups: A hot shave, a razor on the neck, a beard lined up and shaped, or a mustache trim. Old-school barber work done the old-school way.
+- Kids, dads & granddads: A family shop. First haircuts, regulars of fifty years and everyone in between share the same row of chairs.
+
+## About
+Adolph's is a locally-owned family barber shop in South Austin at Ben White & Menchaca. Adolph himself cut hair here before he retired, and regulars have kept coming back for twenty years and more. One customer has been getting his hair cut here since he was a kid, almost fifty years. It is a no-frills, old-school shop: a long row of chairs, a leather Koken chair, the We Love Our Customers sign over the mirrors, Longhorns on the wall and college pennants strung across the windows. There are magazines and newspapers in the waiting area and a TV with westerns or maybe a game on. Walk in, put your name on the list, grab a seat and your barber will call you over. Kids get their first haircuts here, the shop opens early, and it made it through Covid when that was hard on everybody. Nextdoor neighbors have voted it a Neighborhood Favorite more than once.
+
+## Nearby areas pages
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/adolphs-barber-shop/service-area-austin.html
+- Sunset Valley, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/adolphs-barber-shop/service-area-sunset-valley.html
+- Rollingwood, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/adolphs-barber-shop/service-area-rollingwood.html
+- West Lake Hills, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/adolphs-barber-shop/service-area-west-lake-hills.html
+- Manchaca, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/adolphs-barber-shop/service-area-manchaca.html
+- Buda, TX: https://ronaks-code.github.io/sitelift-demos/barbershops/texas/adolphs-barber-shop/service-area-buda.html
+
+## Frequently asked questions
+- Q: Do I need an appointment?
+  A: No. Adolph's is a walk-in barbershop. Come in Tuesday to Friday 8 AM to 5 PM or Saturday 7:30 AM to 4 PM, put your name on the list and take a seat.
+- Q: How does the wait work?
+  A: When you come in, your name goes on the list. Have a seat in the waiting area with the magazines and the TV, and your barber will call you when it's your turn. Saturdays and early mornings can be busy.
+- Q: Where is the shop?
+  A: 1901 W Ben White Blvd, Austin, TX 78704, in South Austin at Ben White & Menchaca. Look for the navy awning, the limestone front and the barber pole sign.
+- Q: When are you closed?
+  A: Sundays and Mondays. Hours can change on holidays, so call (512) 444-9153 if you want to check.
+- Q: How do I pay?
+  A: Bring cash. Regulars will tell you it's a cash shop, so stop at the ATM on the way. Call the shop if you want to check other options.
+- Q: Do you cut kids' hair?
+  A: Yes. Adolph's is a family shop. Plenty of kids have had their first haircut here.
+- Q: Do you do shaves and beards?
+  A: Yes. Hot shaves, a razor on the neck, beard line-ups and mustache trims.
+- Q: How do I get the cut I want?
+  A: Take a minute to explain what you want, and bring a picture if you have one. Regulars say it makes all the difference.
+
+## What customers say
+- "I have been going to Adolfs for around 20 years now. Adolf use to cut my hair before he retired. … Take time to explain what you want for your haircut and bring some pictures for references. A lot of great barbers have worked here and still work there today. I absolutely love this place." (L S, Google review)
+- "It's definitely one of the very few last true old school barber shops in the Austin area. … All of the barbers know what they're doing and do a great job. It has a small town barber shop kind of feel. You come in when you have time, they put your name on a list, you have a seat in a waiting area and they call you when they get to you. … I got a trim and a hot shave by Billy." (Jerry E., Yelp review)
+- "Family, children, oriented, clean. Opens early. Took such a good care of my brother never overpriced straight up barbershop. This Business made it through Covid. … Still open for Business." (Andy Herrera, Google review)
+- "I have been having my haircut at Adolf since I was a kid almost 50 years!!! I use Maria. … Check them out." (Bill M., Yelp review)
+- "They do the best haircuts!! I forget her name but the one closest to the window is the best hands down in town." (austin baggett, Google review)
+- "A barber shop, the right way. … If what you want is to go to the barbershop, just like your grandpa used to take you to, for a good haircut at a reasonable price... this is the place for you." (Derrick M., Yelp review)
