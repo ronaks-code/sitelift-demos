@@ -1,0 +1,53 @@
+# Bob's Service
+
+> Family run Volvo repair and maintenance in Denver, now on West Maple Ave. Rated 4.8 from 143 Google reviews. After-hours drop-off by appointment.
+
+- Type: Car repair and maintenance service
+- Address: 1482 W Maple Ave, Denver, CO 80223, USA
+- Phone: (303) 320-9640
+- Email: bobsservice@msn.com
+- Website: https://ronaks-code.github.io/sitelift-demos/auto-repair/colorado/bob-s-service/
+- Google Maps: https://maps.google.com/?cid=8810527063129887636&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.8 from 143 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Bob's Service is one of the oldest Volvo repair shops in Denver. Bob retired several years ago, and his sons Jason and Marcus keep the tradition alive with the same quality service he started with.
+After a long run in Park Hill, we've moved to a new, bigger location on West Maple Ave. Our maintenance program is built around families who want to stop the cycle of new car payments and keep their cars long term.
+Our background in racing and high performance helps us spot problems you don't see every day. Customers have given us a 4.8 rating across 143 Google reviews.
+
+## Services
+- Maintenance and inspections: Regular care to keep your Volvo running long term.
+- Computer-aided engine diagnostics: Check engine light on? We'll find out why.
+- Traction control / ABS system repair: For anti-skid warnings and braking system faults.
+- Interior equipment diagnostics and repair: Tracking down and fixing problems inside the cabin.
+- Timing belt replacement
+- Transmission fluid exchange
+- Power steering fluid service
+- Brake fluid service
+
+## FAQ
+Q: Can I drop my car off outside business hours?
+A: Yes. Make an appointment during business hours, then park your car on our grounds and put your keys in the night drop box. Envelopes and a pen are there for you.
+
+Q: Where are you now?
+A: We moved from Park Hill to a new, bigger location at 1482 West Maple Ave. Denver, CO 80223.
+
+Q: When are you open?
+A: We're open weekdays, Monday through Friday, and closed on weekends.
+
+## What customers say
+- "I have brought both of my Volvos to Bob’s for annual service, and this is definitely a place I will continue to return to. They are honest, professional, and truly operate with integrity. The shop is friendly, the prices are fair, and there are no unnecessary upsells or surprise charges. It is refreshing to find a service place you can trust. Highly recommend this place for your Volvo" (Pascal Ollinger, 5/5)
+- "Great Experience with Bob's Service.  Very trustworthy shop that really know what they are doing.  Excellent communication and professional service.  They were able to diagnose  and repair my 2006 Volvo S60 and I highly recommend this Auto Repair Service Shop to anyone who needs honest work a fair prices." (Richard Sturtevant, 5/5)
+- "Very pleased with my experience using Bob’s. Pricing was fair and reasonable. Great communication. The 24/7 dropoff box is great. Staff is very friendly too. Highly recommend for other Volvo owners - way better than getting scammed by the salespeople at the dealership." (John Douthit, 5/5)
+- "I took my polestar 2 in for its 4 year service and they only charged me half the cost Volvo was charging me! They are very professional and friendly! I will continue to come here to service my vehicle!
+
+Thank you Bob’s Service!" (MisterSonVu, 5/5)

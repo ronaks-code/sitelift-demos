@@ -1,0 +1,54 @@
+# Alamo Ranch Animal Hospital
+
+> Veterinary care in San Antonio: wellness and vaccinations, puppy and kitten care, senior wellness and lab diagnostics. Rated 4.5 from 353 Google reviews.
+
+- Type: Veterinary Care
+- Address: 6820 Alamo Pkwy #118, San Antonio, TX 78253, USA
+- Phone: (210) 538-7484
+- Email: frontdesk@alamoranchvets.com
+- Website: https://ronaks-code.github.io/sitelift-demos/veterinarians/texas/alamo-ranch-animal-hospital/
+- Google Maps: https://maps.google.com/?cid=9200965820640514817&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 353 reviews
+
+## Hours
+- Monday: 7:30 AM – 5:30 PM
+- Tuesday: 7:30 AM – 5:30 PM
+- Wednesday: 7:30 AM – 5:30 PM
+- Thursday: 7:30 AM – 5:30 PM
+- Friday: 7:30 AM – 5:30 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Alamo Ranch Animal Hospital is a veterinary hospital on Alamo Parkway in San Antonio. We care for pets through wellness visits and vaccinations, puppy and kitten care, senior wellness, lab work, and radiology and ultrasound.
+We welcome new clients, and we would love to talk with you about your pet's care. Pet owners have given us a 4.5 rating across 353 Google reviews.
+Reviewers mention Dr Shannon and Dr. Greg by name. They talk about a clean, welcoming office and a team that takes its time with shy pets and first-time owners.
+
+## Services
+- General Wellness/Vaccinations: Regular check ups and vaccines to help keep your pet healthy.
+- Puppy and Kitten Wellness: Early care for young pets, with time to go over their vaccine and care schedule with you.
+- Senior Wellness: Care for pets in their later years.
+- Laboratory Diagnostics: Lab testing, such as bloodwork, to help us understand what is going on with your pet.
+- Radiology/Ultrasound: Imaging, including x-rays, to help us look more closely when your pet isn't feeling well.
+
+## FAQ
+Q: Are you taking new clients?
+A: Yes. We welcome all new clients to our veterinary facility, and we would love to discuss your pet's care.
+
+Q: Can I book an appointment online?
+A: Yes. You can schedule your appointment online, or call us at (210) 538-7484.
+
+Q: What are your hours?
+A: We are open Monday through Friday, 7:30 AM to 5:30 PM, and closed on Saturday and Sunday.
+
+Q: Will you remind me when vaccines are due?
+A: One reviewer mentioned getting friendly reminders about vaccines and other medical procedures.
+
+## What customers say
+- "Highly recommend!!!
+
+Our little sweet Alice was having stomach issues.  We called and they were able to get her in the same day.   They took some xrays, bloodwork and gave her some medications.  Dr. Greg gave us a great explanation of the process and his recommendation.  We had results in around 15 minutes and Alice is back to herself within a day!  Thank you!" (Ray Flores, 5/5)
+- "Dr Shannon and all the staff were extremely kind and patient with me and my fluffy little guy. I took my rescue pup in for a new patient exam and vaccine, and they explained his vaccine and care schedule to me as a first time dog owner and were very thorough. Their office is very clean and welcoming." (Keri Miranda, 5/5)
+- "Took cloud in for his annual check up and was able to get him synced up with this shots. He did a wonderful job with the staff taking his shyness into consideration and being patient with him. Dr was great was able to check him all out. He is a healthy and happy baby. 🥰 thank you all" (Ruby Lowe, 5/5)
+- "I take my cat here and they've been very professional, very nice and friendly when visiting. The office is very clean and i feel that it's fairly priced and quick service. If you live nearby I'd highly suggest them for your pet." (Ebrahem Al-Shalchi, 5/5)
+- "So far so good. The staff is usually friendly. I get nervous when the dogs’ nails are clipped behind closed doors but understand it is standard procedure. I’m able to inspect the nails or bring concerns to their attention about the nails which is great. The team tries to accommodate me if possible and I appreciate it. I get constant friendly reminders about vaccines and other medical procedures which is great. Prices depend on procedures. Any veterinary can get expensive though." (Alexandria, 4/5)

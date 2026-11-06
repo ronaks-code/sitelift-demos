@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Order Online | Asia Kitchen</title>
+<meta name="description" content="Order Asia Kitchen Thai food online for pickup.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>:root{--bg:#0f0c09;--text:#f2e9d8;--muted:#b8a990;--accent:#d4a84b;--on-accent:#1a120a;--line:rgba(212,168,75,.22);
+--head-bg:rgba(15,12,9,.86);--menu-bg:#14100c;--card:#18130e;--ph:#2a2017;--shadow:rgba(0,0,0,.8);--ok:#4f8a5b;
+--display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;--display-weight:600;--radius:14px;--radius-btn:2px;
+--veg-bg:rgba(120,170,100,.18);--veg:#a9d18e;--gf-bg:rgba(212,168,75,.16);--gf:#e5c57e;--hot-bg:rgba(190,50,35,.2);--hot:#ff9b85;
+--foot-bg:#0a0806;--foot-text:#cbbda3;--foot-line:rgba(212,168,75,.18);--cream:#f6eedf;--ink:#1d150d;--red:#9e2a1d;--map-filter:grayscale(.35) contrast(1.05)}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.skip{position:absolute;left:-999px}
+.skip:focus{left:16px;top:16px;z-index:99;background:var(--accent);color:var(--on-accent);padding:8px 14px}
+/* header */
+.site-head{position:sticky;top:0;z-index:50;background:var(--head-bg);backdrop-filter:saturate(1.4) blur(10px);-webkit-backdrop-filter:saturate(1.4) blur(10px);border-bottom:1px solid var(--line)}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:72px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav{display:flex;align-items:center;gap:26px}
+.nav a{text-decoration:none;font-weight:500;font-size:15px;letter-spacing:.02em;opacity:.88;transition:opacity .2s,color .2s}
+.nav a:hover,.nav a[aria-current=page]{opacity:1;color:var(--accent)}
+.nav .btn{opacity:1}
+.nav .btn[aria-current],.nav .btn:hover{color:var(--on-accent)}
+.nav-toggle{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;padding:10px}
+.nav-toggle span{display:block;height:2px;background:currentColor;margin:5px 0;transition:transform .25s,opacity .25s}
+@media (max-width:860px){
+ .nav-toggle{display:block}
+ .nav{position:fixed;inset:72px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--menu-bg);padding:8px 16px 20px;border-bottom:1px solid var(--line);transform:translateY(-12px);opacity:0;pointer-events:none;transition:.25s}
+ .nav a{padding:14px 4px;border-bottom:1px solid var(--line);font-size:17px}
+ .nav .btn{margin-top:14px;text-align:center;border-bottom:0}
+ body.nav-open .nav{transform:none;opacity:1;pointer-events:auto}
+ body.nav-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+ body.nav-open .nav-toggle span:nth-child(2){opacity:0}
+ body.nav-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 24px;border-radius:var(--radius-btn);background:var(--accent);color:var(--on-accent);text-decoration:none;font-weight:600;letter-spacing:.02em;border:2px solid var(--accent);cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s,color .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px var(--shadow)}
+.btn.ghost{background:transparent;color:var(--ghost,var(--text));border-color:currentColor}
+.btn.small{padding:9px 16px;font-size:14px}
+/* sections */
+section{position:relative}
+.pad{padding:clamp(64px,9vw,120px) 0}
+.eyebrow{font-size:13px;letter-spacing:.22em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0 0 .4em;font-weight:var(--display-weight,600)}
+h2{font-size:clamp(34px,5vw,56px)}
+h3{font-size:clamp(22px,2.4vw,28px)}
+p{margin:0 0 1em}
+.lead{font-size:clamp(18px,2vw,21px);color:var(--muted)}
+.muted{color:var(--muted)}
+.center{text-align:center}
+.grid{display:grid;gap:24px}
+.ph{background:var(--ph);position:relative;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease,opacity .3s;color:transparent;font-size:0}
+.ph:hover img{transform:scale(1.04)}
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+/* hours */
+.hours{width:100%;border-collapse:collapse;font-size:16px}
+.hours td{padding:9px 0;border-bottom:1px dashed var(--line)}
+.hours td:last-child{text-align:right}
+.hours tr.today td{font-weight:700;color:var(--accent)}
+.map{border:0;width:100%;height:100%;min-height:340px;filter:var(--map-filter,none)}
+/* footer */
+.site-foot{padding:56px 0 36px;background:var(--foot-bg);color:var(--foot-text);font-size:15px}
+.site-foot a{text-decoration:none;opacity:.85}
+.site-foot a:hover{opacity:1;color:var(--accent)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+.foot-grid h4{font-family:var(--display);font-size:20px;margin:0 0 12px;font-weight:var(--display-weight,600)}
+.foot-grid ul{list-style:none;padding:0;margin:0}
+.foot-grid li{margin:6px 0}
+.foot-bottom{margin-top:40px;padding-top:20px;border-top:1px solid var(--foot-line);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;opacity:.75;font-size:14px}
+@media (max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.foot-grid{grid-template-columns:1fr}}
+/* menu page */
+.menu-hero{padding:clamp(48px,7vw,90px) 0 32px}
+.cat-nav{position:sticky;top:72px;z-index:30;background:var(--bg);border-bottom:1px solid var(--line)}
+.cat-nav .wrap{display:flex;gap:8px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+.cat-nav .wrap::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;padding:8px 16px;border-radius:999px;border:1px solid var(--line);text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap;background:transparent;cursor:pointer;transition:.2s}
+.chip:hover,.chip.on{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.menu-tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:22px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+.tag{display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;letter-spacing:.04em;padding:2px 7px;border-radius:999px;vertical-align:middle;margin-left:6px;line-height:1.5;font-family:var(--body)}
+.tag.v{background:var(--veg-bg);color:var(--veg)}
+.tag.gf{background:var(--gf-bg);color:var(--gf)}
+.tag.hot{background:var(--hot-bg);color:var(--hot)}
+.menu-sec{padding:44px 0 12px;scroll-margin-top:140px}
+.menu-sec>header{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid var(--accent);padding-bottom:10px;margin-bottom:8px}
+.menu-sec>header h2{font-size:clamp(28px,4vw,40px);margin:0}
+.sec-note{font-size:15px;color:var(--muted);margin:10px 0 6px}
+.items{display:grid;grid-template-columns:1fr 1fr;column-gap:56px}
+@media (max-width:760px){.items{grid-template-columns:1fr}}
+.item{padding:16px 0;border-bottom:1px solid var(--line)}
+.item .row{display:flex;justify-content:space-between;gap:14px;align-items:baseline}
+.item h3{font-size:19px;font-family:var(--item-font,var(--body));font-weight:700;margin:0;line-height:1.3}
+.item .price{font-weight:700;white-space:nowrap;color:var(--accent)}
+.item p{margin:4px 0 0;font-size:15px;color:var(--muted)}
+.item .opts{font-size:14px;color:var(--muted);margin-top:4px}
+body.veg-only .item:not(.is-v){display:none}
+body.veg-only .menu-sec:not(.has-v){display:none}
+.cta-band{padding:56px 0;text-align:center}
+/* order page */
+.order-layout{display:grid;grid-template-columns:1fr 380px;gap:32px;align-items:start;padding:28px 0 80px}
+@media (max-width:980px){.order-layout{grid-template-columns:1fr}}
+.o-cat{scroll-margin-top:140px;margin-bottom:36px}
+.o-cat h2{font-size:clamp(26px,3.4vw,34px);margin-bottom:14px}
+.o-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.o-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;display:flex;flex-direction:column;gap:8px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.o-card:hover{transform:translateY(-3px);box-shadow:0 14px 30px -18px var(--shadow);border-color:var(--accent)}
+.o-card h3{font-family:var(--item-font,var(--body));font-size:17px;font-weight:700;margin:0}
+.o-card p{font-size:14px;color:var(--muted);margin:0;flex:1}
+.o-card .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:6px}
+.o-card select{font-size:13px;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);max-width:100%}
+.add{background:var(--accent);color:var(--on-accent);border:0;border-radius:999px;padding:8px 16px;font-weight:700;cursor:pointer;font-size:14px;transition:transform .15s}
+.add:active{transform:scale(.94)}
+.add.done{background:var(--ok)}
+.cart{position:sticky;top:150px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 20px 50px -30px var(--shadow)}
+.cart h2{font-size:26px;margin:0 0 10px}
+.cart-lines{list-style:none;margin:0;padding:0;max-height:300px;overflow:auto}
+.cart-lines li{display:flex;gap:10px;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);font-size:15px}
+.cart-lines .nm{flex:1}
+.cart-lines small{display:block;color:var(--muted);font-size:12px}
+.qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}
+.qty button{background:none;border:0;width:28px;height:28px;cursor:pointer;font-weight:700}
+.qty span{min-width:18px;text-align:center;font-size:14px}
+.cart-empty{color:var(--muted);font-size:15px;padding:12px 0}
+.totals{margin:14px 0;font-size:15px}
+.totals div{display:flex;justify-content:space-between;padding:3px 0}
+.totals .grand{font-weight:800;font-size:18px;border-top:1px solid var(--line);margin-top:6px;padding-top:8px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:12px;font-size:14px;font-weight:600}
+.field input,.field select,.field textarea{padding:11px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);font-weight:400;font-size:16px;width:100%}
+.field textarea{min-height:80px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--accent);outline-offset:1px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:480px){.two{grid-template-columns:1fr}}
+.checkout{width:100%;margin-top:6px}
+.checkout[disabled]{opacity:.5;cursor:not-allowed;transform:none;box-shadow:none}
+.success{display:none;text-align:center;padding:18px 4px}
+.success.show{display:block;animation:pop .5s ease}
+.success .check{width:64px;height:64px;border-radius:50%;background:var(--ok);color:#fff;display:grid;place-items:center;margin:0 auto 12px;font-size:32px}
+@keyframes pop{from{opacity:0;transform:scale(.94)}to{opacity:1;transform:none}}
+.cart-bar{display:none}
+@media (max-width:980px){
+ .cart{position:fixed;left:0;right:0;bottom:0;top:auto;border-radius:20px 20px 0 0;max-height:88vh;overflow:auto;z-index:60;transform:translateY(105%);transition:transform .35s ease;margin:0}
+ body.cart-open .cart{transform:none}
+ .cart-bar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:55;justify-content:space-between;align-items:center;padding:14px 20px;border-radius:999px;background:var(--accent);color:var(--on-accent);font-weight:700;border:0;cursor:pointer;box-shadow:0 12px 30px -10px var(--shadow)}
+ .cart-close{display:block!important}
+ body.cart-open::after{content:"";position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:58}
+ .order-layout{padding-bottom:110px}
+}
+.cart-close{display:none;position:absolute;right:14px;top:12px;background:none;border:0;font-size:28px;cursor:pointer;line-height:1}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);background:var(--ink,#111);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;opacity:0;transition:.3s;z-index:70;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+.wm{display:flex;flex-direction:column;align-items:flex-start;line-height:1}
+.wm b{font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:.08em;color:var(--accent);text-transform:uppercase}
+.wm i{font-style:normal;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+.roof{width:40px;height:34px;color:var(--accent)}
+h1,h2{letter-spacing:.005em}
+.hero{min-height:min(calc(100svh - 72px),860px);display:grid;align-items:center;overflow:hidden;background:radial-gradient(1200px 600px at 75% 30%,rgba(212,168,75,.16),transparent 60%),radial-gradient(800px 500px at 0% 100%,rgba(158,42,29,.22),transparent 60%),var(--bg)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;padding:56px 0}
+.hero h1{font-size:clamp(46px,7.4vw,96px);font-weight:600;margin:.2em 0 .25em}
+.hero h1 em{font-style:italic;color:var(--accent);font-weight:500}
+.hero .lead{max-width:34em}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}
+.arch{aspect-ratio:4/5;border-radius:400px 400px 10px 10px;border:1px solid var(--line);padding:12px;position:relative}
+.arch .ph{width:100%;height:100%;border-radius:390px 390px 6px 6px;background:linear-gradient(160deg,#3a2a18,#1a120a)}
+.arch::after{content:"";position:absolute;inset:-14px;border-radius:420px 420px 14px 14px;border:1px solid rgba(212,168,75,.12);pointer-events:none}
+.arch .badge{position:absolute;left:-22px;bottom:40px;background:var(--accent);color:var(--on-accent);padding:14px 18px;font-family:var(--display);font-size:19px;font-weight:700;line-height:1.15;box-shadow:0 14px 40px -12px #000}
+.arch .badge small{display:block;font-family:var(--body);font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600}
+.ornament{display:flex;align-items:center;gap:14px;color:var(--accent);justify-content:center;margin:0 auto 18px}
+.ornament::before,.ornament::after{content:"";height:1px;width:60px;background:currentColor;opacity:.6}
+.strip{border-block:1px solid var(--line);background:#120e0a}
+.strip .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding:22px 0;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.strip span::before{content:"\25C6";color:var(--accent);margin-right:12px;font-size:9px;vertical-align:2px}
+.people{display:grid;grid-template-columns:1fr 1fr 1fr;gap:28px;margin-top:48px}
+.person{border:1px solid var(--line);padding:32px 28px;background:linear-gradient(180deg,rgba(212,168,75,.06),transparent)}
+.mono{width:64px;height:64px;border-radius:50%;border:1px solid var(--accent);display:grid;place-items:center;font-family:var(--display);font-size:30px;color:var(--accent);margin-bottom:18px}
+.person h3{margin-bottom:2px}
+.role{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;padding:40px 0 64px}.arch{max-width:380px;margin:20px auto 0;width:100%}.people{grid-template-columns:1fr}.arch .badge{left:-8px}}
+.sig{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px}
+.sig article{background:var(--bg);padding:34px 26px;transition:background .3s}
+.sig article:hover{background:#16110c}
+.sig .num{font-family:var(--display);font-size:46px;color:var(--accent);opacity:.55;line-height:1}
+.sig h3{margin:14px 0 6px}
+.sig .th{font-style:italic;font-family:var(--display);color:var(--muted);font-size:18px;margin-bottom:10px}
+.sig p{font-size:15px;color:var(--muted);margin:0}
+@media (max-width:960px){.sig{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.sig{grid-template-columns:1fr}}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:40px}
+.gallery .ph{border-radius:6px;aspect-ratio:1;max-height:260px;border:1px solid var(--line)}
+@media (max-width:760px){.gallery{grid-template-columns:1fr 1fr}}
+.press{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:40px}
+.press blockquote{margin:0;padding:34px;border-left:2px solid var(--accent);background:#14100b}
+.press q{font-family:var(--display);font-size:clamp(24px,3vw,32px);line-height:1.25;display:block;quotes:"\201C" "\201D"}
+.press cite{display:block;margin-top:14px;font-style:normal;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:760px){.press{grid-template-columns:1fr}}
+.light{background:var(--cream);color:var(--ink);--muted:#6d5d48;--line:rgba(60,40,20,.16);--accent:#9a6f1f;--on-accent:#fff8ea}
+.light .btn.ghost{color:var(--ink)}
+.preview{display:grid;grid-template-columns:1fr 1fr;column-gap:64px;margin-top:40px}
+.preview .item{border-color:var(--line)}
+@media (max-width:760px){.preview{grid-template-columns:1fr}}
+.veg-band{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.veg-list{list-style:none;padding:0;margin:0;border-top:1px solid var(--line)}
+.veg-list li{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:17px}
+.veg-list li span:last-child{color:var(--accent);font-weight:600}
+@media (max-width:860px){.veg-band{grid-template-columns:1fr;gap:28px}}
+.cater{background:linear-gradient(90deg,rgba(15,12,9,.96),rgba(15,12,9,.72)),url('https://www.asia-kitchen.com/images/sumptuous_cp.jpg') center/cover,#2a1d12;border-block:1px solid var(--line)}
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line)}
+.visit>div{padding:clamp(28px,4vw,48px)}
+.visit .mapbox{padding:0;min-height:380px}
+.visit h3{font-size:22px;margin-top:22px}
+@media (max-width:860px){.visit{grid-template-columns:1fr}}
+.big-tel{font-family:var(--display);font-size:30px;text-decoration:none;color:var(--accent);display:block}
+.foot-logo{max-width:170px;margin-bottom:14px;background:#000}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head"><div class="wrap"><a class="brand" href="index.html" aria-label="Asia Kitchen home"><svg class="roof" viewBox="0 0 48 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M24 2v6M24 8 6 22h36L24 8Z"/><path d="M2 22c4 0 6-2 8-4M46 22c-4 0-6-2-8-4"/><path d="M10 22v14M38 22v14M17 22v14M31 22v14M6 36h36"/><path d="M14 16 24 9l10 7" opacity=".6"/></svg><span class="wm"><b>Asia Kitchen</b><i>Exceptional Thai Cuisine</i></span></a><button class="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button><nav class="nav"><a href="index.html#story">Our Story</a><a href="menu.html">Menu</a><a href="catering.html">Catering</a><a href="index.html#visit">Visit</a><a class="btn small" href="order.html" aria-current="page">Order Online</a></nav></div></header>
+<main id="main">
+<section class="menu-hero" style="padding-bottom:20px"><div class="wrap"><span class="eyebrow">Order Online</span><h1 style="font-size:clamp(42px,6vw,72px)">Pickup from Asia Kitchen</h1><p class="lead">Order ahead, pick a time and skip the wait. Online orders are taken until 8:30 pm (closed Tuesdays). Want the whole menu? <a href="menu.html">Browse it here</a> or call <a href="tel:+12106730662">(210) 673-0662</a>.</p></div></section><nav class="cat-nav"><div class="wrap"><a class="chip" href="#o-starters">Starters</a><a class="chip" href="#o-soups-salads">Soups &amp; Salads</a><a class="chip" href="#o-noodles-rice">Noodles &amp; Rice</a><a class="chip" href="#o-curries-entr-es">Curries &amp; Entrées</a><a class="chip" href="#o-sweets-drinks">Sweets &amp; Drinks</a></div></nav><div class="wrap order-layout"><div><section class="o-cat" id="o-starters"><h2>Starters</h2><div class="o-grid"><article class="o-card" data-name="Vegetable Spring Rolls" data-p="5.00"><h3>Vegetable Spring Rolls<span class="tag v" title="Vegetarian">V</span></h3><p>Shiitake, onion and mung bean, fried golden.</p><select aria-label="Choose option for Vegetable Spring Rolls"><option value="5 pieces" data-p="5.00">5 pieces · $5.00</option><option value="10 pieces" data-p="10.00">10 pieces · $10.00</option></select><div class="foot"><span class="price p">$5.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Cheese Rolls" data-p="8.00"><h3>Cheese Rolls</h3><p>Mozzarella, cream cheese and imitation crab.</p><select aria-label="Choose option for Cheese Rolls"><option value="6 pieces" data-p="8.00">6 pieces · $8.00</option><option value="12 pieces" data-p="14.00">12 pieces · $14.00</option></select><div class="foot"><span class="price p">$8.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Satay" data-p="14.00"><h3>Satay</h3><p>Eight skewers in curry marinade with peanut sauce.</p><select aria-label="Choose option for Satay"><option value="Chicken" data-p="14.00">Chicken · $14.00</option><option value="Pork" data-p="14.00">Pork · $14.00</option><option value="Beef" data-p="14.00">Beef · $14.00</option></select><div class="foot"><span class="price p">$14.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="House Delight" data-p="15.00"><h3>House Delight</h3><p>Spring rolls, gyoza, cheese rolls and shrimp tempura, 4 of each.</p><div class="foot"><span class="price p">$15.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Curry Puffs" data-p="8.00"><h3>Curry Puffs</h3><p>Chicken, potato and carrot in curry.</p><select aria-label="Choose option for Curry Puffs"><option value="5 pieces" data-p="8.00">5 pieces · $8.00</option><option value="10 pieces" data-p="14.00">10 pieces · $14.00</option></select><div class="foot"><span class="price p">$8.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Fried Tofu" data-p="8.00"><h3>Fried Tofu<span class="tag v" title="Vegetarian">V</span></h3><p>Golden tofu, sweet sauce and peanuts.</p><div class="foot"><span class="price p">$8.00</span><button class="add" type="button">Add</button></div></article></div></section>
+<section class="o-cat" id="o-soups-salads"><h2>Soups &amp; Salads</h2><div class="o-grid"><article class="o-card" data-name="Tom Kai" data-p="12.00"><h3>Tom Kai<span class="tag gf" title="Can be prepared gluten-free">GF</span></h3><p>Hot and sour coconut soup with mushrooms.</p><select aria-label="Choose option for Tom Kai"><option value="Chicken · small" data-p="12.00">Chicken · small · $12.00</option><option value="Chicken · large" data-p="13.00">Chicken · large · $13.00</option><option value="Vegetable · small" data-p="12.00">Vegetable · small · $12.00</option><option value="Shrimp · small" data-p="13.00">Shrimp · small · $13.00</option><option value="Shrimp · large" data-p="15.00">Shrimp · large · $15.00</option></select><div class="foot"><span class="price p">$12.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Tom Yum" data-p="11.00"><h3>Tom Yum<span class="tag gf" title="Can be prepared gluten-free">GF</span></h3><p>Hot and sour soup with mushrooms and Thai spices.</p><select aria-label="Choose option for Tom Yum"><option value="Chicken · small" data-p="11.00">Chicken · small · $11.00</option><option value="Chicken · large" data-p="12.00">Chicken · large · $12.00</option><option value="Vegetable · small" data-p="11.00">Vegetable · small · $11.00</option><option value="Shrimp · small" data-p="12.00">Shrimp · small · $12.00</option><option value="Shrimp · large" data-p="14.00">Shrimp · large · $14.00</option></select><div class="foot"><span class="price p">$11.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Larb" data-p="15.00"><h3>Larb<span class="tag gf" title="Can be prepared gluten-free">GF</span><span class="tag hot" title="Spicy">&#127798;&#65039;</span></h3><p>Beef or chicken, lime, toasted rice and chili.</p><select aria-label="Choose option for Larb"><option value="Chicken" data-p="15.00">Chicken · $15.00</option><option value="Beef" data-p="15.00">Beef · $15.00</option></select><div class="foot"><span class="price p">$15.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Papaya Salad" data-p="13.00"><h3>Papaya Salad<span class="tag gf" title="Can be prepared gluten-free">GF</span><span class="tag hot" title="Spicy">&#127798;&#65039;</span></h3><p>Green papaya, tomato, garlic and dried shrimp.</p><div class="foot"><span class="price p">$13.00</span><button class="add" type="button">Add</button></div></article></div></section>
+<section class="o-cat" id="o-noodles-rice"><h2>Noodles &amp; Rice</h2><div class="o-grid"><article class="o-card" data-name="Phad Thai" data-p="12.00"><h3>Phad Thai<span class="tag gf" title="Can be prepared gluten-free">GF</span></h3><p>Rice noodles, egg, bean sprouts and ground peanuts.</p><select aria-label="Choose option for Phad Thai"><option value="Chicken" data-p="12.00">Chicken · $12.00</option><option value="Beef" data-p="12.00">Beef · $12.00</option><option value="Pork" data-p="12.00">Pork · $12.00</option><option value="Tofu" data-p="12.00">Tofu · $12.00</option><option value="Vegetables" data-p="12.00">Vegetables · $12.00</option><option value="Combination" data-p="14.00">Combination · $14.00</option><option value="Shrimp" data-p="15.00">Shrimp · $15.00</option></select><div class="foot"><span class="price p">$12.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Pad See Ew" data-p="12.00"><h3>Pad See Ew</h3><p>Wide rice noodles with broccoli and egg.</p><select aria-label="Choose option for Pad See Ew"><option value="Chicken" data-p="12.00">Chicken · $12.00</option><option value="Beef" data-p="12.00">Beef · $12.00</option><option value="Pork" data-p="12.00">Pork · $12.00</option><option value="Tofu" data-p="12.00">Tofu · $12.00</option><option value="Vegetables" data-p="12.00">Vegetables · $12.00</option><option value="Combination" data-p="14.00">Combination · $14.00</option><option value="Shrimp" data-p="15.00">Shrimp · $15.00</option></select><div class="foot"><span class="price p">$12.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Pad Woonsen" data-p="12.00"><h3>Pad Woonsen<span class="tag gf" title="Can be prepared gluten-free">GF</span></h3><p>Glass noodles, black mushrooms and vegetables.</p><select aria-label="Choose option for Pad Woonsen"><option value="Chicken" data-p="12.00">Chicken · $12.00</option><option value="Beef" data-p="12.00">Beef · $12.00</option><option value="Pork" data-p="12.00">Pork · $12.00</option><option value="Tofu" data-p="12.00">Tofu · $12.00</option><option value="Vegetables" data-p="12.00">Vegetables · $12.00</option><option value="Combination" data-p="14.00">Combination · $14.00</option><option value="Shrimp" data-p="15.00">Shrimp · $15.00</option></select><div class="foot"><span class="price p">$12.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Kow Pod Key Moa" data-p="12.00"><h3>Kow Pod Key Moa<span class="tag hot" title="Spicy">&#127798;&#65039;</span></h3><p>Spicy basil fried rice.</p><select aria-label="Choose option for Kow Pod Key Moa"><option value="Chicken" data-p="12.00">Chicken · $12.00</option><option value="Beef" data-p="12.00">Beef · $12.00</option><option value="Pork" data-p="12.00">Pork · $12.00</option><option value="Vegetables" data-p="12.00">Vegetables · $12.00</option><option value="Combination" data-p="14.00">Combination · $14.00</option><option value="Shrimp" data-p="15.00">Shrimp · $15.00</option></select><div class="foot"><span class="price p">$12.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Pineapple Fried Rice" data-p="17.00"><h3>Pineapple Fried Rice<span class="tag gf" title="Can be prepared gluten-free">GF</span></h3><p>Pineapple, shrimp, chicken and ham.</p><div class="foot"><span class="price p">$17.00</span><button class="add" type="button">Add</button></div></article></div></section>
+<section class="o-cat" id="o-curries-entr-es"><h2>Curries &amp; Entrées</h2><div class="o-grid"><article class="o-card" data-name="Green Curry" data-p="12.00"><h3>Green Curry<span class="tag gf" title="Can be prepared gluten-free">GF</span><span class="tag hot" title="Spicy">&#127798;&#65039;</span></h3><p>Coconut milk, snow peas, bamboo, basil and eggplant.</p><select aria-label="Choose option for Green Curry"><option value="Chicken" data-p="12.00">Chicken · $12.00</option><option value="Beef" data-p="12.00">Beef · $12.00</option><option value="Pork" data-p="12.00">Pork · $12.00</option><option value="Tofu" data-p="12.00">Tofu · $12.00</option><option value="Shrimp" data-p="15.00">Shrimp · $15.00</option></select><div class="foot"><span class="price p">$12.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Panang" data-p="14.00"><h3>Panang<span class="tag gf" title="Can be prepared gluten-free">GF</span><span class="tag hot" title="Spicy">&#127798;&#65039;</span></h3><p>Red curry, coconut milk, basil and lime leaves.</p><select aria-label="Choose option for Panang"><option value="Chicken" data-p="14.00">Chicken · $14.00</option><option value="Beef" data-p="14.00">Beef · $14.00</option><option value="Pork" data-p="14.00">Pork · $14.00</option><option value="Shrimp" data-p="17.00">Shrimp · $17.00</option></select><div class="foot"><span class="price p">$14.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Yellow Curry" data-p="12.00"><h3>Yellow Curry<span class="tag gf" title="Can be prepared gluten-free">GF</span></h3><p>Coconut curry with potatoes, carrots and onions.</p><select aria-label="Choose option for Yellow Curry"><option value="Chicken" data-p="12.00">Chicken · $12.00</option><option value="Beef" data-p="12.00">Beef · $12.00</option><option value="Tofu" data-p="12.00">Tofu · $12.00</option><option value="Vegetables" data-p="12.00">Vegetables · $12.00</option><option value="Shrimp" data-p="15.00">Shrimp · $15.00</option></select><div class="foot"><span class="price p">$12.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Ka Pao (Thai Basil)" data-p="14.00"><h3>Ka Pao (Thai Basil)<span class="tag gf" title="Can be prepared gluten-free">GF</span><span class="tag hot" title="Spicy">&#127798;&#65039;</span></h3><p>Garlic sauce, onions and fresh basil.</p><select aria-label="Choose option for Ka Pao (Thai Basil)"><option value="Chicken" data-p="14.00">Chicken · $14.00</option><option value="Beef" data-p="14.00">Beef · $14.00</option><option value="Pork" data-p="14.00">Pork · $14.00</option><option value="Vegetables" data-p="14.00">Vegetables · $14.00</option><option value="Shrimp" data-p="17.00">Shrimp · $17.00</option></select><div class="foot"><span class="price p">$14.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Himmapan (Cashews)" data-p="14.00"><h3>Himmapan (Cashews)<span class="tag gf" title="Can be prepared gluten-free">GF</span></h3><p>Carrots, onions, cashews and dried chili.</p><select aria-label="Choose option for Himmapan (Cashews)"><option value="Chicken" data-p="14.00">Chicken · $14.00</option><option value="Beef" data-p="14.00">Beef · $14.00</option><option value="Pork" data-p="14.00">Pork · $14.00</option><option value="Shrimp" data-p="17.00">Shrimp · $17.00</option></select><div class="foot"><span class="price p">$14.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Eggplant with Spicy Garlic Sauce" data-p="12.00"><h3>Eggplant with Spicy Garlic Sauce<span class="tag v" title="Vegetarian">V</span><span class="tag hot" title="Spicy">&#127798;&#65039;</span></h3><p>From our Just for Vegetarians menu.</p><div class="foot"><span class="price p">$12.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Sesame Chicken" data-p="13.00"><h3>Sesame Chicken</h3><p>Tempura-battered with sweet sesame sauce.</p><select aria-label="Choose option for Sesame Chicken"><option value="Dark meat" data-p="13.00">Dark meat · $13.00</option><option value="White &amp; dark" data-p="14.00">White &amp; dark · $14.00</option><option value="White meat" data-p="15.00">White meat · $15.00</option></select><div class="foot"><span class="price p">$13.00</span><button class="add" type="button">Add</button></div></article></div></section>
+<section class="o-cat" id="o-sweets-drinks"><h2>Sweets &amp; Drinks</h2><div class="o-grid"><article class="o-card" data-name="Sweet Rice with Fresh Mango" data-p="5.95"><h3>Sweet Rice with Fresh Mango<span class="tag v" title="Vegetarian">V</span></h3><p>Warm coconut sticky rice and sliced mango.</p><div class="foot"><span class="price p">$5.95</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Thai Iced Tea" data-p="3.00"><h3>Thai Iced Tea</h3><p>Creamy, sweet, bright orange.</p><select aria-label="Choose option for Thai Iced Tea"><option value="Small" data-p="3.00">Small · $3.00</option><option value="Large" data-p="6.00">Large · $6.00</option></select><div class="foot"><span class="price p">$3.00</span><button class="add" type="button">Add</button></div></article><article class="o-card" data-name="Thai Iced Coffee" data-p="3.00"><h3>Thai Iced Coffee</h3><p></p><select aria-label="Choose option for Thai Iced Coffee"><option value="Small" data-p="3.00">Small · $3.00</option><option value="Large" data-p="6.00">Large · $6.00</option></select><div class="foot"><span class="price p">$3.00</span><button class="add" type="button">Add</button></div></article></div></section></div><aside class="cart" aria-label="Your order"><button class="cart-close" aria-label="Close cart">&times;</button><div class="cart-form"><h2>Your order</h2><ul class="cart-lines"></ul><p class="cart-empty">Your bag is empty. Add a few favorites.</p><div class="totals"><div><span>Subtotal</span><span id="sub">$0.00</span></div><div><span>Tax (8.25%)</span><span id="tax">$0.00</span></div><div class="grand"><span>Total</span><span id="tot">$0.00</span></div></div><label class="field">Pickup time<select id="pickup"></select></label><div class="two"><label class="field">Name<input autocomplete="name" placeholder="Your name"></label><label class="field">Phone<input type="tel" autocomplete="tel" placeholder="(210) 555-0123"></label></div><label class="field">Notes for the kitchen<textarea placeholder="Spice level, allergies, extra sauce&hellip;"></textarea></label><button class="btn checkout" disabled>Place pickup order</button></div><div class="success" role="status"><div class="check">&#10003;</div><h2>Order received!</h2><p>Order <strong id="onum"></strong> will be ready <strong id="otime"></strong>.</p><p class="muted">We'll text you when it's hot and ready.</p><button class="btn ghost small" id="again" type="button">Start a new order</button></div></aside><button class="cart-bar" type="button"><span class="n">0 items</span><span class="t">$0.00</span></button><div class="toast" role="status" aria-live="polite"></div></div>
+</main>
+<footer class="site-foot"><div class="wrap"><div class="foot-grid"><div><img onerror="this.style.opacity=0" class="foot-logo" src="https://www.asia-kitchen.com/images/asialogoC_fin_blkcopyB_cp.jpg" alt="Asia Kitchen" loading="lazy"><p>The Art of Exceptional Thai Cuisine. Lunch, dinner, takeout and catering on San Antonio's West Side.</p></div><div><h4>Visit</h4><p>1739 S.W. Loop 410, Suite 201-204<br>San Antonio, TX 78227</p></div><div><h4>Call</h4><ul><li><a href="tel:+12106730662">(210) 673-0662</a></li><li><a href="tel:+12106753170">(210) 675-3170</a></li></ul></div><div><h4>Explore</h4><ul><li><a href="menu.html">Menu</a></li><li><a href="menu.html#just-for-vegetarians">Just for Vegetarians</a></li><li><a href="order.html">Order Online</a></li><li><a href="catering.html">Catering</a></li></ul></div></div><div class="foot-bottom"><span>&copy; <span class="yr">2026</span> Asia Kitchen. All rights reserved.</span><span>Dine in &middot; Takeout &middot; Catering</span></div></div></footer>
+<script>
+(function(){
+ var t=document.querySelector('.nav-toggle');
+ if(t){t.addEventListener('click',function(){var o=document.body.classList.toggle('nav-open');t.setAttribute('aria-expanded',o)});
+  document.querySelectorAll('.nav a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('nav-open')})});}
+ var els=document.querySelectorAll('.reveal');
+ if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});els.forEach(function(e){io.observe(e)})}else{els.forEach(function(e){e.classList.add('in')})}
+ var d=new Date().getDay();document.querySelectorAll('.hours tr[data-day]').forEach(function(r){if(+r.dataset.day===d)r.classList.add('today')});
+ document.querySelectorAll('img').forEach(function(i){i.addEventListener('error',function(){i.style.opacity=0})});
+ var y=document.querySelectorAll('.yr');y.forEach(function(e){e.textContent=new Date().getFullYear()});
+})();
+</script>
+<script>window.ORDER_DATA={"priced": true, "hours": [[11, 20.5], [11, 20.5], null, [11, 20.5], [11, 20.5], [11, 20.5], [11, 20.5]]};
+(function(){
+ var D=window.ORDER_DATA, cart=[], TAX=0.0825;
+ var $=function(s){return document.querySelector(s)};
+ function money(n){return '$'+n.toFixed(2)}
+ function toast(m){var t=$('.toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show')},1600)}
+ document.querySelectorAll('.o-card').forEach(function(c){
+  var btn=c.querySelector('.add'), sel=c.querySelector('select');
+  function upd(){if(!sel)return;var o=sel.options[sel.selectedIndex];var pr=c.querySelector('.p');if(pr&&o.dataset.p)pr.textContent=money(+o.dataset.p)}
+  if(sel)sel.addEventListener('change',upd);
+  btn.addEventListener('click',function(){
+   var name=c.dataset.name, price=c.dataset.p===''?null:+c.dataset.p, opt='';
+   if(sel){var o=sel.options[sel.selectedIndex];opt=o.value;if(o.dataset.p)price=+o.dataset.p}
+   var key=name+'|'+opt, ex=cart.filter(function(l){return l.key===key})[0];
+   if(ex)ex.q++;else cart.push({key:key,name:name,opt:opt,price:price,q:1});
+   render();btn.classList.add('done');btn.textContent='Added';setTimeout(function(){btn.classList.remove('done');btn.textContent='Add'},900);toast(name+' added');
+  });
+ });
+ function render(){
+  var ul=$('.cart-lines');ul.innerHTML='';var sub=0,n=0,unpriced=false;
+  cart.forEach(function(l,i){n+=l.q;if(l.price===null)unpriced=true;else sub+=l.price*l.q;
+   var li=document.createElement('li');
+   li.innerHTML='<div class="nm">'+l.name+(l.opt?'<small>'+l.opt+'</small>':'')+'</div><div class="qty"><button aria-label="Remove one" data-i="'+i+'" data-d="-1">&minus;</button><span>'+l.q+'</span><button aria-label="Add one" data-i="'+i+'" data-d="1">+</button></div><div>'+(l.price===null?'':money(l.price*l.q))+'</div>';
+   ul.appendChild(li)});
+  $('.cart-empty').style.display=cart.length?'none':'block';
+  var tax=sub*TAX;
+  $('#sub').textContent=money(sub);$('#tax').textContent=money(tax);$('#tot').textContent=money(sub+tax);
+  var un=$('#unpriced');if(un)un.style.display=unpriced?'block':'none';
+  $('.checkout').disabled=!cart.length;
+  $('.cart-bar .n').textContent=n+(n===1?' item':' items');
+  $('.cart-bar .t').textContent=D.priced?money(sub+tax):'View order';
+ }
+ $('.cart-lines').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var l=cart[+b.dataset.i];l.q+=+b.dataset.d;if(l.q<1)cart.splice(+b.dataset.i,1);render()});
+ // pickup times
+ var ps=$('#pickup');
+ function buildTimes(){
+  var now=new Date(),day=now.getDay(),h=D.hours[day];ps.innerHTML='';
+  var loc=$('#loc');if(loc&&D.locHours){h=D.locHours[loc.value][day]}
+  if(!h){ps.innerHTML='<option>Closed today: schedule for tomorrow</option>';return}
+  var start=new Date(now.getTime()+25*60000);var mins=Math.ceil((start.getHours()*60+start.getMinutes())/15)*15;
+  var open=h[0]*60,close=h[1]*60;if(mins<open+15)mins=open+15;
+  var first=true;
+  for(var m=mins;m<=close;m+=15){var hh=Math.floor(m/60),mm=m%60;var lab=((hh+11)%12+1)+':'+(mm<10?'0':'')+mm+(hh<12?' am':' pm');
+   var o=document.createElement('option');o.textContent=(first?'ASAP · about ':'Today · ')+lab;ps.appendChild(o);first=false}
+  if(!ps.options.length)ps.innerHTML='<option>We are closed for the day: schedule for tomorrow</option>';
+ }
+ buildTimes();var loc=$('#loc');if(loc)loc.addEventListener('change',buildTimes);
+ $('.checkout').addEventListener('click',function(e){e.preventDefault();
+  var num=Math.floor(1000+Math.random()*8999);$('#onum').textContent='#'+num;$('#otime').textContent=ps.value.replace('ASAP · ','');
+  var lo=$('#loc');if(lo)$('#oloc').textContent=lo.options[lo.selectedIndex].text;
+  $('.cart-form').style.display='none';$('.success').classList.add('show');
+ });
+ $('#again').addEventListener('click',function(){cart=[];render();$('.cart-form').style.display='block';$('.success').classList.remove('show');document.body.classList.remove('cart-open')});
+ $('.cart-bar').addEventListener('click',function(){document.body.classList.add('cart-open')});
+ $('.cart-close').addEventListener('click',function(){document.body.classList.remove('cart-open')});
+ document.addEventListener('click',function(e){if(document.body.classList.contains('cart-open')&&!e.target.closest('.cart')&&!e.target.closest('.cart-bar')&&!e.target.closest('.add'))document.body.classList.remove('cart-open')});
+ render();
+})();
+</script>
+</body>
+</html>
