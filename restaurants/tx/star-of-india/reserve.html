@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reservations | Star of India, Austin</title>
+<meta name="description" content="Reserve a table at Star of India on W Anderson Lane, Austin. Buffet daily, dinner and celebrations.">
+<meta name="theme-color" content="#11163a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#11163a;--navy2:#1b2252;--navy3:#262e66;--gold:#c9a24a;--gold2:#e8cd86;--gold3:#9a7428;--ruby:#8a1d2d;--ruby2:#a8293d;--ivory:#fbf7ee;--paper:#f4ecdc;--ink:#1d1b26;--muted:#6f6758;--line:rgba(201,162,74,.35);
+--serif:'Cormorant Garamond',Georgia,serif;--sans:'Jost',system-ui,sans-serif;--ease:cubic-bezier(.2,.7,.2,1)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);font-weight:400;color:var(--ink);background:var(--ivory);line-height:1.65;font-size:17px;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
+.eyebrow{font-family:var(--sans);font-size:12px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;color:var(--gold3)}
+.on-dark .eyebrow,.eyebrow.light{color:var(--gold2)}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(38px,5.2vw,64px)}
+h2 em,h1 em{font-style:italic;color:var(--ruby)}
+.on-dark h2 em,.on-dark h1 em{color:var(--gold2)}
+.lead{font-size:clamp(17px,1.6vw,19px);color:var(--muted);max-width:56ch}
+.on-dark .lead{color:rgba(251,247,238,.78)}
+.star{width:14px;height:14px;fill:var(--gold)}
+.rule{display:flex;align-items:center;gap:14px;color:var(--gold);margin:22px 0}
+.rule:before,.rule:after{content:"";height:1px;flex:1;max-width:70px;background:linear-gradient(90deg,transparent,var(--gold))}
+.rule:after{background:linear-gradient(90deg,var(--gold),transparent)}
+.rule.center{justify-content:center}
+.gold-text{background:linear-gradient(120deg,#f6e3a8,#d4ad55 40%,#a47a2a 75%,#e8cd86);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;font-size:13px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;border:1px solid transparent;border-radius:2px;cursor:pointer;transition:all .35s var(--ease);white-space:nowrap}
+.btn-gold{background:linear-gradient(135deg,#e2c272,#c9a24a 50%,#a98330);color:#1a1530;box-shadow:0 8px 24px -10px rgba(201,162,74,.7)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(201,162,74,.9)}
+.btn-ghost{border-color:rgba(232,205,134,.6);color:var(--ivory)}
+.btn-ghost:hover{background:rgba(232,205,134,.12);border-color:var(--gold2)}
+.btn-ink{background:var(--navy);color:var(--ivory)}
+.btn-ink:hover{background:var(--ruby)}
+.btn-line{border-color:var(--navy);color:var(--navy)}
+.btn-line:hover{background:var(--navy);color:var(--ivory)}
+/* header */
+.hdr{position:fixed;inset:0 0 auto;z-index:50;transition:background .4s var(--ease),box-shadow .4s,padding .4s;padding:18px 0}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.hdr.solid,.hdr.always{background:rgba(17,22,58,.96);backdrop-filter:blur(10px);padding:10px 0;box-shadow:0 10px 30px -20px rgba(0,0,0,.6)}
+.brand{display:flex;align-items:center;background:var(--navy);border-radius:3px}
+.brand img{height:46px;width:auto;transition:height .4s}
+.hdr.solid .brand img,.hdr.always .brand img{height:40px}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a.l{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:rgba(251,247,238,.85);position:relative;padding:6px 0}
+.nav a.l:after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold2);transform:scaleX(0);transition:transform .35s var(--ease)}
+.nav a.l:hover,.nav a.l.on{color:var(--gold2)}
+.nav a.l:hover:after,.nav a.l.on:after{transform:scaleX(1)}
+.nav .btn{padding:11px 20px;font-size:12px}
+.burger{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;position:relative}
+.burger span{position:absolute;left:11px;right:11px;height:1.5px;background:var(--gold2);transition:.3s}
+.burger span:nth-child(1){top:16px}.burger span:nth-child(2){top:22px}.burger span:nth-child(3){top:28px}
+.menu-open .burger span:nth-child(1){top:22px;transform:rotate(45deg)}
+.menu-open .burger span:nth-child(2){opacity:0}
+.menu-open .burger span:nth-child(3){top:22px;transform:rotate(-45deg)}
+@media(max-width:940px){
+ .burger{display:block}
+ .nav{position:fixed;inset:0;background:var(--navy);flex-direction:column;justify-content:center;gap:26px;opacity:0;pointer-events:none;transition:opacity .35s}
+ .nav a.l{font-family:var(--serif);font-size:32px;letter-spacing:0;text-transform:none}
+ .menu-open .nav{opacity:1;pointer-events:auto}
+ .burger{z-index:60}
+ .menu-open .hdr{backdrop-filter:none;-webkit-backdrop-filter:none}
+ .brand img{height:38px}
+}
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s var(--ease),transform 1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}.rv.d4{transition-delay:.4s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+/* photo frames */
+.ph{position:relative;overflow:hidden;background:linear-gradient(135deg,#2a2f5e,#11163a)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s var(--ease)}
+.ph.broken img{display:none}
+.arch{border-radius:999px 999px 4px 4px/ 46% 46% 4px 4px}
+/* section */
+section{position:relative}
+.sec{padding:clamp(80px,11vw,140px) 0}
+.on-dark{background:var(--navy);color:var(--ivory)}
+.pattern{background-color:var(--navy);background-image:radial-gradient(circle at 1px 1px,rgba(232,205,134,.13) 1px,transparent 0);background-size:22px 22px}
+/* footer */
+.ftr{background:#0b0f2a;color:rgba(251,247,238,.75);padding:80px 0 34px;font-size:15px}
+.ftr .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.ftr h4{font-family:var(--sans);font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold2);margin-bottom:18px;font-weight:500}
+.ftr a:hover{color:var(--gold2)}
+.ftr li{list-style:none;margin:6px 0}
+.ftr .logo{background:var(--navy);display:inline-block;margin-bottom:18px}
+.ftr .logo img{height:54px}
+.ftr .base{margin-top:60px;padding-top:24px;border-top:1px solid rgba(232,205,134,.18);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13px;letter-spacing:.06em}
+@media(max-width:820px){.ftr .cols{grid-template-columns:1fr 1fr}.ftr .cols>div:first-child{grid-column:1/-1}}
+/* veg tags */
+.tag{display:inline-flex;align-items:center;gap:4px;font-family:var(--sans);font-size:10.5px;letter-spacing:.12em;font-weight:500;text-transform:uppercase;padding:2px 7px 2px 6px;border-radius:20px;vertical-align:middle;line-height:1.5}
+.tag svg{width:11px;height:11px;fill:currentColor}
+.tag.v{background:#e6efdc;color:#3f6a2a}
+.tag.vg{background:#d9ecdf;color:#1f6640}
+.tag.gf{background:#f3e7cf;color:#8a6420}
+.tag.pop{background:#f6dde0;color:var(--ruby)}
+/* forms */
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.field input,.field select,.field textarea{background:#fff;border:1px solid #ddd2bd;border-radius:3px;padding:14px 16px;font-size:16px;transition:border-color .25s,box-shadow .25s;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 4px rgba(201,162,74,.18)}
+.page-hero{padding:170px 0 90px;text-align:center;position:relative;overflow:hidden}
+.page-hero h1{font-size:clamp(46px,7vw,88px)}
+.page-hero .lead{margin:18px auto 0}
+.page-hero:after{content:"";position:absolute;left:50%;bottom:-1px;transform:translateX(-50%);width:120px;height:40px;background:var(--ivory);clip-path:polygon(0 100%,50% 0,100% 100%)}
+
+.res{display:grid;grid-template-columns:1fr 1.05fr;min-height:100vh}
+.res .vis{position:relative;color:var(--ivory);display:flex;align-items:flex-end;padding:140px clamp(24px,5vw,70px) 60px;background:var(--navy)}
+.res .vis .ph{position:absolute;inset:0}
+.res .vis .ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,22,58,.45),rgba(11,15,42,.95))}
+.res .vis .c{position:relative}
+.res .vis h1 em{color:var(--gold2)}
+.res .vis h1{font-size:clamp(46px,6vw,82px);margin:12px 0 16px}
+.res .vis ul{list-style:none;margin-top:30px;border-top:1px solid rgba(232,205,134,.3)}
+.res .vis li{display:flex;justify-content:space-between;gap:20px;padding:12px 0;border-bottom:1px solid rgba(232,205,134,.2);font-size:15px}
+.res .vis li span:first-child{color:var(--gold2);letter-spacing:.14em;text-transform:uppercase;font-size:12px}
+.res .frm{padding:140px clamp(20px,5vw,80px) 80px;background:var(--ivory)}
+.steps{display:flex;gap:10px;margin-bottom:34px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.steps b{color:var(--navy);font-weight:500}
+.frm h2{font-size:clamp(34px,4vw,48px)}
+.grp{margin-top:30px}
+.grp>label{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:12px}
+.party{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.party button,.slots button,.occ button{border:1px solid #ddd2bd;background:#fff;padding:12px 0;cursor:pointer;border-radius:3px;font-size:15px;transition:.25s}
+.party button:hover,.slots button:hover,.occ button:hover{border-color:var(--gold)}
+.party button.on,.slots button.on,.occ button.on{background:var(--navy);color:var(--gold2);border-color:var(--navy)}
+.dates{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
+.dates button{flex:none;width:74px;border:1px solid #ddd2bd;background:#fff;padding:10px 0;cursor:pointer;border-radius:3px;text-align:center;line-height:1.25;transition:.25s}
+.dates button small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.dates button b{font-family:var(--serif);font-size:28px;font-weight:500}
+.dates button.on{background:var(--navy);color:var(--ivory);border-color:var(--navy)}
+.dates button.on small{color:var(--gold2)}
+.slots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.slots .lbl{grid-column:1/-1;font-size:12px;color:var(--gold3);letter-spacing:.16em;text-transform:uppercase;margin-top:8px}
+.occ{display:flex;flex-wrap:wrap;gap:8px}
+.occ button{padding:10px 16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sum{margin-top:30px;background:var(--paper);border:1px solid var(--line);padding:18px 20px;font-size:15px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.sum b{font-family:var(--serif);font-size:22px;font-weight:500;color:var(--navy)}
+.ok{display:none;text-align:center;padding:30px 0}
+.ok .ck{width:84px;height:84px;border-radius:50%;background:var(--navy);color:var(--gold2);display:grid;place-items:center;margin:0 auto 24px;font-size:36px;box-shadow:0 0 0 7px var(--ivory),0 0 0 8px var(--gold);animation:pop .6s var(--ease)}
+@keyframes pop{from{transform:scale(.4);opacity:0}}
+.ok h2{font-size:clamp(40px,5vw,58px)}
+.ok .card{margin:28px auto 0;max-width:440px;border:1px solid var(--line);background:#fff;padding:24px;text-align:left}
+.ok .card div{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #e3d7bd}
+.ok .card span:first-child{color:var(--muted);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.frm.sent form{display:none}.frm.sent .ok{display:block}
+.err{color:var(--ruby);font-size:14px;margin-top:12px;min-height:20px}
+@media(max-width:960px){.res{grid-template-columns:1fr}.res .vis{min-height:70vh;padding-top:120px}.res .frm{padding-top:60px}}
+@media(max-width:520px){.party{grid-template-columns:repeat(4,1fr)}.slots{grid-template-columns:repeat(3,1fr)}.two{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header class="hdr">
+ <div class="wrap">
+  <a class="brand" href="index.html" aria-label="Star of India home"><img src="https://starofindia.us/assets/img/logo.png" alt="Star of India, since 1994" width="1304" height="276"></a>
+  <button class="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <nav class="nav">
+   <a class="l" href="menu.html">Menu</a>
+   <a class="l" href="index.html#story">Our Story</a>
+   <a class="l" href="index.html#buffet">Buffet</a>
+   <a class="l" href="index.html#visit">Visit</a>
+   <a class="btn btn-ghost" href="reserve.html">Reserve</a>
+   <a class="btn btn-gold" href="order.html">Order Online</a>
+  </nav>
+ </div>
+</header>
+<main class="res">
+ <div class="vis">
+  <div class="ph " style=""><img src="https://starofindia.us/assets/img/about/about_bg1.jpg" alt="Carved arches in the Star of India dining room"></div>
+  <div class="c">
+   <div class="eyebrow light">Reservations</div>
+   <h1>Your table <em>awaits</em></h1>
+   <p class="lead">From a quick buffet lunch to a family celebration, we'll have everything ready when you arrive.</p>
+   <ul>
+    <li><span>Lunch buffet</span><span>Daily · 11 am – 4 pm</span></li>
+    <li><span>Dinner buffet</span><span>Fri – Sun · 5:30 – 10 pm</span></li>
+    <li><span>Open</span><span>Daily · 11 am – 12 am</span></li>
+    <li><span>Large parties</span><span><a href="tel:+15124528199">Call (512) 452-8199</a></span></li>
+   </ul>
+  </div>
+ </div>
+ <div class="frm" id="frm">
+  <form id="rf" novalidate>
+   <div class="steps"><b>Reserve a table</b> · Star of India, Austin</div>
+   <h2>Choose your <em>date &amp; time</em></h2>
+   <div class="grp"><label>Party size</label><div class="party" id="party"></div></div>
+   <div class="grp"><label>Date</label><div class="dates" id="dates"></div></div>
+   <div class="grp"><label>Time</label><div class="slots" id="slots"></div></div>
+   <div class="grp"><label>Occasion <span style="text-transform:none;letter-spacing:0">(optional)</span></label><div class="occ" id="occ"><button type="button">Birthday</button><button type="button">Anniversary</button><button type="button">Business</button><button type="button">Family gathering</button><button type="button">Buffet</button></div></div>
+   <div class="grp two"><div class="field"><label for="n">Name</label><input id="n" required autocomplete="off"></div><div class="field"><label for="t">Phone</label><input id="t" type="tel" required autocomplete="off"></div></div>
+   <div class="grp field"><label for="e">Email</label><input id="e" type="email" autocomplete="off"></div>
+   <div class="grp field"><label for="r">Special requests</label><textarea id="r" rows="3" placeholder="High chair, spice preferences, celebration cake…"></textarea></div>
+   <div class="sum"><div>Requesting<br><b id="sm">Choose a time</b></div><button class="btn btn-gold" type="submit">Request Reservation</button></div>
+   <div class="err" id="err"></div>
+  </form>
+  <div class="ok" aria-live="polite">
+   <div class="ck">✓</div>
+   <div class="eyebrow">Request received</div>
+   <h2>We'll see you <em>soon</em></h2>
+   <p class="lead" style="margin:12px auto 0">We'll call to confirm your table. Need to change something? Call <a href="tel:+15124528199" style="border-bottom:1px solid var(--gold)">(512) 452-8199</a>.</p>
+   <div class="card" id="cardsum"></div>
+   <div style="margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap"><a class="btn btn-ink" href="menu.html">Browse the Menu</a><a class="btn btn-line" href="index.html">Home</a></div>
+  </div>
+ </div>
+</main>
+<footer class="ftr">
+ <div class="wrap">
+  <div class="cols">
+   <div>
+    <a class="logo" href="index.html"><img src="https://starofindia.us/assets/img/logo.png" alt="Star of India" loading="lazy"></a>
+    <p style="max-width:34ch">North Indian cooking on Anderson Lane since 1994. Buffet daily, à la carte all day.</p>
+   </div>
+   <div><h4>Visit</h4><ul><li>2900 W Anderson Ln, Ste 12D</li><li>Austin, TX 78757</li><li><a href="https://www.google.com/maps/search/?api=1&query=Star+of+India+2900+W+Anderson+Ln+Austin+TX+78757" target="_blank" rel="noopener">Get directions →</a></li></ul></div>
+   <div><h4>Hours</h4><ul><li>Open daily 11 am – 12 am</li><li>Lunch buffet daily 11 – 4</li><li>Dinner buffet Fri–Sun 5:30 – 10</li></ul></div>
+   <div><h4>Contact</h4><ul><li><a href="tel:+15124528199">(512) 452-8199</a></li><li><a href="mailto:starofindiaaustin@gmail.com">starofindiaaustin@gmail.com</a></li><li><a href="reserve.html">Reservations</a></li><li><a href="order.html">Order pickup</a></li></ul></div>
+  </div>
+  <div class="base"><span>© <span data-year>2026</span> Star of India · Austin, Texas</span><span><a href="menu.html">Menu</a> &nbsp;·&nbsp; <a href="reserve.html">Reserve</a> &nbsp;·&nbsp; <a href="order.html">Order</a></span></div>
+ </div>
+</footer>
+<script>
+(function(){
+ var h=document.querySelector('.hdr');
+ function s(){if(h&&!h.classList.contains('always'))h.classList.toggle('solid',scrollY>40)}
+ addEventListener('scroll',s,{passive:true});s();
+ var b=document.querySelector('.burger');
+ if(b)b.addEventListener('click',function(){document.body.classList.toggle('menu-open');b.setAttribute('aria-expanded',document.body.classList.contains('menu-open'))});
+ document.querySelectorAll('.nav a').forEach(function(a){a.addEventListener('click',function(){document.body.classList.remove('menu-open')})});
+ var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+ document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+ document.querySelectorAll('.ph img').forEach(function(i){i.addEventListener('error',function(){i.parentNode.classList.add('broken')})});
+ document.querySelectorAll('[data-year]').forEach(function(e){e.textContent=new Date().getFullYear()});
+})();
+</script>
+<script>
+var S={p:2,d:null,t:null,o:null};
+var P=document.getElementById('party');[1,2,3,4,5,6,7,8,9,10,'10+'].forEach(function(n){var b=document.createElement('button');b.type='button';b.textContent=n;if(n===2)b.className='on';b.onclick=function(){S.p=n;[].forEach.call(P.children,function(c){c.classList.toggle('on',c===b)});sum()};P.appendChild(b)});
+var D=document.getElementById('dates'),days=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],mos=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+for(var i=0;i<21;i++){(function(i){var d=new Date();d.setDate(d.getDate()+i);var b=document.createElement('button');b.type='button';b.innerHTML='<small>'+(i===0?'Today':days[d.getDay()])+'</small><b>'+d.getDate()+'</b><small>'+mos[d.getMonth()]+'</small>';if(i===0){b.className='on';S.d=d}b.onclick=function(){S.d=d;[].forEach.call(D.children,function(c){c.classList.toggle('on',c===b)});slots();sum()};D.appendChild(b)})(i)}
+function slots(){var el=document.getElementById('slots'),h='',now=new Date(),same=S.d.toDateString()===now.toDateString();var g=[['Lunch',[11,11.5,12,12.5,13,13.5,14,14.5]],['Dinner',[17,17.5,18,18.5,19,19.5,20,20.5,21,21.5]]];
+ g.forEach(function(x){var bs=x[1].filter(function(v){return !same||v>now.getHours()+now.getMinutes()/60+.5});if(!bs.length)return;h+='<div class="lbl">'+x[0]+'</div>'+bs.map(function(v){var hh=Math.floor(v),m=v%1?'30':'00',l=(hh>12?hh-12:hh)+':'+m+(hh>=12?' pm':' am');return '<button type="button" data-v="'+l+'">'+l+'</button>'}).join('')});
+ el.innerHTML=h||'<div class="lbl">No more times today. Please pick another date.</div>';S.t=null;
+ [].forEach.call(el.querySelectorAll('button'),function(b){b.onclick=function(){S.t=b.dataset.v;[].forEach.call(el.querySelectorAll('button'),function(c){c.classList.toggle('on',c===b)});sum()}})}
+[].forEach.call(document.querySelectorAll('#occ button'),function(b){b.onclick=function(){var on=!b.classList.contains('on');[].forEach.call(document.querySelectorAll('#occ button'),function(c){c.classList.remove('on')});b.classList.toggle('on',on);S.o=on?b.textContent:null}});
+function ds(){return S.d.toLocaleDateString([], {weekday:'long',month:'long',day:'numeric'})}
+function sum(){document.getElementById('sm').textContent=S.p+(S.p===1?' guest':' guests')+' · '+ds()+(S.t?' · '+S.t:'')}
+slots();sum();
+document.getElementById('rf').addEventListener('submit',function(e){e.preventDefault();var n=document.getElementById('n').value.trim(),t=document.getElementById('t').value.trim(),er=document.getElementById('err');
+ if(!S.t){er.textContent='Please choose a time.';return}if(!n||!t){er.textContent='Please add your name and phone so we can confirm.';return}er.textContent='';
+ document.getElementById('cardsum').innerHTML=[['Name',n],['Party',S.p+(S.p===1?' guest':' guests')],['Date',ds()],['Time',S.t]].concat(S.o?[['Occasion',S.o]]:[]).map(function(r){return '<div><span>'+r[0]+'</span><span>'+r[1].replace(/</g,'&lt;')+'</span></div>'}).join('');
+ document.getElementById('frm').classList.add('sent');window.scrollTo({top:document.getElementById('frm').offsetTop-80,behavior:'smooth'})});
+</script></body></html>

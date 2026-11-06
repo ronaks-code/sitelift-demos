@@ -1,0 +1,46 @@
+# Malone's Ale House
+
+> Sports bar in Beaverton with craft beers, ciders, burgers, cocktails and breakfast all day. Rated 4.3 from 902 Google reviews.
+
+- Type: Sports Bar
+- Address: 1175 NW 185th Ave, Aloha, OR 97006, USA
+- Phone: (503) 439-0630
+- Email: malonesalehouse@comcast.net
+- Website: https://ronaks-code.github.io/sitelift-demos/billiards/or/malone-s-ale-house/
+- Google Maps: https://maps.google.com/?cid=14614561891527603249&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.3 from 902 reviews
+
+## Hours
+- Monday: 11:00 AM – 1:00 AM
+- Tuesday: 11:00 AM – 1:00 AM
+- Wednesday: 11:00 AM – 1:00 AM
+- Thursday: 11:00 AM – 1:00 AM
+- Friday: 11:00 AM – 1:00 AM
+- Saturday: 10:00 AM – 1:00 AM
+- Sunday: 10:00 AM – 1:00 AM
+
+## About
+Malone's Ale House is a neighborhood sports bar known for great cocktails, great food and a lively atmosphere for your game day sports viewing. Come in for craft beers, ciders, burgers, wraps and apps, plus a pool table and outdoor seating.
+We're rated 4.3 from 902 Google reviews. If you enjoy our food, our service and generally had a good time, tell your friends. If not, tell us, and we'll make it right, right away.
+
+## Services
+- Happy hour: $3 off all appetizers from 4 to 7 PM, for in house dining only. ($3 off all appetizers)
+- Breakfast all day: Breakfast is on the menu all day long. One reviewer recommended the Chicken Fried Steak and the Bloody Mary.
+- Your birthday: Celebrate your birthday with us, and ask about the birthday shirt, Jell-O shots and nacho.
+
+## FAQ
+Q: Do you open early on Sunday during the NFL season?
+A: Yes. On Sunday during the NFL season we open at 9 AM.
+
+Q: Can I bring a large group?
+A: Yes. One reviewer noted some weekends get busy, so if you're bringing a large group, it's best to call ahead. You can also ask about a reservation through our contact page.
+
+Q: Is happy hour available for takeout?
+A: No. Happy hour pricing is for in house dining only.
+
+## What customers say
+- "This place is amazing. Bartender was such a good dude and made an incredible Bloody Mary. So good. And the Chicken Fried Steak was probably one of the best I’d ever had. The gravy was next level. Can’t recommend this place enough for breakfast. I’ll be back for sure." (Alexander Pekar, 5/5)
+- "Came in for a quick lunch. Service was fast and friendly. Food was good. It hit the spot for what I needed. Also looks like a pretty cool place to hang out and have a beer. Plenty of TVs with sports on if that's what you are looking for." (Bryan Price, 5/5)
+- "I just had the most delicious quesadilla I've ever had in my life at this place. Seriously...this thing was amazing! And the waitress and service was awesome! I will definitely be returning!" (Matthew Carlsen, 5/5)
+- "Many large screens with sports,  lots of seating,  cheery but professional servers, and affordable happy hour prices.  Won some $ gambling and had incredible pulled pork nachos. Great visit!" (bohm2012, 5/5)
+- "Malone's is a clean and friendly establishment, with great food and a good selection of beer and liquor. I was there on a Friday night and it wasn't busy, though some weekends are. If you want to seat a large a group of friends, it's best to call ahead just to be safe." (Chris Black, 4/5)

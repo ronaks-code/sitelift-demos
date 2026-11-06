@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Private Events &amp; Catering | El Jarro de Arturo</title>
+<meta name="description" content="Weddings, corporate events, anniversaries and luncheons with El Jarro de Arturo, at the restaurant or catered.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);line-height:1.08;margin:0 0 .5em;font-weight:var(--dw,700)}
+p{margin:0 0 1em}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.narrow{width:min(760px,100% - 32px);margin-inline:auto}
+section{position:relative}
+.pad{padding:clamp(64px,10vw,120px) 0}
+.eyebrow{font-family:var(--eyebrow,var(--body));text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;font-weight:700;color:var(--accent);margin-bottom:14px;display:inline-block}
+.lead{font-size:clamp(1.05rem,1.6vw,1.25rem);opacity:.85}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;padding:15px 28px;border-radius:var(--radius-btn,999px);background:var(--accent);color:var(--on-accent,#fff);text-decoration:none;font-weight:700;font-family:var(--btnfont,var(--body));letter-spacing:.02em;border:2px solid var(--accent);cursor:pointer;font-size:1rem;transition:transform .2s ease,background .2s ease,color .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px var(--accent)}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.btn-sm{padding:10px 18px;font-size:.9rem}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+.site-header{position:sticky;top:0;z-index:50;background:var(--hdr-bg,var(--bg));transition:box-shadow .3s ease,background .3s ease}
+.site-header.scrolled{box-shadow:0 6px 24px -14px rgba(0,0,0,.45)}
+.nav{display:flex;align-items:center;gap:24px;min-height:72px}
+.brand{text-decoration:none;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-links{display:flex;gap:26px;margin-left:auto}
+.nav-links a{text-decoration:none;font-weight:600;font-size:.95rem;position:relative;padding:6px 0}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.nav-links a:hover::after,.nav-links a[aria-current]::after{transform:scaleX(1)}
+.nav-toggle{display:none;background:none;border:0;width:44px;height:44px;cursor:pointer;color:inherit;position:relative;z-index:60}
+.nav-toggle span{display:block;width:24px;height:2px;background:currentColor;margin:6px auto;transition:transform .3s ease}
+@media (max-width:900px){
+ .nav-toggle{display:block;margin-left:auto}
+ .nav-cta{display:none}
+ .nav-links{position:fixed;inset:0;background:var(--hdr-bg,var(--bg));flex-direction:column;justify-content:center;align-items:center;gap:22px;opacity:0;pointer-events:none;transition:opacity .3s ease;margin:0;z-index:55}
+ .nav-links a{font-size:1.5rem}
+ .nav-open .nav-links{opacity:1;pointer-events:auto}
+ .nav-open .nav-toggle span:first-child{transform:translateY(4px) rotate(45deg)}
+ .nav-open .nav-toggle span:last-child{transform:translateY(-4px) rotate(-45deg)}
+ .nav-open{overflow:hidden}
+}
+.ph{position:relative;overflow:hidden;background:var(--ph,#ddd);border-radius:var(--radius,14px)}
+.ph img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.ph:hover img{transform:scale(1.04)}
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+.js .reveal.d1{transition-delay:.1s}.js .reveal.d2{transition-delay:.2s}.js .reveal.d3{transition-delay:.3s}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.ph img{transition:none}}
+.grid{display:grid;gap:24px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:900px){.g3,.g4{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.g2,.g3,.g4{grid-template-columns:1fr}}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+@media (max-width:860px){.split{grid-template-columns:1fr}}
+.hours{list-style:none;padding:0;margin:0}
+.hours li{display:flex;justify-content:space-between;gap:16px;padding:10px 0;border-bottom:1px solid var(--line)}
+.map{border:0;width:100%;height:100%;min-height:340px;border-radius:var(--radius,14px);filter:var(--mapfilter,none);background:var(--ph,#ddd)}
+.site-footer{background:var(--ft-bg,var(--ink));color:var(--ft-ink,var(--bg));padding:64px 0 28px;font-size:.95rem}
+.ft-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:32px}
+@media (max-width:860px){.ft-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.ft-grid{grid-template-columns:1fr}}
+.site-footer h4{font-family:var(--body);text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;opacity:.7;margin-bottom:14px}
+.site-footer a{text-decoration:none}.site-footer a:hover{text-decoration:underline}
+.site-footer ul{list-style:none;padding:0;margin:0}.site-footer li{margin-bottom:6px}
+.ft-bottom{margin-top:48px;padding-top:22px;border-top:1px solid rgba(127,127,127,.3);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;opacity:.75;font-size:.85rem}
+.menu-tools{position:sticky;top:72px;z-index:20;background:var(--hdr-bg,var(--bg));border-bottom:1px solid var(--line)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex-shrink:0;padding:8px 16px;border-radius:999px;border:1.5px solid var(--line);background:transparent;color:inherit;font:inherit;font-size:.88rem;font-weight:600;cursor:pointer;text-decoration:none;white-space:nowrap;transition:all .2s ease}
+.chip:hover,.chip.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chip.veg-toggle.on{background:var(--veg);border-color:var(--veg);color:#fff}
+.menu-sec{padding:56px 0 8px;scroll-margin-top:140px}
+.menu-sec h2{font-size:clamp(1.8rem,3.4vw,2.6rem)}
+.menu-sec .note{opacity:.7;font-size:.95rem;margin-top:-6px}
+.items{display:grid;grid-template-columns:1fr 1fr;gap:6px 48px;margin-top:18px}
+@media (max-width:760px){.items{grid-template-columns:1fr}}
+.item{display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.item h3{font-family:var(--itemfont,var(--body));font-size:1.05rem;font-weight:700;margin:0;line-height:1.35}
+.item .price{font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.item p{grid-column:1/-1;margin:0;font-size:.93rem;opacity:.75}
+.tag-v{display:inline-block;font-family:var(--body);font-size:.66rem;font-weight:800;letter-spacing:.06em;background:var(--veg);color:#fff;border-radius:999px;padding:2px 7px;margin-left:6px;vertical-align:2px}
+.veg-only .item:not(.veg){display:none}
+.veg-only .menu-sec.noveg{display:none}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.field label,.label{font-weight:700;font-size:.85rem;letter-spacing:.03em}
+.label{display:block;margin:0 0 8px}
+.field input,.field select,.field textarea{font:inherit;font-size:1rem;padding:13px 14px;border-radius:var(--radius-in,10px);border:1.5px solid var(--line);background:var(--field,#fff);color:var(--ink);width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(127,127,127,.2)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 16px}
+@media (max-width:560px){.row2,.row3{grid-template-columns:1fr}}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills input{position:absolute;opacity:0;pointer-events:none}
+.pills label{padding:10px 16px;border:1.5px solid var(--line);border-radius:999px;cursor:pointer;font-weight:600;font-size:.92rem;transition:all .2s ease}
+.pills input:checked+label{background:var(--accent);border-color:var(--accent);color:var(--on-accent,#fff)}
+.pills input:focus-visible+label{outline:2px solid var(--accent);outline-offset:2px}
+.success{text-align:center;padding:48px 24px;border-radius:var(--radius,14px);background:var(--card);animation:pop .5s ease}
+.success .check{width:72px;height:72px;border-radius:50%;background:var(--accent);color:var(--on-accent,#fff);display:grid;place-items:center;margin:0 auto 18px;font-size:2rem}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.order-layout{display:grid;grid-template-columns:1fr 360px;gap:32px;align-items:start}
+@media (max-width:980px){.order-layout{grid-template-columns:1fr}}
+.cat-title{font-size:1.6rem;margin:40px 0 16px;scroll-margin-top:150px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.card{background:var(--card);border-radius:var(--radius,14px);overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 30px -18px rgba(0,0,0,.4)}
+.card .ph{border-radius:0;aspect-ratio:4/3}
+.card .body{padding:16px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card h3{font-family:var(--itemfont,var(--body));font-size:1.05rem;margin:0;font-weight:800;text-transform:none;letter-spacing:0}
+.item h3{text-transform:none;letter-spacing:0}
+.card p{font-size:.88rem;opacity:.72;margin:0;flex:1}
+.card .foot{display:flex;justify-content:space-between;align-items:center;margin-top:10px;gap:8px}
+.card .price{font-weight:800}
+.add{border:0;background:var(--accent);color:var(--on-accent,#fff);font:inherit;font-weight:700;font-size:.88rem;padding:9px 16px;border-radius:999px;cursor:pointer;transition:transform .15s ease}
+.add:active{transform:scale(.94)}
+.add.added{background:var(--veg)}
+.cart{position:sticky;top:96px;background:var(--card);border-radius:var(--radius,14px);border:1px solid var(--line);padding:22px;max-height:calc(100vh - 120px);overflow:auto}
+.cart h2{font-size:1.4rem;margin-bottom:12px}
+.cart-empty{opacity:.65;font-size:.95rem;padding:12px 0}
+.cart-line{display:grid;grid-template-columns:1fr auto;gap:4px 10px;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.qty{display:inline-flex;align-items:center;gap:10px}
+.qty button{width:28px;height:28px;border-radius:50%;border:1.5px solid var(--line);background:transparent;color:inherit;font-weight:800;cursor:pointer;line-height:1}
+.totals{margin:14px 0;font-size:.95rem}
+.totals div{display:flex;justify-content:space-between;padding:3px 0}
+.totals .grand{font-weight:800;font-size:1.1rem;border-top:1px solid var(--line);padding-top:10px;margin-top:6px}
+.cart-bar{display:none}
+.cart-close{display:none;position:absolute;right:14px;top:14px;background:none;border:0;font-size:1.6rem;cursor:pointer;color:inherit}
+@media (max-width:980px){
+ .cart{position:fixed;left:0;right:0;bottom:0;top:auto;max-height:85vh;border-radius:18px 18px 0 0;z-index:70;transform:translateY(105%);transition:transform .35s ease;box-shadow:0 -20px 40px -20px rgba(0,0,0,.5)}
+ .cart-open .cart{transform:none}
+ .cart-bar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:65;justify-content:space-between;align-items:center;background:var(--accent);color:var(--on-accent,#fff);border:0;border-radius:999px;padding:16px 22px;font:inherit;font-weight:800;box-shadow:0 12px 30px -10px rgba(0,0,0,.5);cursor:pointer}
+ .cart-close{display:block}
+ body.order-page{padding-bottom:84px}
+}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,20px);opacity:0;background:var(--ink);color:var(--bg);padding:10px 18px;border-radius:999px;font-weight:700;font-size:.9rem;transition:all .3s ease;z-index:80;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.page-hero{padding:clamp(56px,9vw,110px) 0 clamp(32px,5vw,56px)}
+.page-hero h1{font-size:clamp(2.4rem,6vw,4.4rem)}
+
+
+:root{--bg:#f8f3ea;--ink:#2b1d17;--accent:#8e2f1f;--on-accent:#fbf6ee;--gold:#a8823f;--neon:#ff4f8b;--card:#fffdf8;--line:#e3d8c6;--veg:#4f7a3a;--ph:#d9c7ab;--field:#fffdf8;
+--display:'Cormorant Garamond',Georgia,serif;--body:'Jost',system-ui,sans-serif;--dw:500;--radius:2px;--radius-btn:0;--radius-in:0;--hdr-bg:#f8f3ea;--ft-bg:#1d1411;--ft-ink:#efe5d6}
+body{font-weight:400;font-size:16.5px}
+h1,h2{font-weight:400;letter-spacing:-.01em}
+.eyebrow{font-weight:500;letter-spacing:.32em;font-size:.72rem;color:var(--gold)}
+.btn{text-transform:uppercase;letter-spacing:.2em;font-size:.78rem;font-weight:500;padding:17px 32px}
+.btn:hover{box-shadow:none;background:#6f2215;border-color:#6f2215}
+.btn.ghost:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.nav{min-height:84px}
+.nav-links a{text-transform:uppercase;letter-spacing:.2em;font-size:.74rem;font-weight:500}
+.brand img{height:54px;width:auto}
+.wm{font-family:var(--display);font-size:1.7rem;font-style:italic;color:var(--accent)}
+.wm small{font-style:normal;font-family:var(--body);font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);display:block}
+.rule{display:flex;align-items:center;gap:16px;color:var(--gold);justify-content:center;margin:0 auto 20px}
+.rule::before,.rule::after{content:"";height:1px;width:56px;background:currentColor;opacity:.6}
+.hero{min-height:min(calc(100vh - 84px),860px);display:grid;place-items:center;text-align:center;padding:60px 0 80px;position:relative;overflow:hidden;background:#1d1411;color:#f5ead9}
+.hero .bg{position:absolute;inset:0;border-radius:0;background:#3a2219}
+.hero .bg img{opacity:.42;filter:saturate(.9)}
+.hero .bg::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(29,20,17,.25),rgba(29,20,17,.85))}
+.hero .in{position:relative;z-index:2}
+.hero h1{font-size:clamp(3.4rem,10vw,8rem);line-height:.95;margin-bottom:.15em;font-weight:400}
+.hero h1 em{display:block;font-size:.42em;letter-spacing:.02em;color:#e9d3a6;margin-top:.25em}
+.neon{font-family:var(--display);font-style:italic;color:#fff;text-shadow:0 0 6px #fff,0 0 14px var(--neon),0 0 28px var(--neon),0 0 52px var(--neon);animation:flick 6s infinite}
+@keyframes flick{0%,19%,21%,62%,64%,100%{opacity:1}20%,63%{opacity:.55}}
+@media (prefers-reduced-motion:reduce){.neon{animation:none}}
+.hero .lead{max-width:46ch;margin:0 auto 34px;font-weight:300}
+.hero .btn.ghost{color:#f5ead9}
+.hero .btn.ghost:hover{background:#f5ead9;color:#1d1411;border-color:#f5ead9}
+.since{position:absolute;bottom:28px;left:0;right:0;text-align:center;z-index:2;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:#e9d3a6;opacity:.8}
+.intro{text-align:center}
+.intro h2{font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.12}
+.intro p{font-size:1.12rem;font-weight:300;max-width:60ch;margin-inline:auto}
+.portrait .ph{aspect-ratio:4/5}
+.portrait figcaption{font-family:var(--display);font-style:italic;font-size:1.1rem;margin-top:12px;color:#6b5547}
+.sig{border-top:1px solid var(--line)}
+.sig-list{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-left:1px solid var(--line)}
+@media (max-width:860px){.sig-list{grid-template-columns:1fr}}
+.sig-item{padding:38px 32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .3s ease}
+.sig-item:hover{background:var(--card)}
+.sig-item .n{font-family:var(--display);font-style:italic;color:var(--gold);font-size:1.2rem}
+.sig-item h3{font-size:1.9rem;margin:.3em 0 .35em;font-weight:500}
+.sig-item p{font-weight:300;opacity:.85;margin:0}
+.sig-item .p{display:block;margin-top:14px;font-family:var(--display);font-size:1.3rem;color:var(--accent)}
+.marg{background:#1d1411;color:#f5ead9}
+.marg blockquote{font-family:var(--display);font-style:italic;font-size:clamp(1.7rem,3.6vw,2.7rem);line-height:1.25;margin:0 0 18px}
+.marg cite{font-style:normal;letter-spacing:.24em;text-transform:uppercase;font-size:.72rem;color:#e9d3a6}
+.recipe{border:1px solid rgba(233,211,166,.3);padding:34px;text-align:center}
+.recipe h3{font-size:2.4rem;font-weight:400;margin-bottom:.2em}
+.recipe ul{list-style:none;padding:0;margin:18px 0 0;font-weight:300;letter-spacing:.06em}
+.recipe li{padding:8px 0;border-bottom:1px solid rgba(233,211,166,.2)}
+.honors{display:flex;justify-content:center;gap:clamp(24px,6vw,80px);flex-wrap:wrap;text-align:center}
+.honors div{font-family:var(--display);font-size:1.5rem;font-style:italic;max-width:18ch;line-height:1.2}
+.honors small{display:block;font-family:var(--body);font-style:normal;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:8px}
+.events-tease .ph{aspect-ratio:3/2}
+.visit{background:var(--card);border-top:1px solid var(--line)}
+.visit h2{font-size:clamp(2.2rem,4.4vw,3.4rem)}
+.page-hero{text-align:center;border-bottom:1px solid var(--line)}
+.page-hero h1{font-weight:400;font-size:clamp(3rem,7vw,5.4rem)}
+.page-hero .lead{max-width:54ch;margin-inline:auto;font-weight:300}
+.menu-tools{background:var(--bg)}
+.chips{justify-content:flex-start}
+.chip{border-radius:0;text-transform:uppercase;letter-spacing:.14em;font-size:.7rem;font-weight:500}
+.menu-sec{text-align:left}
+.menu-sec h2{font-weight:400;font-style:italic;text-align:center}
+.menu-sec .note{text-align:center}
+.menu-sec .items{gap:4px 64px}
+.item{border-bottom:1px solid var(--line)}
+.item h3{font-family:var(--display);font-size:1.35rem;font-weight:600}
+.item .price{font-family:var(--display);font-size:1.3rem;font-weight:500;color:var(--accent)}
+.item p{font-weight:300}
+.tag-v{border-radius:0}
+.form-card{background:var(--card);border:1px solid var(--line);padding:clamp(24px,4vw,48px)}
+.pills label{border-radius:0;text-transform:uppercase;letter-spacing:.12em;font-size:.72rem;font-weight:500;padding:11px 14px}
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));gap:8px}
+.slots label{text-align:center}
+.policy{font-size:.9rem;font-weight:300;opacity:.85}
+.policy li{margin-bottom:8px}
+.pkgs{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+@media (max-width:760px){.pkgs{grid-template-columns:1fr}}
+.pkgs>div{padding:34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.pkgs h3{font-size:1.8rem;font-weight:500}
+.pkgs ul{list-style:none;padding:0;margin:0;font-weight:300}
+.pkgs li{padding:6px 0;border-bottom:1px dotted var(--line)}
+.occ{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;font-family:var(--display);font-style:italic;font-size:clamp(1.4rem,3vw,2rem);color:var(--accent)}
+.occ span::after{content:"\2022";margin-left:28px;color:var(--gold);font-style:normal}
+.occ span:last-child::after{content:""}
+</style>
+</head>
+<body>
+<header class="site-header"><div class="wrap nav"><a class="brand" href="index.html" aria-label="El Jarro de Arturo home"><img src="https://www.eljarro.com/images/eljarro-logo.png" alt="El Jarro de Arturo" onerror="this.outerHTML='<span class=wm>El Jarro de Arturo<small>Restaurante Mexicano</small></span>'"></a><nav class="nav-links"><a href="index.html">Home</a><a href="menu.html">Menu</a><a href="events.html" aria-current=page>Private Events</a><a href="reserve.html">Reservations</a><a href="tel:+12104945084">210.494.5084</a></nav><a class="btn btn-sm nav-cta" href="reserve.html">Reserve a Table</a><button class="nav-toggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button></div></header>
+<main>
+<section class="hero" style="min-height:70vh"><div class="ph bg"><img src="https://www.eljarro.com/images/catering-hero.jpg" alt="Catering by El Jarro de Arturo" fetchpriority="high" onerror="this.style.display='none'"></div><div class="in narrow reveal"><div class="rule" style="color:#e9d3a6"><span class="eyebrow" style="color:#e9d3a6;margin:0">Private events &amp; catering</span></div><h1 style="font-size:clamp(3rem,8vw,6rem)">Celebrate with <span class="neon">El Jarro</span></h1><p class="lead">At our restaurant or at your venue. Every menu can be customized, and Chef Arturo is happy to create something just for your event.</p><a class="btn" href="#inquire">Start planning</a></div></section>
+<section class="pad"><div class="wrap" style="text-align:center"><div class="occ reveal"><span>Weddings</span><span>Corporate events</span><span>Anniversaries</span><span>Luncheons</span><span>Parties</span></div></div></section>
+<section style="padding-bottom:clamp(64px,10vw,120px)"><div class="wrap"><div style="text-align:center;margin-bottom:36px" class="reveal"><h2 style="font-size:clamp(2.4rem,5vw,3.8rem)">Event menus</h2><p style="font-weight:300;max-width:52ch;margin-inline:auto">A starting point for every kind of gathering. Pricing is tailored to your guest count and selections.</p></div><div class="pkgs"><div class="reveal d0"><span class="eyebrow">Menu 01</span><h3>Buffets</h3><ul><li>Enchiladas &amp; Anticuchos</li><li>Fajita &amp; Chalupa Bar</li><li>Street Taco Fiesta</li><li>Vegan &amp; Gluten-Free Fiesta</li></ul></div><div class="reveal d1"><span class="eyebrow">Menu 02</span><h3>Dinner Buffets</h3><ul><li>Poblano Chicken &amp; Tenderloin</li><li>Beef Tenderloin Dinner</li><li>Chicken Parmesan Dinner</li></ul></div><div class="reveal d0"><span class="eyebrow">Menu 03</span><h3>Cocktail Parties &amp; Hors d'Oeuvres</h3><ul><li>Grazing Lite Bites</li><li>Classic Cocktail Party</li><li>Cocktail Reception</li><li>Elegant Bites</li><li>Grand Hors d'Oeuvres</li></ul></div><div class="reveal d1"><span class="eyebrow">Menu 04</span><h3>Luncheons &amp; Brunch</h3><ul><li>Light &amp; Breezy</li><li>Ladies Lunch</li><li>Brunch</li></ul></div></div></div></section>
+<section class="pad" id="inquire" style="background:var(--card);border-top:1px solid var(--line)"><div class="wrap split" style="align-items:start">
+ <div class="reveal"><span class="eyebrow">Inquire</span><h2 style="font-size:clamp(2.2rem,4.4vw,3.4rem)">Let's plan something memorable.</h2><p style="font-weight:300">Sandy Cerna handles our event planning. Share a few details and she'll be in touch, or reach her directly:</p><p><a href="tel:+12104945084"><strong style="font-weight:500">210.494.5084</strong></a><br><a href="mailto:eljarro@satx.rr.com">eljarro@satx.rr.com</a></p>
+  <div class="ph " style="aspect-ratio:4/3;margin-top:20px"><img src="https://www.eljarro.com/images/about-art-sandy.jpg" alt="Arturo and Sandy Cerna" loading="lazy" onerror="this.style.display='none'"></div></div>
+ <div class="form-card reveal d1">
+ <form data-fake="ev-ok" novalidate>
+  <span class="label">Type of event</span><div class="pills" style="margin-bottom:18px"><input type="radio" name="t" id="e1" checked><label for="e1">Wedding</label><input type="radio" name="t" id="e2"><label for="e2">Corporate</label><input type="radio" name="t" id="e3"><label for="e3">Anniversary</label><input type="radio" name="t" id="e4"><label for="e4">Luncheon</label><input type="radio" name="t" id="e5"><label for="e5">Party</label></div>
+  <span class="label">Where</span><div class="pills" style="margin-bottom:18px"><input type="radio" name="w" id="w1" checked><label for="w1">At El Jarro</label><input type="radio" name="w" id="w2"><label for="w2">Catered off-site</label></div>
+  <div class="row2"><div class="field"><label for="e-d">Date</label><input id="e-d" type="date" required></div><div class="field"><label for="e-g">Guests</label><input id="e-g" type="number" min="10" required></div></div>
+  <div class="field"><label for="e-m">Menu of interest</label><select id="e-m"><option>Not sure yet</option><option>Buffet</option><option>Dinner buffet</option><option>Cocktail party &amp; hors d'oeuvres</option><option>Luncheon or brunch</option><option>Something custom from Chef Arturo</option></select></div>
+  <div class="row2"><div class="field"><label for="e-n">Name</label><input id="e-n" required></div><div class="field"><label for="e-p">Phone</label><input id="e-p" type="tel" required></div></div>
+  <div class="field"><label for="e-e">Email</label><input id="e-e" type="email" required></div>
+  <div class="field"><label for="e-x">Tell us about your event</label><textarea id="e-x" rows="3"></textarea></div>
+  <button class="btn" type="submit" style="width:100%">Send inquiry</button>
+ </form>
+ <div id="ev-ok" class="success" hidden><div class="check">&#10003;</div><h2 style="font-size:2.4rem">Thank you</h2><p style="font-weight:300">Your inquiry has been received. Sandy will be in touch shortly to begin planning.</p><button class="btn ghost" type="button" data-reset>Send another inquiry</button></div>
+ </div>
+</div></section>
+</main>
+<footer class="site-footer"><div class="wrap"><div class="ft-grid">
+<div><span class="wm" style="color:#e9d3a6;font-size:2rem">El Jarro de Arturo<small>Restaurante Mexicano &middot; Since 1975</small></span><p style="margin-top:16px;opacity:.75;max-width:34ch;font-weight:300">Truly fine family dining on San Pedro, from Tex-Mex classics to gourmet.</p></div>
+<div><h4>Visit</h4><ul><li>13421 San Pedro Ave</li><li>San Antonio, TX 78216</li><li><a href="https://www.google.com/maps/search/?api=1&query=El+Jarro+de+Arturo+13421+San+Pedro+Ave+San+Antonio" target="_blank" rel="noopener">Directions</a></li></ul></div>
+<div><h4>Hours</h4><ul><li>Monday: Closed</li><li>Tuesday – Saturday: 11 AM – 10 PM</li><li>Sunday: 11 AM – 9 PM</li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="tel:+12104945084">210.494.5084</a></li><li><a href="mailto:eljarro@satx.rr.com">eljarro@satx.rr.com</a></li><li><a href="https://www.facebook.com/profile.php?id=100064875272063" target="_blank" rel="noopener">Facebook</a></li></ul></div>
+</div><div class="ft-bottom"><span>&copy; 2026 El Jarro de Arturo</span><span><a href="reserve.html">Reservations</a> &middot; <a href="events.html">Private Events</a></span></div></div></footer>
+<script>
+document.documentElement.classList.add('js');
+(function(){
+var b=document.body,nt=document.querySelector('.nav-toggle');
+if(nt)nt.addEventListener('click',function(){b.classList.toggle('nav-open');nt.setAttribute('aria-expanded',b.classList.contains('nav-open'))});
+document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){b.classList.remove('nav-open')})});
+var hdr=document.querySelector('.site-header');function onS(){if(hdr)hdr.classList.toggle('scrolled',window.scrollY>20)}
+addEventListener('scroll',onS,{passive:true});onS();
+var els=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});els.forEach(function(el){io.observe(el)})}else{els.forEach(function(el){el.classList.add('in')})}
+document.querySelectorAll('form[data-fake]').forEach(function(f){f.addEventListener('submit',function(e){e.preventDefault();if(!f.checkValidity()){f.reportValidity();return}var ok=document.getElementById(f.dataset.fake);var fill=ok.querySelector('[data-fill]');if(fill&&f.dataset.summary&&window[f.dataset.summary]){fill.innerHTML=window[f.dataset.summary](f)}f.hidden=true;ok.hidden=false;ok.scrollIntoView({behavior:'smooth',block:'center'})})});
+document.querySelectorAll('[data-reset]').forEach(function(btn){btn.addEventListener('click',function(){var ok=btn.closest('.success');var f=document.querySelector('form[data-fake="'+ok.id+'"]');ok.hidden=true;f.hidden=false;f.reset();f.scrollIntoView({behavior:'smooth',block:'start'})})});
+var vt=document.querySelector('.veg-toggle');if(vt)vt.addEventListener('click',function(){b.classList.toggle('veg-only');vt.classList.toggle('on');vt.setAttribute('aria-pressed',vt.classList.contains('on'))});
+var chips=document.querySelectorAll('.chips a.chip');if(chips.length&&'IntersectionObserver' in window){var map={};chips.forEach(function(c){map[c.getAttribute('href').slice(1)]=c});var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){chips.forEach(function(c){c.classList.remove('on')});var c=map[e.target.id];if(c){c.classList.add('on');var p=c.parentNode;p.scrollTo({left:c.offsetLeft-p.clientWidth/2+c.clientWidth/2,behavior:'smooth'})}}})},{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('.menu-sec[id],.cat-title[id]').forEach(function(s){so.observe(s)})}
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+# Tom's Fleet Service
+
+> Auto repair, tires, brakes and Pennsylvania state inspections on Glass Run Rd in Pittsburgh. Service for fleets and for individuals.
+
+- Type: Car repair and maintenance service
+- Address: 1140 Glass Run Rd, Pittsburgh, PA 15236, USA
+- Phone: (412) 379-0018
+- Email: service@tomsfleetservice.com
+- Website: https://ronaks-code.github.io/sitelift-demos/auto-repair/pa/tom-s-fleet-service/
+- Google Maps: https://maps.google.com/?cid=18253467822476344437&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.3 from 44 reviews
+
+## Hours
+- Monday: 8:30 AM – 5:00 PM
+- Tuesday: 8:30 AM – 5:00 PM
+- Wednesday: 8:30 AM – 5:00 PM
+- Thursday: 8:30 AM – 5:00 PM
+- Friday: 8:30 AM – 5:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+Tom's Fleet Service is a shop on Glass Run Rd in Pittsburgh that cares for your whole car: engine, suspension, exhaust, electronics, brakes and tires. We work on personal cars and on the cars and light duty trucks that people drive for a living.
+We call it our open door policy. We hold nothing back, so you get complete information and can make the best decisions about your car's repairs. One reviewer said Vince at the front desk is never in a hurry to get you out, and another said Tom is very easy to talk to.
+We are fully licensed, bonded, and insured, and we're a licensed site for Pennsylvania state inspections and emissions checks. Our neighbors rate us 4.3 on Google from 44 reviews.
+
+## Services
+- Pennsylvania State Safety and Emissions Inspections: Safety and emissions inspections to keep your car on the road. If we find any problems, we can fix them right away and get you on your way.
+- Tire Service: We sell new tires, patch old tires, and do winter/summer tire changeovers.
+- Brake pad and rotor replacements: Pads and rotors replaced so your car stops the way it should.
+- Fleet Service: Flexible fleet services for professional drivers, with a proactive maintenance monitoring program that lets you know when each car is due.
+- Oil changes and hoses and belts replaced: The regular upkeep that heads off bigger problems down the road.
+- Car computer diagnostics: We read what your car's computer is telling us and track down the problem.
+- Air conditioning and heating: Heat for Pittsburgh winters and cold air for the summer.
+- Exhaust repair and replacement: Exhaust work from small repairs to full replacement.
+
+## FAQ
+Q: Do you do Pennsylvania state inspections?
+A: Yes. We're a licensed site for Pennsylvania state inspections and emissions checks, and if we find a problem we can fix it right there.
+
+Q: Can you look after my company's vehicles?
+A: Yes. We run a proactive fleet maintenance monitoring program so we can let you know when each car is due for service.
+
+Q: Can I wait while you work on my car?
+A: For quick repairs, yes. One reviewer called the waiting room very entertaining and comfortable, and another said it's a great space for waiting.
+
+Q: When are you open?
+A: Monday through Friday, 8:30 AM to 5:00 PM. We're closed Saturday and Sunday.
+
+## What customers say
+- "The world needs more people like Tom. Truly great guy. Called around to garages to patch a tire that was leaking. Everyone told me Friday at the earliest. Gave Tom a call and he told me to bring it whenever, so I showed up about 30 minutes later. Pulled right in the lot and he patched my tire, shook my hand and told me I was good to go. Asked what I owed him and he told me I was all good. Told him I knew where I was getting my work done from now on. If anyone knows what his favorite beer is, let me know so I can drop a case off." (cole long, 5/5)
+- "Fair pricing and a great line of communication.  They take the time to walk you through all  the procedures your there for. Vince at the front desk is great. Never in a hurry to get you out. He'll listen to everything you got to say about your vehicle. And the owner Tom is such a great guy. Laid back and easy to talk too.  Next time you're looking for a auto mechanic shop,try Tom's." (joe knerr, 5/5)
+- "Very kind and helpful. Helped me get the right tires for my vehicle. Very easy to schedule service. I felt good taking my vehicle here. Got tires and inspection and everything was great. They did an amazing job and I will be bringing my car back for service in the future!" (Jake McCabe, 5/5)
+- "Very welcoming environment and had no problems with communication. Tom is very easy to talk to and very respectful. The waiting room is very entertaining and comfortable. He earned a customer today and will reccomend!" (Dalton Pust, 5/5)
+- "Excellent service. Super friendly and quick to diagnose my vehicle problem. Great space for waiting if you have a quick repair. Fair price. Check them out next time your car needs service!" (Kimberly Moss, 5/5)

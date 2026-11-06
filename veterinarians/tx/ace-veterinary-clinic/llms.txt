@@ -1,0 +1,58 @@
+# Ace Veterinary Clinic
+
+> Affordable out-patient vet care for dogs and cats in San Antonio. Exams, vaccines, lab tests and sick visits. Rated 4.6 from 579 Google reviews.
+
+- Type: Veterinary Care
+- Address: 742 Barchester Dr # A, San Antonio, TX 78216, USA
+- Phone: (210) 320-8226
+- Email: acevetclinic@gmail.com
+- Website: https://ronaks-code.github.io/sitelift-demos/veterinarians/tx/ace-veterinary-clinic/
+- Google Maps: https://maps.google.com/?cid=14004098969867348165&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.6 from 579 reviews
+
+## Hours
+- Monday: Closed
+- Tuesday: 7:30 AM – 1:00 PM
+- Wednesday: Closed
+- Thursday: 7:30 AM – 1:00 PM
+- Friday: 7:30 AM – 1:00 PM
+- Saturday: 7:30 AM – 1:00 PM
+- Sunday: 7:30 AM – 1:00 PM
+
+## About
+Ace Veterinary Clinic is an out-patient, appointment-based clinic in San Antonio caring for dogs and cats. Our mission is to provide quality medicine at an affordable price for out-patient services.
+Dr. Lan and vet techs Angela, Abigail, Deanna, Emily, Marissa and Nicole handle exams, vaccines, in-house SNAP tests and microscopic exams, and treatment for skin, ear, eye, urinary and digestive problems. Advanced bloodwork goes out to IDEXX Reference Laboratories and is reviewed by board-certified veterinary pathologists.
+We are clear about what we don't do here: no surgery, spay and neuter, dental cleanings, X-rays, hospitalization, grooming or boarding. For those, please contact a full-service veterinary hospital.
+
+## Services
+- Comprehensive Exams: Wellness checks and general sick-pet consultations for dogs and cats.
+- Preventative Care: Low-cost vaccinations and deworming, microchipping, and flea, tick and heartworm prevention.
+- Hygienic Maintenance: Professional nail trims, ingrown nail care, anal gland expression and ear cleanings.
+- Out-Patient medical Treatments: Care for skin infections and allergies, eye and ear problems, urinary tract infections, digestive upsets, upper respiratory infections, minor wounds and bee stings.
+- In-House SNAP Tests: Rapid results for heartworm, Ehrlichia, Anaplasma, Lyme, Parvo, Giardia, pancreatitis and more, plus in-house microscopic exams.
+- Mass & Lump Evaluations: FNA cytology sent to the IDEXX lab for a closer look at lumps.
+- Chronic Pain Care: Long-term arthritis and joint pain management.
+- Humane Euthanasia: Compassionate end-of-life care for dogs, starting with a gentle sedation so your pet is comfortable and calm. Cremation service handling if requested.
+
+## FAQ
+Q: How do I book an appointment?
+A: Text our mobile line at 210-264-7410. Texting is the fastest way to reach us.
+
+Q: Can my pet be seen today?
+A: Often, yes. We have same-day appointments available on a lot of days. Text us to check availability.
+
+Q: What if my pet needs help after hours?
+A: Outside our 7:30 AM to 1:00 PM hours, please contact a 24/7 ER facility right away. Our Emergency Contact page lists options such as Thrive Pet Healthcare Specialists and Mission Vet Specialty and Emergency.
+
+Q: Do you do surgery, dental cleanings or X-rays?
+A: No. We don't offer surgery, spay and neuter, dental cleanings, X-rays, hospitalization, health certificates for travel, grooming or boarding. For these, please contact a full-service veterinary hospital.
+
+Q: How can I pay?
+A: We accept credit cards, CareCredit, the Cherry payment plan and cash. We don't accept personal checks.
+
+## What customers say
+- "I am 40 years old, and I've had my dog bailey for almost the last decade. Prior to her, I've never been without a pet, almost always a dog. In all these years I can't say I've had a more straight forward and affordable experience in my life. Friday evening, I was terrified to see that when I let her out she peed blood. I didn't know what to do and I searched for hours in vain trying to find a vet that I could afford. I had terrible luck calling around after 5pm on a Friday of course, so I decided I'd monitor and start again first thing in the morning (as she had no other symptoms and was acting normally otherwise). I called several clinics Saturday morning and was of course declined all over as they either had limited hours or were not taking new patients. Ace didn't answer at first, but they called me back after a few minutes and let me tell you it was smooth sailing from there. I was in the office within 3 hours. While Dr. Lan may seem all business, I DON'T MIND, I'm not there for a new best friend, I want my dog treated. He listened, did the necessary tests, and prescribed us the medication he thought we needed while assuring us that he'd send off the urinalysis and text the results next day. The man was true to his word. The nurses were all awesome, no notes there, and the labs reported that his initial diagnosis was correct and all I had to do was continue the treatment plan she was on. 4 days later here I am with a dog who's finally peeing clear and very clearly feeling better. What a great experience. And y'all...the exam fee was $23 dollars!!! Highly recommend!" (matthew beitel, 5/5)
+- "I was able to schedule an appointment and get my dog seen and under a day from this clinic, he was having a medical emergency and they were very accommodating and kind, their prices are fair, and I didn’t feel like I was being taken advantage of like I have other clinics. The techs are extremely knowledgeable and kind with the animals. You can tell everybody here really loves what they do and are good at it." (Erin Perry, 5/5)
+- "Was actually recommended this place from another vet as a more affordable alternative! Prices were miles better than other places now days and everyone was very nice and helpful. Will definitely be back next time my cats need anything! Only $23 for a regular exam, $38 for a sick exam which is still about half off the other options I've used!" (Madison, 5/5)
+- "Ace veterinarian clinic really helped out my cat Suri. They were quick, and fast.  They had all the medications that my cat needed and they also had the special hills diet for her incontinence. Their follow-up on text was very beneficial, and in a timely manner. I highly recommend Ace veterinarian clinic for your pet care." (Mary Martinez, 5/5)
+- "They are rare in the vet care industry. They have empathy and affordable prices. Saved my Lilys life (10 yr Siamese). Dr Lan, Emily, Abby and Marisa all gave 100%. Whole staff smiling and caring. You can trust your fur babies with them." (Joseph Rodriguez, 5/5)

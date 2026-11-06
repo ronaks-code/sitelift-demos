@@ -1,0 +1,57 @@
+# Loris & Eddie's Auto Repair
+
+> ASE certified auto repair on S Jason St in Denver. Brakes, tires, transmissions, engine work and inspections. Rated 4.9 from 244 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 2240 S Jason St, Denver, CO 80223, USA
+- Phone: (303) 922-1111
+- Website: https://ronaks-code.github.io/sitelift-demos/auto-repair/co/loris-and-eddie-s-auto-repair/
+- Google Maps: https://maps.google.com/?cid=6198883543363735212&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.9 from 244 reviews
+
+## Hours
+- Monday: 8:00 AM – 5:00 PM
+- Tuesday: 8:00 AM – 5:00 PM
+- Wednesday: 8:00 AM – 5:00 PM
+- Thursday: 8:00 AM – 5:00 PM
+- Friday: 8:00 AM – 5:00 PM
+- Saturday: 10:00 AM – 2:00 PM
+- Sunday: Closed
+
+## About
+Loris & Eddie's Auto Repair is a full service shop in Denver, run by Loris and Eddie Zarooki. We've been working on cars from the same centrally located spot on S Jason St for a long time, and we plan to keep doing it the same way: reliable, affordable work and advice you can count on.
+We handle everything from oil changes to complete engine rebuilds, plus brakes, tires, transmissions, air conditioning and electrical work. If it has to do with your car, big or small, come to us first.
+Our customers have given us a 4.9 rating across 244 Google reviews. We'd like to earn your trust too.
+
+## Services
+- Factory scheduled maintenance: Keeping up with the maintenance your car's maker recommends.
+- Check engine light diagnostics: Computer diagnostics to find out why the light is on and what it will take to fix it.
+- Brake jobs: Brake work to keep your stops safe.
+- Engine repair: Engine work, big or small.
+- Transmission service and repair: Transmission service, new and rebuilt transmissions, clutches, axles and differentials.
+- Tires: Tire rotation, mounting, balancing, flat repair and replacement.
+- Air conditioning service and repair: Getting your air conditioning blowing cold again.
+- Safety and emissions inspections: Safety and emissions inspections for your vehicle.
+- Pre purchase inspections: Looking at a used car? We'll inspect it before you buy. One reviewer who flew in to look at a car said we walked him through everything we found.
+
+## FAQ
+Q: What are your weekday hours?
+A: We're open Monday through Friday, 8 AM to 5 PM. Give us a call to set up a visit.
+
+Q: Do you buy and sell used cars?
+A: Yes. We also buy and sell used cars through Zarooki Motors.
+
+Q: Do you have any coupons or specials?
+A: We post current coupons and promotions on our specials page. Ask us when you call.
+
+Q: Will you work on my import?
+A: One reviewer said we're one of the few shops he's been able to take his RHD import to. Call and tell us what you drive.
+
+## What customers say
+- "I've been coming here since 2018 and even though I've moved further north, I still keep coming here.  Loris and the staff are always very fair and honest, I've sent a few friends their way and everyone I've sent has commented how good and quality the service is.  I like to take my vehicles somewhere where they remember the car as much as they remember me, I have 2 cars (they also take care of my girlfriend's car) and they often ask me how the other cars are doing and specific upcoming maintenance items they've noticed in the past, it's really great.  They know I do some car work myself but for the daily drivers and the things that are out of my league I know my car will be in good hands.  I'm always told of maintenance items that are needing to be done and when and they're one of the few places I've been able to take my RHD Import.  Overall I highly recommend!" (Austin Clark, 5/5)
+- "I’ve come here for everything — repairs, oil changes, second opinions — and every time, they’ve been honest, straightforward, and genuinely helpful. They clearly care about doing things right and taking care of your vehicle. The shop is professional, flexible, and transparent — everything you want when it comes to car care.
+
+I trust them completely with my car, which means a lot, especially since I’m from out of state. Finding a reliable shop like this to help me with my car on various fronts has been such a relief! I’ll be coming back for all my future car needs and referring them to friends and co-workers." (Josie White, 5/5)
+- "Flew in from Utah to look at a car and Loris was able to get me in for a pre purchase inspection on a Saturday! Loris was extremely helpful and walked us through everything. He even brought us out into the shop to look at some leaks and even showed issues on the body. 1000% recommend this place and saved me from a massive headache. $118 for the inspection which is a bit more than other places but I highly recommend! You get what you pay for! Very thorough and extremely helpful!" (Justus Husmer, 5/5)
+- "I had a great experience with Lorri’s and Eddies Auto Shop! They repaired my Chrysler 300 within just two weeks, and throughout the entire process, Lorri was very transparent about everything he was doing to my car. He was friendly, professional, and made me feel comfortable and informed every step of the way. I truly appreciate the honesty and great service. I would 100% recommend Lorri’s and Eddies Auto Shop to anyone looking for reliable and trustworthy auto repairs!" (Joanna Gonzalez, 5/5)
+- "If I could give them more I would ! This is long over due but Hayden helped me out ! And I had to come back for my car leaking they informed me of the safety repairs and then the ones that could wait , I will never take my car anywhere but here good people great work and overall integrity and kindness thank you for everything you have done for me I appreciate you guys to the moon and back ,,, everyone needs to make them you go to mechanics !" (Let Me Be Your Art, 5/5)

@@ -1,0 +1,75 @@
+# FasterProms
+
+> FasterProms, Clearwater FL: HPTuners street and dyno tuning, supercharger and cylinder head porting, flex fuel conversions. Rated 4.4 from 99 reviews.
+
+- Type: Car repair and maintenance service
+- Address: 12961 44th St N Ste b, Clearwater, FL 33762, USA
+- Phone: (813) 476-7364
+- Email: contact@fasterproms.net
+- Website: https://ronaks-code.github.io/sitelift-demos/auto-repair/fl/fasterproms/
+- Google Maps: https://maps.google.com/?cid=4845870816537056553&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.4 from 99 reviews
+
+## Hours
+- Monday: 10:30 AM – 7:00 PM
+- Tuesday: 10:30 AM – 7:00 PM
+- Wednesday: 10:30 AM – 7:00 PM
+- Thursday: 10:30 AM – 7:00 PM
+- Friday: 10:30 AM – 7:00 PM
+- Saturday: Closed
+- Sunday: Closed
+
+## About
+FasterProms is Jeremy's tuning and performance shop in Clearwater. The work centers on custom tuning via HPTuners, street and dyno, plus cylinder head, supercharger, intake manifold and throttle body porting.
+Reviewers come for Corvettes, LS builds and boosted trucks. One customer wrote that Jeremy "really knows the LS platform." A reviewer also said he helped get their build dialed in parts-wise before the car ever reached the dyno, then ran load testing over several hours to make sure everything was right.
+Customers rate the shop 4.4 from 99 Google reviews. If you're planning a build, contact us for a quote or check the schedule of stops around Florida.
+
+## Services
+- Custom Tuning via HPTuners (street and dyno): Air/fuel optimized at part throttle and wide open throttle, timing adjusted through the entire curve, injector rescaling, gear ratio changes, speedometer calibration, torque management and skip shift removed, and shift points corrected.
+- Mail Order Tuning: A remote tune that includes 6 tuning adjustments, for customers who can't make it to Clearwater.
+- Cylinder Head/Supercharger/Intake Manifold and Throttle Body Porting: Porting work for heads, superchargers and snouts, intake manifolds and throttle bodies. A reviewer said a ported intake and throttle body gave good power gains and throttle response.
+- Supercharger and Turbo Installation: Forced induction installed and then tuned for your setup.
+- Flex Fuel conversions: Convert your vehicle to run flex fuel, with the tune to match.
+- Fasterproms Cooling modifications for supercharged applications: Thermal reduction plates and expansion tanks to manage heat on supercharged builds.
+- Performance Upgrades: Heads, cams, headers, cold air intakes, pulleys and similar upgrades.
+- Alky Control Methonal Installation: Installation of Alky Control methanol systems.
+
+## FAQ
+Q: Do I need an appointment?
+A: Yes. The shop works by appointment only, Monday through Friday, and is closed on weekends.
+
+Q: Does the dyno tuning price include dyno time?
+A: No. Dyno time is separate from the tuning price.
+
+Q: Can you tune my car if I'm not near Clearwater?
+A: Yes. Mail order tuning is available, and one reviewer had Jeremy remote tune a base tune before driving down for dyno tuning.
+
+Q: How do I get a price for my build?
+A: Packages vary by vehicle, so check the vehicle specific pages or contact us for a quote by phone or email.
+
+## What customers say
+- "100% Recommend.
+
+Jeremy is a standup guy. He will get the job done and get it done right! He will give you amazing tips and knowledge Pro Bono over the phone and email on what you should do for your target goals for the build. He really helped get my build dialed in (parts wise) as I am pretty new to the Corvette/LS7 platform. Jeremy has been doing this for years, and has tons of Corvette experience.
+
+I recently had Jeremy Remote Tune me a Base Tune after doing H/C/I/E myself on my C6 Z06. His tuning is very fairly priced, and he will send revisions if needed included in the pricing. We got the tune good enough to travel down to his shop in Clearwater from North Florida. Car ran great down there.
+
+Dyno Tuning went flawlessly. Jeremy and his team at his shop are hardworking, knowledgeable about what they do, and all around funny and chill guys to hang with. Couldn’t say enough about my positive experience I had working with him and his crew.
+
+Got to turn wrenches with them, and hang out during the whole process, so that was very cool. Jeremy ported my LS7 Intake as well as my Throttle Body. The porting work was spectacular, and we picked up some good power gains and throttle response. Highly recommend porting with Jeremy as his pricing is extremely fair and a much better $ per HP to start off with than going to an aftermarket intake manifold if you’re working within a budget.
+
+Jeremy gave me some great tips on how to troubleshoot and edit tunes with HPTuners, which I have definitely used since to modify and tweak things as I run the car in after he worked his magic.
+
+I came in with a pretty big camshaft that bucked pretty bad at lower RPMs and highway speed, and Jeremy was able to tune that issue out without problem. He ran a bunch of load testing on the dyno over several hours to make sure I was dialed in. Never did he rush through anything. He took his time and ensured everything was perfect as could be. I also had some interesting injectors that proved to be difficult, but he was able to figure out how to get them to be compatible with the rest of the build and got those dialed in too.
+
+Regarding the other reviews about communication issues; Jeremy services a ton of clientele. He will literally answer your phone calls while doing a dyno run. The guy is always on go mode. He gets busy sometimes, but he will absolutely get to you and make sure that when he does get to you, he is 100% invested in your project. Having some patience will pay off in the long run.
+
+In summary, if you have any project (especially GM products utilizing HPTuners) take it to Jeremy, no questions asked. Stand up guy, amazing knowledge in what he does, and an amazing team to back him up." (Carson Woodward, 5/5)
+- "Jeremy tuned my twin turbo 5.3 Silverado. I built the truck myself and Jeremy created a base tune for me to be able to drive the truck to his shop. Once at the shop, after a handful of runs, he put in a safe tune at 5 psi making 505rwhp because he discovered a fuel pressure issue I needed to figure out. Once I figured out the fuel pressure issue, I was back. While on the dyno, found burned plug wires which I changed out between runs. Once everything was running properly, he tuned the truck to 582rwhp at 11psi on 93, then 582rwhp at 7psi on e85 (developed a boost leak). Once I figured out the boost leak, I am at about 660rwhp on e85 at 11psi. I wanted a good safe street tune since I am still on stock 6L80/converter and occasionally tow a trailer. Been running that tune for almost a year and love it. Runs better than stock when just cruising around and is an absolute monster (and downright scary, lol) when you put your foot down.
+
+I developed a misfire, was troubleshooting using HPTuners and screwed up the tune (rookie move not saving the current file). I reached out to Jeremy and he was able to send me my last file. I reached out to Jeremy on the night of the July 3rd and he sent me the backup file on the morning of July 4th. I loaded it and it’s like my bad day never happened.
+
+Jeremy is a great tuner, really knows the LS platform and is a standup guy. Glad he is my tuner!! Thanks Jeremy!!" (John B, 5/5)
+- "Was at their shop getting a Tune on my 2005 Chevy SSR great group of guys. The tune is awesome.  Great  service. Professional, fast, and  knowledgeable. You will not be disappointed.  Exceeded my expectations. I had a scheduled appointment drove 200 miles to get there. They got me in and out in no time. Timely, Fast, reasonable,  professional,  informative what else can you ask for? I will be back!" (Swft 2020, 5/5)
+- "Jeremy took my 4 wheel loser-mobile c7 corvette convertible and made it an absolute monster, he did the tuning and work on my father’s c7 as well. I travel 8 hours each way to bring my car to him because he is the best in the country hands down. This shop has gone above and beyond for me and my dad. I’m happy every time I drive my car, thanks Jeremy!" (Dino Agerone, 5/5)
+- "Jeremy has been tuning the corvettes I have owned since 2011. We have done countless transactions over the years and he has always exceeded my expectations. I am very fortunate to have him in my home town!" (Brian Reilly, 5/5)

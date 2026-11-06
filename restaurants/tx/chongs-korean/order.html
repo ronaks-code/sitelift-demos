@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order Pickup | Chong's Korean Restaurant</title>
+<meta name="description" content="Order Korean food for pickup from Chong's Korean Restaurant, 8122 Marbach Rd, San Antonio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&family=Black+Han+Sans&display=swap" rel="stylesheet">
+<style>
+:root{--sun:#f26a2e;--red:#d63b2a;--blue:#1d4f91;--cream:#fff6e9;--paper:#fffdf8;--ink:#1d1a17;--muted:#6d645c;--line:#efe2cf}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"DM Sans",system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{width:min(1240px,100% - 40px);margin-inline:auto}
+h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;letter-spacing:-.02em;line-height:1.05}
+.kr{font-family:"Black Han Sans",sans-serif;font-weight:400}
+header{position:sticky;top:0;z-index:50;background:rgba(255,246,233,.95);backdrop-filter:blur(10px);border-bottom:2px solid var(--ink)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;align-items:center;gap:10px}
+.logo svg{width:42px;height:42px}
+.logo b{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.35rem;display:block;line-height:1}
+.logo small{font-size:.6rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.links{display:flex;gap:1.4rem;font-weight:500}
+.links a:hover{color:var(--red)}
+.top{padding:40px 0 20px}
+.top h1{font-size:clamp(2.4rem,6vw,4rem);font-weight:800}
+.top p{color:var(--muted);margin-top:.5rem}
+.pill{display:inline-flex;gap:8px;align-items:center;background:var(--paper);border:2px solid var(--ink);border-radius:99px;padding:.35em .9em;font-weight:700;font-size:.85rem;margin-top:1rem}
+.pill i{width:9px;height:9px;border-radius:50%;background:#2f8f6b;display:inline-block}
+.pill.closed i{background:var(--red)}
+.layout>div{min-width:0}
+.layout{display:grid;grid-template-columns:1fr 380px;gap:30px;align-items:start;padding-bottom:80px}
+.filters{display:flex;gap:8px;overflow-x:auto;padding:4px 0 18px;scrollbar-width:none;position:sticky;top:70px;background:var(--cream);z-index:20}
+.filters button{white-space:nowrap;border:2px solid var(--ink);border-radius:99px;padding:.4em 1em;font-weight:700;font-size:.9rem;background:var(--paper)}
+.filters button.on{background:var(--ink);color:var(--cream)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{background:var(--paper);border:2px solid var(--ink);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 6px 0 var(--ink)}
+.card .art{height:96px;display:grid;place-items:center;color:var(--cream);font-size:2.4rem;border-bottom:2px solid var(--ink);position:relative}
+.card .art small{position:absolute;left:10px;top:9px;font-family:"DM Sans";font-size:.66rem;font-weight:700;letter-spacing:.1em;background:rgba(0,0,0,.2);border-radius:99px;padding:.2em .6em}
+.card .b{padding:14px 16px 16px;display:flex;flex-direction:column;flex:1}
+.card h3{font-size:1.1rem;font-weight:800}
+.card p{color:var(--muted);font-size:.86rem;margin:.3rem 0 .8rem;flex:1}
+.card .row{display:flex;justify-content:space-between;align-items:center}
+.card .pr{font-family:"Bricolage Grotesque";font-weight:800;font-size:1.15rem}
+.add{background:var(--sun);color:#fff;border:2px solid var(--ink);border-radius:99px;padding:.35em .95em;font-weight:700;font-size:.88rem;transition:background .2s,transform .15s}
+.add:hover{background:var(--red)}
+.add.pop{transform:scale(1.15)}
+.c0{background:#d63b2a}.c1{background:#1d4f91}.c2{background:#f26a2e}.c3{background:#2f8f6b}.c4{background:#8a3b8f}.c5{background:#c9881c}.c6{background:#4a4038}
+/* cart */
+.cart{position:sticky;top:90px;background:var(--paper);border:2px solid var(--ink);border-radius:24px;padding:22px;box-shadow:8px 8px 0 var(--ink);max-height:calc(100vh - 110px);overflow:auto}
+.cart h2{font-size:1.6rem;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.cart .x{display:none;background:none;border:0;font-size:1.6rem;line-height:1}
+.empty{color:var(--muted);padding:26px 0;text-align:center}
+.line{display:grid;grid-template-columns:1fr auto;gap:6px 10px;padding:14px 0;border-bottom:1px dashed #d9c9b3}
+.line b{font-weight:700}
+.line .q{display:flex;align-items:center;gap:8px}
+.line .q button{width:28px;height:28px;border-radius:50%;border:2px solid var(--ink);background:var(--cream);font-weight:700;line-height:1}
+.line select{grid-column:1/-1;border:1.5px solid var(--line);border-radius:10px;padding:.35em .5em;font:inherit;font-size:.85rem;background:var(--cream);width:max-content}
+.lbl{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px;display:block}
+.slots{display:flex;flex-wrap:wrap;gap:6px}
+.slots button{border:1.5px solid var(--ink);border-radius:10px;padding:.35em .65em;font-size:.85rem;background:var(--cream);font-weight:500}
+.slots button.on{background:var(--ink);color:var(--cream)}
+.days{display:flex;gap:6px;margin-bottom:8px}
+.days button{flex:1;border:2px solid var(--ink);border-radius:12px;padding:.45em;font-weight:700;background:var(--cream);font-size:.85rem}
+.days button.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.cart input{width:100%;border:2px solid var(--line);border-radius:12px;padding:.7em .8em;font:inherit;background:var(--cream);margin-bottom:8px;outline:none}
+.cart input:focus{border-color:var(--ink)}
+.tot{margin-top:16px;font-size:.95rem}
+.tot div{display:flex;justify-content:space-between;padding:3px 0;color:var(--muted)}
+.tot .g{color:var(--ink);font-weight:800;font-family:"Bricolage Grotesque";font-size:1.3rem;padding-top:8px}
+.go{width:100%;margin-top:14px;background:var(--sun);color:#fff;border:2px solid var(--ink);border-radius:99px;padding:1em;font-weight:800;font-size:1.05rem;transition:transform .2s,box-shadow .2s}
+.go:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--ink)}
+.go:disabled{opacity:.45;transform:none;box-shadow:none;cursor:not-allowed}
+.err{color:var(--red);font-size:.85rem;min-height:1.1em;margin-top:6px}
+.small{font-size:.8rem;color:var(--muted);margin-top:10px;text-align:center}
+.bar{display:none}
+.ok{display:none;text-align:center;padding:10px 0}
+.ok.show{display:block;animation:pop .5s ease}
+.ok .sun{width:90px;height:90px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#ff9a52,var(--sun));margin:10px auto 16px;display:grid;place-items:center;color:#fff;font-size:2.4rem;border:2px solid var(--ink)}
+.ok h2{display:block}
+.ok .num{font-family:"Bricolage Grotesque";font-weight:800;font-size:2rem;color:var(--blue);margin:.4rem 0}
+.ok p{color:var(--muted)}
+@keyframes pop{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+.toast{position:fixed;left:50%;bottom:90px;transform:translate(-50%,30px);background:var(--ink);color:var(--cream);padding:.7em 1.2em;border-radius:99px;font-weight:700;opacity:0;transition:all .3s;z-index:90;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+footer{background:var(--ink);color:#c9bfb5;padding:30px 0;font-size:.88rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media (max-width:960px){
+ .layout{grid-template-columns:1fr}
+ .links a:not(:last-child){display:none}
+ .cart{position:fixed;inset:auto 0 0 0;top:auto;max-height:88vh;border-radius:24px 24px 0 0;box-shadow:0 -10px 40px rgba(0,0,0,.25);transform:translateY(105%);transition:transform .35s;z-index:80;border-bottom:0}
+ .cart.open{transform:none}
+ .cart .x{display:block}
+ .bar{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:70;background:var(--sun);color:#fff;border:2px solid var(--ink);border-radius:99px;padding:.9em 1.3em;justify-content:space-between;font-weight:800;box-shadow:0 5px 0 var(--ink)}
+ .grid{grid-template-columns:1fr 1fr;gap:12px}
+ .card .art{height:80px;font-size:2rem}
+ footer{padding-bottom:90px}
+}
+@media (max-width:420px){.card p{display:none}.card h3{font-size:1rem}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap nav">
+  <a href="index.html" class="logo"><svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="22" r="11" fill="#f26a2e"/><path d="M0 44 L14 26 L22 34 L32 20 L48 40 L48 48 L0 48Z" fill="#1d4f91"/></svg><span><b>Chong's</b><small>Korean Restaurant</small></span></a>
+  <nav class="links"><a href="index.html">Home</a><a href="menu.html">Full menu</a><a href="tel:+12106454490">210-645-4490</a></nav>
+ </div>
+</header>
+
+<div class="wrap top">
+ <h1>Order for pickup</h1>
+ <p>8122 Marbach Rd, Suite 119 &middot; Latigo Plaza. We'll have it hot and ready when you get here.</p>
+ <span class="pill" id="status"><i></i><span></span></span>
+</div>
+
+<div class="wrap layout">
+ <div>
+  <div class="filters" id="filters"></div>
+  <div class="grid" id="grid"></div>
+ </div>
+
+ <aside class="cart" id="cart" aria-label="Your order">
+  <div id="cartbody">
+   <h2>Your order <button class="x" id="close" aria-label="Close cart">&times;</button></h2>
+   <div id="lines"><p class="empty">Your bag is empty.<br>Tap <b>+ Add</b> on anything that looks good.</p></div>
+   <span class="lbl">Pickup time</span>
+   <div class="days" id="days"></div>
+   <div class="slots" id="slots"></div>
+   <span class="lbl">Your details</span>
+   <input id="nm" placeholder="Name" autocomplete="name">
+   <input id="ph" type="tel" placeholder="Mobile phone" autocomplete="tel">
+   <div class="tot"><div><span>Subtotal</span><span id="sub">$0.00</span></div><div><span>Tax (8.25%)</span><span id="tax">$0.00</span></div><div class="g"><span>Total</span><span id="tot">$0.00</span></div></div>
+   <button class="go" id="go" disabled>Place pickup order</button>
+   <p class="err" id="err" role="alert"></p>
+   <p class="small">Pay at pickup. Questions? Call 210-645-4490.</p>
+  </div>
+  <div class="ok" id="ok" aria-live="polite">
+   <div class="sun">&#10003;</div>
+   <h2 style="font-size:2rem;font-weight:800">Order received!</h2>
+   <div class="num" id="onum"></div>
+   <p id="omsg"></p>
+   <p style="margin-top:14px">8122 Marbach Rd, Suite 119</p>
+   <button class="go" id="new" style="background:var(--paper);color:var(--ink)">Start a new order</button>
+  </div>
+ </aside>
+</div>
+
+<button class="bar" id="bar"><span id="barn">View order (0)</span><span id="bart">$0.00</span></button>
+<div class="toast" id="toast"></div>
+
+<footer><div class="wrap"><span>&copy; 2026 Chong's Korean Restaurant</span><span><a href="index.html">Home</a> &middot; <a href="menu.html">Menu</a> &middot; 210-645-4490</span></div></footer>
+
+<script>
+const ITEMS=[
+ ['Lunch Specials','점심',[[2,'Chicken Bulgoki Bento','닭','Marinated chicken thigh, onions. Rice, sides, drink.',8.99],[3,'Pork Bulgoki Bento','돼지','Marinated pork tenderloin, onions.',9.99],[6,'Beef Bulgoki Bento','소','Rib eye slices, onions, carrots.',9.99],[7,'L.A. Gal Bi Bento','갈비','Charbroiled marinated short ribs.',10.99],[8,'Spicy Squid Bento','오징어','Stir-fried squid and vegetables, spicy sauce.',9.99,1]]],
+ ['Meats','고기',[[11,'Chicken Bulgoki','닭불고기','Marinated chicken thigh strips with onions.',14.99,1],[12,'Pork Bulgoki','돼지불고기','Marinated pork tenderloin with onions.',16.99,1],[13,'Beef Bulgoki','불고기','Rib eye strips, onions, carrots.',16.99,1],[14,'L.A. Gal Bi','갈비','Three charbroiled beef short ribs.',17.99],[15,'Kimchi Sam Gyup Sal','삼겹살','Grilled Korean bacon, kimchi, onions.',15.99,1],[16,'Sam Gyup Sal (for 2)','삼겹살','Grilled Korean bacon with onions.',29.99]]],
+ ['Soups & Stews','찌개',[[17,'Man Du Guk','만두국','Dumpling soup, green onion, egg.',10.99],[18,'Duk Man Du Guk','떡만두국','Dumpling soup with rice cake.',12.99],[19,'Duin Jang Chi Gae','된장','Soybean paste soup, tofu, vegetables.',10.99,1],[20,'Sun Du Bu Chi Gae','순두부','Soft tofu soup, shrimp, mussels, egg.',10.99,1],[21,'Kimchi Chi Gae','김치찌개','Kimchi soup with pork and tofu.',11.99,1],[25,'Yuk Gae Jang','육개장','Spicy beef brisket soup.',13.99,1],['S4','Gal Bi Tang','갈비탕','Beef short rib soup, clear noodles.',13.99],['S12','Bu Dae Chi Gae (for 2)','부대찌개','"Military Stew".',29.99,1],[23,'Hae Mul Tang (for 2)','해물탕','Seafood stew.',29.99,1]]],
+ ['Rice & Noodles','밥',[[24,'Bi Bim Bab','비빔밥','Rice, vegetables, beef, fried egg.',10.99,1],['24D','Dol Sot Bi Bim Bab','돌솥','Sizzling stone pot. No sides.',12.99,1],[29,'Chop Chae','잡채','Clear noodles, vegetables, beef.',15.99],['S3','Vegetable Fried Rice','볶음밥','Vegetarian. No sides.',10.99,0,1],['S3','Chicken, Beef or Shrimp Fried Rice','볶음밥','No sides.',10.99],['S3K','Kimchi Fried Rice','김치볶음밥','No sides.',12.99,1],[28,'Oh Jing Uh Bok Em','오징어','Spicy stir-fried squid.',15.99,1],['S8','Jae Yook Bokum','제육','Korean bacon, squash, onion, cabbage.',15.99,1]]],
+ ['Appetizers','전',[[37,'Ya Ki Man Du (8)','만두','Pork, noodle and veggie dumplings. Fried or steamed.',6.99],[38,'Kimchi Pancake','김치전','Dinner-plate size, pan-fried.',10.99],[40,'Seafood Pancake','해물전','Squid, mussels, shrimp, onion.',14.99],[35,'Dukboki','떡볶이','Rice cakes, fish cake, egg, spicy sauce.',11.99,1],[36,'Kim Bob','김밥','One seaweed rice roll.',4.99],[34,'Egg Roll or Spring Roll','롤','One, fried.',0.99]]],
+ ['Sides & Drinks','반찬',[[41,'Extra Rice','밥','Per bowl.',0.99],[43,'Lettuce Setup','상추','Romaine and hot paste.',0.99],[44,'Iced Tea (to-go cup)','차','',2.00],[45,'Soda','','Can.',1.50],[46,'Bottled Water','물','',1.00]]]
+];
+const cart=new Map();let cat=0,day=0,slot=null;
+const $=id=>document.getElementById(id),money=n=>'$'+n.toFixed(2);
+const F=$('filters'),G=$('grid');
+ITEMS.forEach(([t],i)=>{const b=document.createElement('button');b.textContent=t;b.className=i?'':'on';b.onclick=()=>{cat=i;[...F.children].forEach((c,k)=>c.classList.toggle('on',k===i));grid()};F.appendChild(b)});
+function grid(){const [,,list]=ITEMS[cat];G.innerHTML=list.map(([n,name,k,d,p,sp,v],i)=>`<article class="card"><div class="art c${i%7} kr"><small>#${n}</small>${k||'정'}</div><div class="b"><h3>${name}${v?' <span style="font-size:.7rem;background:#dff1e8;color:#1f6b4d;border-radius:99px;padding:.1em .5em;vertical-align:3px">VEG</span>':''}</h3><p>${d}</p><div class="row"><span class="pr">${money(p)}</span><button class="add" data-i="${i}">+ Add</button></div></div></article>`).join('');
+ G.querySelectorAll('.add').forEach(b=>b.onclick=()=>{const it=list[+b.dataset.i],key=it[1];const c=cart.get(key)||{name:it[1],price:it[4],q:0,spicy:!!it[5],lvl:5};c.q++;cart.set(key,c);b.classList.add('pop');setTimeout(()=>b.classList.remove('pop'),150);toast(`Added ${it[1]}`);render()})}
+function render(){const L=$('lines');if(!cart.size){L.innerHTML='<p class="empty">Your bag is empty.<br>Tap <b>+ Add</b> on anything that looks good.</p>'}else{L.innerHTML=[...cart.entries()].map(([k,c])=>`<div class="line"><div><b>${c.name}</b><div style="color:var(--muted);font-size:.85rem">${money(c.price*c.q)}</div></div><div class="q"><button data-k="${k}" data-d="-1" aria-label="Remove one">&minus;</button><span>${c.q}</span><button data-k="${k}" data-d="1" aria-label="Add one">+</button></div>${c.spicy?`<select data-k="${k}" aria-label="Spice level">${Array.from({length:10},(_,i)=>`<option value="${i+1}" ${c.lvl===i+1?'selected':''}>Spice level ${i+1}${i===4?' (jalapeño hot)':i===9?' (hottest)':''}</option>`).join('')}</select>`:''}</div>`).join('');
+ L.querySelectorAll('.q button').forEach(b=>b.onclick=()=>{const c=cart.get(b.dataset.k);c.q+=+b.dataset.d;if(c.q<=0)cart.delete(b.dataset.k);render()});
+ L.querySelectorAll('select').forEach(s=>s.onchange=()=>{cart.get(s.dataset.k).lvl=+s.value})}
+ const sub=[...cart.values()].reduce((a,c)=>a+c.price*c.q,0),n=[...cart.values()].reduce((a,c)=>a+c.q,0);
+ $('sub').textContent=money(sub);$('tax').textContent=money(sub*.0825);$('tot').textContent=money(sub*1.0825);
+ $('barn').textContent=`View order (${n})`;$('bart').textContent=money(sub*1.0825);$('go').disabled=!n}
+// hours: Mon-Thu 11-14,16-19 ; Fri-Sat 11-20 ; Sun closed
+function windows(dow){if(dow===0)return[];if(dow<=4)return[[11,14],[16,19]];return[[11,20]]}
+const now=new Date();
+function openNow(){const h=now.getHours()+now.getMinutes()/60;return windows(now.getDay()).some(([a,b])=>h>=a&&h<b)}
+$('status').classList.toggle('closed',!openNow());$('status').querySelector('span').textContent=openNow()?'Open now · taking pickup orders':'Closed right now · schedule ahead';
+const dn=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];const dayList=[];for(let i=0;dayList.length<3&&i<7;i++){const d=new Date(now);d.setDate(d.getDate()+i);if(d.getDay()!==0)dayList.push(d)}
+dayList.forEach((d,i)=>{const b=document.createElement('button');b.textContent=d.toDateString()===now.toDateString()?'Today':i===1&&(d-now)<1.7e8?'Tomorrow':dn[d.getDay()];b.className=i?'':'on';b.onclick=()=>{day=i;[...$('days').children].forEach((c,k)=>c.classList.toggle('on',k===i));slots()};$('days').appendChild(b)});
+function slots(){const d=dayList[day],S=$('slots');S.innerHTML='';slot=null;const isToday=d.toDateString()===now.toDateString();const min=isToday?now.getHours()+now.getMinutes()/60+.33:0;
+ windows(d.getDay()).forEach(([a,b])=>{for(let h=a+.25;h<=b-.25;h+=.25){if(h<min)continue;const hh=Math.floor(h),mm=String(Math.round((h%1)*60)).padStart(2,'0');const lab=`${hh>12?hh-12:hh}:${mm}${hh>=12?'p':'a'}`;const bt=document.createElement('button');bt.textContent=lab;bt.onclick=()=>{slot=`${b===a?'':''}${dn[d.getDay()]} ${lab}m`;[...S.children].forEach(c=>c.classList.remove('on'));bt.classList.add('on')};S.appendChild(bt)}});
+ if(!S.children.length)S.innerHTML='<span style="color:var(--muted);font-size:.9rem">No more pickup times this day. Try the next one.</span>'}
+slots();
+function toast(t){const T=$('toast');T.textContent=t;T.classList.add('show');clearTimeout(T._t);T._t=setTimeout(()=>T.classList.remove('show'),1400)}
+$('bar').onclick=()=>$('cart').classList.add('open');$('close').onclick=()=>$('cart').classList.remove('open');
+$('go').onclick=()=>{const nm=$('nm').value.trim(),ph=$('ph').value.replace(/\D/g,'');
+ if(!slot){$('err').textContent='Pick a pickup time.';return}if(!nm||ph.length<10){$('err').textContent='Add your name and a 10-digit phone number.';return}
+ $('err').textContent='';$('cartbody').style.display='none';$('ok').classList.add('show');$('onum').textContent='#'+(1000+Math.floor(Math.random()*9000));
+ $('omsg').textContent=`Thanks, ${nm}! Your order (${$('tot').textContent}) will be ready ${slot}. Pay when you pick up.`};
+$('new').onclick=()=>{cart.clear();render();$('ok').classList.remove('show');$('cartbody').style.display='';$('nm').value='';$('ph').value='';slots()};
+grid();render();
+</script>
+</body>
+</html>
