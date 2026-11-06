@@ -1,0 +1,54 @@
+# Audy's Village Mobil
+
+> Automobile repairs, hybrid repairs, state inspections and oil changes at 345 Boylston St, Brookline. Rated 4.2 from 40 Google reviews.
+
+- Type: Car repair and maintenance service
+- Address: 345 Boylston St, Brookline, MA 02445, USA
+- Phone: (617) 738-4706
+- Email: info@eliasmobil.com
+- Website: https://ronaks-code.github.io/sitelift-demos/audy-s-village-mobil/
+- Google Maps: https://maps.google.com/?cid=16393063584388673303&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.2 from 40 reviews
+
+## Hours
+- Monday: Open 24 hours
+- Tuesday: Open 24 hours
+- Wednesday: Open 24 hours
+- Thursday: Open 24 hours
+- Friday: Open 24 hours
+- Saturday: Open 24 hours
+- Sunday: Open 24 hours
+
+## About
+Village Mobil sits at 345 Boylston St in Brookline. Elias' Mobil provides a wide range of repairs and services, specialising in all European and Japanese vehicles, and we're committed to top quality service for your car.
+Elias has been part of this town for a long time, with the Brookline Rotary, the Brookline Chamber of Commerce and a Heart of Gold honor from the Brookline Senior Center. In the shop, one reviewer counts on Cristian to explain what needs to be done and keep her older car safe on the road.
+Customers give us 4.2 from 40 reviews on Google.
+
+## Services
+- Automobile Repairs: A wide range of repairs for your vehicle, with a specialty in European and Japanese cars.
+- Hybrid Repairs: Hybrid work handled by hybrid certified mechanics.
+- State Inspection: Annual Massachusetts state inspections. One reviewer pulled in on a Saturday morning and was back out a short while later.
+- Oil Change: We're an Exxon Mobil certified express lube location.
+
+## FAQ
+Q: Should I bring cash for a state inspection?
+A: One reviewer suggests it. Paying by credit card adds a $1.26 fee for state inspections.
+
+Q: What if my car fails inspection?
+A: One customer who failed told us to drive it for a while and come back. When he returned, we ran a pre-test first so he wouldn't fail the retest and have to go to a larger testing site.
+
+Q: Is there somewhere to wait?
+A: Yes. The waiting area has an enclosed space and a shaded space, and one reviewer said the enclosed area is warm.
+
+Q: When are you open?
+A: The store and gas are open 24 hours everyday. Give us a call at (617) 738-4706 about repairs.
+
+## What customers say
+- "I’ve gone to this auto shop over the last couple years and always find that Cristian does an excellent job with many different repairs on my (older) car. Beyond that, he is warm, professional, and always carefully explains what needs to be done. I really appreciate being able to trust Cristian to make sure I am safe on the road. I highly recommend!" (Haley Medeiros, 5/5)
+- "These guys always do great inspection. When I last failed (due to battery removal), they asked me to drive 100 miles and come back. When I came back, they did a pre-test to avoid failing the 2nd test and resulting having to go to a larger testing site. Thanks!" (Mathieu Baissac, 5/5)
+- "Bring cash to avoid a $1.26 credit card fee for state inspections.
+Pulled in at 9:30am for an annual state inspection on a Saturday, was out by 9:45am.
+Waiting area has both an enclosed and a shaded space. Feels thoughtful." (Kyle S. Roark, 5/5)
+- "Fastest annual MA inspection I’ve ever had. Under 10 minutes for my Tesla. “Outdoor” waiting area is enclosed and warm." (Gregory Glance, 5/5)
+- "They are very kind, honest and easy to work with
+Highly recommend" (Josh, 5/5)
