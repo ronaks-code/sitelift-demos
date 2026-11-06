@@ -1,0 +1,50 @@
+# Peterson's Nursery
+
+> Family garden center and landscape company in Princeton, NJ. Container planting, tree installation and fresh local produce.
+
+- Type: Farm
+- Address: 3730 Lawrenceville Rd, Princeton, NJ 08540, USA
+- Phone: (609) 924-5770
+- Email: info@petersonsnursery.com
+- Website: https://ronaks-code.github.io/sitelift-demos/peterson-s-nursery/
+- Google Maps: https://maps.google.com/?cid=16149259146613805322&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA
+- Google rating: 4.5 from 45 reviews
+
+## Hours
+- Monday: 9:00 AM – 4:00 PM
+- Tuesday: 9:00 AM – 4:00 PM
+- Wednesday: 9:00 AM – 4:00 PM
+- Thursday: 9:00 AM – 4:00 PM
+- Friday: 9:00 AM – 4:00 PM
+- Saturday: 9:00 AM – 4:00 PM
+- Sunday: 9:00 AM – 3:00 PM
+
+## About
+Peterson's Nursery started as a roadside produce stand, with a young boy selling blackberries in front of his family home. Today it's a second-generation family business and a full service garden center and landscaping company, on land bordering Princeton and Lawrenceville. We still carry fresh local produce, much of it grown onsite.
+We've been at the forefront of organic gardening for decades. We stopped chemical pesticide spraying of our plant inventory and switched to beneficial insects, including everybody's favorite, the Ladybug. We also started feeding our plants liquid seaweed, and the plants loved it.
+Customers tell us they notice the fresh air in our greenhouses. There are birds chirping and squirrels and rabbits running around, so it feels more like a park than a typical garden center. We buy from local suppliers to keep freight distances short, and our greenhouses use shade cloth and temperature controlled vents instead of running fans.
+
+## Services
+- Container planting: Let us plant your containers for you.
+- Tree Installation: We'll help you choose a tree and get it in the ground.
+- Landscape and Hardscape: We're a landscape company as well as a garden center. Call to talk through your project.
+- Fresh local produce: The roadside stand never really left. We still carry local produce, much of it grown right here.
+- Firewood: One customer has been buying firewood from us for more than 25 years and calls it good value for money.
+- Fraser firs: At the holidays, one reviewer found a wonderful selection of Fraser firs, reasonably priced.
+
+## FAQ
+Q: Do you sell organic products?
+A: Yes. We still carry the familiar chemical controls and fertilizers, but we will always recommend the organic product over a manufactured one.
+
+Q: What areas do you serve?
+A: We're in Princeton, NJ, serving Mercer County and the surrounding areas.
+
+Q: When are you open?
+A: Our listed hours are Monday through Saturday, 9:00 AM to 4:00 PM, and Sunday, 9:00 AM to 3:00 PM. Hours can change with the season, so give us a call before you come.
+
+## What customers say
+- "I've been buying firewood here for more than 25 years.  It's good value for money, and the people are always thoughtful and kind. They will even load the firewood in the car for you--which is an extra reason for customer loyalty, for in those 25 years my hands have become too arthritic to unload a whole wheelbarrow.  It's an especially nice place to visit come the fall season, with Halloween, Thanksgiving, and the Holidays coming up.  Just the scents of the fall and holiday items as you walk in the door gives you that seasonal feeling, as if in a flash of a moment you experience the essence of a lifetime of fall seasons and the scent of firewood.  Such a nice place to visit." (Camino Bop, 5/5)
+- "Peterson's plants are always health and take well when I plant them. His prices are extremely reasonable and the family who owns and runs the business is very helpful." (Melissa Zeier, 5/5)
+- "Wonderful selection of great looking Fraser firs this year. My 7 ft tree is beautiful and was reasonably priced." (Mary Lufen, 5/5)
+- "Had very different flowers.
+Plus a sweet small fern." (Stefany Maselli, 5/5)
