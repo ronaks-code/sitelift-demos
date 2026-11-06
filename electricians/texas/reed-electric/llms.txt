@@ -1,0 +1,49 @@
+# Reed Electric
+
+> Residential electrician based in Austin, Texas. Panels, EV charger outlets, lighting and fans, dryer conversions and urgent calls. Customers say we show up fast, find a way when others say it can't be done, and explain everything in plain terms.
+
+- Phone: (561) 919-3222
+- Based in: Austin, TX
+- Service area: Austin, Pflugerville, Round Rock, Wells Branch, Cedar Park
+- Google rating: 4.9 from 105 reviews
+- Request a quote: https://ronaks-code.github.io/sitelift-demos/electricians/texas/reed-electric/quote.html
+- Book a visit: https://ronaks-code.github.io/sitelift-demos/electricians/texas/reed-electric/book.html
+
+## Services
+- Urgent electrical problems: Water near the panel, a burning smell or a breaker that won't stay on. We get power off safely, check the circuits, tell you what happened and replace what's damaged.
+- Panels, service & feeders: Breaker replacements, service risers and underground feeders, done neatly and to code.
+- EV chargers & 240V outlets: 50 amp, 240 volt garage outlets for plug-in vehicles, and dryer or range circuits, including gas-to-electric conversions.
+- Lighting, fans & bath combos: Recessed lights, attic and bath fans, and fan-light-heater combos, even in tight, low-ceiling spots.
+- Outdoor kitchens & patios: Power, lighting and fans for outdoor kitchens and covered patios, so the grill and the ceiling fan both just work.
+- Step & deck lighting: Low step lights set into stairs and decks, so the way down is lit and safe after dark.
+
+## About
+Reed Electric is a residential electrician based in North Austin, off Fleischer Dr in 78728. We work in houses, condos, garages and backyards across Austin, Pflugerville, Round Rock, Wells Branch and Cedar Park. Most of what we do is the everyday work that keeps a home running: panels and breakers, 240V outlets for EV chargers and dryers, recessed lights, fans, outdoor kitchens and step lights. When something goes wrong, like water reaching a panel, we come out quickly, make it safe, and come back to replace what was damaged. Customers mention our crew by name, Stanley, Kyle, Randall and Maximus among them, and the same things come up again and again: we show up on time, take a real look before saying no, keep you updated before, during and after the job, and explain it all in simple terms.
+
+## Service area pages
+- Austin, TX: https://ronaks-code.github.io/sitelift-demos/electricians/texas/reed-electric/service-area-austin.html
+- Pflugerville, TX: https://ronaks-code.github.io/sitelift-demos/electricians/texas/reed-electric/service-area-pflugerville.html
+- Round Rock, TX: https://ronaks-code.github.io/sitelift-demos/electricians/texas/reed-electric/service-area-round-rock.html
+- Wells Branch, TX: https://ronaks-code.github.io/sitelift-demos/electricians/texas/reed-electric/service-area-wells-branch.html
+- Cedar Park, TX: https://ronaks-code.github.io/sitelift-demos/electricians/texas/reed-electric/service-area-cedar-park.html
+
+## Frequently asked questions
+- Q: Can you install an outlet for my EV charger?
+  A: Yes. We install 50 amp, 240 volt outlets in garages for plug-in vehicle chargers. Tell us your charger and where you park and we'll quote it.
+- Q: Can you convert my dryer from gas to electric?
+  A: Yes. We run the 240V circuit and install the dryer outlet. If your panel or fuse box needs work to carry the new circuit, we'll tell you up front and handle it, and we keep you updated before, during and after the job.
+- Q: Will you explain what's wrong before you start?
+  A: Yes. Customers tell us that's what they value most: we explain what we found and what we'll do in simple terms, on the phone and on site, before any work starts.
+- Q: Water got near my electrical panel. What should I do?
+  A: Don't touch the panel or anything wet near it. If you can do it safely, keep away from the area and call us right away at (561) 919-3222. We'll shut power off safely and check the circuits.
+- Q: Another electrician said it can't be done. Will you take a look?
+  A: Yes. We'll check the attic, walls or crawl space ourselves and tell you honestly what's possible.
+- Q: Do you work in condos and apartments?
+  A: Yes. We work in condos as well as houses, including panel issues caused by leaks from neighboring units.
+
+## What customers say
+- "I needed help fast after water from another unit leaked into my condo in Austin and reached the wall with the main electrical panel. Stanley responded quickly, shut off power safely, checked the circuits, and carefully cleaned and dried the panel and breakers. He stayed calm during a very stressful situation and explained everything in simple terms so I knew what was happening. Soon after, he came back to replace the main breaker panel and install the new panel and circuits the right way." (Ella Jarvis, Google review)
+- "Stanley is an excellent electrician. He arrives on time, explains the work clearly, does quality electrical work, and charges a fair price. Two other electricians told me a recessed light could not be installed in a back hallway with a low ceiling, but Stanley and Kyle checked the attic crawl space and confirmed it can be done. They were knowledgeable, honest, and easy to work with." (Juanita Larsen, Google review)
+- "I called about converting my dryer setup from gas to electric, and Stanley on the phone was very kind and patient. He explained the process clearly and helped set up an appointment right away. They found that a new fuse box was needed for the dryer circuit, and they handled the installation quickly and safely. They kept me updated before, during, and after the job." (Brent Olson, Google review)
+- "Needed a 50amp 240v outlet installed and wired in our garage for my wife's plug-in vehicle charger. A friend referred us to Reed Electric, and the whole experience was excellent. Kyle was quick to respond, explained the electrical work in simple terms, and got the circuit and outlet setup done fast. The install was clean, and everything worked perfectly for our home charging needs in Austin." (bryce charles, Google review)
+- "Randall came out this morning to replace the bathroom light, fan, and heater combo, and he did an excellent job. He was professional, skilled, and friendly, and he finished the electrical work quickly and cleanly. The new fixture works great, with solid wiring and smooth operation." (S Mclean, Google review)

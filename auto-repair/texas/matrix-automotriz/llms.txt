@@ -1,0 +1,49 @@
+# Matrix Automotriz
+
+> Neighborhood auto repair based in Austin, Texas. Straight answers, fair prices and a clear explanation before any work starts. The East Austin shop people send their friends to for a second opinion.
+
+- Phone: (512) 385-7004
+- Based in: Austin, TX
+- Service area: East Austin, Govalle, Holly, East Cesar Chavez, Cherrywood, Downtown Austin
+- Google rating: 4.7 from 53 reviews
+- Request a quote: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/matrix-automotriz/quote.html
+- Book a drop-off: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/matrix-automotriz/book.html
+
+## Services
+- Second opinions & inspections: Got a big repair quote somewhere else? Bring it by. We put the car up, show you what we see, and tell you straight whether the work is really needed.
+- Computer analysis & diagnostics: Check-engine light on or something just feels off? Computer analysis to find the real problem before any parts get replaced.
+- Brakes: Squeaking, grinding or a soft pedal. We check pads, rotors and fluid and tell you honestly how much life is left.
+- Tune-ups & oil changes: Regular maintenance that keeps your car running right, done by people who know the car is how you get to work.
+- Struts, shocks & alignment: Computerized alignment and balancing (alineación y balanceo computarizado), plus struts and shocks for a car that rides and tracks straight.
+- Electrical service: Electrical problems tracked down with computer analysis. And if a job is better handled by a specialist, we'll tell you and point you to one.
+
+## About
+Matrix Automotriz is a neighborhood auto repair shop at 3228 E 5th St in East Austin. Look for the light-blue building with the red signs and the hand-painted Matrix sign over the bays. Customers have been writing about the shop for more than a decade, and the same things keep coming up: honest second opinions, fair prices, and quick work when you're stuck. When a job is outside what we do, we say so and send you to someone who can help. The signs on the wall say what we do: electrical service, computer analysis, tune-ups, oil changes, brakes, struts and shocks, plus computerized alignment and balancing.
+
+## Service area pages
+- East Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/matrix-automotriz/service-area-east-austin.html
+- Govalle, Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/matrix-automotriz/service-area-govalle.html
+- Holly, Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/matrix-automotriz/service-area-holly.html
+- East Cesar Chavez, Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/matrix-automotriz/service-area-east-cesar-chavez.html
+- Cherrywood, Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/matrix-automotriz/service-area-cherrywood.html
+- Downtown Austin, TX: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/matrix-automotriz/service-area-downtown-austin.html
+
+## Frequently asked questions
+- Q: Can I bring my car in for a second opinion?
+  A: Yes. A lot of our customers first come in with a quote from another shop. We'll inspect the car, show you what we find, and tell you honestly whether the work is needed.
+- Q: Will I know the cost before you start?
+  A: Yes. We go over what the car needs and what it will cost before any work begins. Customers tell us we even call about the cost of each part first.
+- Q: Can you fix my car the same day?
+  A: Often, yes, depending on the repair and parts. One customer's truck broke down while he was in town for a single day, and it was back on the road in a few hours. Call ahead and tell us what's going on.
+- Q: Where are you and when are you open?
+  A: 3228 E 5th St, Austin, TX 78702, in the light-blue building with the red signs. Monday to Friday 9 AM to 5:30 PM, Saturday 10 AM to 2 PM, closed Sunday.
+- Q: What if my car needs something you don't do?
+  A: We'll tell you straight and point you to a shop that does that kind of work, rather than take a job we shouldn't.
+
+## What customers say
+- "They take a look at everything and let me know that my brakes look fine, and that the pads look “close to new.” They topped off my brake fluid as well … To say this place does honest work would be an understatement! They are kind, helpful, and act with integrity. I am so glad I decided to get a second opinion." (Lexi A., Google review)
+- "These folks are honest and helpful. They were able to look at my car and get everything fixed very quickly. Their prices are fair. They even called me about the cost of each part before they began the work. I am so happy to have found a local shop I can trust!" (Kini C., Google review)
+- "My truck broke down while in town for one day. Went to other places and they wanted to keep my truck overnight, here I explained my situation and they helped me out big time. Had my truck up and running in a few hours and the price was very good … Extremely recommended." (Ivan Q., Google review)
+- "Opted to get a second opinion as I was not having any issues with my car or hearing any clicking … They showed me under my car and fully explained they didn’t see any issue with my axle. … They were honest, trustworthy, and so friendly." (Marissa L., Google review)
+- "This is a Great auto repair shop. The owners are truthful and work with integrity." (Norma A., Yelp review)
+- "This is perhaps the very first mechanic shop that I feel i can trust to do fair business with." (Jaguar R., Yelp review)
