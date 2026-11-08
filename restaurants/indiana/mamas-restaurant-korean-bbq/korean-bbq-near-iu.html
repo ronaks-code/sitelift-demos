@@ -250,4 +250,4 @@ var d=new Date().getDay(),r=document.querySelectorAll('.hours tr[data-d]');r.for
 var st=document.getElementById('openNow');if(st){var h=new Date().getHours()+new Date().getMinutes()/60,cl=[0,22,22,22,22,23,23][d];cl=d===0?22.5:cl;
  st.textContent=d===1?'Closed today (Monday)':(h>=11&&h<cl?'Open now':'Opens at 11 AM'+(h>=cl?' tomorrow':''));if(d===1||h>=cl)st.textContent=d===1?'Closed Mondays, back Tuesday at 11 AM':'Closed now, opens 11 AM';}
 })();
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

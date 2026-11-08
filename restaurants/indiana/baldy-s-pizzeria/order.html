@@ -268,4 +268,4 @@ document.querySelectorAll('.oitem').forEach(it=>it.querySelector('.add').onclick
 let n=it.dataset.n,p=parseFloat(s?s.value:h.value);if(s)n+=' ('+s.options[s.selectedIndex].text.split(' - ')[0]+')';cart.push({n,p});draw();
 const b=it.querySelector('.add');b.textContent='Added!';setTimeout(()=>b.textContent='Add',900)});
 document.getElementById('of').onsubmit=ev=>{ev.preventDefault();if(!cart.length){alert('Add an item first');return}document.getElementById('od').classList.add('show');ev.target.style.display='none'};
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

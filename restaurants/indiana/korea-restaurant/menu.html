@@ -385,4 +385,4 @@ const open=wd!==1&&m>=690&&m<1320;let msg;
 if(open)msg='Open now · until 10 PM';else if(wd!==1&&m<690)msg='Opens today at 11:30 AM';else{const nx=(wd===0)?'Tuesday':(wd===1?'Tuesday':'tomorrow');msg='Closed now · opens '+nx+' at 11:30 AM'}
 document.querySelectorAll('[data-now]').forEach(el=>{el.textContent=msg});document.querySelectorAll('.nowbar .dot').forEach(d=>d.classList.toggle('off',!open));
 const names=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];document.querySelectorAll('[data-day="'+names[wd]+'"]').forEach(x=>x.classList.add('td'));})();
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

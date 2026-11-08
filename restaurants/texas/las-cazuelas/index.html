@@ -327,5 +327,5 @@ function show(d){[...D.children].forEach(c=>c.classList.toggle('on',+c.dataset.d
  SP.innerHTML=`<div class="sp"><span class="k">Breakfast &middot; until 11 am</span>${s.b.length?`<ul class="sp-list">${li(s.b)}</ul>`:'<p style="padding:12px 0;font-weight:700">Try our breakfast tacos on homemade flour tortillas, from $1.19.</p>'}</div><div class="sp"><span class="k">Lunch &middot; 11 am &ndash; 2 pm</span><ul class="sp-list">${li(s.l)}</ul><small>With rice, beans, two tortillas &amp; iced tea</small></div>`}
 Object.entries(S).forEach(([d,s])=>{const bt=document.createElement('button');bt.dataset.d=d;bt.innerHTML=s.n+(+d===td?'<span class="t">TODAY</span>':'');bt.onclick=()=>show(+d);D.appendChild(bt)});show(start);
 </script>
-</body>
+<script async src="/sitelift-demos/_t.js"></script></body>
 </html>

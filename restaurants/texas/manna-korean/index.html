@@ -306,4 +306,4 @@ section{position:relative}
 (function(){var d=new Date(),w=d.getDay(),h=d.getHours()+d.getMinutes()/60,r=HRS[w],o=h>=r[0]&&h<r[1],t=document.getElementById('openTxt'),c=r[1]-12;
  t.textContent=o?'Open now · until '+c+' pm':(h<r[0]?'Opens today at 11 am':'Closed now · opens 11 am');if(!o)document.getElementById('dot').classList.add('off');
  var key=w===1?'Monday':w===2?'Tuesday':w===0?'Sunday':'Wed – Sat';document.querySelectorAll('#hrs div').forEach(function(x){if(x.dataset.d===key)x.classList.add('today')});})();
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

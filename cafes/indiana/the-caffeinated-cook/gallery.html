@@ -282,4 +282,4 @@ document.querySelectorAll('.rv,.tags').forEach(e=>io.observe(e));
 (function(){const p=Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:'America/Indiana/Indianapolis',weekday:'short',hour:'numeric',hour12:false}).formatToParts(new Date()).map(x=>[x.type,x.value]));
 const d=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(p.weekday),h=parseInt(p.hour)%24,o=[4, 5, 6].includes(d)&&h>=7&&h<14;
 document.querySelectorAll('.open').forEach(e=>{e.classList.toggle('yes',o);e.querySelector('span').textContent=o?'Open now · until 2 pm':'Closed now · open Thu–Sat 7–2'})})();
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

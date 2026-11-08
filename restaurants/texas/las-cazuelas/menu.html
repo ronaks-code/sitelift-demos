@@ -165,5 +165,5 @@ const td=new Date().getDay();document.querySelectorAll('.day').forEach(d=>{if(+d
 const tabs=[...document.querySelectorAll('#cats a')],secs=tabs.map(t=>document.querySelector(t.getAttribute('href')));
 addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<220)i=k});tabs.forEach((t,k)=>t.classList.toggle('on',k===i))},{passive:true});
 </script>
-</body>
+<script async src="/sitelift-demos/_t.js"></script></body>
 </html>

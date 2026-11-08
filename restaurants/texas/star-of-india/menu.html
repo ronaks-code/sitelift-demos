@@ -202,4 +202,4 @@ section{position:relative}
 var secs=[].slice.call(document.querySelectorAll('.cat')),chips=[].slice.call(document.querySelectorAll('.chips a'));
 var io2=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){chips.forEach(function(c){var on=c.getAttribute('href')==='#'+e.target.id;c.classList.toggle('on',on);if(on)c.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'})})}})},{rootMargin:'-45% 0px -50% 0px'});
 secs.forEach(function(s){io2.observe(s)});
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

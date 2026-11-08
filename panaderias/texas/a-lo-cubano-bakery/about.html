@@ -348,4 +348,4 @@ if(location.hash==='#pickup'){const t=document.querySelector('.tab[data-p="picku
 document.querySelectorAll('.qty').forEach(q=>{const s=q.querySelector('span');q.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{s.textContent=Math.max(0,+s.textContent+(+b.dataset.d));
  const tot=[...document.querySelectorAll('.qty span')].reduce((a,x)=>a+ +x.textContent,0);const c=document.querySelector('.cart');if(c)c.textContent=tot?tot+' item'+(tot>1?'s':'')+' in your order':'Nothing added yet'}))});
 document.querySelectorAll('form.f').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();f.style.display='none';const ok=document.getElementById(f.dataset.ok);ok.classList.add('on');ok.scrollIntoView({behavior:'smooth',block:'center'})}));
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

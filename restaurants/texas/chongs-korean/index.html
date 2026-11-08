@@ -288,5 +288,5 @@ const d={1:'Barely a whisper',2:'Mild',3:'A little warm',4:'Warm',5:'About jalap
 const upd=()=>{const v=+r.value;L.textContent=v;Pp.textContent='🌶'.repeat(v);Ds.textContent=d[v]};r.oninput=upd;upd();
 const day=new Date().getDay();document.querySelectorAll('#hours div').forEach(x=>{if(x.dataset.d.split(',').includes(String(day)))x.classList.add('today')});
 </script>
-</body>
+<script async src="/sitelift-demos/_t.js"></script></body>
 </html>

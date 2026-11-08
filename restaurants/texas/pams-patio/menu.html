@@ -233,5 +233,5 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 const tabs=[...document.querySelectorAll('.tabs a')],secs=tabs.map(t=>document.querySelector(t.getAttribute('href')));
 addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<200)i=k});tabs.forEach((t,k)=>t.classList.toggle('on',k===i))},{passive:true});
 </script>
-</body>
+<script async src="/sitelift-demos/_t.js"></script></body>
 </html>

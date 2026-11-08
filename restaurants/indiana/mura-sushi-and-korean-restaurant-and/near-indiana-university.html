@@ -341,4 +341,4 @@ if(cart){const ul=cart.querySelector('ul'),items={};
   ul.querySelectorAll('button').forEach(b=>b.onclick=()=>{delete items[b.dataset.n];draw()})};
  document.querySelectorAll('.add').forEach(b=>b.addEventListener('click',()=>{items[b.dataset.n]=(items[b.dataset.n]||0)+1;draw()}));
  cart.querySelector('form').addEventListener('submit',ev=>{ev.preventDefault();cart.querySelector('.okmsg').classList.add('show')});draw();}
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

@@ -273,4 +273,4 @@ const b=document.querySelector('.burger'),d=document.querySelector('.drawer');if
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.rv').forEach(e=>io.observe(e));
 document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');const k=c.dataset.k;document.querySelectorAll('.gal figure').forEach(f=>f.classList.toggle('hide',k!=='all'&&f.dataset.c!==k))});
 const lb=document.querySelector('.lb');if(lb){document.querySelectorAll('.gal figure').forEach(f=>f.onclick=()=>{lb.querySelector('img').src=f.querySelector('img').src;lb.querySelector('p').textContent=f.querySelector('img').alt;lb.classList.add('open')});lb.onclick=e=>{if(e.target!==lb.querySelector('img'))lb.classList.remove('open')};document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')})}
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

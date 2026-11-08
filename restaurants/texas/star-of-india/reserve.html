@@ -256,4 +256,4 @@ document.getElementById('rf').addEventListener('submit',function(e){e.preventDef
  if(!S.t){er.textContent='Please choose a time.';return}if(!n||!t){er.textContent='Please add your name and phone so we can confirm.';return}er.textContent='';
  document.getElementById('cardsum').innerHTML=[['Name',n],['Party',S.p+(S.p===1?' guest':' guests')],['Date',ds()],['Time',S.t]].concat(S.o?[['Occasion',S.o]]:[]).map(function(r){return '<div><span>'+r[0]+'</span><span>'+r[1].replace(/</g,'&lt;')+'</span></div>'}).join('');
  document.getElementById('frm').classList.add('sent');window.scrollTo({top:document.getElementById('frm').offsetTop-80,behavior:'smooth'})});
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

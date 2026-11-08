@@ -279,5 +279,5 @@ var vt=document.querySelector('.veg-toggle');if(vt)vt.addEventListener('click',f
 var chips=document.querySelectorAll('.chips a.chip');if(chips.length&&'IntersectionObserver' in window){var map={};chips.forEach(function(c){map[c.getAttribute('href').slice(1)]=c});var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){chips.forEach(function(c){c.classList.remove('on')});var c=map[e.target.id];if(c){c.classList.add('on');var p=c.parentNode;p.scrollTo({left:c.offsetLeft-p.clientWidth/2+c.clientWidth/2,behavior:'smooth'})}}})},{rootMargin:'-45% 0px -50% 0px'});document.querySelectorAll('.menu-sec[id],.cat-title[id]').forEach(function(s){so.observe(s)})}
 })();
 </script>
-</body>
+<script async src="/sitelift-demos/_t.js"></script></body>
 </html>

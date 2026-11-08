@@ -335,4 +335,4 @@ function draw(){const ks=Object.keys(cart).filter(k=>cart[k]>0);let t=0;ul.inner
 document.querySelectorAll('.qty').forEach(q=>{const o=q.querySelector('output'),n=q.dataset.n;price[n]=+q.dataset.p;const[m,p]=q.querySelectorAll('button');
 p.onclick=()=>{cart[n]=(cart[n]||0)+1;o.textContent=cart[n];draw()};m.onclick=()=>{cart[n]=Math.max(0,(cart[n]||0)-1);o.textContent=cart[n];draw()}});
 draw();document.querySelector('.cart form').addEventListener('submit',e=>{e.preventDefault();document.querySelector('.done').classList.add('on');e.target.querySelector('button[type=submit]').textContent='Sent!'})})();
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

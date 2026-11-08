@@ -384,4 +384,4 @@ document.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',()
 ul.addEventListener('click',ev=>{const m=ev.target.dataset.m,p=ev.target.dataset.p;if(p)cart[p]++;if(m){cart[m]--;if(!cart[m])delete cart[m]}draw()});
 draw();
 document.querySelectorAll('form[data-ok]').forEach(f=>f.addEventListener('submit',ev=>{ev.preventDefault();document.getElementById(f.dataset.ok).classList.add('on');f.querySelector('button[type=submit]').textContent='Sent!'}));
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

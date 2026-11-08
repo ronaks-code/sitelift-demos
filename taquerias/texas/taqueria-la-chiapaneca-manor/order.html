@@ -271,4 +271,4 @@ function draw(){const k=Object.keys(cart);ul.innerHTML=k.length?k.map(n=>'<li><s
  ul.querySelectorAll('button').forEach(b=>b.onclick=()=>{const n=b.dataset.r;cart[n]--;if(!cart[n])delete cart[n];draw()})}
 document.querySelectorAll('.add').forEach(b=>b.onclick=()=>{cart[b.dataset.n]=(cart[b.dataset.n]||0)+1;draw()});draw();
 document.querySelector('.cart form').onsubmit=e=>{e.preventDefault();document.querySelector('.done').classList.add('show')};
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

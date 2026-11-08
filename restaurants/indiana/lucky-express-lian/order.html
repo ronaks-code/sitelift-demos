@@ -321,4 +321,4 @@ if(lb){document.querySelectorAll('.gal figure[data-src]').forEach(f=>f.addEventL
 lb.addEventListener('click',ev=>{if(ev.target===lb||ev.target.tagName==='BUTTON')lb.classList.remove('on')});
 document.addEventListener('keydown',ev=>{if(ev.key==='Escape')lb.classList.remove('on')});}
 document.querySelectorAll('.chips .chip[data-f]').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('.chips .chip').forEach(x=>x.setAttribute('aria-pressed',x===c));const k=c.dataset.f;document.querySelectorAll('.gal figure').forEach(f=>f.classList.toggle('hide',k!=='all'&&f.dataset.cat!==k))}));
-</script></body></html>
+</script><script async src="/sitelift-demos/_t.js"></script></body></html>

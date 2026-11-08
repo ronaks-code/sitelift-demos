@@ -159,5 +159,5 @@ M.forEach((c,ix)=>{C.insertAdjacentHTML('beforeend',`<a href="#${c.id}" class="$
 const tabs=[...C.querySelectorAll('a')],secs=M.map(c=>document.getElementById(c.id));
 addEventListener('scroll',()=>{let i=0;secs.forEach((s,k)=>{if(s.getBoundingClientRect().top<220)i=k});tabs.forEach((t,k)=>t.classList.toggle('on',k===i))},{passive:true});
 </script>
-</body>
+<script async src="/sitelift-demos/_t.js"></script></body>
 </html>
