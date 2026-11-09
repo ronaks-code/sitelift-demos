@@ -1,0 +1,45 @@
+/* fx bg-mesh */
+/* bg-mesh: layer is built by JS under html.fx-bg-mesh; blobs are radial gradients, animated by transform only */
+.fx-mesh { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
+.fx-mesh i { position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50% }
+.fx-mesh i:nth-child(1) { left: -18%; top: -38%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 46%, transparent), transparent) }
+.fx-mesh i:nth-child(2) { right: -22%; top: -10%; width: 70%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 42%, transparent), transparent) }
+.fx-mesh i:nth-child(3) { left: 18%; bottom: -60%; width: 84%; background: radial-gradient(closest-side, color-mix(in srgb, var(--surface) 80%, var(--primary)), transparent) }
+.fx-mesh i:nth-child(4) { right: 8%; bottom: -34%; width: 52%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 26%, var(--accent)), transparent); opacity: .7 }
+@media (max-width: 760px) { .fx-mesh i { width: 130% } .fx-mesh i:nth-child(2) { right: -50% } }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-mesh i { will-change: transform; animation: fx-mesh-a 28s ease-in-out infinite alternate }
+ .fx-mesh i:nth-child(2) { animation-name: fx-mesh-b; animation-duration: 34s }
+ .fx-mesh i:nth-child(3) { animation-name: fx-mesh-c; animation-duration: 40s }
+ .fx-mesh i:nth-child(4) { animation-name: fx-mesh-b; animation-duration: 22s; animation-direction: alternate-reverse }
+ @keyframes fx-mesh-a { to { transform: translate3d(22%, 16%, 0) scale(1.12) } }
+ @keyframes fx-mesh-b { to { transform: translate3d(-24%, 20%, 0) scale(.9) } }
+ @keyframes fx-mesh-c { to { transform: translate3d(-18%, -14%, 0) scale(1.15) } }
+}
+
+/* fx split-reveal */
+/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
+   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
+.fx-sr-w { display: inline-block; white-space: nowrap }
+.fx-sr-u { display: inline-block }
+.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
+.fx-sr-i { display: inline-block }
+
+/* fx page-wipe */
+/* page-wipe: cross-document view transition (Chromium 126+, Safari 18.2+; others navigate normally). The old page stays and dims,
+   the new page is revealed by a clip sweeping up from the bottom with a thin primary band on its edge. 520ms. Reduced motion:
+   no view transition. CSS only. The band is a fixed bar parked above the viewport (never visible on the page itself). */
+@media (prefers-reduced-motion: no-preference) {
+ @view-transition { navigation: auto }
+ html::before { content: ""; position: fixed; left: 0; right: 0; top: -10px; height: 4px; pointer-events: none; background: var(--primary);
+  box-shadow: 0 0 22px 3px color-mix(in srgb, var(--primary) 55%, transparent); view-transition-name: fx-pw-band }
+ ::view-transition-old(root), ::view-transition-new(root) { mix-blend-mode: normal }
+ ::view-transition-old(root) { animation: fx-pw-old .52s cubic-bezier(.65, 0, .25, 1) both }
+ ::view-transition-new(root) { animation: fx-pw-in .52s cubic-bezier(.65, 0, .25, 1) both }
+ ::view-transition-old(fx-pw-band) { display: none }
+ ::view-transition-new(fx-pw-band) { animation: fx-pw-band .52s cubic-bezier(.65, 0, .25, 1) both }
+ @keyframes fx-pw-in { from { clip-path: inset(100% 0 0 0) } to { clip-path: inset(0 0 0 0) } }
+ @keyframes fx-pw-old { to { filter: brightness(.7) } }
+ @keyframes fx-pw-band { from { transform: translateY(calc(100vh + 10px)) } to { transform: translateY(0) } }
+}
+@media print { html::before { display: none } }

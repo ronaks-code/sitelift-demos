@@ -1,0 +1,35 @@
+/* fx bg-waves */
+/* bg-waves: layer built by JS. Each svg is twice as wide as the hero; sliding it by half loops seamlessly */
+.fx-waves { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+ -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 95%); mask-image: linear-gradient(to top, #000 40%, transparent 95%) }
+.fx-waves svg { position: absolute; left: 0; width: max(200%, 1800px); height: 24%; min-height: 80px; overflow: visible }
+.fx-waves path { fill: none; stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linejoin: round }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-waves svg { will-change: transform; animation: fx-waves-x 60s linear infinite }
+ @keyframes fx-waves-x { to { transform: translate3d(-50%, 0, 0) } }
+}
+
+/* fx page-fade */
+/* page-fade: cross-document view transition (Chromium 126+, Safari 18.2+; others navigate normally). New page fades in with an
+   8px rise as the old one fades out (plus-lighter crossfade, no dip); the header (first body header) stays put. Reduced motion: no view transition at all. CSS only. */
+@media (prefers-reduced-motion: no-preference) {
+ @view-transition { navigation: auto }
+ body > header:first-of-type { view-transition-name: fx-pf-head }
+ ::view-transition-old(root) { animation: fx-pf-out .36s cubic-bezier(.2, .7, .2, 1) both }
+ ::view-transition-new(root) { animation: fx-pf-in .36s cubic-bezier(.2, .7, .2, 1) both }
+ ::view-transition-old(fx-pf-head) { display: none }
+ ::view-transition-new(fx-pf-head) { animation: none }
+ @keyframes fx-pf-out { from { opacity: 1 } to { opacity: 0 } }
+ @keyframes fx-pf-in { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
+}
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}

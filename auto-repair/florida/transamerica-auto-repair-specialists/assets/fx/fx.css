@@ -1,0 +1,37 @@
+/* fx parallax */
+/* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
+   scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */
+@keyframes fx-px {
+ from { transform: translate3d(0, calc(var(--fx-px, 5%) * -1), 0) scale(1.12) }
+ to { transform: translate3d(0, var(--fx-px, 5%), 0) scale(1.12) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-parallax [data-fx-px] { will-change: transform; transform: scale(1.12) }
+ @supports (animation-timeline: view()) {
+  html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
+ }
+}
+
+/* fx spotlight */
+/* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
+.fx-sp { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 20; pointer-events: none; opacity: 0; transition: opacity .3s }
+.fx-sp.on { opacity: 1 }
+.fx-sp b { position: absolute; inset: 0; border-radius: inherit;
+ background: radial-gradient(circle 260px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%) }
+.fx-sp i { position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+ background: radial-gradient(circle 280px at var(--fx-x, 50%) var(--fx-y, 50%), var(--accent), transparent 70%);
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
+ mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
+.fx-sp.big i { display: none }
+.fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
+
+/* fx typewriter */
+/* typewriter: the full text is always laid out (the not-yet-typed part is transparent), so nothing moves. Caret is zero-width and
+   absolutely placed. Elements and caret are built by JS only. */
+.fx-tw-r { color: transparent; user-select: none }
+.fx-tw-t::after { content: ""; display: inline-block; vertical-align: baseline; width: 2px; height: .8em; margin-right: -2px; background: currentColor; opacity: 0 }
+.fx-tw-live .fx-tw-t::after { opacity: 1 }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-tw-live .fx-tw-t::after { animation: fx-tw-blink 1s steps(1) infinite }
+ @keyframes fx-tw-blink { 50% { opacity: 0 } }
+}

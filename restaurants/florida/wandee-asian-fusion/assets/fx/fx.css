@@ -1,0 +1,76 @@
+/* fx hero-zoomout */
+/* hero-zoomout: the hero photo starts a touch zoomed and, as you scroll past, settles to full size inside a rounded inset frame.
+   Scroll-driven (the first 70vh of scroll); a JS fallback sets the same values elsewhere. Nothing happens with reduced motion. */
+@keyframes fx-hz {
+ from { transform: scale(1.08); clip-path: inset(0 round 0) }
+ to { transform: scale(1); clip-path: inset(4% round var(--radius, 12px)) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-hero-zoomout img.fx-hz { transform: scale(1.08); will-change: transform, clip-path }
+ @supports (animation-timeline: scroll()) {
+  html.fx-hero-zoomout img.fx-hz.fx-hz-css { animation: fx-hz cubic-bezier(.3, .6, .3, 1) both; animation-timeline: scroll(root block); animation-range: 0px 70vh }
+ }
+}
+
+/* fx btn-fill */
+/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
+   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
+html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
+html.fx-btn-fill .fx-bf-r { position: relative }
+html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
+html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
+html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
+ clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
+html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
+@media (hover: hover) and (pointer: fine) {
+ html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+ html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
+}
+@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }
+
+/* fx sheen */
+/* sheen: a light band slides across primary buttons using the button's own background layer (no pseudo-element, no
+   positioning, so fixed call bars and kit styles are untouched). Motion only; reduced motion = plain buttons. */
+@media (prefers-reduced-motion: no-preference) {
+ .btn:not(.alt) { background-image: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .34) 50%, transparent 58%);
+  background-size: 250% 100%; background-repeat: no-repeat; background-position: 100% 0; animation: fx-sheen 7s cubic-bezier(.4, 0, .2, 1) 1.5s infinite }
+ .btn:not(.alt):nth-of-type(2n) { animation-delay: 3.2s }
+ @keyframes fx-sheen { 0% { background-position: 100% 0 } 16%, 100% { background-position: 0 0 } }
+ .fx-sheen-img { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .22) 50%, transparent 60%);
+  transform: translateX(-120%); animation: fx-sheen-i 8s cubic-bezier(.4, 0, .2, 1) 2.5s infinite }
+ @keyframes fx-sheen-i { 0% { transform: translateX(-120%) } 22%, 100% { transform: translateX(120%) } }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+ .btn:not(.alt):hover { animation: fx-sheen-h .8s cubic-bezier(.3, .6, .2, 1) 1 }
+ @keyframes fx-sheen-h { from { background-position: 100% 0 } to { background-position: 0 0 } }
+}
+
+/* fx cursor-ring */
+/* cursor-ring: elements exist only when JS built them (mouse + motion allowed), so nothing here can hide content */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-cur-on, html.fx-cur-on a, html.fx-cur-on button, html.fx-cur-on [role=button], html.fx-cur-on label { cursor: none }
+ html.fx-cur-on input, html.fx-cur-on textarea, html.fx-cur-on select, html.fx-cur-on iframe { cursor: auto }
+}
+.fx-cur { position: fixed; inset: 0; pointer-events: none; z-index: 2147483000; opacity: 0; transition: opacity .25s }
+.fx-cur.on { opacity: 1 }
+.fx-cur.is-field { opacity: 0 }
+.fx-cur i { position: fixed; left: 0; top: 0; pointer-events: none; will-change: transform }
+.fx-cur-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--primary); transition: opacity .2s }
+.fx-cur-ring b { position: absolute; left: 0; top: 0; width: 34px; height: 34px; transform: translate(-50%, -50%); border-radius: 999px;
+ border: 1.5px solid color-mix(in srgb, var(--primary) 70%, transparent); display: grid; place-items: center; overflow: hidden;
+ transition: width .3s cubic-bezier(.2, .8, .2, 1), height .3s cubic-bezier(.2, .8, .2, 1), background-color .25s, border-color .25s }
+.fx-cur-ring span { font: 700 12px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--on-primary); opacity: 0; transition: opacity .2s; white-space: nowrap }
+.fx-cur.is-link .fx-cur-ring b { width: 56px; height: 56px; background: color-mix(in srgb, var(--primary) 12%, transparent); border-color: transparent }
+.fx-cur.is-link .fx-cur-dot { opacity: 0 }
+.fx-cur.is-label .fx-cur-ring b { width: 78px; height: 78px; background: var(--primary); border-color: var(--primary) }
+.fx-cur.is-label .fx-cur-ring span { opacity: 1 }
+.fx-cur.is-label .fx-cur-dot { opacity: 0 }
+.fx-cur.down .fx-cur-ring b { width: 26px; height: 26px }
+.fx-cur.is-label.down .fx-cur-ring b { width: 70px; height: 70px }
+/* blend: one white ring that inverts whatever is under it (works on photos, dark and light sections alike) */
+.fx-cur-blend { mix-blend-mode: difference }
+.fx-cur-blend .fx-cur-dot { background: #fff }
+.fx-cur-blend .fx-cur-ring b { border-color: #fff }
+.fx-cur-blend.is-link .fx-cur-ring b, .fx-cur-blend.is-label .fx-cur-ring b { background: #fff; border-color: #fff }
+.fx-cur-blend .fx-cur-ring span { color: #000 }

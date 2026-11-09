@@ -1,0 +1,20 @@
+{
+ "name": "Elevage SoHo Kitchen & Bar",
+ "short_name": "Elevage SoHo",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#e0903f",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

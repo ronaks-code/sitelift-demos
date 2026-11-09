@@ -1,0 +1,15 @@
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }
+
+/* fx ken-burns */
+/* ken-burns: the hero photo drifts and zooms very slowly inside its frame (1 to 1.08 over 22s, alternating). Only photos JS tagged
+   (their frame clips them); never placeholders. Static with reduced motion. */
+@keyframes fx-kb { from { transform: scale(1) translate3d(0, 0, 0) } to { transform: scale(1.08) translate3d(-1.2%, -1%, 0) } }
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-ken-burns img[data-fx-kb] { animation: fx-kb var(--fx-kb-t, 22s) ease-in-out infinite alternate; will-change: transform }
+}
