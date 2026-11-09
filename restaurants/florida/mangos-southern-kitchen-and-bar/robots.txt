@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /
-
-Sitemap: https://ronaks-code.github.io/sitelift-demos/restaurants/florida/mangos-southern-kitchen-and-bar/sitemap.xml

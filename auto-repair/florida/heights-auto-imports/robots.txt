@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: /
-
-Sitemap: https://ronaks-code.github.io/sitelift-demos/auto-repair/florida/heights-auto-imports/sitemap.xml
