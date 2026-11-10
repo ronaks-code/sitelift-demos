@@ -36,33 +36,3 @@ html::after {
  @keyframes fx-grain { 0% { transform: translate(0, 0) } 25% { transform: translate(-3%, 2%) } 50% { transform: translate(2%, -3%) } 75% { transform: translate(-2%, -1%) } 100% { transform: translate(0, 0) } }
 }
 @media print { html::after { display: none } }
-
-/* fx spotlight */
-/* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
-.fx-sp { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 20; pointer-events: none; opacity: 0; transition: opacity .3s }
-.fx-sp.on { opacity: 1 }
-.fx-sp b { position: absolute; inset: 0; border-radius: inherit;
- background: radial-gradient(circle 260px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%) }
-.fx-sp i { position: absolute; inset: 0; border-radius: inherit; padding: 2px;
- background: radial-gradient(circle 280px at var(--fx-x, 50%) var(--fx-y, 50%), var(--accent), transparent 70%);
- -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
- mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
-.fx-sp.big i { display: none }
-.fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
-
-/* fx sheen */
-/* sheen: a light band slides across primary buttons using the button's own background layer (no pseudo-element, no
-   positioning, so fixed call bars and kit styles are untouched). Motion only; reduced motion = plain buttons. */
-@media (prefers-reduced-motion: no-preference) {
- .btn:not(.alt) { background-image: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .34) 50%, transparent 58%);
-  background-size: 250% 100%; background-repeat: no-repeat; background-position: 100% 0; animation: fx-sheen 7s cubic-bezier(.4, 0, .2, 1) 1.5s infinite }
- .btn:not(.alt):nth-of-type(2n) { animation-delay: 3.2s }
- @keyframes fx-sheen { 0% { background-position: 100% 0 } 16%, 100% { background-position: 0 0 } }
- .fx-sheen-img { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .22) 50%, transparent 60%);
-  transform: translateX(-120%); animation: fx-sheen-i 8s cubic-bezier(.4, 0, .2, 1) 2.5s infinite }
- @keyframes fx-sheen-i { 0% { transform: translateX(-120%) } 22%, 100% { transform: translateX(120%) } }
-}
-@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
- .btn:not(.alt):hover { animation: fx-sheen-h .8s cubic-bezier(.3, .6, .2, 1) 1 }
- @keyframes fx-sheen-h { from { background-position: 100% 0 } to { background-position: 0 0 } }
-}

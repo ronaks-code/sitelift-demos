@@ -14,27 +14,3 @@ html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
 /* fx bg-particles */
 /* bg-particles: one canvas, first child of the hero, under its content */
 .fx-pt { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: block }
-
-/* fx heading-scrub */
-/* heading-scrub: section headings settle into place (lift, fade, un-clip) as they enter the lower part of the screen.
-   Scroll-driven where supported, nothing elsewhere. Uses opacity, the translate property and clip-path only (no reflow, CLS 0). */
-@keyframes fx-hs {
- from { opacity: .4; translate: 0 18px; clip-path: inset(-12% -4% 38% -4%) }
- to { opacity: 1; translate: 0 0; clip-path: inset(-12% -4% -12% -4%) }
-}
-@media (prefers-reduced-motion: no-preference) {
- @supports (animation-timeline: view()) {
-  html.fx-heading-scrub [data-fx-hs] { animation: fx-hs cubic-bezier(.2, .7, .2, 1) both; animation-timeline: view(); animation-range: entry 5% entry 80% }
- }
-}
-
-/* fx img-zoom */
-/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
-   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
-@media (hover: hover) and (pointer: fine) {
- html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
- html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
- html.fx-img-zoom .fx-zoom-clip { overflow: clip }
- html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
- html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
-}

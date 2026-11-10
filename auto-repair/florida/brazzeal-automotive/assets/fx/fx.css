@@ -28,22 +28,3 @@ body:has(.lb.open) .fx-ht, body:has(.fx-lb.open) .fx-ht { display: none }
  .fx-hh { transition: transform .35s cubic-bezier(.2, .7, .2, 1) }
 }
 .fx-hh.fx-hh-off { transform: translateY(-101%) }
-
-/* fx section-tint */
-/* section-tint: one fixed colour layer behind the page; its colour follows the section in view. Only sections with a transparent
-   background show it, so sections that set their own backgrounds are untouched. The layer exists only when JS built it. */
-.fx-st-layer { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg) }
-@media (prefers-reduced-motion: no-preference) {
- .fx-st-layer { transition: background-color .9s cubic-bezier(.2, .7, .2, 1) }
-}
-
-/* fx img-zoom */
-/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
-   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
-@media (hover: hover) and (pointer: fine) {
- html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
- html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
- html.fx-img-zoom .fx-zoom-clip { overflow: clip }
- html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
- html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
-}

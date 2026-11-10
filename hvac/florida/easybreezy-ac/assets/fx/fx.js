@@ -216,36 +216,3 @@ FX.def('parallax', function (c) {
   function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
   addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
 });
-
-/* fx spotlight */
-/* spotlight: a soft light follows the pointer over cards (accent border glow plus a faint inner light) and over dark
-   sections (faint light only). One shared overlay moves onto the hovered element; the element also gets --fx-x/--fx-y.
-   Mouse only (FX.fine), nothing with reduced motion. opt: {dark: "section[class*=dark]"} for the big-section selector */
-FX.def('spotlight', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var d = document, cards = c.els('[class*=card], .review, blockquote'), S = c.sel || '[class*=card], .review, blockquote';
-  var D = c.opt.dark || 'section[class*=dark]', cur = null, ox = 0, oy = 0, pend = 0, ev;
-  var o = d.createElement('div'); o.className = 'fx-sp'; o.setAttribute('aria-hidden', 'true'); o.innerHTML = '<b></b><i></i>';
-  d.body.appendChild(o);
-  function place() {
-    if (!cur) return; var b = cur.getBoundingClientRect();
-    o.style.cssText = 'left:' + b.left + 'px;top:' + b.top + 'px;width:' + b.width + 'px;height:' + b.height + 'px;border-radius:' + getComputedStyle(cur).borderRadius;
-    o.style.setProperty('--fx-x', ox + 'px'); o.style.setProperty('--fx-y', oy + 'px');
-    if (cur) { cur.style.setProperty('--fx-x', ox + 'px'); cur.style.setProperty('--fx-y', oy + 'px'); }
-  }
-  function frame() {
-    pend = 0; if (!cur) return;
-    var b = cur.getBoundingClientRect(); ox = ev.clientX - b.left; oy = ev.clientY - b.top; place();
-  }
-  function off() { if (cur) { cur = null; o.classList.remove('on'); } }
-  d.addEventListener('pointermove', function (e) {
-    if (e.pointerType && e.pointerType !== 'mouse') return;
-    var t = e.target.closest ? e.target : e.target.parentElement, el = t && t.closest ? (t.closest(S) || t.closest(D)) : null;
-    if (el && (el === d.body || el === d.documentElement)) el = null;
-    if (!el) return off();
-    if (el !== cur) { cur = el; var b = el.getBoundingClientRect(); o.classList.toggle('big', b.width > 720 || b.height > 520); o.classList.add('on'); }
-    ev = e; if (!pend) { pend = 1; requestAnimationFrame(frame); }
-  }, { passive: true });
-  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) off(); });
-  addEventListener('scroll', function () { if (cur) place(); }, { passive: true });
-});

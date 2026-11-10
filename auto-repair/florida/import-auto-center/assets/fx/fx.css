@@ -27,37 +27,3 @@
  .fx-grid:not(.is-fine) i.hi { animation: fx-grid-sweep 16s ease-in-out infinite alternate }
  @keyframes fx-grid-sweep { from { -webkit-mask-position: 8% 30%; mask-position: 8% 30% } to { -webkit-mask-position: 92% 70%; mask-position: 92% 70% } }
 }
-
-/* fx btn-fill */
-/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
-   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
-html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
-html.fx-btn-fill .fx-bf-r { position: relative }
-html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
-html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
-html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
- clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
-html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
-html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
-@media (hover: hover) and (pointer: fine) {
- html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
- html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
-}
-@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }
-
-/* fx link-draw */
-/* link-draw: nav and in-text links get an underline that draws in from the left on hover/focus and leaves to the right.
-   Default targets: header nav a, main p a, footer a (not .btn, not links holding an image); or any [data-fx-link-draw]. CSS only.
-   In-text links keep a faint resting underline (replaces the native one) so they still read as links. */
-@media (hover: hover) and (pointer: fine) {
- html.fx-link-draw :is(header nav a, footer a):not(.btn):not(:has(img)), html.fx-link-draw [data-fx-link-draw]:not(.btn) {
-  text-decoration: none; background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1.5px no-repeat; }
- html.fx-link-draw main p a:not(.btn):not(:has(img)) {
-  text-decoration: none;
-  background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1.5px no-repeat, linear-gradient(color-mix(in srgb, currentColor 38%, transparent), color-mix(in srgb, currentColor 38%, transparent)) 0 100% / 100% 1px no-repeat; }
- html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn):not(:has(img)):is(:hover, :focus-visible) { background-position: 0 100%, 0 100%; background-size: 100% 1.5px, 100% 1px }
- html.fx-link-draw :is(header nav a, footer a, [data-fx-link-draw]):not(.btn):not(:has(img)):is(:hover, :focus-visible) { background-size: 100% 1.5px }
-}
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
- html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn) { transition: background-size .45s cubic-bezier(.2, .7, .2, 1) }
-}

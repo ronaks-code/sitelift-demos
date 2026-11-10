@@ -93,3 +93,6 @@ main h1{overflow-wrap:break-word}.js-fit main h1{overflow-wrap:normal}
 @media(max-width:560px){.dn-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.dn-grid .g-it{padding:5px;border-radius:18px}.dn-grid .g-it img,.dn-grid .g-it .ph{border-radius:12px}.dn-grid .g-it figcaption{font-size:.95rem}}
 /* two-tone focus ring: visible on light and dark bands whatever the brand accent is */
 body :focus-visible{outline:3px solid var(--ink);outline-offset:3px;box-shadow:0 0 0 6px var(--bg)}
+
+/* outline buttons press like the filled ones (the pair used to jump unevenly on hover; Vinay 2026-11-09) */
+.dn-visit .btn.alt,.dn-foot .btn.alt{box-shadow:0 5px 0 var(--ink)}.dn-visit .btn.alt:hover,.dn-foot .btn.alt:hover{box-shadow:0 2px 0 var(--ink)}

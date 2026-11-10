@@ -190,23 +190,3 @@ FX.def('img-zoom', function (c) {
     var cap = fig && fig.querySelector('figcaption'); if (cap) cap.classList.add('fx-zoom-cap');
   });
 });
-
-/* fx stars-fill */
-/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
-   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
-FX.def('stars-fill', function (c) {
-  if (FX.reduced) return;
-  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
-    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
-  });
-  els.forEach(function (el) {
-    var s = document.createElement('span');
-    s.className = 'fx-stars-in fx-stars-w';
-    while (el.firstChild) s.appendChild(el.firstChild);
-    el.appendChild(s);
-    FX.seen([el], function () {
-      s.classList.remove('fx-stars-w');
-      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
-    });
-  });
-});

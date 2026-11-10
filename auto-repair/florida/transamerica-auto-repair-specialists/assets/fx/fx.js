@@ -232,15 +232,3 @@ FX.def('typewriter', function (c) {
     }, '0px');
   });
 });
-
-/* fx sheen */
-/* sheen: a diagonal light sweep that crosses the primary buttons every few seconds and on hover (CSS, see sheen.css).
-   This script only handles an optional image: opt {hero: "selector"} puts the same sweep over that block (the hero image
-   box). Nothing with reduced motion. */
-FX.def('sheen', function (c) {
-  if (FX.reduced || !c.opt.hero) return;
-  FX.$$(c.opt.hero).forEach(function (t) {
-    var s = document.createElement('span'); s.className = 'fx-sheen-img'; s.setAttribute('aria-hidden', 'true');
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative'; t.style.overflow = 'hidden'; t.appendChild(s);
-  });
-});
