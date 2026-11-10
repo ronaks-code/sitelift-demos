@@ -1,0 +1,7 @@
+/* fx section-tint */
+/* section-tint: one fixed colour layer behind the page; its colour follows the section in view. Only sections with a transparent
+   background show it, so sections that set their own backgrounds are untouched. The layer exists only when JS built it. */
+.fx-st-layer { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg) }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-st-layer { transition: background-color .9s cubic-bezier(.2, .7, .2, 1) }
+}

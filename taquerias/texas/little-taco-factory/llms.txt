@@ -1,0 +1,9 @@
+# Little Taco Factory
+
+> Taqueria in San Antonio, Texas. Bean and cheese tacos, hot coffee with flavored cream, friendly service. Monday through Saturday.
+
+- Phone: (210) 227-5657
+- Address: 1510 McCullough Ave, San Antonio, TX 78212
+- Areas: San Antonio, Converse, Schertz, Boerne, New Braunfels
+- Offers: Breakfast tacos; Cheese enchiladas and plates; Crunchy tacos and coffee
+- Rating: 4.5 from 1400 Google reviews

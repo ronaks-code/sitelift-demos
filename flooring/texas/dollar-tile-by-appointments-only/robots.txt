@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/flooring/texas/dollar-tile-by-appointments-only/sitemap.xml

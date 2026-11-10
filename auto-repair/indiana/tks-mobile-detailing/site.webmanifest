@@ -1,0 +1,20 @@
+{
+ "name": "TKS Mobile Detailing",
+ "short_name": "TKS Mobile D",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#2e3b44",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

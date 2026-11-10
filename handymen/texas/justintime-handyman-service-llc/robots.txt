@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/handymen/texas/justintime-handyman-service-llc/sitemap.xml

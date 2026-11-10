@@ -1,0 +1,36 @@
+/* fx link-draw */
+/* link-draw: nav and in-text links get an underline that draws in from the left on hover/focus and leaves to the right.
+   Default targets: header nav a, main p a, footer a (not .btn, not links holding an image); or any [data-fx-link-draw]. CSS only.
+   In-text links keep a faint resting underline (replaces the native one) so they still read as links. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-link-draw :is(header nav a, footer a):not(.btn):not(:has(img)), html.fx-link-draw [data-fx-link-draw]:not(.btn) {
+  text-decoration: none; background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1.5px no-repeat; }
+ html.fx-link-draw main p a:not(.btn):not(:has(img)) {
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1.5px no-repeat, linear-gradient(color-mix(in srgb, currentColor 38%, transparent), color-mix(in srgb, currentColor 38%, transparent)) 0 100% / 100% 1px no-repeat; }
+ html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn):not(:has(img)):is(:hover, :focus-visible) { background-position: 0 100%, 0 100%; background-size: 100% 1.5px, 100% 1px }
+ html.fx-link-draw :is(header nav a, footer a, [data-fx-link-draw]):not(.btn):not(:has(img)):is(:hover, :focus-visible) { background-size: 100% 1.5px }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+ html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn) { transition: background-size .45s cubic-bezier(.2, .7, .2, 1) }
+}
+
+/* fx ken-burns */
+/* ken-burns: the hero photo drifts and zooms very slowly inside its frame (1 to 1.08 over 22s, alternating). Only photos JS tagged
+   (their frame clips them); never placeholders. Static with reduced motion. */
+@keyframes fx-kb { from { transform: scale(1) translate3d(0, 0, 0) } to { transform: scale(1.08) translate3d(-1.2%, -1%, 0) } }
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-ken-burns img[data-fx-kb] { animation: fx-kb var(--fx-kb-t, 22s) ease-in-out infinite alternate; will-change: transform }
+}
+
+/* fx reveal-plus */
+/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
+   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
+   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
+ html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
+}
+html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
+html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }

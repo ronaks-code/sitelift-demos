@@ -1,0 +1,32 @@
+/* fx bg-mesh */
+/* bg-mesh: layer is built by JS under html.fx-bg-mesh; blobs are radial gradients, animated by transform only */
+.fx-mesh { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
+.fx-mesh i { position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50% }
+.fx-mesh i:nth-child(1) { left: -18%; top: -38%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 46%, transparent), transparent) }
+.fx-mesh i:nth-child(2) { right: -22%; top: -10%; width: 70%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 42%, transparent), transparent) }
+.fx-mesh i:nth-child(3) { left: 18%; bottom: -60%; width: 84%; background: radial-gradient(closest-side, color-mix(in srgb, var(--surface) 80%, var(--primary)), transparent) }
+.fx-mesh i:nth-child(4) { right: 8%; bottom: -34%; width: 52%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 26%, var(--accent)), transparent); opacity: .7 }
+@media (max-width: 760px) { .fx-mesh i { width: 130% } .fx-mesh i:nth-child(2) { right: -50% } }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-mesh i { will-change: transform; animation: fx-mesh-a 28s ease-in-out infinite alternate }
+ .fx-mesh i:nth-child(2) { animation-name: fx-mesh-b; animation-duration: 34s }
+ .fx-mesh i:nth-child(3) { animation-name: fx-mesh-c; animation-duration: 40s }
+ .fx-mesh i:nth-child(4) { animation-name: fx-mesh-b; animation-duration: 22s; animation-direction: alternate-reverse }
+ @keyframes fx-mesh-a { to { transform: translate3d(22%, 16%, 0) scale(1.12) } }
+ @keyframes fx-mesh-b { to { transform: translate3d(-24%, 20%, 0) scale(.9) } }
+ @keyframes fx-mesh-c { to { transform: translate3d(-18%, -14%, 0) scale(1.15) } }
+}
+
+/* fx hero-zoomout */
+/* hero-zoomout: the hero photo starts a touch zoomed and, as you scroll past, settles to full size inside a rounded inset frame.
+   Scroll-driven (the first 70vh of scroll); a JS fallback sets the same values elsewhere. Nothing happens with reduced motion. */
+@keyframes fx-hz {
+ from { transform: scale(1.08); clip-path: inset(0 round 0) }
+ to { transform: scale(1); clip-path: inset(4% round var(--radius, 12px)) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-hero-zoomout img.fx-hz { transform: scale(1.08); will-change: transform, clip-path }
+ @supports (animation-timeline: scroll()) {
+  html.fx-hero-zoomout img.fx-hz.fx-hz-css { animation: fx-hz cubic-bezier(.3, .6, .3, 1) both; animation-timeline: scroll(root block); animation-range: 0px 70vh }
+ }
+}

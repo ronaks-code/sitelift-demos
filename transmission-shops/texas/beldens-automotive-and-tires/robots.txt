@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/transmission-shops/texas/beldens-automotive-and-tires/sitemap.xml

@@ -74,23 +74,3 @@ html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 5
 .fx-cur-blend .fx-cur-ring b { border-color: #fff }
 .fx-cur-blend.is-link .fx-cur-ring b, .fx-cur-blend.is-label .fx-cur-ring b { background: #fff; border-color: #fff }
 .fx-cur-blend .fx-cur-ring span { color: #000 }
-
-/* fx reveal-plus */
-/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
-   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
-   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
-@media (prefers-reduced-motion: no-preference) {
- html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
- html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
- html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
-}
-html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
-html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
-
-/* fx stars-fill */
-/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
-   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
-html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
- background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
- background-size: 250% 100%; background-position: 0 0 }
-html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }

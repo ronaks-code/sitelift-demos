@@ -1,0 +1,36 @@
+/* fx scroll-progress */
+/* scroll-progress: a thin bar at the very top showing how far down the page you are. The bar only exists when JS built it.
+   Where scroll-driven animations exist the browser drives it (no JS per frame); elsewhere (and with reduced motion, since
+   progress is information, not decoration) JS sets it on scroll. */
+.fx-sp-bar { position: fixed; left: 0; top: 0; width: 100%; height: 3px; z-index: 2147482600; pointer-events: none; background: var(--primary);
+ transform: scaleX(0); transform-origin: 0 50% }
+@keyframes fx-sp { to { transform: scaleX(1) } }
+@media (prefers-reduced-motion: no-preference) {
+ @supports (animation-timeline: scroll()) {
+  .fx-sp-bar.fx-sp-css { animation: fx-sp linear both; animation-timeline: scroll(root block) }
+ }
+}
+
+/* fx bg-waves */
+/* bg-waves: layer built by JS. Each svg is twice as wide as the hero; sliding it by half loops seamlessly */
+.fx-waves { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+ -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 95%); mask-image: linear-gradient(to top, #000 40%, transparent 95%) }
+.fx-waves svg { position: absolute; left: 0; width: max(200%, 1800px); height: 24%; min-height: 80px; overflow: visible }
+.fx-waves path { fill: none; stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linejoin: round }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-waves svg { will-change: transform; animation: fx-waves-x 60s linear infinite }
+ @keyframes fx-waves-x { to { transform: translate3d(-50%, 0, 0) } }
+}
+
+/* fx hours-toast */
+/* hours-toast: small status toast bottom-left (created by hours-toast.js). Above the mobile call bar, under the lightbox. */
+.fx-ht { position: fixed; left: 24px; bottom: 48px; z-index: 700; display: flex; align-items: center; gap: 12px; max-width: min(360px, calc(100vw - 24px)); padding: 12px 8px 12px 18px;
+ border-radius: var(--radius); background: var(--dark); color: var(--on-dark); font: 600 15px/1.35 var(--f-body);
+ border: 1px solid color-mix(in srgb, var(--on-dark) 18%, transparent); box-shadow: 0 14px 40px rgba(0, 0, 0, .3) }
+.fx-ht-t { flex: 1 }
+.fx-ht-x { flex: none; width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; color: inherit; cursor: pointer; font: 400 22px/1 var(--f-body); opacity: .8 }
+.fx-ht-x:hover { background: color-mix(in srgb, var(--on-dark) 14%, transparent); opacity: 1 }
+.fx-ht-x:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px }
+@media (max-width: 760px) { .fx-ht { left: 12px; right: 12px; bottom: 16px; max-width: none } .fx-ht-cb { bottom: calc(88px + env(safe-area-inset-bottom, 0px)) } }
+@media (max-width: 760px) { html.fx-sticky-cta .fx-ht:not(.fx-ht-cb) { bottom: calc(76px + env(safe-area-inset-bottom, 0px)) } }
+body:has(.lb.open) .fx-ht, body:has(.fx-lb.open) .fx-ht { display: none }

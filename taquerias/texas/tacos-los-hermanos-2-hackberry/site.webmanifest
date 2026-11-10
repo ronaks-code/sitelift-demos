@@ -1,0 +1,20 @@
+{
+ "name": "Tacos Los Hermanos 2 - Hackberry",
+ "short_name": "Tacos Los He",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#0f7f8c",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

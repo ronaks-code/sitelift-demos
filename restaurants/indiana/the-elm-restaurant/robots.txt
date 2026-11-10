@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/restaurants/indiana/the-elm-restaurant/sitemap.xml

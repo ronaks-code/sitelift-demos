@@ -1,0 +1,20 @@
+{
+ "name": "Ecumex Body Shop - Auto Collision Repair San Antonio",
+ "short_name": "Ecumex Body ",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#ffc928",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

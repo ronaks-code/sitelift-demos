@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/taquerias/texas/taquer-a-chapala-jalisco/sitemap.xml

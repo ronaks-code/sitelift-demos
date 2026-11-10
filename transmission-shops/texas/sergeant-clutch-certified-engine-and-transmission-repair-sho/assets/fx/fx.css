@@ -1,0 +1,33 @@
+/* fx page-wipe */
+/* page-wipe: cross-document view transition (Chromium 126+, Safari 18.2+; others navigate normally). The old page stays and dims,
+   the new page is revealed by a clip sweeping up from the bottom with a thin primary band on its edge. 520ms. Reduced motion:
+   no view transition. CSS only. The band is a fixed bar parked above the viewport (never visible on the page itself). */
+@media (prefers-reduced-motion: no-preference) {
+ @view-transition { navigation: auto }
+ html::before { content: ""; position: fixed; left: 0; right: 0; top: -10px; height: 4px; pointer-events: none; background: var(--primary);
+  box-shadow: 0 0 22px 3px color-mix(in srgb, var(--primary) 55%, transparent); view-transition-name: fx-pw-band }
+ ::view-transition-old(root), ::view-transition-new(root) { mix-blend-mode: normal }
+ ::view-transition-old(root) { animation: fx-pw-old .52s cubic-bezier(.65, 0, .25, 1) both }
+ ::view-transition-new(root) { animation: fx-pw-in .52s cubic-bezier(.65, 0, .25, 1) both }
+ ::view-transition-old(fx-pw-band) { display: none }
+ ::view-transition-new(fx-pw-band) { animation: fx-pw-band .52s cubic-bezier(.65, 0, .25, 1) both }
+ @keyframes fx-pw-in { from { clip-path: inset(100% 0 0 0) } to { clip-path: inset(0 0 0 0) } }
+ @keyframes fx-pw-old { to { filter: brightness(.7) } }
+ @keyframes fx-pw-band { from { transform: translateY(calc(100vh + 10px)) } to { transform: translateY(0) } }
+}
+@media print { html::before { display: none } }
+
+/* fx bg-particles */
+/* bg-particles: one canvas, first child of the hero, under its content */
+.fx-pt { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: block }
+
+/* fx typewriter */
+/* typewriter: the full text is always laid out (the not-yet-typed part is transparent), so nothing moves. Caret is zero-width and
+   absolutely placed. Elements and caret are built by JS only. */
+.fx-tw-r { color: transparent; user-select: none }
+.fx-tw-t::after { content: ""; display: inline-block; vertical-align: baseline; width: 2px; height: .8em; margin-right: -2px; background: currentColor; opacity: 0 }
+.fx-tw-live .fx-tw-t::after { opacity: 1 }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-tw-live .fx-tw-t::after { animation: fx-tw-blink 1s steps(1) infinite }
+ @keyframes fx-tw-blink { 50% { opacity: 0 } }
+}

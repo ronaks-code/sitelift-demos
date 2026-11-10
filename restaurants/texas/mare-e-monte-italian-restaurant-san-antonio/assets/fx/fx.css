@@ -1,0 +1,39 @@
+/* fx mask-reveal */
+/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
+   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
+html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
+html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
+
+/* fx tilt */
+/* tilt: soft glare layer inside tilting cards (inserted by tilt.js) */
+html.fx-tilt .fx-tilt-g { position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
+ background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 58%) }
+html.fx-tilt .fx-tilt-g.on { opacity: 1 }
+
+/* fx split-reveal */
+/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
+   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
+.fx-sr-w { display: inline-block; white-space: nowrap }
+.fx-sr-u { display: inline-block }
+.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
+.fx-sr-i { display: inline-block }
+
+/* fx header-hide */
+/* header-hide: sticky header slides away on the way down and returns on the way up. The class is only ever added by JS. */
+@media (prefers-reduced-motion: no-preference) {
+ .fx-hh { transition: transform .35s cubic-bezier(.2, .7, .2, 1) }
+}
+.fx-hh.fx-hh-off { transform: translateY(-101%) }
+
+/* fx heading-scrub */
+/* heading-scrub: section headings settle into place (lift, fade, un-clip) as they enter the lower part of the screen.
+   Scroll-driven where supported, nothing elsewhere. Uses opacity, the translate property and clip-path only (no reflow, CLS 0). */
+@keyframes fx-hs {
+ from { opacity: .4; translate: 0 18px; clip-path: inset(-12% -4% 38% -4%) }
+ to { opacity: 1; translate: 0 0; clip-path: inset(-12% -4% -12% -4%) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ @supports (animation-timeline: view()) {
+  html.fx-heading-scrub [data-fx-hs] { animation: fx-hs cubic-bezier(.2, .7, .2, 1) both; animation-timeline: view(); animation-range: entry 5% entry 80% }
+ }
+}

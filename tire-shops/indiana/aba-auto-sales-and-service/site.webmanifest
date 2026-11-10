@@ -1,0 +1,20 @@
+{
+ "name": "Aba Auto Sales & Service",
+ "short_name": "Aba Auto Sal",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#0f6aa6",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

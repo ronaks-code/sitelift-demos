@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/auto-body/texas/discount-body-shop-lusso-carrozzeria/sitemap.xml

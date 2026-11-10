@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/hvac/texas/cold-is-on-the-right-plumbing-and-air/sitemap.xml

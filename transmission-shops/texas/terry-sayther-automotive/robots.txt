@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/transmission-shops/texas/terry-sayther-automotive/sitemap.xml

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/auto-detailing/texas/dannys-dynamic-detailing/sitemap.xml

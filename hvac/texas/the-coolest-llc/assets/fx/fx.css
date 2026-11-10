@@ -1,0 +1,15 @@
+/* fx ken-burns */
+/* ken-burns: the hero photo drifts and zooms very slowly inside its frame (1 to 1.08 over 22s, alternating). Only photos JS tagged
+   (their frame clips them); never placeholders. Static with reduced motion. */
+@keyframes fx-kb { from { transform: scale(1) translate3d(0, 0, 0) } to { transform: scale(1.08) translate3d(-1.2%, -1%, 0) } }
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-ken-burns img[data-fx-kb] { animation: fx-kb var(--fx-kb-t, 22s) ease-in-out infinite alternate; will-change: transform }
+}
+
+/* fx section-tint */
+/* section-tint: one fixed colour layer behind the page; its colour follows the section in view. Only sections with a transparent
+   background show it, so sections that set their own backgrounds are untouched. The layer exists only when JS built it. */
+.fx-st-layer { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg) }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-st-layer { transition: background-color .9s cubic-bezier(.2, .7, .2, 1) }
+}

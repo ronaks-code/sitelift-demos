@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/restaurants/texas/horizons-coffee-bar/sitemap.xml

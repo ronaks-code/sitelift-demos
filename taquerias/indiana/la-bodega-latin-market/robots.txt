@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/taquerias/indiana/la-bodega-latin-market/sitemap.xml

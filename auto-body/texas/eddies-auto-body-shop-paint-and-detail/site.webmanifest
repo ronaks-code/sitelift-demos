@@ -1,0 +1,20 @@
+{
+ "name": "Eddie's Auto Body Shop Paint & Detail",
+ "short_name": "Eddie's Auto",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#d92b2b",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

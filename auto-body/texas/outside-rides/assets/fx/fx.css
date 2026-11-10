@@ -1,0 +1,54 @@
+/* fx split-reveal */
+/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
+   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
+.fx-sr-w { display: inline-block; white-space: nowrap }
+.fx-sr-u { display: inline-block }
+.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
+.fx-sr-i { display: inline-block }
+
+/* fx hero-zoomout */
+/* hero-zoomout: the hero photo starts a touch zoomed and, as you scroll past, settles to full size inside a rounded inset frame.
+   Scroll-driven (the first 70vh of scroll); a JS fallback sets the same values elsewhere. Nothing happens with reduced motion. */
+@keyframes fx-hz {
+ from { transform: scale(1.08); clip-path: inset(0 round 0) }
+ to { transform: scale(1); clip-path: inset(4% round var(--radius, 12px)) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-hero-zoomout img.fx-hz { transform: scale(1.08); will-change: transform, clip-path }
+ @supports (animation-timeline: scroll()) {
+  html.fx-hero-zoomout img.fx-hz.fx-hz-css { animation: fx-hz cubic-bezier(.3, .6, .3, 1) both; animation-timeline: scroll(root block); animation-range: 0px 70vh }
+ }
+}
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}
+
+/* fx section-tint */
+/* section-tint: one fixed colour layer behind the page; its colour follows the section in view. Only sections with a transparent
+   background show it, so sections that set their own backgrounds are untouched. The layer exists only when JS built it. */
+.fx-st-layer { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg) }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-st-layer { transition: background-color .9s cubic-bezier(.2, .7, .2, 1) }
+}
+
+/* fx page-fade */
+/* page-fade: cross-document view transition (Chromium 126+, Safari 18.2+; others navigate normally). New page fades in with an
+   8px rise as the old one fades out (plus-lighter crossfade, no dip); the header (first body header) stays put. Reduced motion: no view transition at all. CSS only. */
+@media (prefers-reduced-motion: no-preference) {
+ @view-transition { navigation: auto }
+ body > header:first-of-type { view-transition-name: fx-pf-head }
+ ::view-transition-old(root) { animation: fx-pf-out .36s cubic-bezier(.2, .7, .2, 1) both }
+ ::view-transition-new(root) { animation: fx-pf-in .36s cubic-bezier(.2, .7, .2, 1) both }
+ ::view-transition-old(fx-pf-head) { display: none }
+ ::view-transition-new(fx-pf-head) { animation: none }
+ @keyframes fx-pf-out { from { opacity: 1 } to { opacity: 0 } }
+ @keyframes fx-pf-in { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
+}

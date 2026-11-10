@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/food-trucks/indiana/johnnys-grub-to-go/sitemap.xml

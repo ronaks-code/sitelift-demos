@@ -1,0 +1,10 @@
+/* fx bg-waves */
+/* bg-waves: layer built by JS. Each svg is twice as wide as the hero; sliding it by half loops seamlessly */
+.fx-waves { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+ -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 95%); mask-image: linear-gradient(to top, #000 40%, transparent 95%) }
+.fx-waves svg { position: absolute; left: 0; width: max(200%, 1800px); height: 24%; min-height: 80px; overflow: visible }
+.fx-waves path { fill: none; stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linejoin: round }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-waves svg { will-change: transform; animation: fx-waves-x 60s linear infinite }
+ @keyframes fx-waves-x { to { transform: translate3d(-50%, 0, 0) } }
+}

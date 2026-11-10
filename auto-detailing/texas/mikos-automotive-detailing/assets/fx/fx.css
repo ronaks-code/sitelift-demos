@@ -1,0 +1,93 @@
+/* fx sheen */
+/* sheen: a light band slides across primary buttons using the button's own background layer (no pseudo-element, no
+   positioning, so fixed call bars and kit styles are untouched). Motion only; reduced motion = plain buttons. */
+@media (prefers-reduced-motion: no-preference) {
+ .btn:not(.alt) { background-image: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .34) 50%, transparent 58%);
+  background-size: 250% 100%; background-repeat: no-repeat; background-position: 100% 0; animation: fx-sheen 7s cubic-bezier(.4, 0, .2, 1) 1.5s infinite }
+ .btn:not(.alt):nth-of-type(2n) { animation-delay: 3.2s }
+ @keyframes fx-sheen { 0% { background-position: 100% 0 } 16%, 100% { background-position: 0 0 } }
+ .fx-sheen-img { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .22) 50%, transparent 60%);
+  transform: translateX(-120%); animation: fx-sheen-i 8s cubic-bezier(.4, 0, .2, 1) 2.5s infinite }
+ @keyframes fx-sheen-i { 0% { transform: translateX(-120%) } 22%, 100% { transform: translateX(120%) } }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+ .btn:not(.alt):hover { animation: fx-sheen-h .8s cubic-bezier(.3, .6, .2, 1) 1 }
+ @keyframes fx-sheen-h { from { background-position: 100% 0 } to { background-position: 0 0 } }
+}
+
+/* fx spotlight */
+/* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
+.fx-sp { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 20; pointer-events: none; opacity: 0; transition: opacity .3s }
+.fx-sp.on { opacity: 1 }
+.fx-sp b { position: absolute; inset: 0; border-radius: inherit;
+ background: radial-gradient(circle 260px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%) }
+.fx-sp i { position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+ background: radial-gradient(circle 280px at var(--fx-x, 50%) var(--fx-y, 50%), var(--accent), transparent 70%);
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
+ mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
+.fx-sp.big i { display: none }
+.fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
+
+/* fx cursor-blend */
+/* cursor-blend: the circle exists only when JS built it (mouse + motion allowed); nothing here can hide content */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-cb-on, html.fx-cb-on * { cursor: none }
+ html.fx-cb-on input, html.fx-cb-on textarea, html.fx-cb-on select, html.fx-cb-on iframe, html.fx-cb-on [contenteditable] { cursor: auto }
+}
+.fx-cb { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 2147483000; mix-blend-mode: difference; opacity: 0; transition: opacity .25s; will-change: transform }
+.fx-cb.on { opacity: 1 }
+.fx-cb.is-field { opacity: 0 }
+.fx-cb i { position: absolute; left: -11px; top: -11px; width: 22px; height: 22px; border-radius: 50%; background: #fff;
+ transition: transform .35s cubic-bezier(.2, .8, .2, 1) }
+.fx-cb.is-grow i { transform: scale(3.18) }
+.fx-cb.is-link i { transform: scale(.55) }
+.fx-cb.down i { transform: scale(.8) }
+.fx-cb.is-grow.down i { transform: scale(2.6) }
+
+/* fx bg-topo */
+/* bg-topo: layer built by JS; the two groups of contours drift in opposite slow circles */
+.fx-topo { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
+.fx-topo svg { position: absolute; inset: 0; width: 100%; height: 100% }
+.fx-topo path { fill: none; stroke: color-mix(in srgb, var(--ink) 13%, transparent); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round }
+.fx-topo path.m { stroke: color-mix(in srgb, var(--primary) 18%, transparent) }
+.fx-topo g { transform-box: fill-box; transform-origin: center }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-topo g { will-change: transform; animation: fx-topo-a 80s ease-in-out infinite alternate }
+ .fx-topo-g1 { animation-name: fx-topo-b !important; animation-duration: 100s !important }
+ @keyframes fx-topo-a { to { transform: translate3d(-22px, 16px, 0) rotate(3deg) } }
+ @keyframes fx-topo-b { to { transform: translate3d(20px, -14px, 0) rotate(-3deg) } }
+}
+
+/* fx btn-fill */
+/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
+   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
+html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
+html.fx-btn-fill .fx-bf-r { position: relative }
+html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
+html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
+html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
+ clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
+html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
+@media (hover: hover) and (pointer: fine) {
+ html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+ html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
+}
+@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }
+
+/* fx timeline-draw */
+/* timeline-draw: a vertical line in --primary runs through the step numbers and draws down as you scroll through the list.
+   The line is drawn with the list's own background layers (no extra elements, no layout change) driven by --fx-p (0 to 1).
+   Default --fx-p is 1, so the full line shows without JS animation, with old browsers and with reduced motion. */
+@property --fx-p { syntax: "<number>"; inherits: false; initial-value: 1 }
+[data-fx-td] {
+ background-image: linear-gradient(var(--primary), var(--primary)), linear-gradient(var(--line), var(--line));
+ background-repeat: no-repeat;
+ background-size: 2px calc(var(--fx-h) * var(--fx-p)), 2px var(--fx-h);
+ background-position: var(--fx-x) var(--fx-y), var(--fx-x) var(--fx-y);
+}
+@keyframes fx-td { from { --fx-p: 0 } to { --fx-p: 1 } }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-td].fx-td-css { animation: fx-td linear both; animation-timeline: view(block 52% 22%) }
+ [data-fx-td].fx-td-io { transition: --fx-p .8s cubic-bezier(.2, .7, .2, 1) }
+}

@@ -1,0 +1,20 @@
+{
+ "name": "A-Plus Air Conditioning & Home Solutions",
+ "short_name": "A-Plus Air C",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#2b3a9e",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

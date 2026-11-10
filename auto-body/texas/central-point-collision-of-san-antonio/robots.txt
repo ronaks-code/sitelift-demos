@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/auto-body/texas/central-point-collision-of-san-antonio/sitemap.xml

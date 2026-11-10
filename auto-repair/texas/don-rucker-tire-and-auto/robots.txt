@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/auto-repair/texas/don-rucker-tire-and-auto/sitemap.xml

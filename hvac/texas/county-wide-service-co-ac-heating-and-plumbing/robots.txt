@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/hvac/texas/county-wide-service-co-ac-heating-and-plumbing/sitemap.xml

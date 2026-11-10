@@ -1,0 +1,20 @@
+{
+ "name": "County Wide Service Co.- AC, Heating and Plumbing",
+ "short_name": "County Wide ",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#1c5aa8",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

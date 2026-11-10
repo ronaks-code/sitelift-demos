@@ -1,0 +1,49 @@
+/* fx hours-toast */
+/* hours-toast: small status toast bottom-left (created by hours-toast.js). Above the mobile call bar, under the lightbox. */
+.fx-ht { position: fixed; left: 24px; bottom: 48px; z-index: 700; display: flex; align-items: center; gap: 12px; max-width: min(360px, calc(100vw - 24px)); padding: 12px 8px 12px 18px;
+ border-radius: var(--radius); background: var(--dark); color: var(--on-dark); font: 600 15px/1.35 var(--f-body);
+ border: 1px solid color-mix(in srgb, var(--on-dark) 18%, transparent); box-shadow: 0 14px 40px rgba(0, 0, 0, .3) }
+.fx-ht-t { flex: 1 }
+.fx-ht-x { flex: none; width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; color: inherit; cursor: pointer; font: 400 22px/1 var(--f-body); opacity: .8 }
+.fx-ht-x:hover { background: color-mix(in srgb, var(--on-dark) 14%, transparent); opacity: 1 }
+.fx-ht-x:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px }
+@media (max-width: 760px) { .fx-ht { left: 12px; right: 12px; bottom: 16px; max-width: none } .fx-ht-cb { bottom: calc(88px + env(safe-area-inset-bottom, 0px)) } }
+@media (max-width: 760px) { html.fx-sticky-cta .fx-ht:not(.fx-ht-cb) { bottom: calc(76px + env(safe-area-inset-bottom, 0px)) } }
+body:has(.lb.open) .fx-ht, body:has(.fx-lb.open) .fx-ht { display: none }
+
+/* fx sticky-cta */
+/* sticky-cta: a floating Call + Book pill (created by sticky-cta.js). Desktop: bottom-right pill. Mobile: nothing when the kit has its own
+   call bar (.fx-sc-nb), else a compact bar. Hidden state only exists on the element JS creates; it sits under the lightbox. */
+.fx-sc { position: fixed; right: 20px; bottom: 20px; z-index: 700; display: flex; gap: 6px; padding: 6px; border-radius: 999px; background: var(--dark); color: var(--on-dark);
+ border: 1px solid color-mix(in srgb, var(--on-dark) 20%, transparent); box-shadow: 0 12px 34px rgba(0, 0, 0, .28);
+ opacity: 0; visibility: hidden; transform: translateY(20px); pointer-events: none; }
+.fx-sc.on { opacity: 1; visibility: visible; transform: none; pointer-events: auto }
+.fx-sc a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 22px; border-radius: 999px; font: 700 15px/1 var(--f-body); text-decoration: none; white-space: nowrap }
+.fx-sc-call { color: var(--on-dark); background: color-mix(in srgb, var(--on-dark) 14%, transparent) }
+.fx-sc-book { background: var(--primary); color: var(--on-primary) }
+.fx-sc a:hover { filter: brightness(1.12) }
+body:has(.lb.open) .fx-sc, body:has(.fx-lb.open) .fx-sc { display: none }
+@media (max-width: 760px) {
+ .fx-sc { left: 12px; right: 12px; bottom: 12px }
+ .fx-sc a { flex: 1 }
+ .fx-sc-nb { display: none }
+}
+@media (prefers-reduced-motion: no-preference) {
+ .fx-sc { transition: opacity .35s, transform .5s cubic-bezier(.2, .7, .2, 1), visibility 0s .5s }
+ .fx-sc.on { transition-delay: 0s }
+}
+
+/* fx highlight-sweep */
+/* highlight-sweep: a marker band (or underline) draws across the hero's emphasised words when they scroll into view. The text colour
+   is never changed; the band is a translucent --accent. Marked elements are tagged by JS; the final highlight is the natural
+   state once .fx-hl-on is set. Reduced motion: final highlight, static.
+   No padding/margin on the marked element: it is tagged after first paint, and padding with box-decoration-break: clone
+   rewraps a multi-line headline (measured CLS 0.1-0.17 on hero h1 em). */
+[data-fx-hl] { background-repeat: no-repeat; background-position: 0 94%; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+ background-image: linear-gradient(color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent) 26%, transparent)); background-size: 0% 36% }
+[data-fx-hl=underline] { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0% 3px }
+[data-fx-hl].fx-hl-on { background-size: 100% 36% }
+[data-fx-hl=underline].fx-hl-on { background-size: 100% 3px }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-hl] { transition: background-size 1s cubic-bezier(.2, .7, .2, 1) }
+}

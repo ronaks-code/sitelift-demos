@@ -106,24 +106,3 @@ FX.def('scroll-progress', function (c) {
   addEventListener('resize', req, { passive: true });
   set();
 });
-
-/* fx img-zoom */
-/* img-zoom: finds each image's clipping frame (an ancestor with overflow hidden/clip around just that image); if there is none,
-   clips the display:block link around it; if neither is possible the image is left alone. Mouse only, off with reduced motion. */
-FX.def('img-zoom', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  c.els('a[data-lb] img,[class*=gal] img').forEach(function (img) {
-    if (img.closest('.ph,[class*=logo]')) return;
-    var a = img.closest('a'), fig = img.closest('figure'), f = null, p = img.parentElement, i = 0;
-    for (; p && i < 3 && p.querySelectorAll('img').length === 1; p = p.parentElement, i++) {
-      if (getComputedStyle(p).overflow !== 'visible') { f = p; break; }
-    }
-    if (!f) {
-      if (a && a.contains(img) && getComputedStyle(a).display === 'block') { a.classList.add('fx-zoom-clip'); f = a; } else return;
-    }
-    img.classList.add('fx-zoom');
-    var host = fig && fig.querySelectorAll('img').length === 1 ? fig : (a && a.contains(img) ? a : f);
-    host.classList.add('fx-zoom-host');
-    var cap = fig && fig.querySelector('figcaption'); if (cap) cap.classList.add('fx-zoom-cap');
-  });
-});

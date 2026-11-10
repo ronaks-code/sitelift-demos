@@ -1,0 +1,20 @@
+{
+ "name": "UTea Kitchen",
+ "short_name": "UTea Kitchen",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#bf2f2a",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

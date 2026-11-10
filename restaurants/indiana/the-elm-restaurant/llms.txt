@@ -1,0 +1,9 @@
+# The Elm Restaurant
+
+> Restaurant in Bloomington, Indiana. Seasonal dinner Wednesday to Saturday, Sunday brunch and a walk-up coffeehouse.
+
+- Phone: (812) 407-4339
+- Address: 614 E 2nd St, Bloomington, IN 47401
+- Areas: Bloomington, Ellettsville, Spencer, Nashville, Martinsville
+- Offers: Small plates; Mains; Cocktails at the bar
+- Rating: 4.5 from 340 Google reviews

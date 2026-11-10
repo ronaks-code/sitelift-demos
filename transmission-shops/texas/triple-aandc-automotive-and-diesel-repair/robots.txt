@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/transmission-shops/texas/triple-aandc-automotive-and-diesel-repair/sitemap.xml

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/taquerias/texas/mi-coraz-n-street-tacos/sitemap.xml

@@ -1,0 +1,265 @@
+/* SiteLift fx runtime + loader. Vanilla, no dependencies, no network beyond its own module files.
+   A site turns effects on in site.json "fx"; render.py writes assets/fx/fx.js = this runtime + ONLY the chosen modules
+   (already defined, so nothing else is fetched) and assets/fx/fx.css = their CSS. Unbundled (gallery/demo pages) it
+   lazy-loads fx/<id>.js (+ fx/<id>.css when the entry has "css":1).
+   Config: <script src=".../fx.js" defer data-fx='[{"id":"tilt","sel":".card","opt":{}}]'></script>  ("a,b,c" works too).
+   Module contract (README.md): FX.def(id, function (c) {...}); c = {id, sel, opt, els(defaultSel)}.
+   Rules for every module: static fallback for reduced motion, hover-only effects off on touch, never hides content if
+   JS fails, no layout shift, keyboard/focus safe. */
+(function () {
+  var d = document, h = d.documentElement, me = d.currentScript;
+  if (window.FX && window.FX.v) return;
+  var mm = function (q) { return !!(window.matchMedia && matchMedia(q).matches); };
+  var base = me && me.src ? me.src.replace(/[^\/]*$/, '') : 'assets/fx/';
+  var raw = ((me && me.getAttribute('data-fx')) || '').trim(), list;
+  try { list = raw.charAt(0) === '[' ? JSON.parse(raw) : raw.split(','); } catch (e) { list = []; }
+  list = list.map(function (x) { return typeof x === 'string' ? { id: x.trim() } : x; }).filter(function (x) { return x && x.id; });
+  var FX = window.FX = { v: 1, mods: {}, cfg: {} };
+  FX.reduced = mm('(prefers-reduced-motion: reduce)');
+  FX.fine = mm('(hover: hover) and (pointer: fine)');   // a real mouse: cursors + hover-only effects run only here
+  FX.small = mm('(max-width: 760px)');
+  FX.$$ = function (sel, root) { try { return sel ? [].slice.call((root || d).querySelectorAll(sel)) : []; } catch (e) { return []; } };
+  // resolved rgb() of a CSS variable (works with color-mix etc.), for canvas modules
+  FX.color = function (v, fb) {
+    var s = d.createElement('i');
+    s.style.cssText = 'position:absolute;width:0;height:0;color:var(' + v + ',' + (fb || '#888') + ')';
+    d.body.appendChild(s); var c = getComputedStyle(s).color; d.body.removeChild(s); return c;
+  };
+  FX.rgba = function (c, a) { var m = String(c).match(/[\d.]+/g) || [0, 0, 0]; return 'rgba(' + m[0] + ',' + m[1] + ',' + m[2] + ',' + a + ')'; };
+  // fn(el) once per element when it scrolls into view (immediately without IntersectionObserver)
+  FX.seen = function (els, fn, margin) {
+    if (!('IntersectionObserver' in window)) { els.forEach(fn); return; }
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { io.unobserve(e.target); fn(e.target); } });
+    }, { rootMargin: margin || '0px 0px -10% 0px' });
+    els.forEach(function (e) { io.observe(e); });
+  };
+  // fn(true|false) as el enters/leaves the viewport: pause canvases and loops off-screen
+  FX.vis = function (el, fn) {
+    if (!('IntersectionObserver' in window)) { fn(true); return; }
+    new IntersectionObserver(function (es) { fn(es[es.length - 1].isIntersecting); }).observe(el);
+  };
+  FX.idle = function (fn) { (window.requestIdleCallback || function (f) { setTimeout(f, 120); })(fn); };
+  FX.css = function (id) {
+    if (d.querySelector('link[data-fx-css="' + id + '"]')) return;
+    var l = d.createElement('link'); l.rel = 'stylesheet'; l.href = base + 'fx/' + id + '.css'; l.setAttribute('data-fx-css', id);
+    d.head.appendChild(l);
+  };
+  function ctx(id) {
+    var c = FX.cfg[id] || {};
+    return { id: id, sel: c.sel || '', opt: c.opt || {},
+      els: function (def) {
+        var out = [], add = function (e) { if (out.indexOf(e) < 0) out.push(e); };
+        FX.$$('[data-fx-' + id + ']').forEach(add);
+        FX.$$(c.sel || def).forEach(add);
+        return out;
+      } };
+  }
+  function run(id) {
+    var c = FX.cfg[id];
+    if (!c || c.done || !FX.mods[id]) return;
+    c.done = 1;
+    var x = ctx(id);
+    if (x.sel) FX.$$(x.sel).forEach(function (e) { e.setAttribute('data-fx-' + id, ''); });   // module CSS targets [data-fx-<id>]
+    h.classList.add('fx-' + id);
+    try { FX.mods[id](x); } catch (e) { h.classList.remove('fx-' + id); if (window.console) console.warn('fx ' + id, e); }
+  }
+  FX.def = function (id, fn) { FX.mods[id] = fn; if (FX.ready) run(id); };
+  // switch an effect on (also used by the gallery/demo at runtime)
+  FX.add = function (x) {
+    x = typeof x === 'string' ? { id: x } : x;
+    if (!FX.cfg[x.id]) FX.cfg[x.id] = x;
+    if (x.css) FX.css(x.id);
+    if (FX.mods[x.id]) { if (FX.ready) run(x.id); return; }
+    if (x.js === 0) {   // CSS-only module: tag configured elements so its CSS can target [data-fx-<id>]
+      FX.$$(x.sel).forEach(function (e) { e.setAttribute('data-fx-' + x.id, ''); });
+      h.classList.add('fx-' + x.id); return;
+    }
+    var s = d.createElement('script'); s.src = base + 'fx/' + x.id + '.js'; s.async = true; d.head.appendChild(s);
+  };
+  h.classList.add('fx');
+  if (FX.reduced) h.classList.add('fx-reduced');
+  if (FX.fine) h.classList.add('fx-fine');
+  list.forEach(function (x) { FX.cfg[x.id] = x; });
+  function go() { FX.ready = 1; list.forEach(function (x) { if (FX.mods[x.id]) run(x.id); else FX.add(x); }); }
+  // bundled modules follow this code in the same file: start after they have registered
+  if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
+})();
+
+/* fx timeline-draw */
+/* timeline-draw: process / steps lists get a vertical line through the step numbers that draws as you scroll (scroll-driven CSS where
+   supported, otherwise it grows step by step as each step is reached); each number gives a small pop when reached.
+   Works for numbers that are a child element or a ::before/::after counter. The list keeps its layout and markup.
+   Lists that already have a background image are skipped. Reduced motion: the full line, no pop. */
+FX.def('timeline-draw', function (c) {
+  var css = !FX.reduced && window.CSS && CSS.supports('animation-timeline: view()') && CSS.supports('animation-range: 0% 100%');
+  c.els('ol[class*=step], ol[class*=process], [class*=process] ol, [class*=steps]').forEach(function (ol) {
+    var li = [].slice.call(ol.children).filter(function (k) { return k.offsetHeight > 0; });
+    if (li.length < 2 || getComputedStyle(ol).backgroundImage !== 'none') return;
+    var mk = [];
+    function measure() {
+      var o = ol.getBoundingClientRect(), bl = parseFloat(getComputedStyle(ol).borderLeftWidth) || 0, bt = parseFloat(getComputedStyle(ol).borderTopWidth) || 0;
+      mk = li.map(function (k) {
+        var s = getComputedStyle(k), tr = new DOMMatrix(s.transform), r = k.getBoundingClientRect(), x, y, w, ps = '';
+        var first = k.firstElementChild, fs = first && first.getBoundingClientRect();
+        var b = getComputedStyle(k, '::before'), a = getComputedStyle(k, '::after');
+        var pe = b.content !== 'none' && b.content !== 'normal' ? '::before' : (a.content !== 'none' && a.content !== 'normal' && a.position !== 'absolute' ? '::after' : '');
+        var left = r.left - tr.m41 - o.left - bl, top = r.top - tr.m42 - o.top - bt;
+        if (first && fs.width <= 90 && fs.height <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName)) { x = fs.left - o.left - bl + fs.width / 2; y = fs.top - o.top - bt + fs.height / 2; }
+        else if (pe) {
+          var q = pe === '::before' ? b : a, W = parseFloat(q.width) || 24, H = parseFloat(q.height) || 24;
+          if (q.position === 'absolute') { x = left + (parseFloat(q.left) || 0) + W / 2 - (q.left === 'auto' ? W / 2 : 0); y = top + (parseFloat(q.top) || 0) + H / 2; }
+          else { x = left + (parseFloat(s.paddingLeft) || 0) + W / 2; y = top + (parseFloat(s.paddingTop) || 0) + H / 2; }
+          ps = pe;
+        } else { x = left + 14; y = top + 14; }
+        return { x: x, y: y, el: ps ? k : (first && fs.width <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName) ? first : null), pe: ps };
+      });
+      var y0 = mk[0].y, y1 = mk[mk.length - 1].y;
+      ol.style.setProperty('--fx-x', (mk[0].x - 1).toFixed(1) + 'px'); ol.style.setProperty('--fx-y', y0.toFixed(1) + 'px'); ol.style.setProperty('--fx-h', Math.max(0, y1 - y0).toFixed(1) + 'px');
+    }
+    measure();
+    ol.setAttribute('data-fx-td', '');
+    if (window.ResizeObserver) new ResizeObserver(measure).observe(ol);
+    if (FX.reduced) return;
+    if (css) ol.classList.add('fx-td-css');
+    else { ol.classList.add('fx-td-io'); ol.style.setProperty('--fx-p', 0); }
+    li.forEach(function (k, i) {
+      FX.seen([k], function () {
+        var m = mk[i], h1 = mk[mk.length - 1].y - mk[0].y;
+        if (!css) ol.style.setProperty('--fx-p', h1 > 0 ? Math.max(0, (m.y - mk[0].y) / h1).toFixed(3) : 1);
+        if (Element.prototype.animate && m.el) m.el.animate([{ transform: 'scale(.82)' }, { transform: 'scale(1.18)', offset: .55 }, { transform: 'scale(1)' }],
+          { duration: 520, easing: 'cubic-bezier(.2,.7,.2,1)', pseudoElement: m.pe || undefined });
+      }, '0px 0px -38% 0px');
+    });
+  });
+});
+
+/* fx bg-grid */
+/* bg-grid: a fine dot grid (opt kind "lines" for a line grid) with a brighter copy of the grid revealed through a soft
+   circle that follows the pointer (mouse) or slowly sweeps (touch). Edges fade out. Static grid with reduced motion.
+   opt: {kind: "dots"|"lines", size: 28} */
+FX.def('bg-grid', function (c) {
+  var lines = c.opt.kind === 'lines', z = Math.max(16, Math.min(60, +c.opt.size || 28));
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var L = document.createElement('div'), hi, pend = 0, ex, ey;
+    L.className = 'fx-grid' + (lines ? ' fx-grid-l' : ''); L.setAttribute('aria-hidden', 'true');
+    L.style.setProperty('--fx-gs', z + 'px');
+    L.innerHTML = '<i></i><i class="hi"></i>'; hi = L.lastChild;
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
+    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
+    if (!FX.fine || FX.reduced) return;
+    L.classList.add('is-fine');
+    t.addEventListener('pointermove', function (e) {
+      ex = e.clientX; ey = e.clientY;
+      if (pend) return; pend = 1;
+      requestAnimationFrame(function () {
+        pend = 0; var b = L.getBoundingClientRect();
+        hi.style.setProperty('--fx-x', (ex - b.left - 210) + 'px'); hi.style.setProperty('--fx-y', (ey - b.top - 210) + 'px'); hi.style.opacity = 1;
+      });
+    }, { passive: true });
+    t.addEventListener('pointerleave', function () { hi.style.opacity = 0; });
+  });
+});
+
+/* fx stars-fill */
+/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
+   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
+FX.def('stars-fill', function (c) {
+  if (FX.reduced) return;
+  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
+    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
+  });
+  els.forEach(function (el) {
+    var s = document.createElement('span');
+    s.className = 'fx-stars-in fx-stars-w';
+    while (el.firstChild) s.appendChild(el.firstChild);
+    el.appendChild(s);
+    FX.seen([el], function () {
+      s.classList.remove('fx-stars-w');
+      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
+    });
+  });
+});
+
+/* fx lightbox-plus */
+/* lightbox-plus: replaces core's lightbox for a[data-lb] (capture-phase click + stopImmediatePropagation so core never opens).
+   Dialog with caption, "3 / 12" counter, prev/next, arrow keys, Escape, swipe, focus trap, focus back on the thumbnail, images grouped by
+   their gallery container (items hidden by a filter chip are skipped). Opens by growing from the thumbnail unless motion is reduced.
+   opt: {label: "Photo viewer", close: "Close", prev: "Previous photo", next: "Next photo"} */
+FX.def('lightbox-plus', function (c) {
+  var d = document, o = c.opt, lb, img, cap, num, items = [], at = 0, from = null, B = {};
+  function mk(cls, label, t) { var b = d.createElement('button'); b.type = 'button'; b.className = 'fx-lb-b ' + cls; b.setAttribute('aria-label', label); b.textContent = t; return b; }
+  function build() {
+    lb = d.createElement('div'); lb.className = 'fx-lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', o.label || 'Photo viewer');
+    lb.style.background = FX.rgba(FX.color('--dark'), .94);
+    var f = d.createElement('figure'); f.className = 'fx-lb-f';
+    img = d.createElement('img'); img.className = 'fx-lb-img'; img.alt = '';
+    cap = d.createElement('figcaption'); cap.className = 'fx-lb-cap';
+    num = d.createElement('div'); num.className = 'fx-lb-n'; num.setAttribute('aria-live', 'polite');
+    B.x = mk('fx-lb-x', o.close || 'Close', '×'); B.p = mk('fx-lb-p', o.prev || 'Previous photo', '‹'); B.n = mk('fx-lb-nx', o.next || 'Next photo', '›');
+    f.appendChild(img); f.appendChild(cap);
+    [f, num, B.x, B.p, B.n].forEach(function (e) { lb.appendChild(e); });
+    d.body.appendChild(lb);
+    B.x.onclick = close; B.p.onclick = function () { go(-1); }; B.n.onclick = function () { go(1); };
+    lb.addEventListener('click', function (e) { if (e.target === lb || e.target === f) close(); });
+    var sx = null;
+    lb.addEventListener('pointerdown', function (e) { sx = e.target.closest('button') ? null : e.clientX; });
+    lb.addEventListener('pointerup', function (e) {
+      if (sx !== null && Math.abs(e.clientX - sx) > 50) go(e.clientX < sx ? 1 : -1);
+      sx = null;
+    });
+    d.addEventListener('keydown', key, true);
+  }
+  function text(a) {
+    var fig = a.closest('figure'), fc = fig && fig.querySelector('figcaption'), im = a.querySelector('img');
+    return a.getAttribute('data-cap') || (fc && fc.textContent.trim()) || (im && im.alt) || '';
+  }
+  function show(i, dir) {
+    at = (i + items.length) % items.length;
+    var a = items[at], t = text(a);
+    num.textContent = at + 1 + ' / ' + items.length; cap.textContent = t; img.alt = t;
+    lb.classList.toggle('fx-lb-1', items.length < 2);
+    img.onload = function () { if (!FX.reduced) flip(dir); };
+    img.src = a.getAttribute('href');
+    [1, -1].forEach(function (s) { new Image().src = items[(at + s + items.length) % items.length].getAttribute('href'); });
+  }
+  function flip(dir) {
+    var r = img.getBoundingClientRect();
+    if (dir) { img.animate([{ opacity: 0, transform: 'translateX(' + 36 * dir + 'px)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.2,.7,.2,1)' }); return; }
+    var th = from && from.querySelector('img'), t = th && th.getBoundingClientRect();
+    if (!t || !t.width || !r.width) { img.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250 }); return; }
+    img.animate([{ opacity: .3, transform: 'translate(' + (t.left + t.width / 2 - r.left - r.width / 2) + 'px,' + (t.top + t.height / 2 - r.top - r.height / 2) + 'px) scale(' + t.width / r.width + ')' },
+      { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
+  }
+  function go(n) { if (items.length > 1) show(at + n, n); }
+  function open(a) {
+    if (!lb) build();
+    from = a;
+    var root = a.parentElement;
+    while (root && root !== d.body && root.querySelectorAll('a[data-lb]').length < 2) root = root.parentElement;
+    items = FX.$$('a[data-lb]', root || d).filter(function (x) { return x === a || (x.getAttribute('href') && x.getClientRects().length); });
+    lb.classList.add('open');
+    if (!FX.reduced) lb.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220 });
+    show(items.indexOf(a), 0);
+    B.x.focus();
+  }
+  function close() {
+    lb.classList.remove('open'); img.removeAttribute('src');
+    if (from && from.isConnected) from.focus({ preventScroll: true });
+  }
+  function key(e) {
+    if (!lb || !lb.classList.contains('open')) return;
+    if (e.key === 'Escape') { e.stopPropagation(); close(); }
+    else if (e.key === 'ArrowRight') go(1);
+    else if (e.key === 'ArrowLeft') go(-1);
+    else if (e.key === 'Tab') {
+      var f = [B.x, B.p, B.n].filter(function (b) { return b.offsetParent; }), i = f.indexOf(d.activeElement);
+      e.preventDefault(); f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  }
+  d.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[data-lb]');
+    if (!a || !a.getAttribute('href')) return;
+    e.preventDefault(); e.stopImmediatePropagation(); open(a);
+  }, true);
+});

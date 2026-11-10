@@ -1,0 +1,20 @@
+{
+ "name": "Don Chuy Mexican Restaurant",
+ "short_name": "Don Chuy Mex",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#e6a23c",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

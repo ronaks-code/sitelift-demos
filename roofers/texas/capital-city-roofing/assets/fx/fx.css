@@ -1,0 +1,62 @@
+/* fx timeline-draw */
+/* timeline-draw: a vertical line in --primary runs through the step numbers and draws down as you scroll through the list.
+   The line is drawn with the list's own background layers (no extra elements, no layout change) driven by --fx-p (0 to 1).
+   Default --fx-p is 1, so the full line shows without JS animation, with old browsers and with reduced motion. */
+@property --fx-p { syntax: "<number>"; inherits: false; initial-value: 1 }
+[data-fx-td] {
+ background-image: linear-gradient(var(--primary), var(--primary)), linear-gradient(var(--line), var(--line));
+ background-repeat: no-repeat;
+ background-size: 2px calc(var(--fx-h) * var(--fx-p)), 2px var(--fx-h);
+ background-position: var(--fx-x) var(--fx-y), var(--fx-x) var(--fx-y);
+}
+@keyframes fx-td { from { --fx-p: 0 } to { --fx-p: 1 } }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-td].fx-td-css { animation: fx-td linear both; animation-timeline: view(block 52% 22%) }
+ [data-fx-td].fx-td-io { transition: --fx-p .8s cubic-bezier(.2, .7, .2, 1) }
+}
+
+/* fx lightbox-plus */
+/* lightbox-plus: photo viewer that replaces the core lightbox (dialog created by lightbox-plus.js). Backdrop colour is set from --dark in JS. */
+.fx-lb { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 56px 64px 72px; touch-action: none; overscroll-behavior: contain; color: var(--on-dark) }
+.fx-lb.open { display: flex }
+.fx-lb-f { margin: 0; display: grid; justify-items: center; gap: 12px; max-width: 100%; max-height: 100%; min-height: 0 }
+.fx-lb-img { display: block; max-width: min(92vw, 1500px); max-height: calc(100vh - 170px); width: auto; height: auto; object-fit: contain; border-radius: calc(var(--radius) * .5); box-shadow: 0 24px 80px rgba(0, 0, 0, .5); user-select: none; -webkit-user-drag: none }
+.fx-lb-cap { margin: 0; text-align: center; font: 500 15px/1.4 var(--f-body); max-width: 60ch; min-height: 1.4em }
+.fx-lb-n { position: absolute; left: 20px; top: 22px; font: 700 14px/1 var(--f-body); letter-spacing: .08em; font-variant-numeric: tabular-nums; opacity: .85 }
+.fx-lb-b { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--on-dark) 30%, transparent); cursor: pointer; font: 400 22px/1 var(--f-body);
+ background: color-mix(in srgb, var(--on-dark) 12%, transparent); color: var(--on-dark); display: grid; place-items: center; padding: 0; transition: background .2s }
+.fx-lb-b:hover { background: color-mix(in srgb, var(--on-dark) 24%, transparent) }
+.fx-lb-b:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px }
+.fx-lb-x { top: 14px; right: 16px }
+.fx-lb-p, .fx-lb-nx { top: 50%; margin-top: -24px }
+.fx-lb-p { left: 14px }
+.fx-lb-nx { right: 14px }
+.fx-lb-1 .fx-lb-p, .fx-lb-1 .fx-lb-nx, .fx-lb-1 .fx-lb-n { display: none }
+@media (max-width: 760px) {
+ .fx-lb { padding: 64px 12px 92px }
+ .fx-lb-img { max-width: 100%; max-height: calc(100vh - 220px) }
+ .fx-lb-p, .fx-lb-nx { top: auto; bottom: 18px; margin: 0 }
+ .fx-lb-p { left: 20px }
+ .fx-lb-nx { right: 20px }
+}
+
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }
+
+/* fx scroll-progress */
+/* scroll-progress: a thin bar at the very top showing how far down the page you are. The bar only exists when JS built it.
+   Where scroll-driven animations exist the browser drives it (no JS per frame); elsewhere (and with reduced motion, since
+   progress is information, not decoration) JS sets it on scroll. */
+.fx-sp-bar { position: fixed; left: 0; top: 0; width: 100%; height: 3px; z-index: 2147482600; pointer-events: none; background: var(--primary);
+ transform: scaleX(0); transform-origin: 0 50% }
+@keyframes fx-sp { to { transform: scaleX(1) } }
+@media (prefers-reduced-motion: no-preference) {
+ @supports (animation-timeline: scroll()) {
+  .fx-sp-bar.fx-sp-css { animation: fx-sp linear both; animation-timeline: scroll(root block) }
+ }
+}

@@ -1,0 +1,6 @@
+/* fx header-hide */
+/* header-hide: sticky header slides away on the way down and returns on the way up. The class is only ever added by JS. */
+@media (prefers-reduced-motion: no-preference) {
+ .fx-hh { transition: transform .35s cubic-bezier(.2, .7, .2, 1) }
+}
+.fx-hh.fx-hh-off { transform: translateY(-101%) }

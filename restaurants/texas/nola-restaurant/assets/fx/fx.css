@@ -1,0 +1,33 @@
+/* fx bg-mesh */
+/* bg-mesh: layer is built by JS under html.fx-bg-mesh; blobs are radial gradients, animated by transform only */
+.fx-mesh { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
+.fx-mesh i { position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50% }
+.fx-mesh i:nth-child(1) { left: -18%; top: -38%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 46%, transparent), transparent) }
+.fx-mesh i:nth-child(2) { right: -22%; top: -10%; width: 70%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 42%, transparent), transparent) }
+.fx-mesh i:nth-child(3) { left: 18%; bottom: -60%; width: 84%; background: radial-gradient(closest-side, color-mix(in srgb, var(--surface) 80%, var(--primary)), transparent) }
+.fx-mesh i:nth-child(4) { right: 8%; bottom: -34%; width: 52%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 26%, var(--accent)), transparent); opacity: .7 }
+@media (max-width: 760px) { .fx-mesh i { width: 130% } .fx-mesh i:nth-child(2) { right: -50% } }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-mesh i { will-change: transform; animation: fx-mesh-a 28s ease-in-out infinite alternate }
+ .fx-mesh i:nth-child(2) { animation-name: fx-mesh-b; animation-duration: 34s }
+ .fx-mesh i:nth-child(3) { animation-name: fx-mesh-c; animation-duration: 40s }
+ .fx-mesh i:nth-child(4) { animation-name: fx-mesh-b; animation-duration: 22s; animation-direction: alternate-reverse }
+ @keyframes fx-mesh-a { to { transform: translate3d(22%, 16%, 0) scale(1.12) } }
+ @keyframes fx-mesh-b { to { transform: translate3d(-24%, 20%, 0) scale(.9) } }
+ @keyframes fx-mesh-c { to { transform: translate3d(-18%, -14%, 0) scale(1.15) } }
+}
+
+/* fx highlight-sweep */
+/* highlight-sweep: a marker band (or underline) draws across the hero's emphasised words when they scroll into view. The text colour
+   is never changed; the band is a translucent --accent. Marked elements are tagged by JS; the final highlight is the natural
+   state once .fx-hl-on is set. Reduced motion: final highlight, static.
+   No padding/margin on the marked element: it is tagged after first paint, and padding with box-decoration-break: clone
+   rewraps a multi-line headline (measured CLS 0.1-0.17 on hero h1 em). */
+[data-fx-hl] { background-repeat: no-repeat; background-position: 0 94%; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+ background-image: linear-gradient(color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent) 26%, transparent)); background-size: 0% 36% }
+[data-fx-hl=underline] { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0% 3px }
+[data-fx-hl].fx-hl-on { background-size: 100% 36% }
+[data-fx-hl=underline].fx-hl-on { background-size: 100% 3px }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-hl] { transition: background-size 1s cubic-bezier(.2, .7, .2, 1) }
+}

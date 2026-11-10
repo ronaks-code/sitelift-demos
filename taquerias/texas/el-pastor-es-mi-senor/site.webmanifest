@@ -1,0 +1,20 @@
+{
+ "name": "El Pastor Es Mi Senor",
+ "short_name": "El Pastor Es",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#b6450a",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

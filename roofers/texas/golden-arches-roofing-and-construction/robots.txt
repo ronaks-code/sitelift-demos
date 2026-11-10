@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/roofers/texas/golden-arches-roofing-and-construction/sitemap.xml

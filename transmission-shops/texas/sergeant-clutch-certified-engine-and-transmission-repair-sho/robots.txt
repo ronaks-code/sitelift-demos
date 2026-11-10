@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/transmission-shops/texas/sergeant-clutch-certified-engine-and-transmission-repair-sho/sitemap.xml

@@ -1,0 +1,16 @@
+/* fx timeline-draw */
+/* timeline-draw: a vertical line in --primary runs through the step numbers and draws down as you scroll through the list.
+   The line is drawn with the list's own background layers (no extra elements, no layout change) driven by --fx-p (0 to 1).
+   Default --fx-p is 1, so the full line shows without JS animation, with old browsers and with reduced motion. */
+@property --fx-p { syntax: "<number>"; inherits: false; initial-value: 1 }
+[data-fx-td] {
+ background-image: linear-gradient(var(--primary), var(--primary)), linear-gradient(var(--line), var(--line));
+ background-repeat: no-repeat;
+ background-size: 2px calc(var(--fx-h) * var(--fx-p)), 2px var(--fx-h);
+ background-position: var(--fx-x) var(--fx-y), var(--fx-x) var(--fx-y);
+}
+@keyframes fx-td { from { --fx-p: 0 } to { --fx-p: 1 } }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-td].fx-td-css { animation: fx-td linear both; animation-timeline: view(block 52% 22%) }
+ [data-fx-td].fx-td-io { transition: --fx-p .8s cubic-bezier(.2, .7, .2, 1) }
+}

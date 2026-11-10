@@ -1,0 +1,40 @@
+/* fx mask-reveal */
+/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
+   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
+html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
+html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
+
+/* fx spotlight */
+/* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
+.fx-sp { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 20; pointer-events: none; opacity: 0; transition: opacity .3s }
+.fx-sp.on { opacity: 1 }
+.fx-sp b { position: absolute; inset: 0; border-radius: inherit;
+ background: radial-gradient(circle 260px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%) }
+.fx-sp i { position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+ background: radial-gradient(circle 280px at var(--fx-x, 50%) var(--fx-y, 50%), var(--accent), transparent 70%);
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
+ mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
+.fx-sp.big i { display: none }
+.fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
+
+/* fx section-tint */
+/* section-tint: one fixed colour layer behind the page; its colour follows the section in view. Only sections with a transparent
+   background show it, so sections that set their own backgrounds are untouched. The layer exists only when JS built it. */
+.fx-st-layer { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg) }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-st-layer { transition: background-color .9s cubic-bezier(.2, .7, .2, 1) }
+}
+
+/* fx hero-zoomout */
+/* hero-zoomout: the hero photo starts a touch zoomed and, as you scroll past, settles to full size inside a rounded inset frame.
+   Scroll-driven (the first 70vh of scroll); a JS fallback sets the same values elsewhere. Nothing happens with reduced motion. */
+@keyframes fx-hz {
+ from { transform: scale(1.08); clip-path: inset(0 round 0) }
+ to { transform: scale(1); clip-path: inset(4% round var(--radius, 12px)) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-hero-zoomout img.fx-hz { transform: scale(1.08); will-change: transform, clip-path }
+ @supports (animation-timeline: scroll()) {
+  html.fx-hero-zoomout img.fx-hz.fx-hz-css { animation: fx-hz cubic-bezier(.3, .6, .3, 1) both; animation-timeline: scroll(root block); animation-range: 0px 70vh }
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "name": "ASK Mobile Mechanics",
+ "short_name": "ASK Mobile M",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#f26a1b",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

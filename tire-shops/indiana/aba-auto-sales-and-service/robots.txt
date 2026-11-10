@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/tire-shops/indiana/aba-auto-sales-and-service/sitemap.xml

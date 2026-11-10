@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/tire-shops/texas/casias-muffler-and-tire-shop/sitemap.xml
