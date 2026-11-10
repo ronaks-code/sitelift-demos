@@ -1,0 +1,65 @@
+/* fx grain */
+/* grain: a fine film-grain layer over the whole page (fixed, click-through, no layout). Tune with --fx-grain (0.04-0.12; grey noise, reads on light and dark grounds).
+   Static grain under reduced motion; gently shifting grain otherwise. CSS only, works without JS. */
+html::after {
+ content: ""; position: fixed; inset: -50%; z-index: 2147482000; pointer-events: none;
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+ background-size: 180px 180px; opacity: var(--fx-grain, .07)
+}
+@media (prefers-reduced-motion: no-preference) {
+ html::after { animation: fx-grain 1s steps(4) infinite }
+ @keyframes fx-grain { 0% { transform: translate(0, 0) } 25% { transform: translate(-3%, 2%) } 50% { transform: translate(2%, -3%) } 75% { transform: translate(-2%, -1%) } 100% { transform: translate(0, 0) } }
+}
+@media print { html::after { display: none } }
+
+/* fx mask-reveal */
+/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
+   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
+html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
+html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
+
+/* fx tilt */
+/* tilt: soft glare layer inside tilting cards (inserted by tilt.js) */
+html.fx-tilt .fx-tilt-g { position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
+ background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 58%) }
+html.fx-tilt .fx-tilt-g.on { opacity: 1 }
+
+/* fx lightbox-plus */
+/* lightbox-plus: photo viewer that replaces the core lightbox (dialog created by lightbox-plus.js). Backdrop colour is set from --dark in JS. */
+.fx-lb { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 56px 64px 72px; touch-action: none; overscroll-behavior: contain; color: var(--on-dark) }
+.fx-lb.open { display: flex }
+.fx-lb-f { margin: 0; display: grid; justify-items: center; gap: 12px; max-width: 100%; max-height: 100%; min-height: 0 }
+.fx-lb-img { display: block; max-width: min(92vw, 1500px); max-height: calc(100vh - 170px); width: auto; height: auto; object-fit: contain; border-radius: calc(var(--radius) * .5); box-shadow: 0 24px 80px rgba(0, 0, 0, .5); user-select: none; -webkit-user-drag: none }
+.fx-lb-cap { margin: 0; text-align: center; font: 500 15px/1.4 var(--f-body); max-width: 60ch; min-height: 1.4em }
+.fx-lb-n { position: absolute; left: 20px; top: 22px; font: 700 14px/1 var(--f-body); letter-spacing: .08em; font-variant-numeric: tabular-nums; opacity: .85 }
+.fx-lb-b { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--on-dark) 30%, transparent); cursor: pointer; font: 400 22px/1 var(--f-body);
+ background: color-mix(in srgb, var(--on-dark) 12%, transparent); color: var(--on-dark); display: grid; place-items: center; padding: 0; transition: background .2s }
+.fx-lb-b:hover { background: color-mix(in srgb, var(--on-dark) 24%, transparent) }
+.fx-lb-b:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px }
+.fx-lb-x { top: 14px; right: 16px }
+.fx-lb-p, .fx-lb-nx { top: 50%; margin-top: -24px }
+.fx-lb-p { left: 14px }
+.fx-lb-nx { right: 14px }
+.fx-lb-1 .fx-lb-p, .fx-lb-1 .fx-lb-nx, .fx-lb-1 .fx-lb-n { display: none }
+@media (max-width: 760px) {
+ .fx-lb { padding: 64px 12px 92px }
+ .fx-lb-img { max-width: 100%; max-height: calc(100vh - 220px) }
+ .fx-lb-p, .fx-lb-nx { top: auto; bottom: 18px; margin: 0 }
+ .fx-lb-p { left: 20px }
+ .fx-lb-nx { right: 20px }
+}
+
+/* fx highlight-sweep */
+/* highlight-sweep: a marker band (or underline) draws across the hero's emphasised words when they scroll into view. The text colour
+   is never changed; the band is a translucent --accent. Marked elements are tagged by JS; the final highlight is the natural
+   state once .fx-hl-on is set. Reduced motion: final highlight, static.
+   No padding/margin on the marked element: it is tagged after first paint, and padding with box-decoration-break: clone
+   rewraps a multi-line headline (measured CLS 0.1-0.17 on hero h1 em). */
+[data-fx-hl] { background-repeat: no-repeat; background-position: 0 94%; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+ background-image: linear-gradient(color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent) 26%, transparent)); background-size: 0% 36% }
+[data-fx-hl=underline] { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0% 3px }
+[data-fx-hl].fx-hl-on { background-size: 100% 36% }
+[data-fx-hl=underline].fx-hl-on { background-size: 100% 3px }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-hl] { transition: background-size 1s cubic-bezier(.2, .7, .2, 1) }
+}

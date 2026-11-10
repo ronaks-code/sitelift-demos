@@ -1,0 +1,42 @@
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}
+
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }
+
+/* fx header-hide */
+/* header-hide: sticky header slides away on the way down and returns on the way up. The class is only ever added by JS. */
+@media (prefers-reduced-motion: no-preference) {
+ .fx-hh { transition: transform .35s cubic-bezier(.2, .7, .2, 1) }
+}
+.fx-hh.fx-hh-off { transform: translateY(-101%) }
+
+/* fx btn-fill */
+/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
+   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
+html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
+html.fx-btn-fill .fx-bf-r { position: relative }
+html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
+html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
+html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
+ clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
+html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
+@media (hover: hover) and (pointer: fine) {
+ html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+ html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
+}
+@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }

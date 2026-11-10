@@ -1,0 +1,99 @@
+/* fx parallax */
+/* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
+   scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */
+@keyframes fx-px {
+ from { transform: translate3d(0, calc(var(--fx-px, 5%) * -1), 0) scale(1.12) }
+ to { transform: translate3d(0, var(--fx-px, 5%), 0) scale(1.12) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-parallax [data-fx-px] { will-change: transform; transform: scale(1.12) }
+ @supports (animation-timeline: view()) {
+  html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
+ }
+}
+
+/* fx cursor-trail */
+/* cursor-trail: elements exist only when JS built them (mouse + motion allowed) */
+.fx-ct { position: fixed; inset: 0; pointer-events: none; z-index: 2147483000; opacity: 0; transition: opacity .3s }
+.fx-ct.on { opacity: 1 }
+.fx-ct i { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: currentColor; will-change: transform }
+.fx-ct-glyph i { left: -8px; top: -9px; width: 16px; height: 18px; background: none; font: 700 15px/18px var(--f-body); text-align: center }
+.fx-ct-glyph i::before { content: var(--glyph, "\2726") }
+
+/* fx click-burst */
+/* click-burst: particles are built by JS at click time and removed again; nothing exists otherwise */
+.fx-cb2 { position: fixed; inset: 0; pointer-events: none; z-index: 2147483000; overflow: hidden }
+.fx-cb2 i { position: absolute; border-radius: 50%; background: currentColor; will-change: transform, opacity }
+.fx-cb2 i.g { width: auto; height: auto; border-radius: 0; background: none; font: 700 14px/1 var(--f-body) }
+.fx-cb2 i.g::before { content: var(--glyph, "\2726") }
+
+/* fx open-pulse */
+/* open-pulse: the open-now badge gets a small dot. Open: green with a soft ring that pulses every 2s. Closed: a still, muted dot.
+   CSS only. The dot is new content (it adds a little width from first paint and never changes after). Fixed green #1f9d55 eased toward the badge text colour. */
+html.fx-open-pulse [data-hours].is-open::before, html.fx-open-pulse [data-hours].is-closed::before {
+ content: ""; display: inline-block; flex: none; width: .55em; height: .55em; margin-right: .55em; border-radius: 50%; vertical-align: .05em }
+html.fx-open-pulse [data-hours].is-open::before { background: color-mix(in srgb, #1f9d55 88%, currentColor); box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 45%, transparent) }
+html.fx-open-pulse [data-hours].is-closed::before { background: color-mix(in srgb, currentColor 38%, transparent) }
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-open-pulse [data-hours].is-open::before { animation: fx-open-pulse 2s cubic-bezier(.2, .7, .2, 1) infinite }
+ @keyframes fx-open-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 50%, transparent) } 70%, 100% { box-shadow: 0 0 0 .6em color-mix(in srgb, #1f9d55 0%, transparent) } }
+}
+
+/* fx lightbox-plus */
+/* lightbox-plus: photo viewer that replaces the core lightbox (dialog created by lightbox-plus.js). Backdrop colour is set from --dark in JS. */
+.fx-lb { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 56px 64px 72px; touch-action: none; overscroll-behavior: contain; color: var(--on-dark) }
+.fx-lb.open { display: flex }
+.fx-lb-f { margin: 0; display: grid; justify-items: center; gap: 12px; max-width: 100%; max-height: 100%; min-height: 0 }
+.fx-lb-img { display: block; max-width: min(92vw, 1500px); max-height: calc(100vh - 170px); width: auto; height: auto; object-fit: contain; border-radius: calc(var(--radius) * .5); box-shadow: 0 24px 80px rgba(0, 0, 0, .5); user-select: none; -webkit-user-drag: none }
+.fx-lb-cap { margin: 0; text-align: center; font: 500 15px/1.4 var(--f-body); max-width: 60ch; min-height: 1.4em }
+.fx-lb-n { position: absolute; left: 20px; top: 22px; font: 700 14px/1 var(--f-body); letter-spacing: .08em; font-variant-numeric: tabular-nums; opacity: .85 }
+.fx-lb-b { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--on-dark) 30%, transparent); cursor: pointer; font: 400 22px/1 var(--f-body);
+ background: color-mix(in srgb, var(--on-dark) 12%, transparent); color: var(--on-dark); display: grid; place-items: center; padding: 0; transition: background .2s }
+.fx-lb-b:hover { background: color-mix(in srgb, var(--on-dark) 24%, transparent) }
+.fx-lb-b:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px }
+.fx-lb-x { top: 14px; right: 16px }
+.fx-lb-p, .fx-lb-nx { top: 50%; margin-top: -24px }
+.fx-lb-p { left: 14px }
+.fx-lb-nx { right: 14px }
+.fx-lb-1 .fx-lb-p, .fx-lb-1 .fx-lb-nx, .fx-lb-1 .fx-lb-n { display: none }
+@media (max-width: 760px) {
+ .fx-lb { padding: 64px 12px 92px }
+ .fx-lb-img { max-width: 100%; max-height: calc(100vh - 220px) }
+ .fx-lb-p, .fx-lb-nx { top: auto; bottom: 18px; margin: 0 }
+ .fx-lb-p { left: 20px }
+ .fx-lb-nx { right: 20px }
+}
+
+/* fx reveal-plus */
+/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
+   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
+   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
+ html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
+}
+html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
+html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
+
+/* fx sticky-cta */
+/* sticky-cta: a floating Call + Book pill (created by sticky-cta.js). Desktop: bottom-right pill. Mobile: nothing when the kit has its own
+   call bar (.fx-sc-nb), else a compact bar. Hidden state only exists on the element JS creates; it sits under the lightbox. */
+.fx-sc { position: fixed; right: 20px; bottom: 20px; z-index: 700; display: flex; gap: 6px; padding: 6px; border-radius: 999px; background: var(--dark); color: var(--on-dark);
+ border: 1px solid color-mix(in srgb, var(--on-dark) 20%, transparent); box-shadow: 0 12px 34px rgba(0, 0, 0, .28);
+ opacity: 0; visibility: hidden; transform: translateY(20px); pointer-events: none; }
+.fx-sc.on { opacity: 1; visibility: visible; transform: none; pointer-events: auto }
+.fx-sc a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 22px; border-radius: 999px; font: 700 15px/1 var(--f-body); text-decoration: none; white-space: nowrap }
+.fx-sc-call { color: var(--on-dark); background: color-mix(in srgb, var(--on-dark) 14%, transparent) }
+.fx-sc-book { background: var(--primary); color: var(--on-primary) }
+.fx-sc a:hover { filter: brightness(1.12) }
+body:has(.lb.open) .fx-sc, body:has(.fx-lb.open) .fx-sc { display: none }
+@media (max-width: 760px) {
+ .fx-sc { left: 12px; right: 12px; bottom: 12px }
+ .fx-sc a { flex: 1 }
+ .fx-sc-nb { display: none }
+}
+@media (prefers-reduced-motion: no-preference) {
+ .fx-sc { transition: opacity .35s, transform .5s cubic-bezier(.2, .7, .2, 1), visibility 0s .5s }
+ .fx-sc.on { transition-delay: 0s }
+}

@@ -43,3 +43,26 @@
  @keyframes fx-pw-band { from { transform: translateY(calc(100vh + 10px)) } to { transform: translateY(0) } }
 }
 @media print { html::before { display: none } }
+
+/* fx reveal-plus */
+/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
+   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
+   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
+ html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
+}
+html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
+html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}

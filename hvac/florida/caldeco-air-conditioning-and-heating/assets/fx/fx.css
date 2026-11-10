@@ -1,0 +1,52 @@
+/* fx bg-grid */
+/* bg-grid: layer built by JS. The bright copy of the grid is masked to a circle at --fx-x/--fx-y (mouse) or swept by CSS (touch) */
+.fx-grid { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+ -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, #000 35%, transparent 100%); mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, #000 35%, transparent 100%) }
+.fx-grid i { position: absolute; inset: 0; background-size: var(--fx-gs) var(--fx-gs); background-position: center;
+ background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 20%, transparent) 1.1px, transparent 1.6px) }
+.fx-grid-l i { background-image: linear-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px) }
+.fx-grid i.hi { background-image: radial-gradient(circle, var(--primary) 1.4px, transparent 1.9px);
+ -webkit-mask-image: radial-gradient(circle closest-side, #000, transparent); mask-image: radial-gradient(circle closest-side, #000, transparent);
+ -webkit-mask-size: 420px 420px; mask-size: 420px 420px; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: 50% 40%; mask-position: 50% 40% }
+.fx-grid-l i.hi { background-image: linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px) }
+.fx-grid.is-fine i.hi { opacity: 0; transition: opacity .4s; -webkit-mask-position: var(--fx-x, -999px) var(--fx-y, -999px); mask-position: var(--fx-x, -999px) var(--fx-y, -999px) }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-grid:not(.is-fine) i.hi { animation: fx-grid-sweep 16s ease-in-out infinite alternate }
+ @keyframes fx-grid-sweep { from { -webkit-mask-position: 8% 30%; mask-position: 8% 30% } to { -webkit-mask-position: 92% 70%; mask-position: 92% 70% } }
+}
+
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}
+
+/* fx link-draw */
+/* link-draw: nav and in-text links get an underline that draws in from the left on hover/focus and leaves to the right.
+   Default targets: header nav a, main p a, footer a (not .btn, not links holding an image); or any [data-fx-link-draw]. CSS only.
+   In-text links keep a faint resting underline (replaces the native one) so they still read as links. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-link-draw :is(header nav a, footer a):not(.btn):not(:has(img)), html.fx-link-draw [data-fx-link-draw]:not(.btn) {
+  text-decoration: none; background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1.5px no-repeat; }
+ html.fx-link-draw main p a:not(.btn):not(:has(img)) {
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1.5px no-repeat, linear-gradient(color-mix(in srgb, currentColor 38%, transparent), color-mix(in srgb, currentColor 38%, transparent)) 0 100% / 100% 1px no-repeat; }
+ html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn):not(:has(img)):is(:hover, :focus-visible) { background-position: 0 100%, 0 100%; background-size: 100% 1.5px, 100% 1px }
+ html.fx-link-draw :is(header nav a, footer a, [data-fx-link-draw]):not(.btn):not(:has(img)):is(:hover, :focus-visible) { background-size: 100% 1.5px }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+ html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn) { transition: background-size .45s cubic-bezier(.2, .7, .2, 1) }
+}

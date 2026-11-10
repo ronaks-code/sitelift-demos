@@ -1,0 +1,76 @@
+/* fx bg-topo */
+/* bg-topo: layer built by JS; the two groups of contours drift in opposite slow circles */
+.fx-topo { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
+.fx-topo svg { position: absolute; inset: 0; width: 100%; height: 100% }
+.fx-topo path { fill: none; stroke: color-mix(in srgb, var(--ink) 13%, transparent); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round }
+.fx-topo path.m { stroke: color-mix(in srgb, var(--primary) 18%, transparent) }
+.fx-topo g { transform-box: fill-box; transform-origin: center }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-topo g { will-change: transform; animation: fx-topo-a 80s ease-in-out infinite alternate }
+ .fx-topo-g1 { animation-name: fx-topo-b !important; animation-duration: 100s !important }
+ @keyframes fx-topo-a { to { transform: translate3d(-22px, 16px, 0) rotate(3deg) } }
+ @keyframes fx-topo-b { to { transform: translate3d(20px, -14px, 0) rotate(-3deg) } }
+}
+
+/* fx heading-scrub */
+/* heading-scrub: section headings settle into place (lift, fade, un-clip) as they enter the lower part of the screen.
+   Scroll-driven where supported, nothing elsewhere. Uses opacity, the translate property and clip-path only (no reflow, CLS 0). */
+@keyframes fx-hs {
+ from { opacity: .4; translate: 0 18px; clip-path: inset(-12% -4% 38% -4%) }
+ to { opacity: 1; translate: 0 0; clip-path: inset(-12% -4% -12% -4%) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ @supports (animation-timeline: view()) {
+  html.fx-heading-scrub [data-fx-hs] { animation: fx-hs cubic-bezier(.2, .7, .2, 1) both; animation-timeline: view(); animation-range: entry 5% entry 80% }
+ }
+}
+
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}
+
+/* fx page-fade */
+/* page-fade: cross-document view transition (Chromium 126+, Safari 18.2+; others navigate normally). New page fades in with an
+   8px rise as the old one fades out (plus-lighter crossfade, no dip); the header (first body header) stays put. Reduced motion: no view transition at all. CSS only. */
+@media (prefers-reduced-motion: no-preference) {
+ @view-transition { navigation: auto }
+ body > header:first-of-type { view-transition-name: fx-pf-head }
+ ::view-transition-old(root) { animation: fx-pf-out .36s cubic-bezier(.2, .7, .2, 1) both }
+ ::view-transition-new(root) { animation: fx-pf-in .36s cubic-bezier(.2, .7, .2, 1) both }
+ ::view-transition-old(fx-pf-head) { display: none }
+ ::view-transition-new(fx-pf-head) { animation: none }
+ @keyframes fx-pf-out { from { opacity: 1 } to { opacity: 0 } }
+ @keyframes fx-pf-in { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
+}
+
+/* fx link-draw */
+/* link-draw: nav and in-text links get an underline that draws in from the left on hover/focus and leaves to the right.
+   Default targets: header nav a, main p a, footer a (not .btn, not links holding an image); or any [data-fx-link-draw]. CSS only.
+   In-text links keep a faint resting underline (replaces the native one) so they still read as links. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-link-draw :is(header nav a, footer a):not(.btn):not(:has(img)), html.fx-link-draw [data-fx-link-draw]:not(.btn) {
+  text-decoration: none; background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1.5px no-repeat; }
+ html.fx-link-draw main p a:not(.btn):not(:has(img)) {
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1.5px no-repeat, linear-gradient(color-mix(in srgb, currentColor 38%, transparent), color-mix(in srgb, currentColor 38%, transparent)) 0 100% / 100% 1px no-repeat; }
+ html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn):not(:has(img)):is(:hover, :focus-visible) { background-position: 0 100%, 0 100%; background-size: 100% 1.5px, 100% 1px }
+ html.fx-link-draw :is(header nav a, footer a, [data-fx-link-draw]):not(.btn):not(:has(img)):is(:hover, :focus-visible) { background-size: 100% 1.5px }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+ html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn) { transition: background-size .45s cubic-bezier(.2, .7, .2, 1) }
+}

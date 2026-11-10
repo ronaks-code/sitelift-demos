@@ -1,0 +1,64 @@
+/* fx bg-mesh */
+/* bg-mesh: layer is built by JS under html.fx-bg-mesh; blobs are radial gradients, animated by transform only */
+.fx-mesh { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
+.fx-mesh i { position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50% }
+.fx-mesh i:nth-child(1) { left: -18%; top: -38%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 46%, transparent), transparent) }
+.fx-mesh i:nth-child(2) { right: -22%; top: -10%; width: 70%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 42%, transparent), transparent) }
+.fx-mesh i:nth-child(3) { left: 18%; bottom: -60%; width: 84%; background: radial-gradient(closest-side, color-mix(in srgb, var(--surface) 80%, var(--primary)), transparent) }
+.fx-mesh i:nth-child(4) { right: 8%; bottom: -34%; width: 52%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 26%, var(--accent)), transparent); opacity: .7 }
+@media (max-width: 760px) { .fx-mesh i { width: 130% } .fx-mesh i:nth-child(2) { right: -50% } }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-mesh i { will-change: transform; animation: fx-mesh-a 28s ease-in-out infinite alternate }
+ .fx-mesh i:nth-child(2) { animation-name: fx-mesh-b; animation-duration: 34s }
+ .fx-mesh i:nth-child(3) { animation-name: fx-mesh-c; animation-duration: 40s }
+ .fx-mesh i:nth-child(4) { animation-name: fx-mesh-b; animation-duration: 22s; animation-direction: alternate-reverse }
+ @keyframes fx-mesh-a { to { transform: translate3d(22%, 16%, 0) scale(1.12) } }
+ @keyframes fx-mesh-b { to { transform: translate3d(-24%, 20%, 0) scale(.9) } }
+ @keyframes fx-mesh-c { to { transform: translate3d(-18%, -14%, 0) scale(1.15) } }
+}
+
+/* fx reveal-plus */
+/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
+   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
+   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
+ html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
+}
+html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
+html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
+
+/* fx tilt */
+/* tilt: soft glare layer inside tilting cards (inserted by tilt.js) */
+html.fx-tilt .fx-tilt-g { position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
+ background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 58%) }
+html.fx-tilt .fx-tilt-g.on { opacity: 1 }
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}
+
+/* fx btn-fill */
+/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
+   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
+html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
+html.fx-btn-fill .fx-bf-r { position: relative }
+html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
+html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
+html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
+ clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
+html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
+@media (hover: hover) and (pointer: fine) {
+ html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+ html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
+}
+@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/restaurants/florida/the-fountainhead-wine-and-beer-bar/sitemap.xml

@@ -1,0 +1,72 @@
+/* fx page-fade */
+/* page-fade: cross-document view transition (Chromium 126+, Safari 18.2+; others navigate normally). New page fades in with an
+   8px rise as the old one fades out (plus-lighter crossfade, no dip); the header (first body header) stays put. Reduced motion: no view transition at all. CSS only. */
+@media (prefers-reduced-motion: no-preference) {
+ @view-transition { navigation: auto }
+ body > header:first-of-type { view-transition-name: fx-pf-head }
+ ::view-transition-old(root) { animation: fx-pf-out .36s cubic-bezier(.2, .7, .2, 1) both }
+ ::view-transition-new(root) { animation: fx-pf-in .36s cubic-bezier(.2, .7, .2, 1) both }
+ ::view-transition-old(fx-pf-head) { display: none }
+ ::view-transition-new(fx-pf-head) { animation: none }
+ @keyframes fx-pf-out { from { opacity: 1 } to { opacity: 0 } }
+ @keyframes fx-pf-in { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
+}
+
+/* fx cursor-ring */
+/* cursor-ring: elements exist only when JS built them (mouse + motion allowed), so nothing here can hide content */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-cur-on, html.fx-cur-on a, html.fx-cur-on button, html.fx-cur-on [role=button], html.fx-cur-on label { cursor: none }
+ html.fx-cur-on input, html.fx-cur-on textarea, html.fx-cur-on select, html.fx-cur-on iframe { cursor: auto }
+}
+.fx-cur { position: fixed; inset: 0; pointer-events: none; z-index: 2147483000; opacity: 0; transition: opacity .25s }
+.fx-cur.on { opacity: 1 }
+.fx-cur.is-field { opacity: 0 }
+.fx-cur i { position: fixed; left: 0; top: 0; pointer-events: none; will-change: transform }
+.fx-cur-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--primary); transition: opacity .2s }
+.fx-cur-ring b { position: absolute; left: 0; top: 0; width: 34px; height: 34px; transform: translate(-50%, -50%); border-radius: 999px;
+ border: 1.5px solid color-mix(in srgb, var(--primary) 70%, transparent); display: grid; place-items: center; overflow: hidden;
+ transition: width .3s cubic-bezier(.2, .8, .2, 1), height .3s cubic-bezier(.2, .8, .2, 1), background-color .25s, border-color .25s }
+.fx-cur-ring span { font: 700 12px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--on-primary); opacity: 0; transition: opacity .2s; white-space: nowrap }
+.fx-cur.is-link .fx-cur-ring b { width: 56px; height: 56px; background: color-mix(in srgb, var(--primary) 12%, transparent); border-color: transparent }
+.fx-cur.is-link .fx-cur-dot { opacity: 0 }
+.fx-cur.is-label .fx-cur-ring b { width: 78px; height: 78px; background: var(--primary); border-color: var(--primary) }
+.fx-cur.is-label .fx-cur-ring span { opacity: 1 }
+.fx-cur.is-label .fx-cur-dot { opacity: 0 }
+.fx-cur.down .fx-cur-ring b { width: 26px; height: 26px }
+.fx-cur.is-label.down .fx-cur-ring b { width: 70px; height: 70px }
+/* blend: one white ring that inverts whatever is under it (works on photos, dark and light sections alike) */
+.fx-cur-blend { mix-blend-mode: difference }
+.fx-cur-blend .fx-cur-dot { background: #fff }
+.fx-cur-blend .fx-cur-ring b { border-color: #fff }
+.fx-cur-blend.is-link .fx-cur-ring b, .fx-cur-blend.is-label .fx-cur-ring b { background: #fff; border-color: #fff }
+.fx-cur-blend .fx-cur-ring span { color: #000 }
+
+/* fx header-hide */
+/* header-hide: sticky header slides away on the way down and returns on the way up. The class is only ever added by JS. */
+@media (prefers-reduced-motion: no-preference) {
+ .fx-hh { transition: transform .35s cubic-bezier(.2, .7, .2, 1) }
+}
+.fx-hh.fx-hh-off { transform: translateY(-101%) }
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}
+
+/* fx reveal-plus */
+/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
+   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
+   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
+ html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
+}
+html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
+html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }

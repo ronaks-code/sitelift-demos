@@ -1,0 +1,88 @@
+/* fx bg-mesh */
+/* bg-mesh: layer is built by JS under html.fx-bg-mesh; blobs are radial gradients, animated by transform only */
+.fx-mesh { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
+.fx-mesh i { position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50% }
+.fx-mesh i:nth-child(1) { left: -18%; top: -38%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 46%, transparent), transparent) }
+.fx-mesh i:nth-child(2) { right: -22%; top: -10%; width: 70%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 42%, transparent), transparent) }
+.fx-mesh i:nth-child(3) { left: 18%; bottom: -60%; width: 84%; background: radial-gradient(closest-side, color-mix(in srgb, var(--surface) 80%, var(--primary)), transparent) }
+.fx-mesh i:nth-child(4) { right: 8%; bottom: -34%; width: 52%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 26%, var(--accent)), transparent); opacity: .7 }
+@media (max-width: 760px) { .fx-mesh i { width: 130% } .fx-mesh i:nth-child(2) { right: -50% } }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-mesh i { will-change: transform; animation: fx-mesh-a 28s ease-in-out infinite alternate }
+ .fx-mesh i:nth-child(2) { animation-name: fx-mesh-b; animation-duration: 34s }
+ .fx-mesh i:nth-child(3) { animation-name: fx-mesh-c; animation-duration: 40s }
+ .fx-mesh i:nth-child(4) { animation-name: fx-mesh-b; animation-duration: 22s; animation-direction: alternate-reverse }
+ @keyframes fx-mesh-a { to { transform: translate3d(22%, 16%, 0) scale(1.12) } }
+ @keyframes fx-mesh-b { to { transform: translate3d(-24%, 20%, 0) scale(.9) } }
+ @keyframes fx-mesh-c { to { transform: translate3d(-18%, -14%, 0) scale(1.15) } }
+}
+
+/* fx reveal-plus */
+/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
+   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
+   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
+ html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
+}
+html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
+html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
+
+/* fx section-tint */
+/* section-tint: one fixed colour layer behind the page; its colour follows the section in view. Only sections with a transparent
+   background show it, so sections that set their own backgrounds are untouched. The layer exists only when JS built it. */
+.fx-st-layer { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg) }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-st-layer { transition: background-color .9s cubic-bezier(.2, .7, .2, 1) }
+}
+
+/* fx lightbox-plus */
+/* lightbox-plus: photo viewer that replaces the core lightbox (dialog created by lightbox-plus.js). Backdrop colour is set from --dark in JS. */
+.fx-lb { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 56px 64px 72px; touch-action: none; overscroll-behavior: contain; color: var(--on-dark) }
+.fx-lb.open { display: flex }
+.fx-lb-f { margin: 0; display: grid; justify-items: center; gap: 12px; max-width: 100%; max-height: 100%; min-height: 0 }
+.fx-lb-img { display: block; max-width: min(92vw, 1500px); max-height: calc(100vh - 170px); width: auto; height: auto; object-fit: contain; border-radius: calc(var(--radius) * .5); box-shadow: 0 24px 80px rgba(0, 0, 0, .5); user-select: none; -webkit-user-drag: none }
+.fx-lb-cap { margin: 0; text-align: center; font: 500 15px/1.4 var(--f-body); max-width: 60ch; min-height: 1.4em }
+.fx-lb-n { position: absolute; left: 20px; top: 22px; font: 700 14px/1 var(--f-body); letter-spacing: .08em; font-variant-numeric: tabular-nums; opacity: .85 }
+.fx-lb-b { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--on-dark) 30%, transparent); cursor: pointer; font: 400 22px/1 var(--f-body);
+ background: color-mix(in srgb, var(--on-dark) 12%, transparent); color: var(--on-dark); display: grid; place-items: center; padding: 0; transition: background .2s }
+.fx-lb-b:hover { background: color-mix(in srgb, var(--on-dark) 24%, transparent) }
+.fx-lb-b:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px }
+.fx-lb-x { top: 14px; right: 16px }
+.fx-lb-p, .fx-lb-nx { top: 50%; margin-top: -24px }
+.fx-lb-p { left: 14px }
+.fx-lb-nx { right: 14px }
+.fx-lb-1 .fx-lb-p, .fx-lb-1 .fx-lb-nx, .fx-lb-1 .fx-lb-n { display: none }
+@media (max-width: 760px) {
+ .fx-lb { padding: 64px 12px 92px }
+ .fx-lb-img { max-width: 100%; max-height: calc(100vh - 220px) }
+ .fx-lb-p, .fx-lb-nx { top: auto; bottom: 18px; margin: 0 }
+ .fx-lb-p { left: 20px }
+ .fx-lb-nx { right: 20px }
+}
+
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }
+
+/* fx btn-fill */
+/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
+   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
+html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
+html.fx-btn-fill .fx-bf-r { position: relative }
+html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
+html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
+html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
+ clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
+html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
+@media (hover: hover) and (pointer: fine) {
+ html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+ html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
+}
+@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }

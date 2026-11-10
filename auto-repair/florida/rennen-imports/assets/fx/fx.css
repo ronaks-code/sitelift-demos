@@ -31,3 +31,41 @@ html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
 @media (prefers-reduced-motion: no-preference) {
  .fx-st-layer { transition: background-color .9s cubic-bezier(.2, .7, .2, 1) }
 }
+
+/* fx ken-burns */
+/* ken-burns: the hero photo drifts and zooms very slowly inside its frame (1 to 1.08 over 22s, alternating). Only photos JS tagged
+   (their frame clips them); never placeholders. Static with reduced motion. */
+@keyframes fx-kb { from { transform: scale(1) translate3d(0, 0, 0) } to { transform: scale(1.08) translate3d(-1.2%, -1%, 0) } }
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-ken-burns img[data-fx-kb] { animation: fx-kb var(--fx-kb-t, 22s) ease-in-out infinite alternate; will-change: transform }
+}
+
+/* fx btn-fill */
+/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
+   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
+html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
+html.fx-btn-fill .fx-bf-r { position: relative }
+html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
+html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
+html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
+ clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
+html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
+@media (hover: hover) and (pointer: fine) {
+ html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+ html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
+}
+@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }
+
+/* fx heading-scrub */
+/* heading-scrub: section headings settle into place (lift, fade, un-clip) as they enter the lower part of the screen.
+   Scroll-driven where supported, nothing elsewhere. Uses opacity, the translate property and clip-path only (no reflow, CLS 0). */
+@keyframes fx-hs {
+ from { opacity: .4; translate: 0 18px; clip-path: inset(-12% -4% 38% -4%) }
+ to { opacity: 1; translate: 0 0; clip-path: inset(-12% -4% -12% -4%) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ @supports (animation-timeline: view()) {
+  html.fx-heading-scrub [data-fx-hs] { animation: fx-hs cubic-bezier(.2, .7, .2, 1) both; animation-timeline: view(); animation-range: entry 5% entry 80% }
+ }
+}

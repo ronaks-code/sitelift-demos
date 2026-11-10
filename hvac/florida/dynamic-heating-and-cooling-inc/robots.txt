@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/hvac/florida/dynamic-heating-and-cooling-inc/sitemap.xml

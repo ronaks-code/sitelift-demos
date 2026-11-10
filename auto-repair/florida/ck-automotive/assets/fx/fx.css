@@ -1,0 +1,70 @@
+/* fx bg-grid */
+/* bg-grid: layer built by JS. The bright copy of the grid is masked to a circle at --fx-x/--fx-y (mouse) or swept by CSS (touch) */
+.fx-grid { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+ -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, #000 35%, transparent 100%); mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, #000 35%, transparent 100%) }
+.fx-grid i { position: absolute; inset: 0; background-size: var(--fx-gs) var(--fx-gs); background-position: center;
+ background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 20%, transparent) 1.1px, transparent 1.6px) }
+.fx-grid-l i { background-image: linear-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px) }
+.fx-grid i.hi { background-image: radial-gradient(circle, var(--primary) 1.4px, transparent 1.9px);
+ -webkit-mask-image: radial-gradient(circle closest-side, #000, transparent); mask-image: radial-gradient(circle closest-side, #000, transparent);
+ -webkit-mask-size: 420px 420px; mask-size: 420px 420px; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: 50% 40%; mask-position: 50% 40% }
+.fx-grid-l i.hi { background-image: linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px) }
+.fx-grid.is-fine i.hi { opacity: 0; transition: opacity .4s; -webkit-mask-position: var(--fx-x, -999px) var(--fx-y, -999px); mask-position: var(--fx-x, -999px) var(--fx-y, -999px) }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-grid:not(.is-fine) i.hi { animation: fx-grid-sweep 16s ease-in-out infinite alternate }
+ @keyframes fx-grid-sweep { from { -webkit-mask-position: 8% 30%; mask-position: 8% 30% } to { -webkit-mask-position: 92% 70%; mask-position: 92% 70% } }
+}
+
+/* fx heading-scrub */
+/* heading-scrub: section headings settle into place (lift, fade, un-clip) as they enter the lower part of the screen.
+   Scroll-driven where supported, nothing elsewhere. Uses opacity, the translate property and clip-path only (no reflow, CLS 0). */
+@keyframes fx-hs {
+ from { opacity: .4; translate: 0 18px; clip-path: inset(-12% -4% 38% -4%) }
+ to { opacity: 1; translate: 0 0; clip-path: inset(-12% -4% -12% -4%) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ @supports (animation-timeline: view()) {
+  html.fx-heading-scrub [data-fx-hs] { animation: fx-hs cubic-bezier(.2, .7, .2, 1) both; animation-timeline: view(); animation-range: entry 5% entry 80% }
+ }
+}
+
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }
+
+/* fx sticky-cta */
+/* sticky-cta: a floating Call + Book pill (created by sticky-cta.js). Desktop: bottom-right pill. Mobile: nothing when the kit has its own
+   call bar (.fx-sc-nb), else a compact bar. Hidden state only exists on the element JS creates; it sits under the lightbox. */
+.fx-sc { position: fixed; right: 20px; bottom: 20px; z-index: 700; display: flex; gap: 6px; padding: 6px; border-radius: 999px; background: var(--dark); color: var(--on-dark);
+ border: 1px solid color-mix(in srgb, var(--on-dark) 20%, transparent); box-shadow: 0 12px 34px rgba(0, 0, 0, .28);
+ opacity: 0; visibility: hidden; transform: translateY(20px); pointer-events: none; }
+.fx-sc.on { opacity: 1; visibility: visible; transform: none; pointer-events: auto }
+.fx-sc a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 22px; border-radius: 999px; font: 700 15px/1 var(--f-body); text-decoration: none; white-space: nowrap }
+.fx-sc-call { color: var(--on-dark); background: color-mix(in srgb, var(--on-dark) 14%, transparent) }
+.fx-sc-book { background: var(--primary); color: var(--on-primary) }
+.fx-sc a:hover { filter: brightness(1.12) }
+body:has(.lb.open) .fx-sc, body:has(.fx-lb.open) .fx-sc { display: none }
+@media (max-width: 760px) {
+ .fx-sc { left: 12px; right: 12px; bottom: 12px }
+ .fx-sc a { flex: 1 }
+ .fx-sc-nb { display: none }
+}
+@media (prefers-reduced-motion: no-preference) {
+ .fx-sc { transition: opacity .35s, transform .5s cubic-bezier(.2, .7, .2, 1), visibility 0s .5s }
+ .fx-sc.on { transition-delay: 0s }
+}
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}

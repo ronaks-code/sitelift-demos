@@ -1,0 +1,88 @@
+/* fx mask-reveal */
+/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
+   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
+html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
+html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
+
+/* fx page-wipe */
+/* page-wipe: cross-document view transition (Chromium 126+, Safari 18.2+; others navigate normally). The old page stays and dims,
+   the new page is revealed by a clip sweeping up from the bottom with a thin primary band on its edge. 520ms. Reduced motion:
+   no view transition. CSS only. The band is a fixed bar parked above the viewport (never visible on the page itself). */
+@media (prefers-reduced-motion: no-preference) {
+ @view-transition { navigation: auto }
+ html::before { content: ""; position: fixed; left: 0; right: 0; top: -10px; height: 4px; pointer-events: none; background: var(--primary);
+  box-shadow: 0 0 22px 3px color-mix(in srgb, var(--primary) 55%, transparent); view-transition-name: fx-pw-band }
+ ::view-transition-old(root), ::view-transition-new(root) { mix-blend-mode: normal }
+ ::view-transition-old(root) { animation: fx-pw-old .52s cubic-bezier(.65, 0, .25, 1) both }
+ ::view-transition-new(root) { animation: fx-pw-in .52s cubic-bezier(.65, 0, .25, 1) both }
+ ::view-transition-old(fx-pw-band) { display: none }
+ ::view-transition-new(fx-pw-band) { animation: fx-pw-band .52s cubic-bezier(.65, 0, .25, 1) both }
+ @keyframes fx-pw-in { from { clip-path: inset(100% 0 0 0) } to { clip-path: inset(0 0 0 0) } }
+ @keyframes fx-pw-old { to { filter: brightness(.7) } }
+ @keyframes fx-pw-band { from { transform: translateY(calc(100vh + 10px)) } to { transform: translateY(0) } }
+}
+@media print { html::before { display: none } }
+
+/* fx parallax */
+/* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
+   scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */
+@keyframes fx-px {
+ from { transform: translate3d(0, calc(var(--fx-px, 5%) * -1), 0) scale(1.12) }
+ to { transform: translate3d(0, var(--fx-px, 5%), 0) scale(1.12) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-parallax [data-fx-px] { will-change: transform; transform: scale(1.12) }
+ @supports (animation-timeline: view()) {
+  html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
+ }
+}
+
+/* fx spotlight */
+/* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
+.fx-sp { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 20; pointer-events: none; opacity: 0; transition: opacity .3s }
+.fx-sp.on { opacity: 1 }
+.fx-sp b { position: absolute; inset: 0; border-radius: inherit;
+ background: radial-gradient(circle 260px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%) }
+.fx-sp i { position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+ background: radial-gradient(circle 280px at var(--fx-x, 50%) var(--fx-y, 50%), var(--accent), transparent 70%);
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
+ mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
+.fx-sp.big i { display: none }
+.fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
+
+/* fx split-reveal */
+/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
+   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
+.fx-sr-w { display: inline-block; white-space: nowrap }
+.fx-sr-u { display: inline-block }
+.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
+.fx-sr-i { display: inline-block }
+
+/* fx cursor-ring */
+/* cursor-ring: elements exist only when JS built them (mouse + motion allowed), so nothing here can hide content */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-cur-on, html.fx-cur-on a, html.fx-cur-on button, html.fx-cur-on [role=button], html.fx-cur-on label { cursor: none }
+ html.fx-cur-on input, html.fx-cur-on textarea, html.fx-cur-on select, html.fx-cur-on iframe { cursor: auto }
+}
+.fx-cur { position: fixed; inset: 0; pointer-events: none; z-index: 2147483000; opacity: 0; transition: opacity .25s }
+.fx-cur.on { opacity: 1 }
+.fx-cur.is-field { opacity: 0 }
+.fx-cur i { position: fixed; left: 0; top: 0; pointer-events: none; will-change: transform }
+.fx-cur-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--primary); transition: opacity .2s }
+.fx-cur-ring b { position: absolute; left: 0; top: 0; width: 34px; height: 34px; transform: translate(-50%, -50%); border-radius: 999px;
+ border: 1.5px solid color-mix(in srgb, var(--primary) 70%, transparent); display: grid; place-items: center; overflow: hidden;
+ transition: width .3s cubic-bezier(.2, .8, .2, 1), height .3s cubic-bezier(.2, .8, .2, 1), background-color .25s, border-color .25s }
+.fx-cur-ring span { font: 700 12px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--on-primary); opacity: 0; transition: opacity .2s; white-space: nowrap }
+.fx-cur.is-link .fx-cur-ring b { width: 56px; height: 56px; background: color-mix(in srgb, var(--primary) 12%, transparent); border-color: transparent }
+.fx-cur.is-link .fx-cur-dot { opacity: 0 }
+.fx-cur.is-label .fx-cur-ring b { width: 78px; height: 78px; background: var(--primary); border-color: var(--primary) }
+.fx-cur.is-label .fx-cur-ring span { opacity: 1 }
+.fx-cur.is-label .fx-cur-dot { opacity: 0 }
+.fx-cur.down .fx-cur-ring b { width: 26px; height: 26px }
+.fx-cur.is-label.down .fx-cur-ring b { width: 70px; height: 70px }
+/* blend: one white ring that inverts whatever is under it (works on photos, dark and light sections alike) */
+.fx-cur-blend { mix-blend-mode: difference }
+.fx-cur-blend .fx-cur-dot { background: #fff }
+.fx-cur-blend .fx-cur-ring b { border-color: #fff }
+.fx-cur-blend.is-link .fx-cur-ring b, .fx-cur-blend.is-label .fx-cur-ring b { background: #fff; border-color: #fff }
+.fx-cur-blend .fx-cur-ring span { color: #000 }

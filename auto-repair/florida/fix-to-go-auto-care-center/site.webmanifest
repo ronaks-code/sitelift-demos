@@ -1,0 +1,20 @@
+{
+ "name": "Fix To Go Auto Care Center",
+ "short_name": "Fix To Go Au",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#c8141c",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

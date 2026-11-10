@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://ronaks-code.github.io/sitelift-demos/hvac/florida/home-therapist-cooling-heating-and-plumbing/sitemap.xml

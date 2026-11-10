@@ -1,0 +1,75 @@
+/* fx grain */
+/* grain: a fine film-grain layer over the whole page (fixed, click-through, no layout). Tune with --fx-grain (0.04-0.12; grey noise, reads on light and dark grounds).
+   Static grain under reduced motion; gently shifting grain otherwise. CSS only, works without JS. */
+html::after {
+ content: ""; position: fixed; inset: -50%; z-index: 2147482000; pointer-events: none;
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+ background-size: 180px 180px; opacity: var(--fx-grain, .07)
+}
+@media (prefers-reduced-motion: no-preference) {
+ html::after { animation: fx-grain 1s steps(4) infinite }
+ @keyframes fx-grain { 0% { transform: translate(0, 0) } 25% { transform: translate(-3%, 2%) } 50% { transform: translate(2%, -3%) } 75% { transform: translate(-2%, -1%) } 100% { transform: translate(0, 0) } }
+}
+@media print { html::after { display: none } }
+
+/* fx review-marquee */
+/* review-marquee: the reviews row becomes a slow, endless strip of the kit's own cards (created by review-marquee.js, which also adds
+   the aria-hidden clones). Cards keep their styling; only the width is fixed. Scoped to the converted track, so nothing changes without JS. */
+.fx-rm { position: relative }
+.fx-rm-clip { overflow: hidden; padding: 14px 0; margin: -14px 0;
+ -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent) }
+html.fx-review-marquee .fx-rm-track { display: flex !important; flex-wrap: nowrap !important; grid-template-columns: none !important; columns: auto !important; width: max-content !important; max-width: none !important;
+ margin: 0 !important; gap: var(--fx-rm-gap, 20px) !important; padding: 0 var(--fx-rm-gap, 20px) 0 0 !important; will-change: transform }
+html.fx-review-marquee .fx-rm-track > * { flex: 0 0 auto !important; width: min(380px, 80vw) !important; max-width: none !important; margin: 0 !important; box-sizing: border-box }
+.fx-rm-ctl { display: flex; justify-content: flex-end; margin-top: 16px }
+.fx-rm-btn { display: inline-flex; align-items: center; gap: 8px; min-height: 36px; padding: 0 14px; border-radius: 99px; cursor: pointer; font: 600 13px/1 var(--f-body);
+ background: transparent; color: inherit; border: 1.5px solid var(--line) }
+.fx-rm-btn:hover { background: color-mix(in srgb, currentColor 8%, transparent) }
+.fx-rm-btn i { width: 9px; height: 11px; border-left: 3px solid currentColor; border-right: 3px solid currentColor }
+.fx-rm-btn[aria-pressed=true] i { width: 0; height: 0; border-right: 0; border-left: 9px solid currentColor; border-block: 6px solid transparent }
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-review-marquee .fx-rm-track { animation: fx-rm var(--fx-rm-d, 60s) linear infinite }
+ @keyframes fx-rm { to { transform: translateX(-50%) } }
+}
+.fx-rm-clip:hover .fx-rm-track, .fx-rm-clip:focus-within .fx-rm-track, .fx-rm-p .fx-rm-track, .fx-rm-off .fx-rm-track { animation-play-state: paused !important }
+
+/* fx mask-reveal */
+/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
+   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
+html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
+html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
+
+/* fx btn-fill */
+/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
+   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
+html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
+html.fx-btn-fill .fx-bf-r { position: relative }
+html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
+html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
+html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
+ clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
+html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
+@media (hover: hover) and (pointer: fine) {
+ html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+ html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
+}
+@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }
+
+/* fx click-burst */
+/* click-burst: particles are built by JS at click time and removed again; nothing exists otherwise */
+.fx-cb2 { position: fixed; inset: 0; pointer-events: none; z-index: 2147483000; overflow: hidden }
+.fx-cb2 i { position: absolute; border-radius: 50%; background: currentColor; will-change: transform, opacity }
+.fx-cb2 i.g { width: auto; height: auto; border-radius: 0; background: none; font: 700 14px/1 var(--f-body) }
+.fx-cb2 i.g::before { content: var(--glyph, "\2726") }
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}

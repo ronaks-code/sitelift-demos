@@ -96,8 +96,9 @@ FX.def('bg-mesh', function (c) {
     var L = document.createElement('div'), i;
     L.className = 'fx-mesh'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none'; L.style.opacity = s;
     for (i = 0; i < 4; i++) L.appendChild(document.createElement('i'));
-    t.insertBefore(L, t.firstChild); t.style.isolation = 'isolate';
+    // Containing block first, then insert: setting position after the layer is in moves the blobs (counted as layout shift).
     if (getComputedStyle(t).position === 'static') t.style.position = 'relative';
+    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
   });
 });
 
@@ -149,7 +150,14 @@ FX.def('split-reveal', function (c) {
 FX.def('magnetic', function (c) {
   if (!FX.fine || FX.reduced) return;
   var R = +c.opt.range || 80, M = +c.opt.max || 9, run = 0, px = -9e3, py = -9e3;
-  var it = c.els('.btn').filter(function (e) { return !e.matches('.callbar'); }).map(function (e) {
+  // press-style buttons (hard offset shadow, no blur) already move on hover; leaning them too makes them wobble (Vinay 2026-11-09)
+  function pressy(e) {
+    return getComputedStyle(e).boxShadow.replace(/rgba?\([^)]*\)/g, '').split(',').some(function (sh) {
+      var n = (sh.match(/-?[\d.]+px/g) || []).map(parseFloat);   // x y blur spread
+      return n.length >= 2 && !(n[2] > 0) && (n[0] || n[1]);
+    });
+  }
+  var it = c.els('.btn').filter(function (e) { return !e.matches('.callbar') && !pressy(e); }).map(function (e) {
     var l = e.querySelector('span');
     if (l && getComputedStyle(l).display === 'inline') l.style.display = 'inline-block';
     return { e: e, l: l, x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0 };
@@ -182,4 +190,45 @@ FX.def('magnetic', function (c) {
   addEventListener('pointermove', function (e) { if (e.pointerType && e.pointerType !== 'mouse') return; px = e.clientX; py = e.clientY; aim(); }, { passive: true });
   document.addEventListener('mouseleave', function () { px = py = -9e3; aim(); });
   addEventListener('scroll', function () { if (px > -9e3) aim(); }, { passive: true });
+});
+
+/* fx reveal-plus */
+/* reveal-plus: richer reveals on top of core's .rv (core adds .in). opt: {style: "rise" | "blur" | "clip", step: 70} (ms between
+   items that enter together, so grids and lists cascade instead of popping at once). Reduced motion: core already shows all. */
+FX.def('reveal-plus', function (c) {
+  if (FX.reduced || !('IntersectionObserver' in window)) return;
+  var h = document.documentElement, st = String(c.opt.style || 'rise'), step = +c.opt.step || 70;
+  if (st === 'blur' || st === 'clip') h.classList.add('fx-rp-' + st);
+  var els = c.els('.rv').filter(function (e) { return !e.classList.contains('in'); });
+  var io = new IntersectionObserver(function (es) {
+    var hit = es.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
+    hit.sort(function (a, b) { var A = a.getBoundingClientRect(), B = b.getBoundingClientRect(); return (A.top - B.top) || (A.left - B.left); });
+    hit.forEach(function (e, i) {
+      io.unobserve(e);
+      e.style.transitionDelay = Math.min(i, 6) * step + 'ms';
+      setTimeout(function () { e.style.transitionDelay = ''; }, 1500);
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  els.forEach(function (e) { io.observe(e); });
+});
+
+/* fx img-zoom */
+/* img-zoom: finds each image's clipping frame (an ancestor with overflow hidden/clip around just that image); if there is none,
+   clips the display:block link around it; if neither is possible the image is left alone. Mouse only, off with reduced motion. */
+FX.def('img-zoom', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  c.els('a[data-lb] img,[class*=gal] img').forEach(function (img) {
+    if (img.closest('.ph,[class*=logo]')) return;
+    var a = img.closest('a'), fig = img.closest('figure'), f = null, p = img.parentElement, i = 0;
+    for (; p && i < 3 && p.querySelectorAll('img').length === 1; p = p.parentElement, i++) {
+      if (getComputedStyle(p).overflow !== 'visible') { f = p; break; }
+    }
+    if (!f) {
+      if (a && a.contains(img) && getComputedStyle(a).display === 'block') { a.classList.add('fx-zoom-clip'); f = a; } else return;
+    }
+    img.classList.add('fx-zoom');
+    var host = fig && fig.querySelectorAll('img').length === 1 ? fig : (a && a.contains(img) ? a : f);
+    host.classList.add('fx-zoom-host');
+    var cap = fig && fig.querySelector('figcaption'); if (cap) cap.classList.add('fx-zoom-cap');
+  });
 });

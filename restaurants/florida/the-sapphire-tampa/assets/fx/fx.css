@@ -1,0 +1,62 @@
+/* fx split-reveal */
+/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
+   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
+.fx-sr-w { display: inline-block; white-space: nowrap }
+.fx-sr-u { display: inline-block }
+.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
+.fx-sr-i { display: inline-block }
+
+/* fx parallax */
+/* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
+   scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */
+@keyframes fx-px {
+ from { transform: translate3d(0, calc(var(--fx-px, 5%) * -1), 0) scale(1.12) }
+ to { transform: translate3d(0, var(--fx-px, 5%), 0) scale(1.12) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-parallax [data-fx-px] { will-change: transform; transform: scale(1.12) }
+ @supports (animation-timeline: view()) {
+  html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
+ }
+}
+
+/* fx spotlight */
+/* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
+.fx-sp { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 20; pointer-events: none; opacity: 0; transition: opacity .3s }
+.fx-sp.on { opacity: 1 }
+.fx-sp b { position: absolute; inset: 0; border-radius: inherit;
+ background: radial-gradient(circle 260px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%) }
+.fx-sp i { position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+ background: radial-gradient(circle 280px at var(--fx-x, 50%) var(--fx-y, 50%), var(--accent), transparent 70%);
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
+ mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
+.fx-sp.big i { display: none }
+.fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
+
+/* fx reveal-plus */
+/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
+   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
+   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
+ html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
+}
+html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
+html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
+
+/* fx cursor-blend */
+/* cursor-blend: the circle exists only when JS built it (mouse + motion allowed); nothing here can hide content */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-cb-on, html.fx-cb-on * { cursor: none }
+ html.fx-cb-on input, html.fx-cb-on textarea, html.fx-cb-on select, html.fx-cb-on iframe, html.fx-cb-on [contenteditable] { cursor: auto }
+}
+.fx-cb { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 2147483000; mix-blend-mode: difference; opacity: 0; transition: opacity .25s; will-change: transform }
+.fx-cb.on { opacity: 1 }
+.fx-cb.is-field { opacity: 0 }
+.fx-cb i { position: absolute; left: -11px; top: -11px; width: 22px; height: 22px; border-radius: 50%; background: #fff;
+ transition: transform .35s cubic-bezier(.2, .8, .2, 1) }
+.fx-cb.is-grow i { transform: scale(3.18) }
+.fx-cb.is-link i { transform: scale(.55) }
+.fx-cb.down i { transform: scale(.8) }
+.fx-cb.is-grow.down i { transform: scale(2.6) }

@@ -1,0 +1,70 @@
+/* fx bg-waves */
+/* bg-waves: layer built by JS. Each svg is twice as wide as the hero; sliding it by half loops seamlessly */
+.fx-waves { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+ -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 95%); mask-image: linear-gradient(to top, #000 40%, transparent 95%) }
+.fx-waves svg { position: absolute; left: 0; width: max(200%, 1800px); height: 24%; min-height: 80px; overflow: visible }
+.fx-waves path { fill: none; stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linejoin: round }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-waves svg { will-change: transform; animation: fx-waves-x 60s linear infinite }
+ @keyframes fx-waves-x { to { transform: translate3d(-50%, 0, 0) } }
+}
+
+/* fx highlight-sweep */
+/* highlight-sweep: a marker band (or underline) draws across the hero's emphasised words when they scroll into view. The text colour
+   is never changed; the band is a translucent --accent. Marked elements are tagged by JS; the final highlight is the natural
+   state once .fx-hl-on is set. Reduced motion: final highlight, static.
+   No padding/margin on the marked element: it is tagged after first paint, and padding with box-decoration-break: clone
+   rewraps a multi-line headline (measured CLS 0.1-0.17 on hero h1 em). */
+[data-fx-hl] { background-repeat: no-repeat; background-position: 0 94%; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+ background-image: linear-gradient(color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent) 26%, transparent)); background-size: 0% 36% }
+[data-fx-hl=underline] { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0% 3px }
+[data-fx-hl].fx-hl-on { background-size: 100% 36% }
+[data-fx-hl=underline].fx-hl-on { background-size: 100% 3px }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-hl] { transition: background-size 1s cubic-bezier(.2, .7, .2, 1) }
+}
+
+/* fx ken-burns */
+/* ken-burns: the hero photo drifts and zooms very slowly inside its frame (1 to 1.08 over 22s, alternating). Only photos JS tagged
+   (their frame clips them); never placeholders. Static with reduced motion. */
+@keyframes fx-kb { from { transform: scale(1) translate3d(0, 0, 0) } to { transform: scale(1.08) translate3d(-1.2%, -1%, 0) } }
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-ken-burns img[data-fx-kb] { animation: fx-kb var(--fx-kb-t, 22s) ease-in-out infinite alternate; will-change: transform }
+}
+
+/* fx lightbox-plus */
+/* lightbox-plus: photo viewer that replaces the core lightbox (dialog created by lightbox-plus.js). Backdrop colour is set from --dark in JS. */
+.fx-lb { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 56px 64px 72px; touch-action: none; overscroll-behavior: contain; color: var(--on-dark) }
+.fx-lb.open { display: flex }
+.fx-lb-f { margin: 0; display: grid; justify-items: center; gap: 12px; max-width: 100%; max-height: 100%; min-height: 0 }
+.fx-lb-img { display: block; max-width: min(92vw, 1500px); max-height: calc(100vh - 170px); width: auto; height: auto; object-fit: contain; border-radius: calc(var(--radius) * .5); box-shadow: 0 24px 80px rgba(0, 0, 0, .5); user-select: none; -webkit-user-drag: none }
+.fx-lb-cap { margin: 0; text-align: center; font: 500 15px/1.4 var(--f-body); max-width: 60ch; min-height: 1.4em }
+.fx-lb-n { position: absolute; left: 20px; top: 22px; font: 700 14px/1 var(--f-body); letter-spacing: .08em; font-variant-numeric: tabular-nums; opacity: .85 }
+.fx-lb-b { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--on-dark) 30%, transparent); cursor: pointer; font: 400 22px/1 var(--f-body);
+ background: color-mix(in srgb, var(--on-dark) 12%, transparent); color: var(--on-dark); display: grid; place-items: center; padding: 0; transition: background .2s }
+.fx-lb-b:hover { background: color-mix(in srgb, var(--on-dark) 24%, transparent) }
+.fx-lb-b:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px }
+.fx-lb-x { top: 14px; right: 16px }
+.fx-lb-p, .fx-lb-nx { top: 50%; margin-top: -24px }
+.fx-lb-p { left: 14px }
+.fx-lb-nx { right: 14px }
+.fx-lb-1 .fx-lb-p, .fx-lb-1 .fx-lb-nx, .fx-lb-1 .fx-lb-n { display: none }
+@media (max-width: 760px) {
+ .fx-lb { padding: 64px 12px 92px }
+ .fx-lb-img { max-width: 100%; max-height: calc(100vh - 220px) }
+ .fx-lb-p, .fx-lb-nx { top: auto; bottom: 18px; margin: 0 }
+ .fx-lb-p { left: 20px }
+ .fx-lb-nx { right: 20px }
+}
+
+/* fx open-pulse */
+/* open-pulse: the open-now badge gets a small dot. Open: green with a soft ring that pulses every 2s. Closed: a still, muted dot.
+   CSS only. The dot is new content (it adds a little width from first paint and never changes after). Fixed green #1f9d55 eased toward the badge text colour. */
+html.fx-open-pulse [data-hours].is-open::before, html.fx-open-pulse [data-hours].is-closed::before {
+ content: ""; display: inline-block; flex: none; width: .55em; height: .55em; margin-right: .55em; border-radius: 50%; vertical-align: .05em }
+html.fx-open-pulse [data-hours].is-open::before { background: color-mix(in srgb, #1f9d55 88%, currentColor); box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 45%, transparent) }
+html.fx-open-pulse [data-hours].is-closed::before { background: color-mix(in srgb, currentColor 38%, transparent) }
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-open-pulse [data-hours].is-open::before { animation: fx-open-pulse 2s cubic-bezier(.2, .7, .2, 1) infinite }
+ @keyframes fx-open-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 50%, transparent) } 70%, 100% { box-shadow: 0 0 0 .6em color-mix(in srgb, #1f9d55 0%, transparent) } }
+}

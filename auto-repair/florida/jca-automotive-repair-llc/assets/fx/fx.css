@@ -1,0 +1,73 @@
+/* fx bg-waves */
+/* bg-waves: layer built by JS. Each svg is twice as wide as the hero; sliding it by half loops seamlessly */
+.fx-waves { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+ -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 95%); mask-image: linear-gradient(to top, #000 40%, transparent 95%) }
+.fx-waves svg { position: absolute; left: 0; width: max(200%, 1800px); height: 24%; min-height: 80px; overflow: visible }
+.fx-waves path { fill: none; stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linejoin: round }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-waves svg { will-change: transform; animation: fx-waves-x 60s linear infinite }
+ @keyframes fx-waves-x { to { transform: translate3d(-50%, 0, 0) } }
+}
+
+/* fx hours-toast */
+/* hours-toast: small status toast bottom-left (created by hours-toast.js). Above the mobile call bar, under the lightbox. */
+.fx-ht { position: fixed; left: 24px; bottom: 48px; z-index: 700; display: flex; align-items: center; gap: 12px; max-width: min(360px, calc(100vw - 24px)); padding: 12px 8px 12px 18px;
+ border-radius: var(--radius); background: var(--dark); color: var(--on-dark); font: 600 15px/1.35 var(--f-body);
+ border: 1px solid color-mix(in srgb, var(--on-dark) 18%, transparent); box-shadow: 0 14px 40px rgba(0, 0, 0, .3) }
+.fx-ht-t { flex: 1 }
+.fx-ht-x { flex: none; width: 36px; height: 36px; border-radius: 50%; border: 0; background: transparent; color: inherit; cursor: pointer; font: 400 22px/1 var(--f-body); opacity: .8 }
+.fx-ht-x:hover { background: color-mix(in srgb, var(--on-dark) 14%, transparent); opacity: 1 }
+.fx-ht-x:focus-visible { outline: 3px solid var(--accent); outline-offset: 1px }
+@media (max-width: 760px) { .fx-ht { left: 12px; right: 12px; bottom: 16px; max-width: none } .fx-ht-cb { bottom: calc(88px + env(safe-area-inset-bottom, 0px)) } }
+@media (max-width: 760px) { html.fx-sticky-cta .fx-ht:not(.fx-ht-cb) { bottom: calc(76px + env(safe-area-inset-bottom, 0px)) } }
+body:has(.lb.open) .fx-ht, body:has(.fx-lb.open) .fx-ht { display: none }
+
+/* fx btn-fill */
+/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
+   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
+html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
+html.fx-btn-fill .fx-bf-r { position: relative }
+html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
+html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
+html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
+ clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
+html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
+@media (hover: hover) and (pointer: fine) {
+ html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+ html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
+}
+@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }
+
+/* fx lightbox-plus */
+/* lightbox-plus: photo viewer that replaces the core lightbox (dialog created by lightbox-plus.js). Backdrop colour is set from --dark in JS. */
+.fx-lb { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 56px 64px 72px; touch-action: none; overscroll-behavior: contain; color: var(--on-dark) }
+.fx-lb.open { display: flex }
+.fx-lb-f { margin: 0; display: grid; justify-items: center; gap: 12px; max-width: 100%; max-height: 100%; min-height: 0 }
+.fx-lb-img { display: block; max-width: min(92vw, 1500px); max-height: calc(100vh - 170px); width: auto; height: auto; object-fit: contain; border-radius: calc(var(--radius) * .5); box-shadow: 0 24px 80px rgba(0, 0, 0, .5); user-select: none; -webkit-user-drag: none }
+.fx-lb-cap { margin: 0; text-align: center; font: 500 15px/1.4 var(--f-body); max-width: 60ch; min-height: 1.4em }
+.fx-lb-n { position: absolute; left: 20px; top: 22px; font: 700 14px/1 var(--f-body); letter-spacing: .08em; font-variant-numeric: tabular-nums; opacity: .85 }
+.fx-lb-b { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--on-dark) 30%, transparent); cursor: pointer; font: 400 22px/1 var(--f-body);
+ background: color-mix(in srgb, var(--on-dark) 12%, transparent); color: var(--on-dark); display: grid; place-items: center; padding: 0; transition: background .2s }
+.fx-lb-b:hover { background: color-mix(in srgb, var(--on-dark) 24%, transparent) }
+.fx-lb-b:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px }
+.fx-lb-x { top: 14px; right: 16px }
+.fx-lb-p, .fx-lb-nx { top: 50%; margin-top: -24px }
+.fx-lb-p { left: 14px }
+.fx-lb-nx { right: 14px }
+.fx-lb-1 .fx-lb-p, .fx-lb-1 .fx-lb-nx, .fx-lb-1 .fx-lb-n { display: none }
+@media (max-width: 760px) {
+ .fx-lb { padding: 64px 12px 92px }
+ .fx-lb-img { max-width: 100%; max-height: calc(100vh - 220px) }
+ .fx-lb-p, .fx-lb-nx { top: auto; bottom: 18px; margin: 0 }
+ .fx-lb-p { left: 20px }
+ .fx-lb-nx { right: 20px }
+}
+
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }

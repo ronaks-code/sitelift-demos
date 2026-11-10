@@ -1,0 +1,65 @@
+/* fx scroll-progress */
+/* scroll-progress: a thin bar at the very top showing how far down the page you are. The bar only exists when JS built it.
+   Where scroll-driven animations exist the browser drives it (no JS per frame); elsewhere (and with reduced motion, since
+   progress is information, not decoration) JS sets it on scroll. */
+.fx-sp-bar { position: fixed; left: 0; top: 0; width: 100%; height: 3px; z-index: 2147482600; pointer-events: none; background: var(--primary);
+ transform: scaleX(0); transform-origin: 0 50% }
+@keyframes fx-sp { to { transform: scaleX(1) } }
+@media (prefers-reduced-motion: no-preference) {
+ @supports (animation-timeline: scroll()) {
+  .fx-sp-bar.fx-sp-css { animation: fx-sp linear both; animation-timeline: scroll(root block) }
+ }
+}
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}
+
+/* fx heading-scrub */
+/* heading-scrub: section headings settle into place (lift, fade, un-clip) as they enter the lower part of the screen.
+   Scroll-driven where supported, nothing elsewhere. Uses opacity, the translate property and clip-path only (no reflow, CLS 0). */
+@keyframes fx-hs {
+ from { opacity: .4; translate: 0 18px; clip-path: inset(-12% -4% 38% -4%) }
+ to { opacity: 1; translate: 0 0; clip-path: inset(-12% -4% -12% -4%) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ @supports (animation-timeline: view()) {
+  html.fx-heading-scrub [data-fx-hs] { animation: fx-hs cubic-bezier(.2, .7, .2, 1) both; animation-timeline: view(); animation-range: entry 5% entry 80% }
+ }
+}
+
+/* fx open-pulse */
+/* open-pulse: the open-now badge gets a small dot. Open: green with a soft ring that pulses every 2s. Closed: a still, muted dot.
+   CSS only. The dot is new content (it adds a little width from first paint and never changes after). Fixed green #1f9d55 eased toward the badge text colour. */
+html.fx-open-pulse [data-hours].is-open::before, html.fx-open-pulse [data-hours].is-closed::before {
+ content: ""; display: inline-block; flex: none; width: .55em; height: .55em; margin-right: .55em; border-radius: 50%; vertical-align: .05em }
+html.fx-open-pulse [data-hours].is-open::before { background: color-mix(in srgb, #1f9d55 88%, currentColor); box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 45%, transparent) }
+html.fx-open-pulse [data-hours].is-closed::before { background: color-mix(in srgb, currentColor 38%, transparent) }
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-open-pulse [data-hours].is-open::before { animation: fx-open-pulse 2s cubic-bezier(.2, .7, .2, 1) infinite }
+ @keyframes fx-open-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 50%, transparent) } 70%, 100% { box-shadow: 0 0 0 .6em color-mix(in srgb, #1f9d55 0%, transparent) } }
+}
+
+/* fx btn-fill */
+/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
+   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
+html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
+html.fx-btn-fill .fx-bf-r { position: relative }
+html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
+html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
+html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
+ clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
+html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
+@media (hover: hover) and (pointer: fine) {
+ html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+ html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
+}
+@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }
