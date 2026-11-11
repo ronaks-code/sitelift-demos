@@ -86,53 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx mask-reveal */
-/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
-   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
-   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
-FX.def('mask-reveal', function (c) {
-  if (FX.reduced || !Element.prototype.animate) return;
-  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
-  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
-    var r = i.getBoundingClientRect();
-    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
-  });
-  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
-  FX.seen(imgs, function (i) {
-    var p = i.parentElement, clipped = 0;
-    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
-    i.removeAttribute('data-fx-mr');
-    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
-      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  }, '0px 0px -6% 0px');
-});
-
-/* fx hero-zoomout */
-/* hero-zoomout: hero photo starts at scale 1.08 and, over the first 70vh of scrolling, eases to 1 while its edges inset 4% with
-   rounded corners (the frame's own overflow hides the rest). Default: the largest photo in the first block of <main>.
-   Scroll-driven CSS where supported, rAF scroll fallback otherwise. Reduced motion: untouched. */
-FX.def('hero-zoomout', function (c) {
-  if (FX.reduced) return;
-  var els = c.els('main > :first-child img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
-  if (!c.sel && els.length > 1) {
-    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
-    els = [els.sort(function (x, y) { return a(y) - a(x); })[0]];
-  }
-  if (!els.length) return;
-  var img = els[0], css = window.CSS && CSS.supports('animation-timeline: scroll()');
-  img.classList.add('fx-hz');
-  if (css) { img.classList.add('fx-hz-css'); return; }
-  var busy = 0, ease = function (t) { return 1 - Math.pow(1 - t, 3); };
-  function tick() {
-    busy = 0;
-    var k = ease(Math.min(1, Math.max(0, scrollY / (innerHeight * .7))));
-    img.style.transform = 'scale(' + (1.08 - .08 * k).toFixed(4) + ')';
-    img.style.clipPath = 'inset(' + (4 * k).toFixed(2) + '% round calc(var(--radius, 12px) * ' + k.toFixed(3) + '))';
-  }
-  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
-  tick();
-});
-
 /* fx duotone */
 /* duotone: gallery images are shown in the brand's two tones (dark from --dark, light from --primary eased toward the page light)
    through an inline SVG filter, and ease back to full colour on hover/focus (mouse) or while centred in the view (touch).
@@ -185,71 +138,30 @@ FX.def('duotone', function (c) {
   });
 });
 
-/* fx spotlight */
-/* spotlight: a soft light follows the pointer over cards (accent border glow plus a faint inner light) and over dark
-   sections (faint light only). One shared overlay moves onto the hovered element; the element also gets --fx-x/--fx-y.
-   Mouse only (FX.fine), nothing with reduced motion. opt: {dark: "section[class*=dark]"} for the big-section selector */
-FX.def('spotlight', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var d = document, cards = c.els('[class*=card], .review, blockquote'), S = c.sel || '[class*=card], .review, blockquote';
-  var D = c.opt.dark || 'section[class*=dark]', cur = null, ox = 0, oy = 0, pend = 0, ev;
-  var o = d.createElement('div'); o.className = 'fx-sp'; o.setAttribute('aria-hidden', 'true'); o.innerHTML = '<b></b><i></i>';
-  d.body.appendChild(o);
-  function place() {
-    if (!cur) return; var b = cur.getBoundingClientRect();
-    o.style.cssText = 'left:' + b.left + 'px;top:' + b.top + 'px;width:' + b.width + 'px;height:' + b.height + 'px;border-radius:' + getComputedStyle(cur).borderRadius;
-    o.style.setProperty('--fx-x', ox + 'px'); o.style.setProperty('--fx-y', oy + 'px');
-    if (cur) { cur.style.setProperty('--fx-x', ox + 'px'); cur.style.setProperty('--fx-y', oy + 'px'); }
+/* fx hero-zoomout */
+/* hero-zoomout: hero photo starts at scale 1.08 and, over the first 70vh of scrolling, eases to 1 while its edges inset 4% with
+   rounded corners (the frame's own overflow hides the rest). Default: the largest photo in the first block of <main>.
+   Scroll-driven CSS where supported, rAF scroll fallback otherwise. Reduced motion: untouched. */
+FX.def('hero-zoomout', function (c) {
+  if (FX.reduced) return;
+  var els = c.els('main > :first-child img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
+  if (!c.sel && els.length > 1) {
+    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
+    els = [els.sort(function (x, y) { return a(y) - a(x); })[0]];
   }
-  function frame() {
-    pend = 0; if (!cur) return;
-    var b = cur.getBoundingClientRect(); ox = ev.clientX - b.left; oy = ev.clientY - b.top; place();
-  }
-  function off() { if (cur) { cur = null; o.classList.remove('on'); } }
-  d.addEventListener('pointermove', function (e) {
-    if (e.pointerType && e.pointerType !== 'mouse') return;
-    var t = e.target.closest ? e.target : e.target.parentElement, el = t && t.closest ? (t.closest(S) || t.closest(D)) : null;
-    if (el && (el === d.body || el === d.documentElement)) el = null;
-    if (!el) return off();
-    if (el !== cur) { cur = el; var b = el.getBoundingClientRect(); o.classList.toggle('big', b.width > 720 || b.height > 520); o.classList.add('on'); }
-    ev = e; if (!pend) { pend = 1; requestAnimationFrame(frame); }
-  }, { passive: true });
-  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) off(); });
-  addEventListener('scroll', function () { if (cur) place(); }, { passive: true });
-});
-
-/* fx cursor-blend */
-/* cursor-blend: one white circle that inverts whatever is under it (mix-blend-mode: difference). Grows over images and
-   headings, shrinks over links. Native cursor hidden except in form fields and iframes. Mouse only, off with reduced
-   motion. Mark extra grow targets with [data-cursor-grow]. opt: {grow: "extra selector"} */
-FX.def('cursor-blend', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var d = document, h = d.documentElement, el = d.createElement('div'), x = -99, y = -99, px = x, py = y, busy = 0;
-  var G = '[data-cursor-grow],h1,h2,a[data-lb] img' + (c.opt.grow ? ',' + c.opt.grow : '');
-  el.className = 'fx-cb'; el.setAttribute('aria-hidden', 'true'); el.innerHTML = '<i></i>';
-  d.body.appendChild(el);
+  if (!els.length) return;
+  var img = els[0], css = window.CSS && CSS.supports('animation-timeline: scroll()');
+  img.classList.add('fx-hz');
+  if (css) { img.classList.add('fx-hz-css'); return; }
+  var busy = 0, ease = function (t) { return 1 - Math.pow(1 - t, 3); };
   function tick() {
-    px += (x - px) * 0.35; py += (y - py) * 0.35;
-    el.style.transform = 'translate3d(' + px + 'px,' + py + 'px,0)';
-    if (Math.abs(x - px) + Math.abs(y - py) > 0.2) requestAnimationFrame(tick); else busy = 0;
+    busy = 0;
+    var k = ease(Math.min(1, Math.max(0, scrollY / (innerHeight * .7))));
+    img.style.transform = 'scale(' + (1.08 - .08 * k).toFixed(4) + ')';
+    img.style.clipPath = 'inset(' + (4 * k).toFixed(2) + '% round calc(var(--radius, 12px) * ' + k.toFixed(3) + '))';
   }
-  addEventListener('pointermove', function (e) {
-    if (e.pointerType && e.pointerType !== 'mouse') return;
-    x = e.clientX; y = e.clientY;
-    if (!el.classList.contains('on')) { px = x; py = y; el.classList.add('on'); h.classList.add('fx-cb-on'); }
-    if (!busy) { busy = 1; requestAnimationFrame(tick); }
-  }, { passive: true });
-  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) el.classList.remove('on'); });
-  d.addEventListener('pointerdown', function () { el.classList.add('down'); }, { passive: true });
-  d.addEventListener('pointerup', function () { el.classList.remove('down'); }, { passive: true });
-  d.addEventListener('pointerover', function (e) {
-    var t = e.target.closest ? e.target : e.target.parentElement;
-    if (!t || !t.closest) return;
-    var field = t.closest('input,textarea,select,[contenteditable],iframe');
-    el.classList.toggle('is-field', !!field);
-    el.classList.toggle('is-grow', !field && !!t.closest(G));
-    el.classList.toggle('is-link', !field && !t.closest(G) && !!t.closest('a,button,[role=button],label,summary'));
-  }, { passive: true });
+  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
+  tick();
 });
 
 /* fx split-reveal */
@@ -291,4 +203,82 @@ FX.def('split-reveal', function (c) {
   });
   Promise.all(all).then(end, end);
   setTimeout(end, 2500);
+});
+
+/* fx mask-reveal */
+/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
+   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
+   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
+FX.def('mask-reveal', function (c) {
+  if (FX.reduced || !Element.prototype.animate) return;
+  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
+  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
+    var r = i.getBoundingClientRect();
+    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
+  });
+  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
+  FX.seen(imgs, function (i) {
+    var p = i.parentElement, clipped = 0;
+    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
+    i.removeAttribute('data-fx-mr');
+    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
+      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+  }, '0px 0px -6% 0px');
+});
+
+/* fx spotlight */
+/* spotlight: a soft light follows the pointer over cards (accent border glow plus a faint inner light) and over dark
+   sections (faint light only). One shared overlay moves onto the hovered element; the element also gets --fx-x/--fx-y.
+   Mouse only (FX.fine), nothing with reduced motion. opt: {dark: "section[class*=dark]"} for the big-section selector */
+FX.def('spotlight', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  var d = document, cards = c.els('[class*=card], .review, blockquote'), S = c.sel || '[class*=card], .review, blockquote';
+  var D = c.opt.dark || 'section[class*=dark]', cur = null, ox = 0, oy = 0, pend = 0, ev;
+  var o = d.createElement('div'); o.className = 'fx-sp'; o.setAttribute('aria-hidden', 'true'); o.innerHTML = '<b></b><i></i>';
+  d.body.appendChild(o);
+  function place() {
+    if (!cur) return; var b = cur.getBoundingClientRect();
+    o.style.cssText = 'left:' + b.left + 'px;top:' + b.top + 'px;width:' + b.width + 'px;height:' + b.height + 'px;border-radius:' + getComputedStyle(cur).borderRadius;
+    o.style.setProperty('--fx-x', ox + 'px'); o.style.setProperty('--fx-y', oy + 'px');
+    if (cur) { cur.style.setProperty('--fx-x', ox + 'px'); cur.style.setProperty('--fx-y', oy + 'px'); }
+  }
+  function frame() {
+    pend = 0; if (!cur) return;
+    var b = cur.getBoundingClientRect(); ox = ev.clientX - b.left; oy = ev.clientY - b.top; place();
+  }
+  function off() { if (cur) { cur = null; o.classList.remove('on'); } }
+  d.addEventListener('pointermove', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    var t = e.target.closest ? e.target : e.target.parentElement, el = t && t.closest ? (t.closest(S) || t.closest(D)) : null;
+    if (el && (el === d.body || el === d.documentElement)) el = null;
+    if (!el) return off();
+    if (el !== cur) { cur = el; var b = el.getBoundingClientRect(); o.classList.toggle('big', b.width > 720 || b.height > 520); o.classList.add('on'); }
+    ev = e; if (!pend) { pend = 1; requestAnimationFrame(frame); }
+  }, { passive: true });
+  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) off(); });
+  addEventListener('scroll', function () { if (cur) place(); }, { passive: true });
+});
+
+/* fx btn-fill */
+/* btn-fill: inserts the fill layer and tracks which side the pointer entered/left from. Mouse only. */
+FX.def('btn-fill', function (c) {
+  if (!FX.fine) return;
+  var acc = FX.color('--accent');
+  c.els('.btn').forEach(function (b) {
+    if (b.matches('.callbar') || b.querySelector(':scope > .fx-bf-l')) return;
+    var cs = getComputedStyle(b), l = document.createElement('span');
+    l.className = 'fx-bf-l'; l.setAttribute('aria-hidden', 'true'); l.style.cssText = 'position:absolute;inset:0;pointer-events:none'; b.insertBefore(l, b.firstChild);
+    b.classList.add('fx-bf');
+    if (cs.position === 'static') b.classList.add('fx-bf-r');
+    if (cs.backgroundColor === acc) b.classList.add('fx-bf-ink');
+    else if (/rgba\(.*, 0\)|transparent/.test(cs.backgroundColor)) b.classList.add('fx-bf-alt');
+    b.style.transition = (parseFloat(cs.transitionDuration) ? cs.transition + ', ' : '') + 'color .4s cubic-bezier(.2,.7,.2,1), border-color .4s cubic-bezier(.2,.7,.2,1)';
+    function set(e) {
+      var r = b.getBoundingClientRect(), k = function (v) { return Math.max(-1, Math.min(1, v)).toFixed(2); };
+      b.style.setProperty('--fx-dx', k((e.clientX - r.left) / r.width * 2 - 1));
+      b.style.setProperty('--fx-dy', k((e.clientY - r.top) / r.height * 2 - 1));
+    }
+    b.addEventListener('pointerenter', set); b.addEventListener('pointerleave', set);
+    b.addEventListener('focus', function () { b.style.setProperty('--fx-dx', 0); b.style.setProperty('--fx-dy', 0); });
+  });
 });

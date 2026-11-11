@@ -1,16 +1,7 @@
-/* fx bg-grid */
-/* bg-grid: layer built by JS. The bright copy of the grid is masked to a circle at --fx-x/--fx-y (mouse) or swept by CSS (touch) */
-.fx-grid { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
- -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, #000 35%, transparent 100%); mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, #000 35%, transparent 100%) }
-.fx-grid i { position: absolute; inset: 0; background-size: var(--fx-gs) var(--fx-gs); background-position: center;
- background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 20%, transparent) 1.1px, transparent 1.6px) }
-.fx-grid-l i { background-image: linear-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px) }
-.fx-grid i.hi { background-image: radial-gradient(circle, var(--primary) 1.4px, transparent 1.9px);
- -webkit-mask-image: radial-gradient(circle closest-side, #000, transparent); mask-image: radial-gradient(circle closest-side, #000, transparent);
- -webkit-mask-size: 420px 420px; mask-size: 420px 420px; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: 50% 40%; mask-position: 50% 40% }
-.fx-grid-l i.hi { background-image: linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px) }
-.fx-grid.is-fine i.hi { opacity: 0; transition: opacity .4s; -webkit-mask-position: var(--fx-x, -999px) var(--fx-y, -999px); mask-position: var(--fx-x, -999px) var(--fx-y, -999px) }
-@media (prefers-reduced-motion: no-preference) {
- .fx-grid:not(.is-fine) i.hi { animation: fx-grid-sweep 16s ease-in-out infinite alternate }
- @keyframes fx-grid-sweep { from { -webkit-mask-position: 8% 30%; mask-position: 8% 30% } to { -webkit-mask-position: 92% 70%; mask-position: 92% 70% } }
-}
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }

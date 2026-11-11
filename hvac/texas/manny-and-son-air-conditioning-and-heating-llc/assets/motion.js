@@ -1,13 +1,21 @@
-/* Blueprint motion: dimension lines draw in when the hero photo appears; spec rows fade in one by one. */
+/* Airflow motion: nav underline glider, hero season switch. Without JS the switch is hidden and the underline is static. */
 (function () {
-  if (!window.SL || SL.reduced || !('IntersectionObserver' in window)) return;
-  var p = document.querySelector('[data-dim]');
-  if (p) {
-    p.classList.add('js-dim');
-    new IntersectionObserver(function (es, o) { es.forEach(function (e) { if (e.isIntersecting) { p.classList.add('dim-in'); o.disconnect(); } }); }).observe(p);
-  }
-  document.querySelectorAll('.bp-spec > div').forEach(function (r, i) {
-    r.style.opacity = 0; r.style.transform = 'translateX(-8px)'; r.style.transition = 'opacity .4s, transform .4s';
-    setTimeout(function () { r.style.opacity = 1; r.style.transform = 'none'; }, 500 + i * 140);
+  if (!window.SL) return;
+  var hero = document.querySelector('.af-hero');
+  document.querySelectorAll('.af-season button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var s = b.getAttribute('data-season');
+      hero.setAttribute('data-season', s);
+      document.querySelectorAll('.af-season button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+    });
   });
+  if (SL.reduced) return;
+  var ul = document.querySelector('[data-glide]'), g = ul && ul.querySelector('.af-glide');
+  if (!g) return;
+  document.body.classList.add('js-glide');
+  var cur = ul.querySelector('[aria-current]');
+  var move = function (a) { if (!a) { g.style.opacity = 0; return; } g.style.opacity = 1; g.style.width = a.offsetWidth + 'px'; g.style.transform = 'translateX(' + (a.parentNode.offsetLeft) + 'px)'; };
+  ul.querySelectorAll('a').forEach(function (a) { a.addEventListener('mouseenter', function () { move(a); }); a.addEventListener('focus', function () { move(a); }); });
+  ul.addEventListener('mouseleave', function () { move(cur); });
+  move(cur);
 })();

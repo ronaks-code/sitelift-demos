@@ -85,21 +85,3 @@
   // bundled modules follow this code in the same file: start after they have registered
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
-
-/* fx highlight-sweep */
-/* highlight-sweep: the hero's <em> (or [data-fx-highlight], or any configured element) gets a marker band behind the bottom 40% of
-   the text, or a 3px underline, swept in --accent when it scrolls into view. opt: {style: "marker" | "underline"}
-   Reduced motion: the finished highlight, static. */
-FX.def('highlight-sweep', function (c) {
-  var st = c.opt.style === 'underline' ? 'underline' : 'marker';
-  c.els('[data-fx-highlight], main > :first-child h1 em').forEach(function (el) {
-    // A block/flex <em> (some kits break the emphasised words onto their own line) would paint the band across the whole
-    // column: mark an inline wrapper of its contents instead, so the band follows the words.
-    if (getComputedStyle(el).display !== 'inline') {
-      var w = document.createElement('span'); while (el.firstChild) w.appendChild(el.firstChild); el.appendChild(w); el = w;
-    }
-    el.setAttribute('data-fx-hl', st);
-    if (FX.reduced) { el.classList.add('fx-hl-on'); return; }
-    FX.seen([el], function () { setTimeout(function () { el.classList.add('fx-hl-on'); }, 350); }, '0px');
-  });
-});

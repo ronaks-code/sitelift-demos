@@ -1,9 +1,3 @@
-/* fx mask-reveal */
-/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
-   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
-html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
-html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
-
 /* fx hero-zoomout */
 /* hero-zoomout: the hero photo starts a touch zoomed and, as you scroll past, settles to full size inside a rounded inset frame.
    Scroll-driven (the first 70vh of scroll); a JS fallback sets the same values elsewhere. Nothing happens with reduced motion. */
@@ -17,6 +11,33 @@ html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
   html.fx-hero-zoomout img.fx-hz.fx-hz-css { animation: fx-hz cubic-bezier(.3, .6, .3, 1) both; animation-timeline: scroll(root block); animation-range: 0px 70vh }
  }
 }
+
+/* fx split-reveal */
+/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
+   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
+.fx-sr-w { display: inline-block; white-space: nowrap }
+.fx-sr-u { display: inline-block }
+.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
+.fx-sr-i { display: inline-block }
+
+/* fx mask-reveal */
+/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
+   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
+html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
+html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
+
+/* fx spotlight */
+/* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
+.fx-sp { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 20; pointer-events: none; opacity: 0; transition: opacity .3s }
+.fx-sp.on { opacity: 1 }
+.fx-sp b { position: absolute; inset: 0; border-radius: inherit;
+ background: radial-gradient(circle 260px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%) }
+.fx-sp i { position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+ background: radial-gradient(circle 280px at var(--fx-x, 50%) var(--fx-y, 50%), var(--accent), transparent 70%);
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
+ mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
+.fx-sp.big i { display: none }
+.fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
 
 /* fx page-wipe */
 /* page-wipe: cross-document view transition (Chromium 126+, Safari 18.2+; others navigate normally). The old page stays and dims,
@@ -37,39 +58,19 @@ html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
 }
 @media print { html::before { display: none } }
 
-/* fx spotlight */
-/* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
-.fx-sp { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 20; pointer-events: none; opacity: 0; transition: opacity .3s }
-.fx-sp.on { opacity: 1 }
-.fx-sp b { position: absolute; inset: 0; border-radius: inherit;
- background: radial-gradient(circle 260px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%) }
-.fx-sp i { position: absolute; inset: 0; border-radius: inherit; padding: 2px;
- background: radial-gradient(circle 280px at var(--fx-x, 50%) var(--fx-y, 50%), var(--accent), transparent 70%);
- -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
- mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
-.fx-sp.big i { display: none }
-.fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
-
-/* fx cursor-blend */
-/* cursor-blend: the circle exists only when JS built it (mouse + motion allowed); nothing here can hide content */
+/* fx btn-fill */
+/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
+   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
+html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
+html.fx-btn-fill .fx-bf-r { position: relative }
+html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
+html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
+html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
+ clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
+html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
 @media (hover: hover) and (pointer: fine) {
- html.fx-cb-on, html.fx-cb-on * { cursor: none }
- html.fx-cb-on input, html.fx-cb-on textarea, html.fx-cb-on select, html.fx-cb-on iframe, html.fx-cb-on [contenteditable] { cursor: auto }
+ html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
+ html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
 }
-.fx-cb { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 2147483000; mix-blend-mode: difference; opacity: 0; transition: opacity .25s; will-change: transform }
-.fx-cb.on { opacity: 1 }
-.fx-cb.is-field { opacity: 0 }
-.fx-cb i { position: absolute; left: -11px; top: -11px; width: 22px; height: 22px; border-radius: 50%; background: #fff;
- transition: transform .35s cubic-bezier(.2, .8, .2, 1) }
-.fx-cb.is-grow i { transform: scale(3.18) }
-.fx-cb.is-link i { transform: scale(.55) }
-.fx-cb.down i { transform: scale(.8) }
-.fx-cb.is-grow.down i { transform: scale(2.6) }
-
-/* fx split-reveal */
-/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
-   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
-.fx-sr-w { display: inline-block; white-space: nowrap }
-.fx-sr-u { display: inline-block }
-.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
-.fx-sr-i { display: inline-block }
+@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }

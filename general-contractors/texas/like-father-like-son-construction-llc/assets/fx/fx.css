@@ -1,15 +1,3 @@
-/* fx reveal-plus */
-/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
-   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
-   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
-@media (prefers-reduced-motion: no-preference) {
- html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
- html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
- html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
-}
-html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
-html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
-
 /* fx page-fade */
 /* page-fade: cross-document view transition (Chromium 126+, Safari 18.2+; others navigate normally). New page fades in with an
    8px rise as the old one fades out (plus-lighter crossfade, no dip); the header (first body header) stays put. Reduced motion: no view transition at all. CSS only. */
@@ -23,6 +11,18 @@ html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
  @keyframes fx-pf-out { from { opacity: 1 } to { opacity: 0 } }
  @keyframes fx-pf-in { from { opacity: 0; transform: translateY(8px) } to { opacity: 1; transform: none } }
 }
+
+/* fx reveal-plus */
+/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
+   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
+   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
+ html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
+}
+html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
+html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
 
 /* fx cursor-ring */
 /* cursor-ring: elements exist only when JS built them (mouse + motion allowed), so nothing here can hide content */

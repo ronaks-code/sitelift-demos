@@ -20,14 +20,6 @@ body:has(.lb.open) .fx-sc, body:has(.fx-lb.open) .fx-sc { display: none }
  .fx-sc.on { transition-delay: 0s }
 }
 
-/* fx split-reveal */
-/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
-   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
-.fx-sr-w { display: inline-block; white-space: nowrap }
-.fx-sr-u { display: inline-block }
-.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
-.fx-sr-i { display: inline-block }
-
 /* fx parallax */
 /* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
    scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */

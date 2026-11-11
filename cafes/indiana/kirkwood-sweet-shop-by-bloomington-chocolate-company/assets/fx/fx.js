@@ -86,54 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx timeline-draw */
-/* timeline-draw: process / steps lists get a vertical line through the step numbers that draws as you scroll (scroll-driven CSS where
-   supported, otherwise it grows step by step as each step is reached); each number gives a small pop when reached.
-   Works for numbers that are a child element or a ::before/::after counter. The list keeps its layout and markup.
-   Lists that already have a background image are skipped. Reduced motion: the full line, no pop. */
-FX.def('timeline-draw', function (c) {
-  var css = !FX.reduced && window.CSS && CSS.supports('animation-timeline: view()') && CSS.supports('animation-range: 0% 100%');
-  c.els('ol[class*=step], ol[class*=process], [class*=process] ol, [class*=steps]').forEach(function (ol) {
-    var li = [].slice.call(ol.children).filter(function (k) { return k.offsetHeight > 0; });
-    if (li.length < 2 || getComputedStyle(ol).backgroundImage !== 'none') return;
-    var mk = [];
-    function measure() {
-      var o = ol.getBoundingClientRect(), bl = parseFloat(getComputedStyle(ol).borderLeftWidth) || 0, bt = parseFloat(getComputedStyle(ol).borderTopWidth) || 0;
-      mk = li.map(function (k) {
-        var s = getComputedStyle(k), tr = new DOMMatrix(s.transform), r = k.getBoundingClientRect(), x, y, w, ps = '';
-        var first = k.firstElementChild, fs = first && first.getBoundingClientRect();
-        var b = getComputedStyle(k, '::before'), a = getComputedStyle(k, '::after');
-        var pe = b.content !== 'none' && b.content !== 'normal' ? '::before' : (a.content !== 'none' && a.content !== 'normal' && a.position !== 'absolute' ? '::after' : '');
-        var left = r.left - tr.m41 - o.left - bl, top = r.top - tr.m42 - o.top - bt;
-        if (first && fs.width <= 90 && fs.height <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName)) { x = fs.left - o.left - bl + fs.width / 2; y = fs.top - o.top - bt + fs.height / 2; }
-        else if (pe) {
-          var q = pe === '::before' ? b : a, W = parseFloat(q.width) || 24, H = parseFloat(q.height) || 24;
-          if (q.position === 'absolute') { x = left + (parseFloat(q.left) || 0) + W / 2 - (q.left === 'auto' ? W / 2 : 0); y = top + (parseFloat(q.top) || 0) + H / 2; }
-          else { x = left + (parseFloat(s.paddingLeft) || 0) + W / 2; y = top + (parseFloat(s.paddingTop) || 0) + H / 2; }
-          ps = pe;
-        } else { x = left + 14; y = top + 14; }
-        return { x: x, y: y, el: ps ? k : (first && fs.width <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName) ? first : null), pe: ps };
-      });
-      var y0 = mk[0].y, y1 = mk[mk.length - 1].y;
-      ol.style.setProperty('--fx-x', (mk[0].x - 1).toFixed(1) + 'px'); ol.style.setProperty('--fx-y', y0.toFixed(1) + 'px'); ol.style.setProperty('--fx-h', Math.max(0, y1 - y0).toFixed(1) + 'px');
-    }
-    measure();
-    ol.setAttribute('data-fx-td', '');
-    if (window.ResizeObserver) new ResizeObserver(measure).observe(ol);
-    if (FX.reduced) return;
-    if (css) ol.classList.add('fx-td-css');
-    else { ol.classList.add('fx-td-io'); ol.style.setProperty('--fx-p', 0); }
-    li.forEach(function (k, i) {
-      FX.seen([k], function () {
-        var m = mk[i], h1 = mk[mk.length - 1].y - mk[0].y;
-        if (!css) ol.style.setProperty('--fx-p', h1 > 0 ? Math.max(0, (m.y - mk[0].y) / h1).toFixed(3) : 1);
-        if (Element.prototype.animate && m.el) m.el.animate([{ transform: 'scale(.82)' }, { transform: 'scale(1.18)', offset: .55 }, { transform: 'scale(1)' }],
-          { duration: 520, easing: 'cubic-bezier(.2,.7,.2,1)', pseudoElement: m.pe || undefined });
-      }, '0px 0px -38% 0px');
-    });
-  });
-});
-
 /* fx mask-reveal */
 /* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
    when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
@@ -153,4 +105,36 @@ FX.def('mask-reveal', function (c) {
     i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
       { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
   }, '0px 0px -6% 0px');
+});
+
+/* fx section-tint */
+/* section-tint: the page ground crossfades between soft section colours as you scroll. Sections opt in with data-fx-tint="--surface"
+   (any CSS variable or colour); otherwise the module alternates transparent sections between the page colour and faint washes of
+   --primary and --accent. Sections with their own background are never tinted. Skipped if the page ground can't show a layer.
+   opt: {amount: 7} (percent of brand colour in the auto washes) */
+FX.def('section-tint', function (c) {
+  var d = document, h = d.documentElement, a = +c.opt.amount || 7;
+  var clear = function (e) { var s = getComputedStyle(e); return (/^rgba\(.*, 0\)$|^transparent$/.test(s.backgroundColor)) && s.backgroundImage === 'none'; };
+  if (!clear(h) || !d.querySelector('main')) return;
+  var main = d.querySelector('main');
+  if (!clear(main)) return;
+  var secs = c.els('main > section, main > div, main > article').filter(clear);
+  if (secs.length < 2) return;
+  var auto = ['var(--bg)', 'color-mix(in srgb,var(--primary) ' + a + '%,var(--bg))', 'var(--bg)', 'color-mix(in srgb,var(--accent) ' + a + '%,var(--bg))'], n = 0;
+  var tint = secs.map(function (s) {
+    var t = s.getAttribute('data-fx-tint'), v = t ? (t.indexOf('--') === 0 ? 'var(' + t + ')' : t) : auto[n++ % 4];
+    return { el: s, c: v };
+  });
+  var L = d.createElement('div'); L.className = 'fx-st-layer'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:fixed;inset:0;pointer-events:none';
+  d.body.insertBefore(L, d.body.firstChild);
+  var cur = '', busy = 0;
+  function pick() {
+    busy = 0;
+    var mid = innerHeight * .5, best = tint[0];
+    for (var i = 0; i < tint.length; i++) { var r = tint[i].el.getBoundingClientRect(); if (r.top <= mid) best = tint[i]; if (r.top > mid) break; }
+    if (best.c !== cur) { cur = best.c; L.style.backgroundColor = cur; }
+  }
+  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(pick); } }, { passive: true });
+  addEventListener('resize', pick, { passive: true });
+  pick();
 });

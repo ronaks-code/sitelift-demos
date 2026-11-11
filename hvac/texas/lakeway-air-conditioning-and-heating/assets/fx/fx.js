@@ -86,32 +86,20 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx bg-topo */
-/* bg-topo: topographic contour lines behind the hero: nested, wobbly closed curves around two peaks, drifting very slowly.
-   Generated SVG (same lines on every load for a given page), ink at ~10% with every fifth line in the primary colour.
-   Static with reduced motion. opt: {seed: number, rings: 9} */
-FX.def('bg-topo', function (c) {
-  var N = Math.min(14, Math.max(5, +c.opt.rings || 9)), seed = +c.opt.seed || 7;
-  for (var i = 0, s = location.pathname; i < s.length; i++) seed = (seed * 31 + s.charCodeAt(i)) % 9973;
-  function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
-  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var L = document.createElement('div'), svg = '<svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">';
-    L.className = 'fx-topo'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none';
-    [[880, 250, 1], [190, 520, 0.8]].forEach(function (pk, gi) {
-      var w = [rnd() * 6, rnd() * 6, rnd() * 6], a = [0.1 + rnd() * 0.08, 0.06 + rnd() * 0.06, 0.03 + rnd() * 0.04], rot = rnd() * 6, x = [2, 3, 5];
-      svg += '<g class="fx-topo-g' + gi + '">';
-      for (var k = 1; k <= N; k++) {
-        var R = 34 * k * pk[2] + 20, d = '';
-        for (var j = 0; j < 72; j++) {
-          var th = j / 72 * 6.2832, r = R * (1 + a[0] * Math.sin(2 * th + w[0] + k * 0.22) + a[1] * Math.sin(3 * th + w[1] - k * 0.17) + a[2] * Math.sin(5 * th + w[2] + k * 0.3));
-          d += (j ? 'L' : 'M') + (pk[0] + r * Math.cos(th + rot) * 1.25).toFixed(0) + ' ' + (pk[1] + r * Math.sin(th + rot) * 0.8).toFixed(0);
-        }
-        svg += '<path d="' + d + 'Z"' + (k % 5 === 0 ? ' class="m"' : '') + '/>';
-      }
-      svg += '</g>';
-    });
-    L.innerHTML = svg + '</svg>';
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
-    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
+/* fx highlight-sweep */
+/* highlight-sweep: the hero's <em> (or [data-fx-highlight], or any configured element) gets a marker band behind the bottom 40% of
+   the text, or a 3px underline, swept in --accent when it scrolls into view. opt: {style: "marker" | "underline"}
+   Reduced motion: the finished highlight, static. */
+FX.def('highlight-sweep', function (c) {
+  var st = c.opt.style === 'underline' ? 'underline' : 'marker';
+  c.els('[data-fx-highlight], main > :first-child h1 em').forEach(function (el) {
+    // A block/flex <em> (some kits break the emphasised words onto their own line) would paint the band across the whole
+    // column: mark an inline wrapper of its contents instead, so the band follows the words.
+    if (getComputedStyle(el).display !== 'inline') {
+      var w = document.createElement('span'); while (el.firstChild) w.appendChild(el.firstChild); el.appendChild(w); el = w;
+    }
+    el.setAttribute('data-fx-hl', st);
+    if (FX.reduced) { el.classList.add('fx-hl-on'); return; }
+    FX.seen([el], function () { setTimeout(function () { el.classList.add('fx-hl-on'); }, 350); }, '0px');
   });
 });

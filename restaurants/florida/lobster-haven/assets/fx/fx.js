@@ -86,26 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx stars-fill */
-/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
-   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
-FX.def('stars-fill', function (c) {
-  if (FX.reduced) return;
-  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
-    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
-  });
-  els.forEach(function (el) {
-    var s = document.createElement('span');
-    s.className = 'fx-stars-in fx-stars-w';
-    while (el.firstChild) s.appendChild(el.firstChild);
-    el.appendChild(s);
-    FX.seen([el], function () {
-      s.classList.remove('fx-stars-w');
-      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
-    });
-  });
-});
-
 /* fx review-marquee */
 /* review-marquee: a reviews grid (4+ cards) becomes a slow endless marquee of the kit's own cards: fixed card width min(380px,80vw),
    aria-hidden clones, pauses on hover/focus and with a visible pause button (WCAG 2.2.2), faded edges. The conversion is synchronous at
@@ -158,6 +138,33 @@ FX.def('review-marquee', function (c) {
     if ('ResizeObserver' in window) new ResizeObserver(speed).observe(m); else addEventListener('resize', speed);
     FX.vis(wrap, function (v) { wrap.classList.toggle('fx-rm-off', !v); });
   });
+});
+
+/* fx click-burst */
+/* click-burst: a click or tap on a button (.btn) or call link (a[href^="tel:"]) throws a small burst of dots (or the site's
+   --glyph with opt glyph) in the primary and accent colours from the click point. Fixed overlay, gone after ~600ms, never
+   delays or blocks the click. Touch works too. Nothing with reduced motion. opt: {glyph: true, n: 10} */
+FX.def('click-burst', function (c) {
+  if (FX.reduced) return;
+  var d = document, S = c.sel || '.btn, a[href^="tel:"]', N = Math.min(16, Math.max(6, +c.opt.n || (FX.fine ? 11 : 9)));
+  d.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest(S) : null;
+    if (!t || !t.animate) return;
+    var x = e.clientX, y = e.clientY, b = t.getBoundingClientRect();
+    if (!e.detail && !x && !y) { x = b.left + b.width / 2; y = b.top + b.height / 2; }   // keyboard activation: from the button centre
+    var box = d.createElement('div'); box.className = 'fx-cb2'; box.setAttribute('aria-hidden', 'true');
+    for (var i = 0; i < N; i++) {
+      var p = d.createElement('i'), a = (i / N) * 6.2832 + Math.random() * 0.6, r = 34 + Math.random() * 46, dx = Math.cos(a) * r, dy = Math.sin(a) * r;
+      p.style.cssText = 'left:' + x + 'px;top:' + y + 'px;color:var(--' + (i % 2 ? 'accent' : 'primary') + ');font-size:' + (11 + Math.random() * 6) + 'px';
+      if (c.opt.glyph) p.className = 'g'; else p.style.width = p.style.height = (5 + Math.random() * 5) + 'px';
+      p.animate([{ transform: 'translate(-50%,-50%) scale(.3)', opacity: 1 },
+        { transform: 'translate(calc(-50% + ' + dx * 0.8 + 'px),calc(-50% + ' + dy * 0.8 + 'px)) scale(1)', opacity: 1, offset: 0.5 },
+        { transform: 'translate(calc(-50% + ' + dx + 'px),calc(-50% + ' + (dy + 22) + 'px)) scale(.4) rotate(' + (Math.random() * 120 - 60) + 'deg)', opacity: 0 }],
+        { duration: 520 + Math.random() * 80, easing: 'cubic-bezier(.15,.7,.25,1)', fill: 'forwards' });
+      box.appendChild(p);
+    }
+    d.body.appendChild(box); setTimeout(function () { box.remove(); }, 640);
+  }, { passive: true });
 });
 
 /* fx cursor-trail */

@@ -86,6 +86,26 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx reveal-plus */
+/* reveal-plus: richer reveals on top of core's .rv (core adds .in). opt: {style: "rise" | "blur" | "clip", step: 70} (ms between
+   items that enter together, so grids and lists cascade instead of popping at once). Reduced motion: core already shows all. */
+FX.def('reveal-plus', function (c) {
+  if (FX.reduced || !('IntersectionObserver' in window)) return;
+  var h = document.documentElement, st = String(c.opt.style || 'rise'), step = +c.opt.step || 70;
+  if (st === 'blur' || st === 'clip') h.classList.add('fx-rp-' + st);
+  var els = c.els('.rv').filter(function (e) { return !e.classList.contains('in'); });
+  var io = new IntersectionObserver(function (es) {
+    var hit = es.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
+    hit.sort(function (a, b) { var A = a.getBoundingClientRect(), B = b.getBoundingClientRect(); return (A.top - B.top) || (A.left - B.left); });
+    hit.forEach(function (e, i) {
+      io.unobserve(e);
+      e.style.transitionDelay = Math.min(i, 6) * step + 'ms';
+      setTimeout(function () { e.style.transitionDelay = ''; }, 1500);
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  els.forEach(function (e) { io.observe(e); });
+});
+
 /* fx img-zoom */
 /* img-zoom: finds each image's clipping frame (an ancestor with overflow hidden/clip around just that image); if there is none,
    clips the display:block link around it; if neither is possible the image is left alone. Mouse only, off with reduced motion. */
@@ -105,24 +125,4 @@ FX.def('img-zoom', function (c) {
     host.classList.add('fx-zoom-host');
     var cap = fig && fig.querySelector('figcaption'); if (cap) cap.classList.add('fx-zoom-cap');
   });
-});
-
-/* fx reveal-plus */
-/* reveal-plus: richer reveals on top of core's .rv (core adds .in). opt: {style: "rise" | "blur" | "clip", step: 70} (ms between
-   items that enter together, so grids and lists cascade instead of popping at once). Reduced motion: core already shows all. */
-FX.def('reveal-plus', function (c) {
-  if (FX.reduced || !('IntersectionObserver' in window)) return;
-  var h = document.documentElement, st = String(c.opt.style || 'rise'), step = +c.opt.step || 70;
-  if (st === 'blur' || st === 'clip') h.classList.add('fx-rp-' + st);
-  var els = c.els('.rv').filter(function (e) { return !e.classList.contains('in'); });
-  var io = new IntersectionObserver(function (es) {
-    var hit = es.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
-    hit.sort(function (a, b) { var A = a.getBoundingClientRect(), B = b.getBoundingClientRect(); return (A.top - B.top) || (A.left - B.left); });
-    hit.forEach(function (e, i) {
-      io.unobserve(e);
-      e.style.transitionDelay = Math.min(i, 6) * step + 'ms';
-      setTimeout(function () { e.style.transitionDelay = ''; }, 1500);
-    });
-  }, { rootMargin: '0px 0px -8% 0px' });
-  els.forEach(function (e) { io.observe(e); });
 });

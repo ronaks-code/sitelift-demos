@@ -1,10 +1,5 @@
-/* Yard Sign motion: sign drop/swing on load, before/after slider (works without motion too). */
+/* Garage Door motion: on load a slatted door rolls up off the hero photo (CSS, only when motion is allowed); bay slats retract on hover. */
 (function () {
-  if (!window.SL) return;
-  document.querySelectorAll('[data-ba]').forEach(function (s) {
-    var r = s.querySelector('input');
-    var set = function () { s.style.setProperty('--x', r.value + '%'); };
-    r.addEventListener('input', set); set();
-  });
-  if (!SL.reduced && document.querySelector('[data-swing]')) document.body.classList.add('js-swing');
+  if (!window.SL || SL.reduced) return;
+  document.body.classList.add('js-gd');
 })();

@@ -1,15 +1,11 @@
-/* Paleta motion: hero popsicles bob up and down out of phase, a soft shine sweeps across the photo popsicle, flavor cards bob (CSS). */
+/* Cottage motion: the hero stamp thumps down once, the polaroid pile sways like it is pinned, and the polaroids straighten on hover (CSS). */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.querySelectorAll('.pa-pop').forEach(function (p, i) {
-    p.animate([{ transform: 'translateY(0) rotate(-1.2deg)' }, { transform: 'translateY(-14px) rotate(1.2deg)' }], { duration: 2600 + i * 380, delay: -i * 600, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  });
-  var pic = document.querySelector('.pa-p3 .pa-pop-pic');
-  if (pic) {
-    var s = document.createElement('i'); s.style.cssText = 'position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-14deg);pointer-events:none';
-    pic.style.position = 'relative'; pic.appendChild(s);
-    s.animate([{ left: '-40%' }, { left: '130%' }], { duration: 1800, delay: 1200, iterations: Infinity, easing: 'ease-in-out', endDelay: 3500 });
-  }
+  var s = document.querySelector('.kc-stamp');
+  if (s) s.animate([{ transform: 'rotate(14deg) scale(2.4)', opacity: 0 }, { transform: 'rotate(14deg) scale(.92)', opacity: 1, offset: .7 }, { transform: 'rotate(14deg) scale(1)', opacity: 1 }], { duration: 700, delay: 600, easing: 'cubic-bezier(.3,.7,.3,1)', fill: 'backwards' });
+  var a = document.querySelector('.kc-pile .kc-pol-a'), b = document.querySelector('.kc-pile .kc-pol-b');
+  if (a) a.animate([{ transform: 'rotate(-4deg)' }, { transform: 'rotate(-2.6deg) translateY(-4px)' }], { duration: 4200, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  if (b) b.animate([{ transform: 'rotate(5deg)' }, { transform: 'rotate(3.4deg) translateY(4px)' }], { duration: 5000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;
