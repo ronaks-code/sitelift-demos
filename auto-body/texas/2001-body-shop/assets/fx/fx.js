@@ -86,26 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx stars-fill */
-/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
-   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
-FX.def('stars-fill', function (c) {
-  if (FX.reduced) return;
-  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
-    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
-  });
-  els.forEach(function (el) {
-    var s = document.createElement('span');
-    s.className = 'fx-stars-in fx-stars-w';
-    while (el.firstChild) s.appendChild(el.firstChild);
-    el.appendChild(s);
-    FX.seen([el], function () {
-      s.classList.remove('fx-stars-w');
-      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
-    });
-  });
-});
-
 /* fx sticky-cta */
 /* sticky-cta: floating "Call" + booking/contact pill. Appears once the hero has scrolled away; hides while the footer or the page's own
    booking button is on screen. Labels come from the links' own text (shortened) or opt. Mobile: no-op when the kit has a .callbar.
@@ -140,5 +120,25 @@ FX.def('sticky-cta', function (c) {
   if (tg.length) watch(tg, function (es) {
     es.forEach(function (e) { var i = seen.indexOf(e.target); if (e.isIntersecting && i < 0) seen.push(e.target); else if (!e.isIntersecting && i > -1) seen.splice(i, 1); });
     near = seen.length;
+  });
+});
+
+/* fx stars-fill */
+/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
+   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
+FX.def('stars-fill', function (c) {
+  if (FX.reduced) return;
+  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
+    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
+  });
+  els.forEach(function (el) {
+    var s = document.createElement('span');
+    s.className = 'fx-stars-in fx-stars-w';
+    while (el.firstChild) s.appendChild(el.firstChild);
+    el.appendChild(s);
+    FX.seen([el], function () {
+      s.classList.remove('fx-stars-w');
+      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
+    });
   });
 });

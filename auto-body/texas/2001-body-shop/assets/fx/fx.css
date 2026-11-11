@@ -1,11 +1,3 @@
-/* fx stars-fill */
-/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
-   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
-html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
- background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
- background-size: 250% 100%; background-position: 0 0 }
-html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }
-
 /* fx sticky-cta */
 /* sticky-cta: a floating Call + Book pill (created by sticky-cta.js). Desktop: bottom-right pill. Mobile: nothing when the kit has its own
    call bar (.fx-sc-nb), else a compact bar. Hidden state only exists on the element JS creates; it sits under the lightbox. */
@@ -39,3 +31,11 @@ html.fx-open-pulse [data-hours].is-closed::before { background: color-mix(in srg
  html.fx-open-pulse [data-hours].is-open::before { animation: fx-open-pulse 2s cubic-bezier(.2, .7, .2, 1) infinite }
  @keyframes fx-open-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 50%, transparent) } 70%, 100% { box-shadow: 0 0 0 .6em color-mix(in srgb, #1f9d55 0%, transparent) } }
 }
+
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }

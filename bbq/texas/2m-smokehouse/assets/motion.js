@@ -1,14 +1,15 @@
-/* Catering motion: the timeline connector draws across as it scrolls into view, the filmstrip drifts (CSS, pauses on hover), the request card eases up on load. */
+/* Smoke motion: embers rise from the bottom of the hero and fade; hero photo slowly pushes in; section rows slide their numbers in. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var q = document.querySelector('.cg-quote');
-  if (q) q.animate([{ transform: 'translateY(30px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 900, delay: 250, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  var s = document.querySelector('.cg-steps');
-  if (s && 'IntersectionObserver' in window && matchMedia('(min-width:701px)').matches) {
-    var dots = s.querySelectorAll('.cg-dot');
-    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { dots.forEach(function (d, i) { d.animate([{ transform: 'scale(.4)', opacity: 0 }, { transform: 'scale(1)', opacity: 1 }], { duration: 500, delay: i * 220, fill: 'backwards', easing: 'cubic-bezier(.3,1.5,.5,1)' }); }); io.disconnect(); } }, { threshold: .3 });
-    io.observe(s);
+  var box = document.querySelector('.sm-embers');
+  if (box) for (var i = 0; i < 22; i++) {
+    var e = document.createElement('i'), x = Math.random() * 100, dur = 5000 + Math.random() * 6000, dx = (Math.random() * 80 - 40);
+    e.style.left = x + '%'; e.style.width = e.style.height = (2 + Math.random() * 4) + 'px'; box.appendChild(e);
+    e.animate([{ transform: 'translate(0,0)', opacity: 0 }, { opacity: .95, offset: .15 }, { transform: 'translate(' + dx + 'px,-' + (box.offsetHeight * (0.5 + Math.random() * 0.5)) + 'px)', opacity: 0 }],
+      { duration: dur, delay: Math.random() * 6000, iterations: Infinity, easing: 'ease-out' });
   }
+  var bg = document.querySelector('.sm-bg>img,.sm-bg>picture>img,.sm-bg>.ph');
+  if (bg) bg.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.07)' }], { duration: 18000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

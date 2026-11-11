@@ -86,19 +86,24 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx bg-mesh */
-/* bg-mesh: a slow drifting gradient mesh behind the hero: four large soft radial blobs in the brand colours at low alpha,
-   moved with CSS transform keyframes (no blur filter, cheap on phones). One layer, first child of the target; static with
-   reduced motion. opt: {strength: 0..1 (default .6)} */
-FX.def('bg-mesh', function (c) {
-  var s = c.opt.strength == null ? 0.6 : Math.max(0, Math.min(1, +c.opt.strength));
-  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var L = document.createElement('div'), i;
-    L.className = 'fx-mesh'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none'; L.style.opacity = s;
-    for (i = 0; i < 4; i++) L.appendChild(document.createElement('i'));
-    // Containing block first, then insert: setting position after the layer is in moves the blobs (counted as layout shift).
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';
-    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
+/* fx img-zoom */
+/* img-zoom: finds each image's clipping frame (an ancestor with overflow hidden/clip around just that image); if there is none,
+   clips the display:block link around it; if neither is possible the image is left alone. Mouse only, off with reduced motion. */
+FX.def('img-zoom', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  c.els('a[data-lb] img,[class*=gal] img').forEach(function (img) {
+    if (img.closest('.ph,[class*=logo]')) return;
+    var a = img.closest('a'), fig = img.closest('figure'), f = null, p = img.parentElement, i = 0;
+    for (; p && i < 3 && p.querySelectorAll('img').length === 1; p = p.parentElement, i++) {
+      if (getComputedStyle(p).overflow !== 'visible') { f = p; break; }
+    }
+    if (!f) {
+      if (a && a.contains(img) && getComputedStyle(a).display === 'block') { a.classList.add('fx-zoom-clip'); f = a; } else return;
+    }
+    img.classList.add('fx-zoom');
+    var host = fig && fig.querySelectorAll('img').length === 1 ? fig : (a && a.contains(img) ? a : f);
+    host.classList.add('fx-zoom-host');
+    var cap = fig && fig.querySelector('figcaption'); if (cap) cap.classList.add('fx-zoom-cap');
   });
 });
 
@@ -134,26 +139,18 @@ FX.def('section-tint', function (c) {
   pick();
 });
 
-/* fx nav-stagger */
-/* nav-stagger: when the mobile menu opens (core.js toggles body.nav-open), the links inside the drawer rise in one after another
-   (40ms apart). The drawer is the toggle's aria-controls target, else the header links that were not visible before opening.
-   WAAPI with a backwards fill: links wait invisible during their delay, and always end (or are cancelled) fully visible.
-   Off with reduced motion. opt: {gap: 40} */
-FX.def('nav-stagger', function (c) {
-  if (FX.reduced) return;
-  var d = document, gap = c.opt.gap == null ? 40 : +c.opt.gap, was = [];
-  function vis() { return FX.$$('header a, nav a').filter(function (a) { return a.offsetParent !== null; }); }
-  was = vis();
-  function links() {
-    var t = d.querySelector('[data-nav-toggle][aria-controls]'), dr = t && d.getElementById(t.getAttribute('aria-controls'));
-    var l = dr ? FX.$$('a', dr) : vis().filter(function (a) { return was.indexOf(a) < 0; });
-    return l.filter(function (a) { return a.offsetParent !== null; });
-  }
-  new MutationObserver(function () {
-    if (!d.body.classList.contains('nav-open')) { was = vis(); return; }
-    links().forEach(function (a, i) {
-      a.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
-        { duration: 420, delay: 60 + i * gap, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-    });
-  }).observe(d.body, { attributes: true, attributeFilter: ['class'] });
+/* fx bg-mesh */
+/* bg-mesh: a slow drifting gradient mesh behind the hero: four large soft radial blobs in the brand colours at low alpha,
+   moved with CSS transform keyframes (no blur filter, cheap on phones). One layer, first child of the target; static with
+   reduced motion. opt: {strength: 0..1 (default .6)} */
+FX.def('bg-mesh', function (c) {
+  var s = c.opt.strength == null ? 0.6 : Math.max(0, Math.min(1, +c.opt.strength));
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var L = document.createElement('div'), i;
+    L.className = 'fx-mesh'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none'; L.style.opacity = s;
+    for (i = 0; i < 4; i++) L.appendChild(document.createElement('i'));
+    // Containing block first, then insert: setting position after the layer is in moves the blobs (counted as layout shift).
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';
+    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
+  });
 });

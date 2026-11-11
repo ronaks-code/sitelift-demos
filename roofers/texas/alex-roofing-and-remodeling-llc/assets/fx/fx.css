@@ -10,17 +10,15 @@ html.fx-open-pulse [data-hours].is-closed::before { background: color-mix(in srg
  @keyframes fx-open-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 50%, transparent) } 70%, 100% { box-shadow: 0 0 0 .6em color-mix(in srgb, #1f9d55 0%, transparent) } }
 }
 
-/* fx highlight-sweep */
-/* highlight-sweep: a marker band (or underline) draws across the hero's emphasised words when they scroll into view. The text colour
-   is never changed; the band is a translucent --accent. Marked elements are tagged by JS; the final highlight is the natural
-   state once .fx-hl-on is set. Reduced motion: final highlight, static.
-   No padding/margin on the marked element: it is tagged after first paint, and padding with box-decoration-break: clone
-   rewraps a multi-line headline (measured CLS 0.1-0.17 on hero h1 em). */
-[data-fx-hl] { background-repeat: no-repeat; background-position: 0 94%; box-decoration-break: clone; -webkit-box-decoration-break: clone;
- background-image: linear-gradient(color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent) 26%, transparent)); background-size: 0% 36% }
-[data-fx-hl=underline] { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0% 3px }
-[data-fx-hl].fx-hl-on { background-size: 100% 36% }
-[data-fx-hl=underline].fx-hl-on { background-size: 100% 3px }
+/* fx scroll-progress */
+/* scroll-progress: a thin bar at the very top showing how far down the page you are. The bar only exists when JS built it.
+   Where scroll-driven animations exist the browser drives it (no JS per frame); elsewhere (and with reduced motion, since
+   progress is information, not decoration) JS sets it on scroll. */
+.fx-sp-bar { position: fixed; left: 0; top: 0; width: 100%; height: 3px; z-index: 2147482600; pointer-events: none; background: var(--primary);
+ transform: scaleX(0); transform-origin: 0 50% }
+@keyframes fx-sp { to { transform: scaleX(1) } }
 @media (prefers-reduced-motion: no-preference) {
- [data-fx-hl] { transition: background-size 1s cubic-bezier(.2, .7, .2, 1) }
+ @supports (animation-timeline: scroll()) {
+  .fx-sp-bar.fx-sp-css { animation: fx-sp linear both; animation-timeline: scroll(root block) }
+ }
 }

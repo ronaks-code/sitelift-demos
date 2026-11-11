@@ -1,0 +1,20 @@
+/* fx before-after */
+/* before-after: the slider is laid over the first image's own box (absolute, no layout change). The range input is the accessible
+   control (keyboard); pointer drag is handled on the layer. Everything here is created by before-after.js. */
+.fx-ba { position: absolute; z-index: 3; overflow: hidden; touch-action: pan-y; cursor: ew-resize; user-select: none; -webkit-user-select: none; --p: 50%; background: var(--surface) }
+.fx-ba > img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; margin: 0; pointer-events: none; -webkit-user-drag: none }
+.fx-ba > .fx-ba-b { clip-path: inset(0 0 0 var(--p)) }
+.fx-ba-bar { position: absolute; top: 0; bottom: 0; left: var(--p); width: 2px; margin-left: -1px; background: var(--on-primary); box-shadow: 0 0 0 1px rgba(255, 255, 255, .35), 0 0 10px rgba(0, 0, 0, .35); pointer-events: none }
+.fx-ba-bar i { position: absolute; top: 50%; left: 50%; width: 42px; height: 42px; margin: -21px 0 0 -21px; border-radius: 50%; background: var(--primary); border: 3px solid var(--on-primary);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, .3); transition: transform .25s cubic-bezier(.2, .7, .2, 1) }
+.fx-ba-bar i::before, .fx-ba-bar i::after { content: ""; position: absolute; top: 50%; width: 0; height: 0; margin-top: -5px; border: 5px solid transparent }
+.fx-ba-bar i::before { left: 6px; border-right-color: var(--on-primary); border-left-width: 0 }
+.fx-ba-bar i::after { right: 6px; border-left-color: var(--on-primary); border-right-width: 0 }
+.fx-ba.drag .fx-ba-bar i { transform: scale(1.1) }
+.fx-ba-l { position: absolute; bottom: 12px; padding: 4px 10px; border-radius: 99px; font: 700 12px/1.3 var(--f-body); letter-spacing: .08em; text-transform: uppercase;
+ background: color-mix(in srgb, var(--dark) 72%, transparent); color: var(--on-dark); pointer-events: none; transition: opacity .25s }
+.fx-ba-l1 { left: 12px }
+.fx-ba-l2 { right: 12px }
+.fx-ba-in { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; pointer-events: none }
+.fx-ba:not(.m):has(.fx-ba-in:focus-visible) { outline: 3px solid var(--accent); outline-offset: 3px }
+.fx-ba:not(.m):has(.fx-ba-in:focus-visible) .fx-ba-bar i { transform: scale(1.12) }

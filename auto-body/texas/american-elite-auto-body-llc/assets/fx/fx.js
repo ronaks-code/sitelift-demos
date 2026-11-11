@@ -86,54 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx timeline-draw */
-/* timeline-draw: process / steps lists get a vertical line through the step numbers that draws as you scroll (scroll-driven CSS where
-   supported, otherwise it grows step by step as each step is reached); each number gives a small pop when reached.
-   Works for numbers that are a child element or a ::before/::after counter. The list keeps its layout and markup.
-   Lists that already have a background image are skipped. Reduced motion: the full line, no pop. */
-FX.def('timeline-draw', function (c) {
-  var css = !FX.reduced && window.CSS && CSS.supports('animation-timeline: view()') && CSS.supports('animation-range: 0% 100%');
-  c.els('ol[class*=step], ol[class*=process], [class*=process] ol, [class*=steps]').forEach(function (ol) {
-    var li = [].slice.call(ol.children).filter(function (k) { return k.offsetHeight > 0; });
-    if (li.length < 2 || getComputedStyle(ol).backgroundImage !== 'none') return;
-    var mk = [];
-    function measure() {
-      var o = ol.getBoundingClientRect(), bl = parseFloat(getComputedStyle(ol).borderLeftWidth) || 0, bt = parseFloat(getComputedStyle(ol).borderTopWidth) || 0;
-      mk = li.map(function (k) {
-        var s = getComputedStyle(k), tr = new DOMMatrix(s.transform), r = k.getBoundingClientRect(), x, y, w, ps = '';
-        var first = k.firstElementChild, fs = first && first.getBoundingClientRect();
-        var b = getComputedStyle(k, '::before'), a = getComputedStyle(k, '::after');
-        var pe = b.content !== 'none' && b.content !== 'normal' ? '::before' : (a.content !== 'none' && a.content !== 'normal' && a.position !== 'absolute' ? '::after' : '');
-        var left = r.left - tr.m41 - o.left - bl, top = r.top - tr.m42 - o.top - bt;
-        if (first && fs.width <= 90 && fs.height <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName)) { x = fs.left - o.left - bl + fs.width / 2; y = fs.top - o.top - bt + fs.height / 2; }
-        else if (pe) {
-          var q = pe === '::before' ? b : a, W = parseFloat(q.width) || 24, H = parseFloat(q.height) || 24;
-          if (q.position === 'absolute') { x = left + (parseFloat(q.left) || 0) + W / 2 - (q.left === 'auto' ? W / 2 : 0); y = top + (parseFloat(q.top) || 0) + H / 2; }
-          else { x = left + (parseFloat(s.paddingLeft) || 0) + W / 2; y = top + (parseFloat(s.paddingTop) || 0) + H / 2; }
-          ps = pe;
-        } else { x = left + 14; y = top + 14; }
-        return { x: x, y: y, el: ps ? k : (first && fs.width <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName) ? first : null), pe: ps };
-      });
-      var y0 = mk[0].y, y1 = mk[mk.length - 1].y;
-      ol.style.setProperty('--fx-x', (mk[0].x - 1).toFixed(1) + 'px'); ol.style.setProperty('--fx-y', y0.toFixed(1) + 'px'); ol.style.setProperty('--fx-h', Math.max(0, y1 - y0).toFixed(1) + 'px');
-    }
-    measure();
-    ol.setAttribute('data-fx-td', '');
-    if (window.ResizeObserver) new ResizeObserver(measure).observe(ol);
-    if (FX.reduced) return;
-    if (css) ol.classList.add('fx-td-css');
-    else { ol.classList.add('fx-td-io'); ol.style.setProperty('--fx-p', 0); }
-    li.forEach(function (k, i) {
-      FX.seen([k], function () {
-        var m = mk[i], h1 = mk[mk.length - 1].y - mk[0].y;
-        if (!css) ol.style.setProperty('--fx-p', h1 > 0 ? Math.max(0, (m.y - mk[0].y) / h1).toFixed(3) : 1);
-        if (Element.prototype.animate && m.el) m.el.animate([{ transform: 'scale(.82)' }, { transform: 'scale(1.18)', offset: .55 }, { transform: 'scale(1)' }],
-          { duration: 520, easing: 'cubic-bezier(.2,.7,.2,1)', pseudoElement: m.pe || undefined });
-      }, '0px 0px -38% 0px');
-    });
-  });
-});
-
 /* fx bg-grid */
 /* bg-grid: a fine dot grid (opt kind "lines" for a line grid) with a brighter copy of the grid revealed through a soft
    circle that follows the pointer (mouse) or slowly sweeps (touch). Edges fade out. Static grid with reduced motion.

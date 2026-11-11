@@ -1,19 +1,13 @@
-/* Flour motion: sprinkles drift around the hero photo; the oval floats; the headline lines slide in from opposite sides. */
+/* Bistro motion: hero photo drifts slowly inside its frame while scrolling (parallax), and hairline rules draw across on reveal. Image reveals are CSS clip-path wipes. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var sp = document.querySelector('.fl-sprinkles');
-  if (sp) for (var i = 0; i < 16; i++) {
-    var e = document.createElement('i'), a = Math.random() * 360;
-    e.style.left = (50 + 48 * Math.cos(a * Math.PI / 180)) + '%'; e.style.top = (50 + 48 * Math.sin(a * Math.PI / 180)) + '%';
-    e.style.transform = 'rotate(' + (Math.random() * 180) + 'deg)'; sp.appendChild(e);
-    e.animate([{ translate: '0 0' }, { translate: (Math.random() * 24 - 12) + 'px ' + (Math.random() * 30 - 15) + 'px' }], { duration: 2800 + Math.random() * 3000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  var im = document.querySelector('.bs-pano-in img,.bs-pano-in .ph');
+  if (im) {
+    im.style.transform = 'scale(1.12)';
+    var tick = function () { var y = Math.min(scrollY, 900); im.style.transform = 'scale(1.12) translateY(' + (y * 0.06) + 'px)'; };
+    addEventListener('scroll', tick, { passive: true });
   }
-  var o = document.querySelector('.fl-oval-pic');
-  if (o) o.animate([{ translate: '0 -6px' }, { translate: '0 8px' }], { duration: 4200, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  var l1 = document.querySelector('.fl-l1'), l2 = document.querySelector('.fl-l2');
-  var k = { duration: 1000, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' };
-  if (l1) l1.animate([{ translate: '-8vw', opacity: 0 }, { translate: '0', opacity: 1 }], k);
-  if (l2) l2.animate([{ translate: '8vw', opacity: 0 }, { translate: '0', opacity: 1 }], { ...k, delay: 150 });
+  var pn = document.querySelector('.bs-pano-in'); if (pn) pn.style.overflow = 'hidden';
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;
