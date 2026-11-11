@@ -86,27 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx bg-waves */
-/* bg-waves: four thin sine lines drifting sideways across the bottom of the hero, in primary/accent at low alpha, fading
-   out toward the top. Animated SVG paths moved by CSS only (no JS loop); static with reduced motion. opt: {n: 4} lines */
-FX.def('bg-waves', function (c) {
-  var n = Math.min(5, Math.max(3, +c.opt.n || 4));
-  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var L = document.createElement('div'), h = '', i;
-    L.className = 'fx-waves'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none';
-    for (i = 0; i < n; i++) {
-      var a = 5 + i * 3.5, k = 2 + (i % 2), ph = i * 1.3, p = '';   // amplitude, periods per half, phase
-      for (var x = 0; x <= 400; x += 5) p += (x ? 'L' : 'M') + (x * 5) + ' ' + (50 + a * Math.sin(x / 200 * 2 * Math.PI * k + ph)).toFixed(1);
-      h += '<svg viewBox="0 0 2000 100" preserveAspectRatio="none" style="bottom:' + (2 + i * 4.5) + '%;animation-duration:' + (46 + i * 14) +
-        's;animation-direction:' + (i % 2 ? 'reverse' : 'normal') + '"><path d="' + p + '" style="stroke:var(--' + (i % 2 ? 'accent' : 'primary') +
-        ');opacity:' + (0.5 - i * 0.07).toFixed(2) + '"/></svg>';
-    }
-    L.innerHTML = h;
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
-    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
-  });
-});
-
 /* fx highlight-sweep */
 /* highlight-sweep: the hero's <em> (or [data-fx-highlight], or any configured element) gets a marker band behind the bottom 40% of
    the text, or a 3px underline, swept in --accent when it scrolls into view. opt: {style: "marker" | "underline"}
@@ -143,5 +122,26 @@ FX.def('ken-burns', function (c) {
         img.setAttribute('data-fx-kb', ''); if (c.opt.seconds) img.style.setProperty('--fx-kb-t', (+c.opt.seconds) + 's'); return;
       }
     }
+  });
+});
+
+/* fx bg-waves */
+/* bg-waves: four thin sine lines drifting sideways across the bottom of the hero, in primary/accent at low alpha, fading
+   out toward the top. Animated SVG paths moved by CSS only (no JS loop); static with reduced motion. opt: {n: 4} lines */
+FX.def('bg-waves', function (c) {
+  var n = Math.min(5, Math.max(3, +c.opt.n || 4));
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var L = document.createElement('div'), h = '', i;
+    L.className = 'fx-waves'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none';
+    for (i = 0; i < n; i++) {
+      var a = 5 + i * 3.5, k = 2 + (i % 2), ph = i * 1.3, p = '';   // amplitude, periods per half, phase
+      for (var x = 0; x <= 400; x += 5) p += (x ? 'L' : 'M') + (x * 5) + ' ' + (50 + a * Math.sin(x / 200 * 2 * Math.PI * k + ph)).toFixed(1);
+      h += '<svg viewBox="0 0 2000 100" preserveAspectRatio="none" style="bottom:' + (2 + i * 4.5) + '%;animation-duration:' + (46 + i * 14) +
+        's;animation-direction:' + (i % 2 ? 'reverse' : 'normal') + '"><path d="' + p + '" style="stroke:var(--' + (i % 2 ? 'accent' : 'primary') +
+        ');opacity:' + (0.5 - i * 0.07).toFixed(2) + '"/></svg>';
+    }
+    L.innerHTML = h;
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
+    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
   });
 });

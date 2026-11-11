@@ -6,31 +6,6 @@
 .fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
 .fx-sr-i { display: inline-block }
 
-/* fx tilt */
-/* tilt: soft glare layer inside tilting cards (inserted by tilt.js) */
-html.fx-tilt .fx-tilt-g { position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
- background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 58%) }
-html.fx-tilt .fx-tilt-g.on { opacity: 1 }
-
-/* fx bg-mesh */
-/* bg-mesh: layer is built by JS under html.fx-bg-mesh; blobs are radial gradients, animated by transform only */
-.fx-mesh { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
-.fx-mesh i { position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50% }
-.fx-mesh i:nth-child(1) { left: -18%; top: -38%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 46%, transparent), transparent) }
-.fx-mesh i:nth-child(2) { right: -22%; top: -10%; width: 70%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 42%, transparent), transparent) }
-.fx-mesh i:nth-child(3) { left: 18%; bottom: -60%; width: 84%; background: radial-gradient(closest-side, color-mix(in srgb, var(--surface) 80%, var(--primary)), transparent) }
-.fx-mesh i:nth-child(4) { right: 8%; bottom: -34%; width: 52%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 26%, var(--accent)), transparent); opacity: .7 }
-@media (max-width: 760px) { .fx-mesh i { width: 130% } .fx-mesh i:nth-child(2) { right: -50% } }
-@media (prefers-reduced-motion: no-preference) {
- .fx-mesh i { will-change: transform; animation: fx-mesh-a 28s ease-in-out infinite alternate }
- .fx-mesh i:nth-child(2) { animation-name: fx-mesh-b; animation-duration: 34s }
- .fx-mesh i:nth-child(3) { animation-name: fx-mesh-c; animation-duration: 40s }
- .fx-mesh i:nth-child(4) { animation-name: fx-mesh-b; animation-duration: 22s; animation-direction: alternate-reverse }
- @keyframes fx-mesh-a { to { transform: translate3d(22%, 16%, 0) scale(1.12) } }
- @keyframes fx-mesh-b { to { transform: translate3d(-24%, 20%, 0) scale(.9) } }
- @keyframes fx-mesh-c { to { transform: translate3d(-18%, -14%, 0) scale(1.15) } }
-}
-
 /* fx hero-zoomout */
 /* hero-zoomout: the hero photo starts a touch zoomed and, as you scroll past, settles to full size inside a rounded inset frame.
    Scroll-driven (the first 70vh of scroll); a JS fallback sets the same values elsewhere. Nothing happens with reduced motion. */
@@ -74,14 +49,51 @@ html.fx-tilt .fx-tilt-g.on { opacity: 1 }
 .fx-cur-blend.is-link .fx-cur-ring b, .fx-cur-blend.is-label .fx-cur-ring b { background: #fff; border-color: #fff }
 .fx-cur-blend .fx-cur-ring span { color: #000 }
 
-/* fx reveal-plus */
-/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
-   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
-   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
+/* fx spotlight */
+/* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
+.fx-sp { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 20; pointer-events: none; opacity: 0; transition: opacity .3s }
+.fx-sp.on { opacity: 1 }
+.fx-sp b { position: absolute; inset: 0; border-radius: inherit;
+ background: radial-gradient(circle 260px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%) }
+.fx-sp i { position: absolute; inset: 0; border-radius: inherit; padding: 2px;
+ background: radial-gradient(circle 280px at var(--fx-x, 50%) var(--fx-y, 50%), var(--accent), transparent 70%);
+ -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor;
+ mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
+.fx-sp.big i { display: none }
+.fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
+
+/* fx bg-mesh */
+/* bg-mesh: layer is built by JS under html.fx-bg-mesh; blobs are radial gradients, animated by transform only */
+.fx-mesh { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
+.fx-mesh i { position: absolute; width: 78%; aspect-ratio: 1; border-radius: 50% }
+.fx-mesh i:nth-child(1) { left: -18%; top: -38%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 46%, transparent), transparent) }
+.fx-mesh i:nth-child(2) { right: -22%; top: -10%; width: 70%; background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 42%, transparent), transparent) }
+.fx-mesh i:nth-child(3) { left: 18%; bottom: -60%; width: 84%; background: radial-gradient(closest-side, color-mix(in srgb, var(--surface) 80%, var(--primary)), transparent) }
+.fx-mesh i:nth-child(4) { right: 8%; bottom: -34%; width: 52%; background: radial-gradient(closest-side, color-mix(in srgb, var(--primary) 26%, var(--accent)), transparent); opacity: .7 }
+@media (max-width: 760px) { .fx-mesh i { width: 130% } .fx-mesh i:nth-child(2) { right: -50% } }
 @media (prefers-reduced-motion: no-preference) {
- html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
- html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
- html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
+ .fx-mesh i { will-change: transform; animation: fx-mesh-a 28s ease-in-out infinite alternate }
+ .fx-mesh i:nth-child(2) { animation-name: fx-mesh-b; animation-duration: 34s }
+ .fx-mesh i:nth-child(3) { animation-name: fx-mesh-c; animation-duration: 40s }
+ .fx-mesh i:nth-child(4) { animation-name: fx-mesh-b; animation-duration: 22s; animation-direction: alternate-reverse }
+ @keyframes fx-mesh-a { to { transform: translate3d(22%, 16%, 0) scale(1.12) } }
+ @keyframes fx-mesh-b { to { transform: translate3d(-24%, 20%, 0) scale(.9) } }
+ @keyframes fx-mesh-c { to { transform: translate3d(-18%, -14%, 0) scale(1.15) } }
 }
-html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
-html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
+
+/* fx sheen */
+/* sheen: a light band slides across primary buttons using the button's own background layer (no pseudo-element, no
+   positioning, so fixed call bars and kit styles are untouched). Motion only; reduced motion = plain buttons. */
+@media (prefers-reduced-motion: no-preference) {
+ .btn:not(.alt) { background-image: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .34) 50%, transparent 58%);
+  background-size: 250% 100%; background-repeat: no-repeat; background-position: 100% 0; animation: fx-sheen 7s cubic-bezier(.4, 0, .2, 1) 1.5s infinite }
+ .btn:not(.alt):nth-of-type(2n) { animation-delay: 3.2s }
+ @keyframes fx-sheen { 0% { background-position: 100% 0 } 16%, 100% { background-position: 0 0 } }
+ .fx-sheen-img { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .22) 50%, transparent 60%);
+  transform: translateX(-120%); animation: fx-sheen-i 8s cubic-bezier(.4, 0, .2, 1) 2.5s infinite }
+ @keyframes fx-sheen-i { 0% { transform: translateX(-120%) } 22%, 100% { transform: translateX(120%) } }
+}
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+ .btn:not(.alt):hover { animation: fx-sheen-h .8s cubic-bezier(.3, .6, .2, 1) 1 }
+ @keyframes fx-sheen-h { from { background-position: 100% 0 } to { background-position: 0 0 } }
+}

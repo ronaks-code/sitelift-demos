@@ -1,18 +1,15 @@
-/* Fit the big phone number on one line whatever the brand font's width (layout, so it runs with reduced motion too). */
+/* Checklist motion: each inspection row gets its green mark as it scrolls in, one after the other. Everything is shown without JS or with reduced motion. */
 (function () {
-  var els = document.querySelectorAll('.tg-foot-tel');
-  if (!els.length) return;
-  function fit() { els.forEach(function (e) { e.style.fontSize = ''; e.parentElement.style.minWidth = '0'; var r = e.clientWidth / e.scrollWidth; if (r < 1) e.style.fontSize = (parseFloat(getComputedStyle(e).fontSize) * r * 0.97) + 'px'; }); }
-  fit(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  var t; addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 120); });
-})();
-/* Hang Tag motion: the hero tags swing once and the stamp thuds when the hero is in view (CSS, started here). */
-(function () {
-  if (!window.SL || SL.reduced) return;
-  document.body.classList.add('js-tg');
-  var h = document.querySelector('[data-swing]');
-  if (h && 'IntersectionObserver' in window) {
-    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { h.classList.add('in'); io.disconnect(); } }, { threshold: 0.2 });
-    io.observe(h);
-  } else if (h) h.classList.add('in');
+  if (!window.SL || SL.reduced || !('IntersectionObserver' in window)) return;
+  var rows = [].slice.call(document.querySelectorAll('.ck-row'));
+  if (!rows.length) return;
+  document.body.classList.add('js-ck');
+  var n = 0, io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target; io.unobserve(el);
+      setTimeout(function () { el.classList.add('is-on'); }, (n++ % 6) * 140);
+    });
+  }, { threshold: 0.6 });
+  rows.forEach(function (r) { io.observe(r); });
 })();

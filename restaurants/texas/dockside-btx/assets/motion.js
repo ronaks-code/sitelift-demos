@@ -1,19 +1,10 @@
-/* Flour motion: sprinkles drift around the hero photo; the oval floats; the headline lines slide in from opposite sides. */
+/* Diner motion: bulbs chase around the sign and the checker strip slides (both CSS); the OPEN pill pulses its light, the chrome-ringed photo swings in like a jukebox door. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var sp = document.querySelector('.fl-sprinkles');
-  if (sp) for (var i = 0; i < 16; i++) {
-    var e = document.createElement('i'), a = Math.random() * 360;
-    e.style.left = (50 + 48 * Math.cos(a * Math.PI / 180)) + '%'; e.style.top = (50 + 48 * Math.sin(a * Math.PI / 180)) + '%';
-    e.style.transform = 'rotate(' + (Math.random() * 180) + 'deg)'; sp.appendChild(e);
-    e.animate([{ translate: '0 0' }, { translate: (Math.random() * 24 - 12) + 'px ' + (Math.random() * 30 - 15) + 'px' }], { duration: 2800 + Math.random() * 3000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  }
-  var o = document.querySelector('.fl-oval-pic');
-  if (o) o.animate([{ translate: '0 -6px' }, { translate: '0 8px' }], { duration: 4200, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  var l1 = document.querySelector('.fl-l1'), l2 = document.querySelector('.fl-l2');
-  var k = { duration: 1000, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' };
-  if (l1) l1.animate([{ translate: '-8vw', opacity: 0 }, { translate: '0', opacity: 1 }], k);
-  if (l2) l2.animate([{ translate: '8vw', opacity: 0 }, { translate: '0', opacity: 1 }], { ...k, delay: 150 });
+  var o = document.querySelector('.dn-open');
+  if (o) o.animate([{ boxShadow: '0 5px 0 var(--ink),0 0 0 rgba(255,255,255,0)' }, { boxShadow: '0 5px 0 var(--ink),0 0 26px rgba(255,255,255,.7)' }], { duration: 1400, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  var w = document.querySelector('.dn-window');
+  if (w) w.animate([{ transform: 'perspective(700px) rotateY(-70deg)', opacity: 0 }, { transform: 'perspective(700px) rotateY(0)', opacity: 1 }], { duration: 1000, delay: 200, easing: 'cubic-bezier(.3,1.3,.5,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

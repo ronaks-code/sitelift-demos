@@ -86,50 +86,23 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx cursor-ring */
-/* cursor-ring: a precise dot on the pointer and a soft ring that follows with a little lag. Over links/buttons the ring
-   grows; over gallery photos and call links it becomes a labelled pill ("View", "Call"). Mouse only (FX.fine), off with
-   reduced motion; text fields keep the native caret. opt: {labels: {view, call, book}, blend: true} */
-FX.def('cursor-ring', function (c) {
+/* fx img-zoom */
+/* img-zoom: finds each image's clipping frame (an ancestor with overflow hidden/clip around just that image); if there is none,
+   clips the display:block link around it; if neither is possible the image is left alone. Mouse only, off with reduced motion. */
+FX.def('img-zoom', function (c) {
   if (!FX.fine || FX.reduced) return;
-  var d = document, h = d.documentElement, o = c.opt, L = o.labels || {};
-  var lab = { view: L.view || 'View', call: L.call || 'Call', book: L.book || '' };
-  var el = d.createElement('div');
-  el.className = 'fx-cur' + (o.blend ? ' fx-cur-blend' : ''); el.setAttribute('aria-hidden', 'true');
-  el.innerHTML = '<i class="fx-cur-ring"><b><span></span></b></i><i class="fx-cur-dot"></i>';
-  d.body.appendChild(el);
-  var ring = el.firstChild, dot = el.lastChild, txt = ring.querySelector('span');
-  var x = -100, y = -100, rx = -100, ry = -100, busy = 0;
-  h.classList.add('fx-cur-on');
-  function tick() {
-    rx += (x - rx) * 0.2; ry += (y - ry) * 0.2;
-    ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0)';
-    if (Math.abs(x - rx) + Math.abs(y - ry) > 0.2) requestAnimationFrame(tick); else busy = 0;
-  }
-  addEventListener('pointermove', function (e) {
-    if (e.pointerType && e.pointerType !== 'mouse') return;
-    x = e.clientX; y = e.clientY;
-    dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
-    if (!el.classList.contains('on')) { rx = x; ry = y; el.classList.add('on'); }
-    if (!busy) { busy = 1; requestAnimationFrame(tick); }
-  }, { passive: true });
-  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) el.classList.remove('on'); });
-  d.addEventListener('pointerdown', function () { el.classList.add('down'); }, { passive: true });
-  d.addEventListener('pointerup', function () { el.classList.remove('down'); }, { passive: true });
-  d.addEventListener('pointerover', function (e) {
-    var t = e.target.closest ? e.target : e.target.parentElement;
-    if (!t || !t.closest) return;
-    var field = t.closest('input,textarea,select,[contenteditable],iframe');
-    var cue = t.closest('[data-cursor]');
-    var a = t.closest('a,button,[role=button],label,summary,[data-f]');
-    var s = '';
-    if (cue) s = cue.getAttribute('data-cursor');
-    else if (a && a.matches('a[data-lb],[data-lb] a')) s = lab.view;
-    else if (a && /^tel:/i.test(a.getAttribute('href') || '')) s = lab.call;
-    else if (a && lab.book && /book/i.test(a.getAttribute('href') || '')) s = lab.book;
-    el.classList.toggle('is-field', !!field);
-    el.classList.toggle('is-link', !!a && !s);
-    el.classList.toggle('is-label', !!s);
-    if (s) txt.textContent = s;
-  }, { passive: true });
+  c.els('a[data-lb] img,[class*=gal] img').forEach(function (img) {
+    if (img.closest('.ph,[class*=logo]')) return;
+    var a = img.closest('a'), fig = img.closest('figure'), f = null, p = img.parentElement, i = 0;
+    for (; p && i < 3 && p.querySelectorAll('img').length === 1; p = p.parentElement, i++) {
+      if (getComputedStyle(p).overflow !== 'visible') { f = p; break; }
+    }
+    if (!f) {
+      if (a && a.contains(img) && getComputedStyle(a).display === 'block') { a.classList.add('fx-zoom-clip'); f = a; } else return;
+    }
+    img.classList.add('fx-zoom');
+    var host = fig && fig.querySelectorAll('img').length === 1 ? fig : (a && a.contains(img) ? a : f);
+    host.classList.add('fx-zoom-host');
+    var cap = fig && fig.querySelector('figcaption'); if (cap) cap.classList.add('fx-zoom-cap');
+  });
 });

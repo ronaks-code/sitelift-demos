@@ -1,14 +1,13 @@
-/* Catering motion: the timeline connector draws across as it scrolls into view, the filmstrip drifts (CSS, pauses on hover), the request card eases up on load. */
+/* Bistro motion: hero photo drifts slowly inside its frame while scrolling (parallax), and hairline rules draw across on reveal. Image reveals are CSS clip-path wipes. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var q = document.querySelector('.cg-quote');
-  if (q) q.animate([{ transform: 'translateY(30px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 900, delay: 250, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  var s = document.querySelector('.cg-steps');
-  if (s && 'IntersectionObserver' in window && matchMedia('(min-width:701px)').matches) {
-    var dots = s.querySelectorAll('.cg-dot');
-    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { dots.forEach(function (d, i) { d.animate([{ transform: 'scale(.4)', opacity: 0 }, { transform: 'scale(1)', opacity: 1 }], { duration: 500, delay: i * 220, fill: 'backwards', easing: 'cubic-bezier(.3,1.5,.5,1)' }); }); io.disconnect(); } }, { threshold: .3 });
-    io.observe(s);
+  var im = document.querySelector('.bs-pano-in img,.bs-pano-in .ph');
+  if (im) {
+    im.style.transform = 'scale(1.12)';
+    var tick = function () { var y = Math.min(scrollY, 900); im.style.transform = 'scale(1.12) translateY(' + (y * 0.06) + 'px)'; };
+    addEventListener('scroll', tick, { passive: true });
   }
+  var pn = document.querySelector('.bs-pano-in'); if (pn) pn.style.overflow = 'hidden';
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

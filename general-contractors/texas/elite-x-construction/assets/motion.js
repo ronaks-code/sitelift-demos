@@ -1,13 +1,8 @@
-/* Blueprint motion: dimension lines draw in when the hero photo appears; spec rows fade in one by one. */
+/* Craftsman motion: the phase timeline fills when scrolled into view. Fully filled without JS or with reduced motion. */
 (function () {
   if (!window.SL || SL.reduced || !('IntersectionObserver' in window)) return;
-  var p = document.querySelector('[data-dim]');
-  if (p) {
-    p.classList.add('js-dim');
-    new IntersectionObserver(function (es, o) { es.forEach(function (e) { if (e.isIntersecting) { p.classList.add('dim-in'); o.disconnect(); } }); }).observe(p);
-  }
-  document.querySelectorAll('.bp-spec > div').forEach(function (r, i) {
-    r.style.opacity = 0; r.style.transform = 'translateX(-8px)'; r.style.transition = 'opacity .4s, transform .4s';
-    setTimeout(function () { r.style.opacity = 1; r.style.transform = 'none'; }, 500 + i * 140);
-  });
+  var p = document.querySelector('[data-phases]');
+  if (!p) return;
+  document.body.classList.add('js-phases');
+  new IntersectionObserver(function (es, io) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('run'); io.unobserve(e.target); } }); }, { threshold: .4 }).observe(p);
 })();

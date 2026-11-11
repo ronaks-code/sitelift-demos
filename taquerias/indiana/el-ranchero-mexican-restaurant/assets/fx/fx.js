@@ -127,57 +127,6 @@ FX.def('split-reveal', function (c) {
   setTimeout(end, 2500);
 });
 
-/* fx tilt */
-/* tilt: cards lean toward the pointer (max 5deg, perspective 900px) with a soft glare; resets on leave. Mouse only, off with
-   reduced motion, never on cards wider than 700px or holding form fields. opt: {max: 5, glare: true} */
-FX.def('tilt', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var max = +c.opt.max || 5, all = c.els('[class*=card]:not([class*=cards])');
-  all.filter(function (e) {
-    return !e.querySelector('input,textarea,select') && !all.some(function (o) { return o !== e && o.contains(e); });
-  }).forEach(function (el) {
-    var g, r, tr = el.style.transition, live = 0;
-    if (c.opt.glare !== false) {
-      if (getComputedStyle(el).position === 'static') el.style.position = 'relative';   // before appending: no layout shift
-      g = document.createElement('span'); g.className = 'fx-tilt-g'; g.setAttribute('aria-hidden', 'true'); el.appendChild(g);
-    }
-    function ease(ms) { el.style.transition = getComputedStyle(el).transition + ', transform ' + ms + 'ms cubic-bezier(.2,.7,.2,1)'; }
-    el.addEventListener('pointerenter', function (e) {
-      if (e.pointerType && e.pointerType !== 'mouse') return;
-      r = el.getBoundingClientRect();
-      if (r.width > 700) return;
-      live = 1; el.style.transition = tr; ease(220); if (g) g.classList.add('on');
-    });
-    el.addEventListener('pointermove', function (e) {
-      if (!live) return;
-      var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      el.style.transform = 'perspective(900px) rotateX(' + (-y * 2 * max).toFixed(2) + 'deg) rotateY(' + (x * 2 * max).toFixed(2) + 'deg)';
-      if (g) { g.style.setProperty('--gx', (x + .5) * 100 + '%'); g.style.setProperty('--gy', (y + .5) * 100 + '%'); }
-    });
-    el.addEventListener('pointerleave', function () {
-      if (!live) return;
-      live = 0; el.style.transition = tr; ease(650); el.style.transform = ''; if (g) g.classList.remove('on');
-      setTimeout(function () { if (!live) el.style.transition = tr; }, 700);
-    });
-  });
-});
-
-/* fx bg-mesh */
-/* bg-mesh: a slow drifting gradient mesh behind the hero: four large soft radial blobs in the brand colours at low alpha,
-   moved with CSS transform keyframes (no blur filter, cheap on phones). One layer, first child of the target; static with
-   reduced motion. opt: {strength: 0..1 (default .6)} */
-FX.def('bg-mesh', function (c) {
-  var s = c.opt.strength == null ? 0.6 : Math.max(0, Math.min(1, +c.opt.strength));
-  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var L = document.createElement('div'), i;
-    L.className = 'fx-mesh'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none'; L.style.opacity = s;
-    for (i = 0; i < 4; i++) L.appendChild(document.createElement('i'));
-    // Containing block first, then insert: setting position after the layer is in moves the blobs (counted as layout shift).
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';
-    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
-  });
-});
-
 /* fx magnetic */
 /* magnetic: buttons lean toward the pointer when it is close (max ~9px, the label a little more) and spring back on leave.
    Uses the independent `translate` property (no clash with a kit's own transform), one rAF loop that sleeps when everything is at rest.
@@ -301,22 +250,63 @@ FX.def('cursor-ring', function (c) {
   }, { passive: true });
 });
 
-/* fx reveal-plus */
-/* reveal-plus: richer reveals on top of core's .rv (core adds .in). opt: {style: "rise" | "blur" | "clip", step: 70} (ms between
-   items that enter together, so grids and lists cascade instead of popping at once). Reduced motion: core already shows all. */
-FX.def('reveal-plus', function (c) {
-  if (FX.reduced || !('IntersectionObserver' in window)) return;
-  var h = document.documentElement, st = String(c.opt.style || 'rise'), step = +c.opt.step || 70;
-  if (st === 'blur' || st === 'clip') h.classList.add('fx-rp-' + st);
-  var els = c.els('.rv').filter(function (e) { return !e.classList.contains('in'); });
-  var io = new IntersectionObserver(function (es) {
-    var hit = es.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
-    hit.sort(function (a, b) { var A = a.getBoundingClientRect(), B = b.getBoundingClientRect(); return (A.top - B.top) || (A.left - B.left); });
-    hit.forEach(function (e, i) {
-      io.unobserve(e);
-      e.style.transitionDelay = Math.min(i, 6) * step + 'ms';
-      setTimeout(function () { e.style.transitionDelay = ''; }, 1500);
-    });
-  }, { rootMargin: '0px 0px -8% 0px' });
-  els.forEach(function (e) { io.observe(e); });
+/* fx spotlight */
+/* spotlight: a soft light follows the pointer over cards (accent border glow plus a faint inner light) and over dark
+   sections (faint light only). One shared overlay moves onto the hovered element; the element also gets --fx-x/--fx-y.
+   Mouse only (FX.fine), nothing with reduced motion. opt: {dark: "section[class*=dark]"} for the big-section selector */
+FX.def('spotlight', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  var d = document, cards = c.els('[class*=card], .review, blockquote'), S = c.sel || '[class*=card], .review, blockquote';
+  var D = c.opt.dark || 'section[class*=dark]', cur = null, ox = 0, oy = 0, pend = 0, ev;
+  var o = d.createElement('div'); o.className = 'fx-sp'; o.setAttribute('aria-hidden', 'true'); o.innerHTML = '<b></b><i></i>';
+  d.body.appendChild(o);
+  function place() {
+    if (!cur) return; var b = cur.getBoundingClientRect();
+    o.style.cssText = 'left:' + b.left + 'px;top:' + b.top + 'px;width:' + b.width + 'px;height:' + b.height + 'px;border-radius:' + getComputedStyle(cur).borderRadius;
+    o.style.setProperty('--fx-x', ox + 'px'); o.style.setProperty('--fx-y', oy + 'px');
+    if (cur) { cur.style.setProperty('--fx-x', ox + 'px'); cur.style.setProperty('--fx-y', oy + 'px'); }
+  }
+  function frame() {
+    pend = 0; if (!cur) return;
+    var b = cur.getBoundingClientRect(); ox = ev.clientX - b.left; oy = ev.clientY - b.top; place();
+  }
+  function off() { if (cur) { cur = null; o.classList.remove('on'); } }
+  d.addEventListener('pointermove', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    var t = e.target.closest ? e.target : e.target.parentElement, el = t && t.closest ? (t.closest(S) || t.closest(D)) : null;
+    if (el && (el === d.body || el === d.documentElement)) el = null;
+    if (!el) return off();
+    if (el !== cur) { cur = el; var b = el.getBoundingClientRect(); o.classList.toggle('big', b.width > 720 || b.height > 520); o.classList.add('on'); }
+    ev = e; if (!pend) { pend = 1; requestAnimationFrame(frame); }
+  }, { passive: true });
+  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) off(); });
+  addEventListener('scroll', function () { if (cur) place(); }, { passive: true });
+});
+
+/* fx bg-mesh */
+/* bg-mesh: a slow drifting gradient mesh behind the hero: four large soft radial blobs in the brand colours at low alpha,
+   moved with CSS transform keyframes (no blur filter, cheap on phones). One layer, first child of the target; static with
+   reduced motion. opt: {strength: 0..1 (default .6)} */
+FX.def('bg-mesh', function (c) {
+  var s = c.opt.strength == null ? 0.6 : Math.max(0, Math.min(1, +c.opt.strength));
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var L = document.createElement('div'), i;
+    L.className = 'fx-mesh'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none'; L.style.opacity = s;
+    for (i = 0; i < 4; i++) L.appendChild(document.createElement('i'));
+    // Containing block first, then insert: setting position after the layer is in moves the blobs (counted as layout shift).
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';
+    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
+  });
+});
+
+/* fx sheen */
+/* sheen: a diagonal light sweep that crosses the primary buttons every few seconds and on hover (CSS, see sheen.css).
+   This script only handles an optional image: opt {hero: "selector"} puts the same sweep over that block (the hero image
+   box). Nothing with reduced motion. */
+FX.def('sheen', function (c) {
+  if (FX.reduced || !c.opt.hero) return;
+  FX.$$(c.opt.hero).forEach(function (t) {
+    var s = document.createElement('span'); s.className = 'fx-sheen-img'; s.setAttribute('aria-hidden', 'true');
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative'; t.style.overflow = 'hidden'; t.appendChild(s);
+  });
 });

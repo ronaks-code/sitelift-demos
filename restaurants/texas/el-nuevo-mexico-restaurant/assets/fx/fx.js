@@ -106,23 +106,56 @@ FX.def('stars-fill', function (c) {
   });
 });
 
-/* fx img-zoom */
-/* img-zoom: finds each image's clipping frame (an ancestor with overflow hidden/clip around just that image); if there is none,
-   clips the display:block link around it; if neither is possible the image is left alone. Mouse only, off with reduced motion. */
-FX.def('img-zoom', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  c.els('a[data-lb] img,[class*=gal] img').forEach(function (img) {
-    if (img.closest('.ph,[class*=logo]')) return;
-    var a = img.closest('a'), fig = img.closest('figure'), f = null, p = img.parentElement, i = 0;
-    for (; p && i < 3 && p.querySelectorAll('img').length === 1; p = p.parentElement, i++) {
-      if (getComputedStyle(p).overflow !== 'visible') { f = p; break; }
-    }
-    if (!f) {
-      if (a && a.contains(img) && getComputedStyle(a).display === 'block') { a.classList.add('fx-zoom-clip'); f = a; } else return;
-    }
-    img.classList.add('fx-zoom');
-    var host = fig && fig.querySelectorAll('img').length === 1 ? fig : (a && a.contains(img) ? a : f);
-    host.classList.add('fx-zoom-host');
-    var cap = fig && fig.querySelector('figcaption'); if (cap) cap.classList.add('fx-zoom-cap');
+/* fx review-marquee */
+/* review-marquee: a reviews grid (4+ cards) becomes a slow endless marquee of the kit's own cards: fixed card width min(380px,80vw),
+   aria-hidden clones, pauses on hover/focus and with a visible pause button (WCAG 2.2.2), faded edges. The conversion is synchronous at
+   init so nothing shifts later. Default container: the parent of 3+ blockquote/[class*=review] cards inside a section whose id or
+   class mentions review (or testimonial); or set sel to the container itself. Reduced motion: the kit's grid, untouched.
+   opt: {speed: 45 (px per second), pause: "Pause reviews", play: "Play reviews"} */
+FX.def('review-marquee', function (c) {
+  if (FX.reduced) return;
+  var d = document, o = c.opt, list = c.els('');
+  function has(e, cand) { return cand.indexOf(e) > -1 || cand.some(function (x) { return e.contains(x); }); }
+  if (!c.sel) FX.$$('section[id*=review i],section[class*=review i],section[id*=testimonial i],section[class*=testimonial i]').forEach(function (s) {
+    var cand = FX.$$('blockquote,[class*=review]', s).filter(function (e) { return !e.querySelector('blockquote,[class*=review]'); }), best = null;
+    cand.forEach(function (e) {
+      for (var x = e, i = 0; x.parentElement && x.parentElement !== s && i < 3; x = x.parentElement, i++) {
+        var p = x.parentElement, n = [].filter.call(p.children, function (k) { return has(k, cand); }).length;
+        if (n >= 3 && n === p.children.length && (!best || n > best[1])) best = [p, n];
+      }
+    });
+    if (best) list.push(best[0]);
+  });
+  list.forEach(function (m) {
+    var cards = [].slice.call(m.children);
+    if (cards.length < 4 || m.closest('.fx-rm')) return;
+    var cs = getComputedStyle(m), gap = parseFloat(cs.columnGap);
+    if (!(gap >= 0)) gap = 20;
+    var wrap = d.createElement('div'), clip = d.createElement('div'), ctl = d.createElement('div'), btn = d.createElement('button');
+    wrap.className = 'fx-rm'; clip.className = 'fx-rm-clip'; ctl.className = 'fx-rm-ctl';
+    wrap.style.margin = cs.margin; if (cs.maxWidth !== 'none') wrap.style.maxWidth = cs.maxWidth;
+    wrap.style.setProperty('--fx-rm-gap', gap + 'px');
+    m.parentNode.insertBefore(wrap, m); wrap.appendChild(clip); clip.appendChild(m); wrap.appendChild(ctl);
+    m.classList.add('fx-rm-track');
+    cards.forEach(function (k) {
+      k.classList.add('in');
+      var n = k.cloneNode(true);
+      n.setAttribute('aria-hidden', 'true'); n.inert = true;
+      FX.$$('[id]', n).forEach(function (e) { e.removeAttribute('id'); });
+      n.removeAttribute('id'); n.classList.add('in');
+      m.appendChild(n);
+    });
+    var P = o.pause || 'Pause reviews', Y = o.play || 'Play reviews';
+    btn.type = 'button'; btn.className = 'fx-rm-btn'; btn.setAttribute('aria-pressed', 'false'); btn.setAttribute('aria-label', P);
+    btn.innerHTML = '<i></i><span></span>'; btn.lastChild.textContent = o.pause ? o.pause.split(' ')[0] : 'Pause';
+    btn.addEventListener('click', function () {
+      var p = wrap.classList.toggle('fx-rm-p');
+      btn.setAttribute('aria-pressed', p); btn.setAttribute('aria-label', p ? Y : P); btn.lastChild.textContent = p ? (o.play ? o.play.split(' ')[0] : 'Play') : (o.pause ? o.pause.split(' ')[0] : 'Pause');
+    });
+    ctl.appendChild(btn);
+    function speed() { wrap.style.setProperty('--fx-rm-d', Math.max(20, m.getBoundingClientRect().width / 2 / (+o.speed || 45)).toFixed(1) + 's'); }
+    speed();
+    if ('ResizeObserver' in window) new ResizeObserver(speed).observe(m); else addEventListener('resize', speed);
+    FX.vis(wrap, function (v) { wrap.classList.toggle('fx-rm-off', !v); });
   });
 });

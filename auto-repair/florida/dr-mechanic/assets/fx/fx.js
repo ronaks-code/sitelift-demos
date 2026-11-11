@@ -86,119 +86,24 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx stars-fill */
-/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
-   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
-FX.def('stars-fill', function (c) {
-  if (FX.reduced) return;
-  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
-    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
-  });
-  els.forEach(function (el) {
-    var s = document.createElement('span');
-    s.className = 'fx-stars-in fx-stars-w';
-    while (el.firstChild) s.appendChild(el.firstChild);
-    el.appendChild(s);
-    FX.seen([el], function () {
-      s.classList.remove('fx-stars-w');
-      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
-    });
-  });
-});
-
-/* fx mask-reveal */
-/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
-   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
-   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
-FX.def('mask-reveal', function (c) {
-  if (FX.reduced || !Element.prototype.animate) return;
-  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
-  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
-    var r = i.getBoundingClientRect();
-    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
-  });
-  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
-  FX.seen(imgs, function (i) {
-    var p = i.parentElement, clipped = 0;
-    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
-    i.removeAttribute('data-fx-mr');
-    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
-      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  }, '0px 0px -6% 0px');
-});
-
-/* fx bg-grid */
-/* bg-grid: a fine dot grid (opt kind "lines" for a line grid) with a brighter copy of the grid revealed through a soft
-   circle that follows the pointer (mouse) or slowly sweeps (touch). Edges fade out. Static grid with reduced motion.
-   opt: {kind: "dots"|"lines", size: 28} */
-FX.def('bg-grid', function (c) {
-  var lines = c.opt.kind === 'lines', z = Math.max(16, Math.min(60, +c.opt.size || 28));
-  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var L = document.createElement('div'), hi, pend = 0, ex, ey;
-    L.className = 'fx-grid' + (lines ? ' fx-grid-l' : ''); L.setAttribute('aria-hidden', 'true');
-    L.style.setProperty('--fx-gs', z + 'px');
-    L.innerHTML = '<i></i><i class="hi"></i>'; hi = L.lastChild;
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
-    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
-    if (!FX.fine || FX.reduced) return;
-    L.classList.add('is-fine');
-    t.addEventListener('pointermove', function (e) {
-      ex = e.clientX; ey = e.clientY;
-      if (pend) return; pend = 1;
-      requestAnimationFrame(function () {
-        pend = 0; var b = L.getBoundingClientRect();
-        hi.style.setProperty('--fx-x', (ex - b.left - 210) + 'px'); hi.style.setProperty('--fx-y', (ey - b.top - 210) + 'px'); hi.style.opacity = 1;
-      });
-    }, { passive: true });
-    t.addEventListener('pointerleave', function () { hi.style.opacity = 0; });
-  });
-});
-
-/* fx sheen */
-/* sheen: a diagonal light sweep that crosses the primary buttons every few seconds and on hover (CSS, see sheen.css).
-   This script only handles an optional image: opt {hero: "selector"} puts the same sweep over that block (the hero image
-   box). Nothing with reduced motion. */
-FX.def('sheen', function (c) {
-  if (FX.reduced || !c.opt.hero) return;
-  FX.$$(c.opt.hero).forEach(function (t) {
-    var s = document.createElement('span'); s.className = 'fx-sheen-img'; s.setAttribute('aria-hidden', 'true');
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative'; t.style.overflow = 'hidden'; t.appendChild(s);
-  });
-});
-
-/* fx sticky-cta */
-/* sticky-cta: floating "Call" + booking/contact pill. Appears once the hero has scrolled away; hides while the footer or the page's own
-   booking button is on screen. Labels come from the links' own text (shortened) or opt. Mobile: no-op when the kit has a .callbar.
-   opt: {call: "Call", book: "Book now", label: "Quick contact"} */
-FX.def('sticky-cta', function (c) {
-  var d = document, o = c.opt, tel = d.querySelector('a[href^="tel:"]');
-  var book = d.querySelector('a[href*="booking.html"]') || d.querySelector('a[href*="contact.html"]');
-  if (!tel && !book) return;
-  function short(t, fb) {
-    t = (t || '').replace(/[\d()+\-.\s]{7,}/g, ' ').replace(/\s+/g, ' ').trim();
-    return t && t.length <= 18 ? t : fb;
+/* fx header-hide */
+/* header-hide: the site header slides up when you scroll down past 120px and comes back when you scroll up. Never hides while focus
+   is inside it or the mobile menu is open (body.nav-open). Only acts on a sticky/fixed header. Reduced motion: same, instant.
+   opt: {after: 120} (px scrolled before it may hide) */
+FX.def('header-hide', function (c) {
+  var d = document, hd = c.els('body > header, header:first-of-type')[0], after = +c.opt.after || 120;
+  if (!hd || !/sticky|fixed/.test(getComputedStyle(hd).position)) return;
+  hd.classList.add('fx-hh');
+  var last = scrollY, busy = 0, off = 0;
+  function set(v) { if (v !== off) { off = v; hd.classList.toggle('fx-hh-off', !!v); } }
+  function tick() {
+    busy = 0;
+    var y = Math.max(0, scrollY), dy = y - last;
+    if (hd.contains(d.activeElement) || d.body.classList.contains('nav-open') || y <= after) set(0);
+    else if (dy > 6) set(1);
+    else if (dy < -6) set(0);
+    if (Math.abs(dy) > 6 || y <= after) last = y;
   }
-  var bar = d.createElement('div'), href = book && book.getAttribute('href');
-  bar.className = 'fx-sc' + (d.querySelector('.callbar') ? ' fx-sc-nb' : '');
-  bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', o.label || 'Quick contact');
-  function add(cls, h, t) { var a = d.createElement('a'); a.className = cls; a.href = h; a.textContent = t; bar.appendChild(a); }
-  if (tel) add('fx-sc-call', tel.getAttribute('href'), o.call || short(tel.textContent, 'Call'));
-  if (book) add('fx-sc-book', href, o.book || short(book.textContent, /contact/.test(href) ? 'Contact us' : 'Book now'));
-  d.body.appendChild(bar);
-  var gone = 0, foot = 0, near = 0, hero = d.querySelector('[data-hero]') || d.querySelector('main > :first-child');
-  function upd() { bar.classList.toggle('on', !!gone && !foot && !near); }
-  function watch(els, fn) {
-    if (!('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function (es) { fn(es); upd(); });
-    els.forEach(function (e) { io.observe(e); });
-  }
-  if (hero) watch([hero], function (es) { var e = es[es.length - 1]; gone = !e.isIntersecting && e.boundingClientRect.bottom <= 0; });
-  else addEventListener('scroll', function () { gone = scrollY > innerHeight * .6; upd(); }, { passive: true });
-  var f = d.querySelector('body > footer') || d.querySelector('footer');
-  if (f) watch([f], function (es) { foot = es[es.length - 1].isIntersecting; });
-  var tg = FX.$$(book ? 'a[href="' + href + '"]' : 'a[href^="tel:"]').filter(function (a) { return !a.closest('header,nav,.callbar,.fx-sc'); }), seen = [];
-  if (tg.length) watch(tg, function (es) {
-    es.forEach(function (e) { var i = seen.indexOf(e.target); if (e.isIntersecting && i < 0) seen.push(e.target); else if (!e.isIntersecting && i > -1) seen.splice(i, 1); });
-    near = seen.length;
-  });
+  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
+  hd.addEventListener('focusin', function () { set(0); });
 });

@@ -1,16 +1,19 @@
-/* Lot motion: hero photo eases up slightly as you scroll; numeric stats count up when they scroll into view. */
+/* Restore motion: before/after slider with a one-time demo sweep; repair timeline fills when it scrolls into view. */
 (function () {
-  if (!window.SL || SL.reduced) return;
-  var img = document.querySelector('[data-hero-img] img');
-  if (img) addEventListener('scroll', function () { img.style.transform = 'scale(' + (1 + Math.min(scrollY, 700) / 7000) + ')'; }, { passive: true });
-  var nums = [].slice.call(document.querySelectorAll('[data-count]')).filter(function (e) { return /^\d+(\.\d+)?$/.test(e.textContent.trim()); });
-  if (!nums.length || !('IntersectionObserver' in window)) return;
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) {
-      if (!e.isIntersecting) return; io.unobserve(e.target);
-      var el = e.target, txt = el.textContent.trim(), to = parseFloat(txt), dec = (txt.split('.')[1] || '').length, t0 = performance.now();
-      (function tick(t) { var p = Math.min(1, (t - t0) / 1200), v = to * (1 - Math.pow(1 - p, 3)); el.textContent = v.toFixed(dec); if (p < 1) requestAnimationFrame(tick); else el.textContent = txt; })(t0);
-    });
-  }, { threshold: .6 });
-  nums.forEach(function (n) { io.observe(n); });
+  if (!window.SL) return;
+  document.querySelectorAll('[data-ba]').forEach(function (s) {
+    var r = s.querySelector('input'), set = function () { s.style.setProperty('--x', r.value + '%'); };
+    r.addEventListener('input', set); set();
+    if (SL.reduced) return;
+    var t = 0, seq = [50, 28, 72, 50], i = 0;
+    var step = function () { if (i >= seq.length || s.dataset.touched) return; r.value = seq[i++]; set(); setTimeout(step, 700); };
+    ['pointerdown', 'keydown'].forEach(function (e) { r.addEventListener(e, function () { s.dataset.touched = 1; }); });
+    setTimeout(step, 1200);
+  });
+  var ln = document.querySelector('[data-line]');
+  if (ln && 'IntersectionObserver' in window && !SL.reduced) {
+    ln.classList.add('arm');
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { ln.classList.add('go'); io.disconnect(); } }); }, { threshold: .3 });
+    io.observe(ln);
+  } else if (ln) ln.classList.add('go');
 })();

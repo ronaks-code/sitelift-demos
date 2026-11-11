@@ -1,9 +1,3 @@
-/* fx tilt */
-/* tilt: soft glare layer inside tilting cards (inserted by tilt.js) */
-html.fx-tilt .fx-tilt-g { position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
- background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 58%) }
-html.fx-tilt .fx-tilt-g.on { opacity: 1 }
-
 /* fx cursor-ring */
 /* cursor-ring: elements exist only when JS built them (mouse + motion allowed), so nothing here can hide content */
 @media (hover: hover) and (pointer: fine) {
@@ -33,8 +27,30 @@ html.fx-tilt .fx-tilt-g.on { opacity: 1 }
 .fx-cur-blend.is-link .fx-cur-ring b, .fx-cur-blend.is-label .fx-cur-ring b { background: #fff; border-color: #fff }
 .fx-cur-blend .fx-cur-ring span { color: #000 }
 
+/* fx hero-zoomout */
+/* hero-zoomout: the hero photo starts a touch zoomed and, as you scroll past, settles to full size inside a rounded inset frame.
+   Scroll-driven (the first 70vh of scroll); a JS fallback sets the same values elsewhere. Nothing happens with reduced motion. */
+@keyframes fx-hz {
+ from { transform: scale(1.08); clip-path: inset(0 round 0) }
+ to { transform: scale(1); clip-path: inset(4% round var(--radius, 12px)) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-hero-zoomout img.fx-hz { transform: scale(1.08); will-change: transform, clip-path }
+ @supports (animation-timeline: scroll()) {
+  html.fx-hero-zoomout img.fx-hz.fx-hz-css { animation: fx-hz cubic-bezier(.3, .6, .3, 1) both; animation-timeline: scroll(root block); animation-range: 0px 70vh }
+ }
+}
+
 /* fx mask-reveal */
 /* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
    state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
 html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
 html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
+
+/* fx split-reveal */
+/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
+   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
+.fx-sr-w { display: inline-block; white-space: nowrap }
+.fx-sr-u { display: inline-block }
+.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
+.fx-sr-i { display: inline-block }

@@ -1,5 +1,5 @@
-/* Counter motion: receipts "print" down out of the slot when they scroll in; part-finder fields tick-focus. (Grid drift + category ticker are CSS.) */
+/* Garage Door motion: on load a slatted door rolls up off the hero photo (CSS, only when motion is allowed); bay slats retract on hover. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.body.classList.add('js-ct');
+  document.body.classList.add('js-gd');
 })();

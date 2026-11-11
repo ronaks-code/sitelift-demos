@@ -86,6 +86,106 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx hours-toast */
+/* hours-toast: once per browser session, 3.5s after load, a small toast says whether the business is open ("Open now · until 6 PM") or
+   when it opens next ("Closed now · opens 8 AM tomorrow"), from the first [data-hours] JSON (same format core.js reads:
+   [[dayIndex 0=Sun, "HH:MM", "HH:MM"], ...]). Nothing when the hours are empty. role=status, close button, hides itself after 7s.
+   opt: {open: "Open now · until {t}", closed: "Closed now · opens {t}", delay: 3500, ms: 7000} */
+FX.def('hours-toast', function (c) {
+  var d = document, o = c.opt, el = d.querySelector('[data-hours]'), H;
+  try { if (sessionStorage.getItem('fx-hours-toast')) return; } catch (e) {}
+  try { H = JSON.parse(el && el.getAttribute('data-hours')); } catch (e) { return; }
+  if (!H || !H.length) return;
+  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  function mins(s) { var a = s.split(':'); return +a[0] * 60 + +a[1]; }
+  function fmt(s) {
+    var m = mins(s);
+    if (m === 0 || m >= 1439) return 'midnight';
+    var h = Math.floor(m / 60), r = m % 60;
+    return (h % 12 || 12) + (r ? ':' + (r < 10 ? '0' : '') + r : '') + (h < 12 ? ' AM' : ' PM');
+  }
+  function say() {
+    var n = new Date(), day = n.getDay(), m = n.getHours() * 60 + n.getMinutes(), i, rs;
+    function on(dd) { return H.filter(function (r) { return r[0] === dd; }).sort(function (a, b) { return mins(a[1]) - mins(b[1]); }); }
+    rs = on(day);
+    for (i = 0; i < rs.length; i++) if (m >= mins(rs[i][1]) && m < mins(rs[i][2])) return (o.open || 'Open now · until {t}').replace('{t}', fmt(rs[i][2]));
+    for (i = 0; i < 8; i++) {
+      rs = on((day + i) % 7).filter(function (r) { return i || mins(r[1]) > m; });
+      if (rs.length) return (o.closed || 'Closed now · opens {t}').replace('{t}', fmt(rs[0][1]) + (i === 0 ? '' : i === 1 ? ' tomorrow' : ' ' + days[(day + i) % 7]));
+    }
+    return '';
+  }
+  var msg = say();
+  if (!msg) return;
+  setTimeout(function () {
+    if (d.querySelector('.fx-ht')) return;
+    var t = d.createElement('div'), x = d.createElement('button'), s = d.createElement('span');
+    t.className = 'fx-ht' + (d.querySelector('.callbar') ? ' fx-ht-cb' : ''); t.setAttribute('role', 'status');
+    s.className = 'fx-ht-t'; s.textContent = msg;
+    x.type = 'button'; x.className = 'fx-ht-x'; x.setAttribute('aria-label', 'Close'); x.textContent = '×';
+    t.appendChild(s); t.appendChild(x); d.body.appendChild(t);
+    try { sessionStorage.setItem('fx-hours-toast', '1'); } catch (e) {}
+    var ease = { duration: 450, easing: 'cubic-bezier(.2,.7,.2,1)' };
+    if (!FX.reduced) t.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], ease);
+    var gone = 0, timer;
+    function hide() {
+      if (gone) return; gone = 1; clearTimeout(timer);
+      var a = FX.reduced ? null : t.animate([{ opacity: 1 }, { opacity: 0, transform: 'translateY(10px)' }], { duration: 250, easing: 'ease-in' });
+      if (a) a.onfinish = function () { t.remove(); }; else t.remove();
+    }
+    x.addEventListener('click', hide);
+    timer = setTimeout(hide, +o.ms || 7000);
+  }, o.delay == null ? 3500 : +o.delay);
+});
+
+/* fx timeline-draw */
+/* timeline-draw: process / steps lists get a vertical line through the step numbers that draws as you scroll (scroll-driven CSS where
+   supported, otherwise it grows step by step as each step is reached); each number gives a small pop when reached.
+   Works for numbers that are a child element or a ::before/::after counter. The list keeps its layout and markup.
+   Lists that already have a background image are skipped. Reduced motion: the full line, no pop. */
+FX.def('timeline-draw', function (c) {
+  var css = !FX.reduced && window.CSS && CSS.supports('animation-timeline: view()') && CSS.supports('animation-range: 0% 100%');
+  c.els('ol[class*=step], ol[class*=process], [class*=process] ol, [class*=steps]').forEach(function (ol) {
+    var li = [].slice.call(ol.children).filter(function (k) { return k.offsetHeight > 0; });
+    if (li.length < 2 || getComputedStyle(ol).backgroundImage !== 'none') return;
+    var mk = [];
+    function measure() {
+      var o = ol.getBoundingClientRect(), bl = parseFloat(getComputedStyle(ol).borderLeftWidth) || 0, bt = parseFloat(getComputedStyle(ol).borderTopWidth) || 0;
+      mk = li.map(function (k) {
+        var s = getComputedStyle(k), tr = new DOMMatrix(s.transform), r = k.getBoundingClientRect(), x, y, w, ps = '';
+        var first = k.firstElementChild, fs = first && first.getBoundingClientRect();
+        var b = getComputedStyle(k, '::before'), a = getComputedStyle(k, '::after');
+        var pe = b.content !== 'none' && b.content !== 'normal' ? '::before' : (a.content !== 'none' && a.content !== 'normal' && a.position !== 'absolute' ? '::after' : '');
+        var left = r.left - tr.m41 - o.left - bl, top = r.top - tr.m42 - o.top - bt;
+        if (first && fs.width <= 90 && fs.height <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName)) { x = fs.left - o.left - bl + fs.width / 2; y = fs.top - o.top - bt + fs.height / 2; }
+        else if (pe) {
+          var q = pe === '::before' ? b : a, W = parseFloat(q.width) || 24, H = parseFloat(q.height) || 24;
+          if (q.position === 'absolute') { x = left + (parseFloat(q.left) || 0) + W / 2 - (q.left === 'auto' ? W / 2 : 0); y = top + (parseFloat(q.top) || 0) + H / 2; }
+          else { x = left + (parseFloat(s.paddingLeft) || 0) + W / 2; y = top + (parseFloat(s.paddingTop) || 0) + H / 2; }
+          ps = pe;
+        } else { x = left + 14; y = top + 14; }
+        return { x: x, y: y, el: ps ? k : (first && fs.width <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName) ? first : null), pe: ps };
+      });
+      var y0 = mk[0].y, y1 = mk[mk.length - 1].y;
+      ol.style.setProperty('--fx-x', (mk[0].x - 1).toFixed(1) + 'px'); ol.style.setProperty('--fx-y', y0.toFixed(1) + 'px'); ol.style.setProperty('--fx-h', Math.max(0, y1 - y0).toFixed(1) + 'px');
+    }
+    measure();
+    ol.setAttribute('data-fx-td', '');
+    if (window.ResizeObserver) new ResizeObserver(measure).observe(ol);
+    if (FX.reduced) return;
+    if (css) ol.classList.add('fx-td-css');
+    else { ol.classList.add('fx-td-io'); ol.style.setProperty('--fx-p', 0); }
+    li.forEach(function (k, i) {
+      FX.seen([k], function () {
+        var m = mk[i], h1 = mk[mk.length - 1].y - mk[0].y;
+        if (!css) ol.style.setProperty('--fx-p', h1 > 0 ? Math.max(0, (m.y - mk[0].y) / h1).toFixed(3) : 1);
+        if (Element.prototype.animate && m.el) m.el.animate([{ transform: 'scale(.82)' }, { transform: 'scale(1.18)', offset: .55 }, { transform: 'scale(1)' }],
+          { duration: 520, easing: 'cubic-bezier(.2,.7,.2,1)', pseudoElement: m.pe || undefined });
+      }, '0px 0px -38% 0px');
+    });
+  });
+});
+
 /* fx count-up */
 /* count-up: real numbers (rating, review count, years) count up once when they scroll into view. The element's width is
    locked to its final text first (no layout shift); the final text is exactly what was there (prefix/suffix kept);
@@ -115,46 +215,5 @@ FX.def('count-up', function (c) {
         if (k < 1) requestAnimationFrame(step); else el.removeAttribute('aria-label');
       })(t0);
     });
-  });
-});
-
-/* fx stars-fill */
-/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
-   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
-FX.def('stars-fill', function (c) {
-  if (FX.reduced) return;
-  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
-    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
-  });
-  els.forEach(function (el) {
-    var s = document.createElement('span');
-    s.className = 'fx-stars-in fx-stars-w';
-    while (el.firstChild) s.appendChild(el.firstChild);
-    el.appendChild(s);
-    FX.seen([el], function () {
-      s.classList.remove('fx-stars-w');
-      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
-    });
-  });
-});
-
-/* fx img-zoom */
-/* img-zoom: finds each image's clipping frame (an ancestor with overflow hidden/clip around just that image); if there is none,
-   clips the display:block link around it; if neither is possible the image is left alone. Mouse only, off with reduced motion. */
-FX.def('img-zoom', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  c.els('a[data-lb] img,[class*=gal] img').forEach(function (img) {
-    if (img.closest('.ph,[class*=logo]')) return;
-    var a = img.closest('a'), fig = img.closest('figure'), f = null, p = img.parentElement, i = 0;
-    for (; p && i < 3 && p.querySelectorAll('img').length === 1; p = p.parentElement, i++) {
-      if (getComputedStyle(p).overflow !== 'visible') { f = p; break; }
-    }
-    if (!f) {
-      if (a && a.contains(img) && getComputedStyle(a).display === 'block') { a.classList.add('fx-zoom-clip'); f = a; } else return;
-    }
-    img.classList.add('fx-zoom');
-    var host = fig && fig.querySelectorAll('img').length === 1 ? fig : (a && a.contains(img) ? a : f);
-    host.classList.add('fx-zoom-host');
-    var cap = fig && fig.querySelector('figcaption'); if (cap) cap.classList.add('fx-zoom-cap');
   });
 });

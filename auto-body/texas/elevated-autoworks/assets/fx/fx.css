@@ -6,12 +6,6 @@
 .fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
 .fx-sr-i { display: inline-block }
 
-/* fx tilt */
-/* tilt: soft glare layer inside tilting cards (inserted by tilt.js) */
-html.fx-tilt .fx-tilt-g { position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
- background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 58%) }
-html.fx-tilt .fx-tilt-g.on { opacity: 1 }
-
 /* fx parallax */
 /* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
    scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */
@@ -25,6 +19,12 @@ html.fx-tilt .fx-tilt-g.on { opacity: 1 }
   html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
  }
 }
+
+/* fx tilt */
+/* tilt: soft glare layer inside tilting cards (inserted by tilt.js) */
+html.fx-tilt .fx-tilt-g { position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
+ background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 58%) }
+html.fx-tilt .fx-tilt-g.on { opacity: 1 }
 
 /* fx mask-reveal */
 /* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden

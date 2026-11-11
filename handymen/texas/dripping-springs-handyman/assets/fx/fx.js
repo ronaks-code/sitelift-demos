@@ -86,6 +86,38 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx count-up */
+/* count-up: real numbers (rating, review count, years) count up once when they scroll into view. The element's width is
+   locked to its final text first (no layout shift); the final text is exactly what was there (prefix/suffix kept);
+   years (1900-2099) and numbers under 2 are left alone. Reduced motion / no JS: the final number, untouched.
+   opt: {ms: 1400} */
+FX.def('count-up', function (c) {
+  if (FX.reduced) return;
+  var ms = +c.opt.ms || 1400;
+  var els = c.els('[data-count],[class*="stat"] b,[class*="stat"] strong,[class*="stat"] dd,[class*="stat"] [class*="num"]');
+  els = els.filter(function (el) { return !el.children.length && /^\D{0,2}\d[\d,]*(\.\d+)?\D{0,8}$/.test(el.textContent.trim()); });
+  els.forEach(function (el) {
+    var t = el.textContent.trim(), m = t.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
+    var end = parseFloat(m[2].replace(/,/g, ''));
+    if (!isFinite(end) || end < 2 || (end >= 1900 && end < 2100 && m[2].indexOf('.') < 0)) return;
+    var dec = (m[2].split('.')[1] || '').length, comma = m[2].indexOf(',') > -1;
+    var fmt = function (v) { var s = v.toFixed(dec); return comma ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s; };
+    if (getComputedStyle(el).display === 'inline') el.style.display = 'inline-block';
+    el.style.fontVariantNumeric = 'tabular-nums';
+    el.style.minWidth = el.getBoundingClientRect().width + 'px';
+    el.setAttribute('data-fx-final', t);
+    FX.seen([el], function () {
+      var t0 = performance.now();
+      el.setAttribute('aria-label', t);
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 4);
+        el.textContent = k < 1 ? m[1] + fmt(end * e) + m[3] : t;
+        if (k < 1) requestAnimationFrame(step); else el.removeAttribute('aria-label');
+      })(t0);
+    });
+  });
+});
+
 /* fx sticky-cta */
 /* sticky-cta: floating "Call" + booking/contact pill. Appears once the hero has scrolled away; hides while the footer or the page's own
    booking button is on screen. Labels come from the links' own text (shortened) or opt. Mobile: no-op when the kit has a .callbar.
@@ -123,82 +155,29 @@ FX.def('sticky-cta', function (c) {
   });
 });
 
-/* fx count-up */
-/* count-up: real numbers (rating, review count, years) count up once when they scroll into view. The element's width is
-   locked to its final text first (no layout shift); the final text is exactly what was there (prefix/suffix kept);
-   years (1900-2099) and numbers under 2 are left alone. Reduced motion / no JS: the final number, untouched.
-   opt: {ms: 1400} */
-FX.def('count-up', function (c) {
-  if (FX.reduced) return;
-  var ms = +c.opt.ms || 1400;
-  var els = c.els('[data-count],[class*="stat"] b,[class*="stat"] strong,[class*="stat"] dd,[class*="stat"] [class*="num"]');
-  els = els.filter(function (el) { return !el.children.length && /^\D{0,2}\d[\d,]*(\.\d+)?\D{0,8}$/.test(el.textContent.trim()); });
-  els.forEach(function (el) {
-    var t = el.textContent.trim(), m = t.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
-    var end = parseFloat(m[2].replace(/,/g, ''));
-    if (!isFinite(end) || end < 2 || (end >= 1900 && end < 2100 && m[2].indexOf('.') < 0)) return;
-    var dec = (m[2].split('.')[1] || '').length, comma = m[2].indexOf(',') > -1;
-    var fmt = function (v) { var s = v.toFixed(dec); return comma ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s; };
-    if (getComputedStyle(el).display === 'inline') el.style.display = 'inline-block';
-    el.style.fontVariantNumeric = 'tabular-nums';
-    el.style.minWidth = el.getBoundingClientRect().width + 'px';
-    el.setAttribute('data-fx-final', t);
-    FX.seen([el], function () {
-      var t0 = performance.now();
-      el.setAttribute('aria-label', t);
-      (function step(now) {
-        var k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 4);
-        el.textContent = k < 1 ? m[1] + fmt(end * e) + m[3] : t;
-        if (k < 1) requestAnimationFrame(step); else el.removeAttribute('aria-label');
-      })(t0);
-    });
-  });
-});
-
-/* fx timeline-draw */
-/* timeline-draw: process / steps lists get a vertical line through the step numbers that draws as you scroll (scroll-driven CSS where
-   supported, otherwise it grows step by step as each step is reached); each number gives a small pop when reached.
-   Works for numbers that are a child element or a ::before/::after counter. The list keeps its layout and markup.
-   Lists that already have a background image are skipped. Reduced motion: the full line, no pop. */
-FX.def('timeline-draw', function (c) {
-  var css = !FX.reduced && window.CSS && CSS.supports('animation-timeline: view()') && CSS.supports('animation-range: 0% 100%');
-  c.els('ol[class*=step], ol[class*=process], [class*=process] ol, [class*=steps]').forEach(function (ol) {
-    var li = [].slice.call(ol.children).filter(function (k) { return k.offsetHeight > 0; });
-    if (li.length < 2 || getComputedStyle(ol).backgroundImage !== 'none') return;
-    var mk = [];
-    function measure() {
-      var o = ol.getBoundingClientRect(), bl = parseFloat(getComputedStyle(ol).borderLeftWidth) || 0, bt = parseFloat(getComputedStyle(ol).borderTopWidth) || 0;
-      mk = li.map(function (k) {
-        var s = getComputedStyle(k), tr = new DOMMatrix(s.transform), r = k.getBoundingClientRect(), x, y, w, ps = '';
-        var first = k.firstElementChild, fs = first && first.getBoundingClientRect();
-        var b = getComputedStyle(k, '::before'), a = getComputedStyle(k, '::after');
-        var pe = b.content !== 'none' && b.content !== 'normal' ? '::before' : (a.content !== 'none' && a.content !== 'normal' && a.position !== 'absolute' ? '::after' : '');
-        var left = r.left - tr.m41 - o.left - bl, top = r.top - tr.m42 - o.top - bt;
-        if (first && fs.width <= 90 && fs.height <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName)) { x = fs.left - o.left - bl + fs.width / 2; y = fs.top - o.top - bt + fs.height / 2; }
-        else if (pe) {
-          var q = pe === '::before' ? b : a, W = parseFloat(q.width) || 24, H = parseFloat(q.height) || 24;
-          if (q.position === 'absolute') { x = left + (parseFloat(q.left) || 0) + W / 2 - (q.left === 'auto' ? W / 2 : 0); y = top + (parseFloat(q.top) || 0) + H / 2; }
-          else { x = left + (parseFloat(s.paddingLeft) || 0) + W / 2; y = top + (parseFloat(s.paddingTop) || 0) + H / 2; }
-          ps = pe;
-        } else { x = left + 14; y = top + 14; }
-        return { x: x, y: y, el: ps ? k : (first && fs.width <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName) ? first : null), pe: ps };
+/* fx bg-grid */
+/* bg-grid: a fine dot grid (opt kind "lines" for a line grid) with a brighter copy of the grid revealed through a soft
+   circle that follows the pointer (mouse) or slowly sweeps (touch). Edges fade out. Static grid with reduced motion.
+   opt: {kind: "dots"|"lines", size: 28} */
+FX.def('bg-grid', function (c) {
+  var lines = c.opt.kind === 'lines', z = Math.max(16, Math.min(60, +c.opt.size || 28));
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var L = document.createElement('div'), hi, pend = 0, ex, ey;
+    L.className = 'fx-grid' + (lines ? ' fx-grid-l' : ''); L.setAttribute('aria-hidden', 'true');
+    L.style.setProperty('--fx-gs', z + 'px');
+    L.innerHTML = '<i></i><i class="hi"></i>'; hi = L.lastChild;
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
+    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
+    if (!FX.fine || FX.reduced) return;
+    L.classList.add('is-fine');
+    t.addEventListener('pointermove', function (e) {
+      ex = e.clientX; ey = e.clientY;
+      if (pend) return; pend = 1;
+      requestAnimationFrame(function () {
+        pend = 0; var b = L.getBoundingClientRect();
+        hi.style.setProperty('--fx-x', (ex - b.left - 210) + 'px'); hi.style.setProperty('--fx-y', (ey - b.top - 210) + 'px'); hi.style.opacity = 1;
       });
-      var y0 = mk[0].y, y1 = mk[mk.length - 1].y;
-      ol.style.setProperty('--fx-x', (mk[0].x - 1).toFixed(1) + 'px'); ol.style.setProperty('--fx-y', y0.toFixed(1) + 'px'); ol.style.setProperty('--fx-h', Math.max(0, y1 - y0).toFixed(1) + 'px');
-    }
-    measure();
-    ol.setAttribute('data-fx-td', '');
-    if (window.ResizeObserver) new ResizeObserver(measure).observe(ol);
-    if (FX.reduced) return;
-    if (css) ol.classList.add('fx-td-css');
-    else { ol.classList.add('fx-td-io'); ol.style.setProperty('--fx-p', 0); }
-    li.forEach(function (k, i) {
-      FX.seen([k], function () {
-        var m = mk[i], h1 = mk[mk.length - 1].y - mk[0].y;
-        if (!css) ol.style.setProperty('--fx-p', h1 > 0 ? Math.max(0, (m.y - mk[0].y) / h1).toFixed(3) : 1);
-        if (Element.prototype.animate && m.el) m.el.animate([{ transform: 'scale(.82)' }, { transform: 'scale(1.18)', offset: .55 }, { transform: 'scale(1)' }],
-          { duration: 520, easing: 'cubic-bezier(.2,.7,.2,1)', pseudoElement: m.pe || undefined });
-      }, '0px 0px -38% 0px');
-    });
+    }, { passive: true });
+    t.addEventListener('pointerleave', function () { hi.style.opacity = 0; });
   });
 });

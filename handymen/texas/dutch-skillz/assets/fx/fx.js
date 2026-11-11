@@ -86,6 +86,33 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx bg-grid */
+/* bg-grid: a fine dot grid (opt kind "lines" for a line grid) with a brighter copy of the grid revealed through a soft
+   circle that follows the pointer (mouse) or slowly sweeps (touch). Edges fade out. Static grid with reduced motion.
+   opt: {kind: "dots"|"lines", size: 28} */
+FX.def('bg-grid', function (c) {
+  var lines = c.opt.kind === 'lines', z = Math.max(16, Math.min(60, +c.opt.size || 28));
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var L = document.createElement('div'), hi, pend = 0, ex, ey;
+    L.className = 'fx-grid' + (lines ? ' fx-grid-l' : ''); L.setAttribute('aria-hidden', 'true');
+    L.style.setProperty('--fx-gs', z + 'px');
+    L.innerHTML = '<i></i><i class="hi"></i>'; hi = L.lastChild;
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
+    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
+    if (!FX.fine || FX.reduced) return;
+    L.classList.add('is-fine');
+    t.addEventListener('pointermove', function (e) {
+      ex = e.clientX; ey = e.clientY;
+      if (pend) return; pend = 1;
+      requestAnimationFrame(function () {
+        pend = 0; var b = L.getBoundingClientRect();
+        hi.style.setProperty('--fx-x', (ex - b.left - 210) + 'px'); hi.style.setProperty('--fx-y', (ey - b.top - 210) + 'px'); hi.style.opacity = 1;
+      });
+    }, { passive: true });
+    t.addEventListener('pointerleave', function () { hi.style.opacity = 0; });
+  });
+});
+
 /* fx hours-toast */
 /* hours-toast: once per browser session, 3.5s after load, a small toast says whether the business is open ("Open now · until 6 PM") or
    when it opens next ("Closed now · opens 8 AM tomorrow"), from the first [data-hours] JSON (same format core.js reads:
@@ -158,31 +185,4 @@ FX.def('header-hide', function (c) {
   }
   addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
   hd.addEventListener('focusin', function () { set(0); });
-});
-
-/* fx bg-grid */
-/* bg-grid: a fine dot grid (opt kind "lines" for a line grid) with a brighter copy of the grid revealed through a soft
-   circle that follows the pointer (mouse) or slowly sweeps (touch). Edges fade out. Static grid with reduced motion.
-   opt: {kind: "dots"|"lines", size: 28} */
-FX.def('bg-grid', function (c) {
-  var lines = c.opt.kind === 'lines', z = Math.max(16, Math.min(60, +c.opt.size || 28));
-  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var L = document.createElement('div'), hi, pend = 0, ex, ey;
-    L.className = 'fx-grid' + (lines ? ' fx-grid-l' : ''); L.setAttribute('aria-hidden', 'true');
-    L.style.setProperty('--fx-gs', z + 'px');
-    L.innerHTML = '<i></i><i class="hi"></i>'; hi = L.lastChild;
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
-    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
-    if (!FX.fine || FX.reduced) return;
-    L.classList.add('is-fine');
-    t.addEventListener('pointermove', function (e) {
-      ex = e.clientX; ey = e.clientY;
-      if (pend) return; pend = 1;
-      requestAnimationFrame(function () {
-        pend = 0; var b = L.getBoundingClientRect();
-        hi.style.setProperty('--fx-x', (ex - b.left - 210) + 'px'); hi.style.setProperty('--fx-y', (ey - b.top - 210) + 'px'); hi.style.opacity = 1;
-      });
-    }, { passive: true });
-    t.addEventListener('pointerleave', function () { hi.style.opacity = 0; });
-  });
 });

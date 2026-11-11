@@ -1,14 +1,3 @@
-/* fx bg-waves */
-/* bg-waves: layer built by JS. Each svg is twice as wide as the hero; sliding it by half loops seamlessly */
-.fx-waves { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
- -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 95%); mask-image: linear-gradient(to top, #000 40%, transparent 95%) }
-.fx-waves svg { position: absolute; left: 0; width: max(200%, 1800px); height: 24%; min-height: 80px; overflow: visible }
-.fx-waves path { fill: none; stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linejoin: round }
-@media (prefers-reduced-motion: no-preference) {
- .fx-waves svg { will-change: transform; animation: fx-waves-x 60s linear infinite }
- @keyframes fx-waves-x { to { transform: translate3d(-50%, 0, 0) } }
-}
-
 /* fx highlight-sweep */
 /* highlight-sweep: a marker band (or underline) draws across the hero's emphasised words when they scroll into view. The text colour
    is never changed; the band is a translucent --accent. Marked elements are tagged by JS; the final highlight is the natural
@@ -30,4 +19,15 @@
 @keyframes fx-kb { from { transform: scale(1) translate3d(0, 0, 0) } to { transform: scale(1.08) translate3d(-1.2%, -1%, 0) } }
 @media (prefers-reduced-motion: no-preference) {
  html.fx-ken-burns img[data-fx-kb] { animation: fx-kb var(--fx-kb-t, 22s) ease-in-out infinite alternate; will-change: transform }
+}
+
+/* fx bg-waves */
+/* bg-waves: layer built by JS. Each svg is twice as wide as the hero; sliding it by half loops seamlessly */
+.fx-waves { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+ -webkit-mask-image: linear-gradient(to top, #000 40%, transparent 95%); mask-image: linear-gradient(to top, #000 40%, transparent 95%) }
+.fx-waves svg { position: absolute; left: 0; width: max(200%, 1800px); height: 24%; min-height: 80px; overflow: visible }
+.fx-waves path { fill: none; stroke-width: 1.4; vector-effect: non-scaling-stroke; stroke-linejoin: round }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-waves svg { will-change: transform; animation: fx-waves-x 60s linear infinite }
+ @keyframes fx-waves-x { to { transform: translate3d(-50%, 0, 0) } }
 }

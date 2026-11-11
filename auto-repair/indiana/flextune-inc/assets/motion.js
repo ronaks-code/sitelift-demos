@@ -1,13 +1,17 @@
-/* Fit the big phone number on one line whatever the brand font's width (layout, so it runs with reduced motion too). */
+/* Family Garage motion: the hero photo settles in from a slight zoom; on the home page the floating header docks
+   (solid, fixed) once the hero has scrolled away. Docking is a state change, so it also runs with reduced motion
+   (base.css removes the slide-in animation then). Content never depends on this script. */
 (function () {
-  var els = document.querySelectorAll('.bc-foot-tel,.bc-bigcall');
-  if (!els.length) return;
-  function fit() { els.forEach(function (e) { e.style.fontSize = ''; e.parentElement.style.minWidth = '0'; var r = e.clientWidth / e.scrollWidth; if (r < 1) e.style.fontSize = (parseFloat(getComputedStyle(e).fontSize) * r * 0.97) + 'px'; }); }
-  fit(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  var t; addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 120); });
-})();
-/* Beacon motion: starts the light-bar flash, the beacon pulse and the drive-by truck (all CSS). Static under reduced motion. */
-(function () {
-  if (!window.SL || SL.reduced) return;
-  document.body.classList.add('js-bc');
+  if (!window.SL) return;
+  var d = document, top = d.querySelector('[data-fg-top]'), hero = d.querySelector('.fg-hero');
+  if (!SL.reduced) d.body.classList.add('js-fg');
+  if (!top || !hero || !d.body.classList.contains('fg-home')) return;
+  var on = false, tick = false;
+  function check() {
+    tick = false;
+    var past = hero.getBoundingClientRect().bottom < 90;
+    if (past !== on) { on = past; top.classList.toggle('is-solid', on); }
+  }
+  addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(check); } }, { passive: true });
+  check();
 })();

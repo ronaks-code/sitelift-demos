@@ -86,41 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx tilt */
-/* tilt: cards lean toward the pointer (max 5deg, perspective 900px) with a soft glare; resets on leave. Mouse only, off with
-   reduced motion, never on cards wider than 700px or holding form fields. opt: {max: 5, glare: true} */
-FX.def('tilt', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var max = +c.opt.max || 5, all = c.els('[class*=card]:not([class*=cards])');
-  all.filter(function (e) {
-    return !e.querySelector('input,textarea,select') && !all.some(function (o) { return o !== e && o.contains(e); });
-  }).forEach(function (el) {
-    var g, r, tr = el.style.transition, live = 0;
-    if (c.opt.glare !== false) {
-      if (getComputedStyle(el).position === 'static') el.style.position = 'relative';   // before appending: no layout shift
-      g = document.createElement('span'); g.className = 'fx-tilt-g'; g.setAttribute('aria-hidden', 'true'); el.appendChild(g);
-    }
-    function ease(ms) { el.style.transition = getComputedStyle(el).transition + ', transform ' + ms + 'ms cubic-bezier(.2,.7,.2,1)'; }
-    el.addEventListener('pointerenter', function (e) {
-      if (e.pointerType && e.pointerType !== 'mouse') return;
-      r = el.getBoundingClientRect();
-      if (r.width > 700) return;
-      live = 1; el.style.transition = tr; ease(220); if (g) g.classList.add('on');
-    });
-    el.addEventListener('pointermove', function (e) {
-      if (!live) return;
-      var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      el.style.transform = 'perspective(900px) rotateX(' + (-y * 2 * max).toFixed(2) + 'deg) rotateY(' + (x * 2 * max).toFixed(2) + 'deg)';
-      if (g) { g.style.setProperty('--gx', (x + .5) * 100 + '%'); g.style.setProperty('--gy', (y + .5) * 100 + '%'); }
-    });
-    el.addEventListener('pointerleave', function () {
-      if (!live) return;
-      live = 0; el.style.transition = tr; ease(650); el.style.transform = ''; if (g) g.classList.remove('on');
-      setTimeout(function () { if (!live) el.style.transition = tr; }, 700);
-    });
-  });
-});
-
 /* fx cursor-ring */
 /* cursor-ring: a precise dot on the pointer and a soft ring that follows with a little lag. Over links/buttons the ring
    grows; over gallery photos and call links it becomes a labelled pill ("View", "Call"). Mouse only (FX.fine), off with
@@ -167,6 +132,32 @@ FX.def('cursor-ring', function (c) {
     el.classList.toggle('is-label', !!s);
     if (s) txt.textContent = s;
   }, { passive: true });
+});
+
+/* fx hero-zoomout */
+/* hero-zoomout: hero photo starts at scale 1.08 and, over the first 70vh of scrolling, eases to 1 while its edges inset 4% with
+   rounded corners (the frame's own overflow hides the rest). Default: the largest photo in the first block of <main>.
+   Scroll-driven CSS where supported, rAF scroll fallback otherwise. Reduced motion: untouched. */
+FX.def('hero-zoomout', function (c) {
+  if (FX.reduced) return;
+  var els = c.els('main > :first-child img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
+  if (!c.sel && els.length > 1) {
+    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
+    els = [els.sort(function (x, y) { return a(y) - a(x); })[0]];
+  }
+  if (!els.length) return;
+  var img = els[0], css = window.CSS && CSS.supports('animation-timeline: scroll()');
+  img.classList.add('fx-hz');
+  if (css) { img.classList.add('fx-hz-css'); return; }
+  var busy = 0, ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+  function tick() {
+    busy = 0;
+    var k = ease(Math.min(1, Math.max(0, scrollY / (innerHeight * .7))));
+    img.style.transform = 'scale(' + (1.08 - .08 * k).toFixed(4) + ')';
+    img.style.clipPath = 'inset(' + (4 * k).toFixed(2) + '% round calc(var(--radius, 12px) * ' + k.toFixed(3) + '))';
+  }
+  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
+  tick();
 });
 
 /* fx magnetic */
@@ -237,4 +228,45 @@ FX.def('mask-reveal', function (c) {
     i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
       { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
   }, '0px 0px -6% 0px');
+});
+
+/* fx split-reveal */
+/* split-reveal: the hero h1 reveals word by word on load (each word slides up from a clipped line box, ~50ms apart).
+   Only text nodes are split, so <em>, <br> and spans keep working. The h1 gets aria-label with its text, the pieces are aria-hidden.
+   opt: {chars: true} splits letters instead (only for headings of 22 characters or fewer), {step: 50} ms between pieces.
+   Failsafe: everything is natural again after the animation or after 2.5s at the latest. Reduced motion: untouched. */
+FX.def('split-reveal', function (c) {
+  if (FX.reduced || !Element.prototype.animate) return;
+  var d = document, h1 = c.els('main > :first-child h1')[0];
+  if (!h1 || h1.getAttribute('data-fx-sr')) return;
+  var txt = h1.textContent.replace(/\s+/g, ' ').trim(), chars = !!c.opt.chars && txt.length <= 22, units = [];
+  function mk(s) {
+    var u = d.createElement('span'), i = d.createElement('span');
+    u.className = 'fx-sr-u'; u.setAttribute('aria-hidden', 'true'); i.className = 'fx-sr-i'; i.textContent = s; u.appendChild(i); units.push(i); return u;
+  }
+  (function walk(n) {
+    [].slice.call(n.childNodes).forEach(function (k) {
+      if (k.nodeType === 1) { if (!/^(BR|SVG|IMG)$/i.test(k.tagName)) walk(k); return; }
+      if (k.nodeType !== 3 || !k.nodeValue.trim()) return;
+      var f = d.createDocumentFragment();
+      k.nodeValue.split(/(\s+)/).forEach(function (w) {
+        if (!w) return;
+        if (/^\s+$/.test(w)) { f.appendChild(d.createTextNode(w)); return; }
+        if (!chars) { var u = mk(w); u.classList.add('fx-sr-w'); f.appendChild(u); return; }
+        var g = d.createElement('span'); g.className = 'fx-sr-w'; g.setAttribute('aria-hidden', 'true');
+        w.split('').forEach(function (ch) { g.appendChild(mk(ch)); }); f.appendChild(g);
+      });
+      k.parentNode.replaceChild(f, k);
+    });
+  })(h1);
+  if (!units.length) return;
+  h1.setAttribute('aria-label', txt); h1.setAttribute('data-fx-sr', '1'); h1.classList.add('fx-sr-run');
+  var step = Math.min(+c.opt.step || (chars ? 30 : 50), 900 / units.length), done = 0;
+  function end() { if (!done) { done = 1; h1.classList.remove('fx-sr-run'); units.forEach(function (u) { u.getAnimations().forEach(function (a) { a.cancel(); }); }); } }
+  var all = units.map(function (u, i) {
+    return u.animate([{ transform: 'translateY(135%)' }, { transform: 'translateY(0)' }],
+      { duration: 800, delay: 120 + i * step, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' }).finished;
+  });
+  Promise.all(all).then(end, end);
+  setTimeout(end, 2500);
 });

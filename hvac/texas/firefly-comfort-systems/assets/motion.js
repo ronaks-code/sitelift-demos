@@ -1,15 +1,15 @@
-/* Circuit motion: breaker switches flip ON in sequence when the panel scrolls into view. Without JS or with reduced motion they are already ON. */
+/* Permit motion: approval stamp thunk, checkbox ticking. Content is fully visible without it. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var p = document.querySelector('[data-brks]');
-  if (!p || !('IntersectionObserver' in window)) return;
-  document.body.classList.add('js-brk');
+  document.body.classList.add('js-permit');
+  var ul = document.querySelectorAll('[data-ticks]');
+  if (!('IntersectionObserver' in window)) return;
   var io = new IntersectionObserver(function (es) {
     es.forEach(function (e) {
       if (!e.isIntersecting) return;
-      Array.prototype.forEach.call(e.target.children, function (b, i) { setTimeout(function () { b.classList.add('on'); }, 250 + i * 260); });
-      io.unobserve(e.target);
+      Array.prototype.forEach.call(e.target.children, function (li, i) { li.style.transitionDelay = (i * 160) + 'ms'; });
+      e.target.classList.add('ticked'); io.unobserve(e.target);
     });
-  }, { threshold: .35 });
-  io.observe(p);
+  }, { threshold: .4 });
+  ul.forEach(function (u) { io.observe(u); });
 })();
