@@ -1,10 +1,8 @@
-/* Swatch motion: fan opens on load; before/after slider (works without motion too). */
+/* Craftsman motion: the phase timeline fills when scrolled into view. Fully filled without JS or with reduced motion. */
 (function () {
-  if (!window.SL) return;
-  document.querySelectorAll('[data-ba]').forEach(function (s) {
-    var r = s.querySelector('input');
-    var set = function () { s.style.setProperty('--x', r.value + '%'); };
-    r.addEventListener('input', set); set();
-  });
-  if (!SL.reduced && document.querySelector('.sw-fan')) document.body.classList.add('js-fan');
+  if (!window.SL || SL.reduced || !('IntersectionObserver' in window)) return;
+  var p = document.querySelector('[data-phases]');
+  if (!p) return;
+  document.body.classList.add('js-phases');
+  new IntersectionObserver(function (es, io) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('run'); io.unobserve(e.target); } }); }, { threshold: .4 }).observe(p);
 })();

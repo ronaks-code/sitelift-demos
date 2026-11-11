@@ -1,14 +1,15 @@
-/* Instrument Cluster motion: needle sweep + dash self-test on load (CSS), rating counts up with the needle. */
+/* Checklist motion: each inspection row gets its green mark as it scrolls in, one after the other. Everything is shown without JS or with reduced motion. */
 (function () {
-  if (!window.SL || SL.reduced) return;
-  document.body.classList.add('js-ds');
-  var n = document.querySelector('[data-count]');
-  if (!n) return;
-  var end = parseFloat(n.textContent); if (!isFinite(end)) return;
-  var t0 = performance.now();
-  (function step(t) {
-    var k = Math.min(1, (t - t0) / 1100);
-    n.textContent = (end * k).toFixed(1);
-    if (k < 1) requestAnimationFrame(step);
-  })(t0);
+  if (!window.SL || SL.reduced || !('IntersectionObserver' in window)) return;
+  var rows = [].slice.call(document.querySelectorAll('.ck-row'));
+  if (!rows.length) return;
+  document.body.classList.add('js-ck');
+  var n = 0, io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target; io.unobserve(el);
+      setTimeout(function () { el.classList.add('is-on'); }, (n++ % 6) * 140);
+    });
+  }, { threshold: 0.6 });
+  rows.forEach(function (r) { io.observe(r); });
 })();

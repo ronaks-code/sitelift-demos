@@ -86,28 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx header-hide */
-/* header-hide: the site header slides up when you scroll down past 120px and comes back when you scroll up. Never hides while focus
-   is inside it or the mobile menu is open (body.nav-open). Only acts on a sticky/fixed header. Reduced motion: same, instant.
-   opt: {after: 120} (px scrolled before it may hide) */
-FX.def('header-hide', function (c) {
-  var d = document, hd = c.els('body > header, header:first-of-type')[0], after = +c.opt.after || 120;
-  if (!hd || !/sticky|fixed/.test(getComputedStyle(hd).position)) return;
-  hd.classList.add('fx-hh');
-  var last = scrollY, busy = 0, off = 0;
-  function set(v) { if (v !== off) { off = v; hd.classList.toggle('fx-hh-off', !!v); } }
-  function tick() {
-    busy = 0;
-    var y = Math.max(0, scrollY), dy = y - last;
-    if (hd.contains(d.activeElement) || d.body.classList.contains('nav-open') || y <= after) set(0);
-    else if (dy > 6) set(1);
-    else if (dy < -6) set(0);
-    if (Math.abs(dy) > 6 || y <= after) last = y;
-  }
-  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
-  hd.addEventListener('focusin', function () { set(0); });
-});
-
 /* fx btn-fill */
 /* btn-fill: inserts the fill layer and tracks which side the pointer entered/left from. Mouse only. */
 FX.def('btn-fill', function (c) {

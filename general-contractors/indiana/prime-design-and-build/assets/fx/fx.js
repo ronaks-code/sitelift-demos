@@ -86,6 +86,88 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx before-after */
+/* before-after: a [data-ba] stage holding two stacked photos (before, after), or adjacent gallery figures captioned
+   "Before"/"After", becomes a drag slider over the first photo's box (native range input: keyboard + screen readers).
+   Side-by-side pairs stay static. Reduced motion: no hint sweep. opt: {labels: ["Before", "After"], label} */
+FX.def('before-after', function (c) {
+  var d = document, L = c.opt.labels || ['Before', 'After'], used = [];
+  function txt(f, i) {
+    var n = f.querySelector('figcaption'), a = f.querySelector('a[data-cap]');
+    return ((n && n.textContent) || (a && a.getAttribute('data-cap')) || i.alt || '').trim();
+  }
+  function clone(i, cls) {
+    var n = i.cloneNode(false); n.className = cls; n.removeAttribute('id'); n.removeAttribute('data-fx-before-after'); n.loading = 'eager'; return n;
+  }
+  function build(u1, u2, i1, i2) {
+    var host = u1.tagName === 'IMG' ? u1.parentElement : u1;
+    if (host.querySelector('.fx-ba')) return;
+    if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
+    var box = d.createElement('div'), inp = d.createElement('input'), B = clone(i1, ''), A = clone(i2, 'fx-ba-b');
+    box.className = 'fx-ba'; B.alt = '';
+    inp.type = 'range'; inp.min = 0; inp.max = 100; inp.step = 2; inp.value = 50; inp.className = 'fx-ba-in';
+    inp.setAttribute('aria-label', c.opt.label || 'Before and after comparison');
+    box.appendChild(B); box.appendChild(A);
+    box.insertAdjacentHTML('beforeend', '<span class="fx-ba-bar"><i></i></span><span class="fx-ba-l fx-ba-l1"></span><span class="fx-ba-l fx-ba-l2"></span>');
+    var l1 = box.children[3], l2 = box.children[4];
+    l1.textContent = L[0]; l2.textContent = L[1];
+    box.appendChild(inp); host.appendChild(box);
+    box.style.borderRadius = getComputedStyle(i1).borderRadius;
+    function place() {
+      var h = host.getBoundingClientRect(), r = i1.getBoundingClientRect();
+      box.style.left = r.left - h.left + 'px'; box.style.top = r.top - h.top + 'px'; box.style.width = r.width + 'px'; box.style.height = r.height + 'px';
+    }
+    function set(v) {
+      v = Math.max(0, Math.min(100, v)); box.style.setProperty('--p', v + '%'); inp.value = v;
+      l1.style.opacity = v < 14 ? 0 : 1; l2.style.opacity = v > 86 ? 0 : 1;
+    }
+    place(); set(50);
+    if ('ResizeObserver' in window) { var ro = new ResizeObserver(place); ro.observe(host); ro.observe(i1); } else addEventListener('resize', place);
+    host.querySelectorAll('a').forEach(function (a) { a.tabIndex = -1; });
+    var cap = host.querySelector('figcaption');
+    if (cap && /^\s*before/i.test(cap.textContent)) cap.style.visibility = 'hidden';
+    if (u2 !== host && u2 !== u1) u2.hidden = true;
+    var down = 0, touched = 0;
+    function at(e) { var r = box.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); }
+    box.addEventListener('pointerdown', function (e) {
+      if (e.button) return;
+      e.preventDefault(); down = touched = 1; box.classList.add('drag');
+      try { box.setPointerCapture(e.pointerId); } catch (x) {}
+      box.classList.add('m'); inp.focus({ preventScroll: true }); at(e);
+    });
+    box.addEventListener('pointermove', function (e) { if (down) at(e); });
+    function up() { down = 0; box.classList.remove('drag'); }
+    box.addEventListener('pointerup', up); box.addEventListener('pointercancel', up);
+    inp.addEventListener('keydown', function () { box.classList.remove('m'); });
+    inp.addEventListener('blur', function () { box.classList.remove('m'); });
+    inp.addEventListener('input', function () { touched = 1; set(+inp.value); });
+    if (!FX.reduced) FX.seen([box], function () {
+      var t0 = performance.now();
+      (function step(now) {
+        if (touched) return;
+        var k = Math.min(1, (now - t0) / 1600);
+        set(50 - 15 * Math.sin(k * Math.PI));
+        if (k < 1) requestAnimationFrame(step);
+      })(t0);
+    }, '0px 0px -25% 0px');
+  }
+  c.els('[data-ba]').forEach(function (m) {
+    var im = m.querySelectorAll('img');
+    if (im.length !== 2) return;
+    // stacked stage only (else the after photo shows twice); data-ba="slider" forces it
+    var r1 = im[0].getBoundingClientRect(), r2 = im[1].getBoundingClientRect();
+    var ov = Math.max(0, Math.min(r1.right, r2.right) - Math.max(r1.left, r2.left)) * Math.max(0, Math.min(r1.bottom, r2.bottom) - Math.max(r1.top, r2.top));
+    if (m.getAttribute('data-ba') !== 'slider' && ov < 0.5 * r1.width * r1.height) return;
+    var u = [im[0], im[1]].map(function (i) { var n = i; while (n.parentElement && n.parentElement !== m) n = n.parentElement; return n; });
+    used.push(u[0], u[1]); build(u[0], u[1], im[0], im[1]);
+  });
+  FX.$$('figure').forEach(function (f) {
+    var n = f.nextElementSibling, i1 = f.querySelector('img'), i2 = n && n.tagName === 'FIGURE' && n.querySelector('img');
+    if (!i1 || !i2 || used.indexOf(f) > -1 || f.closest('[data-ba]') || f.querySelector('.fx-ba')) return;
+    if (/^\s*before/i.test(txt(f, i1)) && /^\s*after/i.test(txt(n, i2))) { used.push(f, n); build(f, n, i1, i2); }
+  });
+});
+
 /* fx bg-mesh */
 /* bg-mesh: a slow drifting gradient mesh behind the hero: four large soft radial blobs in the brand colours at low alpha,
    moved with CSS transform keyframes (no blur filter, cheap on phones). One layer, first child of the target; static with

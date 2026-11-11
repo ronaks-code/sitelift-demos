@@ -1,10 +1,15 @@
-/* Ridgeline motion: hero photo parallax (slower than the page). Skipped for reduced motion; the photo is simply oversized so nothing is cut when it does not move. */
+/* Permit motion: approval stamp thunk, checkbox ticking. Content is fully visible without it. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var el = document.querySelector('[data-par]');
-  if (!el) return;
-  document.body.classList.add('js-par');
-  var raf = 0;
-  var run = function () { raf = 0; var y = Math.min(scrollY, innerHeight); el.style.transform = 'translate3d(0,' + (y * .18).toFixed(1) + 'px,0)'; };
-  addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(run); }, { passive: true });
+  document.body.classList.add('js-permit');
+  var ul = document.querySelectorAll('[data-ticks]');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      Array.prototype.forEach.call(e.target.children, function (li, i) { li.style.transitionDelay = (i * 160) + 'ms'; });
+      e.target.classList.add('ticked'); io.unobserve(e.target);
+    });
+  }, { threshold: .4 });
+  ul.forEach(function (u) { io.observe(u); });
 })();

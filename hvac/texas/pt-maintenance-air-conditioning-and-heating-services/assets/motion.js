@@ -1,9 +1,15 @@
-/* Trowel motion: gallery slabs wipe in from the left. Content stays visible without JS and with reduced motion. */
+/* Permit motion: approval stamp thunk, checkbox ticking. Content is fully visible without it. */
 (function () {
-  if (!window.SL || SL.reduced || !('IntersectionObserver' in window)) return;
-  var g = document.querySelectorAll('[data-wipe] .g-it');
-  if (!g.length) return;
-  document.body.classList.add('js-wipe');
-  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('wiped'); io.unobserve(e.target); } }); }, { threshold: .2 });
-  g.forEach(function (x, i) { x.style.setProperty('--w', (i % 3) * 110 + 'ms'); io.observe(x); });
+  if (!window.SL || SL.reduced) return;
+  document.body.classList.add('js-permit');
+  var ul = document.querySelectorAll('[data-ticks]');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      Array.prototype.forEach.call(e.target.children, function (li, i) { li.style.transitionDelay = (i * 160) + 'ms'; });
+      e.target.classList.add('ticked'); io.unobserve(e.target);
+    });
+  }, { threshold: .4 });
+  ul.forEach(function (u) { io.observe(u); });
 })();

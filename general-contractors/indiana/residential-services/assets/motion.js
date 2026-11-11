@@ -1,11 +1,15 @@
-/* Keyhole motion: the spotlight cone follows the pointer on desktop. Static (centred) with reduced motion, touch, or the "fixed" variant. */
+/* Permit motion: approval stamp thunk, checkbox ticking. Content is fully visible without it. */
 (function () {
-  if (!window.SL || SL.reduced || document.body.classList.contains('v-cone-fixed')) return;
-  var h = document.querySelector('[data-spot]');
-  if (!h || !matchMedia('(pointer:fine)').matches) return;
-  var raf = 0, x = 50;
-  h.addEventListener('pointermove', function (e) {
-    var r = h.getBoundingClientRect(); x = ((e.clientX - r.left) / r.width) * 100;
-    if (!raf) raf = requestAnimationFrame(function () { raf = 0; h.style.setProperty('--mx', x.toFixed(1) + '%'); });
-  });
+  if (!window.SL || SL.reduced) return;
+  document.body.classList.add('js-permit');
+  var ul = document.querySelectorAll('[data-ticks]');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      Array.prototype.forEach.call(e.target.children, function (li, i) { li.style.transitionDelay = (i * 160) + 'ms'; });
+      e.target.classList.add('ticked'); io.unobserve(e.target);
+    });
+  }, { threshold: .4 });
+  ul.forEach(function (u) { io.observe(u); });
 })();

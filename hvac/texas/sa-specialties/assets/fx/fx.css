@@ -1,10 +1,3 @@
-/* fx header-hide */
-/* header-hide: sticky header slides away on the way down and returns on the way up. The class is only ever added by JS. */
-@media (prefers-reduced-motion: no-preference) {
- .fx-hh { transition: transform .35s cubic-bezier(.2, .7, .2, 1) }
-}
-.fx-hh.fx-hh-off { transform: translateY(-101%) }
-
 /* fx btn-fill */
 /* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
    fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */

@@ -1,14 +1,13 @@
-/* Catering motion: the timeline connector draws across as it scrolls into view, the filmstrip drifts (CSS, pauses on hover), the request card eases up on load. */
+/* Ticket motion: the hero receipt prints from the top line by line (clip reveal in steps), the tickets on the rail swing in. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var q = document.querySelector('.cg-quote');
-  if (q) q.animate([{ transform: 'translateY(30px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 900, delay: 250, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  var s = document.querySelector('.cg-steps');
-  if (s && 'IntersectionObserver' in window && matchMedia('(min-width:701px)').matches) {
-    var dots = s.querySelectorAll('.cg-dot');
-    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { dots.forEach(function (d, i) { d.animate([{ transform: 'scale(.4)', opacity: 0 }, { transform: 'scale(1)', opacity: 1 }], { duration: 500, delay: i * 220, fill: 'backwards', easing: 'cubic-bezier(.3,1.5,.5,1)' }); }); io.disconnect(); } }, { threshold: .3 });
-    io.observe(s);
-  }
+  var r = document.querySelector('.tc-receipt');
+  if (r) r.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 1600, easing: 'steps(18,end)', fill: 'backwards' });
+  document.querySelectorAll('.tc-ticket').forEach(function (t, i) {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.animate([{ transform: 'rotate(-3deg) translateY(-12px)', transformOrigin: '50% 0' }, { transform: 'none', transformOrigin: '50% 0' }], { duration: 700, easing: 'cubic-bezier(.3,1.6,.5,1)', delay: (i % 4) * 80 }); io.unobserve(e.target); } }); }, { threshold: .2 });
+    io.observe(t);
+  });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

@@ -1,14 +1,13 @@
-/* Neon motion: tube-sign flicker. On load the sign stutters on, then every few seconds one tube drops out for a moment. */
+/* Truck motion: the awning sways, the OPEN lamp flickers on once at load, and the stop card slides in like a window shutter. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var t = [].slice.call(document.querySelectorAll('.nn-flick'));
-  if (!t.length) return;
-  var blink = function (el, seq, i) {
-    i = i || 0; if (i >= seq.length) { el.classList.remove('off'); return; }
-    el.classList.toggle('off', i % 2 === 0); setTimeout(function () { blink(el, seq, i + 1); }, seq[i]);
-  };
-  t.forEach(function (el, k) { setTimeout(function () { blink(el, [90, 70, 140, 60, 220, 50, 70]); }, 200 + k * 260); });
-  setInterval(function () { blink(t[Math.floor(Math.random() * t.length)], [70, 90, 60, 160, 50]); }, 5200);
+  document.querySelectorAll('.tk-top .tk-awning').forEach(function (a) {
+    a.animate([{ transform: 'skewX(0deg)', transformOrigin: 'top' }, { transform: 'skewX(-1.2deg)', transformOrigin: 'top' }, { transform: 'skewX(0deg)', transformOrigin: 'top' }], { duration: 5200, iterations: Infinity, easing: 'ease-in-out' });
+  });
+  var l = document.querySelector('[data-lamp]');
+  if (l) l.animate([{ opacity: 0 }, { opacity: 1 }, { opacity: .2 }, { opacity: 1 }, { opacity: .6 }, { opacity: 1 }], { duration: 900, delay: 300, fill: 'backwards' });
+  var s = document.querySelector('.tk-stop');
+  if (s) s.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 900, delay: 400, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

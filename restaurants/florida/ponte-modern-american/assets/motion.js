@@ -1,14 +1,13 @@
-/* Glaze motion: sprinkles fall slowly through the hero, the donut ring turns, sticker cards wobble on hover (CSS). */
+/* Bistro motion: hero photo drifts slowly inside its frame while scrolling (parallax), and hairline rules draw across on reveal. Image reveals are CSS clip-path wipes. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var box = document.querySelector('.gz-conf');
-  if (box) for (var i = 0; i < 26; i++) {
-    var e = document.createElement('i'); e.style.left = Math.random() * 100 + '%'; e.style.top = '-30px'; e.style.transform = 'rotate(' + Math.random() * 180 + 'deg)'; box.appendChild(e);
-    var h = box.offsetHeight + 60;
-    e.animate([{ translate: '0 0', rotate: '0deg' }, { translate: (Math.random() * 60 - 30) + 'px ' + h + 'px', rotate: (Math.random() * 360) + 'deg' }], { duration: 9000 + Math.random() * 9000, delay: -Math.random() * 12000, iterations: Infinity, easing: 'linear' });
+  var im = document.querySelector('.bs-pano-in img,.bs-pano-in .ph');
+  if (im) {
+    im.style.transform = 'scale(1.12)';
+    var tick = function () { var y = Math.min(scrollY, 900); im.style.transform = 'scale(1.12) translateY(' + (y * 0.06) + 'px)'; };
+    addEventListener('scroll', tick, { passive: true });
   }
-  var r = document.querySelector('.gz-ring-pic');
-  if (r) r.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], { duration: 60000, iterations: Infinity });
+  var pn = document.querySelector('.bs-pano-in'); if (pn) pn.style.overflow = 'hidden';
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;
