@@ -20,3 +20,4 @@ own name, photos or reviews, and never show a saved design back to the business 
 | 2026-11-11 | auto-repair/florida/richards-quality-automotive-services | Not interested: customers find him fine, a website is one more thing to monitor (call 2026-11-11) | auto-repair_florida_richards-quality-automotive-services.zip |
 | 2026-11-11 | barbershops/texas/ties-barbershop | Already has its own website (websiteworldfind.com) | barbershops_texas_ties-barbershop.zip |
 | 2026-11-11 | auto-body/texas/auto-dent-quality | Already has its own website, replied 2026-11-11 | auto-body_texas_auto-dent-quality.zip |
+| 2026-11-11 | billiards-pool-halls/california/bender-s-bar-and-grill | replied not interested 2026-11-11 (Vin's email) | billiards-pool-halls_california_bender-s-bar-and-grill.zip |
