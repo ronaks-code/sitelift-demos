@@ -1,0 +1,10 @@
+/* fx typewriter */
+/* typewriter: the full text is always laid out (the not-yet-typed part is transparent), so nothing moves. Caret is zero-width and
+   absolutely placed. Elements and caret are built by JS only. */
+.fx-tw-r { color: transparent; user-select: none }
+.fx-tw-t::after { content: ""; display: inline-block; vertical-align: baseline; width: 2px; height: .8em; margin-right: -2px; background: currentColor; opacity: 0 }
+.fx-tw-live .fx-tw-t::after { opacity: 1 }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-tw-live .fx-tw-t::after { animation: fx-tw-blink 1s steps(1) infinite }
+ @keyframes fx-tw-blink { 50% { opacity: 0 } }
+}

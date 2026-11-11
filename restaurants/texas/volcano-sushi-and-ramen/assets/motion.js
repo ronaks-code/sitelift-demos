@@ -1,15 +1,11 @@
-/* Paleta motion: hero popsicles bob up and down out of phase, a soft shine sweeps across the photo popsicle, flavor cards bob (CSS). */
+/* Index motion: the index rows draw their rules and slide in one after another on load; a thin marker follows the hovered row; the marquee rolls (CSS). */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.querySelectorAll('.pa-pop').forEach(function (p, i) {
-    p.animate([{ transform: 'translateY(0) rotate(-1.2deg)' }, { transform: 'translateY(-14px) rotate(1.2deg)' }], { duration: 2600 + i * 380, delay: -i * 600, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  document.querySelectorAll('.ix-rows li').forEach(function (li, i) {
+    li.animate([{ clipPath: 'inset(0 100% 0 0)', transform: 'translateX(-16px)' }, { clipPath: 'inset(0 0 0 0)', transform: 'none' }], { duration: 700, delay: 200 + i * 110, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
   });
-  var pic = document.querySelector('.pa-p3 .pa-pop-pic');
-  if (pic) {
-    var s = document.createElement('i'); s.style.cssText = 'position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-14deg);pointer-events:none';
-    pic.style.position = 'relative'; pic.appendChild(s);
-    s.animate([{ left: '-40%' }, { left: '130%' }], { duration: 1800, delay: 1200, iterations: Infinity, easing: 'ease-in-out', endDelay: 3500 });
-  }
+  var f = document.querySelector('.ix-fig img,.ix-fig .ph');
+  if (f) f.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0)' }], { duration: 1100, delay: 300, easing: 'cubic-bezier(.6,0,.2,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

@@ -1,9 +1,3 @@
-/* fx mask-reveal */
-/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
-   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
-html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
-html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
-
 /* fx header-hide */
 /* header-hide: sticky header slides away on the way down and returns on the way up. The class is only ever added by JS. */
 @media (prefers-reduced-motion: no-preference) {
@@ -24,23 +18,6 @@ html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
   html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
  }
 }
-
-/* fx btn-fill */
-/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
-   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
-html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
-html.fx-btn-fill .fx-bf-r { position: relative }
-html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
-html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
-html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
- clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
-html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
-html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
-@media (hover: hover) and (pointer: fine) {
- html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
- html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
-}
-@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }
 
 /* fx bg-topo */
 /* bg-topo: layer built by JS; the two groups of contours drift in opposite slow circles */

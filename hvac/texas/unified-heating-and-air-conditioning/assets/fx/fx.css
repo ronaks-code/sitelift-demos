@@ -1,18 +1,3 @@
-/* fx header-hide */
-/* header-hide: sticky header slides away on the way down and returns on the way up. The class is only ever added by JS. */
-@media (prefers-reduced-motion: no-preference) {
- .fx-hh { transition: transform .35s cubic-bezier(.2, .7, .2, 1) }
-}
-.fx-hh.fx-hh-off { transform: translateY(-101%) }
-
-/* fx section-tint */
-/* section-tint: one fixed colour layer behind the page; its colour follows the section in view. Only sections with a transparent
-   background show it, so sections that set their own backgrounds are untouched. The layer exists only when JS built it. */
-.fx-st-layer { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg) }
-@media (prefers-reduced-motion: no-preference) {
- .fx-st-layer { transition: background-color .9s cubic-bezier(.2, .7, .2, 1) }
-}
-
 /* fx hours-toast */
 /* hours-toast: small status toast bottom-left (created by hours-toast.js). Above the mobile call bar, under the lightbox. */
 .fx-ht { position: fixed; left: 24px; bottom: 48px; z-index: 700; display: flex; align-items: center; gap: 12px; max-width: min(360px, calc(100vw - 24px)); padding: 12px 8px 12px 18px;

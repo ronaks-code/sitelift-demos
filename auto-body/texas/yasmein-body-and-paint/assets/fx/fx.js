@@ -86,6 +86,65 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx count-up */
+/* count-up: real numbers (rating, review count, years) count up once when they scroll into view. The element's width is
+   locked to its final text first (no layout shift); the final text is exactly what was there (prefix/suffix kept);
+   years (1900-2099) and numbers under 2 are left alone. Reduced motion / no JS: the final number, untouched.
+   opt: {ms: 1400} */
+FX.def('count-up', function (c) {
+  if (FX.reduced) return;
+  var ms = +c.opt.ms || 1400;
+  var els = c.els('[data-count],[class*="stat"] b,[class*="stat"] strong,[class*="stat"] dd,[class*="stat"] [class*="num"]');
+  els = els.filter(function (el) { return !el.children.length && /^\D{0,2}\d[\d,]*(\.\d+)?\D{0,8}$/.test(el.textContent.trim()); });
+  els.forEach(function (el) {
+    var t = el.textContent.trim(), m = t.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
+    var end = parseFloat(m[2].replace(/,/g, ''));
+    if (!isFinite(end) || end < 2 || (end >= 1900 && end < 2100 && m[2].indexOf('.') < 0)) return;
+    var dec = (m[2].split('.')[1] || '').length, comma = m[2].indexOf(',') > -1;
+    var fmt = function (v) { var s = v.toFixed(dec); return comma ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s; };
+    if (getComputedStyle(el).display === 'inline') el.style.display = 'inline-block';
+    el.style.fontVariantNumeric = 'tabular-nums';
+    el.style.minWidth = el.getBoundingClientRect().width + 'px';
+    el.setAttribute('data-fx-final', t);
+    FX.seen([el], function () {
+      var t0 = performance.now();
+      el.setAttribute('aria-label', t);
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 4);
+        el.textContent = k < 1 ? m[1] + fmt(end * e) + m[3] : t;
+        if (k < 1) requestAnimationFrame(step); else el.removeAttribute('aria-label');
+      })(t0);
+    });
+  });
+});
+
+/* fx bg-grid */
+/* bg-grid: a fine dot grid (opt kind "lines" for a line grid) with a brighter copy of the grid revealed through a soft
+   circle that follows the pointer (mouse) or slowly sweeps (touch). Edges fade out. Static grid with reduced motion.
+   opt: {kind: "dots"|"lines", size: 28} */
+FX.def('bg-grid', function (c) {
+  var lines = c.opt.kind === 'lines', z = Math.max(16, Math.min(60, +c.opt.size || 28));
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var L = document.createElement('div'), hi, pend = 0, ex, ey;
+    L.className = 'fx-grid' + (lines ? ' fx-grid-l' : ''); L.setAttribute('aria-hidden', 'true');
+    L.style.setProperty('--fx-gs', z + 'px');
+    L.innerHTML = '<i></i><i class="hi"></i>'; hi = L.lastChild;
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
+    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
+    if (!FX.fine || FX.reduced) return;
+    L.classList.add('is-fine');
+    t.addEventListener('pointermove', function (e) {
+      ex = e.clientX; ey = e.clientY;
+      if (pend) return; pend = 1;
+      requestAnimationFrame(function () {
+        pend = 0; var b = L.getBoundingClientRect();
+        hi.style.setProperty('--fx-x', (ex - b.left - 210) + 'px'); hi.style.setProperty('--fx-y', (ey - b.top - 210) + 'px'); hi.style.opacity = 1;
+      });
+    }, { passive: true });
+    t.addEventListener('pointerleave', function () { hi.style.opacity = 0; });
+  });
+});
+
 /* fx sticky-cta */
 /* sticky-cta: floating "Call" + booking/contact pill. Appears once the hero has scrolled away; hides while the footer or the page's own
    booking button is on screen. Labels come from the links' own text (shortened) or opt. Mobile: no-op when the kit has a .callbar.
@@ -173,31 +232,4 @@ FX.def('hours-toast', function (c) {
     x.addEventListener('click', hide);
     timer = setTimeout(hide, +o.ms || 7000);
   }, o.delay == null ? 3500 : +o.delay);
-});
-
-/* fx bg-grid */
-/* bg-grid: a fine dot grid (opt kind "lines" for a line grid) with a brighter copy of the grid revealed through a soft
-   circle that follows the pointer (mouse) or slowly sweeps (touch). Edges fade out. Static grid with reduced motion.
-   opt: {kind: "dots"|"lines", size: 28} */
-FX.def('bg-grid', function (c) {
-  var lines = c.opt.kind === 'lines', z = Math.max(16, Math.min(60, +c.opt.size || 28));
-  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var L = document.createElement('div'), hi, pend = 0, ex, ey;
-    L.className = 'fx-grid' + (lines ? ' fx-grid-l' : ''); L.setAttribute('aria-hidden', 'true');
-    L.style.setProperty('--fx-gs', z + 'px');
-    L.innerHTML = '<i></i><i class="hi"></i>'; hi = L.lastChild;
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
-    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
-    if (!FX.fine || FX.reduced) return;
-    L.classList.add('is-fine');
-    t.addEventListener('pointermove', function (e) {
-      ex = e.clientX; ey = e.clientY;
-      if (pend) return; pend = 1;
-      requestAnimationFrame(function () {
-        pend = 0; var b = L.getBoundingClientRect();
-        hi.style.setProperty('--fx-x', (ex - b.left - 210) + 'px'); hi.style.setProperty('--fx-y', (ey - b.top - 210) + 'px'); hi.style.opacity = 1;
-      });
-    }, { passive: true });
-    t.addEventListener('pointerleave', function () { hi.style.opacity = 0; });
-  });
 });

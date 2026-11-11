@@ -86,6 +86,58 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx marquee */
+/* marquee: turns a list (the ticker / strip) into an endless marquee. Copies are aria-hidden; speed follows content width
+   (default 40px/s); pauses on hover, on focus, and with a small pause button. Skips lists that already animate themselves.
+   opt: {speed: 40} (px per second), {reverse: true}, {pause: "Pause scrolling", play: "Play scrolling"}.
+   Reduced motion: the list stays as the kit had it (static, wrapping allowed). */
+FX.def('marquee', function (c) {
+  if (FX.reduced) return;
+  var d = document, o = c.opt, speed = +o.speed || 40;
+  c.els('ul[class*=ticker], [class*=marquee]:not(html) ul, [data-fx-marquee]').forEach(function (ul) {
+    var kids = [].slice.call(ul.children).filter(function (k) { return k.tagName === 'LI'; });
+    if (kids.length < 2 || ul.getAttribute('data-fx-mq')) return;
+    if ([ul].concat(kids).some(function (e) { return getComputedStyle(e).animationName !== 'none'; })) return;
+    var clones = [], btn, w = 0;
+    function copy(k) {
+      var n = k.cloneNode(true); n.setAttribute('aria-hidden', 'true'); n.removeAttribute('id');
+      [].slice.call(n.querySelectorAll('a,button,input,[tabindex]')).forEach(function (x) { x.setAttribute('tabindex', '-1'); });
+      return n;
+    }
+    function build() {
+      clones.forEach(function (n) { n.remove(); }); clones = [];
+      var pre = copy(kids[kids.length - 1]); ul.insertBefore(pre, kids[0]); clones.push(pre);   // so the first item has a predecessor, like every copy
+      ul.setAttribute('data-fx-mq', '');
+      var a = kids[0].offsetLeft, set = copy(kids[0]); ul.appendChild(set); clones.push(set);
+      for (var i = 1; i < kids.length; i++) { var x = copy(kids[i]); ul.appendChild(x); clones.push(x); }
+      var P = set.offsetLeft - a;
+      if (P < 20) return;
+      var need = Math.ceil(ul.clientWidth / P) + 1, n = 1;
+      while (n++ < need) kids.forEach(function (k) { var x = copy(k); ul.appendChild(x); clones.push(x); });
+      var pw = a - pre.offsetLeft;
+      ul.style.setProperty('--fx-mq-a', -pw + 'px'); ul.style.setProperty('--fx-mq-b', -(pw + P) + 'px');
+      ul.style.setProperty('--fx-mq-t', (P / speed).toFixed(1) + 's'); ul.style.setProperty('--fx-mq-dir', o.reverse ? 'reverse' : 'normal');
+      w = ul.clientWidth;
+    }
+    build();
+    if (!btn && w) {
+      btn = d.createElement('button'); btn.type = 'button'; btn.className = 'fx-mq-btn'; btn.setAttribute('aria-pressed', 'false');
+      btn.setAttribute('aria-label', o.pause || 'Pause scrolling');
+      btn.addEventListener('click', function () {
+        var p = btn.getAttribute('aria-pressed') !== 'true';
+        btn.setAttribute('aria-pressed', p); btn.setAttribute('aria-label', p ? (o.play || 'Play scrolling') : (o.pause || 'Pause scrolling'));
+        ul.toggleAttribute('data-fx-mq-paused', p);
+      });
+      ul.parentNode.insertBefore(btn, ul.nextSibling);
+    }
+    function place() { if (btn) { btn.style.left = ul.offsetLeft + ul.offsetWidth - 36 + 'px'; btn.style.top = ul.offsetTop + (ul.offsetHeight - 28) / 2 + 'px'; } }
+    place();
+    if (window.ResizeObserver) {
+      var t; new ResizeObserver(function () { clearTimeout(t); t = setTimeout(function () { if (ul.clientWidth !== w) build(); place(); }, 200); }).observe(ul);
+    }
+  });
+});
+
 /* fx sticky-cta */
 /* sticky-cta: floating "Call" + booking/contact pill. Appears once the hero has scrolled away; hides while the footer or the page's own
    booking button is on screen. Labels come from the links' own text (shortened) or opt. Mobile: no-op when the kit has a .callbar.
@@ -156,38 +208,4 @@ FX.def('parallax', function (c) {
   }
   function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
   addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
-});
-
-/* fx cursor-blend */
-/* cursor-blend: one white circle that inverts whatever is under it (mix-blend-mode: difference). Grows over images and
-   headings, shrinks over links. Native cursor hidden except in form fields and iframes. Mouse only, off with reduced
-   motion. Mark extra grow targets with [data-cursor-grow]. opt: {grow: "extra selector"} */
-FX.def('cursor-blend', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var d = document, h = d.documentElement, el = d.createElement('div'), x = -99, y = -99, px = x, py = y, busy = 0;
-  var G = '[data-cursor-grow],h1,h2,a[data-lb] img' + (c.opt.grow ? ',' + c.opt.grow : '');
-  el.className = 'fx-cb'; el.setAttribute('aria-hidden', 'true'); el.innerHTML = '<i></i>';
-  d.body.appendChild(el);
-  function tick() {
-    px += (x - px) * 0.35; py += (y - py) * 0.35;
-    el.style.transform = 'translate3d(' + px + 'px,' + py + 'px,0)';
-    if (Math.abs(x - px) + Math.abs(y - py) > 0.2) requestAnimationFrame(tick); else busy = 0;
-  }
-  addEventListener('pointermove', function (e) {
-    if (e.pointerType && e.pointerType !== 'mouse') return;
-    x = e.clientX; y = e.clientY;
-    if (!el.classList.contains('on')) { px = x; py = y; el.classList.add('on'); h.classList.add('fx-cb-on'); }
-    if (!busy) { busy = 1; requestAnimationFrame(tick); }
-  }, { passive: true });
-  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) el.classList.remove('on'); });
-  d.addEventListener('pointerdown', function () { el.classList.add('down'); }, { passive: true });
-  d.addEventListener('pointerup', function () { el.classList.remove('down'); }, { passive: true });
-  d.addEventListener('pointerover', function (e) {
-    var t = e.target.closest ? e.target : e.target.parentElement;
-    if (!t || !t.closest) return;
-    var field = t.closest('input,textarea,select,[contenteditable],iframe');
-    el.classList.toggle('is-field', !!field);
-    el.classList.toggle('is-grow', !field && !!t.closest(G));
-    el.classList.toggle('is-link', !field && !t.closest(G) && !!t.closest('a,button,[role=button],label,summary'));
-  }, { passive: true });
 });

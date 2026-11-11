@@ -1,3 +1,23 @@
+/* fx marquee */
+/* marquee: a list becomes an endless strip. All items (and the aria-hidden copies) share one transform animation, so the list's own
+   styling (separators, gaps) is kept. Pauses on hover and keyboard focus, and via a small pause button (WCAG 2.2.2). JS-built only. */
+[data-fx-mq] { display: flex !important; flex-wrap: nowrap !important; justify-content: flex-start !important; overflow: hidden !important }
+[data-fx-mq] > li { flex: none !important; white-space: nowrap }
+@keyframes fx-mq { from { transform: translate3d(var(--fx-mq-a, 0), 0, 0) } to { transform: translate3d(var(--fx-mq-b, 0), 0, 0) } }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-mq] > li { animation: fx-mq var(--fx-mq-t, 30s) linear infinite; animation-direction: var(--fx-mq-dir, normal) }
+ [data-fx-mq][data-fx-mq-paused] > li { animation-play-state: paused }
+ [data-fx-mq]:focus-within > li { animation-play-state: paused }
+}
+@media (hover: hover) and (pointer: fine) {
+ [data-fx-mq]:hover > li { animation-play-state: paused }
+}
+.fx-mq-btn { position: absolute; z-index: 2; width: 28px; height: 28px; padding: 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+ border: 1px solid var(--line); background: var(--bg); color: var(--ink); opacity: .72; transition: opacity .2s }
+.fx-mq-btn:hover, .fx-mq-btn:focus-visible { opacity: 1 }
+.fx-mq-btn::before { content: ""; width: 8px; height: 10px; border-inline: 3px solid currentColor }
+.fx-mq-btn[aria-pressed=true]::before { width: 0; height: 0; border: 0; border-block: 5px solid transparent; border-left: 8px solid currentColor; margin-left: 2px }
+
 /* fx grain */
 /* grain: a fine film-grain layer over the whole page (fixed, click-through, no layout). Tune with --fx-grain (0.04-0.12; grey noise, reads on light and dark grounds).
    Static grain under reduced motion; gently shifting grain otherwise. CSS only, works without JS. */
@@ -47,19 +67,3 @@ body:has(.lb.open) .fx-sc, body:has(.fx-lb.open) .fx-sc { display: none }
   html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
  }
 }
-
-/* fx cursor-blend */
-/* cursor-blend: the circle exists only when JS built it (mouse + motion allowed); nothing here can hide content */
-@media (hover: hover) and (pointer: fine) {
- html.fx-cb-on, html.fx-cb-on * { cursor: none }
- html.fx-cb-on input, html.fx-cb-on textarea, html.fx-cb-on select, html.fx-cb-on iframe, html.fx-cb-on [contenteditable] { cursor: auto }
-}
-.fx-cb { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 2147483000; mix-blend-mode: difference; opacity: 0; transition: opacity .25s; will-change: transform }
-.fx-cb.on { opacity: 1 }
-.fx-cb.is-field { opacity: 0 }
-.fx-cb i { position: absolute; left: -11px; top: -11px; width: 22px; height: 22px; border-radius: 50%; background: #fff;
- transition: transform .35s cubic-bezier(.2, .8, .2, 1) }
-.fx-cb.is-grow i { transform: scale(3.18) }
-.fx-cb.is-link i { transform: scale(.55) }
-.fx-cb.down i { transform: scale(.8) }
-.fx-cb.is-grow.down i { transform: scale(2.6) }

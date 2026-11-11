@@ -86,27 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx mask-reveal */
-/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
-   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
-   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
-FX.def('mask-reveal', function (c) {
-  if (FX.reduced || !Element.prototype.animate) return;
-  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
-  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
-    var r = i.getBoundingClientRect();
-    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
-  });
-  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
-  FX.seen(imgs, function (i) {
-    var p = i.parentElement, clipped = 0;
-    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
-    i.removeAttribute('data-fx-mr');
-    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
-      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  }, '0px 0px -6% 0px');
-});
-
 /* fx header-hide */
 /* header-hide: the site header slides up when you scroll down past 120px and comes back when you scroll up. Never hides while focus
    is inside it or the mobile menu is open (body.nav-open). Only acts on a sticky/fixed header. Reduced motion: same, instant.
@@ -162,30 +141,6 @@ FX.def('parallax', function (c) {
   }
   function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
   addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
-});
-
-/* fx btn-fill */
-/* btn-fill: inserts the fill layer and tracks which side the pointer entered/left from. Mouse only. */
-FX.def('btn-fill', function (c) {
-  if (!FX.fine) return;
-  var acc = FX.color('--accent');
-  c.els('.btn').forEach(function (b) {
-    if (b.matches('.callbar') || b.querySelector(':scope > .fx-bf-l')) return;
-    var cs = getComputedStyle(b), l = document.createElement('span');
-    l.className = 'fx-bf-l'; l.setAttribute('aria-hidden', 'true'); l.style.cssText = 'position:absolute;inset:0;pointer-events:none'; b.insertBefore(l, b.firstChild);
-    b.classList.add('fx-bf');
-    if (cs.position === 'static') b.classList.add('fx-bf-r');
-    if (cs.backgroundColor === acc) b.classList.add('fx-bf-ink');
-    else if (/rgba\(.*, 0\)|transparent/.test(cs.backgroundColor)) b.classList.add('fx-bf-alt');
-    b.style.transition = (parseFloat(cs.transitionDuration) ? cs.transition + ', ' : '') + 'color .4s cubic-bezier(.2,.7,.2,1), border-color .4s cubic-bezier(.2,.7,.2,1)';
-    function set(e) {
-      var r = b.getBoundingClientRect(), k = function (v) { return Math.max(-1, Math.min(1, v)).toFixed(2); };
-      b.style.setProperty('--fx-dx', k((e.clientX - r.left) / r.width * 2 - 1));
-      b.style.setProperty('--fx-dy', k((e.clientY - r.top) / r.height * 2 - 1));
-    }
-    b.addEventListener('pointerenter', set); b.addEventListener('pointerleave', set);
-    b.addEventListener('focus', function () { b.style.setProperty('--fx-dx', 0); b.style.setProperty('--fx-dy', 0); });
-  });
 });
 
 /* fx bg-topo */

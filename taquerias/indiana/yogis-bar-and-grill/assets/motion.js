@@ -1,14 +1,13 @@
-/* Glaze motion: sprinkles fall slowly through the hero, the donut ring turns, sticker cards wobble on hover (CSS). */
+/* Ticket motion: the hero receipt prints from the top line by line (clip reveal in steps), the tickets on the rail swing in. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var box = document.querySelector('.gz-conf');
-  if (box) for (var i = 0; i < 26; i++) {
-    var e = document.createElement('i'); e.style.left = Math.random() * 100 + '%'; e.style.top = '-30px'; e.style.transform = 'rotate(' + Math.random() * 180 + 'deg)'; box.appendChild(e);
-    var h = box.offsetHeight + 60;
-    e.animate([{ translate: '0 0', rotate: '0deg' }, { translate: (Math.random() * 60 - 30) + 'px ' + h + 'px', rotate: (Math.random() * 360) + 'deg' }], { duration: 9000 + Math.random() * 9000, delay: -Math.random() * 12000, iterations: Infinity, easing: 'linear' });
-  }
-  var r = document.querySelector('.gz-ring-pic');
-  if (r) r.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], { duration: 60000, iterations: Infinity });
+  var r = document.querySelector('.tc-receipt');
+  if (r) r.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 1600, easing: 'steps(18,end)', fill: 'backwards' });
+  document.querySelectorAll('.tc-ticket').forEach(function (t, i) {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.animate([{ transform: 'rotate(-3deg) translateY(-12px)', transformOrigin: '50% 0' }, { transform: 'none', transformOrigin: '50% 0' }], { duration: 700, easing: 'cubic-bezier(.3,1.6,.5,1)', delay: (i % 4) * 80 }); io.unobserve(e.target); } }); }, { threshold: .2 });
+    io.observe(t);
+  });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

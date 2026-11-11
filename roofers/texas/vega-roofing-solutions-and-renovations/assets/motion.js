@@ -1,11 +1,16 @@
-/* Keyhole motion: the spotlight cone follows the pointer on desktop. Static (centred) with reduced motion, touch, or the "fixed" variant. */
+/* Finish motion: the hero before/after wipes from the 'before' edge to its resting split when the page loads.
+   The split is a CSS variable (--pos) on [data-ba], so the shared slider effect can take over. Static without JS or with reduced motion. */
 (function () {
-  if (!window.SL || SL.reduced || document.body.classList.contains('v-cone-fixed')) return;
-  var h = document.querySelector('[data-spot]');
-  if (!h || !matchMedia('(pointer:fine)').matches) return;
-  var raf = 0, x = 50;
-  h.addEventListener('pointermove', function (e) {
-    var r = h.getBoundingClientRect(); x = ((e.clientX - r.left) / r.width) * 100;
-    if (!raf) raf = requestAnimationFrame(function () { raf = 0; h.style.setProperty('--mx', x.toFixed(1) + '%'); });
-  });
+  if (!window.SL || SL.reduced) return;
+  var ba = document.querySelector('.hf-ba');
+  if (!ba) return;
+  var t0 = null, from = 96, to = 50, ms = 1300;
+  ba.style.setProperty('--pos', from + '%');
+  function step(t) {
+    if (t0 === null) t0 = t;
+    var k = Math.min(1, (t - t0) / ms), e = 1 - Math.pow(1 - k, 3);
+    ba.style.setProperty('--pos', (from + (to - from) * e) + '%');
+    if (k < 1) requestAnimationFrame(step); else ba.style.removeProperty('--pos');
+  }
+  setTimeout(function () { requestAnimationFrame(step); }, 350);
 })();

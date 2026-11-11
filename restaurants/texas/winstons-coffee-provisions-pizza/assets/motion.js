@@ -1,11 +1,11 @@
-/* Comal motion: hero arch rises in with a bounce, the seal spins slowly, the ring behind it turns. */
+/* Counter motion: steam curls up from the corner of the sticky photo, and the sticky photo gently scales as you scroll the right column. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var a = document.querySelector('.cm-arch'); if (!a) return;
-  a.animate([{ transform: 'translateY(40px) scale(.94)', opacity: 0 }, { transform: 'translateY(-8px) scale(1.01)', opacity: 1, offset: .7 }, { transform: 'none', opacity: 1 }], { duration: 900, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
-  var s = a.querySelector('.cm-seal'), r = a.querySelector('.cm-arch-ring');
-  if (s) s.animate([{ transform: 'rotate(10deg)' }, { transform: 'rotate(370deg)' }], { duration: 26000, iterations: Infinity });
-  if (r) addEventListener('scroll', function () { r.style.transform = 'translateY(' + Math.min(scrollY, 500) * -0.06 + 'px)'; }, { passive: true });
+  document.querySelectorAll('.ct-steam i').forEach(function (s, i) {
+    s.animate([{ transform: 'translateY(0) scaleX(1)', opacity: 0 }, { opacity: .8, offset: .3 }, { transform: 'translateY(-70px) scaleX(2.2)', opacity: 0 }], { duration: 3200 + i * 500, delay: i * 700, iterations: Infinity, easing: 'ease-out' });
+  });
+  var p = document.querySelector('.ct-side-pic>img,.ct-side-pic>picture>img,.ct-side-pic>.ph');
+  if (p && matchMedia('(min-width:1001px)').matches) addEventListener('scroll', function () { p.style.transform = 'scale(' + (1 + Math.min(scrollY, 1600) / 1600 * 0.1) + ')'; }, { passive: true });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

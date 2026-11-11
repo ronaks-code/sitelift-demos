@@ -86,6 +86,126 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx bg-particles */
+/* bg-particles: canvas particles behind the hero. opt kind: "dust" (default, slow drifting motes), "sparks" (rising embers in
+   the accent colour), "bubbles" (rising translucent circles). Up to 60 particles (25 on small screens), paused off-screen
+   and when the tab is hidden; one static frame with reduced motion. opt: {kind, count} */
+FX.def('bg-particles', function (c) {
+  var kind = ({ sparks: 1, bubbles: 1 })[c.opt.kind] ? c.opt.kind : 'dust';
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var cv = document.createElement('canvas'), g = cv.getContext('2d'), W = 0, H = 0, dpr = 1, ps = [], vis = 1, raf = 0, last = 0;
+    if (!g) return;
+    cv.className = 'fx-pt'; cv.setAttribute('aria-hidden', 'true'); cv.style.cssText = 'position:absolute;inset:0;pointer-events:none';
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
+    t.style.isolation = 'isolate'; t.insertBefore(cv, t.firstChild);
+    var cP = FX.color('--primary'), cA = FX.color('--accent'), cI = FX.color('--ink');
+    var cols = kind === 'sparks' ? [cA, cA, cP] : kind === 'bubbles' ? [cA, cP] : [cI, cP, cA];
+    var R = Math.random;
+    function max() { return Math.min(60, +c.opt.count || (FX.small ? 25 : 60)); }
+    function make(init) {
+      var r = kind === 'bubbles' ? 4 + R() * 12 : kind === 'sparks' ? 1.4 + R() * 2.2 : 1.2 + R() * 2.4;
+      var p = { x: R() * W, y: init ? R() * H : kind === 'dust' ? R() * H : H + r + R() * 40, r: r, ph: R() * 6.28, col: cols[(R() * cols.length) | 0],
+        a: kind === 'dust' ? 0.4 + R() * 0.45 : 0.5 + R() * 0.4, life: 0 };
+      p.vy = kind === 'dust' ? -3 - R() * 6 : kind === 'sparks' ? -(30 + R() * 50) : -(12 + R() * 26);
+      p.vx = kind === 'dust' ? (R() - 0.5) * 6 : 0; p.sw = 8 + R() * 20;
+      return p;
+    }
+    function size() {
+      var b = t.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = Math.max(1, b.width); H = Math.max(1, b.height);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      while (ps.length < max()) ps.push(make(1));
+      ps.length = Math.min(ps.length, max());
+    }
+    function step(dt) {
+      ps.forEach(function (p, i) {
+        p.ph += dt * (kind === 'dust' ? 0.4 : 1.4);
+        p.y += p.vy * dt; p.x += p.vx * dt + Math.sin(p.ph) * p.sw * dt * (kind === 'dust' ? 0.3 : 1);
+        if (p.y < -20 || p.x < -20 || p.x > W + 20) { ps[i] = make(0); if (kind === 'dust') ps[i].y = H + 10; }
+      });
+    }
+    function draw() {
+      g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
+      ps.forEach(function (p) {
+        var k = kind === 'dust' ? 1 : Math.pow(Math.max(0, Math.min(1, p.y / H)), kind === 'sparks' ? 0.5 : 1), a = p.a * (kind === 'dust' ? 0.6 + 0.4 * Math.sin(p.ph * 2) : k);
+        g.beginPath();
+        if (kind === 'bubbles') {
+          g.arc(p.x, p.y, p.r, 0, 6.283); g.fillStyle = FX.rgba(p.col, a * 0.12); g.fill();
+          g.lineWidth = 1.2; g.strokeStyle = FX.rgba(p.col, a * 0.55); g.stroke();
+          g.beginPath(); g.arc(p.x, p.y, p.r * 0.62, 3.6, 4.4); g.strokeStyle = FX.rgba(p.col, a * 0.7); g.stroke();
+        } else {
+          g.arc(p.x, p.y, kind === 'sparks' ? p.r * (0.5 + k * 0.7) : p.r, 0, 6.283);
+          g.fillStyle = FX.rgba(p.col, a); g.fill();
+          if (kind !== 'bubbles') { g.beginPath(); g.arc(p.x, p.y, p.r * (kind === 'dust' ? 3.5 : 3.4 * k), 0, 6.283); g.fillStyle = FX.rgba(p.col, a * (kind === 'dust' ? 0.1 : 0.28)); g.fill(); }
+        }
+      });
+    }
+    function frame(now) {
+      raf = 0; if (!vis || document.hidden) return;
+      step(Math.min(0.05, (now - last) / 1000)); last = now; draw(); raf = requestAnimationFrame(frame);
+    }
+    function go() { if (!raf && vis && !document.hidden && !FX.reduced) { last = performance.now(); raf = requestAnimationFrame(frame); } }
+    size();
+    if (FX.reduced) { for (var i = 0; i < 40; i++) step(0.05); draw(); }
+    else { draw(); FX.vis(t, function (v) { vis = v; go(); }); document.addEventListener('visibilitychange', go); }
+    if (window.ResizeObserver) new ResizeObserver(function () { size(); if (FX.reduced || !raf) draw(); }).observe(t);
+  });
+});
+
+/* fx review-marquee */
+/* review-marquee: a reviews grid (4+ cards) becomes a slow endless marquee of the kit's own cards: fixed card width min(380px,80vw),
+   aria-hidden clones, pauses on hover/focus and with a visible pause button (WCAG 2.2.2), faded edges. The conversion is synchronous at
+   init so nothing shifts later. Default container: the parent of 3+ blockquote/[class*=review] cards inside a section whose id or
+   class mentions review (or testimonial); or set sel to the container itself. Reduced motion: the kit's grid, untouched.
+   opt: {speed: 45 (px per second), pause: "Pause reviews", play: "Play reviews"} */
+FX.def('review-marquee', function (c) {
+  if (FX.reduced) return;
+  var d = document, o = c.opt, list = c.els('');
+  function has(e, cand) { return cand.indexOf(e) > -1 || cand.some(function (x) { return e.contains(x); }); }
+  if (!c.sel) FX.$$('section[id*=review i],section[class*=review i],section[id*=testimonial i],section[class*=testimonial i]').forEach(function (s) {
+    var cand = FX.$$('blockquote,[class*=review]', s).filter(function (e) { return !e.querySelector('blockquote,[class*=review]'); }), best = null;
+    cand.forEach(function (e) {
+      for (var x = e, i = 0; x.parentElement && x.parentElement !== s && i < 3; x = x.parentElement, i++) {
+        var p = x.parentElement, n = [].filter.call(p.children, function (k) { return has(k, cand); }).length;
+        if (n >= 3 && n === p.children.length && (!best || n > best[1])) best = [p, n];
+      }
+    });
+    if (best) list.push(best[0]);
+  });
+  list.forEach(function (m) {
+    var cards = [].slice.call(m.children);
+    if (cards.length < 4 || m.closest('.fx-rm')) return;
+    var cs = getComputedStyle(m), gap = parseFloat(cs.columnGap);
+    if (!(gap >= 0)) gap = 20;
+    var wrap = d.createElement('div'), clip = d.createElement('div'), ctl = d.createElement('div'), btn = d.createElement('button');
+    wrap.className = 'fx-rm'; clip.className = 'fx-rm-clip'; ctl.className = 'fx-rm-ctl';
+    wrap.style.margin = cs.margin; if (cs.maxWidth !== 'none') wrap.style.maxWidth = cs.maxWidth;
+    wrap.style.setProperty('--fx-rm-gap', gap + 'px');
+    m.parentNode.insertBefore(wrap, m); wrap.appendChild(clip); clip.appendChild(m); wrap.appendChild(ctl);
+    m.classList.add('fx-rm-track');
+    cards.forEach(function (k) {
+      k.classList.add('in');
+      var n = k.cloneNode(true);
+      n.setAttribute('aria-hidden', 'true'); n.inert = true;
+      FX.$$('[id]', n).forEach(function (e) { e.removeAttribute('id'); });
+      n.removeAttribute('id'); n.classList.add('in');
+      m.appendChild(n);
+    });
+    var P = o.pause || 'Pause reviews', Y = o.play || 'Play reviews';
+    btn.type = 'button'; btn.className = 'fx-rm-btn'; btn.setAttribute('aria-pressed', 'false'); btn.setAttribute('aria-label', P);
+    btn.innerHTML = '<i></i><span></span>'; btn.lastChild.textContent = o.pause ? o.pause.split(' ')[0] : 'Pause';
+    btn.addEventListener('click', function () {
+      var p = wrap.classList.toggle('fx-rm-p');
+      btn.setAttribute('aria-pressed', p); btn.setAttribute('aria-label', p ? Y : P); btn.lastChild.textContent = p ? (o.play ? o.play.split(' ')[0] : 'Play') : (o.pause ? o.pause.split(' ')[0] : 'Pause');
+    });
+    ctl.appendChild(btn);
+    function speed() { wrap.style.setProperty('--fx-rm-d', Math.max(20, m.getBoundingClientRect().width / 2 / (+o.speed || 45)).toFixed(1) + 's'); }
+    speed();
+    if ('ResizeObserver' in window) new ResizeObserver(speed).observe(m); else addEventListener('resize', speed);
+    FX.vis(wrap, function (v) { wrap.classList.toggle('fx-rm-off', !v); });
+  });
+});
+
 /* fx click-burst */
 /* click-burst: a click or tap on a button (.btn) or call link (a[href^="tel:"]) throws a small burst of dots (or the site's
    --glyph with opt glyph) in the primary and accent colours from the click point. Fixed overlay, gone after ~600ms, never
@@ -146,20 +266,4 @@ FX.def('cursor-trail', function (c) {
   }, { passive: true });
   d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) root.classList.remove('on'); });
   dots.forEach(function (p) { p.e.style.opacity = p.o; });
-});
-
-/* fx bg-mesh */
-/* bg-mesh: a slow drifting gradient mesh behind the hero: four large soft radial blobs in the brand colours at low alpha,
-   moved with CSS transform keyframes (no blur filter, cheap on phones). One layer, first child of the target; static with
-   reduced motion. opt: {strength: 0..1 (default .6)} */
-FX.def('bg-mesh', function (c) {
-  var s = c.opt.strength == null ? 0.6 : Math.max(0, Math.min(1, +c.opt.strength));
-  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var L = document.createElement('div'), i;
-    L.className = 'fx-mesh'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none'; L.style.opacity = s;
-    for (i = 0; i < 4; i++) L.appendChild(document.createElement('i'));
-    // Containing block first, then insert: setting position after the layer is in moves the blobs (counted as layout shift).
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';
-    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
-  });
 });

@@ -86,60 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx header-hide */
-/* header-hide: the site header slides up when you scroll down past 120px and comes back when you scroll up. Never hides while focus
-   is inside it or the mobile menu is open (body.nav-open). Only acts on a sticky/fixed header. Reduced motion: same, instant.
-   opt: {after: 120} (px scrolled before it may hide) */
-FX.def('header-hide', function (c) {
-  var d = document, hd = c.els('body > header, header:first-of-type')[0], after = +c.opt.after || 120;
-  if (!hd || !/sticky|fixed/.test(getComputedStyle(hd).position)) return;
-  hd.classList.add('fx-hh');
-  var last = scrollY, busy = 0, off = 0;
-  function set(v) { if (v !== off) { off = v; hd.classList.toggle('fx-hh-off', !!v); } }
-  function tick() {
-    busy = 0;
-    var y = Math.max(0, scrollY), dy = y - last;
-    if (hd.contains(d.activeElement) || d.body.classList.contains('nav-open') || y <= after) set(0);
-    else if (dy > 6) set(1);
-    else if (dy < -6) set(0);
-    if (Math.abs(dy) > 6 || y <= after) last = y;
-  }
-  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
-  hd.addEventListener('focusin', function () { set(0); });
-});
-
-/* fx section-tint */
-/* section-tint: the page ground crossfades between soft section colours as you scroll. Sections opt in with data-fx-tint="--surface"
-   (any CSS variable or colour); otherwise the module alternates transparent sections between the page colour and faint washes of
-   --primary and --accent. Sections with their own background are never tinted. Skipped if the page ground can't show a layer.
-   opt: {amount: 7} (percent of brand colour in the auto washes) */
-FX.def('section-tint', function (c) {
-  var d = document, h = d.documentElement, a = +c.opt.amount || 7;
-  var clear = function (e) { var s = getComputedStyle(e); return (/^rgba\(.*, 0\)$|^transparent$/.test(s.backgroundColor)) && s.backgroundImage === 'none'; };
-  if (!clear(h) || !d.querySelector('main')) return;
-  var main = d.querySelector('main');
-  if (!clear(main)) return;
-  var secs = c.els('main > section, main > div, main > article').filter(clear);
-  if (secs.length < 2) return;
-  var auto = ['var(--bg)', 'color-mix(in srgb,var(--primary) ' + a + '%,var(--bg))', 'var(--bg)', 'color-mix(in srgb,var(--accent) ' + a + '%,var(--bg))'], n = 0;
-  var tint = secs.map(function (s) {
-    var t = s.getAttribute('data-fx-tint'), v = t ? (t.indexOf('--') === 0 ? 'var(' + t + ')' : t) : auto[n++ % 4];
-    return { el: s, c: v };
-  });
-  var L = d.createElement('div'); L.className = 'fx-st-layer'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:fixed;inset:0;pointer-events:none';
-  d.body.insertBefore(L, d.body.firstChild);
-  var cur = '', busy = 0;
-  function pick() {
-    busy = 0;
-    var mid = innerHeight * .5, best = tint[0];
-    for (var i = 0; i < tint.length; i++) { var r = tint[i].el.getBoundingClientRect(); if (r.top <= mid) best = tint[i]; if (r.top > mid) break; }
-    if (best.c !== cur) { cur = best.c; L.style.backgroundColor = cur; }
-  }
-  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(pick); } }, { passive: true });
-  addEventListener('resize', pick, { passive: true });
-  pick();
-});
-
 /* fx hours-toast */
 /* hours-toast: once per browser session, 3.5s after load, a small toast says whether the business is open ("Open now · until 6 PM") or
    when it opens next ("Closed now · opens 8 AM tomorrow"), from the first [data-hours] JSON (same format core.js reads:

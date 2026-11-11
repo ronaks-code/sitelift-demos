@@ -86,60 +86,12 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx mask-reveal */
-/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
-   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
-   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
-FX.def('mask-reveal', function (c) {
-  if (FX.reduced || !Element.prototype.animate) return;
-  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
-  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
-    var r = i.getBoundingClientRect();
-    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
-  });
-  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
-  FX.seen(imgs, function (i) {
-    var p = i.parentElement, clipped = 0;
-    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
-    i.removeAttribute('data-fx-mr');
-    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
-      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  }, '0px 0px -6% 0px');
-});
-
-/* fx parallax */
-/* parallax: photos drift 6 to 10% slower than the page, inside a frame that clips them (a photo is only moved when its frame
-   or the frame around it has overflow hidden/clip, or a fixed aspect ratio). Small photos and logos are skipped.
-   opt: {amount: 5} (percent of the photo height each way; half on phones) */
-FX.def('parallax', function (c) {
-  if (FX.reduced) return;
-  var amp = (+c.opt.amount || 5) / (FX.small ? 2 : 1), css = window.CSS && CSS.supports('animation-timeline: view()');
-  var list = [];
-  c.els('main > :first-child img, [data-layer] img').forEach(function (img) {
-    var r = img.getBoundingClientRect();
-    if (r.width < 160 || r.height < 120 || /logo|icon/i.test(img.className + img.alt + img.src) || img.closest('.ph')) return;
-    var p = img.parentElement, ok = 0;
-    for (var n = p, i = 0; n && i < 3 && n !== document.body; n = n.parentElement, i++) {
-      var s = getComputedStyle(n);
-      if (/hidden|clip/.test(s.overflowY) || (i === 0 && s.aspectRatio !== 'auto' && s.display !== 'inline')) { ok = n; break; }
-    }
-    if (!ok) return;
-    if (ok === p && !/hidden|clip/.test(getComputedStyle(p).overflowY)) p.style.overflow = 'clip';
-    img.setAttribute('data-fx-px', ''); img.style.setProperty('--fx-px', amp + '%');
-    if (css) img.classList.add('fx-px-css'); else list.push({ img: img, box: p });
-  });
-  if (css || !list.length) return;
-  var busy = 0;
-  function tick() {
-    busy = 0;
-    list.forEach(function (o) {
-      var r = o.box.getBoundingClientRect(), k = (innerHeight - r.top) / (innerHeight + r.height);
-      if (k < -.05 || k > 1.05) return;
-      o.img.style.transform = 'translate3d(0,' + ((k - .5) * 2 * amp * o.img.offsetHeight / 100).toFixed(1) + 'px,0) scale(1.12)';
-    });
-  }
-  function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
-  addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
+/* fx heading-scrub */
+/* heading-scrub: marks the section headings (h2 by default) the CSS animates. Letter-spacing is deliberately not animated (it would
+   reflow the text); the heading lifts, fades up and un-clips instead. Browsers without scroll-driven animations: nothing happens. */
+FX.def('heading-scrub', function (c) {
+  if (FX.reduced || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
+  c.els('main h2').forEach(function (e) { e.setAttribute('data-fx-hs', ''); });
 });
 
 /* fx lightbox-plus */
@@ -246,5 +198,71 @@ FX.def('btn-fill', function (c) {
     }
     b.addEventListener('pointerenter', set); b.addEventListener('pointerleave', set);
     b.addEventListener('focus', function () { b.style.setProperty('--fx-dx', 0); b.style.setProperty('--fx-dy', 0); });
+  });
+});
+
+/* fx bg-particles */
+/* bg-particles: canvas particles behind the hero. opt kind: "dust" (default, slow drifting motes), "sparks" (rising embers in
+   the accent colour), "bubbles" (rising translucent circles). Up to 60 particles (25 on small screens), paused off-screen
+   and when the tab is hidden; one static frame with reduced motion. opt: {kind, count} */
+FX.def('bg-particles', function (c) {
+  var kind = ({ sparks: 1, bubbles: 1 })[c.opt.kind] ? c.opt.kind : 'dust';
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var cv = document.createElement('canvas'), g = cv.getContext('2d'), W = 0, H = 0, dpr = 1, ps = [], vis = 1, raf = 0, last = 0;
+    if (!g) return;
+    cv.className = 'fx-pt'; cv.setAttribute('aria-hidden', 'true'); cv.style.cssText = 'position:absolute;inset:0;pointer-events:none';
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
+    t.style.isolation = 'isolate'; t.insertBefore(cv, t.firstChild);
+    var cP = FX.color('--primary'), cA = FX.color('--accent'), cI = FX.color('--ink');
+    var cols = kind === 'sparks' ? [cA, cA, cP] : kind === 'bubbles' ? [cA, cP] : [cI, cP, cA];
+    var R = Math.random;
+    function max() { return Math.min(60, +c.opt.count || (FX.small ? 25 : 60)); }
+    function make(init) {
+      var r = kind === 'bubbles' ? 4 + R() * 12 : kind === 'sparks' ? 1.4 + R() * 2.2 : 1.2 + R() * 2.4;
+      var p = { x: R() * W, y: init ? R() * H : kind === 'dust' ? R() * H : H + r + R() * 40, r: r, ph: R() * 6.28, col: cols[(R() * cols.length) | 0],
+        a: kind === 'dust' ? 0.4 + R() * 0.45 : 0.5 + R() * 0.4, life: 0 };
+      p.vy = kind === 'dust' ? -3 - R() * 6 : kind === 'sparks' ? -(30 + R() * 50) : -(12 + R() * 26);
+      p.vx = kind === 'dust' ? (R() - 0.5) * 6 : 0; p.sw = 8 + R() * 20;
+      return p;
+    }
+    function size() {
+      var b = t.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = Math.max(1, b.width); H = Math.max(1, b.height);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      while (ps.length < max()) ps.push(make(1));
+      ps.length = Math.min(ps.length, max());
+    }
+    function step(dt) {
+      ps.forEach(function (p, i) {
+        p.ph += dt * (kind === 'dust' ? 0.4 : 1.4);
+        p.y += p.vy * dt; p.x += p.vx * dt + Math.sin(p.ph) * p.sw * dt * (kind === 'dust' ? 0.3 : 1);
+        if (p.y < -20 || p.x < -20 || p.x > W + 20) { ps[i] = make(0); if (kind === 'dust') ps[i].y = H + 10; }
+      });
+    }
+    function draw() {
+      g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
+      ps.forEach(function (p) {
+        var k = kind === 'dust' ? 1 : Math.pow(Math.max(0, Math.min(1, p.y / H)), kind === 'sparks' ? 0.5 : 1), a = p.a * (kind === 'dust' ? 0.6 + 0.4 * Math.sin(p.ph * 2) : k);
+        g.beginPath();
+        if (kind === 'bubbles') {
+          g.arc(p.x, p.y, p.r, 0, 6.283); g.fillStyle = FX.rgba(p.col, a * 0.12); g.fill();
+          g.lineWidth = 1.2; g.strokeStyle = FX.rgba(p.col, a * 0.55); g.stroke();
+          g.beginPath(); g.arc(p.x, p.y, p.r * 0.62, 3.6, 4.4); g.strokeStyle = FX.rgba(p.col, a * 0.7); g.stroke();
+        } else {
+          g.arc(p.x, p.y, kind === 'sparks' ? p.r * (0.5 + k * 0.7) : p.r, 0, 6.283);
+          g.fillStyle = FX.rgba(p.col, a); g.fill();
+          if (kind !== 'bubbles') { g.beginPath(); g.arc(p.x, p.y, p.r * (kind === 'dust' ? 3.5 : 3.4 * k), 0, 6.283); g.fillStyle = FX.rgba(p.col, a * (kind === 'dust' ? 0.1 : 0.28)); g.fill(); }
+        }
+      });
+    }
+    function frame(now) {
+      raf = 0; if (!vis || document.hidden) return;
+      step(Math.min(0.05, (now - last) / 1000)); last = now; draw(); raf = requestAnimationFrame(frame);
+    }
+    function go() { if (!raf && vis && !document.hidden && !FX.reduced) { last = performance.now(); raf = requestAnimationFrame(frame); } }
+    size();
+    if (FX.reduced) { for (var i = 0; i < 40; i++) step(0.05); draw(); }
+    else { draw(); FX.vis(t, function (v) { vis = v; go(); }); document.addEventListener('visibilitychange', go); }
+    if (window.ResizeObserver) new ResizeObserver(function () { size(); if (FX.reduced || !raf) draw(); }).observe(t);
   });
 });
