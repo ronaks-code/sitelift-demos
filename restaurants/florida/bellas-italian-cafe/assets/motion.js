@@ -1,11 +1,10 @@
-/* Counter motion: steam curls up from the corner of the sticky photo, and the sticky photo gently scales as you scroll the right column. */
+/* Diner motion: bulbs chase around the sign and the checker strip slides (both CSS); the OPEN pill pulses its light, the chrome-ringed photo swings in like a jukebox door. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.querySelectorAll('.ct-steam i').forEach(function (s, i) {
-    s.animate([{ transform: 'translateY(0) scaleX(1)', opacity: 0 }, { opacity: .8, offset: .3 }, { transform: 'translateY(-70px) scaleX(2.2)', opacity: 0 }], { duration: 3200 + i * 500, delay: i * 700, iterations: Infinity, easing: 'ease-out' });
-  });
-  var p = document.querySelector('.ct-side-pic>img,.ct-side-pic>picture>img,.ct-side-pic>.ph');
-  if (p && matchMedia('(min-width:1001px)').matches) addEventListener('scroll', function () { p.style.transform = 'scale(' + (1 + Math.min(scrollY, 1600) / 1600 * 0.1) + ')'; }, { passive: true });
+  var o = document.querySelector('.dn-open');
+  if (o) o.animate([{ boxShadow: '0 5px 0 var(--ink),0 0 0 rgba(255,255,255,0)' }, { boxShadow: '0 5px 0 var(--ink),0 0 26px rgba(255,255,255,.7)' }], { duration: 1400, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  var w = document.querySelector('.dn-window');
+  if (w) w.animate([{ transform: 'perspective(700px) rotateY(-70deg)', opacity: 0 }, { transform: 'perspective(700px) rotateY(0)', opacity: 1 }], { duration: 1000, delay: 200, easing: 'cubic-bezier(.3,1.3,.5,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

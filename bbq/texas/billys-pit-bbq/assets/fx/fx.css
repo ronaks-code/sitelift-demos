@@ -27,11 +27,3 @@ body:has(.lb.open) .fx-ht, body:has(.fx-lb.open) .fx-ht { display: none }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
  html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn) { transition: background-size .45s cubic-bezier(.2, .7, .2, 1) }
 }
-
-/* fx ken-burns */
-/* ken-burns: the hero photo drifts and zooms very slowly inside its frame (1 to 1.08 over 22s, alternating). Only photos JS tagged
-   (their frame clips them); never placeholders. Static with reduced motion. */
-@keyframes fx-kb { from { transform: scale(1) translate3d(0, 0, 0) } to { transform: scale(1.08) translate3d(-1.2%, -1%, 0) } }
-@media (prefers-reduced-motion: no-preference) {
- html.fx-ken-burns img[data-fx-kb] { animation: fx-kb var(--fx-kb-t, 22s) ease-in-out infinite alternate; will-change: transform }
-}

@@ -85,3 +85,64 @@
   // bundled modules follow this code in the same file: start after they have registered
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
+
+/* fx reveal-plus */
+/* reveal-plus: richer reveals on top of core's .rv (core adds .in). opt: {style: "rise" | "blur" | "clip", step: 70} (ms between
+   items that enter together, so grids and lists cascade instead of popping at once). Reduced motion: core already shows all. */
+FX.def('reveal-plus', function (c) {
+  if (FX.reduced || !('IntersectionObserver' in window)) return;
+  var h = document.documentElement, st = String(c.opt.style || 'rise'), step = +c.opt.step || 70;
+  if (st === 'blur' || st === 'clip') h.classList.add('fx-rp-' + st);
+  var els = c.els('.rv').filter(function (e) { return !e.classList.contains('in'); });
+  var io = new IntersectionObserver(function (es) {
+    var hit = es.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
+    hit.sort(function (a, b) { var A = a.getBoundingClientRect(), B = b.getBoundingClientRect(); return (A.top - B.top) || (A.left - B.left); });
+    hit.forEach(function (e, i) {
+      io.unobserve(e);
+      e.style.transitionDelay = Math.min(i, 6) * step + 'ms';
+      setTimeout(function () { e.style.transitionDelay = ''; }, 1500);
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  els.forEach(function (e) { io.observe(e); });
+});
+
+/* fx split-reveal */
+/* split-reveal: the hero h1 reveals word by word on load (each word slides up from a clipped line box, ~50ms apart).
+   Only text nodes are split, so <em>, <br> and spans keep working. The h1 gets aria-label with its text, the pieces are aria-hidden.
+   opt: {chars: true} splits letters instead (only for headings of 22 characters or fewer), {step: 50} ms between pieces.
+   Failsafe: everything is natural again after the animation or after 2.5s at the latest. Reduced motion: untouched. */
+FX.def('split-reveal', function (c) {
+  if (FX.reduced || !Element.prototype.animate) return;
+  var d = document, h1 = c.els('main > :first-child h1')[0];
+  if (!h1 || h1.getAttribute('data-fx-sr')) return;
+  var txt = h1.textContent.replace(/\s+/g, ' ').trim(), chars = !!c.opt.chars && txt.length <= 22, units = [];
+  function mk(s) {
+    var u = d.createElement('span'), i = d.createElement('span');
+    u.className = 'fx-sr-u'; u.setAttribute('aria-hidden', 'true'); i.className = 'fx-sr-i'; i.textContent = s; u.appendChild(i); units.push(i); return u;
+  }
+  (function walk(n) {
+    [].slice.call(n.childNodes).forEach(function (k) {
+      if (k.nodeType === 1) { if (!/^(BR|SVG|IMG)$/i.test(k.tagName)) walk(k); return; }
+      if (k.nodeType !== 3 || !k.nodeValue.trim()) return;
+      var f = d.createDocumentFragment();
+      k.nodeValue.split(/(\s+)/).forEach(function (w) {
+        if (!w) return;
+        if (/^\s+$/.test(w)) { f.appendChild(d.createTextNode(w)); return; }
+        if (!chars) { var u = mk(w); u.classList.add('fx-sr-w'); f.appendChild(u); return; }
+        var g = d.createElement('span'); g.className = 'fx-sr-w'; g.setAttribute('aria-hidden', 'true');
+        w.split('').forEach(function (ch) { g.appendChild(mk(ch)); }); f.appendChild(g);
+      });
+      k.parentNode.replaceChild(f, k);
+    });
+  })(h1);
+  if (!units.length) return;
+  h1.setAttribute('aria-label', txt); h1.setAttribute('data-fx-sr', '1'); h1.classList.add('fx-sr-run');
+  var step = Math.min(+c.opt.step || (chars ? 30 : 50), 900 / units.length), done = 0;
+  function end() { if (!done) { done = 1; h1.classList.remove('fx-sr-run'); units.forEach(function (u) { u.getAnimations().forEach(function (a) { a.cancel(); }); }); } }
+  var all = units.map(function (u, i) {
+    return u.animate([{ transform: 'translateY(135%)' }, { transform: 'translateY(0)' }],
+      { duration: 800, delay: 120 + i * step, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' }).finished;
+  });
+  Promise.all(all).then(end, end);
+  setTimeout(end, 2500);
+});

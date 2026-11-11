@@ -1,9 +1,9 @@
-/* Trowel motion: gallery slabs wipe in from the left. Content stays visible without JS and with reduced motion. */
+/* Slab motion: gallery columns drift at slightly different speeds. Sheen and panel widening are pure CSS. Skipped for reduced motion. */
 (function () {
-  if (!window.SL || SL.reduced || !('IntersectionObserver' in window)) return;
-  var g = document.querySelectorAll('[data-wipe] .g-it');
-  if (!g.length) return;
-  document.body.classList.add('js-wipe');
-  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('wiped'); io.unobserve(e.target); } }); }, { threshold: .2 });
-  g.forEach(function (x, i) { x.style.setProperty('--w', (i % 3) * 110 + 'ms'); io.observe(x); });
+  if (!window.SL || SL.reduced) return;
+  var cols = document.querySelectorAll('.sl-cols .g-it:nth-child(even)');
+  if (!cols.length || innerWidth < 760) return;
+  var raf = 0;
+  var run = function () { raf = 0; var y = scrollY; cols.forEach(function (c) { var r = c.getBoundingClientRect(), d = (r.top + r.height / 2 - innerHeight / 2) * -.06; c.style.setProperty('--dy', d.toFixed(1) + 'px'); }); };
+  addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(run); }, { passive: true }); run();
 })();

@@ -86,44 +86,52 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx section-tint */
-/* section-tint: the page ground crossfades between soft section colours as you scroll. Sections opt in with data-fx-tint="--surface"
-   (any CSS variable or colour); otherwise the module alternates transparent sections between the page colour and faint washes of
-   --primary and --accent. Sections with their own background are never tinted. Skipped if the page ground can't show a layer.
-   opt: {amount: 7} (percent of brand colour in the auto washes) */
-FX.def('section-tint', function (c) {
-  var d = document, h = d.documentElement, a = +c.opt.amount || 7;
-  var clear = function (e) { var s = getComputedStyle(e); return (/^rgba\(.*, 0\)$|^transparent$/.test(s.backgroundColor)) && s.backgroundImage === 'none'; };
-  if (!clear(h) || !d.querySelector('main')) return;
-  var main = d.querySelector('main');
-  if (!clear(main)) return;
-  var secs = c.els('main > section, main > div, main > article').filter(clear);
-  if (secs.length < 2) return;
-  var auto = ['var(--bg)', 'color-mix(in srgb,var(--primary) ' + a + '%,var(--bg))', 'var(--bg)', 'color-mix(in srgb,var(--accent) ' + a + '%,var(--bg))'], n = 0;
-  var tint = secs.map(function (s) {
-    var t = s.getAttribute('data-fx-tint'), v = t ? (t.indexOf('--') === 0 ? 'var(' + t + ')' : t) : auto[n++ % 4];
-    return { el: s, c: v };
-  });
-  var L = d.createElement('div'); L.className = 'fx-st-layer'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:fixed;inset:0;pointer-events:none';
-  d.body.insertBefore(L, d.body.firstChild);
-  var cur = '', busy = 0;
-  function pick() {
-    busy = 0;
-    var mid = innerHeight * .5, best = tint[0];
-    for (var i = 0; i < tint.length; i++) { var r = tint[i].el.getBoundingClientRect(); if (r.top <= mid) best = tint[i]; if (r.top > mid) break; }
-    if (best.c !== cur) { cur = best.c; L.style.backgroundColor = cur; }
+/* fx cursor-ring */
+/* cursor-ring: a precise dot on the pointer and a soft ring that follows with a little lag. Over links/buttons the ring
+   grows; over gallery photos and call links it becomes a labelled pill ("View", "Call"). Mouse only (FX.fine), off with
+   reduced motion; text fields keep the native caret. opt: {labels: {view, call, book}, blend: true} */
+FX.def('cursor-ring', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  var d = document, h = d.documentElement, o = c.opt, L = o.labels || {};
+  var lab = { view: L.view || 'View', call: L.call || 'Call', book: L.book || '' };
+  var el = d.createElement('div');
+  el.className = 'fx-cur' + (o.blend ? ' fx-cur-blend' : ''); el.setAttribute('aria-hidden', 'true');
+  el.innerHTML = '<i class="fx-cur-ring"><b><span></span></b></i><i class="fx-cur-dot"></i>';
+  d.body.appendChild(el);
+  var ring = el.firstChild, dot = el.lastChild, txt = ring.querySelector('span');
+  var x = -100, y = -100, rx = -100, ry = -100, busy = 0;
+  h.classList.add('fx-cur-on');
+  function tick() {
+    rx += (x - rx) * 0.2; ry += (y - ry) * 0.2;
+    ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0)';
+    if (Math.abs(x - rx) + Math.abs(y - ry) > 0.2) requestAnimationFrame(tick); else busy = 0;
   }
-  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(pick); } }, { passive: true });
-  addEventListener('resize', pick, { passive: true });
-  pick();
-});
-
-/* fx heading-scrub */
-/* heading-scrub: marks the section headings (h2 by default) the CSS animates. Letter-spacing is deliberately not animated (it would
-   reflow the text); the heading lifts, fades up and un-clips instead. Browsers without scroll-driven animations: nothing happens. */
-FX.def('heading-scrub', function (c) {
-  if (FX.reduced || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
-  c.els('main h2').forEach(function (e) { e.setAttribute('data-fx-hs', ''); });
+  addEventListener('pointermove', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    x = e.clientX; y = e.clientY;
+    dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+    if (!el.classList.contains('on')) { rx = x; ry = y; el.classList.add('on'); }
+    if (!busy) { busy = 1; requestAnimationFrame(tick); }
+  }, { passive: true });
+  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) el.classList.remove('on'); });
+  d.addEventListener('pointerdown', function () { el.classList.add('down'); }, { passive: true });
+  d.addEventListener('pointerup', function () { el.classList.remove('down'); }, { passive: true });
+  d.addEventListener('pointerover', function (e) {
+    var t = e.target.closest ? e.target : e.target.parentElement;
+    if (!t || !t.closest) return;
+    var field = t.closest('input,textarea,select,[contenteditable],iframe');
+    var cue = t.closest('[data-cursor]');
+    var a = t.closest('a,button,[role=button],label,summary,[data-f]');
+    var s = '';
+    if (cue) s = cue.getAttribute('data-cursor');
+    else if (a && a.matches('a[data-lb],[data-lb] a')) s = lab.view;
+    else if (a && /^tel:/i.test(a.getAttribute('href') || '')) s = lab.call;
+    else if (a && lab.book && /book/i.test(a.getAttribute('href') || '')) s = lab.book;
+    el.classList.toggle('is-field', !!field);
+    el.classList.toggle('is-link', !!a && !s);
+    el.classList.toggle('is-label', !!s);
+    if (s) txt.textContent = s;
+  }, { passive: true });
 });
 
 /* fx bg-topo */
@@ -177,50 +185,83 @@ FX.def('ken-burns', function (c) {
   });
 });
 
-/* fx cursor-ring */
-/* cursor-ring: a precise dot on the pointer and a soft ring that follows with a little lag. Over links/buttons the ring
-   grows; over gallery photos and call links it becomes a labelled pill ("View", "Call"). Mouse only (FX.fine), off with
-   reduced motion; text fields keep the native caret. opt: {labels: {view, call, book}, blend: true} */
-FX.def('cursor-ring', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var d = document, h = d.documentElement, o = c.opt, L = o.labels || {};
-  var lab = { view: L.view || 'View', call: L.call || 'Call', book: L.book || '' };
-  var el = d.createElement('div');
-  el.className = 'fx-cur' + (o.blend ? ' fx-cur-blend' : ''); el.setAttribute('aria-hidden', 'true');
-  el.innerHTML = '<i class="fx-cur-ring"><b><span></span></b></i><i class="fx-cur-dot"></i>';
-  d.body.appendChild(el);
-  var ring = el.firstChild, dot = el.lastChild, txt = ring.querySelector('span');
-  var x = -100, y = -100, rx = -100, ry = -100, busy = 0;
-  h.classList.add('fx-cur-on');
-  function tick() {
-    rx += (x - rx) * 0.2; ry += (y - ry) * 0.2;
-    ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0)';
-    if (Math.abs(x - rx) + Math.abs(y - ry) > 0.2) requestAnimationFrame(tick); else busy = 0;
+/* fx section-tint */
+/* section-tint: the page ground crossfades between soft section colours as you scroll. Sections opt in with data-fx-tint="--surface"
+   (any CSS variable or colour); otherwise the module alternates transparent sections between the page colour and faint washes of
+   --primary and --accent. Sections with their own background are never tinted. Skipped if the page ground can't show a layer.
+   opt: {amount: 7} (percent of brand colour in the auto washes) */
+FX.def('section-tint', function (c) {
+  var d = document, h = d.documentElement, a = +c.opt.amount || 7;
+  var clear = function (e) { var s = getComputedStyle(e); return (/^rgba\(.*, 0\)$|^transparent$/.test(s.backgroundColor)) && s.backgroundImage === 'none'; };
+  if (!clear(h) || !d.querySelector('main')) return;
+  var main = d.querySelector('main');
+  if (!clear(main)) return;
+  var secs = c.els('main > section, main > div, main > article').filter(clear);
+  if (secs.length < 2) return;
+  var auto = ['var(--bg)', 'color-mix(in srgb,var(--primary) ' + a + '%,var(--bg))', 'var(--bg)', 'color-mix(in srgb,var(--accent) ' + a + '%,var(--bg))'], n = 0;
+  var tint = secs.map(function (s) {
+    var t = s.getAttribute('data-fx-tint'), v = t ? (t.indexOf('--') === 0 ? 'var(' + t + ')' : t) : auto[n++ % 4];
+    return { el: s, c: v };
+  });
+  var L = d.createElement('div'); L.className = 'fx-st-layer'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:fixed;inset:0;pointer-events:none';
+  d.body.insertBefore(L, d.body.firstChild);
+  var cur = '', busy = 0;
+  function pick() {
+    busy = 0;
+    var mid = innerHeight * .5, best = tint[0];
+    for (var i = 0; i < tint.length; i++) { var r = tint[i].el.getBoundingClientRect(); if (r.top <= mid) best = tint[i]; if (r.top > mid) break; }
+    if (best.c !== cur) { cur = best.c; L.style.backgroundColor = cur; }
   }
-  addEventListener('pointermove', function (e) {
-    if (e.pointerType && e.pointerType !== 'mouse') return;
-    x = e.clientX; y = e.clientY;
-    dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
-    if (!el.classList.contains('on')) { rx = x; ry = y; el.classList.add('on'); }
-    if (!busy) { busy = 1; requestAnimationFrame(tick); }
-  }, { passive: true });
-  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) el.classList.remove('on'); });
-  d.addEventListener('pointerdown', function () { el.classList.add('down'); }, { passive: true });
-  d.addEventListener('pointerup', function () { el.classList.remove('down'); }, { passive: true });
-  d.addEventListener('pointerover', function (e) {
-    var t = e.target.closest ? e.target : e.target.parentElement;
-    if (!t || !t.closest) return;
-    var field = t.closest('input,textarea,select,[contenteditable],iframe');
-    var cue = t.closest('[data-cursor]');
-    var a = t.closest('a,button,[role=button],label,summary,[data-f]');
-    var s = '';
-    if (cue) s = cue.getAttribute('data-cursor');
-    else if (a && a.matches('a[data-lb],[data-lb] a')) s = lab.view;
-    else if (a && /^tel:/i.test(a.getAttribute('href') || '')) s = lab.call;
-    else if (a && lab.book && /book/i.test(a.getAttribute('href') || '')) s = lab.book;
-    el.classList.toggle('is-field', !!field);
-    el.classList.toggle('is-link', !!a && !s);
-    el.classList.toggle('is-label', !!s);
-    if (s) txt.textContent = s;
-  }, { passive: true });
+  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(pick); } }, { passive: true });
+  addEventListener('resize', pick, { passive: true });
+  pick();
+});
+
+/* fx magnetic */
+/* magnetic: buttons lean toward the pointer when it is close (max ~9px, the label a little more) and spring back on leave.
+   Uses the independent `translate` property (no clash with a kit's own transform), one rAF loop that sleeps when everything is at rest.
+   Mouse only, off with reduced motion. opt: {range: 80, max: 9} */
+FX.def('magnetic', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  var R = +c.opt.range || 80, M = +c.opt.max || 9, run = 0, px = -9e3, py = -9e3;
+  // press-style buttons (hard offset shadow, no blur) already move on hover; leaning them too makes them wobble (Vinay 2026-11-09)
+  function pressy(e) {
+    return getComputedStyle(e).boxShadow.replace(/rgba?\([^)]*\)/g, '').split(',').some(function (sh) {
+      var n = (sh.match(/-?[\d.]+px/g) || []).map(parseFloat);   // x y blur spread
+      return n.length >= 2 && !(n[2] > 0) && (n[0] || n[1]);
+    });
+  }
+  var it = c.els('.btn').filter(function (e) { return !e.matches('.callbar') && !pressy(e); }).map(function (e) {
+    var l = e.querySelector('span');
+    if (l && getComputedStyle(l).display === 'inline') l.style.display = 'inline-block';
+    return { e: e, l: l, x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0 };
+  });
+  if (!it.length) return;
+  function tick() {
+    var busy = 0;
+    it.forEach(function (o) {
+      o.vx = (o.vx + (o.tx - o.x) * .14) * .74; o.vy = (o.vy + (o.ty - o.y) * .14) * .74;
+      o.x += o.vx; o.y += o.vy;
+      if (Math.abs(o.tx - o.x) + Math.abs(o.ty - o.y) + Math.abs(o.vx) + Math.abs(o.vy) < .04) { o.x = o.tx; o.y = o.ty; o.vx = o.vy = 0; } else busy = 1;
+      var on = o.x || o.y;
+      o.e.style.translate = on ? o.x.toFixed(2) + 'px ' + o.y.toFixed(2) + 'px' : '';
+      if (o.l) o.l.style.translate = on ? (o.x * .45).toFixed(2) + 'px ' + (o.y * .45).toFixed(2) + 'px' : '';
+    });
+    run = busy ? requestAnimationFrame(tick) : 0;
+  }
+  function aim() {
+    it.forEach(function (o) {
+      var r = o.e.getBoundingClientRect(), cx = r.left + r.width / 2 - o.x, cy = r.top + r.height / 2 - o.y;
+      var dx = px - cx, dy = py - cy;
+      var d = Math.hypot(Math.max(Math.abs(dx) - r.width / 2, 0), Math.max(Math.abs(dy) - r.height / 2, 0));
+      if (d < R && r.bottom > 0 && r.top < innerHeight) {
+        var k = .22 + .2 * (1 - d / R);
+        o.tx = Math.max(-M, Math.min(M, dx * k)); o.ty = Math.max(-M, Math.min(M, dy * k));
+      } else { o.tx = o.ty = 0; }
+    });
+    if (!run && !document.hidden) run = requestAnimationFrame(tick);
+  }
+  addEventListener('pointermove', function (e) { if (e.pointerType && e.pointerType !== 'mouse') return; px = e.clientX; py = e.clientY; aim(); }, { passive: true });
+  document.addEventListener('mouseleave', function () { px = py = -9e3; aim(); });
+  addEventListener('scroll', function () { if (px > -9e3) aim(); }, { passive: true });
 });

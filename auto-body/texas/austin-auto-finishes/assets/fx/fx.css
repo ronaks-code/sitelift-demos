@@ -1,11 +1,3 @@
-/* fx split-reveal */
-/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
-   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
-.fx-sr-w { display: inline-block; white-space: nowrap }
-.fx-sr-u { display: inline-block }
-.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
-.fx-sr-i { display: inline-block }
-
 /* fx header-hide */
 /* header-hide: sticky header slides away on the way down and returns on the way up. The class is only ever added by JS. */
 @media (prefers-reduced-motion: no-preference) {

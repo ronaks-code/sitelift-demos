@@ -1,11 +1,11 @@
-/* Cottage motion: the hero stamp thumps down once, the polaroid pile sways like it is pinned, and the polaroids straighten on hover (CSS). */
+/* Comal motion: hero arch rises in with a bounce, the seal spins slowly, the ring behind it turns. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var s = document.querySelector('.kc-stamp');
-  if (s) s.animate([{ transform: 'rotate(14deg) scale(2.4)', opacity: 0 }, { transform: 'rotate(14deg) scale(.92)', opacity: 1, offset: .7 }, { transform: 'rotate(14deg) scale(1)', opacity: 1 }], { duration: 700, delay: 600, easing: 'cubic-bezier(.3,.7,.3,1)', fill: 'backwards' });
-  var a = document.querySelector('.kc-pile .kc-pol-a'), b = document.querySelector('.kc-pile .kc-pol-b');
-  if (a) a.animate([{ transform: 'rotate(-4deg)' }, { transform: 'rotate(-2.6deg) translateY(-4px)' }], { duration: 4200, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  if (b) b.animate([{ transform: 'rotate(5deg)' }, { transform: 'rotate(3.4deg) translateY(4px)' }], { duration: 5000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  var a = document.querySelector('.cm-arch'); if (!a) return;
+  a.animate([{ transform: 'translateY(40px) scale(.94)', opacity: 0 }, { transform: 'translateY(-8px) scale(1.01)', opacity: 1, offset: .7 }, { transform: 'none', opacity: 1 }], { duration: 900, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
+  var s = a.querySelector('.cm-seal'), r = a.querySelector('.cm-arch-ring');
+  if (s) s.animate([{ transform: 'rotate(10deg)' }, { transform: 'rotate(370deg)' }], { duration: 26000, iterations: Infinity });
+  if (r) addEventListener('scroll', function () { r.style.transform = 'translateY(' + Math.min(scrollY, 500) * -0.06 + 'px)'; }, { passive: true });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

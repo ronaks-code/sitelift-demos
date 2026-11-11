@@ -1,3 +1,23 @@
+/* fx marquee */
+/* marquee: a list becomes an endless strip. All items (and the aria-hidden copies) share one transform animation, so the list's own
+   styling (separators, gaps) is kept. Pauses on hover and keyboard focus, and via a small pause button (WCAG 2.2.2). JS-built only. */
+[data-fx-mq] { display: flex !important; flex-wrap: nowrap !important; justify-content: flex-start !important; overflow: hidden !important }
+[data-fx-mq] > li { flex: none !important; white-space: nowrap }
+@keyframes fx-mq { from { transform: translate3d(var(--fx-mq-a, 0), 0, 0) } to { transform: translate3d(var(--fx-mq-b, 0), 0, 0) } }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-mq] > li { animation: fx-mq var(--fx-mq-t, 30s) linear infinite; animation-direction: var(--fx-mq-dir, normal) }
+ [data-fx-mq][data-fx-mq-paused] > li { animation-play-state: paused }
+ [data-fx-mq]:focus-within > li { animation-play-state: paused }
+}
+@media (hover: hover) and (pointer: fine) {
+ [data-fx-mq]:hover > li { animation-play-state: paused }
+}
+.fx-mq-btn { position: absolute; z-index: 2; width: 28px; height: 28px; padding: 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+ border: 1px solid var(--line); background: var(--bg); color: var(--ink); opacity: .72; transition: opacity .2s }
+.fx-mq-btn:hover, .fx-mq-btn:focus-visible { opacity: 1 }
+.fx-mq-btn::before { content: ""; width: 8px; height: 10px; border-inline: 3px solid currentColor }
+.fx-mq-btn[aria-pressed=true]::before { width: 0; height: 0; border: 0; border-block: 5px solid transparent; border-left: 8px solid currentColor; margin-left: 2px }
+
 /* fx spotlight */
 /* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
 .fx-sp { position: fixed; left: 0; top: 0; width: 0; height: 0; z-index: 20; pointer-events: none; opacity: 0; transition: opacity .3s }
@@ -10,17 +30,3 @@
  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
 .fx-sp.big i { display: none }
 .fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
-
-/* fx parallax */
-/* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
-   scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */
-@keyframes fx-px {
- from { transform: translate3d(0, calc(var(--fx-px, 5%) * -1), 0) scale(1.12) }
- to { transform: translate3d(0, var(--fx-px, 5%), 0) scale(1.12) }
-}
-@media (prefers-reduced-motion: no-preference) {
- html.fx-parallax [data-fx-px] { will-change: transform; transform: scale(1.12) }
- @supports (animation-timeline: view()) {
-  html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
- }
-}

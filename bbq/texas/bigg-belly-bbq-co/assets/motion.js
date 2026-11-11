@@ -1,11 +1,15 @@
-/* Comal motion: hero arch rises in with a bounce, the seal spins slowly, the ring behind it turns. */
+/* Smoke motion: embers rise from the bottom of the hero and fade; hero photo slowly pushes in; section rows slide their numbers in. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var a = document.querySelector('.cm-arch'); if (!a) return;
-  a.animate([{ transform: 'translateY(40px) scale(.94)', opacity: 0 }, { transform: 'translateY(-8px) scale(1.01)', opacity: 1, offset: .7 }, { transform: 'none', opacity: 1 }], { duration: 900, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
-  var s = a.querySelector('.cm-seal'), r = a.querySelector('.cm-arch-ring');
-  if (s) s.animate([{ transform: 'rotate(10deg)' }, { transform: 'rotate(370deg)' }], { duration: 26000, iterations: Infinity });
-  if (r) addEventListener('scroll', function () { r.style.transform = 'translateY(' + Math.min(scrollY, 500) * -0.06 + 'px)'; }, { passive: true });
+  var box = document.querySelector('.sm-embers');
+  if (box) for (var i = 0; i < 22; i++) {
+    var e = document.createElement('i'), x = Math.random() * 100, dur = 5000 + Math.random() * 6000, dx = (Math.random() * 80 - 40);
+    e.style.left = x + '%'; e.style.width = e.style.height = (2 + Math.random() * 4) + 'px'; box.appendChild(e);
+    e.animate([{ transform: 'translate(0,0)', opacity: 0 }, { opacity: .95, offset: .15 }, { transform: 'translate(' + dx + 'px,-' + (box.offsetHeight * (0.5 + Math.random() * 0.5)) + 'px)', opacity: 0 }],
+      { duration: dur, delay: Math.random() * 6000, iterations: Infinity, easing: 'ease-out' });
+  }
+  var bg = document.querySelector('.sm-bg>img,.sm-bg>picture>img,.sm-bg>.ph');
+  if (bg) bg.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.07)' }], { duration: 18000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

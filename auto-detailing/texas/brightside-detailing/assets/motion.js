@@ -1,9 +1,13 @@
-/* Shade motion: the hero colour wash rotates (CSS), the outlined marquee crawls, and film-scale rows darken progressively as they enter. */
+/* Ceramic motion: a soft gloss highlight follows the pointer across photo plates, water beads form on the hero plate, review meters fill segment by segment. */
 (function () {
-  if (!window.SL) return;
-  var rows = document.querySelectorAll('.sa-row');
-  if (!SL.reduced) document.body.classList.add('js-sa');
-  if (SL.reduced || !('IntersectionObserver' in window)) { rows.forEach(function (r) { r.classList.add('seen'); }); return; }
-  var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('seen'); io.unobserve(e.target); } }); }, { threshold: .35 });
-  rows.forEach(function (r) { io.observe(r); });
+  if (!window.SL || SL.reduced) return;
+  document.body.classList.add('js-cm');
+  document.querySelectorAll('[data-gloss]').forEach(function (p) {
+    var box = p.querySelector('.cm-plate-img');
+    p.addEventListener('pointermove', function (e) {
+      var r = box.getBoundingClientRect();
+      box.style.setProperty('--gx', ((e.clientX - r.left) / r.width * 100) + '%');
+      box.style.setProperty('--gy', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  });
 })();

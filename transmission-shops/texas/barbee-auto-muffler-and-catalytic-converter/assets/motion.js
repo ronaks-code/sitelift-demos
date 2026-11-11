@@ -1,13 +1,5 @@
-/* Fit the big phone number on one line whatever the brand font's width (layout, so it runs with reduced motion too). */
-(function () {
-  var els = document.querySelectorAll('.en-foot-tel');
-  if (!els.length) return;
-  function fit() { els.forEach(function (e) { e.style.fontSize = ''; e.parentElement.style.minWidth = '0'; var r = e.clientWidth / e.scrollWidth; if (r < 1) e.style.fontSize = (parseFloat(getComputedStyle(e).fontSize) * r * 0.97) + 'px'; }); }
-  fit(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  var t; addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 120); });
-})();
-/* Enamel Sign motion: glint across the plaque + ribbon unfurl (CSS), started here. Static under reduced motion. */
+/* Tool Chest motion: lets the CSS swing the hung photo and wiggle drawer handles once they scroll into view. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.body.classList.add('js-en');
+  document.body.classList.add('js-pb');
 })();

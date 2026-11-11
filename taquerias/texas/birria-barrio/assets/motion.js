@@ -1,15 +1,13 @@
-/* Paleta motion: hero popsicles bob up and down out of phase, a soft shine sweeps across the photo popsicle, flavor cards bob (CSS). */
+/* Truck motion: the awning sways, the OPEN lamp flickers on once at load, and the stop card slides in like a window shutter. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.querySelectorAll('.pa-pop').forEach(function (p, i) {
-    p.animate([{ transform: 'translateY(0) rotate(-1.2deg)' }, { transform: 'translateY(-14px) rotate(1.2deg)' }], { duration: 2600 + i * 380, delay: -i * 600, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  document.querySelectorAll('.tk-top .tk-awning').forEach(function (a) {
+    a.animate([{ transform: 'skewX(0deg)', transformOrigin: 'top' }, { transform: 'skewX(-1.2deg)', transformOrigin: 'top' }, { transform: 'skewX(0deg)', transformOrigin: 'top' }], { duration: 5200, iterations: Infinity, easing: 'ease-in-out' });
   });
-  var pic = document.querySelector('.pa-p3 .pa-pop-pic');
-  if (pic) {
-    var s = document.createElement('i'); s.style.cssText = 'position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-14deg);pointer-events:none';
-    pic.style.position = 'relative'; pic.appendChild(s);
-    s.animate([{ left: '-40%' }, { left: '130%' }], { duration: 1800, delay: 1200, iterations: Infinity, easing: 'ease-in-out', endDelay: 3500 });
-  }
+  var l = document.querySelector('[data-lamp]');
+  if (l) l.animate([{ opacity: 0 }, { opacity: 1 }, { opacity: .2 }, { opacity: 1 }, { opacity: .6 }, { opacity: 1 }], { duration: 900, delay: 300, fill: 'backwards' });
+  var s = document.querySelector('.tk-stop');
+  if (s) s.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 900, delay: 400, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

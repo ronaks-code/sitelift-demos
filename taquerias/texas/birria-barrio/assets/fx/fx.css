@@ -11,23 +11,3 @@
 html.fx-tilt .fx-tilt-g { position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
  background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 58%) }
 html.fx-tilt .fx-tilt-g.on { opacity: 1 }
-
-/* fx marquee */
-/* marquee: a list becomes an endless strip. All items (and the aria-hidden copies) share one transform animation, so the list's own
-   styling (separators, gaps) is kept. Pauses on hover and keyboard focus, and via a small pause button (WCAG 2.2.2). JS-built only. */
-[data-fx-mq] { display: flex !important; flex-wrap: nowrap !important; justify-content: flex-start !important; overflow: hidden !important }
-[data-fx-mq] > li { flex: none !important; white-space: nowrap }
-@keyframes fx-mq { from { transform: translate3d(var(--fx-mq-a, 0), 0, 0) } to { transform: translate3d(var(--fx-mq-b, 0), 0, 0) } }
-@media (prefers-reduced-motion: no-preference) {
- [data-fx-mq] > li { animation: fx-mq var(--fx-mq-t, 30s) linear infinite; animation-direction: var(--fx-mq-dir, normal) }
- [data-fx-mq][data-fx-mq-paused] > li { animation-play-state: paused }
- [data-fx-mq]:focus-within > li { animation-play-state: paused }
-}
-@media (hover: hover) and (pointer: fine) {
- [data-fx-mq]:hover > li { animation-play-state: paused }
-}
-.fx-mq-btn { position: absolute; z-index: 2; width: 28px; height: 28px; padding: 0; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
- border: 1px solid var(--line); background: var(--bg); color: var(--ink); opacity: .72; transition: opacity .2s }
-.fx-mq-btn:hover, .fx-mq-btn:focus-visible { opacity: 1 }
-.fx-mq-btn::before { content: ""; width: 8px; height: 10px; border-inline: 3px solid currentColor }
-.fx-mq-btn[aria-pressed=true]::before { width: 0; height: 0; border: 0; border-block: 5px solid transparent; border-left: 8px solid currentColor; margin-left: 2px }

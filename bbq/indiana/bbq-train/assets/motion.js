@@ -1,10 +1,13 @@
-/* Diner motion: bulbs chase around the sign and the checker strip slides (both CSS); the OPEN pill pulses its light, the chrome-ringed photo swings in like a jukebox door. */
+/* Truck motion: the awning sways, the OPEN lamp flickers on once at load, and the stop card slides in like a window shutter. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var o = document.querySelector('.dn-open');
-  if (o) o.animate([{ boxShadow: '0 5px 0 var(--ink),0 0 0 rgba(255,255,255,0)' }, { boxShadow: '0 5px 0 var(--ink),0 0 26px rgba(255,255,255,.7)' }], { duration: 1400, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  var w = document.querySelector('.dn-window');
-  if (w) w.animate([{ transform: 'perspective(700px) rotateY(-70deg)', opacity: 0 }, { transform: 'perspective(700px) rotateY(0)', opacity: 1 }], { duration: 1000, delay: 200, easing: 'cubic-bezier(.3,1.3,.5,1)', fill: 'backwards' });
+  document.querySelectorAll('.tk-top .tk-awning').forEach(function (a) {
+    a.animate([{ transform: 'skewX(0deg)', transformOrigin: 'top' }, { transform: 'skewX(-1.2deg)', transformOrigin: 'top' }, { transform: 'skewX(0deg)', transformOrigin: 'top' }], { duration: 5200, iterations: Infinity, easing: 'ease-in-out' });
+  });
+  var l = document.querySelector('[data-lamp]');
+  if (l) l.animate([{ opacity: 0 }, { opacity: 1 }, { opacity: .2 }, { opacity: 1 }, { opacity: .6 }, { opacity: 1 }], { duration: 900, delay: 300, fill: 'backwards' });
+  var s = document.querySelector('.tk-stop');
+  if (s) s.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 900, delay: 400, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

@@ -137,24 +137,3 @@ FX.def('hours-toast', function (c) {
     timer = setTimeout(hide, +o.ms || 7000);
   }, o.delay == null ? 3500 : +o.delay);
 });
-
-/* fx ken-burns */
-/* ken-burns: slow zoom and pan of the hero photo (default: the largest photo in the first block of <main>, plus [data-fx-ken-burns] img).
-   Only runs when the photo's frame (or the one around it) clips overflow, and never on .ph placeholders.
-   opt: {seconds: 22} (18 to 24 looks right). Reduced motion: static. */
-FX.def('ken-burns', function (c) {
-  if (FX.reduced) return;
-  var els = c.els('main > :first-child img, [data-fx-ken-burns] img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
-  if (!c.sel && els.length > 1) {
-    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
-    var by = els.filter(function (i) { return i.closest('[data-fx-ken-burns]'); });
-    els = by.length ? by : [els.sort(function (x, y) { return a(y) - a(x); })[0]];
-  }
-  els.forEach(function (img) {
-    for (var n = img.parentElement, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) {
-      if (/hidden|clip/.test(getComputedStyle(n).overflowY)) {
-        img.setAttribute('data-fx-kb', ''); if (c.opt.seconds) img.style.setProperty('--fx-kb-t', (+c.opt.seconds) + 's'); return;
-      }
-    }
-  });
-});

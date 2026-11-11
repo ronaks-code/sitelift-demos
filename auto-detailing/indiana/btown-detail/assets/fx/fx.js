@@ -86,45 +86,60 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx split-reveal */
-/* split-reveal: the hero h1 reveals word by word on load (each word slides up from a clipped line box, ~50ms apart).
-   Only text nodes are split, so <em>, <br> and spans keep working. The h1 gets aria-label with its text, the pieces are aria-hidden.
-   opt: {chars: true} splits letters instead (only for headings of 22 characters or fewer), {step: 50} ms between pieces.
-   Failsafe: everything is natural again after the animation or after 2.5s at the latest. Reduced motion: untouched. */
-FX.def('split-reveal', function (c) {
-  if (FX.reduced || !Element.prototype.animate) return;
-  var d = document, h1 = c.els('main > :first-child h1')[0];
-  if (!h1 || h1.getAttribute('data-fx-sr')) return;
-  var txt = h1.textContent.replace(/\s+/g, ' ').trim(), chars = !!c.opt.chars && txt.length <= 22, units = [];
-  function mk(s) {
-    var u = d.createElement('span'), i = d.createElement('span');
-    u.className = 'fx-sr-u'; u.setAttribute('aria-hidden', 'true'); i.className = 'fx-sr-i'; i.textContent = s; u.appendChild(i); units.push(i); return u;
+/* fx heading-scrub */
+/* heading-scrub: marks the section headings (h2 by default) the CSS animates. Letter-spacing is deliberately not animated (it would
+   reflow the text); the heading lifts, fades up and un-clips instead. Browsers without scroll-driven animations: nothing happens. */
+FX.def('heading-scrub', function (c) {
+  if (FX.reduced || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
+  c.els('main h2').forEach(function (e) { e.setAttribute('data-fx-hs', ''); });
+});
+
+/* fx cursor-ring */
+/* cursor-ring: a precise dot on the pointer and a soft ring that follows with a little lag. Over links/buttons the ring
+   grows; over gallery photos and call links it becomes a labelled pill ("View", "Call"). Mouse only (FX.fine), off with
+   reduced motion; text fields keep the native caret. opt: {labels: {view, call, book}, blend: true} */
+FX.def('cursor-ring', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  var d = document, h = d.documentElement, o = c.opt, L = o.labels || {};
+  var lab = { view: L.view || 'View', call: L.call || 'Call', book: L.book || '' };
+  var el = d.createElement('div');
+  el.className = 'fx-cur' + (o.blend ? ' fx-cur-blend' : ''); el.setAttribute('aria-hidden', 'true');
+  el.innerHTML = '<i class="fx-cur-ring"><b><span></span></b></i><i class="fx-cur-dot"></i>';
+  d.body.appendChild(el);
+  var ring = el.firstChild, dot = el.lastChild, txt = ring.querySelector('span');
+  var x = -100, y = -100, rx = -100, ry = -100, busy = 0;
+  h.classList.add('fx-cur-on');
+  function tick() {
+    rx += (x - rx) * 0.2; ry += (y - ry) * 0.2;
+    ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0)';
+    if (Math.abs(x - rx) + Math.abs(y - ry) > 0.2) requestAnimationFrame(tick); else busy = 0;
   }
-  (function walk(n) {
-    [].slice.call(n.childNodes).forEach(function (k) {
-      if (k.nodeType === 1) { if (!/^(BR|SVG|IMG)$/i.test(k.tagName)) walk(k); return; }
-      if (k.nodeType !== 3 || !k.nodeValue.trim()) return;
-      var f = d.createDocumentFragment();
-      k.nodeValue.split(/(\s+)/).forEach(function (w) {
-        if (!w) return;
-        if (/^\s+$/.test(w)) { f.appendChild(d.createTextNode(w)); return; }
-        if (!chars) { var u = mk(w); u.classList.add('fx-sr-w'); f.appendChild(u); return; }
-        var g = d.createElement('span'); g.className = 'fx-sr-w'; g.setAttribute('aria-hidden', 'true');
-        w.split('').forEach(function (ch) { g.appendChild(mk(ch)); }); f.appendChild(g);
-      });
-      k.parentNode.replaceChild(f, k);
-    });
-  })(h1);
-  if (!units.length) return;
-  h1.setAttribute('aria-label', txt); h1.setAttribute('data-fx-sr', '1'); h1.classList.add('fx-sr-run');
-  var step = Math.min(+c.opt.step || (chars ? 30 : 50), 900 / units.length), done = 0;
-  function end() { if (!done) { done = 1; h1.classList.remove('fx-sr-run'); units.forEach(function (u) { u.getAnimations().forEach(function (a) { a.cancel(); }); }); } }
-  var all = units.map(function (u, i) {
-    return u.animate([{ transform: 'translateY(135%)' }, { transform: 'translateY(0)' }],
-      { duration: 800, delay: 120 + i * step, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' }).finished;
-  });
-  Promise.all(all).then(end, end);
-  setTimeout(end, 2500);
+  addEventListener('pointermove', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    x = e.clientX; y = e.clientY;
+    dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+    if (!el.classList.contains('on')) { rx = x; ry = y; el.classList.add('on'); }
+    if (!busy) { busy = 1; requestAnimationFrame(tick); }
+  }, { passive: true });
+  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) el.classList.remove('on'); });
+  d.addEventListener('pointerdown', function () { el.classList.add('down'); }, { passive: true });
+  d.addEventListener('pointerup', function () { el.classList.remove('down'); }, { passive: true });
+  d.addEventListener('pointerover', function (e) {
+    var t = e.target.closest ? e.target : e.target.parentElement;
+    if (!t || !t.closest) return;
+    var field = t.closest('input,textarea,select,[contenteditable],iframe');
+    var cue = t.closest('[data-cursor]');
+    var a = t.closest('a,button,[role=button],label,summary,[data-f]');
+    var s = '';
+    if (cue) s = cue.getAttribute('data-cursor');
+    else if (a && a.matches('a[data-lb],[data-lb] a')) s = lab.view;
+    else if (a && /^tel:/i.test(a.getAttribute('href') || '')) s = lab.call;
+    else if (a && lab.book && /book/i.test(a.getAttribute('href') || '')) s = lab.book;
+    el.classList.toggle('is-field', !!field);
+    el.classList.toggle('is-link', !!a && !s);
+    el.classList.toggle('is-label', !!s);
+    if (s) txt.textContent = s;
+  }, { passive: true });
 });
 
 /* fx nav-stagger */
@@ -173,14 +188,6 @@ FX.def('btn-fill', function (c) {
     b.addEventListener('pointerenter', set); b.addEventListener('pointerleave', set);
     b.addEventListener('focus', function () { b.style.setProperty('--fx-dx', 0); b.style.setProperty('--fx-dy', 0); });
   });
-});
-
-/* fx heading-scrub */
-/* heading-scrub: marks the section headings (h2 by default) the CSS animates. Letter-spacing is deliberately not animated (it would
-   reflow the text); the heading lifts, fades up and un-clips instead. Browsers without scroll-driven animations: nothing happens. */
-FX.def('heading-scrub', function (c) {
-  if (FX.reduced || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
-  c.els('main h2').forEach(function (e) { e.setAttribute('data-fx-hs', ''); });
 });
 
 /* fx section-tint */

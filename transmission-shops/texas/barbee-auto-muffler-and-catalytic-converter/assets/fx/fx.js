@@ -112,27 +112,6 @@ FX.def('hero-zoomout', function (c) {
   tick();
 });
 
-/* fx mask-reveal */
-/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
-   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
-   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
-FX.def('mask-reveal', function (c) {
-  if (FX.reduced || !Element.prototype.animate) return;
-  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
-  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
-    var r = i.getBoundingClientRect();
-    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
-  });
-  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
-  FX.seen(imgs, function (i) {
-    var p = i.parentElement, clipped = 0;
-    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
-    i.removeAttribute('data-fx-mr');
-    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
-      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  }, '0px 0px -6% 0px');
-});
-
 /* fx spotlight */
 /* spotlight: a soft light follows the pointer over cards (accent border glow plus a faint inner light) and over dark
    sections (faint light only). One shared overlay moves onto the hovered element; the element also gets --fx-x/--fx-y.
@@ -164,4 +143,25 @@ FX.def('spotlight', function (c) {
   }, { passive: true });
   d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) off(); });
   addEventListener('scroll', function () { if (cur) place(); }, { passive: true });
+});
+
+/* fx mask-reveal */
+/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
+   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
+   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
+FX.def('mask-reveal', function (c) {
+  if (FX.reduced || !Element.prototype.animate) return;
+  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
+  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
+    var r = i.getBoundingClientRect();
+    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
+  });
+  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
+  FX.seen(imgs, function (i) {
+    var p = i.parentElement, clipped = 0;
+    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
+    i.removeAttribute('data-fx-mr');
+    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
+      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+  }, '0px 0px -6% 0px');
 });

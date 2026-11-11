@@ -86,135 +86,54 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx highlight-sweep */
-/* highlight-sweep: the hero's <em> (or [data-fx-highlight], or any configured element) gets a marker band behind the bottom 40% of
-   the text, or a 3px underline, swept in --accent when it scrolls into view. opt: {style: "marker" | "underline"}
-   Reduced motion: the finished highlight, static. */
-FX.def('highlight-sweep', function (c) {
-  var st = c.opt.style === 'underline' ? 'underline' : 'marker';
-  c.els('[data-fx-highlight], main > :first-child h1 em').forEach(function (el) {
-    // A block/flex <em> (some kits break the emphasised words onto their own line) would paint the band across the whole
-    // column: mark an inline wrapper of its contents instead, so the band follows the words.
-    if (getComputedStyle(el).display !== 'inline') {
-      var w = document.createElement('span'); while (el.firstChild) w.appendChild(el.firstChild); el.appendChild(w); el = w;
-    }
-    el.setAttribute('data-fx-hl', st);
-    if (FX.reduced) { el.classList.add('fx-hl-on'); return; }
-    FX.seen([el], function () { setTimeout(function () { el.classList.add('fx-hl-on'); }, 350); }, '0px');
+/* fx stars-fill */
+/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
+   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
+FX.def('stars-fill', function (c) {
+  if (FX.reduced) return;
+  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
+    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
   });
-});
-
-/* fx lightbox-plus */
-/* lightbox-plus: replaces core's lightbox for a[data-lb] (capture-phase click + stopImmediatePropagation so core never opens).
-   Dialog with caption, "3 / 12" counter, prev/next, arrow keys, Escape, swipe, focus trap, focus back on the thumbnail, images grouped by
-   their gallery container (items hidden by a filter chip are skipped). Opens by growing from the thumbnail unless motion is reduced.
-   opt: {label: "Photo viewer", close: "Close", prev: "Previous photo", next: "Next photo"} */
-FX.def('lightbox-plus', function (c) {
-  var d = document, o = c.opt, lb, img, cap, num, items = [], at = 0, from = null, B = {};
-  function mk(cls, label, t) { var b = d.createElement('button'); b.type = 'button'; b.className = 'fx-lb-b ' + cls; b.setAttribute('aria-label', label); b.textContent = t; return b; }
-  function build() {
-    lb = d.createElement('div'); lb.className = 'fx-lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', o.label || 'Photo viewer');
-    lb.style.background = FX.rgba(FX.color('--dark'), .94);
-    var f = d.createElement('figure'); f.className = 'fx-lb-f';
-    img = d.createElement('img'); img.className = 'fx-lb-img'; img.alt = '';
-    cap = d.createElement('figcaption'); cap.className = 'fx-lb-cap';
-    num = d.createElement('div'); num.className = 'fx-lb-n'; num.setAttribute('aria-live', 'polite');
-    B.x = mk('fx-lb-x', o.close || 'Close', '×'); B.p = mk('fx-lb-p', o.prev || 'Previous photo', '‹'); B.n = mk('fx-lb-nx', o.next || 'Next photo', '›');
-    f.appendChild(img); f.appendChild(cap);
-    [f, num, B.x, B.p, B.n].forEach(function (e) { lb.appendChild(e); });
-    d.body.appendChild(lb);
-    B.x.onclick = close; B.p.onclick = function () { go(-1); }; B.n.onclick = function () { go(1); };
-    lb.addEventListener('click', function (e) { if (e.target === lb || e.target === f) close(); });
-    var sx = null;
-    lb.addEventListener('pointerdown', function (e) { sx = e.target.closest('button') ? null : e.clientX; });
-    lb.addEventListener('pointerup', function (e) {
-      if (sx !== null && Math.abs(e.clientX - sx) > 50) go(e.clientX < sx ? 1 : -1);
-      sx = null;
+  els.forEach(function (el) {
+    var s = document.createElement('span');
+    s.className = 'fx-stars-in fx-stars-w';
+    while (el.firstChild) s.appendChild(el.firstChild);
+    el.appendChild(s);
+    FX.seen([el], function () {
+      s.classList.remove('fx-stars-w');
+      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
     });
-    d.addEventListener('keydown', key, true);
-  }
-  function text(a) {
-    var fig = a.closest('figure'), fc = fig && fig.querySelector('figcaption'), im = a.querySelector('img');
-    return a.getAttribute('data-cap') || (fc && fc.textContent.trim()) || (im && im.alt) || '';
-  }
-  function show(i, dir) {
-    at = (i + items.length) % items.length;
-    var a = items[at], t = text(a);
-    num.textContent = at + 1 + ' / ' + items.length; cap.textContent = t; img.alt = t;
-    lb.classList.toggle('fx-lb-1', items.length < 2);
-    img.onload = function () { if (!FX.reduced) flip(dir); };
-    img.src = a.getAttribute('href');
-    [1, -1].forEach(function (s) { new Image().src = items[(at + s + items.length) % items.length].getAttribute('href'); });
-  }
-  function flip(dir) {
-    var r = img.getBoundingClientRect();
-    if (dir) { img.animate([{ opacity: 0, transform: 'translateX(' + 36 * dir + 'px)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.2,.7,.2,1)' }); return; }
-    var th = from && from.querySelector('img'), t = th && th.getBoundingClientRect();
-    if (!t || !t.width || !r.width) { img.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250 }); return; }
-    img.animate([{ opacity: .3, transform: 'translate(' + (t.left + t.width / 2 - r.left - r.width / 2) + 'px,' + (t.top + t.height / 2 - r.top - r.height / 2) + 'px) scale(' + t.width / r.width + ')' },
-      { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
-  }
-  function go(n) { if (items.length > 1) show(at + n, n); }
-  function open(a) {
-    if (!lb) build();
-    from = a;
-    var root = a.parentElement;
-    while (root && root !== d.body && root.querySelectorAll('a[data-lb]').length < 2) root = root.parentElement;
-    items = FX.$$('a[data-lb]', root || d).filter(function (x) { return x === a || (x.getAttribute('href') && x.getClientRects().length); });
-    lb.classList.add('open');
-    if (!FX.reduced) lb.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220 });
-    show(items.indexOf(a), 0);
-    B.x.focus();
-  }
-  function close() {
-    lb.classList.remove('open'); img.removeAttribute('src');
-    if (from && from.isConnected) from.focus({ preventScroll: true });
-  }
-  function key(e) {
-    if (!lb || !lb.classList.contains('open')) return;
-    if (e.key === 'Escape') { e.stopPropagation(); close(); }
-    else if (e.key === 'ArrowRight') go(1);
-    else if (e.key === 'ArrowLeft') go(-1);
-    else if (e.key === 'Tab') {
-      var f = [B.x, B.p, B.n].filter(function (b) { return b.offsetParent; }), i = f.indexOf(d.activeElement);
-      e.preventDefault(); f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
-    }
-  }
-  d.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[data-lb]');
-    if (!a || !a.getAttribute('href')) return;
-    e.preventDefault(); e.stopImmediatePropagation(); open(a);
-  }, true);
-});
-
-/* fx btn-fill */
-/* btn-fill: inserts the fill layer and tracks which side the pointer entered/left from. Mouse only. */
-FX.def('btn-fill', function (c) {
-  if (!FX.fine) return;
-  var acc = FX.color('--accent');
-  c.els('.btn').forEach(function (b) {
-    if (b.matches('.callbar') || b.querySelector(':scope > .fx-bf-l')) return;
-    var cs = getComputedStyle(b), l = document.createElement('span');
-    l.className = 'fx-bf-l'; l.setAttribute('aria-hidden', 'true'); l.style.cssText = 'position:absolute;inset:0;pointer-events:none'; b.insertBefore(l, b.firstChild);
-    b.classList.add('fx-bf');
-    if (cs.position === 'static') b.classList.add('fx-bf-r');
-    if (cs.backgroundColor === acc) b.classList.add('fx-bf-ink');
-    else if (/rgba\(.*, 0\)|transparent/.test(cs.backgroundColor)) b.classList.add('fx-bf-alt');
-    b.style.transition = (parseFloat(cs.transitionDuration) ? cs.transition + ', ' : '') + 'color .4s cubic-bezier(.2,.7,.2,1), border-color .4s cubic-bezier(.2,.7,.2,1)';
-    function set(e) {
-      var r = b.getBoundingClientRect(), k = function (v) { return Math.max(-1, Math.min(1, v)).toFixed(2); };
-      b.style.setProperty('--fx-dx', k((e.clientX - r.left) / r.width * 2 - 1));
-      b.style.setProperty('--fx-dy', k((e.clientY - r.top) / r.height * 2 - 1));
-    }
-    b.addEventListener('pointerenter', set); b.addEventListener('pointerleave', set);
-    b.addEventListener('focus', function () { b.style.setProperty('--fx-dx', 0); b.style.setProperty('--fx-dy', 0); });
   });
 });
 
-/* fx heading-scrub */
-/* heading-scrub: marks the section headings (h2 by default) the CSS animates. Letter-spacing is deliberately not animated (it would
-   reflow the text); the heading lifts, fades up and un-clips instead. Browsers without scroll-driven animations: nothing happens. */
-FX.def('heading-scrub', function (c) {
-  if (FX.reduced || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
-  c.els('main h2').forEach(function (e) { e.setAttribute('data-fx-hs', ''); });
+/* fx section-tint */
+/* section-tint: the page ground crossfades between soft section colours as you scroll. Sections opt in with data-fx-tint="--surface"
+   (any CSS variable or colour); otherwise the module alternates transparent sections between the page colour and faint washes of
+   --primary and --accent. Sections with their own background are never tinted. Skipped if the page ground can't show a layer.
+   opt: {amount: 7} (percent of brand colour in the auto washes) */
+FX.def('section-tint', function (c) {
+  var d = document, h = d.documentElement, a = +c.opt.amount || 7;
+  var clear = function (e) { var s = getComputedStyle(e); return (/^rgba\(.*, 0\)$|^transparent$/.test(s.backgroundColor)) && s.backgroundImage === 'none'; };
+  if (!clear(h) || !d.querySelector('main')) return;
+  var main = d.querySelector('main');
+  if (!clear(main)) return;
+  var secs = c.els('main > section, main > div, main > article').filter(clear);
+  if (secs.length < 2) return;
+  var auto = ['var(--bg)', 'color-mix(in srgb,var(--primary) ' + a + '%,var(--bg))', 'var(--bg)', 'color-mix(in srgb,var(--accent) ' + a + '%,var(--bg))'], n = 0;
+  var tint = secs.map(function (s) {
+    var t = s.getAttribute('data-fx-tint'), v = t ? (t.indexOf('--') === 0 ? 'var(' + t + ')' : t) : auto[n++ % 4];
+    return { el: s, c: v };
+  });
+  var L = d.createElement('div'); L.className = 'fx-st-layer'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:fixed;inset:0;pointer-events:none';
+  d.body.insertBefore(L, d.body.firstChild);
+  var cur = '', busy = 0;
+  function pick() {
+    busy = 0;
+    var mid = innerHeight * .5, best = tint[0];
+    for (var i = 0; i < tint.length; i++) { var r = tint[i].el.getBoundingClientRect(); if (r.top <= mid) best = tint[i]; if (r.top > mid) break; }
+    if (best.c !== cur) { cur = best.c; L.style.backgroundColor = cur; }
+  }
+  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(pick); } }, { passive: true });
+  addEventListener('resize', pick, { passive: true });
+  pick();
 });
