@@ -19,3 +19,4 @@ own name, photos or reviews, and never show a saved design back to the business 
 | 2026-11-11 | auto-body-shops/north-carolina/ikon-collision | Asked to be removed (2026-11-06); on do-not-contact. Design saved for reuse | auto-body-shops_north-carolina_ikon-collision.zip |
 | 2026-11-11 | auto-repair/florida/richards-quality-automotive-services | Not interested: customers find him fine, a website is one more thing to monitor (call 2026-11-11) | auto-repair_florida_richards-quality-automotive-services.zip |
 | 2026-11-11 | barbershops/texas/ties-barbershop | Already has its own website (websiteworldfind.com) | barbershops_texas_ties-barbershop.zip |
+| 2026-11-11 | auto-body/texas/auto-dent-quality | Already has its own website, replied 2026-11-11 | auto-body_texas_auto-dent-quality.zip |
