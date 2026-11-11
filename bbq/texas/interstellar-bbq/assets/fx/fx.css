@@ -1,20 +1,3 @@
-/* fx sheen */
-/* sheen: a light band slides across primary buttons using the button's own background layer (no pseudo-element, no
-   positioning, so fixed call bars and kit styles are untouched). Motion only; reduced motion = plain buttons. */
-@media (prefers-reduced-motion: no-preference) {
- .btn:not(.alt) { background-image: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .34) 50%, transparent 58%);
-  background-size: 250% 100%; background-repeat: no-repeat; background-position: 100% 0; animation: fx-sheen 7s cubic-bezier(.4, 0, .2, 1) 1.5s infinite }
- .btn:not(.alt):nth-of-type(2n) { animation-delay: 3.2s }
- @keyframes fx-sheen { 0% { background-position: 100% 0 } 16%, 100% { background-position: 0 0 } }
- .fx-sheen-img { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .22) 50%, transparent 60%);
-  transform: translateX(-120%); animation: fx-sheen-i 8s cubic-bezier(.4, 0, .2, 1) 2.5s infinite }
- @keyframes fx-sheen-i { 0% { transform: translateX(-120%) } 22%, 100% { transform: translateX(120%) } }
-}
-@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
- .btn:not(.alt):hover { animation: fx-sheen-h .8s cubic-bezier(.3, .6, .2, 1) 1 }
- @keyframes fx-sheen-h { from { background-position: 100% 0 } to { background-position: 0 0 } }
-}
-
 /* fx cursor-ring */
 /* cursor-ring: elements exist only when JS built them (mouse + motion allowed), so nothing here can hide content */
 @media (hover: hover) and (pointer: fine) {
@@ -58,22 +41,22 @@
  }
 }
 
-/* fx btn-fill */
-/* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
-   fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
-html.fx-btn-fill .fx-bf { isolation: isolate; overflow: hidden; --fx-fill: var(--accent); --fx-on: var(--on-accent) }
-html.fx-btn-fill .fx-bf-r { position: relative }
-html.fx-btn-fill .fx-bf-alt { --fx-fill: var(--primary); --fx-on: var(--on-primary) }
-html.fx-btn-fill .fx-bf-ink { --fx-fill: var(--ink); --fx-on: var(--bg) }
-html.fx-btn-fill .fx-bf-l { position: absolute; inset: 0; z-index: -1; pointer-events: none; background: var(--fx-fill);
- clip-path: circle(0 at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)); }
-html.fx-btn-fill .fx-bf:focus-visible { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
-html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 50%) }
-@media (hover: hover) and (pointer: fine) {
- html.fx-btn-fill .fx-bf:hover { color: var(--fx-on); border-color: var(--fx-fill); filter: none }
- html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
+/* fx sheen */
+/* sheen: a light band slides across primary buttons using the button's own background layer (no pseudo-element, no
+   positioning, so fixed call bars and kit styles are untouched). Motion only; reduced motion = plain buttons. */
+@media (prefers-reduced-motion: no-preference) {
+ .btn:not(.alt) { background-image: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .34) 50%, transparent 58%);
+  background-size: 250% 100%; background-repeat: no-repeat; background-position: 100% 0; animation: fx-sheen 7s cubic-bezier(.4, 0, .2, 1) 1.5s infinite }
+ .btn:not(.alt):nth-of-type(2n) { animation-delay: 3.2s }
+ @keyframes fx-sheen { 0% { background-position: 100% 0 } 16%, 100% { background-position: 0 0 } }
+ .fx-sheen-img { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .22) 50%, transparent 60%);
+  transform: translateX(-120%); animation: fx-sheen-i 8s cubic-bezier(.4, 0, .2, 1) 2.5s infinite }
+ @keyframes fx-sheen-i { 0% { transform: translateX(-120%) } 22%, 100% { transform: translateX(120%) } }
 }
-@media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+ .btn:not(.alt):hover { animation: fx-sheen-h .8s cubic-bezier(.3, .6, .2, 1) 1 }
+ @keyframes fx-sheen-h { from { background-position: 100% 0 } to { background-position: 0 0 } }
+}
 
 /* fx spotlight */
 /* spotlight: the overlay exists only when JS built it (mouse + motion allowed); it never covers content or takes clicks */
@@ -87,6 +70,12 @@ html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 5
  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); mask-composite: exclude }
 .fx-sp.big i { display: none }
 .fx-sp.big b { background: radial-gradient(circle 380px at var(--fx-x, 50%) var(--fx-y, 50%), color-mix(in srgb, var(--accent) 9%, transparent), transparent 70%) }
+
+/* fx mask-reveal */
+/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
+   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
+html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
+html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
 
 /* fx page-wipe */
 /* page-wipe: cross-document view transition (Chromium 126+, Safari 18.2+; others navigate normally). The old page stays and dims,

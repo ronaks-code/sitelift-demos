@@ -1,16 +1,3 @@
-/* fx scroll-progress */
-/* scroll-progress: a thin bar at the very top showing how far down the page you are. The bar only exists when JS built it.
-   Where scroll-driven animations exist the browser drives it (no JS per frame); elsewhere (and with reduced motion, since
-   progress is information, not decoration) JS sets it on scroll. */
-.fx-sp-bar { position: fixed; left: 0; top: 0; width: 100%; height: 3px; z-index: 2147482600; pointer-events: none; background: var(--primary);
- transform: scaleX(0); transform-origin: 0 50% }
-@keyframes fx-sp { to { transform: scaleX(1) } }
-@media (prefers-reduced-motion: no-preference) {
- @supports (animation-timeline: scroll()) {
-  .fx-sp-bar.fx-sp-css { animation: fx-sp linear both; animation-timeline: scroll(root block) }
- }
-}
-
 /* fx bg-grid */
 /* bg-grid: layer built by JS. The bright copy of the grid is masked to a circle at --fx-x/--fx-y (mouse) or swept by CSS (touch) */
 .fx-grid { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
@@ -26,4 +13,17 @@
 @media (prefers-reduced-motion: no-preference) {
  .fx-grid:not(.is-fine) i.hi { animation: fx-grid-sweep 16s ease-in-out infinite alternate }
  @keyframes fx-grid-sweep { from { -webkit-mask-position: 8% 30%; mask-position: 8% 30% } to { -webkit-mask-position: 92% 70%; mask-position: 92% 70% } }
+}
+
+/* fx scroll-progress */
+/* scroll-progress: a thin bar at the very top showing how far down the page you are. The bar only exists when JS built it.
+   Where scroll-driven animations exist the browser drives it (no JS per frame); elsewhere (and with reduced motion, since
+   progress is information, not decoration) JS sets it on scroll. */
+.fx-sp-bar { position: fixed; left: 0; top: 0; width: 100%; height: 3px; z-index: 2147482600; pointer-events: none; background: var(--primary);
+ transform: scaleX(0); transform-origin: 0 50% }
+@keyframes fx-sp { to { transform: scaleX(1) } }
+@media (prefers-reduced-motion: no-preference) {
+ @supports (animation-timeline: scroll()) {
+  .fx-sp-bar.fx-sp-css { animation: fx-sp linear both; animation-timeline: scroll(root block) }
+ }
 }

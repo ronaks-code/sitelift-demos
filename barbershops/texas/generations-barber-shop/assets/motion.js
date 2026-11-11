@@ -1,11 +1,20 @@
-/* Mosaic motion: pointer tilt on bento tiles (fine pointers only). Reveals come from core.js. */
+/* Reveal motion: the nav gains a hairline shadow on scroll; hovering or focusing one photo of a look lifts its partner. */
 (function () {
-  if (!window.SL || SL.reduced || !matchMedia('(pointer:fine)').matches) return;
-  document.querySelectorAll('.ms-t').forEach(function (t) {
-    t.addEventListener('pointermove', function (e) {
-      var r = t.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      t.style.transform = 'perspective(800px) rotateY(' + (x * 5) + 'deg) rotateX(' + (-y * 5) + 'deg)';
-    });
-    t.addEventListener('pointerleave', function () { t.style.transform = ''; });
-  });
+  if (!window.SL || SL.reduced) return;
+  var nav = document.querySelector('[data-rl-nav]');
+  if (nav) {
+    var on = function () { nav.classList.toggle('rl-stuck', window.scrollY > 8); };
+    window.addEventListener('scroll', on, { passive: true }); on();
+  }
+  var g = document.querySelector('.rl-looks');
+  if (!g) return;
+  var partner = function (f) { return f.classList.contains('rl-g-b') ? f.nextElementSibling : f.previousElementSibling; };
+  var set = function (e, v) {
+    var f = e.target.closest && e.target.closest('.rl-g'); if (!f) return;
+    var p = partner(f); f.classList.toggle('rl-pair-on', v); if (p) p.classList.toggle('rl-pair-on', v);
+  };
+  g.addEventListener('mouseover', function (e) { set(e, true); });
+  g.addEventListener('mouseout', function (e) { set(e, false); });
+  g.addEventListener('focusin', function (e) { set(e, true); });
+  g.addEventListener('focusout', function (e) { set(e, false); });
 })();

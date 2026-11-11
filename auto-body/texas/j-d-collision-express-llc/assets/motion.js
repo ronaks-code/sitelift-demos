@@ -1,5 +1,5 @@
-/* Suds motion: bubbles rise, wave edge drifts, badge bobs, a car drives along the tunnel road. All CSS, switched on only when motion is allowed. */
+/* Garage Door motion: on load a slatted door rolls up off the hero photo (CSS, only when motion is allowed); bay slats retract on hover. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.body.classList.add('js-sd');
+  document.body.classList.add('js-gd');
 })();

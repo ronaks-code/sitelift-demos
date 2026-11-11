@@ -1,13 +1,10 @@
-/* Fit the big phone number on one line whatever the brand font's width (layout, so it runs with reduced motion too). */
+/* Route motion: van drives the map route, pins pulse, route dashes crawl. Under reduced motion the van is parked at the destination. */
 (function () {
-  var els = document.querySelectorAll('.en-foot-tel');
-  if (!els.length) return;
-  function fit() { els.forEach(function (e) { e.style.fontSize = ''; e.parentElement.style.minWidth = '0'; var r = e.clientWidth / e.scrollWidth; if (r < 1) e.style.fontSize = (parseFloat(getComputedStyle(e).fontSize) * r * 0.97) + 'px'; }); }
-  fit(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  var t; addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 120); });
-})();
-/* Enamel Sign motion: glint across the plaque + ribbon unfurl (CSS), started here. Static under reduced motion. */
-(function () {
-  if (!window.SL || SL.reduced) return;
-  document.body.classList.add('js-en');
+  if (!window.SL) return;
+  var van = document.querySelector('[data-van]');
+  if (SL.reduced) {
+    if (van) { var am = van.querySelector('animateMotion'); if (am) am.remove(); van.setAttribute('transform', 'translate(500 100)'); }
+    return;
+  }
+  document.body.classList.add('js-rt');
 })();

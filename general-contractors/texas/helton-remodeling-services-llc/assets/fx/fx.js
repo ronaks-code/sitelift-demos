@@ -195,27 +195,3 @@ FX.def('btn-fill', function (c) {
     b.addEventListener('focus', function () { b.style.setProperty('--fx-dx', 0); b.style.setProperty('--fx-dy', 0); });
   });
 });
-
-/* fx nav-stagger */
-/* nav-stagger: when the mobile menu opens (core.js toggles body.nav-open), the links inside the drawer rise in one after another
-   (40ms apart). The drawer is the toggle's aria-controls target, else the header links that were not visible before opening.
-   WAAPI with a backwards fill: links wait invisible during their delay, and always end (or are cancelled) fully visible.
-   Off with reduced motion. opt: {gap: 40} */
-FX.def('nav-stagger', function (c) {
-  if (FX.reduced) return;
-  var d = document, gap = c.opt.gap == null ? 40 : +c.opt.gap, was = [];
-  function vis() { return FX.$$('header a, nav a').filter(function (a) { return a.offsetParent !== null; }); }
-  was = vis();
-  function links() {
-    var t = d.querySelector('[data-nav-toggle][aria-controls]'), dr = t && d.getElementById(t.getAttribute('aria-controls'));
-    var l = dr ? FX.$$('a', dr) : vis().filter(function (a) { return was.indexOf(a) < 0; });
-    return l.filter(function (a) { return a.offsetParent !== null; });
-  }
-  new MutationObserver(function () {
-    if (!d.body.classList.contains('nav-open')) { was = vis(); return; }
-    links().forEach(function (a, i) {
-      a.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
-        { duration: 420, delay: 60 + i * gap, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-    });
-  }).observe(d.body, { attributes: true, attributeFilter: ['class'] });
-});

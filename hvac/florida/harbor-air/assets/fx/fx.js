@@ -86,34 +86,23 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx count-up */
-/* count-up: real numbers (rating, review count, years) count up once when they scroll into view. The element's width is
-   locked to its final text first (no layout shift); the final text is exactly what was there (prefix/suffix kept);
-   years (1900-2099) and numbers under 2 are left alone. Reduced motion / no JS: the final number, untouched.
-   opt: {ms: 1400} */
-FX.def('count-up', function (c) {
-  if (FX.reduced) return;
-  var ms = +c.opt.ms || 1400;
-  var els = c.els('[data-count],[class*="stat"] b,[class*="stat"] strong,[class*="stat"] dd,[class*="stat"] [class*="num"]');
-  els = els.filter(function (el) { return !el.children.length && /^\D{0,2}\d[\d,]*(\.\d+)?\D{0,8}$/.test(el.textContent.trim()); });
-  els.forEach(function (el) {
-    var t = el.textContent.trim(), m = t.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
-    var end = parseFloat(m[2].replace(/,/g, ''));
-    if (!isFinite(end) || end < 2 || (end >= 1900 && end < 2100 && m[2].indexOf('.') < 0)) return;
-    var dec = (m[2].split('.')[1] || '').length, comma = m[2].indexOf(',') > -1;
-    var fmt = function (v) { var s = v.toFixed(dec); return comma ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s; };
-    if (getComputedStyle(el).display === 'inline') el.style.display = 'inline-block';
-    el.style.fontVariantNumeric = 'tabular-nums';
-    el.style.minWidth = el.getBoundingClientRect().width + 'px';
-    el.setAttribute('data-fx-final', t);
-    FX.seen([el], function () {
-      var t0 = performance.now();
-      el.setAttribute('aria-label', t);
-      (function step(now) {
-        var k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 4);
-        el.textContent = k < 1 ? m[1] + fmt(end * e) + m[3] : t;
-        if (k < 1) requestAnimationFrame(step); else el.removeAttribute('aria-label');
-      })(t0);
-    });
-  });
+/* fx scroll-progress */
+/* scroll-progress: 3px bar in --primary at the top of the page showing scroll progress, above sticky headers, click-through.
+   Scroll-driven CSS animation where supported; otherwise a passive scroll listener throttled with rAF. No smoothing.
+   opt: {height: 3} (px, 2 to 4) */
+FX.def('scroll-progress', function (c) {
+  var d = document, b = d.createElement('div'), h = Math.max(2, Math.min(4, +c.opt.height || 3));
+  b.className = 'fx-sp-bar'; b.setAttribute('aria-hidden', 'true'); b.style.height = h + 'px';
+  d.body.appendChild(b);
+  if (!FX.reduced && window.CSS && CSS.supports('animation-timeline: scroll()')) { b.classList.add('fx-sp-css'); return; }
+  var busy = 0, de = d.documentElement;
+  function set() {
+    busy = 0;
+    var m = de.scrollHeight - innerHeight;
+    b.style.transform = 'scaleX(' + (m > 0 ? Math.min(1, Math.max(0, scrollY / m)) : 0) + ')';
+  }
+  function req() { if (!busy) { busy = 1; requestAnimationFrame(set); } }
+  addEventListener('scroll', req, { passive: true });
+  addEventListener('resize', req, { passive: true });
+  set();
 });

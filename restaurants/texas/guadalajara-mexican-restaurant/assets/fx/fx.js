@@ -86,6 +86,33 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx click-burst */
+/* click-burst: a click or tap on a button (.btn) or call link (a[href^="tel:"]) throws a small burst of dots (or the site's
+   --glyph with opt glyph) in the primary and accent colours from the click point. Fixed overlay, gone after ~600ms, never
+   delays or blocks the click. Touch works too. Nothing with reduced motion. opt: {glyph: true, n: 10} */
+FX.def('click-burst', function (c) {
+  if (FX.reduced) return;
+  var d = document, S = c.sel || '.btn, a[href^="tel:"]', N = Math.min(16, Math.max(6, +c.opt.n || (FX.fine ? 11 : 9)));
+  d.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest(S) : null;
+    if (!t || !t.animate) return;
+    var x = e.clientX, y = e.clientY, b = t.getBoundingClientRect();
+    if (!e.detail && !x && !y) { x = b.left + b.width / 2; y = b.top + b.height / 2; }   // keyboard activation: from the button centre
+    var box = d.createElement('div'); box.className = 'fx-cb2'; box.setAttribute('aria-hidden', 'true');
+    for (var i = 0; i < N; i++) {
+      var p = d.createElement('i'), a = (i / N) * 6.2832 + Math.random() * 0.6, r = 34 + Math.random() * 46, dx = Math.cos(a) * r, dy = Math.sin(a) * r;
+      p.style.cssText = 'left:' + x + 'px;top:' + y + 'px;color:var(--' + (i % 2 ? 'accent' : 'primary') + ');font-size:' + (11 + Math.random() * 6) + 'px';
+      if (c.opt.glyph) p.className = 'g'; else p.style.width = p.style.height = (5 + Math.random() * 5) + 'px';
+      p.animate([{ transform: 'translate(-50%,-50%) scale(.3)', opacity: 1 },
+        { transform: 'translate(calc(-50% + ' + dx * 0.8 + 'px),calc(-50% + ' + dy * 0.8 + 'px)) scale(1)', opacity: 1, offset: 0.5 },
+        { transform: 'translate(calc(-50% + ' + dx + 'px),calc(-50% + ' + (dy + 22) + 'px)) scale(.4) rotate(' + (Math.random() * 120 - 60) + 'deg)', opacity: 0 }],
+        { duration: 520 + Math.random() * 80, easing: 'cubic-bezier(.15,.7,.25,1)', fill: 'forwards' });
+      box.appendChild(p);
+    }
+    d.body.appendChild(box); setTimeout(function () { box.remove(); }, 640);
+  }, { passive: true });
+});
+
 /* fx cursor-trail */
 /* cursor-trail: the native cursor stays; a short soft trail of small dots (primary fading to accent) follows it, each dot
    chasing the one before and shrinking and fading. One rAF loop that sleeps when the pointer is still. Mouse only, off
@@ -119,33 +146,6 @@ FX.def('cursor-trail', function (c) {
   }, { passive: true });
   d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) root.classList.remove('on'); });
   dots.forEach(function (p) { p.e.style.opacity = p.o; });
-});
-
-/* fx click-burst */
-/* click-burst: a click or tap on a button (.btn) or call link (a[href^="tel:"]) throws a small burst of dots (or the site's
-   --glyph with opt glyph) in the primary and accent colours from the click point. Fixed overlay, gone after ~600ms, never
-   delays or blocks the click. Touch works too. Nothing with reduced motion. opt: {glyph: true, n: 10} */
-FX.def('click-burst', function (c) {
-  if (FX.reduced) return;
-  var d = document, S = c.sel || '.btn, a[href^="tel:"]', N = Math.min(16, Math.max(6, +c.opt.n || (FX.fine ? 11 : 9)));
-  d.addEventListener('click', function (e) {
-    var t = e.target.closest ? e.target.closest(S) : null;
-    if (!t || !t.animate) return;
-    var x = e.clientX, y = e.clientY, b = t.getBoundingClientRect();
-    if (!e.detail && !x && !y) { x = b.left + b.width / 2; y = b.top + b.height / 2; }   // keyboard activation: from the button centre
-    var box = d.createElement('div'); box.className = 'fx-cb2'; box.setAttribute('aria-hidden', 'true');
-    for (var i = 0; i < N; i++) {
-      var p = d.createElement('i'), a = (i / N) * 6.2832 + Math.random() * 0.6, r = 34 + Math.random() * 46, dx = Math.cos(a) * r, dy = Math.sin(a) * r;
-      p.style.cssText = 'left:' + x + 'px;top:' + y + 'px;color:var(--' + (i % 2 ? 'accent' : 'primary') + ');font-size:' + (11 + Math.random() * 6) + 'px';
-      if (c.opt.glyph) p.className = 'g'; else p.style.width = p.style.height = (5 + Math.random() * 5) + 'px';
-      p.animate([{ transform: 'translate(-50%,-50%) scale(.3)', opacity: 1 },
-        { transform: 'translate(calc(-50% + ' + dx * 0.8 + 'px),calc(-50% + ' + dy * 0.8 + 'px)) scale(1)', opacity: 1, offset: 0.5 },
-        { transform: 'translate(calc(-50% + ' + dx + 'px),calc(-50% + ' + (dy + 22) + 'px)) scale(.4) rotate(' + (Math.random() * 120 - 60) + 'deg)', opacity: 0 }],
-        { duration: 520 + Math.random() * 80, easing: 'cubic-bezier(.15,.7,.25,1)', fill: 'forwards' });
-      box.appendChild(p);
-    }
-    d.body.appendChild(box); setTimeout(function () { box.remove(); }, 640);
-  }, { passive: true });
 });
 
 /* fx bg-mesh */

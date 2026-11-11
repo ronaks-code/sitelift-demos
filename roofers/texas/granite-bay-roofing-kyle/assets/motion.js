@@ -1,11 +1,10 @@
-/* Keyhole motion: the spotlight cone follows the pointer on desktop. Static (centred) with reduced motion, touch, or the "fixed" variant. */
+/* Ridgeline motion: hero photo parallax (slower than the page). Skipped for reduced motion; the photo is simply oversized so nothing is cut when it does not move. */
 (function () {
-  if (!window.SL || SL.reduced || document.body.classList.contains('v-cone-fixed')) return;
-  var h = document.querySelector('[data-spot]');
-  if (!h || !matchMedia('(pointer:fine)').matches) return;
-  var raf = 0, x = 50;
-  h.addEventListener('pointermove', function (e) {
-    var r = h.getBoundingClientRect(); x = ((e.clientX - r.left) / r.width) * 100;
-    if (!raf) raf = requestAnimationFrame(function () { raf = 0; h.style.setProperty('--mx', x.toFixed(1) + '%'); });
-  });
+  if (!window.SL || SL.reduced) return;
+  var el = document.querySelector('[data-par]');
+  if (!el) return;
+  document.body.classList.add('js-par');
+  var raf = 0;
+  var run = function () { raf = 0; var y = Math.min(scrollY, innerHeight); el.style.transform = 'translate3d(0,' + (y * .18).toFixed(1) + 'px,0)'; };
+  addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(run); }, { passive: true });
 })();

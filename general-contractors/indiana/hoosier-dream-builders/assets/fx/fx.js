@@ -106,27 +106,6 @@ FX.def('reveal-plus', function (c) {
   els.forEach(function (e) { io.observe(e); });
 });
 
-/* fx scroll-progress */
-/* scroll-progress: 3px bar in --primary at the top of the page showing scroll progress, above sticky headers, click-through.
-   Scroll-driven CSS animation where supported; otherwise a passive scroll listener throttled with rAF. No smoothing.
-   opt: {height: 3} (px, 2 to 4) */
-FX.def('scroll-progress', function (c) {
-  var d = document, b = d.createElement('div'), h = Math.max(2, Math.min(4, +c.opt.height || 3));
-  b.className = 'fx-sp-bar'; b.setAttribute('aria-hidden', 'true'); b.style.height = h + 'px';
-  d.body.appendChild(b);
-  if (!FX.reduced && window.CSS && CSS.supports('animation-timeline: scroll()')) { b.classList.add('fx-sp-css'); return; }
-  var busy = 0, de = d.documentElement;
-  function set() {
-    busy = 0;
-    var m = de.scrollHeight - innerHeight;
-    b.style.transform = 'scaleX(' + (m > 0 ? Math.min(1, Math.max(0, scrollY / m)) : 0) + ')';
-  }
-  function req() { if (!busy) { busy = 1; requestAnimationFrame(set); } }
-  addEventListener('scroll', req, { passive: true });
-  addEventListener('resize', req, { passive: true });
-  set();
-});
-
 /* fx lightbox-plus */
 /* lightbox-plus: replaces core's lightbox for a[data-lb] (capture-phase click + stopImmediatePropagation so core never opens).
    Dialog with caption, "3 / 12" counter, prev/next, arrow keys, Escape, swipe, focus trap, focus back on the thumbnail, images grouped by

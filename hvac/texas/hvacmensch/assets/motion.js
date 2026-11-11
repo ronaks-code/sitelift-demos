@@ -1,16 +1,15 @@
-/* Finish motion: the hero before/after wipes from the 'before' edge to its resting split when the page loads.
-   The split is a CSS variable (--pos) on [data-ba], so the shared slider effect can take over. Static without JS or with reduced motion. */
+/* Permit motion: approval stamp thunk, checkbox ticking. Content is fully visible without it. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var ba = document.querySelector('.hf-ba');
-  if (!ba) return;
-  var t0 = null, from = 96, to = 50, ms = 1300;
-  ba.style.setProperty('--pos', from + '%');
-  function step(t) {
-    if (t0 === null) t0 = t;
-    var k = Math.min(1, (t - t0) / ms), e = 1 - Math.pow(1 - k, 3);
-    ba.style.setProperty('--pos', (from + (to - from) * e) + '%');
-    if (k < 1) requestAnimationFrame(step); else ba.style.removeProperty('--pos');
-  }
-  setTimeout(function () { requestAnimationFrame(step); }, 350);
+  document.body.classList.add('js-permit');
+  var ul = document.querySelectorAll('[data-ticks]');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      Array.prototype.forEach.call(e.target.children, function (li, i) { li.style.transitionDelay = (i * 160) + 'ms'; });
+      e.target.classList.add('ticked'); io.unobserve(e.target);
+    });
+  }, { threshold: .4 });
+  ul.forEach(function (u) { io.observe(u); });
 })();
