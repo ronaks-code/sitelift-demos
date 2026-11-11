@@ -119,33 +119,6 @@ FX.def('spotlight', function (c) {
   addEventListener('scroll', function () { if (cur) place(); }, { passive: true });
 });
 
-/* fx typewriter */
-/* typewriter: types the hero eyebrow (or any [data-fx-typewriter] element) once, 35 to 55ms per character, with a blinking caret that
-   goes away shortly after. The full text is reserved from the start (untyped part transparent) and kept in aria-label plus a
-   visually hidden copy, so screen readers and layout never see a partial string. Plain-text elements only.
-   Reduced motion: the full text, no caret. opt: {speed: 45} (average ms per character), {delay: 400} */
-FX.def('typewriter', function (c) {
-  if (FX.reduced) return;
-  var d = document, sp = +c.opt.speed || 45, dl = c.opt.delay == null ? 400 : +c.opt.delay;
-  c.els('main > :first-child [class*=eyebrow]').forEach(function (el) {
-    var t = el.textContent.trim();
-    if (!t || el.children.length || el.getAttribute('data-fx-tw')) return;
-    el.setAttribute('data-fx-tw', '1'); el.setAttribute('aria-label', t);
-    var sr = d.createElement('span'), a = d.createElement('span'), b = d.createElement('span');
-    sr.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap'; sr.textContent = t;
-    a.className = 'fx-tw-t'; a.setAttribute('aria-hidden', 'true'); b.className = 'fx-tw-r'; b.setAttribute('aria-hidden', 'true'); b.textContent = '\u2060' + t;
-    el.textContent = ''; el.appendChild(sr); el.appendChild(a); el.appendChild(b);
-    FX.seen([el], function () {
-      var i = 0; el.classList.add('fx-tw-live');
-      setTimeout(function next() {
-        i++; a.textContent = t.slice(0, i) + '\u2060'; b.textContent = '\u2060' + t.slice(i);
-        if (i < t.length) setTimeout(next, sp * (.8 + Math.random() * .4));
-        else setTimeout(function () { el.classList.remove('fx-tw-live'); }, 1800);
-      }, dl);
-    }, '0px');
-  });
-});
-
 /* fx duotone */
 /* duotone: gallery images are shown in the brand's two tones (dark from --dark, light from --primary eased toward the page light)
    through an inline SVG filter, and ease back to full colour on hover/focus (mouse) or while centred in the view (touch).
@@ -198,28 +171,61 @@ FX.def('duotone', function (c) {
   });
 });
 
-/* fx hero-zoomout */
-/* hero-zoomout: hero photo starts at scale 1.08 and, over the first 70vh of scrolling, eases to 1 while its edges inset 4% with
-   rounded corners (the frame's own overflow hides the rest). Default: the largest photo in the first block of <main>.
-   Scroll-driven CSS where supported, rAF scroll fallback otherwise. Reduced motion: untouched. */
-FX.def('hero-zoomout', function (c) {
+/* fx parallax */
+/* parallax: photos drift 6 to 10% slower than the page, inside a frame that clips them (a photo is only moved when its frame
+   or the frame around it has overflow hidden/clip, or a fixed aspect ratio). Small photos and logos are skipped.
+   opt: {amount: 5} (percent of the photo height each way; half on phones) */
+FX.def('parallax', function (c) {
   if (FX.reduced) return;
-  var els = c.els('main > :first-child img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
-  if (!c.sel && els.length > 1) {
-    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
-    els = [els.sort(function (x, y) { return a(y) - a(x); })[0]];
-  }
-  if (!els.length) return;
-  var img = els[0], css = window.CSS && CSS.supports('animation-timeline: scroll()');
-  img.classList.add('fx-hz');
-  if (css) { img.classList.add('fx-hz-css'); return; }
-  var busy = 0, ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+  var amp = (+c.opt.amount || 5) / (FX.small ? 2 : 1), css = window.CSS && CSS.supports('animation-timeline: view()');
+  var list = [];
+  c.els('main > :first-child img, [data-layer] img').forEach(function (img) {
+    var r = img.getBoundingClientRect();
+    if (r.width < 160 || r.height < 120 || /logo|icon/i.test(img.className + img.alt + img.src) || img.closest('.ph')) return;
+    var p = img.parentElement, ok = 0;
+    for (var n = p, i = 0; n && i < 3 && n !== document.body; n = n.parentElement, i++) {
+      var s = getComputedStyle(n);
+      if (/hidden|clip/.test(s.overflowY) || (i === 0 && s.aspectRatio !== 'auto' && s.display !== 'inline')) { ok = n; break; }
+    }
+    if (!ok) return;
+    if (ok === p && !/hidden|clip/.test(getComputedStyle(p).overflowY)) p.style.overflow = 'clip';
+    img.setAttribute('data-fx-px', ''); img.style.setProperty('--fx-px', amp + '%');
+    if (css) img.classList.add('fx-px-css'); else list.push({ img: img, box: p });
+  });
+  if (css || !list.length) return;
+  var busy = 0;
   function tick() {
     busy = 0;
-    var k = ease(Math.min(1, Math.max(0, scrollY / (innerHeight * .7))));
-    img.style.transform = 'scale(' + (1.08 - .08 * k).toFixed(4) + ')';
-    img.style.clipPath = 'inset(' + (4 * k).toFixed(2) + '% round calc(var(--radius, 12px) * ' + k.toFixed(3) + '))';
+    list.forEach(function (o) {
+      var r = o.box.getBoundingClientRect(), k = (innerHeight - r.top) / (innerHeight + r.height);
+      if (k < -.05 || k > 1.05) return;
+      o.img.style.transform = 'translate3d(0,' + ((k - .5) * 2 * amp * o.img.offsetHeight / 100).toFixed(1) + 'px,0) scale(1.12)';
+    });
   }
-  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
-  tick();
+  function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
+  addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
+});
+
+/* fx nav-stagger */
+/* nav-stagger: when the mobile menu opens (core.js toggles body.nav-open), the links inside the drawer rise in one after another
+   (40ms apart). The drawer is the toggle's aria-controls target, else the header links that were not visible before opening.
+   WAAPI with a backwards fill: links wait invisible during their delay, and always end (or are cancelled) fully visible.
+   Off with reduced motion. opt: {gap: 40} */
+FX.def('nav-stagger', function (c) {
+  if (FX.reduced) return;
+  var d = document, gap = c.opt.gap == null ? 40 : +c.opt.gap, was = [];
+  function vis() { return FX.$$('header a, nav a').filter(function (a) { return a.offsetParent !== null; }); }
+  was = vis();
+  function links() {
+    var t = d.querySelector('[data-nav-toggle][aria-controls]'), dr = t && d.getElementById(t.getAttribute('aria-controls'));
+    var l = dr ? FX.$$('a', dr) : vis().filter(function (a) { return was.indexOf(a) < 0; });
+    return l.filter(function (a) { return a.offsetParent !== null; });
+  }
+  new MutationObserver(function () {
+    if (!d.body.classList.contains('nav-open')) { was = vis(); return; }
+    links().forEach(function (a, i) {
+      a.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
+        { duration: 420, delay: 60 + i * gap, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+    });
+  }).observe(d.body, { attributes: true, attributeFilter: ['class'] });
 });

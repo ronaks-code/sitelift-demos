@@ -86,39 +86,60 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx tilt */
-/* tilt: cards lean toward the pointer (max 5deg, perspective 900px) with a soft glare; resets on leave. Mouse only, off with
-   reduced motion, never on cards wider than 700px or holding form fields. opt: {max: 5, glare: true} */
-FX.def('tilt', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var max = +c.opt.max || 5, all = c.els('[class*=card]:not([class*=cards])');
-  all.filter(function (e) {
-    return !e.querySelector('input,textarea,select') && !all.some(function (o) { return o !== e && o.contains(e); });
-  }).forEach(function (el) {
-    var g, r, tr = el.style.transition, live = 0;
-    if (c.opt.glare !== false) {
-      if (getComputedStyle(el).position === 'static') el.style.position = 'relative';   // before appending: no layout shift
-      g = document.createElement('span'); g.className = 'fx-tilt-g'; g.setAttribute('aria-hidden', 'true'); el.appendChild(g);
+/* fx parallax */
+/* parallax: photos drift 6 to 10% slower than the page, inside a frame that clips them (a photo is only moved when its frame
+   or the frame around it has overflow hidden/clip, or a fixed aspect ratio). Small photos and logos are skipped.
+   opt: {amount: 5} (percent of the photo height each way; half on phones) */
+FX.def('parallax', function (c) {
+  if (FX.reduced) return;
+  var amp = (+c.opt.amount || 5) / (FX.small ? 2 : 1), css = window.CSS && CSS.supports('animation-timeline: view()');
+  var list = [];
+  c.els('main > :first-child img, [data-layer] img').forEach(function (img) {
+    var r = img.getBoundingClientRect();
+    if (r.width < 160 || r.height < 120 || /logo|icon/i.test(img.className + img.alt + img.src) || img.closest('.ph')) return;
+    var p = img.parentElement, ok = 0;
+    for (var n = p, i = 0; n && i < 3 && n !== document.body; n = n.parentElement, i++) {
+      var s = getComputedStyle(n);
+      if (/hidden|clip/.test(s.overflowY) || (i === 0 && s.aspectRatio !== 'auto' && s.display !== 'inline')) { ok = n; break; }
     }
-    function ease(ms) { el.style.transition = getComputedStyle(el).transition + ', transform ' + ms + 'ms cubic-bezier(.2,.7,.2,1)'; }
-    el.addEventListener('pointerenter', function (e) {
-      if (e.pointerType && e.pointerType !== 'mouse') return;
-      r = el.getBoundingClientRect();
-      if (r.width > 700) return;
-      live = 1; el.style.transition = tr; ease(220); if (g) g.classList.add('on');
-    });
-    el.addEventListener('pointermove', function (e) {
-      if (!live) return;
-      var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      el.style.transform = 'perspective(900px) rotateX(' + (-y * 2 * max).toFixed(2) + 'deg) rotateY(' + (x * 2 * max).toFixed(2) + 'deg)';
-      if (g) { g.style.setProperty('--gx', (x + .5) * 100 + '%'); g.style.setProperty('--gy', (y + .5) * 100 + '%'); }
-    });
-    el.addEventListener('pointerleave', function () {
-      if (!live) return;
-      live = 0; el.style.transition = tr; ease(650); el.style.transform = ''; if (g) g.classList.remove('on');
-      setTimeout(function () { if (!live) el.style.transition = tr; }, 700);
-    });
+    if (!ok) return;
+    if (ok === p && !/hidden|clip/.test(getComputedStyle(p).overflowY)) p.style.overflow = 'clip';
+    img.setAttribute('data-fx-px', ''); img.style.setProperty('--fx-px', amp + '%');
+    if (css) img.classList.add('fx-px-css'); else list.push({ img: img, box: p });
   });
+  if (css || !list.length) return;
+  var busy = 0;
+  function tick() {
+    busy = 0;
+    list.forEach(function (o) {
+      var r = o.box.getBoundingClientRect(), k = (innerHeight - r.top) / (innerHeight + r.height);
+      if (k < -.05 || k > 1.05) return;
+      o.img.style.transform = 'translate3d(0,' + ((k - .5) * 2 * amp * o.img.offsetHeight / 100).toFixed(1) + 'px,0) scale(1.12)';
+    });
+  }
+  function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
+  addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
+});
+
+/* fx mask-reveal */
+/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
+   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
+   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
+FX.def('mask-reveal', function (c) {
+  if (FX.reduced || !Element.prototype.animate) return;
+  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
+  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
+    var r = i.getBoundingClientRect();
+    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
+  });
+  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
+  FX.seen(imgs, function (i) {
+    var p = i.parentElement, clipped = 0;
+    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
+    i.removeAttribute('data-fx-mr');
+    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
+      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+  }, '0px 0px -6% 0px');
 });
 
 /* fx bg-topo */

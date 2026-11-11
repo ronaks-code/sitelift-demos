@@ -1,3 +1,33 @@
+/* fx cursor-blend */
+/* cursor-blend: the circle exists only when JS built it (mouse + motion allowed); nothing here can hide content */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-cb-on, html.fx-cb-on * { cursor: none }
+ html.fx-cb-on input, html.fx-cb-on textarea, html.fx-cb-on select, html.fx-cb-on iframe, html.fx-cb-on [contenteditable] { cursor: auto }
+}
+.fx-cb { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 2147483000; mix-blend-mode: difference; opacity: 0; transition: opacity .25s; will-change: transform }
+.fx-cb.on { opacity: 1 }
+.fx-cb.is-field { opacity: 0 }
+.fx-cb i { position: absolute; left: -11px; top: -11px; width: 22px; height: 22px; border-radius: 50%; background: #fff;
+ transition: transform .35s cubic-bezier(.2, .8, .2, 1) }
+.fx-cb.is-grow i { transform: scale(3.18) }
+.fx-cb.is-link i { transform: scale(.55) }
+.fx-cb.down i { transform: scale(.8) }
+.fx-cb.is-grow.down i { transform: scale(2.6) }
+
+/* fx parallax */
+/* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
+   scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */
+@keyframes fx-px {
+ from { transform: translate3d(0, calc(var(--fx-px, 5%) * -1), 0) scale(1.12) }
+ to { transform: translate3d(0, var(--fx-px, 5%), 0) scale(1.12) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-parallax [data-fx-px] { will-change: transform; transform: scale(1.12) }
+ @supports (animation-timeline: view()) {
+  html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
+ }
+}
+
 /* fx btn-fill */
 /* btn-fill: hover fills the button from the side the pointer came in (JS sets --fx-dx/--fx-dy in -1..1, and inserts the
    fill layer); the text colour swaps to a readable pair. Keyboard focus fills from the centre. No JS = untouched buttons. */
@@ -14,19 +44,3 @@ html.fx-btn-fill .fx-bf:focus-visible .fx-bf-l { clip-path: circle(160% at 50% 5
  html.fx-btn-fill .fx-bf:hover .fx-bf-l { clip-path: circle(160% at calc(50% + var(--fx-dx, 0) * 50%) calc(50% + var(--fx-dy, 0) * 50%)) }
 }
 @media (prefers-reduced-motion: no-preference) { html.fx-btn-fill .fx-bf-l { transition: clip-path .5s cubic-bezier(.2, .7, .2, 1) } }
-
-/* fx cursor-blend */
-/* cursor-blend: the circle exists only when JS built it (mouse + motion allowed); nothing here can hide content */
-@media (hover: hover) and (pointer: fine) {
- html.fx-cb-on, html.fx-cb-on * { cursor: none }
- html.fx-cb-on input, html.fx-cb-on textarea, html.fx-cb-on select, html.fx-cb-on iframe, html.fx-cb-on [contenteditable] { cursor: auto }
-}
-.fx-cb { position: fixed; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 2147483000; mix-blend-mode: difference; opacity: 0; transition: opacity .25s; will-change: transform }
-.fx-cb.on { opacity: 1 }
-.fx-cb.is-field { opacity: 0 }
-.fx-cb i { position: absolute; left: -11px; top: -11px; width: 22px; height: 22px; border-radius: 50%; background: #fff;
- transition: transform .35s cubic-bezier(.2, .8, .2, 1) }
-.fx-cb.is-grow i { transform: scale(3.18) }
-.fx-cb.is-link i { transform: scale(.55) }
-.fx-cb.down i { transform: scale(.8) }
-.fx-cb.is-grow.down i { transform: scale(2.6) }

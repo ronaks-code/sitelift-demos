@@ -1,17 +1,17 @@
-/* Marque motion: the rating rolls like an odometer. Falls back to the plain number (no JS / reduced motion). */
+/* Family Garage motion: the hero photo settles in from a slight zoom; on the home page the floating header docks
+   (solid, fixed) once the hero has scrolled away. Docking is a state change, so it also runs with reduced motion
+   (base.css removes the slide-in animation then). Content never depends on this script. */
 (function () {
-  if (!window.SL || SL.reduced) return;
-  document.querySelectorAll('[data-odo]').forEach(function (el) {
-    var txt = el.getAttribute('data-odo'); if (!txt) return;
-    el.setAttribute('aria-label', txt); el.textContent = '';
-    var strips = [];
-    txt.split('').forEach(function (ch) {
-      if (!/\d/.test(ch)) { var s = document.createElement('span'); s.className = 'od-c'; s.textContent = ch; s.setAttribute('aria-hidden', 'true'); el.appendChild(s); return; }
-      var col = document.createElement('span'), strip = document.createElement('span'), n;
-      col.className = 'od-col'; strip.className = 'od-strip'; col.setAttribute('aria-hidden', 'true');
-      for (n = 0; n < 10; n++) { var i = document.createElement('i'); i.textContent = n; strip.appendChild(i); }
-      strip.style.transform = 'translateY(0)'; strip.dataset.to = ch; col.appendChild(strip); el.appendChild(col); strips.push(strip);
-    });
-    requestAnimationFrame(function () { requestAnimationFrame(function () { strips.forEach(function (s) { s.style.transform = 'translateY(-' + (+s.dataset.to * 10) + '%)'; }); }); });
-  });
+  if (!window.SL) return;
+  var d = document, top = d.querySelector('[data-fg-top]'), hero = d.querySelector('.fg-hero');
+  if (!SL.reduced) d.body.classList.add('js-fg');
+  if (!top || !hero || !d.body.classList.contains('fg-home')) return;
+  var on = false, tick = false;
+  function check() {
+    tick = false;
+    var past = hero.getBoundingClientRect().bottom < 90;
+    if (past !== on) { on = past; top.classList.toggle('is-solid', on); }
+  }
+  addEventListener('scroll', function () { if (!tick) { tick = true; requestAnimationFrame(check); } }, { passive: true });
+  check();
 })();

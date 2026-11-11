@@ -86,6 +86,75 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx sticky-cta */
+/* sticky-cta: floating "Call" + booking/contact pill. Appears once the hero has scrolled away; hides while the footer or the page's own
+   booking button is on screen. Labels come from the links' own text (shortened) or opt. Mobile: no-op when the kit has a .callbar.
+   opt: {call: "Call", book: "Book now", label: "Quick contact"} */
+FX.def('sticky-cta', function (c) {
+  var d = document, o = c.opt, tel = d.querySelector('a[href^="tel:"]');
+  var book = d.querySelector('a[href*="booking.html"]') || d.querySelector('a[href*="contact.html"]');
+  if (!tel && !book) return;
+  function short(t, fb) {
+    t = (t || '').replace(/[\d()+\-.\s]{7,}/g, ' ').replace(/\s+/g, ' ').trim();
+    return t && t.length <= 18 ? t : fb;
+  }
+  var bar = d.createElement('div'), href = book && book.getAttribute('href');
+  bar.className = 'fx-sc' + (d.querySelector('.callbar') ? ' fx-sc-nb' : '');
+  bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', o.label || 'Quick contact');
+  function add(cls, h, t) { var a = d.createElement('a'); a.className = cls; a.href = h; a.textContent = t; bar.appendChild(a); }
+  if (tel) add('fx-sc-call', tel.getAttribute('href'), o.call || short(tel.textContent, 'Call'));
+  if (book) add('fx-sc-book', href, o.book || short(book.textContent, /contact/.test(href) ? 'Contact us' : 'Book now'));
+  d.body.appendChild(bar);
+  var gone = 0, foot = 0, near = 0, hero = d.querySelector('[data-hero]') || d.querySelector('main > :first-child');
+  function upd() { bar.classList.toggle('on', !!gone && !foot && !near); }
+  function watch(els, fn) {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) { fn(es); upd(); });
+    els.forEach(function (e) { io.observe(e); });
+  }
+  if (hero) watch([hero], function (es) { var e = es[es.length - 1]; gone = !e.isIntersecting && e.boundingClientRect.bottom <= 0; });
+  else addEventListener('scroll', function () { gone = scrollY > innerHeight * .6; upd(); }, { passive: true });
+  var f = d.querySelector('body > footer') || d.querySelector('footer');
+  if (f) watch([f], function (es) { foot = es[es.length - 1].isIntersecting; });
+  var tg = FX.$$(book ? 'a[href="' + href + '"]' : 'a[href^="tel:"]').filter(function (a) { return !a.closest('header,nav,.callbar,.fx-sc'); }), seen = [];
+  if (tg.length) watch(tg, function (es) {
+    es.forEach(function (e) { var i = seen.indexOf(e.target); if (e.isIntersecting && i < 0) seen.push(e.target); else if (!e.isIntersecting && i > -1) seen.splice(i, 1); });
+    near = seen.length;
+  });
+});
+
+/* fx count-up */
+/* count-up: real numbers (rating, review count, years) count up once when they scroll into view. The element's width is
+   locked to its final text first (no layout shift); the final text is exactly what was there (prefix/suffix kept);
+   years (1900-2099) and numbers under 2 are left alone. Reduced motion / no JS: the final number, untouched.
+   opt: {ms: 1400} */
+FX.def('count-up', function (c) {
+  if (FX.reduced) return;
+  var ms = +c.opt.ms || 1400;
+  var els = c.els('[data-count],[class*="stat"] b,[class*="stat"] strong,[class*="stat"] dd,[class*="stat"] [class*="num"]');
+  els = els.filter(function (el) { return !el.children.length && /^\D{0,2}\d[\d,]*(\.\d+)?\D{0,8}$/.test(el.textContent.trim()); });
+  els.forEach(function (el) {
+    var t = el.textContent.trim(), m = t.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
+    var end = parseFloat(m[2].replace(/,/g, ''));
+    if (!isFinite(end) || end < 2 || (end >= 1900 && end < 2100 && m[2].indexOf('.') < 0)) return;
+    var dec = (m[2].split('.')[1] || '').length, comma = m[2].indexOf(',') > -1;
+    var fmt = function (v) { var s = v.toFixed(dec); return comma ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s; };
+    if (getComputedStyle(el).display === 'inline') el.style.display = 'inline-block';
+    el.style.fontVariantNumeric = 'tabular-nums';
+    el.style.minWidth = el.getBoundingClientRect().width + 'px';
+    el.setAttribute('data-fx-final', t);
+    FX.seen([el], function () {
+      var t0 = performance.now();
+      el.setAttribute('aria-label', t);
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 4);
+        el.textContent = k < 1 ? m[1] + fmt(end * e) + m[3] : t;
+        if (k < 1) requestAnimationFrame(step); else el.removeAttribute('aria-label');
+      })(t0);
+    });
+  });
+});
+
 /* fx bg-grid */
 /* bg-grid: a fine dot grid (opt kind "lines" for a line grid) with a brighter copy of the grid revealed through a soft
    circle that follows the pointer (mouse) or slowly sweeps (touch). Edges fade out. Static grid with reduced motion.
@@ -110,5 +179,25 @@ FX.def('bg-grid', function (c) {
       });
     }, { passive: true });
     t.addEventListener('pointerleave', function () { hi.style.opacity = 0; });
+  });
+});
+
+/* fx stars-fill */
+/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
+   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
+FX.def('stars-fill', function (c) {
+  if (FX.reduced) return;
+  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
+    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
+  });
+  els.forEach(function (el) {
+    var s = document.createElement('span');
+    s.className = 'fx-stars-in fx-stars-w';
+    while (el.firstChild) s.appendChild(el.firstChild);
+    el.appendChild(s);
+    FX.seen([el], function () {
+      s.classList.remove('fx-stars-w');
+      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
+    });
   });
 });

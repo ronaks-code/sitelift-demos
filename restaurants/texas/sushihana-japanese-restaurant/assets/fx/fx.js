@@ -156,24 +156,12 @@ FX.def('header-hide', function (c) {
   hd.addEventListener('focusin', function () { set(0); });
 });
 
-/* fx reveal-plus */
-/* reveal-plus: richer reveals on top of core's .rv (core adds .in). opt: {style: "rise" | "blur" | "clip", step: 70} (ms between
-   items that enter together, so grids and lists cascade instead of popping at once). Reduced motion: core already shows all. */
-FX.def('reveal-plus', function (c) {
-  if (FX.reduced || !('IntersectionObserver' in window)) return;
-  var h = document.documentElement, st = String(c.opt.style || 'rise'), step = +c.opt.step || 70;
-  if (st === 'blur' || st === 'clip') h.classList.add('fx-rp-' + st);
-  var els = c.els('.rv').filter(function (e) { return !e.classList.contains('in'); });
-  var io = new IntersectionObserver(function (es) {
-    var hit = es.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
-    hit.sort(function (a, b) { var A = a.getBoundingClientRect(), B = b.getBoundingClientRect(); return (A.top - B.top) || (A.left - B.left); });
-    hit.forEach(function (e, i) {
-      io.unobserve(e);
-      e.style.transitionDelay = Math.min(i, 6) * step + 'ms';
-      setTimeout(function () { e.style.transitionDelay = ''; }, 1500);
-    });
-  }, { rootMargin: '0px 0px -8% 0px' });
-  els.forEach(function (e) { io.observe(e); });
+/* fx heading-scrub */
+/* heading-scrub: marks the section headings (h2 by default) the CSS animates. Letter-spacing is deliberately not animated (it would
+   reflow the text); the heading lifts, fades up and un-clips instead. Browsers without scroll-driven animations: nothing happens. */
+FX.def('heading-scrub', function (c) {
+  if (FX.reduced || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
+  c.els('main h2').forEach(function (e) { e.setAttribute('data-fx-hs', ''); });
 });
 
 /* fx split-reveal */

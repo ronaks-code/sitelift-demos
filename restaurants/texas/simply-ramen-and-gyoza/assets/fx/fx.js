@@ -86,6 +86,127 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx cursor-blend */
+/* cursor-blend: one white circle that inverts whatever is under it (mix-blend-mode: difference). Grows over images and
+   headings, shrinks over links. Native cursor hidden except in form fields and iframes. Mouse only, off with reduced
+   motion. Mark extra grow targets with [data-cursor-grow]. opt: {grow: "extra selector"} */
+FX.def('cursor-blend', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  var d = document, h = d.documentElement, el = d.createElement('div'), x = -99, y = -99, px = x, py = y, busy = 0;
+  var G = '[data-cursor-grow],h1,h2,a[data-lb] img' + (c.opt.grow ? ',' + c.opt.grow : '');
+  el.className = 'fx-cb'; el.setAttribute('aria-hidden', 'true'); el.innerHTML = '<i></i>';
+  d.body.appendChild(el);
+  function tick() {
+    px += (x - px) * 0.35; py += (y - py) * 0.35;
+    el.style.transform = 'translate3d(' + px + 'px,' + py + 'px,0)';
+    if (Math.abs(x - px) + Math.abs(y - py) > 0.2) requestAnimationFrame(tick); else busy = 0;
+  }
+  addEventListener('pointermove', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    x = e.clientX; y = e.clientY;
+    if (!el.classList.contains('on')) { px = x; py = y; el.classList.add('on'); h.classList.add('fx-cb-on'); }
+    if (!busy) { busy = 1; requestAnimationFrame(tick); }
+  }, { passive: true });
+  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) el.classList.remove('on'); });
+  d.addEventListener('pointerdown', function () { el.classList.add('down'); }, { passive: true });
+  d.addEventListener('pointerup', function () { el.classList.remove('down'); }, { passive: true });
+  d.addEventListener('pointerover', function (e) {
+    var t = e.target.closest ? e.target : e.target.parentElement;
+    if (!t || !t.closest) return;
+    var field = t.closest('input,textarea,select,[contenteditable],iframe');
+    el.classList.toggle('is-field', !!field);
+    el.classList.toggle('is-grow', !field && !!t.closest(G));
+    el.classList.toggle('is-link', !field && !t.closest(G) && !!t.closest('a,button,[role=button],label,summary'));
+  }, { passive: true });
+});
+
+/* fx parallax */
+/* parallax: photos drift 6 to 10% slower than the page, inside a frame that clips them (a photo is only moved when its frame
+   or the frame around it has overflow hidden/clip, or a fixed aspect ratio). Small photos and logos are skipped.
+   opt: {amount: 5} (percent of the photo height each way; half on phones) */
+FX.def('parallax', function (c) {
+  if (FX.reduced) return;
+  var amp = (+c.opt.amount || 5) / (FX.small ? 2 : 1), css = window.CSS && CSS.supports('animation-timeline: view()');
+  var list = [];
+  c.els('main > :first-child img, [data-layer] img').forEach(function (img) {
+    var r = img.getBoundingClientRect();
+    if (r.width < 160 || r.height < 120 || /logo|icon/i.test(img.className + img.alt + img.src) || img.closest('.ph')) return;
+    var p = img.parentElement, ok = 0;
+    for (var n = p, i = 0; n && i < 3 && n !== document.body; n = n.parentElement, i++) {
+      var s = getComputedStyle(n);
+      if (/hidden|clip/.test(s.overflowY) || (i === 0 && s.aspectRatio !== 'auto' && s.display !== 'inline')) { ok = n; break; }
+    }
+    if (!ok) return;
+    if (ok === p && !/hidden|clip/.test(getComputedStyle(p).overflowY)) p.style.overflow = 'clip';
+    img.setAttribute('data-fx-px', ''); img.style.setProperty('--fx-px', amp + '%');
+    if (css) img.classList.add('fx-px-css'); else list.push({ img: img, box: p });
+  });
+  if (css || !list.length) return;
+  var busy = 0;
+  function tick() {
+    busy = 0;
+    list.forEach(function (o) {
+      var r = o.box.getBoundingClientRect(), k = (innerHeight - r.top) / (innerHeight + r.height);
+      if (k < -.05 || k > 1.05) return;
+      o.img.style.transform = 'translate3d(0,' + ((k - .5) * 2 * amp * o.img.offsetHeight / 100).toFixed(1) + 'px,0) scale(1.12)';
+    });
+  }
+  function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
+  addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
+});
+
+/* fx duotone */
+/* duotone: gallery images are shown in the brand's two tones (dark from --dark, light from --primary eased toward the page light)
+   through an inline SVG filter, and ease back to full colour on hover/focus (mouse) or while centred in the view (touch).
+   One filter per image so each fades on its own; one shared rAF loop that sleeps when idle. Skips placeholders and logos.
+   Reduced motion: same states, switched instantly. opt: {mix: 0.5} (how far the light tone moves toward the page light) */
+FX.def('duotone', function (c) {
+  var d = document, ns = 'http://www.w3.org/2000/svg';
+  function rgb(v) { return (String(FX.color(v)).match(/[\d.]+/g) || [0, 0, 0]).slice(0, 3).map(Number); }
+  function lum(a) { return (.2126 * a[0] + .7152 * a[1] + .0722 * a[2]) / 255; }
+  var dark = rgb('--dark'), ink = rgb('--ink'), pri = rgb('--primary'), bg = rgb('--bg'), od = rgb('--on-dark');
+  var top = lum(bg) > lum(od) ? bg : od, k = c.opt.mix == null ? .5 : +c.opt.mix, lite;
+  function mix(a, b, t) { return a.map(function (v, i) { return v + (b[i] - v) * t; }); }
+  lite = mix(pri, top, k);
+  while (lum(lite) < .55 && k < 1) { k += .1; lite = mix(pri, top, k); }
+  if (lum(dark) > lum(lite) * .6) dark = lum(ink) < lum(dark) ? ink : mix(dark, [0, 0, 0], .6);
+  var imgs = c.els('a[data-lb] img').filter(function (i) { return !i.closest('.ph,[class*=logo]') && !/logo/i.test(i.src); });
+  if (!imgs.length) return;
+  var svg = d.createElementNS(ns, 'svg'), f = function (a) { return a.map(function (v) { return (v / 255).toFixed(3); }); };
+  svg.setAttribute('width', 0); svg.setAttribute('height', 0); svg.setAttribute('aria-hidden', 'true'); svg.style.cssText = 'position:absolute;pointer-events:none';
+  var D = f(dark), Lt = f(lite), st = [], run = 0;
+  var fn = function (ch, i) { return '<feFunc' + ch + ' type="table" tableValues="' + D[i] + ' ' + Lt[i] + '"/>'; };
+  svg.innerHTML = imgs.map(function (_, n) {
+    return '<filter id="fx-duo-' + n + '" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB">' +
+      '<feColorMatrix type="matrix" values=".2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 0 0 0 1 0"/>' +
+      '<feComponentTransfer result="d">' + fn('R', 0) + fn('G', 1) + fn('B', 2) + '</feComponentTransfer>' +
+      '<feComposite in="d" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="0" k4="0"/></filter>';
+  }).join('');
+  d.body.appendChild(svg);
+  var mixers = svg.querySelectorAll('feComposite');
+  function paint(s) { s.m.setAttribute('k2', (1 - s.t).toFixed(3)); s.m.setAttribute('k3', s.t.toFixed(3)); }
+  function tick() {
+    var busy = 0;
+    st.forEach(function (s) {
+      if (s.t === s.to) return;
+      s.t = FX.reduced ? s.to : (s.to > s.t ? Math.min(s.to, s.t + .06) : Math.max(s.to, s.t - .06));
+      paint(s); if (s.t !== s.to) busy = 1;
+    });
+    run = busy ? requestAnimationFrame(tick) : 0;
+  }
+  function aim(s, to) { s.to = to; if (!run) run = requestAnimationFrame(tick); }
+  var io = !FX.fine && 'IntersectionObserver' in window && new IntersectionObserver(function (es) {
+    es.forEach(function (e) { aim(e.target.__fxd, e.isIntersecting ? 1 : 0); });
+  }, { rootMargin: '-44% 0px -44% 0px' });
+  imgs.forEach(function (img, n) {
+    var s = { m: mixers[n], t: 0, to: 0 }; st.push(s); img.__fxd = s; img.style.filter = 'url(#fx-duo-' + n + ')';
+    if (io) { io.observe(img); return; }
+    var host = img.closest('a') || img;
+    ['mouseenter', 'focusin'].forEach(function (ev) { host.addEventListener(ev, function () { aim(s, 1); }); });
+    ['mouseleave', 'focusout'].forEach(function (ev) { host.addEventListener(ev, function () { aim(s, 0); }); });
+  });
+});
+
 /* fx nav-stagger */
 /* nav-stagger: when the mobile menu opens (core.js toggles body.nav-open), the links inside the drawer rise in one after another
    (40ms apart). The drawer is the toggle's aria-controls target, else the header links that were not visible before opening.
@@ -132,38 +253,4 @@ FX.def('btn-fill', function (c) {
     b.addEventListener('pointerenter', set); b.addEventListener('pointerleave', set);
     b.addEventListener('focus', function () { b.style.setProperty('--fx-dx', 0); b.style.setProperty('--fx-dy', 0); });
   });
-});
-
-/* fx cursor-blend */
-/* cursor-blend: one white circle that inverts whatever is under it (mix-blend-mode: difference). Grows over images and
-   headings, shrinks over links. Native cursor hidden except in form fields and iframes. Mouse only, off with reduced
-   motion. Mark extra grow targets with [data-cursor-grow]. opt: {grow: "extra selector"} */
-FX.def('cursor-blend', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var d = document, h = d.documentElement, el = d.createElement('div'), x = -99, y = -99, px = x, py = y, busy = 0;
-  var G = '[data-cursor-grow],h1,h2,a[data-lb] img' + (c.opt.grow ? ',' + c.opt.grow : '');
-  el.className = 'fx-cb'; el.setAttribute('aria-hidden', 'true'); el.innerHTML = '<i></i>';
-  d.body.appendChild(el);
-  function tick() {
-    px += (x - px) * 0.35; py += (y - py) * 0.35;
-    el.style.transform = 'translate3d(' + px + 'px,' + py + 'px,0)';
-    if (Math.abs(x - px) + Math.abs(y - py) > 0.2) requestAnimationFrame(tick); else busy = 0;
-  }
-  addEventListener('pointermove', function (e) {
-    if (e.pointerType && e.pointerType !== 'mouse') return;
-    x = e.clientX; y = e.clientY;
-    if (!el.classList.contains('on')) { px = x; py = y; el.classList.add('on'); h.classList.add('fx-cb-on'); }
-    if (!busy) { busy = 1; requestAnimationFrame(tick); }
-  }, { passive: true });
-  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) el.classList.remove('on'); });
-  d.addEventListener('pointerdown', function () { el.classList.add('down'); }, { passive: true });
-  d.addEventListener('pointerup', function () { el.classList.remove('down'); }, { passive: true });
-  d.addEventListener('pointerover', function (e) {
-    var t = e.target.closest ? e.target : e.target.parentElement;
-    if (!t || !t.closest) return;
-    var field = t.closest('input,textarea,select,[contenteditable],iframe');
-    el.classList.toggle('is-field', !!field);
-    el.classList.toggle('is-grow', !field && !!t.closest(G));
-    el.classList.toggle('is-link', !field && !t.closest(G) && !!t.closest('a,button,[role=button],label,summary'));
-  }, { passive: true });
 });

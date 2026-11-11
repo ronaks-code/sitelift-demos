@@ -1,13 +1,15 @@
-/* Fit the big phone number on one line whatever the brand font's width (layout, so it runs with reduced motion too). */
+/* Checklist motion: each inspection row gets its green mark as it scrolls in, one after the other. Everything is shown without JS or with reduced motion. */
 (function () {
-  var els = document.querySelectorAll('.en-foot-tel');
-  if (!els.length) return;
-  function fit() { els.forEach(function (e) { e.style.fontSize = ''; e.parentElement.style.minWidth = '0'; var r = e.clientWidth / e.scrollWidth; if (r < 1) e.style.fontSize = (parseFloat(getComputedStyle(e).fontSize) * r * 0.97) + 'px'; }); }
-  fit(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
-  var t; addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 120); });
-})();
-/* Enamel Sign motion: glint across the plaque + ribbon unfurl (CSS), started here. Static under reduced motion. */
-(function () {
-  if (!window.SL || SL.reduced) return;
-  document.body.classList.add('js-en');
+  if (!window.SL || SL.reduced || !('IntersectionObserver' in window)) return;
+  var rows = [].slice.call(document.querySelectorAll('.ck-row'));
+  if (!rows.length) return;
+  document.body.classList.add('js-ck');
+  var n = 0, io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target; io.unobserve(el);
+      setTimeout(function () { el.classList.add('is-on'); }, (n++ % 6) * 140);
+    });
+  }, { threshold: 0.6 });
+  rows.forEach(function (r) { io.observe(r); });
 })();

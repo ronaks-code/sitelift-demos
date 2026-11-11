@@ -86,27 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx mask-reveal */
-/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
-   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
-   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
-FX.def('mask-reveal', function (c) {
-  if (FX.reduced || !Element.prototype.animate) return;
-  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
-  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
-    var r = i.getBoundingClientRect();
-    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
-  });
-  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
-  FX.seen(imgs, function (i) {
-    var p = i.parentElement, clipped = 0;
-    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
-    i.removeAttribute('data-fx-mr');
-    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
-      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  }, '0px 0px -6% 0px');
-});
-
 /* fx lightbox-plus */
 /* lightbox-plus: replaces core's lightbox for a[data-lb] (capture-phase click + stopImmediatePropagation so core never opens).
    Dialog with caption, "3 / 12" counter, prev/next, arrow keys, Escape, swipe, focus trap, focus back on the thumbnail, images grouped by
@@ -188,102 +167,6 @@ FX.def('lightbox-plus', function (c) {
     if (!a || !a.getAttribute('href')) return;
     e.preventDefault(); e.stopImmediatePropagation(); open(a);
   }, true);
-});
-
-/* fx cursor-ring */
-/* cursor-ring: a precise dot on the pointer and a soft ring that follows with a little lag. Over links/buttons the ring
-   grows; over gallery photos and call links it becomes a labelled pill ("View", "Call"). Mouse only (FX.fine), off with
-   reduced motion; text fields keep the native caret. opt: {labels: {view, call, book}, blend: true} */
-FX.def('cursor-ring', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var d = document, h = d.documentElement, o = c.opt, L = o.labels || {};
-  var lab = { view: L.view || 'View', call: L.call || 'Call', book: L.book || '' };
-  var el = d.createElement('div');
-  el.className = 'fx-cur' + (o.blend ? ' fx-cur-blend' : ''); el.setAttribute('aria-hidden', 'true');
-  el.innerHTML = '<i class="fx-cur-ring"><b><span></span></b></i><i class="fx-cur-dot"></i>';
-  d.body.appendChild(el);
-  var ring = el.firstChild, dot = el.lastChild, txt = ring.querySelector('span');
-  var x = -100, y = -100, rx = -100, ry = -100, busy = 0;
-  h.classList.add('fx-cur-on');
-  function tick() {
-    rx += (x - rx) * 0.2; ry += (y - ry) * 0.2;
-    ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0)';
-    if (Math.abs(x - rx) + Math.abs(y - ry) > 0.2) requestAnimationFrame(tick); else busy = 0;
-  }
-  addEventListener('pointermove', function (e) {
-    if (e.pointerType && e.pointerType !== 'mouse') return;
-    x = e.clientX; y = e.clientY;
-    dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
-    if (!el.classList.contains('on')) { rx = x; ry = y; el.classList.add('on'); }
-    if (!busy) { busy = 1; requestAnimationFrame(tick); }
-  }, { passive: true });
-  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) el.classList.remove('on'); });
-  d.addEventListener('pointerdown', function () { el.classList.add('down'); }, { passive: true });
-  d.addEventListener('pointerup', function () { el.classList.remove('down'); }, { passive: true });
-  d.addEventListener('pointerover', function (e) {
-    var t = e.target.closest ? e.target : e.target.parentElement;
-    if (!t || !t.closest) return;
-    var field = t.closest('input,textarea,select,[contenteditable],iframe');
-    var cue = t.closest('[data-cursor]');
-    var a = t.closest('a,button,[role=button],label,summary,[data-f]');
-    var s = '';
-    if (cue) s = cue.getAttribute('data-cursor');
-    else if (a && a.matches('a[data-lb],[data-lb] a')) s = lab.view;
-    else if (a && /^tel:/i.test(a.getAttribute('href') || '')) s = lab.call;
-    else if (a && lab.book && /book/i.test(a.getAttribute('href') || '')) s = lab.book;
-    el.classList.toggle('is-field', !!field);
-    el.classList.toggle('is-link', !!a && !s);
-    el.classList.toggle('is-label', !!s);
-    if (s) txt.textContent = s;
-  }, { passive: true });
-});
-
-/* fx nav-stagger */
-/* nav-stagger: when the mobile menu opens (core.js toggles body.nav-open), the links inside the drawer rise in one after another
-   (40ms apart). The drawer is the toggle's aria-controls target, else the header links that were not visible before opening.
-   WAAPI with a backwards fill: links wait invisible during their delay, and always end (or are cancelled) fully visible.
-   Off with reduced motion. opt: {gap: 40} */
-FX.def('nav-stagger', function (c) {
-  if (FX.reduced) return;
-  var d = document, gap = c.opt.gap == null ? 40 : +c.opt.gap, was = [];
-  function vis() { return FX.$$('header a, nav a').filter(function (a) { return a.offsetParent !== null; }); }
-  was = vis();
-  function links() {
-    var t = d.querySelector('[data-nav-toggle][aria-controls]'), dr = t && d.getElementById(t.getAttribute('aria-controls'));
-    var l = dr ? FX.$$('a', dr) : vis().filter(function (a) { return was.indexOf(a) < 0; });
-    return l.filter(function (a) { return a.offsetParent !== null; });
-  }
-  new MutationObserver(function () {
-    if (!d.body.classList.contains('nav-open')) { was = vis(); return; }
-    links().forEach(function (a, i) {
-      a.animate([{ opacity: 0, transform: 'translateY(10px)' }, { opacity: 1, transform: 'none' }],
-        { duration: 420, delay: 60 + i * gap, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-    });
-  }).observe(d.body, { attributes: true, attributeFilter: ['class'] });
-});
-
-/* fx btn-fill */
-/* btn-fill: inserts the fill layer and tracks which side the pointer entered/left from. Mouse only. */
-FX.def('btn-fill', function (c) {
-  if (!FX.fine) return;
-  var acc = FX.color('--accent');
-  c.els('.btn').forEach(function (b) {
-    if (b.matches('.callbar') || b.querySelector(':scope > .fx-bf-l')) return;
-    var cs = getComputedStyle(b), l = document.createElement('span');
-    l.className = 'fx-bf-l'; l.setAttribute('aria-hidden', 'true'); l.style.cssText = 'position:absolute;inset:0;pointer-events:none'; b.insertBefore(l, b.firstChild);
-    b.classList.add('fx-bf');
-    if (cs.position === 'static') b.classList.add('fx-bf-r');
-    if (cs.backgroundColor === acc) b.classList.add('fx-bf-ink');
-    else if (/rgba\(.*, 0\)|transparent/.test(cs.backgroundColor)) b.classList.add('fx-bf-alt');
-    b.style.transition = (parseFloat(cs.transitionDuration) ? cs.transition + ', ' : '') + 'color .4s cubic-bezier(.2,.7,.2,1), border-color .4s cubic-bezier(.2,.7,.2,1)';
-    function set(e) {
-      var r = b.getBoundingClientRect(), k = function (v) { return Math.max(-1, Math.min(1, v)).toFixed(2); };
-      b.style.setProperty('--fx-dx', k((e.clientX - r.left) / r.width * 2 - 1));
-      b.style.setProperty('--fx-dy', k((e.clientY - r.top) / r.height * 2 - 1));
-    }
-    b.addEventListener('pointerenter', set); b.addEventListener('pointerleave', set);
-    b.addEventListener('focus', function () { b.style.setProperty('--fx-dx', 0); b.style.setProperty('--fx-dy', 0); });
-  });
 });
 
 /* fx img-zoom */

@@ -86,43 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx sticky-cta */
-/* sticky-cta: floating "Call" + booking/contact pill. Appears once the hero has scrolled away; hides while the footer or the page's own
-   booking button is on screen. Labels come from the links' own text (shortened) or opt. Mobile: no-op when the kit has a .callbar.
-   opt: {call: "Call", book: "Book now", label: "Quick contact"} */
-FX.def('sticky-cta', function (c) {
-  var d = document, o = c.opt, tel = d.querySelector('a[href^="tel:"]');
-  var book = d.querySelector('a[href*="booking.html"]') || d.querySelector('a[href*="contact.html"]');
-  if (!tel && !book) return;
-  function short(t, fb) {
-    t = (t || '').replace(/[\d()+\-.\s]{7,}/g, ' ').replace(/\s+/g, ' ').trim();
-    return t && t.length <= 18 ? t : fb;
-  }
-  var bar = d.createElement('div'), href = book && book.getAttribute('href');
-  bar.className = 'fx-sc' + (d.querySelector('.callbar') ? ' fx-sc-nb' : '');
-  bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', o.label || 'Quick contact');
-  function add(cls, h, t) { var a = d.createElement('a'); a.className = cls; a.href = h; a.textContent = t; bar.appendChild(a); }
-  if (tel) add('fx-sc-call', tel.getAttribute('href'), o.call || short(tel.textContent, 'Call'));
-  if (book) add('fx-sc-book', href, o.book || short(book.textContent, /contact/.test(href) ? 'Contact us' : 'Book now'));
-  d.body.appendChild(bar);
-  var gone = 0, foot = 0, near = 0, hero = d.querySelector('[data-hero]') || d.querySelector('main > :first-child');
-  function upd() { bar.classList.toggle('on', !!gone && !foot && !near); }
-  function watch(els, fn) {
-    if (!('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function (es) { fn(es); upd(); });
-    els.forEach(function (e) { io.observe(e); });
-  }
-  if (hero) watch([hero], function (es) { var e = es[es.length - 1]; gone = !e.isIntersecting && e.boundingClientRect.bottom <= 0; });
-  else addEventListener('scroll', function () { gone = scrollY > innerHeight * .6; upd(); }, { passive: true });
-  var f = d.querySelector('body > footer') || d.querySelector('footer');
-  if (f) watch([f], function (es) { foot = es[es.length - 1].isIntersecting; });
-  var tg = FX.$$(book ? 'a[href="' + href + '"]' : 'a[href^="tel:"]').filter(function (a) { return !a.closest('header,nav,.callbar,.fx-sc'); }), seen = [];
-  if (tg.length) watch(tg, function (es) {
-    es.forEach(function (e) { var i = seen.indexOf(e.target); if (e.isIntersecting && i < 0) seen.push(e.target); else if (!e.isIntersecting && i > -1) seen.splice(i, 1); });
-    near = seen.length;
-  });
-});
-
 /* fx parallax */
 /* parallax: photos drift 6 to 10% slower than the page, inside a frame that clips them (a photo is only moved when its frame
    or the frame around it has overflow hidden/clip, or a fixed aspect ratio). Small photos and logos are skipped.
@@ -158,68 +121,39 @@ FX.def('parallax', function (c) {
   addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
 });
 
-/* fx bg-particles */
-/* bg-particles: canvas particles behind the hero. opt kind: "dust" (default, slow drifting motes), "sparks" (rising embers in
-   the accent colour), "bubbles" (rising translucent circles). Up to 60 particles (25 on small screens), paused off-screen
-   and when the tab is hidden; one static frame with reduced motion. opt: {kind, count} */
-FX.def('bg-particles', function (c) {
-  var kind = ({ sparks: 1, bubbles: 1 })[c.opt.kind] ? c.opt.kind : 'dust';
-  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var cv = document.createElement('canvas'), g = cv.getContext('2d'), W = 0, H = 0, dpr = 1, ps = [], vis = 1, raf = 0, last = 0;
-    if (!g) return;
-    cv.className = 'fx-pt'; cv.setAttribute('aria-hidden', 'true'); cv.style.cssText = 'position:absolute;inset:0;pointer-events:none';
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
-    t.style.isolation = 'isolate'; t.insertBefore(cv, t.firstChild);
-    var cP = FX.color('--primary'), cA = FX.color('--accent'), cI = FX.color('--ink');
-    var cols = kind === 'sparks' ? [cA, cA, cP] : kind === 'bubbles' ? [cA, cP] : [cI, cP, cA];
-    var R = Math.random;
-    function max() { return Math.min(60, +c.opt.count || (FX.small ? 25 : 60)); }
-    function make(init) {
-      var r = kind === 'bubbles' ? 4 + R() * 12 : kind === 'sparks' ? 1.4 + R() * 2.2 : 1.2 + R() * 2.4;
-      var p = { x: R() * W, y: init ? R() * H : kind === 'dust' ? R() * H : H + r + R() * 40, r: r, ph: R() * 6.28, col: cols[(R() * cols.length) | 0],
-        a: kind === 'dust' ? 0.4 + R() * 0.45 : 0.5 + R() * 0.4, life: 0 };
-      p.vy = kind === 'dust' ? -3 - R() * 6 : kind === 'sparks' ? -(30 + R() * 50) : -(12 + R() * 26);
-      p.vx = kind === 'dust' ? (R() - 0.5) * 6 : 0; p.sw = 8 + R() * 20;
-      return p;
-    }
-    function size() {
-      var b = t.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
-      W = Math.max(1, b.width); H = Math.max(1, b.height);
-      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
-      while (ps.length < max()) ps.push(make(1));
-      ps.length = Math.min(ps.length, max());
-    }
-    function step(dt) {
-      ps.forEach(function (p, i) {
-        p.ph += dt * (kind === 'dust' ? 0.4 : 1.4);
-        p.y += p.vy * dt; p.x += p.vx * dt + Math.sin(p.ph) * p.sw * dt * (kind === 'dust' ? 0.3 : 1);
-        if (p.y < -20 || p.x < -20 || p.x > W + 20) { ps[i] = make(0); if (kind === 'dust') ps[i].y = H + 10; }
-      });
-    }
-    function draw() {
-      g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
-      ps.forEach(function (p) {
-        var k = kind === 'dust' ? 1 : Math.pow(Math.max(0, Math.min(1, p.y / H)), kind === 'sparks' ? 0.5 : 1), a = p.a * (kind === 'dust' ? 0.6 + 0.4 * Math.sin(p.ph * 2) : k);
-        g.beginPath();
-        if (kind === 'bubbles') {
-          g.arc(p.x, p.y, p.r, 0, 6.283); g.fillStyle = FX.rgba(p.col, a * 0.12); g.fill();
-          g.lineWidth = 1.2; g.strokeStyle = FX.rgba(p.col, a * 0.55); g.stroke();
-          g.beginPath(); g.arc(p.x, p.y, p.r * 0.62, 3.6, 4.4); g.strokeStyle = FX.rgba(p.col, a * 0.7); g.stroke();
-        } else {
-          g.arc(p.x, p.y, kind === 'sparks' ? p.r * (0.5 + k * 0.7) : p.r, 0, 6.283);
-          g.fillStyle = FX.rgba(p.col, a); g.fill();
-          if (kind !== 'bubbles') { g.beginPath(); g.arc(p.x, p.y, p.r * (kind === 'dust' ? 3.5 : 3.4 * k), 0, 6.283); g.fillStyle = FX.rgba(p.col, a * (kind === 'dust' ? 0.1 : 0.28)); g.fill(); }
-        }
-      });
-    }
-    function frame(now) {
-      raf = 0; if (!vis || document.hidden) return;
-      step(Math.min(0.05, (now - last) / 1000)); last = now; draw(); raf = requestAnimationFrame(frame);
-    }
-    function go() { if (!raf && vis && !document.hidden && !FX.reduced) { last = performance.now(); raf = requestAnimationFrame(frame); } }
-    size();
-    if (FX.reduced) { for (var i = 0; i < 40; i++) step(0.05); draw(); }
-    else { draw(); FX.vis(t, function (v) { vis = v; go(); }); document.addEventListener('visibilitychange', go); }
-    if (window.ResizeObserver) new ResizeObserver(function () { size(); if (FX.reduced || !raf) draw(); }).observe(t);
+/* fx sticky-cta */
+/* sticky-cta: floating "Call" + booking/contact pill. Appears once the hero has scrolled away; hides while the footer or the page's own
+   booking button is on screen. Labels come from the links' own text (shortened) or opt. Mobile: no-op when the kit has a .callbar.
+   opt: {call: "Call", book: "Book now", label: "Quick contact"} */
+FX.def('sticky-cta', function (c) {
+  var d = document, o = c.opt, tel = d.querySelector('a[href^="tel:"]');
+  var book = d.querySelector('a[href*="booking.html"]') || d.querySelector('a[href*="contact.html"]');
+  if (!tel && !book) return;
+  function short(t, fb) {
+    t = (t || '').replace(/[\d()+\-.\s]{7,}/g, ' ').replace(/\s+/g, ' ').trim();
+    return t && t.length <= 18 ? t : fb;
+  }
+  var bar = d.createElement('div'), href = book && book.getAttribute('href');
+  bar.className = 'fx-sc' + (d.querySelector('.callbar') ? ' fx-sc-nb' : '');
+  bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', o.label || 'Quick contact');
+  function add(cls, h, t) { var a = d.createElement('a'); a.className = cls; a.href = h; a.textContent = t; bar.appendChild(a); }
+  if (tel) add('fx-sc-call', tel.getAttribute('href'), o.call || short(tel.textContent, 'Call'));
+  if (book) add('fx-sc-book', href, o.book || short(book.textContent, /contact/.test(href) ? 'Contact us' : 'Book now'));
+  d.body.appendChild(bar);
+  var gone = 0, foot = 0, near = 0, hero = d.querySelector('[data-hero]') || d.querySelector('main > :first-child');
+  function upd() { bar.classList.toggle('on', !!gone && !foot && !near); }
+  function watch(els, fn) {
+    if (!('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function (es) { fn(es); upd(); });
+    els.forEach(function (e) { io.observe(e); });
+  }
+  if (hero) watch([hero], function (es) { var e = es[es.length - 1]; gone = !e.isIntersecting && e.boundingClientRect.bottom <= 0; });
+  else addEventListener('scroll', function () { gone = scrollY > innerHeight * .6; upd(); }, { passive: true });
+  var f = d.querySelector('body > footer') || d.querySelector('footer');
+  if (f) watch([f], function (es) { foot = es[es.length - 1].isIntersecting; });
+  var tg = FX.$$(book ? 'a[href="' + href + '"]' : 'a[href^="tel:"]').filter(function (a) { return !a.closest('header,nav,.callbar,.fx-sc'); }), seen = [];
+  if (tg.length) watch(tg, function (es) {
+    es.forEach(function (e) { var i = seen.indexOf(e.target); if (e.isIntersecting && i < 0) seen.push(e.target); else if (!e.isIntersecting && i > -1) seen.splice(i, 1); });
+    near = seen.length;
   });
 });

@@ -1,15 +1,10 @@
-/* Smoke motion: embers rise from the bottom of the hero and fade; hero photo slowly pushes in; section rows slide their numbers in. */
+/* Diner motion: bulbs chase around the sign and the checker strip slides (both CSS); the OPEN pill pulses its light, the chrome-ringed photo swings in like a jukebox door. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var box = document.querySelector('.sm-embers');
-  if (box) for (var i = 0; i < 22; i++) {
-    var e = document.createElement('i'), x = Math.random() * 100, dur = 5000 + Math.random() * 6000, dx = (Math.random() * 80 - 40);
-    e.style.left = x + '%'; e.style.width = e.style.height = (2 + Math.random() * 4) + 'px'; box.appendChild(e);
-    e.animate([{ transform: 'translate(0,0)', opacity: 0 }, { opacity: .95, offset: .15 }, { transform: 'translate(' + dx + 'px,-' + (box.offsetHeight * (0.5 + Math.random() * 0.5)) + 'px)', opacity: 0 }],
-      { duration: dur, delay: Math.random() * 6000, iterations: Infinity, easing: 'ease-out' });
-  }
-  var bg = document.querySelector('.sm-bg>img,.sm-bg>picture>img,.sm-bg>.ph');
-  if (bg) bg.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.07)' }], { duration: 18000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  var o = document.querySelector('.dn-open');
+  if (o) o.animate([{ boxShadow: '0 5px 0 var(--ink),0 0 0 rgba(255,255,255,0)' }, { boxShadow: '0 5px 0 var(--ink),0 0 26px rgba(255,255,255,.7)' }], { duration: 1400, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  var w = document.querySelector('.dn-window');
+  if (w) w.animate([{ transform: 'perspective(700px) rotateY(-70deg)', opacity: 0 }, { transform: 'perspective(700px) rotateY(0)', opacity: 1 }], { duration: 1000, delay: 200, easing: 'cubic-bezier(.3,1.3,.5,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

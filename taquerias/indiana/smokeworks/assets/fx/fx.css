@@ -1,3 +1,17 @@
+/* fx parallax */
+/* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
+   scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */
+@keyframes fx-px {
+ from { transform: translate3d(0, calc(var(--fx-px, 5%) * -1), 0) scale(1.12) }
+ to { transform: translate3d(0, var(--fx-px, 5%), 0) scale(1.12) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-parallax [data-fx-px] { will-change: transform; transform: scale(1.12) }
+ @supports (animation-timeline: view()) {
+  html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
+ }
+}
+
 /* fx sticky-cta */
 /* sticky-cta: a floating Call + Book pill (created by sticky-cta.js). Desktop: bottom-right pill. Mobile: nothing when the kit has its own
    call bar (.fx-sc-nb), else a compact bar. Hidden state only exists on the element JS creates; it sits under the lightbox. */
@@ -19,21 +33,3 @@ body:has(.lb.open) .fx-sc, body:has(.fx-lb.open) .fx-sc { display: none }
  .fx-sc { transition: opacity .35s, transform .5s cubic-bezier(.2, .7, .2, 1), visibility 0s .5s }
  .fx-sc.on { transition-delay: 0s }
 }
-
-/* fx parallax */
-/* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
-   scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */
-@keyframes fx-px {
- from { transform: translate3d(0, calc(var(--fx-px, 5%) * -1), 0) scale(1.12) }
- to { transform: translate3d(0, var(--fx-px, 5%), 0) scale(1.12) }
-}
-@media (prefers-reduced-motion: no-preference) {
- html.fx-parallax [data-fx-px] { will-change: transform; transform: scale(1.12) }
- @supports (animation-timeline: view()) {
-  html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
- }
-}
-
-/* fx bg-particles */
-/* bg-particles: one canvas, first child of the hero, under its content */
-.fx-pt { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: block }

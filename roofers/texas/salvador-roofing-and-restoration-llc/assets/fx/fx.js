@@ -86,75 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx count-up */
-/* count-up: real numbers (rating, review count, years) count up once when they scroll into view. The element's width is
-   locked to its final text first (no layout shift); the final text is exactly what was there (prefix/suffix kept);
-   years (1900-2099) and numbers under 2 are left alone. Reduced motion / no JS: the final number, untouched.
-   opt: {ms: 1400} */
-FX.def('count-up', function (c) {
-  if (FX.reduced) return;
-  var ms = +c.opt.ms || 1400;
-  var els = c.els('[data-count],[class*="stat"] b,[class*="stat"] strong,[class*="stat"] dd,[class*="stat"] [class*="num"]');
-  els = els.filter(function (el) { return !el.children.length && /^\D{0,2}\d[\d,]*(\.\d+)?\D{0,8}$/.test(el.textContent.trim()); });
-  els.forEach(function (el) {
-    var t = el.textContent.trim(), m = t.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
-    var end = parseFloat(m[2].replace(/,/g, ''));
-    if (!isFinite(end) || end < 2 || (end >= 1900 && end < 2100 && m[2].indexOf('.') < 0)) return;
-    var dec = (m[2].split('.')[1] || '').length, comma = m[2].indexOf(',') > -1;
-    var fmt = function (v) { var s = v.toFixed(dec); return comma ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s; };
-    if (getComputedStyle(el).display === 'inline') el.style.display = 'inline-block';
-    el.style.fontVariantNumeric = 'tabular-nums';
-    el.style.minWidth = el.getBoundingClientRect().width + 'px';
-    el.setAttribute('data-fx-final', t);
-    FX.seen([el], function () {
-      var t0 = performance.now();
-      el.setAttribute('aria-label', t);
-      (function step(now) {
-        var k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 4);
-        el.textContent = k < 1 ? m[1] + fmt(end * e) + m[3] : t;
-        if (k < 1) requestAnimationFrame(step); else el.removeAttribute('aria-label');
-      })(t0);
-    });
-  });
-});
-
-/* fx sticky-cta */
-/* sticky-cta: floating "Call" + booking/contact pill. Appears once the hero has scrolled away; hides while the footer or the page's own
-   booking button is on screen. Labels come from the links' own text (shortened) or opt. Mobile: no-op when the kit has a .callbar.
-   opt: {call: "Call", book: "Book now", label: "Quick contact"} */
-FX.def('sticky-cta', function (c) {
-  var d = document, o = c.opt, tel = d.querySelector('a[href^="tel:"]');
-  var book = d.querySelector('a[href*="booking.html"]') || d.querySelector('a[href*="contact.html"]');
-  if (!tel && !book) return;
-  function short(t, fb) {
-    t = (t || '').replace(/[\d()+\-.\s]{7,}/g, ' ').replace(/\s+/g, ' ').trim();
-    return t && t.length <= 18 ? t : fb;
-  }
-  var bar = d.createElement('div'), href = book && book.getAttribute('href');
-  bar.className = 'fx-sc' + (d.querySelector('.callbar') ? ' fx-sc-nb' : '');
-  bar.setAttribute('role', 'group'); bar.setAttribute('aria-label', o.label || 'Quick contact');
-  function add(cls, h, t) { var a = d.createElement('a'); a.className = cls; a.href = h; a.textContent = t; bar.appendChild(a); }
-  if (tel) add('fx-sc-call', tel.getAttribute('href'), o.call || short(tel.textContent, 'Call'));
-  if (book) add('fx-sc-book', href, o.book || short(book.textContent, /contact/.test(href) ? 'Contact us' : 'Book now'));
-  d.body.appendChild(bar);
-  var gone = 0, foot = 0, near = 0, hero = d.querySelector('[data-hero]') || d.querySelector('main > :first-child');
-  function upd() { bar.classList.toggle('on', !!gone && !foot && !near); }
-  function watch(els, fn) {
-    if (!('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function (es) { fn(es); upd(); });
-    els.forEach(function (e) { io.observe(e); });
-  }
-  if (hero) watch([hero], function (es) { var e = es[es.length - 1]; gone = !e.isIntersecting && e.boundingClientRect.bottom <= 0; });
-  else addEventListener('scroll', function () { gone = scrollY > innerHeight * .6; upd(); }, { passive: true });
-  var f = d.querySelector('body > footer') || d.querySelector('footer');
-  if (f) watch([f], function (es) { foot = es[es.length - 1].isIntersecting; });
-  var tg = FX.$$(book ? 'a[href="' + href + '"]' : 'a[href^="tel:"]').filter(function (a) { return !a.closest('header,nav,.callbar,.fx-sc'); }), seen = [];
-  if (tg.length) watch(tg, function (es) {
-    es.forEach(function (e) { var i = seen.indexOf(e.target); if (e.isIntersecting && i < 0) seen.push(e.target); else if (!e.isIntersecting && i > -1) seen.splice(i, 1); });
-    near = seen.length;
-  });
-});
-
 /* fx lightbox-plus */
 /* lightbox-plus: replaces core's lightbox for a[data-lb] (capture-phase click + stopImmediatePropagation so core never opens).
    Dialog with caption, "3 / 12" counter, prev/next, arrow keys, Escape, swipe, focus trap, focus back on the thumbnail, images grouped by
@@ -238,54 +169,123 @@ FX.def('lightbox-plus', function (c) {
   }, true);
 });
 
-/* fx hours-toast */
-/* hours-toast: once per browser session, 3.5s after load, a small toast says whether the business is open ("Open now · until 6 PM") or
-   when it opens next ("Closed now · opens 8 AM tomorrow"), from the first [data-hours] JSON (same format core.js reads:
-   [[dayIndex 0=Sun, "HH:MM", "HH:MM"], ...]). Nothing when the hours are empty. role=status, close button, hides itself after 7s.
-   opt: {open: "Open now · until {t}", closed: "Closed now · opens {t}", delay: 3500, ms: 7000} */
-FX.def('hours-toast', function (c) {
-  var d = document, o = c.opt, el = d.querySelector('[data-hours]'), H;
-  try { if (sessionStorage.getItem('fx-hours-toast')) return; } catch (e) {}
-  try { H = JSON.parse(el && el.getAttribute('data-hours')); } catch (e) { return; }
-  if (!H || !H.length) return;
-  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  function mins(s) { var a = s.split(':'); return +a[0] * 60 + +a[1]; }
-  function fmt(s) {
-    var m = mins(s);
-    if (m === 0 || m >= 1439) return 'midnight';
-    var h = Math.floor(m / 60), r = m % 60;
-    return (h % 12 || 12) + (r ? ':' + (r < 10 ? '0' : '') + r : '') + (h < 12 ? ' AM' : ' PM');
-  }
-  function say() {
-    var n = new Date(), day = n.getDay(), m = n.getHours() * 60 + n.getMinutes(), i, rs;
-    function on(dd) { return H.filter(function (r) { return r[0] === dd; }).sort(function (a, b) { return mins(a[1]) - mins(b[1]); }); }
-    rs = on(day);
-    for (i = 0; i < rs.length; i++) if (m >= mins(rs[i][1]) && m < mins(rs[i][2])) return (o.open || 'Open now · until {t}').replace('{t}', fmt(rs[i][2]));
-    for (i = 0; i < 8; i++) {
-      rs = on((day + i) % 7).filter(function (r) { return i || mins(r[1]) > m; });
-      if (rs.length) return (o.closed || 'Closed now · opens {t}').replace('{t}', fmt(rs[0][1]) + (i === 0 ? '' : i === 1 ? ' tomorrow' : ' ' + days[(day + i) % 7]));
+/* fx review-marquee */
+/* review-marquee: a reviews grid (4+ cards) becomes a slow endless marquee of the kit's own cards: fixed card width min(380px,80vw),
+   aria-hidden clones, pauses on hover/focus and with a visible pause button (WCAG 2.2.2), faded edges. The conversion is synchronous at
+   init so nothing shifts later. Default container: the parent of 3+ blockquote/[class*=review] cards inside a section whose id or
+   class mentions review (or testimonial); or set sel to the container itself. Reduced motion: the kit's grid, untouched.
+   opt: {speed: 45 (px per second), pause: "Pause reviews", play: "Play reviews"} */
+FX.def('review-marquee', function (c) {
+  if (FX.reduced) return;
+  var d = document, o = c.opt, list = c.els('');
+  function has(e, cand) { return cand.indexOf(e) > -1 || cand.some(function (x) { return e.contains(x); }); }
+  if (!c.sel) FX.$$('section[id*=review i],section[class*=review i],section[id*=testimonial i],section[class*=testimonial i]').forEach(function (s) {
+    var cand = FX.$$('blockquote,[class*=review]', s).filter(function (e) { return !e.querySelector('blockquote,[class*=review]'); }), best = null;
+    cand.forEach(function (e) {
+      for (var x = e, i = 0; x.parentElement && x.parentElement !== s && i < 3; x = x.parentElement, i++) {
+        var p = x.parentElement, n = [].filter.call(p.children, function (k) { return has(k, cand); }).length;
+        if (n >= 3 && n === p.children.length && (!best || n > best[1])) best = [p, n];
+      }
+    });
+    if (best) list.push(best[0]);
+  });
+  list.forEach(function (m) {
+    var cards = [].slice.call(m.children);
+    if (cards.length < 4 || m.closest('.fx-rm')) return;
+    var cs = getComputedStyle(m), gap = parseFloat(cs.columnGap);
+    if (!(gap >= 0)) gap = 20;
+    var wrap = d.createElement('div'), clip = d.createElement('div'), ctl = d.createElement('div'), btn = d.createElement('button');
+    wrap.className = 'fx-rm'; clip.className = 'fx-rm-clip'; ctl.className = 'fx-rm-ctl';
+    wrap.style.margin = cs.margin; if (cs.maxWidth !== 'none') wrap.style.maxWidth = cs.maxWidth;
+    wrap.style.setProperty('--fx-rm-gap', gap + 'px');
+    m.parentNode.insertBefore(wrap, m); wrap.appendChild(clip); clip.appendChild(m); wrap.appendChild(ctl);
+    m.classList.add('fx-rm-track');
+    cards.forEach(function (k) {
+      k.classList.add('in');
+      var n = k.cloneNode(true);
+      n.setAttribute('aria-hidden', 'true'); n.inert = true;
+      FX.$$('[id]', n).forEach(function (e) { e.removeAttribute('id'); });
+      n.removeAttribute('id'); n.classList.add('in');
+      m.appendChild(n);
+    });
+    var P = o.pause || 'Pause reviews', Y = o.play || 'Play reviews';
+    btn.type = 'button'; btn.className = 'fx-rm-btn'; btn.setAttribute('aria-pressed', 'false'); btn.setAttribute('aria-label', P);
+    btn.innerHTML = '<i></i><span></span>'; btn.lastChild.textContent = o.pause ? o.pause.split(' ')[0] : 'Pause';
+    btn.addEventListener('click', function () {
+      var p = wrap.classList.toggle('fx-rm-p');
+      btn.setAttribute('aria-pressed', p); btn.setAttribute('aria-label', p ? Y : P); btn.lastChild.textContent = p ? (o.play ? o.play.split(' ')[0] : 'Play') : (o.pause ? o.pause.split(' ')[0] : 'Pause');
+    });
+    ctl.appendChild(btn);
+    function speed() { wrap.style.setProperty('--fx-rm-d', Math.max(20, m.getBoundingClientRect().width / 2 / (+o.speed || 45)).toFixed(1) + 's'); }
+    speed();
+    if ('ResizeObserver' in window) new ResizeObserver(speed).observe(m); else addEventListener('resize', speed);
+    FX.vis(wrap, function (v) { wrap.classList.toggle('fx-rm-off', !v); });
+  });
+});
+
+/* fx parallax */
+/* parallax: photos drift 6 to 10% slower than the page, inside a frame that clips them (a photo is only moved when its frame
+   or the frame around it has overflow hidden/clip, or a fixed aspect ratio). Small photos and logos are skipped.
+   opt: {amount: 5} (percent of the photo height each way; half on phones) */
+FX.def('parallax', function (c) {
+  if (FX.reduced) return;
+  var amp = (+c.opt.amount || 5) / (FX.small ? 2 : 1), css = window.CSS && CSS.supports('animation-timeline: view()');
+  var list = [];
+  c.els('main > :first-child img, [data-layer] img').forEach(function (img) {
+    var r = img.getBoundingClientRect();
+    if (r.width < 160 || r.height < 120 || /logo|icon/i.test(img.className + img.alt + img.src) || img.closest('.ph')) return;
+    var p = img.parentElement, ok = 0;
+    for (var n = p, i = 0; n && i < 3 && n !== document.body; n = n.parentElement, i++) {
+      var s = getComputedStyle(n);
+      if (/hidden|clip/.test(s.overflowY) || (i === 0 && s.aspectRatio !== 'auto' && s.display !== 'inline')) { ok = n; break; }
     }
-    return '';
+    if (!ok) return;
+    if (ok === p && !/hidden|clip/.test(getComputedStyle(p).overflowY)) p.style.overflow = 'clip';
+    img.setAttribute('data-fx-px', ''); img.style.setProperty('--fx-px', amp + '%');
+    if (css) img.classList.add('fx-px-css'); else list.push({ img: img, box: p });
+  });
+  if (css || !list.length) return;
+  var busy = 0;
+  function tick() {
+    busy = 0;
+    list.forEach(function (o) {
+      var r = o.box.getBoundingClientRect(), k = (innerHeight - r.top) / (innerHeight + r.height);
+      if (k < -.05 || k > 1.05) return;
+      o.img.style.transform = 'translate3d(0,' + ((k - .5) * 2 * amp * o.img.offsetHeight / 100).toFixed(1) + 'px,0) scale(1.12)';
+    });
   }
-  var msg = say();
-  if (!msg) return;
-  setTimeout(function () {
-    if (d.querySelector('.fx-ht')) return;
-    var t = d.createElement('div'), x = d.createElement('button'), s = d.createElement('span');
-    t.className = 'fx-ht' + (d.querySelector('.callbar') ? ' fx-ht-cb' : ''); t.setAttribute('role', 'status');
-    s.className = 'fx-ht-t'; s.textContent = msg;
-    x.type = 'button'; x.className = 'fx-ht-x'; x.setAttribute('aria-label', 'Close'); x.textContent = '×';
-    t.appendChild(s); t.appendChild(x); d.body.appendChild(t);
-    try { sessionStorage.setItem('fx-hours-toast', '1'); } catch (e) {}
-    var ease = { duration: 450, easing: 'cubic-bezier(.2,.7,.2,1)' };
-    if (!FX.reduced) t.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], ease);
-    var gone = 0, timer;
-    function hide() {
-      if (gone) return; gone = 1; clearTimeout(timer);
-      var a = FX.reduced ? null : t.animate([{ opacity: 1 }, { opacity: 0, transform: 'translateY(10px)' }], { duration: 250, easing: 'ease-in' });
-      if (a) a.onfinish = function () { t.remove(); }; else t.remove();
-    }
-    x.addEventListener('click', hide);
-    timer = setTimeout(hide, +o.ms || 7000);
-  }, o.delay == null ? 3500 : +o.delay);
+  function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
+  addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
+});
+
+/* fx count-up */
+/* count-up: real numbers (rating, review count, years) count up once when they scroll into view. The element's width is
+   locked to its final text first (no layout shift); the final text is exactly what was there (prefix/suffix kept);
+   years (1900-2099) and numbers under 2 are left alone. Reduced motion / no JS: the final number, untouched.
+   opt: {ms: 1400} */
+FX.def('count-up', function (c) {
+  if (FX.reduced) return;
+  var ms = +c.opt.ms || 1400;
+  var els = c.els('[data-count],[class*="stat"] b,[class*="stat"] strong,[class*="stat"] dd,[class*="stat"] [class*="num"]');
+  els = els.filter(function (el) { return !el.children.length && /^\D{0,2}\d[\d,]*(\.\d+)?\D{0,8}$/.test(el.textContent.trim()); });
+  els.forEach(function (el) {
+    var t = el.textContent.trim(), m = t.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
+    var end = parseFloat(m[2].replace(/,/g, ''));
+    if (!isFinite(end) || end < 2 || (end >= 1900 && end < 2100 && m[2].indexOf('.') < 0)) return;
+    var dec = (m[2].split('.')[1] || '').length, comma = m[2].indexOf(',') > -1;
+    var fmt = function (v) { var s = v.toFixed(dec); return comma ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s; };
+    if (getComputedStyle(el).display === 'inline') el.style.display = 'inline-block';
+    el.style.fontVariantNumeric = 'tabular-nums';
+    el.style.minWidth = el.getBoundingClientRect().width + 'px';
+    el.setAttribute('data-fx-final', t);
+    FX.seen([el], function () {
+      var t0 = performance.now();
+      el.setAttribute('aria-label', t);
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 4);
+        el.textContent = k < 1 ? m[1] + fmt(end * e) + m[3] : t;
+        if (k < 1) requestAnimationFrame(step); else el.removeAttribute('aria-label');
+      })(t0);
+    });
+  });
 });

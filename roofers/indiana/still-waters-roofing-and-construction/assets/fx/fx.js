@@ -107,23 +107,23 @@ FX.def('bg-waves', function (c) {
   });
 });
 
-/* fx img-zoom */
-/* img-zoom: finds each image's clipping frame (an ancestor with overflow hidden/clip around just that image); if there is none,
-   clips the display:block link around it; if neither is possible the image is left alone. Mouse only, off with reduced motion. */
-FX.def('img-zoom', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  c.els('a[data-lb] img,[class*=gal] img').forEach(function (img) {
-    if (img.closest('.ph,[class*=logo]')) return;
-    var a = img.closest('a'), fig = img.closest('figure'), f = null, p = img.parentElement, i = 0;
-    for (; p && i < 3 && p.querySelectorAll('img').length === 1; p = p.parentElement, i++) {
-      if (getComputedStyle(p).overflow !== 'visible') { f = p; break; }
+/* fx ken-burns */
+/* ken-burns: slow zoom and pan of the hero photo (default: the largest photo in the first block of <main>, plus [data-fx-ken-burns] img).
+   Only runs when the photo's frame (or the one around it) clips overflow, and never on .ph placeholders.
+   opt: {seconds: 22} (18 to 24 looks right). Reduced motion: static. */
+FX.def('ken-burns', function (c) {
+  if (FX.reduced) return;
+  var els = c.els('main > :first-child img, [data-fx-ken-burns] img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
+  if (!c.sel && els.length > 1) {
+    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
+    var by = els.filter(function (i) { return i.closest('[data-fx-ken-burns]'); });
+    els = by.length ? by : [els.sort(function (x, y) { return a(y) - a(x); })[0]];
+  }
+  els.forEach(function (img) {
+    for (var n = img.parentElement, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) {
+      if (/hidden|clip/.test(getComputedStyle(n).overflowY)) {
+        img.setAttribute('data-fx-kb', ''); if (c.opt.seconds) img.style.setProperty('--fx-kb-t', (+c.opt.seconds) + 's'); return;
+      }
     }
-    if (!f) {
-      if (a && a.contains(img) && getComputedStyle(a).display === 'block') { a.classList.add('fx-zoom-clip'); f = a; } else return;
-    }
-    img.classList.add('fx-zoom');
-    var host = fig && fig.querySelectorAll('img').length === 1 ? fig : (a && a.contains(img) ? a : f);
-    host.classList.add('fx-zoom-host');
-    var cap = fig && fig.querySelector('figcaption'); if (cap) cap.classList.add('fx-zoom-cap');
   });
 });

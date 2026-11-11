@@ -1,19 +1,11 @@
-/* Flour motion: sprinkles drift around the hero photo; the oval floats; the headline lines slide in from opposite sides. */
+/* Comal motion: hero arch rises in with a bounce, the seal spins slowly, the ring behind it turns. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var sp = document.querySelector('.fl-sprinkles');
-  if (sp) for (var i = 0; i < 16; i++) {
-    var e = document.createElement('i'), a = Math.random() * 360;
-    e.style.left = (50 + 48 * Math.cos(a * Math.PI / 180)) + '%'; e.style.top = (50 + 48 * Math.sin(a * Math.PI / 180)) + '%';
-    e.style.transform = 'rotate(' + (Math.random() * 180) + 'deg)'; sp.appendChild(e);
-    e.animate([{ translate: '0 0' }, { translate: (Math.random() * 24 - 12) + 'px ' + (Math.random() * 30 - 15) + 'px' }], { duration: 2800 + Math.random() * 3000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  }
-  var o = document.querySelector('.fl-oval-pic');
-  if (o) o.animate([{ translate: '0 -6px' }, { translate: '0 8px' }], { duration: 4200, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  var l1 = document.querySelector('.fl-l1'), l2 = document.querySelector('.fl-l2');
-  var k = { duration: 1000, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' };
-  if (l1) l1.animate([{ translate: '-8vw', opacity: 0 }, { translate: '0', opacity: 1 }], k);
-  if (l2) l2.animate([{ translate: '8vw', opacity: 0 }, { translate: '0', opacity: 1 }], { ...k, delay: 150 });
+  var a = document.querySelector('.cm-arch'); if (!a) return;
+  a.animate([{ transform: 'translateY(40px) scale(.94)', opacity: 0 }, { transform: 'translateY(-8px) scale(1.01)', opacity: 1, offset: .7 }, { transform: 'none', opacity: 1 }], { duration: 900, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
+  var s = a.querySelector('.cm-seal'), r = a.querySelector('.cm-arch-ring');
+  if (s) s.animate([{ transform: 'rotate(10deg)' }, { transform: 'rotate(370deg)' }], { duration: 26000, iterations: Infinity });
+  if (r) addEventListener('scroll', function () { r.style.transform = 'translateY(' + Math.min(scrollY, 500) * -0.06 + 'px)'; }, { passive: true });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

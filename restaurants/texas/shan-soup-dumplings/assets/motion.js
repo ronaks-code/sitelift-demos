@@ -1,14 +1,11 @@
-/* Neon motion: tube-sign flicker. On load the sign stutters on, then every few seconds one tube drops out for a moment. */
+/* Index motion: the index rows draw their rules and slide in one after another on load; a thin marker follows the hovered row; the marquee rolls (CSS). */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var t = [].slice.call(document.querySelectorAll('.nn-flick'));
-  if (!t.length) return;
-  var blink = function (el, seq, i) {
-    i = i || 0; if (i >= seq.length) { el.classList.remove('off'); return; }
-    el.classList.toggle('off', i % 2 === 0); setTimeout(function () { blink(el, seq, i + 1); }, seq[i]);
-  };
-  t.forEach(function (el, k) { setTimeout(function () { blink(el, [90, 70, 140, 60, 220, 50, 70]); }, 200 + k * 260); });
-  setInterval(function () { blink(t[Math.floor(Math.random() * t.length)], [70, 90, 60, 160, 50]); }, 5200);
+  document.querySelectorAll('.ix-rows li').forEach(function (li, i) {
+    li.animate([{ clipPath: 'inset(0 100% 0 0)', transform: 'translateX(-16px)' }, { clipPath: 'inset(0 0 0 0)', transform: 'none' }], { duration: 700, delay: 200 + i * 110, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+  });
+  var f = document.querySelector('.ix-fig img,.ix-fig .ph');
+  if (f) f.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0)' }], { duration: 1100, delay: 300, easing: 'cubic-bezier(.6,0,.2,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

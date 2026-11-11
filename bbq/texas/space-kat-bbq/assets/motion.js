@@ -1,14 +1,13 @@
-/* Catering motion: the timeline connector draws across as it scrolls into view, the filmstrip drifts (CSS, pauses on hover), the request card eases up on load. */
+/* Truck motion: the awning sways, the OPEN lamp flickers on once at load, and the stop card slides in like a window shutter. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var q = document.querySelector('.cg-quote');
-  if (q) q.animate([{ transform: 'translateY(30px)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 900, delay: 250, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  var s = document.querySelector('.cg-steps');
-  if (s && 'IntersectionObserver' in window && matchMedia('(min-width:701px)').matches) {
-    var dots = s.querySelectorAll('.cg-dot');
-    var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { dots.forEach(function (d, i) { d.animate([{ transform: 'scale(.4)', opacity: 0 }, { transform: 'scale(1)', opacity: 1 }], { duration: 500, delay: i * 220, fill: 'backwards', easing: 'cubic-bezier(.3,1.5,.5,1)' }); }); io.disconnect(); } }, { threshold: .3 });
-    io.observe(s);
-  }
+  document.querySelectorAll('.tk-top .tk-awning').forEach(function (a) {
+    a.animate([{ transform: 'skewX(0deg)', transformOrigin: 'top' }, { transform: 'skewX(-1.2deg)', transformOrigin: 'top' }, { transform: 'skewX(0deg)', transformOrigin: 'top' }], { duration: 5200, iterations: Infinity, easing: 'ease-in-out' });
+  });
+  var l = document.querySelector('[data-lamp]');
+  if (l) l.animate([{ opacity: 0 }, { opacity: 1 }, { opacity: .2 }, { opacity: 1 }, { opacity: .6 }, { opacity: 1 }], { duration: 900, delay: 300, fill: 'backwards' });
+  var s = document.querySelector('.tk-stop');
+  if (s) s.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 900, delay: 400, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

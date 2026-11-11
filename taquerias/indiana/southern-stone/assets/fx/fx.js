@@ -86,27 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx mask-reveal */
-/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
-   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
-   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
-FX.def('mask-reveal', function (c) {
-  if (FX.reduced || !Element.prototype.animate) return;
-  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
-  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
-    var r = i.getBoundingClientRect();
-    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
-  });
-  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
-  FX.seen(imgs, function (i) {
-    var p = i.parentElement, clipped = 0;
-    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
-    i.removeAttribute('data-fx-mr');
-    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
-      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  }, '0px 0px -6% 0px');
-});
-
 /* fx section-tint */
 /* section-tint: the page ground crossfades between soft section colours as you scroll. Sections opt in with data-fx-tint="--surface"
    (any CSS variable or colour); otherwise the module alternates transparent sections between the page colour and faint washes of
@@ -137,25 +116,4 @@ FX.def('section-tint', function (c) {
   addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(pick); } }, { passive: true });
   addEventListener('resize', pick, { passive: true });
   pick();
-});
-
-/* fx ken-burns */
-/* ken-burns: slow zoom and pan of the hero photo (default: the largest photo in the first block of <main>, plus [data-fx-ken-burns] img).
-   Only runs when the photo's frame (or the one around it) clips overflow, and never on .ph placeholders.
-   opt: {seconds: 22} (18 to 24 looks right). Reduced motion: static. */
-FX.def('ken-burns', function (c) {
-  if (FX.reduced) return;
-  var els = c.els('main > :first-child img, [data-fx-ken-burns] img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
-  if (!c.sel && els.length > 1) {
-    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
-    var by = els.filter(function (i) { return i.closest('[data-fx-ken-burns]'); });
-    els = by.length ? by : [els.sort(function (x, y) { return a(y) - a(x); })[0]];
-  }
-  els.forEach(function (img) {
-    for (var n = img.parentElement, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) {
-      if (/hidden|clip/.test(getComputedStyle(n).overflowY)) {
-        img.setAttribute('data-fx-kb', ''); if (c.opt.seconds) img.style.setProperty('--fx-kb-t', (+c.opt.seconds) + 's'); return;
-      }
-    }
-  });
 });
