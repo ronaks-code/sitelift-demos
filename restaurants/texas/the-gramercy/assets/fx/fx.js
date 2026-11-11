@@ -86,6 +86,41 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx tilt */
+/* tilt: cards lean toward the pointer (max 5deg, perspective 900px) with a soft glare; resets on leave. Mouse only, off with
+   reduced motion, never on cards wider than 700px or holding form fields. opt: {max: 5, glare: true} */
+FX.def('tilt', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  var max = +c.opt.max || 5, all = c.els('[class*=card]:not([class*=cards])');
+  all.filter(function (e) {
+    return !e.querySelector('input,textarea,select') && !all.some(function (o) { return o !== e && o.contains(e); });
+  }).forEach(function (el) {
+    var g, r, tr = el.style.transition, live = 0;
+    if (c.opt.glare !== false) {
+      if (getComputedStyle(el).position === 'static') el.style.position = 'relative';   // before appending: no layout shift
+      g = document.createElement('span'); g.className = 'fx-tilt-g'; g.setAttribute('aria-hidden', 'true'); el.appendChild(g);
+    }
+    function ease(ms) { el.style.transition = getComputedStyle(el).transition + ', transform ' + ms + 'ms cubic-bezier(.2,.7,.2,1)'; }
+    el.addEventListener('pointerenter', function (e) {
+      if (e.pointerType && e.pointerType !== 'mouse') return;
+      r = el.getBoundingClientRect();
+      if (r.width > 700) return;
+      live = 1; el.style.transition = tr; ease(220); if (g) g.classList.add('on');
+    });
+    el.addEventListener('pointermove', function (e) {
+      if (!live) return;
+      var x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+      el.style.transform = 'perspective(900px) rotateX(' + (-y * 2 * max).toFixed(2) + 'deg) rotateY(' + (x * 2 * max).toFixed(2) + 'deg)';
+      if (g) { g.style.setProperty('--gx', (x + .5) * 100 + '%'); g.style.setProperty('--gy', (y + .5) * 100 + '%'); }
+    });
+    el.addEventListener('pointerleave', function () {
+      if (!live) return;
+      live = 0; el.style.transition = tr; ease(650); el.style.transform = ''; if (g) g.classList.remove('on');
+      setTimeout(function () { if (!live) el.style.transition = tr; }, 700);
+    });
+  });
+});
+
 /* fx img-zoom */
 /* img-zoom: finds each image's clipping frame (an ancestor with overflow hidden/clip around just that image); if there is none,
    clips the display:block link around it; if neither is possible the image is left alone. Mouse only, off with reduced motion. */

@@ -1,11 +1,15 @@
-/* Cottage motion: the hero stamp thumps down once, the polaroid pile sways like it is pinned, and the polaroids straighten on hover (CSS). */
+/* Smoke motion: embers rise from the bottom of the hero and fade; hero photo slowly pushes in; section rows slide their numbers in. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var s = document.querySelector('.kc-stamp');
-  if (s) s.animate([{ transform: 'rotate(14deg) scale(2.4)', opacity: 0 }, { transform: 'rotate(14deg) scale(.92)', opacity: 1, offset: .7 }, { transform: 'rotate(14deg) scale(1)', opacity: 1 }], { duration: 700, delay: 600, easing: 'cubic-bezier(.3,.7,.3,1)', fill: 'backwards' });
-  var a = document.querySelector('.kc-pile .kc-pol-a'), b = document.querySelector('.kc-pile .kc-pol-b');
-  if (a) a.animate([{ transform: 'rotate(-4deg)' }, { transform: 'rotate(-2.6deg) translateY(-4px)' }], { duration: 4200, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  if (b) b.animate([{ transform: 'rotate(5deg)' }, { transform: 'rotate(3.4deg) translateY(4px)' }], { duration: 5000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  var box = document.querySelector('.sm-embers');
+  if (box) for (var i = 0; i < 22; i++) {
+    var e = document.createElement('i'), x = Math.random() * 100, dur = 5000 + Math.random() * 6000, dx = (Math.random() * 80 - 40);
+    e.style.left = x + '%'; e.style.width = e.style.height = (2 + Math.random() * 4) + 'px'; box.appendChild(e);
+    e.animate([{ transform: 'translate(0,0)', opacity: 0 }, { opacity: .95, offset: .15 }, { transform: 'translate(' + dx + 'px,-' + (box.offsetHeight * (0.5 + Math.random() * 0.5)) + 'px)', opacity: 0 }],
+      { duration: dur, delay: Math.random() * 6000, iterations: Infinity, easing: 'ease-out' });
+  }
+  var bg = document.querySelector('.sm-bg>img,.sm-bg>picture>img,.sm-bg>.ph');
+  if (bg) bg.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.07)' }], { duration: 18000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

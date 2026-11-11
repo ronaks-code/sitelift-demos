@@ -86,23 +86,38 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx bg-waves */
-/* bg-waves: four thin sine lines drifting sideways across the bottom of the hero, in primary/accent at low alpha, fading
-   out toward the top. Animated SVG paths moved by CSS only (no JS loop); static with reduced motion. opt: {n: 4} lines */
-FX.def('bg-waves', function (c) {
-  var n = Math.min(5, Math.max(3, +c.opt.n || 4));
+/* fx reveal-plus */
+/* reveal-plus: richer reveals on top of core's .rv (core adds .in). opt: {style: "rise" | "blur" | "clip", step: 70} (ms between
+   items that enter together, so grids and lists cascade instead of popping at once). Reduced motion: core already shows all. */
+FX.def('reveal-plus', function (c) {
+  if (FX.reduced || !('IntersectionObserver' in window)) return;
+  var h = document.documentElement, st = String(c.opt.style || 'rise'), step = +c.opt.step || 70;
+  if (st === 'blur' || st === 'clip') h.classList.add('fx-rp-' + st);
+  var els = c.els('.rv').filter(function (e) { return !e.classList.contains('in'); });
+  var io = new IntersectionObserver(function (es) {
+    var hit = es.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
+    hit.sort(function (a, b) { var A = a.getBoundingClientRect(), B = b.getBoundingClientRect(); return (A.top - B.top) || (A.left - B.left); });
+    hit.forEach(function (e, i) {
+      io.unobserve(e);
+      e.style.transitionDelay = Math.min(i, 6) * step + 'ms';
+      setTimeout(function () { e.style.transitionDelay = ''; }, 1500);
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  els.forEach(function (e) { io.observe(e); });
+});
+
+/* fx bg-mesh */
+/* bg-mesh: a slow drifting gradient mesh behind the hero: four large soft radial blobs in the brand colours at low alpha,
+   moved with CSS transform keyframes (no blur filter, cheap on phones). One layer, first child of the target; static with
+   reduced motion. opt: {strength: 0..1 (default .6)} */
+FX.def('bg-mesh', function (c) {
+  var s = c.opt.strength == null ? 0.6 : Math.max(0, Math.min(1, +c.opt.strength));
   c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var L = document.createElement('div'), h = '', i;
-    L.className = 'fx-waves'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none';
-    for (i = 0; i < n; i++) {
-      var a = 5 + i * 3.5, k = 2 + (i % 2), ph = i * 1.3, p = '';   // amplitude, periods per half, phase
-      for (var x = 0; x <= 400; x += 5) p += (x ? 'L' : 'M') + (x * 5) + ' ' + (50 + a * Math.sin(x / 200 * 2 * Math.PI * k + ph)).toFixed(1);
-      h += '<svg viewBox="0 0 2000 100" preserveAspectRatio="none" style="bottom:' + (2 + i * 4.5) + '%;animation-duration:' + (46 + i * 14) +
-        's;animation-direction:' + (i % 2 ? 'reverse' : 'normal') + '"><path d="' + p + '" style="stroke:var(--' + (i % 2 ? 'accent' : 'primary') +
-        ');opacity:' + (0.5 - i * 0.07).toFixed(2) + '"/></svg>';
-    }
-    L.innerHTML = h;
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
+    var L = document.createElement('div'), i;
+    L.className = 'fx-mesh'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none'; L.style.opacity = s;
+    for (i = 0; i < 4; i++) L.appendChild(document.createElement('i'));
+    // Containing block first, then insert: setting position after the layer is in moves the blobs (counted as layout shift).
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';
     t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
   });
 });

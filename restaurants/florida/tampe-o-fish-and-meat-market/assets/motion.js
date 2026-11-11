@@ -1,19 +1,11 @@
-/* Flour motion: sprinkles drift around the hero photo; the oval floats; the headline lines slide in from opposite sides. */
+/* Index motion: the index rows draw their rules and slide in one after another on load; a thin marker follows the hovered row; the marquee rolls (CSS). */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var sp = document.querySelector('.fl-sprinkles');
-  if (sp) for (var i = 0; i < 16; i++) {
-    var e = document.createElement('i'), a = Math.random() * 360;
-    e.style.left = (50 + 48 * Math.cos(a * Math.PI / 180)) + '%'; e.style.top = (50 + 48 * Math.sin(a * Math.PI / 180)) + '%';
-    e.style.transform = 'rotate(' + (Math.random() * 180) + 'deg)'; sp.appendChild(e);
-    e.animate([{ translate: '0 0' }, { translate: (Math.random() * 24 - 12) + 'px ' + (Math.random() * 30 - 15) + 'px' }], { duration: 2800 + Math.random() * 3000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  }
-  var o = document.querySelector('.fl-oval-pic');
-  if (o) o.animate([{ translate: '0 -6px' }, { translate: '0 8px' }], { duration: 4200, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  var l1 = document.querySelector('.fl-l1'), l2 = document.querySelector('.fl-l2');
-  var k = { duration: 1000, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' };
-  if (l1) l1.animate([{ translate: '-8vw', opacity: 0 }, { translate: '0', opacity: 1 }], k);
-  if (l2) l2.animate([{ translate: '8vw', opacity: 0 }, { translate: '0', opacity: 1 }], { ...k, delay: 150 });
+  document.querySelectorAll('.ix-rows li').forEach(function (li, i) {
+    li.animate([{ clipPath: 'inset(0 100% 0 0)', transform: 'translateX(-16px)' }, { clipPath: 'inset(0 0 0 0)', transform: 'none' }], { duration: 700, delay: 200 + i * 110, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+  });
+  var f = document.querySelector('.ix-fig img,.ix-fig .ph');
+  if (f) f.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0)' }], { duration: 1100, delay: 300, easing: 'cubic-bezier(.6,0,.2,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

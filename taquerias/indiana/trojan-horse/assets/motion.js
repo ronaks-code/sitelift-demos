@@ -1,13 +1,11 @@
-/* Ticket motion: the hero receipt prints from the top line by line (clip reveal in steps), the tickets on the rail swing in. */
+/* Chalkboard motion: hero lines are "written" left to right in sequence (clip wipe); a few chalk dust specks drift over the slate. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var r = document.querySelector('.tc-receipt');
-  if (r) r.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 1600, easing: 'steps(18,end)', fill: 'backwards' });
-  document.querySelectorAll('.tc-ticket').forEach(function (t, i) {
-    if (!('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.animate([{ transform: 'rotate(-3deg) translateY(-12px)', transformOrigin: '50% 0' }, { transform: 'none', transformOrigin: '50% 0' }], { duration: 700, easing: 'cubic-bezier(.3,1.6,.5,1)', delay: (i % 4) * 80 }); io.unobserve(e.target); } }); }, { threshold: .2 });
-    io.observe(t);
-  });
+  var lines = document.querySelectorAll('.cb-hero .cb-line');
+  if (!lines.length) return;
+  document.body.classList.add('js-chalk');
+  lines.forEach(function (l, i) { setTimeout(function () { l.classList.add('go'); }, 160 + i * 380); });
+  setTimeout(function () { lines.forEach(function (l) { l.classList.add('go'); }); }, 4000);
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

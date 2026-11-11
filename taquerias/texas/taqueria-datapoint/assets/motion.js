@@ -1,15 +1,11 @@
-/* Paleta motion: hero popsicles bob up and down out of phase, a soft shine sweeps across the photo popsicle, flavor cards bob (CSS). */
+/* Chalkboard motion: hero lines are "written" left to right in sequence (clip wipe); a few chalk dust specks drift over the slate. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.querySelectorAll('.pa-pop').forEach(function (p, i) {
-    p.animate([{ transform: 'translateY(0) rotate(-1.2deg)' }, { transform: 'translateY(-14px) rotate(1.2deg)' }], { duration: 2600 + i * 380, delay: -i * 600, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  });
-  var pic = document.querySelector('.pa-p3 .pa-pop-pic');
-  if (pic) {
-    var s = document.createElement('i'); s.style.cssText = 'position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-14deg);pointer-events:none';
-    pic.style.position = 'relative'; pic.appendChild(s);
-    s.animate([{ left: '-40%' }, { left: '130%' }], { duration: 1800, delay: 1200, iterations: Infinity, easing: 'ease-in-out', endDelay: 3500 });
-  }
+  var lines = document.querySelectorAll('.cb-hero .cb-line');
+  if (!lines.length) return;
+  document.body.classList.add('js-chalk');
+  lines.forEach(function (l, i) { setTimeout(function () { l.classList.add('go'); }, 160 + i * 380); });
+  setTimeout(function () { lines.forEach(function (l) { l.classList.add('go'); }); }, 4000);
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

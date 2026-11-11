@@ -1,13 +1,11 @@
-/* Bistro motion: hero photo drifts slowly inside its frame while scrolling (parallax), and hairline rules draw across on reveal. Image reveals are CSS clip-path wipes. */
+/* Comal motion: hero arch rises in with a bounce, the seal spins slowly, the ring behind it turns. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var im = document.querySelector('.bs-pano-in img,.bs-pano-in .ph');
-  if (im) {
-    im.style.transform = 'scale(1.12)';
-    var tick = function () { var y = Math.min(scrollY, 900); im.style.transform = 'scale(1.12) translateY(' + (y * 0.06) + 'px)'; };
-    addEventListener('scroll', tick, { passive: true });
-  }
-  var pn = document.querySelector('.bs-pano-in'); if (pn) pn.style.overflow = 'hidden';
+  var a = document.querySelector('.cm-arch'); if (!a) return;
+  a.animate([{ transform: 'translateY(40px) scale(.94)', opacity: 0 }, { transform: 'translateY(-8px) scale(1.01)', opacity: 1, offset: .7 }, { transform: 'none', opacity: 1 }], { duration: 900, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
+  var s = a.querySelector('.cm-seal'), r = a.querySelector('.cm-arch-ring');
+  if (s) s.animate([{ transform: 'rotate(10deg)' }, { transform: 'rotate(370deg)' }], { duration: 26000, iterations: Infinity });
+  if (r) addEventListener('scroll', function () { r.style.transform = 'translateY(' + Math.min(scrollY, 500) * -0.06 + 'px)'; }, { passive: true });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

@@ -139,3 +139,19 @@ FX.def('review-marquee', function (c) {
     FX.vis(wrap, function (v) { wrap.classList.toggle('fx-rm-off', !v); });
   });
 });
+
+/* fx bg-mesh */
+/* bg-mesh: a slow drifting gradient mesh behind the hero: four large soft radial blobs in the brand colours at low alpha,
+   moved with CSS transform keyframes (no blur filter, cheap on phones). One layer, first child of the target; static with
+   reduced motion. opt: {strength: 0..1 (default .6)} */
+FX.def('bg-mesh', function (c) {
+  var s = c.opt.strength == null ? 0.6 : Math.max(0, Math.min(1, +c.opt.strength));
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var L = document.createElement('div'), i;
+    L.className = 'fx-mesh'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none'; L.style.opacity = s;
+    for (i = 0; i < 4; i++) L.appendChild(document.createElement('i'));
+    // Containing block first, then insert: setting position after the layer is in moves the blobs (counted as layout shift).
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';
+    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
+  });
+});

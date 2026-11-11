@@ -127,6 +127,75 @@ FX.def('split-reveal', function (c) {
   setTimeout(end, 2500);
 });
 
+/* fx magnetic */
+/* magnetic: buttons lean toward the pointer when it is close (max ~9px, the label a little more) and spring back on leave.
+   Uses the independent `translate` property (no clash with a kit's own transform), one rAF loop that sleeps when everything is at rest.
+   Mouse only, off with reduced motion. opt: {range: 80, max: 9} */
+FX.def('magnetic', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  var R = +c.opt.range || 80, M = +c.opt.max || 9, run = 0, px = -9e3, py = -9e3;
+  // press-style buttons (hard offset shadow, no blur) already move on hover; leaning them too makes them wobble (Vinay 2026-11-09)
+  function pressy(e) {
+    return getComputedStyle(e).boxShadow.replace(/rgba?\([^)]*\)/g, '').split(',').some(function (sh) {
+      var n = (sh.match(/-?[\d.]+px/g) || []).map(parseFloat);   // x y blur spread
+      return n.length >= 2 && !(n[2] > 0) && (n[0] || n[1]);
+    });
+  }
+  var it = c.els('.btn').filter(function (e) { return !e.matches('.callbar') && !pressy(e); }).map(function (e) {
+    var l = e.querySelector('span');
+    if (l && getComputedStyle(l).display === 'inline') l.style.display = 'inline-block';
+    return { e: e, l: l, x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0 };
+  });
+  if (!it.length) return;
+  function tick() {
+    var busy = 0;
+    it.forEach(function (o) {
+      o.vx = (o.vx + (o.tx - o.x) * .14) * .74; o.vy = (o.vy + (o.ty - o.y) * .14) * .74;
+      o.x += o.vx; o.y += o.vy;
+      if (Math.abs(o.tx - o.x) + Math.abs(o.ty - o.y) + Math.abs(o.vx) + Math.abs(o.vy) < .04) { o.x = o.tx; o.y = o.ty; o.vx = o.vy = 0; } else busy = 1;
+      var on = o.x || o.y;
+      o.e.style.translate = on ? o.x.toFixed(2) + 'px ' + o.y.toFixed(2) + 'px' : '';
+      if (o.l) o.l.style.translate = on ? (o.x * .45).toFixed(2) + 'px ' + (o.y * .45).toFixed(2) + 'px' : '';
+    });
+    run = busy ? requestAnimationFrame(tick) : 0;
+  }
+  function aim() {
+    it.forEach(function (o) {
+      var r = o.e.getBoundingClientRect(), cx = r.left + r.width / 2 - o.x, cy = r.top + r.height / 2 - o.y;
+      var dx = px - cx, dy = py - cy;
+      var d = Math.hypot(Math.max(Math.abs(dx) - r.width / 2, 0), Math.max(Math.abs(dy) - r.height / 2, 0));
+      if (d < R && r.bottom > 0 && r.top < innerHeight) {
+        var k = .22 + .2 * (1 - d / R);
+        o.tx = Math.max(-M, Math.min(M, dx * k)); o.ty = Math.max(-M, Math.min(M, dy * k));
+      } else { o.tx = o.ty = 0; }
+    });
+    if (!run && !document.hidden) run = requestAnimationFrame(tick);
+  }
+  addEventListener('pointermove', function (e) { if (e.pointerType && e.pointerType !== 'mouse') return; px = e.clientX; py = e.clientY; aim(); }, { passive: true });
+  document.addEventListener('mouseleave', function () { px = py = -9e3; aim(); });
+  addEventListener('scroll', function () { if (px > -9e3) aim(); }, { passive: true });
+});
+
+/* fx reveal-plus */
+/* reveal-plus: richer reveals on top of core's .rv (core adds .in). opt: {style: "rise" | "blur" | "clip", step: 70} (ms between
+   items that enter together, so grids and lists cascade instead of popping at once). Reduced motion: core already shows all. */
+FX.def('reveal-plus', function (c) {
+  if (FX.reduced || !('IntersectionObserver' in window)) return;
+  var h = document.documentElement, st = String(c.opt.style || 'rise'), step = +c.opt.step || 70;
+  if (st === 'blur' || st === 'clip') h.classList.add('fx-rp-' + st);
+  var els = c.els('.rv').filter(function (e) { return !e.classList.contains('in'); });
+  var io = new IntersectionObserver(function (es) {
+    var hit = es.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
+    hit.sort(function (a, b) { var A = a.getBoundingClientRect(), B = b.getBoundingClientRect(); return (A.top - B.top) || (A.left - B.left); });
+    hit.forEach(function (e, i) {
+      io.unobserve(e);
+      e.style.transitionDelay = Math.min(i, 6) * step + 'ms';
+      setTimeout(function () { e.style.transitionDelay = ''; }, 1500);
+    });
+  }, { rootMargin: '0px 0px -8% 0px' });
+  els.forEach(function (e) { io.observe(e); });
+});
+
 /* fx duotone */
 /* duotone: gallery images are shown in the brand's two tones (dark from --dark, light from --primary eased toward the page light)
    through an inline SVG filter, and ease back to full colour on hover/focus (mouse) or while centred in the view (touch).
@@ -247,26 +316,6 @@ FX.def('spotlight', function (c) {
   addEventListener('scroll', function () { if (cur) place(); }, { passive: true });
 });
 
-/* fx reveal-plus */
-/* reveal-plus: richer reveals on top of core's .rv (core adds .in). opt: {style: "rise" | "blur" | "clip", step: 70} (ms between
-   items that enter together, so grids and lists cascade instead of popping at once). Reduced motion: core already shows all. */
-FX.def('reveal-plus', function (c) {
-  if (FX.reduced || !('IntersectionObserver' in window)) return;
-  var h = document.documentElement, st = String(c.opt.style || 'rise'), step = +c.opt.step || 70;
-  if (st === 'blur' || st === 'clip') h.classList.add('fx-rp-' + st);
-  var els = c.els('.rv').filter(function (e) { return !e.classList.contains('in'); });
-  var io = new IntersectionObserver(function (es) {
-    var hit = es.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
-    hit.sort(function (a, b) { var A = a.getBoundingClientRect(), B = b.getBoundingClientRect(); return (A.top - B.top) || (A.left - B.left); });
-    hit.forEach(function (e, i) {
-      io.unobserve(e);
-      e.style.transitionDelay = Math.min(i, 6) * step + 'ms';
-      setTimeout(function () { e.style.transitionDelay = ''; }, 1500);
-    });
-  }, { rootMargin: '0px 0px -8% 0px' });
-  els.forEach(function (e) { io.observe(e); });
-});
-
 /* fx cursor-blend */
 /* cursor-blend: one white circle that inverts whatever is under it (mix-blend-mode: difference). Grows over images and
    headings, shrinks over links. Native cursor hidden except in form fields and iframes. Mouse only, off with reduced
@@ -299,53 +348,4 @@ FX.def('cursor-blend', function (c) {
     el.classList.toggle('is-grow', !field && !!t.closest(G));
     el.classList.toggle('is-link', !field && !t.closest(G) && !!t.closest('a,button,[role=button],label,summary'));
   }, { passive: true });
-});
-
-/* fx magnetic */
-/* magnetic: buttons lean toward the pointer when it is close (max ~9px, the label a little more) and spring back on leave.
-   Uses the independent `translate` property (no clash with a kit's own transform), one rAF loop that sleeps when everything is at rest.
-   Mouse only, off with reduced motion. opt: {range: 80, max: 9} */
-FX.def('magnetic', function (c) {
-  if (!FX.fine || FX.reduced) return;
-  var R = +c.opt.range || 80, M = +c.opt.max || 9, run = 0, px = -9e3, py = -9e3;
-  // press-style buttons (hard offset shadow, no blur) already move on hover; leaning them too makes them wobble (Vinay 2026-11-09)
-  function pressy(e) {
-    return getComputedStyle(e).boxShadow.replace(/rgba?\([^)]*\)/g, '').split(',').some(function (sh) {
-      var n = (sh.match(/-?[\d.]+px/g) || []).map(parseFloat);   // x y blur spread
-      return n.length >= 2 && !(n[2] > 0) && (n[0] || n[1]);
-    });
-  }
-  var it = c.els('.btn').filter(function (e) { return !e.matches('.callbar') && !pressy(e); }).map(function (e) {
-    var l = e.querySelector('span');
-    if (l && getComputedStyle(l).display === 'inline') l.style.display = 'inline-block';
-    return { e: e, l: l, x: 0, y: 0, vx: 0, vy: 0, tx: 0, ty: 0 };
-  });
-  if (!it.length) return;
-  function tick() {
-    var busy = 0;
-    it.forEach(function (o) {
-      o.vx = (o.vx + (o.tx - o.x) * .14) * .74; o.vy = (o.vy + (o.ty - o.y) * .14) * .74;
-      o.x += o.vx; o.y += o.vy;
-      if (Math.abs(o.tx - o.x) + Math.abs(o.ty - o.y) + Math.abs(o.vx) + Math.abs(o.vy) < .04) { o.x = o.tx; o.y = o.ty; o.vx = o.vy = 0; } else busy = 1;
-      var on = o.x || o.y;
-      o.e.style.translate = on ? o.x.toFixed(2) + 'px ' + o.y.toFixed(2) + 'px' : '';
-      if (o.l) o.l.style.translate = on ? (o.x * .45).toFixed(2) + 'px ' + (o.y * .45).toFixed(2) + 'px' : '';
-    });
-    run = busy ? requestAnimationFrame(tick) : 0;
-  }
-  function aim() {
-    it.forEach(function (o) {
-      var r = o.e.getBoundingClientRect(), cx = r.left + r.width / 2 - o.x, cy = r.top + r.height / 2 - o.y;
-      var dx = px - cx, dy = py - cy;
-      var d = Math.hypot(Math.max(Math.abs(dx) - r.width / 2, 0), Math.max(Math.abs(dy) - r.height / 2, 0));
-      if (d < R && r.bottom > 0 && r.top < innerHeight) {
-        var k = .22 + .2 * (1 - d / R);
-        o.tx = Math.max(-M, Math.min(M, dx * k)); o.ty = Math.max(-M, Math.min(M, dy * k));
-      } else { o.tx = o.ty = 0; }
-    });
-    if (!run && !document.hidden) run = requestAnimationFrame(tick);
-  }
-  addEventListener('pointermove', function (e) { if (e.pointerType && e.pointerType !== 'mouse') return; px = e.clientX; py = e.clientY; aim(); }, { passive: true });
-  document.addEventListener('mouseleave', function () { px = py = -9e3; aim(); });
-  addEventListener('scroll', function () { if (px > -9e3) aim(); }, { passive: true });
 });

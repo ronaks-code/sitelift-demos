@@ -86,6 +86,136 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx before-after */
+/* before-after: a [data-ba] stage holding two stacked photos (before, after), or adjacent gallery figures captioned
+   "Before"/"After", becomes a drag slider over the first photo's box (native range input: keyboard + screen readers).
+   Side-by-side pairs stay static. Reduced motion: no hint sweep. opt: {labels: ["Before", "After"], label} */
+FX.def('before-after', function (c) {
+  var d = document, L = c.opt.labels || ['Before', 'After'], used = [];
+  function txt(f, i) {
+    var n = f.querySelector('figcaption'), a = f.querySelector('a[data-cap]');
+    return ((n && n.textContent) || (a && a.getAttribute('data-cap')) || i.alt || '').trim();
+  }
+  function clone(i, cls) {
+    var n = i.cloneNode(false); n.className = cls; n.removeAttribute('id'); n.removeAttribute('data-fx-before-after'); n.loading = 'eager'; return n;
+  }
+  function build(u1, u2, i1, i2) {
+    var host = u1.tagName === 'IMG' ? u1.parentElement : u1;
+    if (host.querySelector('.fx-ba')) return;
+    if (getComputedStyle(host).position === 'static') host.style.position = 'relative';
+    var box = d.createElement('div'), inp = d.createElement('input'), B = clone(i1, ''), A = clone(i2, 'fx-ba-b');
+    box.className = 'fx-ba'; B.alt = '';
+    inp.type = 'range'; inp.min = 0; inp.max = 100; inp.step = 2; inp.value = 50; inp.className = 'fx-ba-in';
+    inp.setAttribute('aria-label', c.opt.label || 'Before and after comparison');
+    box.appendChild(B); box.appendChild(A);
+    box.insertAdjacentHTML('beforeend', '<span class="fx-ba-bar"><i></i></span><span class="fx-ba-l fx-ba-l1"></span><span class="fx-ba-l fx-ba-l2"></span>');
+    var l1 = box.children[3], l2 = box.children[4];
+    l1.textContent = L[0]; l2.textContent = L[1];
+    box.appendChild(inp); host.appendChild(box);
+    box.style.borderRadius = getComputedStyle(i1).borderRadius;
+    function place() {
+      var h = host.getBoundingClientRect(), r = i1.getBoundingClientRect();
+      box.style.left = r.left - h.left + 'px'; box.style.top = r.top - h.top + 'px'; box.style.width = r.width + 'px'; box.style.height = r.height + 'px';
+    }
+    function set(v) {
+      v = Math.max(0, Math.min(100, v)); box.style.setProperty('--p', v + '%'); inp.value = v;
+      l1.style.opacity = v < 14 ? 0 : 1; l2.style.opacity = v > 86 ? 0 : 1;
+    }
+    place(); set(50);
+    if ('ResizeObserver' in window) { var ro = new ResizeObserver(place); ro.observe(host); ro.observe(i1); } else addEventListener('resize', place);
+    host.querySelectorAll('a').forEach(function (a) { a.tabIndex = -1; });
+    var cap = host.querySelector('figcaption');
+    if (cap && /^\s*before/i.test(cap.textContent)) cap.style.visibility = 'hidden';
+    if (u2 !== host && u2 !== u1) u2.hidden = true;
+    var down = 0, touched = 0;
+    function at(e) { var r = box.getBoundingClientRect(); set((e.clientX - r.left) / r.width * 100); }
+    box.addEventListener('pointerdown', function (e) {
+      if (e.button) return;
+      e.preventDefault(); down = touched = 1; box.classList.add('drag');
+      try { box.setPointerCapture(e.pointerId); } catch (x) {}
+      box.classList.add('m'); inp.focus({ preventScroll: true }); at(e);
+    });
+    box.addEventListener('pointermove', function (e) { if (down) at(e); });
+    function up() { down = 0; box.classList.remove('drag'); }
+    box.addEventListener('pointerup', up); box.addEventListener('pointercancel', up);
+    inp.addEventListener('keydown', function () { box.classList.remove('m'); });
+    inp.addEventListener('blur', function () { box.classList.remove('m'); });
+    inp.addEventListener('input', function () { touched = 1; set(+inp.value); });
+    if (!FX.reduced) FX.seen([box], function () {
+      var t0 = performance.now();
+      (function step(now) {
+        if (touched) return;
+        var k = Math.min(1, (now - t0) / 1600);
+        set(50 - 15 * Math.sin(k * Math.PI));
+        if (k < 1) requestAnimationFrame(step);
+      })(t0);
+    }, '0px 0px -25% 0px');
+  }
+  c.els('[data-ba]').forEach(function (m) {
+    var im = m.querySelectorAll('img');
+    if (im.length !== 2) return;
+    // stacked stage only (else the after photo shows twice); data-ba="slider" forces it
+    var r1 = im[0].getBoundingClientRect(), r2 = im[1].getBoundingClientRect();
+    var ov = Math.max(0, Math.min(r1.right, r2.right) - Math.max(r1.left, r2.left)) * Math.max(0, Math.min(r1.bottom, r2.bottom) - Math.max(r1.top, r2.top));
+    if (m.getAttribute('data-ba') !== 'slider' && ov < 0.5 * r1.width * r1.height) return;
+    var u = [im[0], im[1]].map(function (i) { var n = i; while (n.parentElement && n.parentElement !== m) n = n.parentElement; return n; });
+    used.push(u[0], u[1]); build(u[0], u[1], im[0], im[1]);
+  });
+  FX.$$('figure').forEach(function (f) {
+    var n = f.nextElementSibling, i1 = f.querySelector('img'), i2 = n && n.tagName === 'FIGURE' && n.querySelector('img');
+    if (!i1 || !i2 || used.indexOf(f) > -1 || f.closest('[data-ba]') || f.querySelector('.fx-ba')) return;
+    if (/^\s*before/i.test(txt(f, i1)) && /^\s*after/i.test(txt(n, i2))) { used.push(f, n); build(f, n, i1, i2); }
+  });
+});
+
+/* fx timeline-draw */
+/* timeline-draw: process / steps lists get a vertical line through the step numbers that draws as you scroll (scroll-driven CSS where
+   supported, otherwise it grows step by step as each step is reached); each number gives a small pop when reached.
+   Works for numbers that are a child element or a ::before/::after counter. The list keeps its layout and markup.
+   Lists that already have a background image are skipped. Reduced motion: the full line, no pop. */
+FX.def('timeline-draw', function (c) {
+  var css = !FX.reduced && window.CSS && CSS.supports('animation-timeline: view()') && CSS.supports('animation-range: 0% 100%');
+  c.els('ol[class*=step], ol[class*=process], [class*=process] ol, [class*=steps]').forEach(function (ol) {
+    var li = [].slice.call(ol.children).filter(function (k) { return k.offsetHeight > 0; });
+    if (li.length < 2 || getComputedStyle(ol).backgroundImage !== 'none') return;
+    var mk = [];
+    function measure() {
+      var o = ol.getBoundingClientRect(), bl = parseFloat(getComputedStyle(ol).borderLeftWidth) || 0, bt = parseFloat(getComputedStyle(ol).borderTopWidth) || 0;
+      mk = li.map(function (k) {
+        var s = getComputedStyle(k), tr = new DOMMatrix(s.transform), r = k.getBoundingClientRect(), x, y, w, ps = '';
+        var first = k.firstElementChild, fs = first && first.getBoundingClientRect();
+        var b = getComputedStyle(k, '::before'), a = getComputedStyle(k, '::after');
+        var pe = b.content !== 'none' && b.content !== 'normal' ? '::before' : (a.content !== 'none' && a.content !== 'normal' && a.position !== 'absolute' ? '::after' : '');
+        var left = r.left - tr.m41 - o.left - bl, top = r.top - tr.m42 - o.top - bt;
+        if (first && fs.width <= 90 && fs.height <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName)) { x = fs.left - o.left - bl + fs.width / 2; y = fs.top - o.top - bt + fs.height / 2; }
+        else if (pe) {
+          var q = pe === '::before' ? b : a, W = parseFloat(q.width) || 24, H = parseFloat(q.height) || 24;
+          if (q.position === 'absolute') { x = left + (parseFloat(q.left) || 0) + W / 2 - (q.left === 'auto' ? W / 2 : 0); y = top + (parseFloat(q.top) || 0) + H / 2; }
+          else { x = left + (parseFloat(s.paddingLeft) || 0) + W / 2; y = top + (parseFloat(s.paddingTop) || 0) + H / 2; }
+          ps = pe;
+        } else { x = left + 14; y = top + 14; }
+        return { x: x, y: y, el: ps ? k : (first && fs.width <= 90 && !/^(P|H\d|DIV)$/.test(first.tagName) ? first : null), pe: ps };
+      });
+      var y0 = mk[0].y, y1 = mk[mk.length - 1].y;
+      ol.style.setProperty('--fx-x', (mk[0].x - 1).toFixed(1) + 'px'); ol.style.setProperty('--fx-y', y0.toFixed(1) + 'px'); ol.style.setProperty('--fx-h', Math.max(0, y1 - y0).toFixed(1) + 'px');
+    }
+    measure();
+    ol.setAttribute('data-fx-td', '');
+    if (window.ResizeObserver) new ResizeObserver(measure).observe(ol);
+    if (FX.reduced) return;
+    if (css) ol.classList.add('fx-td-css');
+    else { ol.classList.add('fx-td-io'); ol.style.setProperty('--fx-p', 0); }
+    li.forEach(function (k, i) {
+      FX.seen([k], function () {
+        var m = mk[i], h1 = mk[mk.length - 1].y - mk[0].y;
+        if (!css) ol.style.setProperty('--fx-p', h1 > 0 ? Math.max(0, (m.y - mk[0].y) / h1).toFixed(3) : 1);
+        if (Element.prototype.animate && m.el) m.el.animate([{ transform: 'scale(.82)' }, { transform: 'scale(1.18)', offset: .55 }, { transform: 'scale(1)' }],
+          { duration: 520, easing: 'cubic-bezier(.2,.7,.2,1)', pseudoElement: m.pe || undefined });
+      }, '0px 0px -38% 0px');
+    });
+  });
+});
+
 /* fx hours-toast */
 /* hours-toast: once per browser session, 3.5s after load, a small toast says whether the business is open ("Open now · until 6 PM") or
    when it opens next ("Closed now · opens 8 AM tomorrow"), from the first [data-hours] JSON (same format core.js reads:
@@ -136,33 +266,6 @@ FX.def('hours-toast', function (c) {
     x.addEventListener('click', hide);
     timer = setTimeout(hide, +o.ms || 7000);
   }, o.delay == null ? 3500 : +o.delay);
-});
-
-/* fx bg-grid */
-/* bg-grid: a fine dot grid (opt kind "lines" for a line grid) with a brighter copy of the grid revealed through a soft
-   circle that follows the pointer (mouse) or slowly sweeps (touch). Edges fade out. Static grid with reduced motion.
-   opt: {kind: "dots"|"lines", size: 28} */
-FX.def('bg-grid', function (c) {
-  var lines = c.opt.kind === 'lines', z = Math.max(16, Math.min(60, +c.opt.size || 28));
-  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
-    var L = document.createElement('div'), hi, pend = 0, ex, ey;
-    L.className = 'fx-grid' + (lines ? ' fx-grid-l' : ''); L.setAttribute('aria-hidden', 'true');
-    L.style.setProperty('--fx-gs', z + 'px');
-    L.innerHTML = '<i></i><i class="hi"></i>'; hi = L.lastChild;
-    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
-    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
-    if (!FX.fine || FX.reduced) return;
-    L.classList.add('is-fine');
-    t.addEventListener('pointermove', function (e) {
-      ex = e.clientX; ey = e.clientY;
-      if (pend) return; pend = 1;
-      requestAnimationFrame(function () {
-        pend = 0; var b = L.getBoundingClientRect();
-        hi.style.setProperty('--fx-x', (ex - b.left - 210) + 'px'); hi.style.setProperty('--fx-y', (ey - b.top - 210) + 'px'); hi.style.opacity = 1;
-      });
-    }, { passive: true });
-    t.addEventListener('pointerleave', function () { hi.style.opacity = 0; });
-  });
 });
 
 /* fx scroll-progress */

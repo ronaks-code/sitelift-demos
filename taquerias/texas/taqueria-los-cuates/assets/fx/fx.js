@@ -86,41 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx parallax */
-/* parallax: photos drift 6 to 10% slower than the page, inside a frame that clips them (a photo is only moved when its frame
-   or the frame around it has overflow hidden/clip, or a fixed aspect ratio). Small photos and logos are skipped.
-   opt: {amount: 5} (percent of the photo height each way; half on phones) */
-FX.def('parallax', function (c) {
-  if (FX.reduced) return;
-  var amp = (+c.opt.amount || 5) / (FX.small ? 2 : 1), css = window.CSS && CSS.supports('animation-timeline: view()');
-  var list = [];
-  c.els('main > :first-child img, [data-layer] img').forEach(function (img) {
-    var r = img.getBoundingClientRect();
-    if (r.width < 160 || r.height < 120 || /logo|icon/i.test(img.className + img.alt + img.src) || img.closest('.ph')) return;
-    var p = img.parentElement, ok = 0;
-    for (var n = p, i = 0; n && i < 3 && n !== document.body; n = n.parentElement, i++) {
-      var s = getComputedStyle(n);
-      if (/hidden|clip/.test(s.overflowY) || (i === 0 && s.aspectRatio !== 'auto' && s.display !== 'inline')) { ok = n; break; }
-    }
-    if (!ok) return;
-    if (ok === p && !/hidden|clip/.test(getComputedStyle(p).overflowY)) p.style.overflow = 'clip';
-    img.setAttribute('data-fx-px', ''); img.style.setProperty('--fx-px', amp + '%');
-    if (css) img.classList.add('fx-px-css'); else list.push({ img: img, box: p });
-  });
-  if (css || !list.length) return;
-  var busy = 0;
-  function tick() {
-    busy = 0;
-    list.forEach(function (o) {
-      var r = o.box.getBoundingClientRect(), k = (innerHeight - r.top) / (innerHeight + r.height);
-      if (k < -.05 || k > 1.05) return;
-      o.img.style.transform = 'translate3d(0,' + ((k - .5) * 2 * amp * o.img.offsetHeight / 100).toFixed(1) + 'px,0) scale(1.12)';
-    });
-  }
-  function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
-  addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
-});
-
 /* fx typewriter */
 /* typewriter: types the hero eyebrow (or any [data-fx-typewriter] element) once, 35 to 55ms per character, with a blinking caret that
    goes away shortly after. The full text is reserved from the start (untyped part transparent) and kept in aria-label plus a
@@ -170,4 +135,87 @@ FX.def('btn-fill', function (c) {
     b.addEventListener('pointerenter', set); b.addEventListener('pointerleave', set);
     b.addEventListener('focus', function () { b.style.setProperty('--fx-dx', 0); b.style.setProperty('--fx-dy', 0); });
   });
+});
+
+/* fx parallax */
+/* parallax: photos drift 6 to 10% slower than the page, inside a frame that clips them (a photo is only moved when its frame
+   or the frame around it has overflow hidden/clip, or a fixed aspect ratio). Small photos and logos are skipped.
+   opt: {amount: 5} (percent of the photo height each way; half on phones) */
+FX.def('parallax', function (c) {
+  if (FX.reduced) return;
+  var amp = (+c.opt.amount || 5) / (FX.small ? 2 : 1), css = window.CSS && CSS.supports('animation-timeline: view()');
+  var list = [];
+  c.els('main > :first-child img, [data-layer] img').forEach(function (img) {
+    var r = img.getBoundingClientRect();
+    if (r.width < 160 || r.height < 120 || /logo|icon/i.test(img.className + img.alt + img.src) || img.closest('.ph')) return;
+    var p = img.parentElement, ok = 0;
+    for (var n = p, i = 0; n && i < 3 && n !== document.body; n = n.parentElement, i++) {
+      var s = getComputedStyle(n);
+      if (/hidden|clip/.test(s.overflowY) || (i === 0 && s.aspectRatio !== 'auto' && s.display !== 'inline')) { ok = n; break; }
+    }
+    if (!ok) return;
+    if (ok === p && !/hidden|clip/.test(getComputedStyle(p).overflowY)) p.style.overflow = 'clip';
+    img.setAttribute('data-fx-px', ''); img.style.setProperty('--fx-px', amp + '%');
+    if (css) img.classList.add('fx-px-css'); else list.push({ img: img, box: p });
+  });
+  if (css || !list.length) return;
+  var busy = 0;
+  function tick() {
+    busy = 0;
+    list.forEach(function (o) {
+      var r = o.box.getBoundingClientRect(), k = (innerHeight - r.top) / (innerHeight + r.height);
+      if (k < -.05 || k > 1.05) return;
+      o.img.style.transform = 'translate3d(0,' + ((k - .5) * 2 * amp * o.img.offsetHeight / 100).toFixed(1) + 'px,0) scale(1.12)';
+    });
+  }
+  function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
+  addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
+});
+
+/* fx cursor-ring */
+/* cursor-ring: a precise dot on the pointer and a soft ring that follows with a little lag. Over links/buttons the ring
+   grows; over gallery photos and call links it becomes a labelled pill ("View", "Call"). Mouse only (FX.fine), off with
+   reduced motion; text fields keep the native caret. opt: {labels: {view, call, book}, blend: true} */
+FX.def('cursor-ring', function (c) {
+  if (!FX.fine || FX.reduced) return;
+  var d = document, h = d.documentElement, o = c.opt, L = o.labels || {};
+  var lab = { view: L.view || 'View', call: L.call || 'Call', book: L.book || '' };
+  var el = d.createElement('div');
+  el.className = 'fx-cur' + (o.blend ? ' fx-cur-blend' : ''); el.setAttribute('aria-hidden', 'true');
+  el.innerHTML = '<i class="fx-cur-ring"><b><span></span></b></i><i class="fx-cur-dot"></i>';
+  d.body.appendChild(el);
+  var ring = el.firstChild, dot = el.lastChild, txt = ring.querySelector('span');
+  var x = -100, y = -100, rx = -100, ry = -100, busy = 0;
+  h.classList.add('fx-cur-on');
+  function tick() {
+    rx += (x - rx) * 0.2; ry += (y - ry) * 0.2;
+    ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0)';
+    if (Math.abs(x - rx) + Math.abs(y - ry) > 0.2) requestAnimationFrame(tick); else busy = 0;
+  }
+  addEventListener('pointermove', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    x = e.clientX; y = e.clientY;
+    dot.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+    if (!el.classList.contains('on')) { rx = x; ry = y; el.classList.add('on'); }
+    if (!busy) { busy = 1; requestAnimationFrame(tick); }
+  }, { passive: true });
+  d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) el.classList.remove('on'); });
+  d.addEventListener('pointerdown', function () { el.classList.add('down'); }, { passive: true });
+  d.addEventListener('pointerup', function () { el.classList.remove('down'); }, { passive: true });
+  d.addEventListener('pointerover', function (e) {
+    var t = e.target.closest ? e.target : e.target.parentElement;
+    if (!t || !t.closest) return;
+    var field = t.closest('input,textarea,select,[contenteditable],iframe');
+    var cue = t.closest('[data-cursor]');
+    var a = t.closest('a,button,[role=button],label,summary,[data-f]');
+    var s = '';
+    if (cue) s = cue.getAttribute('data-cursor');
+    else if (a && a.matches('a[data-lb],[data-lb] a')) s = lab.view;
+    else if (a && /^tel:/i.test(a.getAttribute('href') || '')) s = lab.call;
+    else if (a && lab.book && /book/i.test(a.getAttribute('href') || '')) s = lab.book;
+    el.classList.toggle('is-field', !!field);
+    el.classList.toggle('is-link', !!a && !s);
+    el.classList.toggle('is-label', !!s);
+    if (s) txt.textContent = s;
+  }, { passive: true });
 });

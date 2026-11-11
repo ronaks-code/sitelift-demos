@@ -86,14 +86,6 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx heading-scrub */
-/* heading-scrub: marks the section headings (h2 by default) the CSS animates. Letter-spacing is deliberately not animated (it would
-   reflow the text); the heading lifts, fades up and un-clips instead. Browsers without scroll-driven animations: nothing happens. */
-FX.def('heading-scrub', function (c) {
-  if (FX.reduced || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
-  c.els('main h2').forEach(function (e) { e.setAttribute('data-fx-hs', ''); });
-});
-
 /* fx header-hide */
 /* header-hide: the site header slides up when you scroll down past 120px and comes back when you scroll up. Never hides while focus
    is inside it or the mobile menu is open (body.nav-open). Only acts on a sticky/fixed header. Reduced motion: same, instant.
@@ -114,6 +106,14 @@ FX.def('header-hide', function (c) {
   }
   addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
   hd.addEventListener('focusin', function () { set(0); });
+});
+
+/* fx heading-scrub */
+/* heading-scrub: marks the section headings (h2 by default) the CSS animates. Letter-spacing is deliberately not animated (it would
+   reflow the text); the heading lifts, fades up and un-clips instead. Browsers without scroll-driven animations: nothing happens. */
+FX.def('heading-scrub', function (c) {
+  if (FX.reduced || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
+  c.els('main h2').forEach(function (e) { e.setAttribute('data-fx-hs', ''); });
 });
 
 /* fx nav-stagger */

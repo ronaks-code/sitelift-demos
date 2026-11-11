@@ -107,6 +107,58 @@ FX.def('ken-burns', function (c) {
   });
 });
 
+/* fx hours-toast */
+/* hours-toast: once per browser session, 3.5s after load, a small toast says whether the business is open ("Open now · until 6 PM") or
+   when it opens next ("Closed now · opens 8 AM tomorrow"), from the first [data-hours] JSON (same format core.js reads:
+   [[dayIndex 0=Sun, "HH:MM", "HH:MM"], ...]). Nothing when the hours are empty. role=status, close button, hides itself after 7s.
+   opt: {open: "Open now · until {t}", closed: "Closed now · opens {t}", delay: 3500, ms: 7000} */
+FX.def('hours-toast', function (c) {
+  var d = document, o = c.opt, el = d.querySelector('[data-hours]'), H;
+  try { if (sessionStorage.getItem('fx-hours-toast')) return; } catch (e) {}
+  try { H = JSON.parse(el && el.getAttribute('data-hours')); } catch (e) { return; }
+  if (!H || !H.length) return;
+  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  function mins(s) { var a = s.split(':'); return +a[0] * 60 + +a[1]; }
+  function fmt(s) {
+    var m = mins(s);
+    if (m === 0 || m >= 1439) return 'midnight';
+    var h = Math.floor(m / 60), r = m % 60;
+    return (h % 12 || 12) + (r ? ':' + (r < 10 ? '0' : '') + r : '') + (h < 12 ? ' AM' : ' PM');
+  }
+  function say() {
+    var n = new Date(), day = n.getDay(), m = n.getHours() * 60 + n.getMinutes(), i, rs;
+    function on(dd) { return H.filter(function (r) { return r[0] === dd; }).sort(function (a, b) { return mins(a[1]) - mins(b[1]); }); }
+    rs = on(day);
+    for (i = 0; i < rs.length; i++) if (m >= mins(rs[i][1]) && m < mins(rs[i][2])) return (o.open || 'Open now · until {t}').replace('{t}', fmt(rs[i][2]));
+    for (i = 0; i < 8; i++) {
+      rs = on((day + i) % 7).filter(function (r) { return i || mins(r[1]) > m; });
+      if (rs.length) return (o.closed || 'Closed now · opens {t}').replace('{t}', fmt(rs[0][1]) + (i === 0 ? '' : i === 1 ? ' tomorrow' : ' ' + days[(day + i) % 7]));
+    }
+    return '';
+  }
+  var msg = say();
+  if (!msg) return;
+  setTimeout(function () {
+    if (d.querySelector('.fx-ht')) return;
+    var t = d.createElement('div'), x = d.createElement('button'), s = d.createElement('span');
+    t.className = 'fx-ht' + (d.querySelector('.callbar') ? ' fx-ht-cb' : ''); t.setAttribute('role', 'status');
+    s.className = 'fx-ht-t'; s.textContent = msg;
+    x.type = 'button'; x.className = 'fx-ht-x'; x.setAttribute('aria-label', 'Close'); x.textContent = '×';
+    t.appendChild(s); t.appendChild(x); d.body.appendChild(t);
+    try { sessionStorage.setItem('fx-hours-toast', '1'); } catch (e) {}
+    var ease = { duration: 450, easing: 'cubic-bezier(.2,.7,.2,1)' };
+    if (!FX.reduced) t.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], ease);
+    var gone = 0, timer;
+    function hide() {
+      if (gone) return; gone = 1; clearTimeout(timer);
+      var a = FX.reduced ? null : t.animate([{ opacity: 1 }, { opacity: 0, transform: 'translateY(10px)' }], { duration: 250, easing: 'ease-in' });
+      if (a) a.onfinish = function () { t.remove(); }; else t.remove();
+    }
+    x.addEventListener('click', hide);
+    timer = setTimeout(hide, +o.ms || 7000);
+  }, o.delay == null ? 3500 : +o.delay);
+});
+
 /* fx section-tint */
 /* section-tint: the page ground crossfades between soft section colours as you scroll. Sections opt in with data-fx-tint="--surface"
    (any CSS variable or colour); otherwise the module alternates transparent sections between the page colour and faint washes of
