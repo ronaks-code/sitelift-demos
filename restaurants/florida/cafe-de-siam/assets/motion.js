@@ -1,11 +1,13 @@
-/* Chalkboard motion: hero lines are "written" left to right in sequence (clip wipe); a few chalk dust specks drift over the slate. */
+/* Bistro motion: hero photo drifts slowly inside its frame while scrolling (parallax), and hairline rules draw across on reveal. Image reveals are CSS clip-path wipes. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var lines = document.querySelectorAll('.cb-hero .cb-line');
-  if (!lines.length) return;
-  document.body.classList.add('js-chalk');
-  lines.forEach(function (l, i) { setTimeout(function () { l.classList.add('go'); }, 160 + i * 380); });
-  setTimeout(function () { lines.forEach(function (l) { l.classList.add('go'); }); }, 4000);
+  var im = document.querySelector('.bs-pano-in img,.bs-pano-in .ph');
+  if (im) {
+    im.style.transform = 'scale(1.12)';
+    var tick = function () { var y = Math.min(scrollY, 900); im.style.transform = 'scale(1.12) translateY(' + (y * 0.06) + 'px)'; };
+    addEventListener('scroll', tick, { passive: true });
+  }
+  var pn = document.querySelector('.bs-pano-in'); if (pn) pn.style.overflow = 'hidden';
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

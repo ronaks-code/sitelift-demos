@@ -123,6 +123,78 @@ FX.def('sticky-cta', function (c) {
   });
 });
 
+/* fx stars-fill */
+/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
+   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
+FX.def('stars-fill', function (c) {
+  if (FX.reduced) return;
+  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
+    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
+  });
+  els.forEach(function (el) {
+    var s = document.createElement('span');
+    s.className = 'fx-stars-in fx-stars-w';
+    while (el.firstChild) s.appendChild(el.firstChild);
+    el.appendChild(s);
+    FX.seen([el], function () {
+      s.classList.remove('fx-stars-w');
+      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
+    });
+  });
+});
+
+/* fx hours-toast */
+/* hours-toast: once per browser session, 3.5s after load, a small toast says whether the business is open ("Open now · until 6 PM") or
+   when it opens next ("Closed now · opens 8 AM tomorrow"), from the first [data-hours] JSON (same format core.js reads:
+   [[dayIndex 0=Sun, "HH:MM", "HH:MM"], ...]). Nothing when the hours are empty. role=status, close button, hides itself after 7s.
+   opt: {open: "Open now · until {t}", closed: "Closed now · opens {t}", delay: 3500, ms: 7000} */
+FX.def('hours-toast', function (c) {
+  var d = document, o = c.opt, el = d.querySelector('[data-hours]'), H;
+  try { if (sessionStorage.getItem('fx-hours-toast')) return; } catch (e) {}
+  try { H = JSON.parse(el && el.getAttribute('data-hours')); } catch (e) { return; }
+  if (!H || !H.length) return;
+  var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  function mins(s) { var a = s.split(':'); return +a[0] * 60 + +a[1]; }
+  function fmt(s) {
+    var m = mins(s);
+    if (m === 0 || m >= 1439) return 'midnight';
+    var h = Math.floor(m / 60), r = m % 60;
+    return (h % 12 || 12) + (r ? ':' + (r < 10 ? '0' : '') + r : '') + (h < 12 ? ' AM' : ' PM');
+  }
+  function say() {
+    var n = new Date(), day = n.getDay(), m = n.getHours() * 60 + n.getMinutes(), i, rs;
+    function on(dd) { return H.filter(function (r) { return r[0] === dd; }).sort(function (a, b) { return mins(a[1]) - mins(b[1]); }); }
+    rs = on(day);
+    for (i = 0; i < rs.length; i++) if (m >= mins(rs[i][1]) && m < mins(rs[i][2])) return (o.open || 'Open now · until {t}').replace('{t}', fmt(rs[i][2]));
+    for (i = 0; i < 8; i++) {
+      rs = on((day + i) % 7).filter(function (r) { return i || mins(r[1]) > m; });
+      if (rs.length) return (o.closed || 'Closed now · opens {t}').replace('{t}', fmt(rs[0][1]) + (i === 0 ? '' : i === 1 ? ' tomorrow' : ' ' + days[(day + i) % 7]));
+    }
+    return '';
+  }
+  var msg = say();
+  if (!msg) return;
+  setTimeout(function () {
+    if (d.querySelector('.fx-ht')) return;
+    var t = d.createElement('div'), x = d.createElement('button'), s = d.createElement('span');
+    t.className = 'fx-ht' + (d.querySelector('.callbar') ? ' fx-ht-cb' : ''); t.setAttribute('role', 'status');
+    s.className = 'fx-ht-t'; s.textContent = msg;
+    x.type = 'button'; x.className = 'fx-ht-x'; x.setAttribute('aria-label', 'Close'); x.textContent = '×';
+    t.appendChild(s); t.appendChild(x); d.body.appendChild(t);
+    try { sessionStorage.setItem('fx-hours-toast', '1'); } catch (e) {}
+    var ease = { duration: 450, easing: 'cubic-bezier(.2,.7,.2,1)' };
+    if (!FX.reduced) t.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], ease);
+    var gone = 0, timer;
+    function hide() {
+      if (gone) return; gone = 1; clearTimeout(timer);
+      var a = FX.reduced ? null : t.animate([{ opacity: 1 }, { opacity: 0, transform: 'translateY(10px)' }], { duration: 250, easing: 'ease-in' });
+      if (a) a.onfinish = function () { t.remove(); }; else t.remove();
+    }
+    x.addEventListener('click', hide);
+    timer = setTimeout(hide, +o.ms || 7000);
+  }, o.delay == null ? 3500 : +o.delay);
+});
+
 /* fx count-up */
 /* count-up: real numbers (rating, review count, years) count up once when they scroll into view. The element's width is
    locked to its final text first (no layout shift); the final text is exactly what was there (prefix/suffix kept);
@@ -151,26 +223,6 @@ FX.def('count-up', function (c) {
         el.textContent = k < 1 ? m[1] + fmt(end * e) + m[3] : t;
         if (k < 1) requestAnimationFrame(step); else el.removeAttribute('aria-label');
       })(t0);
-    });
-  });
-});
-
-/* fx stars-fill */
-/* stars-fill: elements whose own text is only stars (default [class*=star], or sel) fill left to right once, when seen.
-   The text node is wrapped in a span (inline, same glyphs, aria-hidden left as it was). No reduced-motion animation. opt: {ms: 900} */
-FX.def('stars-fill', function (c) {
-  if (FX.reduced) return;
-  var ms = +c.opt.ms || 900, els = c.els('[class*=star]').filter(function (e) {
-    return !e.children.length && /^[\s★☆]+$/.test(e.textContent) && /[★☆]/.test(e.textContent);
-  });
-  els.forEach(function (el) {
-    var s = document.createElement('span');
-    s.className = 'fx-stars-in fx-stars-w';
-    while (el.firstChild) s.appendChild(el.firstChild);
-    el.appendChild(s);
-    FX.seen([el], function () {
-      s.classList.remove('fx-stars-w');
-      s.animate([{ backgroundPosition: '100% 0' }, { backgroundPosition: '0 0' }], { duration: ms, easing: 'cubic-bezier(.45,.05,.2,1)' });
     });
   });
 });

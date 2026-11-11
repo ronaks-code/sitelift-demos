@@ -1,19 +1,15 @@
-/* Copper Line motion: margin pipe fills with scroll progress; gauge rings draw in. Skipped for reduced motion. */
+/* Permit motion: approval stamp thunk, checkbox ticking. Content is fully visible without it. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var pipe = document.querySelector('[data-pipe]');
-  if (pipe) {
-    document.body.classList.add('js-pipe');
-    var tick = function () {
-      var h = document.documentElement.scrollHeight - innerHeight;
-      pipe.style.setProperty('--p', (h > 0 ? Math.min(100, scrollY / h * 100) : 0).toFixed(1) + '%');
-    };
-    addEventListener('scroll', tick, { passive: true }); tick();
-  }
-  var g = document.querySelectorAll('[data-gauge]');
-  if (g.length && 'IntersectionObserver' in window) {
-    document.body.classList.add('js-gauge');
-    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('drawn'); io.unobserve(e.target); } }); }, { threshold: .5 });
-    g.forEach(function (x) { io.observe(x); });
-  }
+  document.body.classList.add('js-permit');
+  var ul = document.querySelectorAll('[data-ticks]');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      Array.prototype.forEach.call(e.target.children, function (li, i) { li.style.transitionDelay = (i * 160) + 'ms'; });
+      e.target.classList.add('ticked'); io.unobserve(e.target);
+    });
+  }, { threshold: .4 });
+  ul.forEach(function (u) { io.observe(u); });
 })();

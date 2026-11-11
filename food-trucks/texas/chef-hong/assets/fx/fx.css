@@ -1,0 +1,29 @@
+/* fx scroll-progress */
+/* scroll-progress: a thin bar at the very top showing how far down the page you are. The bar only exists when JS built it.
+   Where scroll-driven animations exist the browser drives it (no JS per frame); elsewhere (and with reduced motion, since
+   progress is information, not decoration) JS sets it on scroll. */
+.fx-sp-bar { position: fixed; left: 0; top: 0; width: 100%; height: 3px; z-index: 2147482600; pointer-events: none; background: var(--primary);
+ transform: scaleX(0); transform-origin: 0 50% }
+@keyframes fx-sp { to { transform: scaleX(1) } }
+@media (prefers-reduced-motion: no-preference) {
+ @supports (animation-timeline: scroll()) {
+  .fx-sp-bar.fx-sp-css { animation: fx-sp linear both; animation-timeline: scroll(root block) }
+ }
+}
+
+/* fx bg-grid */
+/* bg-grid: layer built by JS. The bright copy of the grid is masked to a circle at --fx-x/--fx-y (mouse) or swept by CSS (touch) */
+.fx-grid { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+ -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, #000 35%, transparent 100%); mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, #000 35%, transparent 100%) }
+.fx-grid i { position: absolute; inset: 0; background-size: var(--fx-gs) var(--fx-gs); background-position: center;
+ background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 20%, transparent) 1.1px, transparent 1.6px) }
+.fx-grid-l i { background-image: linear-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px) }
+.fx-grid i.hi { background-image: radial-gradient(circle, var(--primary) 1.4px, transparent 1.9px);
+ -webkit-mask-image: radial-gradient(circle closest-side, #000, transparent); mask-image: radial-gradient(circle closest-side, #000, transparent);
+ -webkit-mask-size: 420px 420px; mask-size: 420px 420px; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: 50% 40%; mask-position: 50% 40% }
+.fx-grid-l i.hi { background-image: linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px) }
+.fx-grid.is-fine i.hi { opacity: 0; transition: opacity .4s; -webkit-mask-position: var(--fx-x, -999px) var(--fx-y, -999px); mask-position: var(--fx-x, -999px) var(--fx-y, -999px) }
+@media (prefers-reduced-motion: no-preference) {
+ .fx-grid:not(.is-fine) i.hi { animation: fx-grid-sweep 16s ease-in-out infinite alternate }
+ @keyframes fx-grid-sweep { from { -webkit-mask-position: 8% 30%; mask-position: 8% 30% } to { -webkit-mask-position: 92% 70%; mask-position: 92% 70% } }
+}

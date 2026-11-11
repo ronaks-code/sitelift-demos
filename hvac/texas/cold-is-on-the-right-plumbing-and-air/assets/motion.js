@@ -1,18 +1,15 @@
-/* Bug Out: the picker. Without JS the chips are plain links to the service anchors. */
+/* Permit motion: approval stamp thunk, checkbox ticking. Content is fully visible without it. */
 (function () {
-  if (!window.SL) return;
-  var p = document.querySelector('[data-picker]');
-  if (!p) return;
-  var ans = p.querySelector('[data-answer]'), chips = p.querySelectorAll('[data-pick]');
-  chips.forEach(function (c) {
-    c.setAttribute('role', 'button');
-    c.addEventListener('click', function (e) {
-      e.preventDefault();
-      chips.forEach(function (x) { x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
-      var items = (c.getAttribute('data-items') || '').replace(/ · $/, '');
-      ans.textContent = c.getAttribute('data-desc') + (items ? ' What we do: ' + items + '.' : '');
-      ans.classList.add('on');
+  if (!window.SL || SL.reduced) return;
+  document.body.classList.add('js-permit');
+  var ul = document.querySelectorAll('[data-ticks]');
+  if (!('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      Array.prototype.forEach.call(e.target.children, function (li, i) { li.style.transitionDelay = (i * 160) + 'ms'; });
+      e.target.classList.add('ticked'); io.unobserve(e.target);
     });
-    c.addEventListener('keydown', function (e) { if (e.key === ' ') { e.preventDefault(); c.click(); } });
-  });
+  }, { threshold: .4 });
+  ul.forEach(function (u) { io.observe(u); });
 })();

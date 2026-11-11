@@ -86,6 +86,45 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
+/* fx ken-burns */
+/* ken-burns: slow zoom and pan of the hero photo (default: the largest photo in the first block of <main>, plus [data-fx-ken-burns] img).
+   Only runs when the photo's frame (or the one around it) clips overflow, and never on .ph placeholders.
+   opt: {seconds: 22} (18 to 24 looks right). Reduced motion: static. */
+FX.def('ken-burns', function (c) {
+  if (FX.reduced) return;
+  var els = c.els('main > :first-child img, [data-fx-ken-burns] img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
+  if (!c.sel && els.length > 1) {
+    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
+    var by = els.filter(function (i) { return i.closest('[data-fx-ken-burns]'); });
+    els = by.length ? by : [els.sort(function (x, y) { return a(y) - a(x); })[0]];
+  }
+  els.forEach(function (img) {
+    for (var n = img.parentElement, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) {
+      if (/hidden|clip/.test(getComputedStyle(n).overflowY)) {
+        img.setAttribute('data-fx-kb', ''); if (c.opt.seconds) img.style.setProperty('--fx-kb-t', (+c.opt.seconds) + 's'); return;
+      }
+    }
+  });
+});
+
+/* fx highlight-sweep */
+/* highlight-sweep: the hero's <em> (or [data-fx-highlight], or any configured element) gets a marker band behind the bottom 40% of
+   the text, or a 3px underline, swept in --accent when it scrolls into view. opt: {style: "marker" | "underline"}
+   Reduced motion: the finished highlight, static. */
+FX.def('highlight-sweep', function (c) {
+  var st = c.opt.style === 'underline' ? 'underline' : 'marker';
+  c.els('[data-fx-highlight], main > :first-child h1 em').forEach(function (el) {
+    // A block/flex <em> (some kits break the emphasised words onto their own line) would paint the band across the whole
+    // column: mark an inline wrapper of its contents instead, so the band follows the words.
+    if (getComputedStyle(el).display !== 'inline') {
+      var w = document.createElement('span'); while (el.firstChild) w.appendChild(el.firstChild); el.appendChild(w); el = w;
+    }
+    el.setAttribute('data-fx-hl', st);
+    if (FX.reduced) { el.classList.add('fx-hl-on'); return; }
+    FX.seen([el], function () { setTimeout(function () { el.classList.add('fx-hl-on'); }, 350); }, '0px');
+  });
+});
+
 /* fx lightbox-plus */
 /* lightbox-plus: replaces core's lightbox for a[data-lb] (capture-phase click + stopImmediatePropagation so core never opens).
    Dialog with caption, "3 / 12" counter, prev/next, arrow keys, Escape, swipe, focus trap, focus back on the thumbnail, images grouped by
@@ -167,43 +206,4 @@ FX.def('lightbox-plus', function (c) {
     if (!a || !a.getAttribute('href')) return;
     e.preventDefault(); e.stopImmediatePropagation(); open(a);
   }, true);
-});
-
-/* fx ken-burns */
-/* ken-burns: slow zoom and pan of the hero photo (default: the largest photo in the first block of <main>, plus [data-fx-ken-burns] img).
-   Only runs when the photo's frame (or the one around it) clips overflow, and never on .ph placeholders.
-   opt: {seconds: 22} (18 to 24 looks right). Reduced motion: static. */
-FX.def('ken-burns', function (c) {
-  if (FX.reduced) return;
-  var els = c.els('main > :first-child img, [data-fx-ken-burns] img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
-  if (!c.sel && els.length > 1) {
-    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
-    var by = els.filter(function (i) { return i.closest('[data-fx-ken-burns]'); });
-    els = by.length ? by : [els.sort(function (x, y) { return a(y) - a(x); })[0]];
-  }
-  els.forEach(function (img) {
-    for (var n = img.parentElement, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) {
-      if (/hidden|clip/.test(getComputedStyle(n).overflowY)) {
-        img.setAttribute('data-fx-kb', ''); if (c.opt.seconds) img.style.setProperty('--fx-kb-t', (+c.opt.seconds) + 's'); return;
-      }
-    }
-  });
-});
-
-/* fx highlight-sweep */
-/* highlight-sweep: the hero's <em> (or [data-fx-highlight], or any configured element) gets a marker band behind the bottom 40% of
-   the text, or a 3px underline, swept in --accent when it scrolls into view. opt: {style: "marker" | "underline"}
-   Reduced motion: the finished highlight, static. */
-FX.def('highlight-sweep', function (c) {
-  var st = c.opt.style === 'underline' ? 'underline' : 'marker';
-  c.els('[data-fx-highlight], main > :first-child h1 em').forEach(function (el) {
-    // A block/flex <em> (some kits break the emphasised words onto their own line) would paint the band across the whole
-    // column: mark an inline wrapper of its contents instead, so the band follows the words.
-    if (getComputedStyle(el).display !== 'inline') {
-      var w = document.createElement('span'); while (el.firstChild) w.appendChild(el.firstChild); el.appendChild(w); el = w;
-    }
-    el.setAttribute('data-fx-hl', st);
-    if (FX.reduced) { el.classList.add('fx-hl-on'); return; }
-    FX.seen([el], function () { setTimeout(function () { el.classList.add('fx-hl-on'); }, 350); }, '0px');
-  });
 });

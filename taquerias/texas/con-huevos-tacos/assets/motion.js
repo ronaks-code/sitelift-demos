@@ -1,14 +1,11 @@
-/* Glaze motion: sprinkles fall slowly through the hero, the donut ring turns, sticker cards wobble on hover (CSS). */
+/* Comal motion: hero arch rises in with a bounce, the seal spins slowly, the ring behind it turns. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var box = document.querySelector('.gz-conf');
-  if (box) for (var i = 0; i < 26; i++) {
-    var e = document.createElement('i'); e.style.left = Math.random() * 100 + '%'; e.style.top = '-30px'; e.style.transform = 'rotate(' + Math.random() * 180 + 'deg)'; box.appendChild(e);
-    var h = box.offsetHeight + 60;
-    e.animate([{ translate: '0 0', rotate: '0deg' }, { translate: (Math.random() * 60 - 30) + 'px ' + h + 'px', rotate: (Math.random() * 360) + 'deg' }], { duration: 9000 + Math.random() * 9000, delay: -Math.random() * 12000, iterations: Infinity, easing: 'linear' });
-  }
-  var r = document.querySelector('.gz-ring-pic');
-  if (r) r.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], { duration: 60000, iterations: Infinity });
+  var a = document.querySelector('.cm-arch'); if (!a) return;
+  a.animate([{ transform: 'translateY(40px) scale(.94)', opacity: 0 }, { transform: 'translateY(-8px) scale(1.01)', opacity: 1, offset: .7 }, { transform: 'none', opacity: 1 }], { duration: 900, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
+  var s = a.querySelector('.cm-seal'), r = a.querySelector('.cm-arch-ring');
+  if (s) s.animate([{ transform: 'rotate(10deg)' }, { transform: 'rotate(370deg)' }], { duration: 26000, iterations: Infinity });
+  if (r) addEventListener('scroll', function () { r.style.transform = 'translateY(' + Math.min(scrollY, 500) * -0.06 + 'px)'; }, { passive: true });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

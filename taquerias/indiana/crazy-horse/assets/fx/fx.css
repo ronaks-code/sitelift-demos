@@ -1,3 +1,26 @@
+/* fx ken-burns */
+/* ken-burns: the hero photo drifts and zooms very slowly inside its frame (1 to 1.08 over 22s, alternating). Only photos JS tagged
+   (their frame clips them); never placeholders. Static with reduced motion. */
+@keyframes fx-kb { from { transform: scale(1) translate3d(0, 0, 0) } to { transform: scale(1.08) translate3d(-1.2%, -1%, 0) } }
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-ken-burns img[data-fx-kb] { animation: fx-kb var(--fx-kb-t, 22s) ease-in-out infinite alternate; will-change: transform }
+}
+
+/* fx highlight-sweep */
+/* highlight-sweep: a marker band (or underline) draws across the hero's emphasised words when they scroll into view. The text colour
+   is never changed; the band is a translucent --accent. Marked elements are tagged by JS; the final highlight is the natural
+   state once .fx-hl-on is set. Reduced motion: final highlight, static.
+   No padding/margin on the marked element: it is tagged after first paint, and padding with box-decoration-break: clone
+   rewraps a multi-line headline (measured CLS 0.1-0.17 on hero h1 em). */
+[data-fx-hl] { background-repeat: no-repeat; background-position: 0 94%; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+ background-image: linear-gradient(color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent) 26%, transparent)); background-size: 0% 36% }
+[data-fx-hl=underline] { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0% 3px }
+[data-fx-hl].fx-hl-on { background-size: 100% 36% }
+[data-fx-hl=underline].fx-hl-on { background-size: 100% 3px }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-hl] { transition: background-size 1s cubic-bezier(.2, .7, .2, 1) }
+}
+
 /* fx lightbox-plus */
 /* lightbox-plus: photo viewer that replaces the core lightbox (dialog created by lightbox-plus.js). Backdrop colour is set from --dark in JS. */
 .fx-lb { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 56px 64px 72px; touch-action: none; overscroll-behavior: contain; color: var(--on-dark) }
@@ -21,27 +44,4 @@
  .fx-lb-p, .fx-lb-nx { top: auto; bottom: 18px; margin: 0 }
  .fx-lb-p { left: 20px }
  .fx-lb-nx { right: 20px }
-}
-
-/* fx ken-burns */
-/* ken-burns: the hero photo drifts and zooms very slowly inside its frame (1 to 1.08 over 22s, alternating). Only photos JS tagged
-   (their frame clips them); never placeholders. Static with reduced motion. */
-@keyframes fx-kb { from { transform: scale(1) translate3d(0, 0, 0) } to { transform: scale(1.08) translate3d(-1.2%, -1%, 0) } }
-@media (prefers-reduced-motion: no-preference) {
- html.fx-ken-burns img[data-fx-kb] { animation: fx-kb var(--fx-kb-t, 22s) ease-in-out infinite alternate; will-change: transform }
-}
-
-/* fx highlight-sweep */
-/* highlight-sweep: a marker band (or underline) draws across the hero's emphasised words when they scroll into view. The text colour
-   is never changed; the band is a translucent --accent. Marked elements are tagged by JS; the final highlight is the natural
-   state once .fx-hl-on is set. Reduced motion: final highlight, static.
-   No padding/margin on the marked element: it is tagged after first paint, and padding with box-decoration-break: clone
-   rewraps a multi-line headline (measured CLS 0.1-0.17 on hero h1 em). */
-[data-fx-hl] { background-repeat: no-repeat; background-position: 0 94%; box-decoration-break: clone; -webkit-box-decoration-break: clone;
- background-image: linear-gradient(color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent) 26%, transparent)); background-size: 0% 36% }
-[data-fx-hl=underline] { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0% 3px }
-[data-fx-hl].fx-hl-on { background-size: 100% 36% }
-[data-fx-hl=underline].fx-hl-on { background-size: 100% 3px }
-@media (prefers-reduced-motion: no-preference) {
- [data-fx-hl] { transition: background-size 1s cubic-bezier(.2, .7, .2, 1) }
 }

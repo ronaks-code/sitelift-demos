@@ -1,15 +1,15 @@
-/* Paleta motion: hero popsicles bob up and down out of phase, a soft shine sweeps across the photo popsicle, flavor cards bob (CSS). */
+/* Smoke motion: embers rise from the bottom of the hero and fade; hero photo slowly pushes in; section rows slide their numbers in. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.querySelectorAll('.pa-pop').forEach(function (p, i) {
-    p.animate([{ transform: 'translateY(0) rotate(-1.2deg)' }, { transform: 'translateY(-14px) rotate(1.2deg)' }], { duration: 2600 + i * 380, delay: -i * 600, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  });
-  var pic = document.querySelector('.pa-p3 .pa-pop-pic');
-  if (pic) {
-    var s = document.createElement('i'); s.style.cssText = 'position:absolute;top:0;bottom:0;left:-40%;width:30%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-14deg);pointer-events:none';
-    pic.style.position = 'relative'; pic.appendChild(s);
-    s.animate([{ left: '-40%' }, { left: '130%' }], { duration: 1800, delay: 1200, iterations: Infinity, easing: 'ease-in-out', endDelay: 3500 });
+  var box = document.querySelector('.sm-embers');
+  if (box) for (var i = 0; i < 22; i++) {
+    var e = document.createElement('i'), x = Math.random() * 100, dur = 5000 + Math.random() * 6000, dx = (Math.random() * 80 - 40);
+    e.style.left = x + '%'; e.style.width = e.style.height = (2 + Math.random() * 4) + 'px'; box.appendChild(e);
+    e.animate([{ transform: 'translate(0,0)', opacity: 0 }, { opacity: .95, offset: .15 }, { transform: 'translate(' + dx + 'px,-' + (box.offsetHeight * (0.5 + Math.random() * 0.5)) + 'px)', opacity: 0 }],
+      { duration: dur, delay: Math.random() * 6000, iterations: Infinity, easing: 'ease-out' });
   }
+  var bg = document.querySelector('.sm-bg>img,.sm-bg>picture>img,.sm-bg>.ph');
+  if (bg) bg.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.07)' }], { duration: 18000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

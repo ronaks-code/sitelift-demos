@@ -106,3 +106,29 @@ FX.def('mask-reveal', function (c) {
       { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
   }, '0px 0px -6% 0px');
 });
+
+/* fx hero-zoomout */
+/* hero-zoomout: hero photo starts at scale 1.08 and, over the first 70vh of scrolling, eases to 1 while its edges inset 4% with
+   rounded corners (the frame's own overflow hides the rest). Default: the largest photo in the first block of <main>.
+   Scroll-driven CSS where supported, rAF scroll fallback otherwise. Reduced motion: untouched. */
+FX.def('hero-zoomout', function (c) {
+  if (FX.reduced) return;
+  var els = c.els('main > :first-child img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
+  if (!c.sel && els.length > 1) {
+    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
+    els = [els.sort(function (x, y) { return a(y) - a(x); })[0]];
+  }
+  if (!els.length) return;
+  var img = els[0], css = window.CSS && CSS.supports('animation-timeline: scroll()');
+  img.classList.add('fx-hz');
+  if (css) { img.classList.add('fx-hz-css'); return; }
+  var busy = 0, ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+  function tick() {
+    busy = 0;
+    var k = ease(Math.min(1, Math.max(0, scrollY / (innerHeight * .7))));
+    img.style.transform = 'scale(' + (1.08 - .08 * k).toFixed(4) + ')';
+    img.style.clipPath = 'inset(' + (4 * k).toFixed(2) + '% round calc(var(--radius, 12px) * ' + k.toFixed(3) + '))';
+  }
+  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
+  tick();
+});
