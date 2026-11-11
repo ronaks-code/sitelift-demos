@@ -1,11 +1,13 @@
-/* Cottage motion: the hero stamp thumps down once, the polaroid pile sways like it is pinned, and the polaroids straighten on hover (CSS). */
+/* Truck motion: the awning sways, the OPEN lamp flickers on once at load, and the stop card slides in like a window shutter. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var s = document.querySelector('.kc-stamp');
-  if (s) s.animate([{ transform: 'rotate(14deg) scale(2.4)', opacity: 0 }, { transform: 'rotate(14deg) scale(.92)', opacity: 1, offset: .7 }, { transform: 'rotate(14deg) scale(1)', opacity: 1 }], { duration: 700, delay: 600, easing: 'cubic-bezier(.3,.7,.3,1)', fill: 'backwards' });
-  var a = document.querySelector('.kc-pile .kc-pol-a'), b = document.querySelector('.kc-pile .kc-pol-b');
-  if (a) a.animate([{ transform: 'rotate(-4deg)' }, { transform: 'rotate(-2.6deg) translateY(-4px)' }], { duration: 4200, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
-  if (b) b.animate([{ transform: 'rotate(5deg)' }, { transform: 'rotate(3.4deg) translateY(4px)' }], { duration: 5000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  document.querySelectorAll('.tk-top .tk-awning').forEach(function (a) {
+    a.animate([{ transform: 'skewX(0deg)', transformOrigin: 'top' }, { transform: 'skewX(-1.2deg)', transformOrigin: 'top' }, { transform: 'skewX(0deg)', transformOrigin: 'top' }], { duration: 5200, iterations: Infinity, easing: 'ease-in-out' });
+  });
+  var l = document.querySelector('[data-lamp]');
+  if (l) l.animate([{ opacity: 0 }, { opacity: 1 }, { opacity: .2 }, { opacity: 1 }, { opacity: .6 }, { opacity: 1 }], { duration: 900, delay: 300, fill: 'backwards' });
+  var s = document.querySelector('.tk-stop');
+  if (s) s.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 900, delay: 400, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

@@ -1,9 +1,3 @@
-/* fx mask-reveal */
-/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
-   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
-html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
-html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
-
 /* fx heading-scrub */
 /* heading-scrub: section headings settle into place (lift, fade, un-clip) as they enter the lower part of the screen.
    Scroll-driven where supported, nothing elsewhere. Uses opacity, the translate property and clip-path only (no reflow, CLS 0). */
@@ -17,23 +11,6 @@ html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
  }
 }
 
-/* fx sheen */
-/* sheen: a light band slides across primary buttons using the button's own background layer (no pseudo-element, no
-   positioning, so fixed call bars and kit styles are untouched). Motion only; reduced motion = plain buttons. */
-@media (prefers-reduced-motion: no-preference) {
- .btn:not(.alt) { background-image: linear-gradient(105deg, transparent 42%, rgba(255, 255, 255, .34) 50%, transparent 58%);
-  background-size: 250% 100%; background-repeat: no-repeat; background-position: 100% 0; animation: fx-sheen 7s cubic-bezier(.4, 0, .2, 1) 1.5s infinite }
- .btn:not(.alt):nth-of-type(2n) { animation-delay: 3.2s }
- @keyframes fx-sheen { 0% { background-position: 100% 0 } 16%, 100% { background-position: 0 0 } }
- .fx-sheen-img { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, .22) 50%, transparent 60%);
-  transform: translateX(-120%); animation: fx-sheen-i 8s cubic-bezier(.4, 0, .2, 1) 2.5s infinite }
- @keyframes fx-sheen-i { 0% { transform: translateX(-120%) } 22%, 100% { transform: translateX(120%) } }
-}
-@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
- .btn:not(.alt):hover { animation: fx-sheen-h .8s cubic-bezier(.3, .6, .2, 1) 1 }
- @keyframes fx-sheen-h { from { background-position: 100% 0 } to { background-position: 0 0 } }
-}
-
 /* fx header-hide */
 /* header-hide: sticky header slides away on the way down and returns on the way up. The class is only ever added by JS. */
 @media (prefers-reduced-motion: no-preference) {
@@ -41,10 +18,31 @@ html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
 }
 .fx-hh.fx-hh-off { transform: translateY(-101%) }
 
-/* fx split-reveal */
-/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
-   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
-.fx-sr-w { display: inline-block; white-space: nowrap }
-.fx-sr-u { display: inline-block }
-.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
-.fx-sr-i { display: inline-block }
+/* fx cursor-ring */
+/* cursor-ring: elements exist only when JS built them (mouse + motion allowed), so nothing here can hide content */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-cur-on, html.fx-cur-on a, html.fx-cur-on button, html.fx-cur-on [role=button], html.fx-cur-on label { cursor: none }
+ html.fx-cur-on input, html.fx-cur-on textarea, html.fx-cur-on select, html.fx-cur-on iframe { cursor: auto }
+}
+.fx-cur { position: fixed; inset: 0; pointer-events: none; z-index: 2147483000; opacity: 0; transition: opacity .25s }
+.fx-cur.on { opacity: 1 }
+.fx-cur.is-field { opacity: 0 }
+.fx-cur i { position: fixed; left: 0; top: 0; pointer-events: none; will-change: transform }
+.fx-cur-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; border-radius: 50%; background: var(--primary); transition: opacity .2s }
+.fx-cur-ring b { position: absolute; left: 0; top: 0; width: 34px; height: 34px; transform: translate(-50%, -50%); border-radius: 999px;
+ border: 1.5px solid color-mix(in srgb, var(--primary) 70%, transparent); display: grid; place-items: center; overflow: hidden;
+ transition: width .3s cubic-bezier(.2, .8, .2, 1), height .3s cubic-bezier(.2, .8, .2, 1), background-color .25s, border-color .25s }
+.fx-cur-ring span { font: 700 12px/1 var(--f-body); letter-spacing: .08em; text-transform: uppercase; color: var(--on-primary); opacity: 0; transition: opacity .2s; white-space: nowrap }
+.fx-cur.is-link .fx-cur-ring b { width: 56px; height: 56px; background: color-mix(in srgb, var(--primary) 12%, transparent); border-color: transparent }
+.fx-cur.is-link .fx-cur-dot { opacity: 0 }
+.fx-cur.is-label .fx-cur-ring b { width: 78px; height: 78px; background: var(--primary); border-color: var(--primary) }
+.fx-cur.is-label .fx-cur-ring span { opacity: 1 }
+.fx-cur.is-label .fx-cur-dot { opacity: 0 }
+.fx-cur.down .fx-cur-ring b { width: 26px; height: 26px }
+.fx-cur.is-label.down .fx-cur-ring b { width: 70px; height: 70px }
+/* blend: one white ring that inverts whatever is under it (works on photos, dark and light sections alike) */
+.fx-cur-blend { mix-blend-mode: difference }
+.fx-cur-blend .fx-cur-dot { background: #fff }
+.fx-cur-blend .fx-cur-ring b { border-color: #fff }
+.fx-cur-blend.is-link .fx-cur-ring b, .fx-cur-blend.is-label .fx-cur-ring b { background: #fff; border-color: #fff }
+.fx-cur-blend .fx-cur-ring span { color: #000 }

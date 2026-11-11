@@ -1,14 +1,11 @@
-/* Neon motion: tube-sign flicker. On load the sign stutters on, then every few seconds one tube drops out for a moment. */
+/* Chalkboard motion: hero lines are "written" left to right in sequence (clip wipe); a few chalk dust specks drift over the slate. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var t = [].slice.call(document.querySelectorAll('.nn-flick'));
-  if (!t.length) return;
-  var blink = function (el, seq, i) {
-    i = i || 0; if (i >= seq.length) { el.classList.remove('off'); return; }
-    el.classList.toggle('off', i % 2 === 0); setTimeout(function () { blink(el, seq, i + 1); }, seq[i]);
-  };
-  t.forEach(function (el, k) { setTimeout(function () { blink(el, [90, 70, 140, 60, 220, 50, 70]); }, 200 + k * 260); });
-  setInterval(function () { blink(t[Math.floor(Math.random() * t.length)], [70, 90, 60, 160, 50]); }, 5200);
+  var lines = document.querySelectorAll('.cb-hero .cb-line');
+  if (!lines.length) return;
+  document.body.classList.add('js-chalk');
+  lines.forEach(function (l, i) { setTimeout(function () { l.classList.add('go'); }, 160 + i * 380); });
+  setTimeout(function () { lines.forEach(function (l) { l.classList.add('go'); }); }, 4000);
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

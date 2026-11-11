@@ -1,15 +1,16 @@
-/* Circuit motion: breaker switches flip ON in sequence when the panel scrolls into view. Without JS or with reduced motion they are already ON. */
+/* Finish motion: the hero before/after wipes from the 'before' edge to its resting split when the page loads.
+   The split is a CSS variable (--pos) on [data-ba], so the shared slider effect can take over. Static without JS or with reduced motion. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var p = document.querySelector('[data-brks]');
-  if (!p || !('IntersectionObserver' in window)) return;
-  document.body.classList.add('js-brk');
-  var io = new IntersectionObserver(function (es) {
-    es.forEach(function (e) {
-      if (!e.isIntersecting) return;
-      Array.prototype.forEach.call(e.target.children, function (b, i) { setTimeout(function () { b.classList.add('on'); }, 250 + i * 260); });
-      io.unobserve(e.target);
-    });
-  }, { threshold: .35 });
-  io.observe(p);
+  var ba = document.querySelector('.hf-ba');
+  if (!ba) return;
+  var t0 = null, from = 96, to = 50, ms = 1300;
+  ba.style.setProperty('--pos', from + '%');
+  function step(t) {
+    if (t0 === null) t0 = t;
+    var k = Math.min(1, (t - t0) / ms), e = 1 - Math.pow(1 - k, 3);
+    ba.style.setProperty('--pos', (from + (to - from) * e) + '%');
+    if (k < 1) requestAnimationFrame(step); else ba.style.removeProperty('--pos');
+  }
+  setTimeout(function () { requestAnimationFrame(step); }, 350);
 })();

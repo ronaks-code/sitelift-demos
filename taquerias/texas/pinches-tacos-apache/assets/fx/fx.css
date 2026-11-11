@@ -12,3 +12,7 @@
 .fx-ct i { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: currentColor; will-change: transform }
 .fx-ct-glyph i { left: -8px; top: -9px; width: 16px; height: 18px; background: none; font: 700 15px/18px var(--f-body); text-align: center }
 .fx-ct-glyph i::before { content: var(--glyph, "\2726") }
+
+/* fx bg-particles */
+/* bg-particles: one canvas, first child of the hero, under its content */
+.fx-pt { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: block }

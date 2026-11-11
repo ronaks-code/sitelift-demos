@@ -1,11 +1,11 @@
-/* Counter motion: steam curls up from the corner of the sticky photo, and the sticky photo gently scales as you scroll the right column. */
+/* Chalkboard motion: hero lines are "written" left to right in sequence (clip wipe); a few chalk dust specks drift over the slate. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.querySelectorAll('.ct-steam i').forEach(function (s, i) {
-    s.animate([{ transform: 'translateY(0) scaleX(1)', opacity: 0 }, { opacity: .8, offset: .3 }, { transform: 'translateY(-70px) scaleX(2.2)', opacity: 0 }], { duration: 3200 + i * 500, delay: i * 700, iterations: Infinity, easing: 'ease-out' });
-  });
-  var p = document.querySelector('.ct-side-pic>img,.ct-side-pic>picture>img,.ct-side-pic>.ph');
-  if (p && matchMedia('(min-width:1001px)').matches) addEventListener('scroll', function () { p.style.transform = 'scale(' + (1 + Math.min(scrollY, 1600) / 1600 * 0.1) + ')'; }, { passive: true });
+  var lines = document.querySelectorAll('.cb-hero .cb-line');
+  if (!lines.length) return;
+  document.body.classList.add('js-chalk');
+  lines.forEach(function (l, i) { setTimeout(function () { l.classList.add('go'); }, 160 + i * 380); });
+  setTimeout(function () { lines.forEach(function (l) { l.classList.add('go'); }); }, 4000);
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

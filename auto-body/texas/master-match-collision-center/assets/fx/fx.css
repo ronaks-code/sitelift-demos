@@ -1,3 +1,24 @@
+/* fx before-after */
+/* before-after: the slider is laid over the first image's own box (absolute, no layout change). The range input is the accessible
+   control (keyboard); pointer drag is handled on the layer. Everything here is created by before-after.js. */
+.fx-ba { position: absolute; z-index: 3; overflow: hidden; touch-action: pan-y; cursor: ew-resize; user-select: none; -webkit-user-select: none; --p: 50%; background: var(--surface) }
+.fx-ba > img { position: absolute; inset: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; margin: 0; pointer-events: none; -webkit-user-drag: none }
+.fx-ba > .fx-ba-b { clip-path: inset(0 0 0 var(--p)) }
+.fx-ba-bar { position: absolute; top: 0; bottom: 0; left: var(--p); width: 2px; margin-left: -1px; background: var(--on-primary); box-shadow: 0 0 0 1px rgba(255, 255, 255, .35), 0 0 10px rgba(0, 0, 0, .35); pointer-events: none }
+.fx-ba-bar i { position: absolute; top: 50%; left: 50%; width: 42px; height: 42px; margin: -21px 0 0 -21px; border-radius: 50%; background: var(--primary); border: 3px solid var(--on-primary);
+ box-shadow: 0 4px 16px rgba(0, 0, 0, .3); transition: transform .25s cubic-bezier(.2, .7, .2, 1) }
+.fx-ba-bar i::before, .fx-ba-bar i::after { content: ""; position: absolute; top: 50%; width: 0; height: 0; margin-top: -5px; border: 5px solid transparent }
+.fx-ba-bar i::before { left: 6px; border-right-color: var(--on-primary); border-left-width: 0 }
+.fx-ba-bar i::after { right: 6px; border-left-color: var(--on-primary); border-right-width: 0 }
+.fx-ba.drag .fx-ba-bar i { transform: scale(1.1) }
+.fx-ba-l { position: absolute; bottom: 12px; padding: 4px 10px; border-radius: 99px; font: 700 12px/1.3 var(--f-body); letter-spacing: .08em; text-transform: uppercase;
+ background: color-mix(in srgb, var(--dark) 72%, transparent); color: var(--on-dark); pointer-events: none; transition: opacity .25s }
+.fx-ba-l1 { left: 12px }
+.fx-ba-l2 { right: 12px }
+.fx-ba-in { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; pointer-events: none }
+.fx-ba:not(.m):has(.fx-ba-in:focus-visible) { outline: 3px solid var(--accent); outline-offset: 3px }
+.fx-ba:not(.m):has(.fx-ba-in:focus-visible) .fx-ba-bar i { transform: scale(1.12) }
+
 /* fx timeline-draw */
 /* timeline-draw: a vertical line in --primary runs through the step numbers and draws down as you scroll through the list.
    The line is drawn with the list's own background layers (no extra elements, no layout change) driven by --fx-p (0 to 1).
@@ -15,19 +36,39 @@
  [data-fx-td].fx-td-io { transition: --fx-p .8s cubic-bezier(.2, .7, .2, 1) }
 }
 
-/* fx bg-grid */
-/* bg-grid: layer built by JS. The bright copy of the grid is masked to a circle at --fx-x/--fx-y (mouse) or swept by CSS (touch) */
-.fx-grid { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
- -webkit-mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, #000 35%, transparent 100%); mask-image: radial-gradient(ellipse 90% 85% at 50% 45%, #000 35%, transparent 100%) }
-.fx-grid i { position: absolute; inset: 0; background-size: var(--fx-gs) var(--fx-gs); background-position: center;
- background-image: radial-gradient(circle, color-mix(in srgb, var(--ink) 20%, transparent) 1.1px, transparent 1.6px) }
-.fx-grid-l i { background-image: linear-gradient(color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--ink) 9%, transparent) 1px, transparent 1px) }
-.fx-grid i.hi { background-image: radial-gradient(circle, var(--primary) 1.4px, transparent 1.9px);
- -webkit-mask-image: radial-gradient(circle closest-side, #000, transparent); mask-image: radial-gradient(circle closest-side, #000, transparent);
- -webkit-mask-size: 420px 420px; mask-size: 420px 420px; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; -webkit-mask-position: 50% 40%; mask-position: 50% 40% }
-.fx-grid-l i.hi { background-image: linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px) }
-.fx-grid.is-fine i.hi { opacity: 0; transition: opacity .4s; -webkit-mask-position: var(--fx-x, -999px) var(--fx-y, -999px); mask-position: var(--fx-x, -999px) var(--fx-y, -999px) }
+/* fx lightbox-plus */
+/* lightbox-plus: photo viewer that replaces the core lightbox (dialog created by lightbox-plus.js). Backdrop colour is set from --dark in JS. */
+.fx-lb { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 56px 64px 72px; touch-action: none; overscroll-behavior: contain; color: var(--on-dark) }
+.fx-lb.open { display: flex }
+.fx-lb-f { margin: 0; display: grid; justify-items: center; gap: 12px; max-width: 100%; max-height: 100%; min-height: 0 }
+.fx-lb-img { display: block; max-width: min(92vw, 1500px); max-height: calc(100vh - 170px); width: auto; height: auto; object-fit: contain; border-radius: calc(var(--radius) * .5); box-shadow: 0 24px 80px rgba(0, 0, 0, .5); user-select: none; -webkit-user-drag: none }
+.fx-lb-cap { margin: 0; text-align: center; font: 500 15px/1.4 var(--f-body); max-width: 60ch; min-height: 1.4em }
+.fx-lb-n { position: absolute; left: 20px; top: 22px; font: 700 14px/1 var(--f-body); letter-spacing: .08em; font-variant-numeric: tabular-nums; opacity: .85 }
+.fx-lb-b { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid color-mix(in srgb, var(--on-dark) 30%, transparent); cursor: pointer; font: 400 22px/1 var(--f-body);
+ background: color-mix(in srgb, var(--on-dark) 12%, transparent); color: var(--on-dark); display: grid; place-items: center; padding: 0; transition: background .2s }
+.fx-lb-b:hover { background: color-mix(in srgb, var(--on-dark) 24%, transparent) }
+.fx-lb-b:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px }
+.fx-lb-x { top: 14px; right: 16px }
+.fx-lb-p, .fx-lb-nx { top: 50%; margin-top: -24px }
+.fx-lb-p { left: 14px }
+.fx-lb-nx { right: 14px }
+.fx-lb-1 .fx-lb-p, .fx-lb-1 .fx-lb-nx, .fx-lb-1 .fx-lb-n { display: none }
+@media (max-width: 760px) {
+ .fx-lb { padding: 64px 12px 92px }
+ .fx-lb-img { max-width: 100%; max-height: calc(100vh - 220px) }
+ .fx-lb-p, .fx-lb-nx { top: auto; bottom: 18px; margin: 0 }
+ .fx-lb-p { left: 20px }
+ .fx-lb-nx { right: 20px }
+}
+
+/* fx open-pulse */
+/* open-pulse: the open-now badge gets a small dot. Open: green with a soft ring that pulses every 2s. Closed: a still, muted dot.
+   CSS only. The dot is new content (it adds a little width from first paint and never changes after). Fixed green #1f9d55 eased toward the badge text colour. */
+html.fx-open-pulse [data-hours].is-open::before, html.fx-open-pulse [data-hours].is-closed::before {
+ content: ""; display: inline-block; flex: none; width: .55em; height: .55em; margin-right: .55em; border-radius: 50%; vertical-align: .05em }
+html.fx-open-pulse [data-hours].is-open::before { background: color-mix(in srgb, #1f9d55 88%, currentColor); box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 45%, transparent) }
+html.fx-open-pulse [data-hours].is-closed::before { background: color-mix(in srgb, currentColor 38%, transparent) }
 @media (prefers-reduced-motion: no-preference) {
- .fx-grid:not(.is-fine) i.hi { animation: fx-grid-sweep 16s ease-in-out infinite alternate }
- @keyframes fx-grid-sweep { from { -webkit-mask-position: 8% 30%; mask-position: 8% 30% } to { -webkit-mask-position: 92% 70%; mask-position: 92% 70% } }
+ html.fx-open-pulse [data-hours].is-open::before { animation: fx-open-pulse 2s cubic-bezier(.2, .7, .2, 1) infinite }
+ @keyframes fx-open-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 50%, transparent) } 70%, 100% { box-shadow: 0 0 0 .6em color-mix(in srgb, #1f9d55 0%, transparent) } }
 }

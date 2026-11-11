@@ -134,6 +134,35 @@ FX.def('cursor-ring', function (c) {
   }, { passive: true });
 });
 
+/* fx heading-scrub */
+/* heading-scrub: marks the section headings (h2 by default) the CSS animates. Letter-spacing is deliberately not animated (it would
+   reflow the text); the heading lifts, fades up and un-clips instead. Browsers without scroll-driven animations: nothing happens. */
+FX.def('heading-scrub', function (c) {
+  if (FX.reduced || !(window.CSS && CSS.supports('animation-timeline: view()'))) return;
+  c.els('main h2').forEach(function (e) { e.setAttribute('data-fx-hs', ''); });
+});
+
+/* fx ken-burns */
+/* ken-burns: slow zoom and pan of the hero photo (default: the largest photo in the first block of <main>, plus [data-fx-ken-burns] img).
+   Only runs when the photo's frame (or the one around it) clips overflow, and never on .ph placeholders.
+   opt: {seconds: 22} (18 to 24 looks right). Reduced motion: static. */
+FX.def('ken-burns', function (c) {
+  if (FX.reduced) return;
+  var els = c.els('main > :first-child img, [data-fx-ken-burns] img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
+  if (!c.sel && els.length > 1) {
+    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
+    var by = els.filter(function (i) { return i.closest('[data-fx-ken-burns]'); });
+    els = by.length ? by : [els.sort(function (x, y) { return a(y) - a(x); })[0]];
+  }
+  els.forEach(function (img) {
+    for (var n = img.parentElement, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) {
+      if (/hidden|clip/.test(getComputedStyle(n).overflowY)) {
+        img.setAttribute('data-fx-kb', ''); if (c.opt.seconds) img.style.setProperty('--fx-kb-t', (+c.opt.seconds) + 's'); return;
+      }
+    }
+  });
+});
+
 /* fx img-zoom */
 /* img-zoom: finds each image's clipping frame (an ancestor with overflow hidden/clip around just that image); if there is none,
    clips the display:block link around it; if neither is possible the image is left alone. Mouse only, off with reduced motion. */
@@ -153,6 +182,27 @@ FX.def('img-zoom', function (c) {
     host.classList.add('fx-zoom-host');
     var cap = fig && fig.querySelector('figcaption'); if (cap) cap.classList.add('fx-zoom-cap');
   });
+});
+
+/* fx mask-reveal */
+/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
+   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
+   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
+FX.def('mask-reveal', function (c) {
+  if (FX.reduced || !Element.prototype.animate) return;
+  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
+  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
+    var r = i.getBoundingClientRect();
+    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
+  });
+  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
+  FX.seen(imgs, function (i) {
+    var p = i.parentElement, clipped = 0;
+    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
+    i.removeAttribute('data-fx-mr');
+    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
+      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+  }, '0px 0px -6% 0px');
 });
 
 /* fx header-hide */
@@ -175,128 +225,4 @@ FX.def('header-hide', function (c) {
   }
   addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
   hd.addEventListener('focusin', function () { set(0); });
-});
-
-/* fx reveal-plus */
-/* reveal-plus: richer reveals on top of core's .rv (core adds .in). opt: {style: "rise" | "blur" | "clip", step: 70} (ms between
-   items that enter together, so grids and lists cascade instead of popping at once). Reduced motion: core already shows all. */
-FX.def('reveal-plus', function (c) {
-  if (FX.reduced || !('IntersectionObserver' in window)) return;
-  var h = document.documentElement, st = String(c.opt.style || 'rise'), step = +c.opt.step || 70;
-  if (st === 'blur' || st === 'clip') h.classList.add('fx-rp-' + st);
-  var els = c.els('.rv').filter(function (e) { return !e.classList.contains('in'); });
-  var io = new IntersectionObserver(function (es) {
-    var hit = es.filter(function (e) { return e.isIntersecting; }).map(function (e) { return e.target; });
-    hit.sort(function (a, b) { var A = a.getBoundingClientRect(), B = b.getBoundingClientRect(); return (A.top - B.top) || (A.left - B.left); });
-    hit.forEach(function (e, i) {
-      io.unobserve(e);
-      e.style.transitionDelay = Math.min(i, 6) * step + 'ms';
-      setTimeout(function () { e.style.transitionDelay = ''; }, 1500);
-    });
-  }, { rootMargin: '0px 0px -8% 0px' });
-  els.forEach(function (e) { io.observe(e); });
-});
-
-/* fx lightbox-plus */
-/* lightbox-plus: replaces core's lightbox for a[data-lb] (capture-phase click + stopImmediatePropagation so core never opens).
-   Dialog with caption, "3 / 12" counter, prev/next, arrow keys, Escape, swipe, focus trap, focus back on the thumbnail, images grouped by
-   their gallery container (items hidden by a filter chip are skipped). Opens by growing from the thumbnail unless motion is reduced.
-   opt: {label: "Photo viewer", close: "Close", prev: "Previous photo", next: "Next photo"} */
-FX.def('lightbox-plus', function (c) {
-  var d = document, o = c.opt, lb, img, cap, num, items = [], at = 0, from = null, B = {};
-  function mk(cls, label, t) { var b = d.createElement('button'); b.type = 'button'; b.className = 'fx-lb-b ' + cls; b.setAttribute('aria-label', label); b.textContent = t; return b; }
-  function build() {
-    lb = d.createElement('div'); lb.className = 'fx-lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', o.label || 'Photo viewer');
-    lb.style.background = FX.rgba(FX.color('--dark'), .94);
-    var f = d.createElement('figure'); f.className = 'fx-lb-f';
-    img = d.createElement('img'); img.className = 'fx-lb-img'; img.alt = '';
-    cap = d.createElement('figcaption'); cap.className = 'fx-lb-cap';
-    num = d.createElement('div'); num.className = 'fx-lb-n'; num.setAttribute('aria-live', 'polite');
-    B.x = mk('fx-lb-x', o.close || 'Close', '×'); B.p = mk('fx-lb-p', o.prev || 'Previous photo', '‹'); B.n = mk('fx-lb-nx', o.next || 'Next photo', '›');
-    f.appendChild(img); f.appendChild(cap);
-    [f, num, B.x, B.p, B.n].forEach(function (e) { lb.appendChild(e); });
-    d.body.appendChild(lb);
-    B.x.onclick = close; B.p.onclick = function () { go(-1); }; B.n.onclick = function () { go(1); };
-    lb.addEventListener('click', function (e) { if (e.target === lb || e.target === f) close(); });
-    var sx = null;
-    lb.addEventListener('pointerdown', function (e) { sx = e.target.closest('button') ? null : e.clientX; });
-    lb.addEventListener('pointerup', function (e) {
-      if (sx !== null && Math.abs(e.clientX - sx) > 50) go(e.clientX < sx ? 1 : -1);
-      sx = null;
-    });
-    d.addEventListener('keydown', key, true);
-  }
-  function text(a) {
-    var fig = a.closest('figure'), fc = fig && fig.querySelector('figcaption'), im = a.querySelector('img');
-    return a.getAttribute('data-cap') || (fc && fc.textContent.trim()) || (im && im.alt) || '';
-  }
-  function show(i, dir) {
-    at = (i + items.length) % items.length;
-    var a = items[at], t = text(a);
-    num.textContent = at + 1 + ' / ' + items.length; cap.textContent = t; img.alt = t;
-    lb.classList.toggle('fx-lb-1', items.length < 2);
-    img.onload = function () { if (!FX.reduced) flip(dir); };
-    img.src = a.getAttribute('href');
-    [1, -1].forEach(function (s) { new Image().src = items[(at + s + items.length) % items.length].getAttribute('href'); });
-  }
-  function flip(dir) {
-    var r = img.getBoundingClientRect();
-    if (dir) { img.animate([{ opacity: 0, transform: 'translateX(' + 36 * dir + 'px)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.2,.7,.2,1)' }); return; }
-    var th = from && from.querySelector('img'), t = th && th.getBoundingClientRect();
-    if (!t || !t.width || !r.width) { img.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250 }); return; }
-    img.animate([{ opacity: .3, transform: 'translate(' + (t.left + t.width / 2 - r.left - r.width / 2) + 'px,' + (t.top + t.height / 2 - r.top - r.height / 2) + 'px) scale(' + t.width / r.width + ')' },
-      { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
-  }
-  function go(n) { if (items.length > 1) show(at + n, n); }
-  function open(a) {
-    if (!lb) build();
-    from = a;
-    var root = a.parentElement;
-    while (root && root !== d.body && root.querySelectorAll('a[data-lb]').length < 2) root = root.parentElement;
-    items = FX.$$('a[data-lb]', root || d).filter(function (x) { return x === a || (x.getAttribute('href') && x.getClientRects().length); });
-    lb.classList.add('open');
-    if (!FX.reduced) lb.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220 });
-    show(items.indexOf(a), 0);
-    B.x.focus();
-  }
-  function close() {
-    lb.classList.remove('open'); img.removeAttribute('src');
-    if (from && from.isConnected) from.focus({ preventScroll: true });
-  }
-  function key(e) {
-    if (!lb || !lb.classList.contains('open')) return;
-    if (e.key === 'Escape') { e.stopPropagation(); close(); }
-    else if (e.key === 'ArrowRight') go(1);
-    else if (e.key === 'ArrowLeft') go(-1);
-    else if (e.key === 'Tab') {
-      var f = [B.x, B.p, B.n].filter(function (b) { return b.offsetParent; }), i = f.indexOf(d.activeElement);
-      e.preventDefault(); f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
-    }
-  }
-  d.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[data-lb]');
-    if (!a || !a.getAttribute('href')) return;
-    e.preventDefault(); e.stopImmediatePropagation(); open(a);
-  }, true);
-});
-
-/* fx ken-burns */
-/* ken-burns: slow zoom and pan of the hero photo (default: the largest photo in the first block of <main>, plus [data-fx-ken-burns] img).
-   Only runs when the photo's frame (or the one around it) clips overflow, and never on .ph placeholders.
-   opt: {seconds: 22} (18 to 24 looks right). Reduced motion: static. */
-FX.def('ken-burns', function (c) {
-  if (FX.reduced) return;
-  var els = c.els('main > :first-child img, [data-fx-ken-burns] img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
-  if (!c.sel && els.length > 1) {
-    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
-    var by = els.filter(function (i) { return i.closest('[data-fx-ken-burns]'); });
-    els = by.length ? by : [els.sort(function (x, y) { return a(y) - a(x); })[0]];
-  }
-  els.forEach(function (img) {
-    for (var n = img.parentElement, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) {
-      if (/hidden|clip/.test(getComputedStyle(n).overflowY)) {
-        img.setAttribute('data-fx-kb', ''); if (c.opt.seconds) img.style.setProperty('--fx-kb-t', (+c.opt.seconds) + 's'); return;
-      }
-    }
-  });
 });

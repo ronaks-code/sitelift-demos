@@ -35,10 +35,16 @@ body:has(.lb.open) .fx-sc, body:has(.fx-lb.open) .fx-sc { display: none }
  .fx-sc.on { transition-delay: 0s }
 }
 
-/* fx section-tint */
-/* section-tint: one fixed colour layer behind the page; its colour follows the section in view. Only sections with a transparent
-   background show it, so sections that set their own backgrounds are untouched. The layer exists only when JS built it. */
-.fx-st-layer { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--bg) }
+/* fx bg-topo */
+/* bg-topo: layer built by JS; the two groups of contours drift in opposite slow circles */
+.fx-topo { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
+.fx-topo svg { position: absolute; inset: 0; width: 100%; height: 100% }
+.fx-topo path { fill: none; stroke: color-mix(in srgb, var(--ink) 13%, transparent); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round }
+.fx-topo path.m { stroke: color-mix(in srgb, var(--primary) 18%, transparent) }
+.fx-topo g { transform-box: fill-box; transform-origin: center }
 @media (prefers-reduced-motion: no-preference) {
- .fx-st-layer { transition: background-color .9s cubic-bezier(.2, .7, .2, 1) }
+ .fx-topo g { will-change: transform; animation: fx-topo-a 80s ease-in-out infinite alternate }
+ .fx-topo-g1 { animation-name: fx-topo-b !important; animation-duration: 100s !important }
+ @keyframes fx-topo-a { to { transform: translate3d(-22px, 16px, 0) rotate(3deg) } }
+ @keyframes fx-topo-b { to { transform: translate3d(20px, -14px, 0) rotate(-3deg) } }
 }

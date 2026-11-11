@@ -86,39 +86,58 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx parallax */
-/* parallax: photos drift 6 to 10% slower than the page, inside a frame that clips them (a photo is only moved when its frame
-   or the frame around it has overflow hidden/clip, or a fixed aspect ratio). Small photos and logos are skipped.
-   opt: {amount: 5} (percent of the photo height each way; half on phones) */
-FX.def('parallax', function (c) {
+/* fx click-burst */
+/* click-burst: a click or tap on a button (.btn) or call link (a[href^="tel:"]) throws a small burst of dots (or the site's
+   --glyph with opt glyph) in the primary and accent colours from the click point. Fixed overlay, gone after ~600ms, never
+   delays or blocks the click. Touch works too. Nothing with reduced motion. opt: {glyph: true, n: 10} */
+FX.def('click-burst', function (c) {
   if (FX.reduced) return;
-  var amp = (+c.opt.amount || 5) / (FX.small ? 2 : 1), css = window.CSS && CSS.supports('animation-timeline: view()');
-  var list = [];
-  c.els('main > :first-child img, [data-layer] img').forEach(function (img) {
-    var r = img.getBoundingClientRect();
-    if (r.width < 160 || r.height < 120 || /logo|icon/i.test(img.className + img.alt + img.src) || img.closest('.ph')) return;
-    var p = img.parentElement, ok = 0;
-    for (var n = p, i = 0; n && i < 3 && n !== document.body; n = n.parentElement, i++) {
-      var s = getComputedStyle(n);
-      if (/hidden|clip/.test(s.overflowY) || (i === 0 && s.aspectRatio !== 'auto' && s.display !== 'inline')) { ok = n; break; }
+  var d = document, S = c.sel || '.btn, a[href^="tel:"]', N = Math.min(16, Math.max(6, +c.opt.n || (FX.fine ? 11 : 9)));
+  d.addEventListener('click', function (e) {
+    var t = e.target.closest ? e.target.closest(S) : null;
+    if (!t || !t.animate) return;
+    var x = e.clientX, y = e.clientY, b = t.getBoundingClientRect();
+    if (!e.detail && !x && !y) { x = b.left + b.width / 2; y = b.top + b.height / 2; }   // keyboard activation: from the button centre
+    var box = d.createElement('div'); box.className = 'fx-cb2'; box.setAttribute('aria-hidden', 'true');
+    for (var i = 0; i < N; i++) {
+      var p = d.createElement('i'), a = (i / N) * 6.2832 + Math.random() * 0.6, r = 34 + Math.random() * 46, dx = Math.cos(a) * r, dy = Math.sin(a) * r;
+      p.style.cssText = 'left:' + x + 'px;top:' + y + 'px;color:var(--' + (i % 2 ? 'accent' : 'primary') + ');font-size:' + (11 + Math.random() * 6) + 'px';
+      if (c.opt.glyph) p.className = 'g'; else p.style.width = p.style.height = (5 + Math.random() * 5) + 'px';
+      p.animate([{ transform: 'translate(-50%,-50%) scale(.3)', opacity: 1 },
+        { transform: 'translate(calc(-50% + ' + dx * 0.8 + 'px),calc(-50% + ' + dy * 0.8 + 'px)) scale(1)', opacity: 1, offset: 0.5 },
+        { transform: 'translate(calc(-50% + ' + dx + 'px),calc(-50% + ' + (dy + 22) + 'px)) scale(.4) rotate(' + (Math.random() * 120 - 60) + 'deg)', opacity: 0 }],
+        { duration: 520 + Math.random() * 80, easing: 'cubic-bezier(.15,.7,.25,1)', fill: 'forwards' });
+      box.appendChild(p);
     }
-    if (!ok) return;
-    if (ok === p && !/hidden|clip/.test(getComputedStyle(p).overflowY)) p.style.overflow = 'clip';
-    img.setAttribute('data-fx-px', ''); img.style.setProperty('--fx-px', amp + '%');
-    if (css) img.classList.add('fx-px-css'); else list.push({ img: img, box: p });
+    d.body.appendChild(box); setTimeout(function () { box.remove(); }, 640);
+  }, { passive: true });
+});
+
+/* fx typewriter */
+/* typewriter: types the hero eyebrow (or any [data-fx-typewriter] element) once, 35 to 55ms per character, with a blinking caret that
+   goes away shortly after. The full text is reserved from the start (untyped part transparent) and kept in aria-label plus a
+   visually hidden copy, so screen readers and layout never see a partial string. Plain-text elements only.
+   Reduced motion: the full text, no caret. opt: {speed: 45} (average ms per character), {delay: 400} */
+FX.def('typewriter', function (c) {
+  if (FX.reduced) return;
+  var d = document, sp = +c.opt.speed || 45, dl = c.opt.delay == null ? 400 : +c.opt.delay;
+  c.els('main > :first-child [class*=eyebrow]').forEach(function (el) {
+    var t = el.textContent.trim();
+    if (!t || el.children.length || el.getAttribute('data-fx-tw')) return;
+    el.setAttribute('data-fx-tw', '1'); el.setAttribute('aria-label', t);
+    var sr = d.createElement('span'), a = d.createElement('span'), b = d.createElement('span');
+    sr.style.cssText = 'position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap'; sr.textContent = t;
+    a.className = 'fx-tw-t'; a.setAttribute('aria-hidden', 'true'); b.className = 'fx-tw-r'; b.setAttribute('aria-hidden', 'true'); b.textContent = '\u2060' + t;
+    el.textContent = ''; el.appendChild(sr); el.appendChild(a); el.appendChild(b);
+    FX.seen([el], function () {
+      var i = 0; el.classList.add('fx-tw-live');
+      setTimeout(function next() {
+        i++; a.textContent = t.slice(0, i) + '\u2060'; b.textContent = '\u2060' + t.slice(i);
+        if (i < t.length) setTimeout(next, sp * (.8 + Math.random() * .4));
+        else setTimeout(function () { el.classList.remove('fx-tw-live'); }, 1800);
+      }, dl);
+    }, '0px');
   });
-  if (css || !list.length) return;
-  var busy = 0;
-  function tick() {
-    busy = 0;
-    list.forEach(function (o) {
-      var r = o.box.getBoundingClientRect(), k = (innerHeight - r.top) / (innerHeight + r.height);
-      if (k < -.05 || k > 1.05) return;
-      o.img.style.transform = 'translate3d(0,' + ((k - .5) * 2 * amp * o.img.offsetHeight / 100).toFixed(1) + 'px,0) scale(1.12)';
-    });
-  }
-  function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
-  addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
 });
 
 /* fx cursor-trail */
@@ -154,116 +173,6 @@ FX.def('cursor-trail', function (c) {
   }, { passive: true });
   d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) root.classList.remove('on'); });
   dots.forEach(function (p) { p.e.style.opacity = p.o; });
-});
-
-/* fx click-burst */
-/* click-burst: a click or tap on a button (.btn) or call link (a[href^="tel:"]) throws a small burst of dots (or the site's
-   --glyph with opt glyph) in the primary and accent colours from the click point. Fixed overlay, gone after ~600ms, never
-   delays or blocks the click. Touch works too. Nothing with reduced motion. opt: {glyph: true, n: 10} */
-FX.def('click-burst', function (c) {
-  if (FX.reduced) return;
-  var d = document, S = c.sel || '.btn, a[href^="tel:"]', N = Math.min(16, Math.max(6, +c.opt.n || (FX.fine ? 11 : 9)));
-  d.addEventListener('click', function (e) {
-    var t = e.target.closest ? e.target.closest(S) : null;
-    if (!t || !t.animate) return;
-    var x = e.clientX, y = e.clientY, b = t.getBoundingClientRect();
-    if (!e.detail && !x && !y) { x = b.left + b.width / 2; y = b.top + b.height / 2; }   // keyboard activation: from the button centre
-    var box = d.createElement('div'); box.className = 'fx-cb2'; box.setAttribute('aria-hidden', 'true');
-    for (var i = 0; i < N; i++) {
-      var p = d.createElement('i'), a = (i / N) * 6.2832 + Math.random() * 0.6, r = 34 + Math.random() * 46, dx = Math.cos(a) * r, dy = Math.sin(a) * r;
-      p.style.cssText = 'left:' + x + 'px;top:' + y + 'px;color:var(--' + (i % 2 ? 'accent' : 'primary') + ');font-size:' + (11 + Math.random() * 6) + 'px';
-      if (c.opt.glyph) p.className = 'g'; else p.style.width = p.style.height = (5 + Math.random() * 5) + 'px';
-      p.animate([{ transform: 'translate(-50%,-50%) scale(.3)', opacity: 1 },
-        { transform: 'translate(calc(-50% + ' + dx * 0.8 + 'px),calc(-50% + ' + dy * 0.8 + 'px)) scale(1)', opacity: 1, offset: 0.5 },
-        { transform: 'translate(calc(-50% + ' + dx + 'px),calc(-50% + ' + (dy + 22) + 'px)) scale(.4) rotate(' + (Math.random() * 120 - 60) + 'deg)', opacity: 0 }],
-        { duration: 520 + Math.random() * 80, easing: 'cubic-bezier(.15,.7,.25,1)', fill: 'forwards' });
-      box.appendChild(p);
-    }
-    d.body.appendChild(box); setTimeout(function () { box.remove(); }, 640);
-  }, { passive: true });
-});
-
-/* fx lightbox-plus */
-/* lightbox-plus: replaces core's lightbox for a[data-lb] (capture-phase click + stopImmediatePropagation so core never opens).
-   Dialog with caption, "3 / 12" counter, prev/next, arrow keys, Escape, swipe, focus trap, focus back on the thumbnail, images grouped by
-   their gallery container (items hidden by a filter chip are skipped). Opens by growing from the thumbnail unless motion is reduced.
-   opt: {label: "Photo viewer", close: "Close", prev: "Previous photo", next: "Next photo"} */
-FX.def('lightbox-plus', function (c) {
-  var d = document, o = c.opt, lb, img, cap, num, items = [], at = 0, from = null, B = {};
-  function mk(cls, label, t) { var b = d.createElement('button'); b.type = 'button'; b.className = 'fx-lb-b ' + cls; b.setAttribute('aria-label', label); b.textContent = t; return b; }
-  function build() {
-    lb = d.createElement('div'); lb.className = 'fx-lb'; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', o.label || 'Photo viewer');
-    lb.style.background = FX.rgba(FX.color('--dark'), .94);
-    var f = d.createElement('figure'); f.className = 'fx-lb-f';
-    img = d.createElement('img'); img.className = 'fx-lb-img'; img.alt = '';
-    cap = d.createElement('figcaption'); cap.className = 'fx-lb-cap';
-    num = d.createElement('div'); num.className = 'fx-lb-n'; num.setAttribute('aria-live', 'polite');
-    B.x = mk('fx-lb-x', o.close || 'Close', '×'); B.p = mk('fx-lb-p', o.prev || 'Previous photo', '‹'); B.n = mk('fx-lb-nx', o.next || 'Next photo', '›');
-    f.appendChild(img); f.appendChild(cap);
-    [f, num, B.x, B.p, B.n].forEach(function (e) { lb.appendChild(e); });
-    d.body.appendChild(lb);
-    B.x.onclick = close; B.p.onclick = function () { go(-1); }; B.n.onclick = function () { go(1); };
-    lb.addEventListener('click', function (e) { if (e.target === lb || e.target === f) close(); });
-    var sx = null;
-    lb.addEventListener('pointerdown', function (e) { sx = e.target.closest('button') ? null : e.clientX; });
-    lb.addEventListener('pointerup', function (e) {
-      if (sx !== null && Math.abs(e.clientX - sx) > 50) go(e.clientX < sx ? 1 : -1);
-      sx = null;
-    });
-    d.addEventListener('keydown', key, true);
-  }
-  function text(a) {
-    var fig = a.closest('figure'), fc = fig && fig.querySelector('figcaption'), im = a.querySelector('img');
-    return a.getAttribute('data-cap') || (fc && fc.textContent.trim()) || (im && im.alt) || '';
-  }
-  function show(i, dir) {
-    at = (i + items.length) % items.length;
-    var a = items[at], t = text(a);
-    num.textContent = at + 1 + ' / ' + items.length; cap.textContent = t; img.alt = t;
-    lb.classList.toggle('fx-lb-1', items.length < 2);
-    img.onload = function () { if (!FX.reduced) flip(dir); };
-    img.src = a.getAttribute('href');
-    [1, -1].forEach(function (s) { new Image().src = items[(at + s + items.length) % items.length].getAttribute('href'); });
-  }
-  function flip(dir) {
-    var r = img.getBoundingClientRect();
-    if (dir) { img.animate([{ opacity: 0, transform: 'translateX(' + 36 * dir + 'px)' }, { opacity: 1, transform: 'none' }], { duration: 320, easing: 'cubic-bezier(.2,.7,.2,1)' }); return; }
-    var th = from && from.querySelector('img'), t = th && th.getBoundingClientRect();
-    if (!t || !t.width || !r.width) { img.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 250 }); return; }
-    img.animate([{ opacity: .3, transform: 'translate(' + (t.left + t.width / 2 - r.left - r.width / 2) + 'px,' + (t.top + t.height / 2 - r.top - r.height / 2) + 'px) scale(' + t.width / r.width + ')' },
-      { opacity: 1, transform: 'none' }], { duration: 420, easing: 'cubic-bezier(.2,.7,.2,1)' });
-  }
-  function go(n) { if (items.length > 1) show(at + n, n); }
-  function open(a) {
-    if (!lb) build();
-    from = a;
-    var root = a.parentElement;
-    while (root && root !== d.body && root.querySelectorAll('a[data-lb]').length < 2) root = root.parentElement;
-    items = FX.$$('a[data-lb]', root || d).filter(function (x) { return x === a || (x.getAttribute('href') && x.getClientRects().length); });
-    lb.classList.add('open');
-    if (!FX.reduced) lb.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220 });
-    show(items.indexOf(a), 0);
-    B.x.focus();
-  }
-  function close() {
-    lb.classList.remove('open'); img.removeAttribute('src');
-    if (from && from.isConnected) from.focus({ preventScroll: true });
-  }
-  function key(e) {
-    if (!lb || !lb.classList.contains('open')) return;
-    if (e.key === 'Escape') { e.stopPropagation(); close(); }
-    else if (e.key === 'ArrowRight') go(1);
-    else if (e.key === 'ArrowLeft') go(-1);
-    else if (e.key === 'Tab') {
-      var f = [B.x, B.p, B.n].filter(function (b) { return b.offsetParent; }), i = f.indexOf(d.activeElement);
-      e.preventDefault(); f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
-    }
-  }
-  d.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[data-lb]');
-    if (!a || !a.getAttribute('href')) return;
-    e.preventDefault(); e.stopImmediatePropagation(); open(a);
-  }, true);
 });
 
 /* fx reveal-plus */
@@ -321,4 +230,39 @@ FX.def('sticky-cta', function (c) {
     es.forEach(function (e) { var i = seen.indexOf(e.target); if (e.isIntersecting && i < 0) seen.push(e.target); else if (!e.isIntersecting && i > -1) seen.splice(i, 1); });
     near = seen.length;
   });
+});
+
+/* fx parallax */
+/* parallax: photos drift 6 to 10% slower than the page, inside a frame that clips them (a photo is only moved when its frame
+   or the frame around it has overflow hidden/clip, or a fixed aspect ratio). Small photos and logos are skipped.
+   opt: {amount: 5} (percent of the photo height each way; half on phones) */
+FX.def('parallax', function (c) {
+  if (FX.reduced) return;
+  var amp = (+c.opt.amount || 5) / (FX.small ? 2 : 1), css = window.CSS && CSS.supports('animation-timeline: view()');
+  var list = [];
+  c.els('main > :first-child img, [data-layer] img').forEach(function (img) {
+    var r = img.getBoundingClientRect();
+    if (r.width < 160 || r.height < 120 || /logo|icon/i.test(img.className + img.alt + img.src) || img.closest('.ph')) return;
+    var p = img.parentElement, ok = 0;
+    for (var n = p, i = 0; n && i < 3 && n !== document.body; n = n.parentElement, i++) {
+      var s = getComputedStyle(n);
+      if (/hidden|clip/.test(s.overflowY) || (i === 0 && s.aspectRatio !== 'auto' && s.display !== 'inline')) { ok = n; break; }
+    }
+    if (!ok) return;
+    if (ok === p && !/hidden|clip/.test(getComputedStyle(p).overflowY)) p.style.overflow = 'clip';
+    img.setAttribute('data-fx-px', ''); img.style.setProperty('--fx-px', amp + '%');
+    if (css) img.classList.add('fx-px-css'); else list.push({ img: img, box: p });
+  });
+  if (css || !list.length) return;
+  var busy = 0;
+  function tick() {
+    busy = 0;
+    list.forEach(function (o) {
+      var r = o.box.getBoundingClientRect(), k = (innerHeight - r.top) / (innerHeight + r.height);
+      if (k < -.05 || k > 1.05) return;
+      o.img.style.transform = 'translate3d(0,' + ((k - .5) * 2 * amp * o.img.offsetHeight / 100).toFixed(1) + 'px,0) scale(1.12)';
+    });
+  }
+  function req() { if (!busy) { busy = 1; requestAnimationFrame(tick); } }
+  addEventListener('scroll', req, { passive: true }); addEventListener('resize', req, { passive: true }); tick();
 });

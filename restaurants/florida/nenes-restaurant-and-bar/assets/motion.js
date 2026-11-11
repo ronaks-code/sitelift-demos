@@ -1,15 +1,13 @@
-/* Smoke motion: embers rise from the bottom of the hero and fade; hero photo slowly pushes in; section rows slide their numbers in. */
+/* Bistro motion: hero photo drifts slowly inside its frame while scrolling (parallax), and hairline rules draw across on reveal. Image reveals are CSS clip-path wipes. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var box = document.querySelector('.sm-embers');
-  if (box) for (var i = 0; i < 22; i++) {
-    var e = document.createElement('i'), x = Math.random() * 100, dur = 5000 + Math.random() * 6000, dx = (Math.random() * 80 - 40);
-    e.style.left = x + '%'; e.style.width = e.style.height = (2 + Math.random() * 4) + 'px'; box.appendChild(e);
-    e.animate([{ transform: 'translate(0,0)', opacity: 0 }, { opacity: .95, offset: .15 }, { transform: 'translate(' + dx + 'px,-' + (box.offsetHeight * (0.5 + Math.random() * 0.5)) + 'px)', opacity: 0 }],
-      { duration: dur, delay: Math.random() * 6000, iterations: Infinity, easing: 'ease-out' });
+  var im = document.querySelector('.bs-pano-in img,.bs-pano-in .ph');
+  if (im) {
+    im.style.transform = 'scale(1.12)';
+    var tick = function () { var y = Math.min(scrollY, 900); im.style.transform = 'scale(1.12) translateY(' + (y * 0.06) + 'px)'; };
+    addEventListener('scroll', tick, { passive: true });
   }
-  var bg = document.querySelector('.sm-bg>img,.sm-bg>picture>img,.sm-bg>.ph');
-  if (bg) bg.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.07)' }], { duration: 18000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  var pn = document.querySelector('.bs-pano-in'); if (pn) pn.style.overflow = 'hidden';
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

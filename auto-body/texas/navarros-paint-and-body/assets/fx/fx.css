@@ -1,11 +1,3 @@
-/* fx stars-fill */
-/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
-   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
-html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
- background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
- background-size: 250% 100%; background-position: 0 0 }
-html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }
-
 /* fx img-zoom */
 /* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
    Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
@@ -17,27 +9,27 @@ html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }
  html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
 }
 
-/* fx open-pulse */
-/* open-pulse: the open-now badge gets a small dot. Open: green with a soft ring that pulses every 2s. Closed: a still, muted dot.
-   CSS only. The dot is new content (it adds a little width from first paint and never changes after). Fixed green #1f9d55 eased toward the badge text colour. */
-html.fx-open-pulse [data-hours].is-open::before, html.fx-open-pulse [data-hours].is-closed::before {
- content: ""; display: inline-block; flex: none; width: .55em; height: .55em; margin-right: .55em; border-radius: 50%; vertical-align: .05em }
-html.fx-open-pulse [data-hours].is-open::before { background: color-mix(in srgb, #1f9d55 88%, currentColor); box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 45%, transparent) }
-html.fx-open-pulse [data-hours].is-closed::before { background: color-mix(in srgb, currentColor 38%, transparent) }
+/* fx timeline-draw */
+/* timeline-draw: a vertical line in --primary runs through the step numbers and draws down as you scroll through the list.
+   The line is drawn with the list's own background layers (no extra elements, no layout change) driven by --fx-p (0 to 1).
+   Default --fx-p is 1, so the full line shows without JS animation, with old browsers and with reduced motion. */
+@property --fx-p { syntax: "<number>"; inherits: false; initial-value: 1 }
+[data-fx-td] {
+ background-image: linear-gradient(var(--primary), var(--primary)), linear-gradient(var(--line), var(--line));
+ background-repeat: no-repeat;
+ background-size: 2px calc(var(--fx-h) * var(--fx-p)), 2px var(--fx-h);
+ background-position: var(--fx-x) var(--fx-y), var(--fx-x) var(--fx-y);
+}
+@keyframes fx-td { from { --fx-p: 0 } to { --fx-p: 1 } }
 @media (prefers-reduced-motion: no-preference) {
- html.fx-open-pulse [data-hours].is-open::before { animation: fx-open-pulse 2s cubic-bezier(.2, .7, .2, 1) infinite }
- @keyframes fx-open-pulse { 0% { box-shadow: 0 0 0 0 color-mix(in srgb, #1f9d55 50%, transparent) } 70%, 100% { box-shadow: 0 0 0 .6em color-mix(in srgb, #1f9d55 0%, transparent) } }
+ [data-fx-td].fx-td-css { animation: fx-td linear both; animation-timeline: view(block 52% 22%) }
+ [data-fx-td].fx-td-io { transition: --fx-p .8s cubic-bezier(.2, .7, .2, 1) }
 }
 
-/* fx scroll-progress */
-/* scroll-progress: a thin bar at the very top showing how far down the page you are. The bar only exists when JS built it.
-   Where scroll-driven animations exist the browser drives it (no JS per frame); elsewhere (and with reduced motion, since
-   progress is information, not decoration) JS sets it on scroll. */
-.fx-sp-bar { position: fixed; left: 0; top: 0; width: 100%; height: 3px; z-index: 2147482600; pointer-events: none; background: var(--primary);
- transform: scaleX(0); transform-origin: 0 50% }
-@keyframes fx-sp { to { transform: scaleX(1) } }
-@media (prefers-reduced-motion: no-preference) {
- @supports (animation-timeline: scroll()) {
-  .fx-sp-bar.fx-sp-css { animation: fx-sp linear both; animation-timeline: scroll(root block) }
- }
-}
+/* fx stars-fill */
+/* stars-fill: rating stars fill left to right in their own colour when they scroll into view. The wrapper clips a gradient to the
+   glyphs; resting state (and the end of the animation) is the kit's star colour, unchanged. Waiting state only while JS is running. */
+html.fx-stars-fill .fx-stars-in { -webkit-text-fill-color: transparent; color: inherit; -webkit-background-clip: text; background-clip: text;
+ background-image: linear-gradient(90deg, currentColor 0, currentColor 40%, color-mix(in srgb, currentColor 22%, transparent) 60%, color-mix(in srgb, currentColor 22%, transparent) 100%);
+ background-size: 250% 100%; background-position: 0 0 }
+html.fx-stars-fill .fx-stars-w { background-position: 100% 0 }

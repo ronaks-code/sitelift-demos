@@ -1,11 +1,11 @@
-/* Index motion: the index rows draw their rules and slide in one after another on load; a thin marker follows the hovered row; the marquee rolls (CSS). */
+/* Chalkboard motion: hero lines are "written" left to right in sequence (clip wipe); a few chalk dust specks drift over the slate. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  document.querySelectorAll('.ix-rows li').forEach(function (li, i) {
-    li.animate([{ clipPath: 'inset(0 100% 0 0)', transform: 'translateX(-16px)' }, { clipPath: 'inset(0 0 0 0)', transform: 'none' }], { duration: 700, delay: 200 + i * 110, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  });
-  var f = document.querySelector('.ix-fig img,.ix-fig .ph');
-  if (f) f.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0)' }], { duration: 1100, delay: 300, easing: 'cubic-bezier(.6,0,.2,1)', fill: 'backwards' });
+  var lines = document.querySelectorAll('.cb-hero .cb-line');
+  if (!lines.length) return;
+  document.body.classList.add('js-chalk');
+  lines.forEach(function (l, i) { setTimeout(function () { l.classList.add('go'); }, 160 + i * 380); });
+  setTimeout(function () { lines.forEach(function (l) { l.classList.add('go'); }); }, 4000);
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

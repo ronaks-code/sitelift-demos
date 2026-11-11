@@ -1,11 +1,10 @@
-/* Comal motion: hero arch rises in with a bounce, the seal spins slowly, the ring behind it turns. */
+/* Diner motion: bulbs chase around the sign and the checker strip slides (both CSS); the OPEN pill pulses its light, the chrome-ringed photo swings in like a jukebox door. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var a = document.querySelector('.cm-arch'); if (!a) return;
-  a.animate([{ transform: 'translateY(40px) scale(.94)', opacity: 0 }, { transform: 'translateY(-8px) scale(1.01)', opacity: 1, offset: .7 }, { transform: 'none', opacity: 1 }], { duration: 900, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
-  var s = a.querySelector('.cm-seal'), r = a.querySelector('.cm-arch-ring');
-  if (s) s.animate([{ transform: 'rotate(10deg)' }, { transform: 'rotate(370deg)' }], { duration: 26000, iterations: Infinity });
-  if (r) addEventListener('scroll', function () { r.style.transform = 'translateY(' + Math.min(scrollY, 500) * -0.06 + 'px)'; }, { passive: true });
+  var o = document.querySelector('.dn-open');
+  if (o) o.animate([{ boxShadow: '0 5px 0 var(--ink),0 0 0 rgba(255,255,255,0)' }, { boxShadow: '0 5px 0 var(--ink),0 0 26px rgba(255,255,255,.7)' }], { duration: 1400, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
+  var w = document.querySelector('.dn-window');
+  if (w) w.animate([{ transform: 'perspective(700px) rotateY(-70deg)', opacity: 0 }, { transform: 'perspective(700px) rotateY(0)', opacity: 1 }], { duration: 1000, delay: 200, easing: 'cubic-bezier(.3,1.3,.5,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

@@ -140,54 +140,34 @@ FX.def('review-marquee', function (c) {
   });
 });
 
-/* fx marquee */
-/* marquee: turns a list (the ticker / strip) into an endless marquee. Copies are aria-hidden; speed follows content width
-   (default 40px/s); pauses on hover, on focus, and with a small pause button. Skips lists that already animate themselves.
-   opt: {speed: 40} (px per second), {reverse: true}, {pause: "Pause scrolling", play: "Play scrolling"}.
-   Reduced motion: the list stays as the kit had it (static, wrapping allowed). */
-FX.def('marquee', function (c) {
+/* fx count-up */
+/* count-up: real numbers (rating, review count, years) count up once when they scroll into view. The element's width is
+   locked to its final text first (no layout shift); the final text is exactly what was there (prefix/suffix kept);
+   years (1900-2099) and numbers under 2 are left alone. Reduced motion / no JS: the final number, untouched.
+   opt: {ms: 1400} */
+FX.def('count-up', function (c) {
   if (FX.reduced) return;
-  var d = document, o = c.opt, speed = +o.speed || 40;
-  c.els('ul[class*=ticker], [class*=marquee]:not(html) ul, [data-fx-marquee]').forEach(function (ul) {
-    var kids = [].slice.call(ul.children).filter(function (k) { return k.tagName === 'LI'; });
-    if (kids.length < 2 || ul.getAttribute('data-fx-mq')) return;
-    if ([ul].concat(kids).some(function (e) { return getComputedStyle(e).animationName !== 'none'; })) return;
-    var clones = [], btn, w = 0;
-    function copy(k) {
-      var n = k.cloneNode(true); n.setAttribute('aria-hidden', 'true'); n.removeAttribute('id');
-      [].slice.call(n.querySelectorAll('a,button,input,[tabindex]')).forEach(function (x) { x.setAttribute('tabindex', '-1'); });
-      return n;
-    }
-    function build() {
-      clones.forEach(function (n) { n.remove(); }); clones = [];
-      var pre = copy(kids[kids.length - 1]); ul.insertBefore(pre, kids[0]); clones.push(pre);   // so the first item has a predecessor, like every copy
-      ul.setAttribute('data-fx-mq', '');
-      var a = kids[0].offsetLeft, set = copy(kids[0]); ul.appendChild(set); clones.push(set);
-      for (var i = 1; i < kids.length; i++) { var x = copy(kids[i]); ul.appendChild(x); clones.push(x); }
-      var P = set.offsetLeft - a;
-      if (P < 20) return;
-      var need = Math.ceil(ul.clientWidth / P) + 1, n = 1;
-      while (n++ < need) kids.forEach(function (k) { var x = copy(k); ul.appendChild(x); clones.push(x); });
-      var pw = a - pre.offsetLeft;
-      ul.style.setProperty('--fx-mq-a', -pw + 'px'); ul.style.setProperty('--fx-mq-b', -(pw + P) + 'px');
-      ul.style.setProperty('--fx-mq-t', (P / speed).toFixed(1) + 's'); ul.style.setProperty('--fx-mq-dir', o.reverse ? 'reverse' : 'normal');
-      w = ul.clientWidth;
-    }
-    build();
-    if (!btn && w) {
-      btn = d.createElement('button'); btn.type = 'button'; btn.className = 'fx-mq-btn'; btn.setAttribute('aria-pressed', 'false');
-      btn.setAttribute('aria-label', o.pause || 'Pause scrolling');
-      btn.addEventListener('click', function () {
-        var p = btn.getAttribute('aria-pressed') !== 'true';
-        btn.setAttribute('aria-pressed', p); btn.setAttribute('aria-label', p ? (o.play || 'Play scrolling') : (o.pause || 'Pause scrolling'));
-        ul.toggleAttribute('data-fx-mq-paused', p);
-      });
-      ul.parentNode.insertBefore(btn, ul.nextSibling);
-    }
-    function place() { if (btn) { btn.style.left = ul.offsetLeft + ul.offsetWidth - 36 + 'px'; btn.style.top = ul.offsetTop + (ul.offsetHeight - 28) / 2 + 'px'; } }
-    place();
-    if (window.ResizeObserver) {
-      var t; new ResizeObserver(function () { clearTimeout(t); t = setTimeout(function () { if (ul.clientWidth !== w) build(); place(); }, 200); }).observe(ul);
-    }
+  var ms = +c.opt.ms || 1400;
+  var els = c.els('[data-count],[class*="stat"] b,[class*="stat"] strong,[class*="stat"] dd,[class*="stat"] [class*="num"]');
+  els = els.filter(function (el) { return !el.children.length && /^\D{0,2}\d[\d,]*(\.\d+)?\D{0,8}$/.test(el.textContent.trim()); });
+  els.forEach(function (el) {
+    var t = el.textContent.trim(), m = t.match(/^(\D*)([\d,]+(?:\.\d+)?)(.*)$/);
+    var end = parseFloat(m[2].replace(/,/g, ''));
+    if (!isFinite(end) || end < 2 || (end >= 1900 && end < 2100 && m[2].indexOf('.') < 0)) return;
+    var dec = (m[2].split('.')[1] || '').length, comma = m[2].indexOf(',') > -1;
+    var fmt = function (v) { var s = v.toFixed(dec); return comma ? s.replace(/\B(?=(\d{3})+(?!\d))/g, ',') : s; };
+    if (getComputedStyle(el).display === 'inline') el.style.display = 'inline-block';
+    el.style.fontVariantNumeric = 'tabular-nums';
+    el.style.minWidth = el.getBoundingClientRect().width + 'px';
+    el.setAttribute('data-fx-final', t);
+    FX.seen([el], function () {
+      var t0 = performance.now();
+      el.setAttribute('aria-label', t);
+      (function step(now) {
+        var k = Math.min(1, (now - t0) / ms), e = 1 - Math.pow(1 - k, 4);
+        el.textContent = k < 1 ? m[1] + fmt(end * e) + m[3] : t;
+        if (k < 1) requestAnimationFrame(step); else el.removeAttribute('aria-label');
+      })(t0);
+    });
   });
 });

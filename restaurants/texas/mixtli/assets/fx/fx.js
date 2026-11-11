@@ -86,25 +86,30 @@
   if (d.readyState === 'loading') d.addEventListener('DOMContentLoaded', go); else setTimeout(go, 0);
 })();
 
-/* fx mask-reveal */
-/* mask-reveal: images in later sections wipe in (clip-path inset, 900ms, from the bottom, or from the left) with a tiny scale settle
-   when they enter the view. Images already visible at load, tiny images (< 120px) and logos are never hidden.
-   opt: {dir: "up" | "left"}. Reduced motion: images are shown as they are. */
-FX.def('mask-reveal', function (c) {
-  if (FX.reduced || !Element.prototype.animate) return;
-  var dir = c.opt.dir === 'left' ? 'left' : 'up', hide = dir === 'left' ? 'inset(0 100% 0 0)' : 'inset(100% 0 0 0)';
-  var imgs = c.els('main section:not(:first-child) img').filter(function (i) {
-    var r = i.getBoundingClientRect();
-    return r.width >= 120 && r.height >= 120 && r.top > innerHeight && !/logo|icon/i.test(i.className + i.alt + i.src) && !i.closest('.ph');
-  });
-  imgs.forEach(function (i) { i.setAttribute('data-fx-mr', dir); });
-  FX.seen(imgs, function (i) {
-    var p = i.parentElement, clipped = 0;
-    for (var n = p, k = 0; n && k < 3 && n !== document.body; n = n.parentElement, k++) if (/hidden|clip/.test(getComputedStyle(n).overflowY)) { clipped = 1; break; }
-    i.removeAttribute('data-fx-mr');
-    i.animate([{ clipPath: hide, transform: 'scale(' + (clipped ? 1.06 : 1) + ')' }, { clipPath: 'inset(0 0 0 0)', transform: 'scale(1)' }],
-      { duration: 900, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
-  }, '0px 0px -6% 0px');
+/* fx hero-zoomout */
+/* hero-zoomout: hero photo starts at scale 1.08 and, over the first 70vh of scrolling, eases to 1 while its edges inset 4% with
+   rounded corners (the frame's own overflow hides the rest). Default: the largest photo in the first block of <main>.
+   Scroll-driven CSS where supported, rAF scroll fallback otherwise. Reduced motion: untouched. */
+FX.def('hero-zoomout', function (c) {
+  if (FX.reduced) return;
+  var els = c.els('main > :first-child img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
+  if (!c.sel && els.length > 1) {
+    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
+    els = [els.sort(function (x, y) { return a(y) - a(x); })[0]];
+  }
+  if (!els.length) return;
+  var img = els[0], css = window.CSS && CSS.supports('animation-timeline: scroll()');
+  img.classList.add('fx-hz');
+  if (css) { img.classList.add('fx-hz-css'); return; }
+  var busy = 0, ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+  function tick() {
+    busy = 0;
+    var k = ease(Math.min(1, Math.max(0, scrollY / (innerHeight * .7))));
+    img.style.transform = 'scale(' + (1.08 - .08 * k).toFixed(4) + ')';
+    img.style.clipPath = 'inset(' + (4 * k).toFixed(2) + '% round calc(var(--radius, 12px) * ' + k.toFixed(3) + '))';
+  }
+  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
+  tick();
 });
 
 /* fx sheen */
@@ -116,6 +121,30 @@ FX.def('sheen', function (c) {
   FX.$$(c.opt.hero).forEach(function (t) {
     var s = document.createElement('span'); s.className = 'fx-sheen-img'; s.setAttribute('aria-hidden', 'true');
     if (getComputedStyle(t).position === 'static') t.style.position = 'relative'; t.style.overflow = 'hidden'; t.appendChild(s);
+  });
+});
+
+/* fx btn-fill */
+/* btn-fill: inserts the fill layer and tracks which side the pointer entered/left from. Mouse only. */
+FX.def('btn-fill', function (c) {
+  if (!FX.fine) return;
+  var acc = FX.color('--accent');
+  c.els('.btn').forEach(function (b) {
+    if (b.matches('.callbar') || b.querySelector(':scope > .fx-bf-l')) return;
+    var cs = getComputedStyle(b), l = document.createElement('span');
+    l.className = 'fx-bf-l'; l.setAttribute('aria-hidden', 'true'); l.style.cssText = 'position:absolute;inset:0;pointer-events:none'; b.insertBefore(l, b.firstChild);
+    b.classList.add('fx-bf');
+    if (cs.position === 'static') b.classList.add('fx-bf-r');
+    if (cs.backgroundColor === acc) b.classList.add('fx-bf-ink');
+    else if (/rgba\(.*, 0\)|transparent/.test(cs.backgroundColor)) b.classList.add('fx-bf-alt');
+    b.style.transition = (parseFloat(cs.transitionDuration) ? cs.transition + ', ' : '') + 'color .4s cubic-bezier(.2,.7,.2,1), border-color .4s cubic-bezier(.2,.7,.2,1)';
+    function set(e) {
+      var r = b.getBoundingClientRect(), k = function (v) { return Math.max(-1, Math.min(1, v)).toFixed(2); };
+      b.style.setProperty('--fx-dx', k((e.clientX - r.left) / r.width * 2 - 1));
+      b.style.setProperty('--fx-dy', k((e.clientY - r.top) / r.height * 2 - 1));
+    }
+    b.addEventListener('pointerenter', set); b.addEventListener('pointerleave', set);
+    b.addEventListener('focus', function () { b.style.setProperty('--fx-dx', 0); b.style.setProperty('--fx-dy', 0); });
   });
 });
 
@@ -153,28 +182,54 @@ FX.def('cursor-blend', function (c) {
   }, { passive: true });
 });
 
-/* fx hero-zoomout */
-/* hero-zoomout: hero photo starts at scale 1.08 and, over the first 70vh of scrolling, eases to 1 while its edges inset 4% with
-   rounded corners (the frame's own overflow hides the rest). Default: the largest photo in the first block of <main>.
-   Scroll-driven CSS where supported, rAF scroll fallback otherwise. Reduced motion: untouched. */
-FX.def('hero-zoomout', function (c) {
-  if (FX.reduced) return;
-  var els = c.els('main > :first-child img').filter(function (i) { return !i.closest('.ph') && i.getBoundingClientRect().width > 160; });
-  if (!c.sel && els.length > 1) {
-    var a = function (i) { var r = i.getBoundingClientRect(); return r.width * r.height; };
-    els = [els.sort(function (x, y) { return a(y) - a(x); })[0]];
-  }
-  if (!els.length) return;
-  var img = els[0], css = window.CSS && CSS.supports('animation-timeline: scroll()');
-  img.classList.add('fx-hz');
-  if (css) { img.classList.add('fx-hz-css'); return; }
-  var busy = 0, ease = function (t) { return 1 - Math.pow(1 - t, 3); };
+/* fx duotone */
+/* duotone: gallery images are shown in the brand's two tones (dark from --dark, light from --primary eased toward the page light)
+   through an inline SVG filter, and ease back to full colour on hover/focus (mouse) or while centred in the view (touch).
+   One filter per image so each fades on its own; one shared rAF loop that sleeps when idle. Skips placeholders and logos.
+   Reduced motion: same states, switched instantly. opt: {mix: 0.5} (how far the light tone moves toward the page light) */
+FX.def('duotone', function (c) {
+  var d = document, ns = 'http://www.w3.org/2000/svg';
+  function rgb(v) { return (String(FX.color(v)).match(/[\d.]+/g) || [0, 0, 0]).slice(0, 3).map(Number); }
+  function lum(a) { return (.2126 * a[0] + .7152 * a[1] + .0722 * a[2]) / 255; }
+  var dark = rgb('--dark'), ink = rgb('--ink'), pri = rgb('--primary'), bg = rgb('--bg'), od = rgb('--on-dark');
+  var top = lum(bg) > lum(od) ? bg : od, k = c.opt.mix == null ? .5 : +c.opt.mix, lite;
+  function mix(a, b, t) { return a.map(function (v, i) { return v + (b[i] - v) * t; }); }
+  lite = mix(pri, top, k);
+  while (lum(lite) < .55 && k < 1) { k += .1; lite = mix(pri, top, k); }
+  if (lum(dark) > lum(lite) * .6) dark = lum(ink) < lum(dark) ? ink : mix(dark, [0, 0, 0], .6);
+  var imgs = c.els('a[data-lb] img').filter(function (i) { return !i.closest('.ph,[class*=logo]') && !/logo/i.test(i.src); });
+  if (!imgs.length) return;
+  var svg = d.createElementNS(ns, 'svg'), f = function (a) { return a.map(function (v) { return (v / 255).toFixed(3); }); };
+  svg.setAttribute('width', 0); svg.setAttribute('height', 0); svg.setAttribute('aria-hidden', 'true'); svg.style.cssText = 'position:absolute;pointer-events:none';
+  var D = f(dark), Lt = f(lite), st = [], run = 0;
+  var fn = function (ch, i) { return '<feFunc' + ch + ' type="table" tableValues="' + D[i] + ' ' + Lt[i] + '"/>'; };
+  svg.innerHTML = imgs.map(function (_, n) {
+    return '<filter id="fx-duo-' + n + '" x="0" y="0" width="1" height="1" color-interpolation-filters="sRGB">' +
+      '<feColorMatrix type="matrix" values=".2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 .2126 .7152 .0722 0 0 0 0 0 1 0"/>' +
+      '<feComponentTransfer result="d">' + fn('R', 0) + fn('G', 1) + fn('B', 2) + '</feComponentTransfer>' +
+      '<feComposite in="d" in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="0" k4="0"/></filter>';
+  }).join('');
+  d.body.appendChild(svg);
+  var mixers = svg.querySelectorAll('feComposite');
+  function paint(s) { s.m.setAttribute('k2', (1 - s.t).toFixed(3)); s.m.setAttribute('k3', s.t.toFixed(3)); }
   function tick() {
-    busy = 0;
-    var k = ease(Math.min(1, Math.max(0, scrollY / (innerHeight * .7))));
-    img.style.transform = 'scale(' + (1.08 - .08 * k).toFixed(4) + ')';
-    img.style.clipPath = 'inset(' + (4 * k).toFixed(2) + '% round calc(var(--radius, 12px) * ' + k.toFixed(3) + '))';
+    var busy = 0;
+    st.forEach(function (s) {
+      if (s.t === s.to) return;
+      s.t = FX.reduced ? s.to : (s.to > s.t ? Math.min(s.to, s.t + .06) : Math.max(s.to, s.t - .06));
+      paint(s); if (s.t !== s.to) busy = 1;
+    });
+    run = busy ? requestAnimationFrame(tick) : 0;
   }
-  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(tick); } }, { passive: true });
-  tick();
+  function aim(s, to) { s.to = to; if (!run) run = requestAnimationFrame(tick); }
+  var io = !FX.fine && 'IntersectionObserver' in window && new IntersectionObserver(function (es) {
+    es.forEach(function (e) { aim(e.target.__fxd, e.isIntersecting ? 1 : 0); });
+  }, { rootMargin: '-44% 0px -44% 0px' });
+  imgs.forEach(function (img, n) {
+    var s = { m: mixers[n], t: 0, to: 0 }; st.push(s); img.__fxd = s; img.style.filter = 'url(#fx-duo-' + n + ')';
+    if (io) { io.observe(img); return; }
+    var host = img.closest('a') || img;
+    ['mouseenter', 'focusin'].forEach(function (ev) { host.addEventListener(ev, function () { aim(s, 1); }); });
+    ['mouseleave', 'focusout'].forEach(function (ev) { host.addEventListener(ev, function () { aim(s, 0); }); });
+  });
 });

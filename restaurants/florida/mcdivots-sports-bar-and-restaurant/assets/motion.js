@@ -1,14 +1,15 @@
-/* Neon motion: tube-sign flicker. On load the sign stutters on, then every few seconds one tube drops out for a moment. */
+/* Smoke motion: embers rise from the bottom of the hero and fade; hero photo slowly pushes in; section rows slide their numbers in. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var t = [].slice.call(document.querySelectorAll('.nn-flick'));
-  if (!t.length) return;
-  var blink = function (el, seq, i) {
-    i = i || 0; if (i >= seq.length) { el.classList.remove('off'); return; }
-    el.classList.toggle('off', i % 2 === 0); setTimeout(function () { blink(el, seq, i + 1); }, seq[i]);
-  };
-  t.forEach(function (el, k) { setTimeout(function () { blink(el, [90, 70, 140, 60, 220, 50, 70]); }, 200 + k * 260); });
-  setInterval(function () { blink(t[Math.floor(Math.random() * t.length)], [70, 90, 60, 160, 50]); }, 5200);
+  var box = document.querySelector('.sm-embers');
+  if (box) for (var i = 0; i < 22; i++) {
+    var e = document.createElement('i'), x = Math.random() * 100, dur = 5000 + Math.random() * 6000, dx = (Math.random() * 80 - 40);
+    e.style.left = x + '%'; e.style.width = e.style.height = (2 + Math.random() * 4) + 'px'; box.appendChild(e);
+    e.animate([{ transform: 'translate(0,0)', opacity: 0 }, { opacity: .95, offset: .15 }, { transform: 'translate(' + dx + 'px,-' + (box.offsetHeight * (0.5 + Math.random() * 0.5)) + 'px)', opacity: 0 }],
+      { duration: dur, delay: Math.random() * 6000, iterations: Infinity, easing: 'ease-out' });
+  }
+  var bg = document.querySelector('.sm-bg>img,.sm-bg>picture>img,.sm-bg>.ph');
+  if (bg) bg.animate([{ transform: 'scale(1)' }, { transform: 'scale(1.07)' }], { duration: 18000, direction: 'alternate', iterations: Infinity, easing: 'ease-in-out' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

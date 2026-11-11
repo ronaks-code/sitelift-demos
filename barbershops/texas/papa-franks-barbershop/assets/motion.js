@@ -1,17 +1,24 @@
-/* Gloss motion: drag-to-scroll gallery strip, gentle parallax on the arch photo. No libraries; respects reduced motion. */
+/* Chair & Pole motion: fit the plaque headline to its frame (wide brand fonts), pause the pole + ticker when off-screen. */
 (function () {
   if (!window.SL) return;
-  document.querySelectorAll('.gl-strip').forEach(function (s) {
-    var down = false, x0 = 0, l0 = 0;
-    s.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse') return; down = true; x0 = e.clientX; l0 = s.scrollLeft; s.style.scrollSnapType = 'none'; });
-    addEventListener('pointerup', function () { if (down) { down = false; s.style.scrollSnapType = ''; } });
-    s.addEventListener('pointermove', function (e) { if (down) s.scrollLeft = l0 - (e.clientX - x0); });
+  // A brand font wider than Anton can push a long word past the plaque frame: step the H1 down until it fits (layout only, runs with reduced motion too).
+  function fit1(h, min) {
+    if (!h) return;
+    h.style.fontSize = ''; h.style.overflowWrap = 'normal';   // measure whole words; never split one mid-word
+    var fs = parseFloat(getComputedStyle(h).fontSize), n = 0;
+    while (h.scrollWidth > h.clientWidth + 1 && fs > min && n++ < 60) { fs -= 1; h.style.fontSize = fs + 'px'; }
+    h.style.overflowWrap = '';
+  }
+  function fit() {
+    fit1(document.querySelector('.pl-plaque h1'), 28); fit1(document.querySelector('.pl-stamp'), 11);
+    document.querySelectorAll('main h2').forEach(function (h) { fit1(h, 24); });
+  }
+  fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+  var t; window.addEventListener('resize', function () { clearTimeout(t); t = setTimeout(fit, 150); });
+  if (SL.reduced || !('IntersectionObserver' in window)) return;
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { e.target.style.animationPlayState = e.isIntersecting ? 'running' : 'paused'; });
   });
-  if (SL.reduced) return;
-  var arch = document.querySelector('.gl-arch');
-  if (!arch) return;
-  addEventListener('scroll', function () {
-    var y = Math.min(scrollY, 600);
-    arch.style.transform = 'translateY(' + (y * -0.06) + 'px)';
-  }, { passive: true });
+  document.querySelectorAll('.pl-track,.pl-pole i').forEach(function (el) { io.observe(el); });
 })();

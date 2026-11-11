@@ -1,51 +1,3 @@
-/* fx bg-topo */
-/* bg-topo: layer built by JS; the two groups of contours drift in opposite slow circles */
-.fx-topo { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none }
-.fx-topo svg { position: absolute; inset: 0; width: 100%; height: 100% }
-.fx-topo path { fill: none; stroke: color-mix(in srgb, var(--ink) 13%, transparent); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: round }
-.fx-topo path.m { stroke: color-mix(in srgb, var(--primary) 18%, transparent) }
-.fx-topo g { transform-box: fill-box; transform-origin: center }
-@media (prefers-reduced-motion: no-preference) {
- .fx-topo g { will-change: transform; animation: fx-topo-a 80s ease-in-out infinite alternate }
- .fx-topo-g1 { animation-name: fx-topo-b !important; animation-duration: 100s !important }
- @keyframes fx-topo-a { to { transform: translate3d(-22px, 16px, 0) rotate(3deg) } }
- @keyframes fx-topo-b { to { transform: translate3d(20px, -14px, 0) rotate(-3deg) } }
-}
-
-/* fx mask-reveal */
-/* mask-reveal: photos below the fold start wiped away (clipped) and are revealed with an inset wipe when they scroll in. The hidden
-   state exists only on images JS tagged that were below the fold at load; the tag is removed the moment the wipe starts. */
-html.fx-mask-reveal img[data-fx-mr] { clip-path: inset(100% 0 0 0) }
-html.fx-mask-reveal img[data-fx-mr=left] { clip-path: inset(0 100% 0 0) }
-
-/* fx tilt */
-/* tilt: soft glare layer inside tilting cards (inserted by tilt.js) */
-html.fx-tilt .fx-tilt-g { position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
- background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 58%) }
-html.fx-tilt .fx-tilt-g.on { opacity: 1 }
-
-/* fx click-burst */
-/* click-burst: particles are built by JS at click time and removed again; nothing exists otherwise */
-.fx-cb2 { position: fixed; inset: 0; pointer-events: none; z-index: 2147483000; overflow: hidden }
-.fx-cb2 i { position: absolute; border-radius: 50%; background: currentColor; will-change: transform, opacity }
-.fx-cb2 i.g { width: auto; height: auto; border-radius: 0; background: none; font: 700 14px/1 var(--f-body) }
-.fx-cb2 i.g::before { content: var(--glyph, "\2726") }
-
-/* fx highlight-sweep */
-/* highlight-sweep: a marker band (or underline) draws across the hero's emphasised words when they scroll into view. The text colour
-   is never changed; the band is a translucent --accent. Marked elements are tagged by JS; the final highlight is the natural
-   state once .fx-hl-on is set. Reduced motion: final highlight, static.
-   No padding/margin on the marked element: it is tagged after first paint, and padding with box-decoration-break: clone
-   rewraps a multi-line headline (measured CLS 0.1-0.17 on hero h1 em). */
-[data-fx-hl] { background-repeat: no-repeat; background-position: 0 94%; box-decoration-break: clone; -webkit-box-decoration-break: clone;
- background-image: linear-gradient(color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent) 26%, transparent)); background-size: 0% 36% }
-[data-fx-hl=underline] { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0% 3px }
-[data-fx-hl].fx-hl-on { background-size: 100% 36% }
-[data-fx-hl=underline].fx-hl-on { background-size: 100% 3px }
-@media (prefers-reduced-motion: no-preference) {
- [data-fx-hl] { transition: background-size 1s cubic-bezier(.2, .7, .2, 1) }
-}
-
 /* fx lightbox-plus */
 /* lightbox-plus: photo viewer that replaces the core lightbox (dialog created by lightbox-plus.js). Backdrop colour is set from --dark in JS. */
 .fx-lb { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 56px 64px 72px; touch-action: none; overscroll-behavior: contain; color: var(--on-dark) }
@@ -69,4 +21,19 @@ html.fx-tilt .fx-tilt-g.on { opacity: 1 }
  .fx-lb-p, .fx-lb-nx { top: auto; bottom: 18px; margin: 0 }
  .fx-lb-p { left: 20px }
  .fx-lb-nx { right: 20px }
+}
+
+/* fx highlight-sweep */
+/* highlight-sweep: a marker band (or underline) draws across the hero's emphasised words when they scroll into view. The text colour
+   is never changed; the band is a translucent --accent. Marked elements are tagged by JS; the final highlight is the natural
+   state once .fx-hl-on is set. Reduced motion: final highlight, static.
+   No padding/margin on the marked element: it is tagged after first paint, and padding with box-decoration-break: clone
+   rewraps a multi-line headline (measured CLS 0.1-0.17 on hero h1 em). */
+[data-fx-hl] { background-repeat: no-repeat; background-position: 0 94%; box-decoration-break: clone; -webkit-box-decoration-break: clone;
+ background-image: linear-gradient(color-mix(in srgb, var(--accent) 26%, transparent), color-mix(in srgb, var(--accent) 26%, transparent)); background-size: 0% 36% }
+[data-fx-hl=underline] { background-image: linear-gradient(var(--accent), var(--accent)); background-size: 0% 3px }
+[data-fx-hl].fx-hl-on { background-size: 100% 36% }
+[data-fx-hl=underline].fx-hl-on { background-size: 100% 3px }
+@media (prefers-reduced-motion: no-preference) {
+ [data-fx-hl] { transition: background-size 1s cubic-bezier(.2, .7, .2, 1) }
 }

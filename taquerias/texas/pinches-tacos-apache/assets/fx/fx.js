@@ -147,3 +147,69 @@ FX.def('cursor-trail', function (c) {
   d.addEventListener('mouseout', function (e) { if (!e.relatedTarget) root.classList.remove('on'); });
   dots.forEach(function (p) { p.e.style.opacity = p.o; });
 });
+
+/* fx bg-particles */
+/* bg-particles: canvas particles behind the hero. opt kind: "dust" (default, slow drifting motes), "sparks" (rising embers in
+   the accent colour), "bubbles" (rising translucent circles). Up to 60 particles (25 on small screens), paused off-screen
+   and when the tab is hidden; one static frame with reduced motion. opt: {kind, count} */
+FX.def('bg-particles', function (c) {
+  var kind = ({ sparks: 1, bubbles: 1 })[c.opt.kind] ? c.opt.kind : 'dust';
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var cv = document.createElement('canvas'), g = cv.getContext('2d'), W = 0, H = 0, dpr = 1, ps = [], vis = 1, raf = 0, last = 0;
+    if (!g) return;
+    cv.className = 'fx-pt'; cv.setAttribute('aria-hidden', 'true'); cv.style.cssText = 'position:absolute;inset:0;pointer-events:none';
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
+    t.style.isolation = 'isolate'; t.insertBefore(cv, t.firstChild);
+    var cP = FX.color('--primary'), cA = FX.color('--accent'), cI = FX.color('--ink');
+    var cols = kind === 'sparks' ? [cA, cA, cP] : kind === 'bubbles' ? [cA, cP] : [cI, cP, cA];
+    var R = Math.random;
+    function max() { return Math.min(60, +c.opt.count || (FX.small ? 25 : 60)); }
+    function make(init) {
+      var r = kind === 'bubbles' ? 4 + R() * 12 : kind === 'sparks' ? 1.4 + R() * 2.2 : 1.2 + R() * 2.4;
+      var p = { x: R() * W, y: init ? R() * H : kind === 'dust' ? R() * H : H + r + R() * 40, r: r, ph: R() * 6.28, col: cols[(R() * cols.length) | 0],
+        a: kind === 'dust' ? 0.4 + R() * 0.45 : 0.5 + R() * 0.4, life: 0 };
+      p.vy = kind === 'dust' ? -3 - R() * 6 : kind === 'sparks' ? -(30 + R() * 50) : -(12 + R() * 26);
+      p.vx = kind === 'dust' ? (R() - 0.5) * 6 : 0; p.sw = 8 + R() * 20;
+      return p;
+    }
+    function size() {
+      var b = t.getBoundingClientRect(); dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = Math.max(1, b.width); H = Math.max(1, b.height);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      while (ps.length < max()) ps.push(make(1));
+      ps.length = Math.min(ps.length, max());
+    }
+    function step(dt) {
+      ps.forEach(function (p, i) {
+        p.ph += dt * (kind === 'dust' ? 0.4 : 1.4);
+        p.y += p.vy * dt; p.x += p.vx * dt + Math.sin(p.ph) * p.sw * dt * (kind === 'dust' ? 0.3 : 1);
+        if (p.y < -20 || p.x < -20 || p.x > W + 20) { ps[i] = make(0); if (kind === 'dust') ps[i].y = H + 10; }
+      });
+    }
+    function draw() {
+      g.setTransform(dpr, 0, 0, dpr, 0, 0); g.clearRect(0, 0, W, H);
+      ps.forEach(function (p) {
+        var k = kind === 'dust' ? 1 : Math.pow(Math.max(0, Math.min(1, p.y / H)), kind === 'sparks' ? 0.5 : 1), a = p.a * (kind === 'dust' ? 0.6 + 0.4 * Math.sin(p.ph * 2) : k);
+        g.beginPath();
+        if (kind === 'bubbles') {
+          g.arc(p.x, p.y, p.r, 0, 6.283); g.fillStyle = FX.rgba(p.col, a * 0.12); g.fill();
+          g.lineWidth = 1.2; g.strokeStyle = FX.rgba(p.col, a * 0.55); g.stroke();
+          g.beginPath(); g.arc(p.x, p.y, p.r * 0.62, 3.6, 4.4); g.strokeStyle = FX.rgba(p.col, a * 0.7); g.stroke();
+        } else {
+          g.arc(p.x, p.y, kind === 'sparks' ? p.r * (0.5 + k * 0.7) : p.r, 0, 6.283);
+          g.fillStyle = FX.rgba(p.col, a); g.fill();
+          if (kind !== 'bubbles') { g.beginPath(); g.arc(p.x, p.y, p.r * (kind === 'dust' ? 3.5 : 3.4 * k), 0, 6.283); g.fillStyle = FX.rgba(p.col, a * (kind === 'dust' ? 0.1 : 0.28)); g.fill(); }
+        }
+      });
+    }
+    function frame(now) {
+      raf = 0; if (!vis || document.hidden) return;
+      step(Math.min(0.05, (now - last) / 1000)); last = now; draw(); raf = requestAnimationFrame(frame);
+    }
+    function go() { if (!raf && vis && !document.hidden && !FX.reduced) { last = performance.now(); raf = requestAnimationFrame(frame); } }
+    size();
+    if (FX.reduced) { for (var i = 0; i < 40; i++) step(0.05); draw(); }
+    else { draw(); FX.vis(t, function (v) { vis = v; go(); }); document.addEventListener('visibilitychange', go); }
+    if (window.ResizeObserver) new ResizeObserver(function () { size(); if (FX.reduced || !raf) draw(); }).observe(t);
+  });
+});

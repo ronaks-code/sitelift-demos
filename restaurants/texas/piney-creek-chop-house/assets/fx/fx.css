@@ -11,26 +11,6 @@
  }
 }
 
-/* fx reveal-plus */
-/* reveal-plus: upgrades the core .rv reveals. Scoped under html.fx-reveal-plus (core base.css keeps .rv{opacity:0} and .rv.in).
-   Style comes from an html class set by JS: fx-rp-rise (default) | fx-rp-blur | fx-rp-clip. Core already shows everything with
-   reduced motion and without IntersectionObserver, and so does this (every hidden state is undone by .in). */
-@media (prefers-reduced-motion: no-preference) {
- html.fx-reveal-plus .rv { transform: translateY(28px) scale(.98); transition: opacity .9s cubic-bezier(.2, .7, .2, 1), transform 1s cubic-bezier(.2, .7, .2, 1), filter .9s cubic-bezier(.2, .7, .2, 1), clip-path 1s cubic-bezier(.2, .7, .2, 1) }
- html.fx-reveal-plus.fx-rp-blur .rv { transform: translateY(10px); filter: blur(8px) }
- html.fx-reveal-plus.fx-rp-clip .rv { transform: translateY(16px); clip-path: inset(100% -40px -40px -40px) }
-}
-html.fx-reveal-plus .rv.in { opacity: 1; transform: none; filter: none }
-html.fx-reveal-plus.fx-rp-clip .rv.in { clip-path: inset(-40px) }
-
-/* fx split-reveal */
-/* split-reveal: words (or letters) of the hero heading rise out of a clipped line box. The spans are built by JS and animated with
-   WAAPI (fill backwards, so the natural look is restored when it ends); the clip exists only while it runs. */
-.fx-sr-w { display: inline-block; white-space: nowrap }
-.fx-sr-u { display: inline-block }
-.fx-sr-run .fx-sr-u { clip-path: inset(-.15em -.1em -.2em -.1em) }
-.fx-sr-i { display: inline-block }
-
 /* fx lightbox-plus */
 /* lightbox-plus: photo viewer that replaces the core lightbox (dialog created by lightbox-plus.js). Backdrop colour is set from --dark in JS. */
 .fx-lb { position: fixed; inset: 0; z-index: 900; display: none; align-items: center; justify-content: center; padding: 56px 64px 72px; touch-action: none; overscroll-behavior: contain; color: var(--on-dark) }

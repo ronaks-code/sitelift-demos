@@ -1,14 +1,11 @@
-/* Glaze motion: sprinkles fall slowly through the hero, the donut ring turns, sticker cards wobble on hover (CSS). */
+/* Index motion: the index rows draw their rules and slide in one after another on load; a thin marker follows the hovered row; the marquee rolls (CSS). */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var box = document.querySelector('.gz-conf');
-  if (box) for (var i = 0; i < 26; i++) {
-    var e = document.createElement('i'); e.style.left = Math.random() * 100 + '%'; e.style.top = '-30px'; e.style.transform = 'rotate(' + Math.random() * 180 + 'deg)'; box.appendChild(e);
-    var h = box.offsetHeight + 60;
-    e.animate([{ translate: '0 0', rotate: '0deg' }, { translate: (Math.random() * 60 - 30) + 'px ' + h + 'px', rotate: (Math.random() * 360) + 'deg' }], { duration: 9000 + Math.random() * 9000, delay: -Math.random() * 12000, iterations: Infinity, easing: 'linear' });
-  }
-  var r = document.querySelector('.gz-ring-pic');
-  if (r) r.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], { duration: 60000, iterations: Infinity });
+  document.querySelectorAll('.ix-rows li').forEach(function (li, i) {
+    li.animate([{ clipPath: 'inset(0 100% 0 0)', transform: 'translateX(-16px)' }, { clipPath: 'inset(0 0 0 0)', transform: 'none' }], { duration: 700, delay: 200 + i * 110, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+  });
+  var f = document.querySelector('.ix-fig img,.ix-fig .ph');
+  if (f) f.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0)' }], { duration: 1100, delay: 300, easing: 'cubic-bezier(.6,0,.2,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

@@ -141,34 +141,32 @@ FX.def('sticky-cta', function (c) {
   });
 });
 
-/* fx section-tint */
-/* section-tint: the page ground crossfades between soft section colours as you scroll. Sections opt in with data-fx-tint="--surface"
-   (any CSS variable or colour); otherwise the module alternates transparent sections between the page colour and faint washes of
-   --primary and --accent. Sections with their own background are never tinted. Skipped if the page ground can't show a layer.
-   opt: {amount: 7} (percent of brand colour in the auto washes) */
-FX.def('section-tint', function (c) {
-  var d = document, h = d.documentElement, a = +c.opt.amount || 7;
-  var clear = function (e) { var s = getComputedStyle(e); return (/^rgba\(.*, 0\)$|^transparent$/.test(s.backgroundColor)) && s.backgroundImage === 'none'; };
-  if (!clear(h) || !d.querySelector('main')) return;
-  var main = d.querySelector('main');
-  if (!clear(main)) return;
-  var secs = c.els('main > section, main > div, main > article').filter(clear);
-  if (secs.length < 2) return;
-  var auto = ['var(--bg)', 'color-mix(in srgb,var(--primary) ' + a + '%,var(--bg))', 'var(--bg)', 'color-mix(in srgb,var(--accent) ' + a + '%,var(--bg))'], n = 0;
-  var tint = secs.map(function (s) {
-    var t = s.getAttribute('data-fx-tint'), v = t ? (t.indexOf('--') === 0 ? 'var(' + t + ')' : t) : auto[n++ % 4];
-    return { el: s, c: v };
+/* fx bg-topo */
+/* bg-topo: topographic contour lines behind the hero: nested, wobbly closed curves around two peaks, drifting very slowly.
+   Generated SVG (same lines on every load for a given page), ink at ~10% with every fifth line in the primary colour.
+   Static with reduced motion. opt: {seed: number, rings: 9} */
+FX.def('bg-topo', function (c) {
+  var N = Math.min(14, Math.max(5, +c.opt.rings || 9)), seed = +c.opt.seed || 7;
+  for (var i = 0, s = location.pathname; i < s.length; i++) seed = (seed * 31 + s.charCodeAt(i)) % 9973;
+  function rnd() { seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  c.els('main > :first-child').slice(0, 1).forEach(function (t) {
+    var L = document.createElement('div'), svg = '<svg viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">';
+    L.className = 'fx-topo'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:absolute;inset:0;pointer-events:none';
+    [[880, 250, 1], [190, 520, 0.8]].forEach(function (pk, gi) {
+      var w = [rnd() * 6, rnd() * 6, rnd() * 6], a = [0.1 + rnd() * 0.08, 0.06 + rnd() * 0.06, 0.03 + rnd() * 0.04], rot = rnd() * 6, x = [2, 3, 5];
+      svg += '<g class="fx-topo-g' + gi + '">';
+      for (var k = 1; k <= N; k++) {
+        var R = 34 * k * pk[2] + 20, d = '';
+        for (var j = 0; j < 72; j++) {
+          var th = j / 72 * 6.2832, r = R * (1 + a[0] * Math.sin(2 * th + w[0] + k * 0.22) + a[1] * Math.sin(3 * th + w[1] - k * 0.17) + a[2] * Math.sin(5 * th + w[2] + k * 0.3));
+          d += (j ? 'L' : 'M') + (pk[0] + r * Math.cos(th + rot) * 1.25).toFixed(0) + ' ' + (pk[1] + r * Math.sin(th + rot) * 0.8).toFixed(0);
+        }
+        svg += '<path d="' + d + 'Z"' + (k % 5 === 0 ? ' class="m"' : '') + '/>';
+      }
+      svg += '</g>';
+    });
+    L.innerHTML = svg + '</svg>';
+    if (getComputedStyle(t).position === 'static') t.style.position = 'relative';   // before inserting: no layout shift
+    t.style.isolation = 'isolate'; t.insertBefore(L, t.firstChild);
   });
-  var L = d.createElement('div'); L.className = 'fx-st-layer'; L.setAttribute('aria-hidden', 'true'); L.style.cssText = 'position:fixed;inset:0;pointer-events:none';
-  d.body.insertBefore(L, d.body.firstChild);
-  var cur = '', busy = 0;
-  function pick() {
-    busy = 0;
-    var mid = innerHeight * .5, best = tint[0];
-    for (var i = 0; i < tint.length; i++) { var r = tint[i].el.getBoundingClientRect(); if (r.top <= mid) best = tint[i]; if (r.top > mid) break; }
-    if (best.c !== cur) { cur = best.c; L.style.backgroundColor = cur; }
-  }
-  addEventListener('scroll', function () { if (!busy) { busy = 1; requestAnimationFrame(pick); } }, { passive: true });
-  addEventListener('resize', pick, { passive: true });
-  pick();
 });

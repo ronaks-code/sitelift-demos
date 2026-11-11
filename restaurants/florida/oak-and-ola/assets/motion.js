@@ -1,13 +1,13 @@
-/* Ticket motion: the hero receipt prints from the top line by line (clip reveal in steps), the tickets on the rail swing in. */
+/* Bistro motion: hero photo drifts slowly inside its frame while scrolling (parallax), and hairline rules draw across on reveal. Image reveals are CSS clip-path wipes. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var r = document.querySelector('.tc-receipt');
-  if (r) r.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 1600, easing: 'steps(18,end)', fill: 'backwards' });
-  document.querySelectorAll('.tc-ticket').forEach(function (t, i) {
-    if (!('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.animate([{ transform: 'rotate(-3deg) translateY(-12px)', transformOrigin: '50% 0' }, { transform: 'none', transformOrigin: '50% 0' }], { duration: 700, easing: 'cubic-bezier(.3,1.6,.5,1)', delay: (i % 4) * 80 }); io.unobserve(e.target); } }); }, { threshold: .2 });
-    io.observe(t);
-  });
+  var im = document.querySelector('.bs-pano-in img,.bs-pano-in .ph');
+  if (im) {
+    im.style.transform = 'scale(1.12)';
+    var tick = function () { var y = Math.min(scrollY, 900); im.style.transform = 'scale(1.12) translateY(' + (y * 0.06) + 'px)'; };
+    addEventListener('scroll', tick, { passive: true });
+  }
+  var pn = document.querySelector('.bs-pano-in'); if (pn) pn.style.overflow = 'hidden';
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;

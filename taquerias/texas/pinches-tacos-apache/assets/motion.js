@@ -1,14 +1,13 @@
-/* Glaze motion: sprinkles fall slowly through the hero, the donut ring turns, sticker cards wobble on hover (CSS). */
+/* Truck motion: the awning sways, the OPEN lamp flickers on once at load, and the stop card slides in like a window shutter. */
 (function () {
   if (!window.SL || SL.reduced) return;
-  var box = document.querySelector('.gz-conf');
-  if (box) for (var i = 0; i < 26; i++) {
-    var e = document.createElement('i'); e.style.left = Math.random() * 100 + '%'; e.style.top = '-30px'; e.style.transform = 'rotate(' + Math.random() * 180 + 'deg)'; box.appendChild(e);
-    var h = box.offsetHeight + 60;
-    e.animate([{ translate: '0 0', rotate: '0deg' }, { translate: (Math.random() * 60 - 30) + 'px ' + h + 'px', rotate: (Math.random() * 360) + 'deg' }], { duration: 9000 + Math.random() * 9000, delay: -Math.random() * 12000, iterations: Infinity, easing: 'linear' });
-  }
-  var r = document.querySelector('.gz-ring-pic');
-  if (r) r.animate([{ transform: 'rotate(0)' }, { transform: 'rotate(360deg)' }], { duration: 60000, iterations: Infinity });
+  document.querySelectorAll('.tk-top .tk-awning').forEach(function (a) {
+    a.animate([{ transform: 'skewX(0deg)', transformOrigin: 'top' }, { transform: 'skewX(-1.2deg)', transformOrigin: 'top' }, { transform: 'skewX(0deg)', transformOrigin: 'top' }], { duration: 5200, iterations: Infinity, easing: 'ease-in-out' });
+  });
+  var l = document.querySelector('[data-lamp]');
+  if (l) l.animate([{ opacity: 0 }, { opacity: 1 }, { opacity: .2 }, { opacity: 1 }, { opacity: .6 }, { opacity: 1 }], { duration: 900, delay: 300, fill: 'backwards' });
+  var s = document.querySelector('.tk-stop');
+  if (s) s.animate([{ clipPath: 'inset(0 0 100% 0)' }, { clipPath: 'inset(0 0 0 0)' }], { duration: 900, delay: 400, easing: 'cubic-bezier(.3,.7,.2,1)', fill: 'backwards' });
 })();
 
 /* Headline fit (not motion, so it also runs with reduced motion): a wide brand font can make one word wider than its box;
