@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://eddies-auto-repair-inc.ronandvin.com/sitemap.xml

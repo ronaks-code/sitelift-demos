@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://glacier-bay-ac-and-refrigeration.ronandvin.com/sitemap.xml

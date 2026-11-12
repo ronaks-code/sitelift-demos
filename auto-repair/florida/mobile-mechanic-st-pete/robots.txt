@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://mobile-mechanic-st-pete.ronandvin.com/sitemap.xml

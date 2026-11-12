@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://phillips-air-conditioning-and-heating.ronandvin.com/sitemap.xml

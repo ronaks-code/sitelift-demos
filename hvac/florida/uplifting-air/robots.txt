@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://uplifting-air.ronandvin.com/sitemap.xml

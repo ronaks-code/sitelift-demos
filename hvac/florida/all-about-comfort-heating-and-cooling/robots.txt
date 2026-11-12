@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://all-about-comfort-heating-and-cooling.ronandvin.com/sitemap.xml

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://bg-garage-llc.ronandvin.com/sitemap.xml

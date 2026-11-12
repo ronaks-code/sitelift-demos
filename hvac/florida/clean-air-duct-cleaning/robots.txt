@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://clean-air-duct-cleaning.ronandvin.com/sitemap.xml

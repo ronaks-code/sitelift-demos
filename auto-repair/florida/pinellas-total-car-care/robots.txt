@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://pinellas-total-car-care.ronandvin.com/sitemap.xml

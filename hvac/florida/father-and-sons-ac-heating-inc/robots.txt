@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://father-and-sons-ac-heating-inc.ronandvin.com/sitemap.xml

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://aaa-ac-supplies-inc-st-petersburg.ronandvin.com/sitemap.xml

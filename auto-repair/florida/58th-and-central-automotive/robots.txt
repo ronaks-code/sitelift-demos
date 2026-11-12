@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://58th-and-central-automotive.ronandvin.com/sitemap.xml

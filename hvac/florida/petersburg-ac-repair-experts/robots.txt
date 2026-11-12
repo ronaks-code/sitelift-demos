@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://petersburg-ac-repair-experts.ronandvin.com/sitemap.xml

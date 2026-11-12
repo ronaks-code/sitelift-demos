@@ -1,0 +1,52 @@
+/* fx sticky-cta */
+/* sticky-cta: a floating Call + Book pill (created by sticky-cta.js). Desktop: bottom-right pill. Mobile: nothing when the kit has its own
+   call bar (.fx-sc-nb), else a compact bar. Hidden state only exists on the element JS creates; it sits under the lightbox. */
+.fx-sc { position: fixed; right: 20px; bottom: 20px; z-index: 700; display: flex; gap: 6px; padding: 6px; border-radius: 999px; background: var(--dark); color: var(--on-dark);
+ border: 1px solid color-mix(in srgb, var(--on-dark) 20%, transparent); box-shadow: 0 12px 34px rgba(0, 0, 0, .28);
+ opacity: 0; visibility: hidden; transform: translateY(20px); pointer-events: none; }
+.fx-sc.on { opacity: 1; visibility: visible; transform: none; pointer-events: auto }
+.fx-sc a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 22px; border-radius: 999px; font: 700 15px/1 var(--f-body); text-decoration: none; white-space: nowrap }
+.fx-sc-call { color: var(--on-dark); background: color-mix(in srgb, var(--on-dark) 14%, transparent) }
+.fx-sc-book { background: var(--primary); color: var(--on-primary) }
+.fx-sc a:hover { filter: brightness(1.12) }
+body:has(.lb.open) .fx-sc, body:has(.fx-lb.open) .fx-sc { display: none }
+@media (max-width: 760px) {
+ .fx-sc { left: 12px; right: 12px; bottom: 12px }
+ .fx-sc a { flex: 1 }
+ .fx-sc-nb { display: none }
+}
+@media (prefers-reduced-motion: no-preference) {
+ .fx-sc { transition: opacity .35s, transform .5s cubic-bezier(.2, .7, .2, 1), visibility 0s .5s }
+ .fx-sc.on { transition-delay: 0s }
+}
+
+/* fx grain */
+/* grain: a fine film-grain layer over the whole page (fixed, click-through, no layout). Tune with --fx-grain (0.04-0.12; grey noise, reads on light and dark grounds).
+   Static grain under reduced motion; gently shifting grain otherwise. CSS only, works without JS. */
+html::after {
+ content: ""; position: fixed; inset: -50%; z-index: 2147482000; pointer-events: none;
+ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='1 0 0 0 0  1 0 0 0 0  1 0 0 0 0  0 0 0 0 1'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+ background-size: 180px 180px; opacity: var(--fx-grain, .07)
+}
+@media (prefers-reduced-motion: no-preference) {
+ html::after { animation: fx-grain 1s steps(4) infinite }
+ @keyframes fx-grain { 0% { transform: translate(0, 0) } 25% { transform: translate(-3%, 2%) } 50% { transform: translate(2%, -3%) } 75% { transform: translate(-2%, -1%) } 100% { transform: translate(0, 0) } }
+}
+@media print { html::after { display: none } }
+
+/* fx link-draw */
+/* link-draw: nav and in-text links get an underline that draws in from the left on hover/focus and leaves to the right.
+   Default targets: header nav a, main p a, footer a (not .btn, not links holding an image); or any [data-fx-link-draw]. CSS only.
+   In-text links keep a faint resting underline (replaces the native one) so they still read as links. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-link-draw :is(header nav a, footer a):not(.btn):not(:has(img)), html.fx-link-draw [data-fx-link-draw]:not(.btn) {
+  text-decoration: none; background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1.5px no-repeat; }
+ html.fx-link-draw main p a:not(.btn):not(:has(img)) {
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) 100% 100% / 0 1.5px no-repeat, linear-gradient(color-mix(in srgb, currentColor 38%, transparent), color-mix(in srgb, currentColor 38%, transparent)) 0 100% / 100% 1px no-repeat; }
+ html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn):not(:has(img)):is(:hover, :focus-visible) { background-position: 0 100%, 0 100%; background-size: 100% 1.5px, 100% 1px }
+ html.fx-link-draw :is(header nav a, footer a, [data-fx-link-draw]):not(.btn):not(:has(img)):is(:hover, :focus-visible) { background-size: 100% 1.5px }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+ html.fx-link-draw :is(header nav a, footer a, main p a, [data-fx-link-draw]):not(.btn) { transition: background-size .45s cubic-bezier(.2, .7, .2, 1) }
+}

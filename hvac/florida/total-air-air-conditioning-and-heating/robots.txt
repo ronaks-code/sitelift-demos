@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://total-air-air-conditioning-and-heating.ronandvin.com/sitemap.xml

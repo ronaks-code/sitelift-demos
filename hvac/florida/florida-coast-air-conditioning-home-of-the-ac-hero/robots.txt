@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://florida-coast-air-conditioning-home-of-the-ac-hero.ronandvin.com/sitemap.xml

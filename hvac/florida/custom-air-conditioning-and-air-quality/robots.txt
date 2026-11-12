@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://custom-air-conditioning-and-air-quality.ronandvin.com/sitemap.xml

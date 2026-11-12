@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://the-burg-automotive.ronandvin.com/sitemap.xml

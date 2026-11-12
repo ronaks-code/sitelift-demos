@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://kirks-auto-performance.ronandvin.com/sitemap.xml

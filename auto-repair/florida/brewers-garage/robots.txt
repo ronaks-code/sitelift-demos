@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://brewers-garage.ronandvin.com/sitemap.xml

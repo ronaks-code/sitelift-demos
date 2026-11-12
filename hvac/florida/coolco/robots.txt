@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://coolco.ronandvin.com/sitemap.xml

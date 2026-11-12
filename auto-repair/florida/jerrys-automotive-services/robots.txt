@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://jerrys-automotive-services.ronandvin.com/sitemap.xml

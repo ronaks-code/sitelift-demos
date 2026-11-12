@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://wesley-chapel-auto-repair-mobile-mechanic.ronandvin.com/sitemap.xml

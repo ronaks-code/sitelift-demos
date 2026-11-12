@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://central-florida-recalibrations.ronandvin.com/sitemap.xml

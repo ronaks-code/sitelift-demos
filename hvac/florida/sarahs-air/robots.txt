@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://sarahs-air.ronandvin.com/sitemap.xml

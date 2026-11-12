@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://a-1-b-cool-heat-and-air-llc.ronandvin.com/sitemap.xml

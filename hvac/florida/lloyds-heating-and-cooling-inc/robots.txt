@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://lloyds-heating-and-cooling-inc.ronandvin.com/sitemap.xml

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://wrench-masters-auto-repair-and-service.ronandvin.com/sitemap.xml

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://american-technical-services-heating-and-cooling.ronandvin.com/sitemap.xml

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://joe-cool-air-conditioning-and-plumbing.ronandvin.com/sitemap.xml

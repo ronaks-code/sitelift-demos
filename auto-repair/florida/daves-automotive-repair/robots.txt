@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://daves-automotive-repair.ronandvin.com/sitemap.xml

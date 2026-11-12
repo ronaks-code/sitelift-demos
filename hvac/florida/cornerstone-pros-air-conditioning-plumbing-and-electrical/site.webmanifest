@@ -1,0 +1,20 @@
+{
+ "name": "Cornerstone Pros - Air Conditioning, Plumbing & Electrical",
+ "short_name": "Cornerstone ",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  }
+ ],
+ "theme_color": "#a8452e",
+ "background_color": "#ffffff",
+ "display": "standalone",
+ "start_url": "./"
+}

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://j-and-l-alvarez-hvac-inc.ronandvin.com/sitemap.xml

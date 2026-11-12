@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://redeemed-air-and-hvac.ronandvin.com/sitemap.xml

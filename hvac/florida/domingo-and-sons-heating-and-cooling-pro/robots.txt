@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://domingo-and-sons-heating-and-cooling-pro.ronandvin.com/sitemap.xml

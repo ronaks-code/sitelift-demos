@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://sevier-and-heating-air-conditioning-service.ronandvin.com/sitemap.xml

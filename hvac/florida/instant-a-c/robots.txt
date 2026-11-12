@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://instant-a-c.ronandvin.com/sitemap.xml

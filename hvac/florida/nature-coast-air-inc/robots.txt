@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://nature-coast-air-inc.ronandvin.com/sitemap.xml
