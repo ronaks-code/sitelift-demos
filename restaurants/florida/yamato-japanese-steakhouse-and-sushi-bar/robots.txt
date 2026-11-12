@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://yamato-japanese-steakhouse-and-sushi-bar.ronandvin.com/sitemap.xml

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://pierogi-bar-st-pete.ronandvin.com/sitemap.xml

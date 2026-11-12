@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://paint-n-go-inc.ronandvin.com/sitemap.xml

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://j-c-auto.ronandvin.com/sitemap.xml

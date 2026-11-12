@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://aji-ceviche-bar-st-petersburg-peruvian-restaurant.ronandvin.com/sitemap.xml

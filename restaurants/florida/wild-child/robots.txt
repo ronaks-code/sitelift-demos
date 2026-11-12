@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://wild-child.ronandvin.com/sitemap.xml

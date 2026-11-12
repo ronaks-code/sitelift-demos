@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://stillwaters-tavern.ronandvin.com/sitemap.xml

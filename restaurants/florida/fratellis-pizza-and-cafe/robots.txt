@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://fratellis-pizza-and-cafe.ronandvin.com/sitemap.xml

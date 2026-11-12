@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://zap-auto-care.ronandvin.com/sitemap.xml

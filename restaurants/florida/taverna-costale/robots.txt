@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://taverna-costale.ronandvin.com/sitemap.xml

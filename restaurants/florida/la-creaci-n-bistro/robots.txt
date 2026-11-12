@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://la-creaci-n-bistro.ronandvin.com/sitemap.xml

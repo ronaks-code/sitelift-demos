@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://cafe-zorba.ronandvin.com/sitemap.xml

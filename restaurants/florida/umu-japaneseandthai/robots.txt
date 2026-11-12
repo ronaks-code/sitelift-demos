@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://umu-japaneseandthai.ronandvin.com/sitemap.xml

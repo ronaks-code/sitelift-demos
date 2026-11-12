@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://bonu-taverna-italiana.ronandvin.com/sitemap.xml

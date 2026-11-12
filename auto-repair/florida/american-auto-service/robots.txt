@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://american-auto-service.ronandvin.com/sitemap.xml

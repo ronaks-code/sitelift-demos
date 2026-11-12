@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://green-light-lounge-and-kitchen.ronandvin.com/sitemap.xml

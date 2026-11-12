@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://il-ritorno.ronandvin.com/sitemap.xml

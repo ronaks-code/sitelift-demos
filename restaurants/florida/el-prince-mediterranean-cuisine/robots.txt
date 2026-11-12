@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://el-prince-mediterranean-cuisine.ronandvin.com/sitemap.xml

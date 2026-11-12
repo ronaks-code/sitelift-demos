@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://fourth-street-shrimp-store.ronandvin.com/sitemap.xml

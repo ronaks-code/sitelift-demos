@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://mojo-grill-latin-fusion.ronandvin.com/sitemap.xml

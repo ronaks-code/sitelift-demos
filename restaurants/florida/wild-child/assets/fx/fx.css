@@ -1,0 +1,5 @@
+/* fx tilt */
+/* tilt: soft glare layer inside tilting cards (inserted by tilt.js) */
+html.fx-tilt .fx-tilt-g { position: absolute; inset: 0; z-index: 2; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
+ background: radial-gradient(circle at var(--gx, 50%) var(--gy, 0%), rgba(255, 255, 255, .26), rgba(255, 255, 255, 0) 58%) }
+html.fx-tilt .fx-tilt-g.on { opacity: 1 }

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://bakery-x.ronandvin.com/sitemap.xml

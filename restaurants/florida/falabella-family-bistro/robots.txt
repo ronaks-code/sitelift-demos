@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://falabella-family-bistro.ronandvin.com/sitemap.xml
