@@ -1,0 +1,28 @@
+/* fx parallax */
+/* parallax: images drift slower than the page inside their (clipped) frame. Only images JS marked [data-fx-px] move; they are
+   scaled 1.12 so no edge ever shows. Scroll-driven where supported (JS fallback otherwise). No motion with reduced motion. */
+@keyframes fx-px {
+ from { transform: translate3d(0, calc(var(--fx-px, 5%) * -1), 0) scale(1.12) }
+ to { transform: translate3d(0, var(--fx-px, 5%), 0) scale(1.12) }
+}
+@media (prefers-reduced-motion: no-preference) {
+ html.fx-parallax [data-fx-px] { will-change: transform; transform: scale(1.12) }
+ @supports (animation-timeline: view()) {
+  html.fx-parallax [data-fx-px].fx-px-css { animation: fx-px linear both; animation-timeline: view(); transform: none }
+ }
+}
+
+/* fx bg-particles */
+/* bg-particles: one canvas, first child of the hero, under its content */
+.fx-pt { position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; display: block }
+
+/* fx img-zoom */
+/* img-zoom: gallery images ease up to 1.05 inside their own frame on hover/focus; the caption lifts a touch.
+   Uses the independent scale/translate properties (no clash with the kit's transform). Marked by img-zoom.js. */
+@media (hover: hover) and (pointer: fine) {
+ html.fx-img-zoom .fx-zoom { transition: scale .6s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-cap { transition: translate .5s cubic-bezier(.2, .7, .2, 1) }
+ html.fx-img-zoom .fx-zoom-clip { overflow: clip }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom { scale: 1.05 }
+ html.fx-img-zoom .fx-zoom-host:is(:hover, :focus-within) .fx-zoom-cap { translate: 0 -3px }
+}

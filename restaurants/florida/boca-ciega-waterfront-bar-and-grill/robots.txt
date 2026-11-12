@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://boca-ciega-waterfront-bar-and-grill.ronandvin.com/sitemap.xml

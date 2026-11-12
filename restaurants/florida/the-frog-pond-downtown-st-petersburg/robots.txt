@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://the-frog-pond-downtown-st-petersburg.ronandvin.com/sitemap.xml

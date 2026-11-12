@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://original-flavor-1889.ronandvin.com/sitemap.xml

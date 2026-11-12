@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://the-library-inspired-by-the-george-peabody-library.ronandvin.com/sitemap.xml

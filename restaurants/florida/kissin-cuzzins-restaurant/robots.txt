@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://kissin-cuzzins-restaurant.ronandvin.com/sitemap.xml
