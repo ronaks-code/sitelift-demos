@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+
+Sitemap: https://otw-mobile-auto-mechanics-mobile-mechanic.ronandvin.com/sitemap.xml
